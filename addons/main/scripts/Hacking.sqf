@@ -27,7 +27,7 @@ _pointer = "/";
 
 _availableCommands = ["help", "man", "ls", "cd", "print"];
 
-_activeApplication = "LOGIN";
+_activeApplication = "SHELL";
 
 _users =
 [

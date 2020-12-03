@@ -35,6 +35,23 @@
 /* ================================================================================ */
 
 [
+	"Land_SolarPanel_04_sand_F", 
+	"Init", 
+	{
+		params ["_entity"]; 
+		[_entity, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
+		[_entity, true, [0, 1, 0], 90] call ace_dragging_fnc_setDraggable;
+		[_entity, 2] call ace_cargo_fnc_setSize;
+		_handle = [_entity, "Land_SolarPanel_04_sand_F", "Sonnenkollektor", 1, 3] execVM "\z\ae3\addons\main\scripts\OpenCloseAction.sqf";
+	}, 
+	true, 
+	[], 
+	true
+] call CBA_fnc_addClassEventHandler;
+
+/* ================================================================================ */
+
+[
 	"Land_PortableLight_02_double_sand_F",
 	"Init",
 	{
@@ -65,10 +82,6 @@
 	true
 ] call CBA_fnc_addClassEventHandler;
 
-_action = ["test", "test", "", {hint format ["Hello: %1", "World"]}, {true}] call ace_interact_menu_fnc_createAction;
-["Land_PortableLight_02_folded_sand_F", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
-["Land_MultiScreenComputer_01_sand_F", 0, ["ACE_MainActions"], _action, true] call ace_interact_menu_fnc_addActionToClass;
-
 /* ================================================================================ */
 
 [
@@ -87,6 +100,76 @@ _action = ["test", "test", "", {hint format ["Hello: %1", "World"]}, {true}] cal
 
 /* ================================================================================ */
 
+[
+	"Land_DeskChair_01_sand_F",
+	"Init",
+	{
+		params ["_entity"];
+		[_entity, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
+		[_entity, 1] call ace_cargo_fnc_setSize;
+	}, 
+	true, 
+	[], 
+	true
+] call CBA_fnc_addClassEventHandler;
+
+/* ================================================================================ */
+
+[
+	"Land_PortableDesk_01_sand_F",
+	"Init",
+	{
+		params ["_entity"];
+		_handle = [_entity, "Table", 0, 0.5] execVM "\z\ae3\addons\main\scripts\OpenCloseActionTable.sqf";
+		[_entity, true, [0, 1, 0], 90] call ace_dragging_fnc_setDraggable;
+		[_entity, 4] call ace_cargo_fnc_setSize;
+	}, 
+	true, 
+	[], 
+	true
+] call CBA_fnc_addClassEventHandler;
+
+/* ================================================================================ */
+
+[
+	"Land_Laptop_03_sand_F",
+	"Init",
+	{
+		params ["_entity"];
+		[_entity, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
+		[_entity, 1] call ace_cargo_fnc_setSize;
+		
+		private _actionId = _myLaptop call BIS_fnc_laptopInit;
+		
+		_handle = [_entity, "Screen", 1, 1, 0.5] execVM "\z\ae3\addons\main\scripts\OnOffAction.sqf";
+		_handle = [_entity, "Laptop", 3] execVM "\z\ae3\addons\main\scripts\HackingAction.sqf";
+		_handle = [_entity, "Land_laptop_03_closed_sand_F", "Laptop", 2, 1] execVM "\z\ae3\addons\main\scripts\OpenCloseAction.sqf";
+	}, 
+	true, 
+	[], 
+	true
+] call CBA_fnc_addClassEventHandler;
+
+/* ================================================================================ */
+
+[
+	"Land_laptop_03_closed_sand_F", 
+	"Init", 
+	{
+		params ['_entity']; 
+		[_entity, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
+		[_entity, 1] call ace_cargo_fnc_setSize;
+		_handle = [_entity, "Land_Laptop_03_sand_F", "Laptop", 1, 1] execVM "\z\ae3\addons\main\scripts\OpenCloseAction.sqf";
+	}, 
+	true, 
+	[], 
+	true
+] call CBA_fnc_addClassEventHandler;
+
+/* ================================================================================ */
+
+// Funktioniert hier nicht; siehe workaroundLight4.sqf
+/*
 [
 	"Land_PortableLight_02_quad_sand_F",
 	"Init",
@@ -109,5 +192,6 @@ _action = ["test", "test", "", {hint format ["Hello: %1", "World"]}, {true}] cal
 	[], 
 	true
 ] call CBA_fnc_addClassEventHandler;
+*/
 
 /* ================================================================================ */

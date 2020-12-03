@@ -21,4 +21,12 @@ class CfgVehicles
 			};
 		};
 	};
+	class Land_DeskChair_01_sand_F;
+	class Land_DeskChair_01_sand_F2: Land_DeskChair_01_sand_F
+	{
+        acex_sitting_canSit = 1;  // Enable sitting
+		acex_sitting_interactPosition[] = {0, 0, 0.3}; 
+        acex_sitting_sitDirection = 180;  // Direction relative to object
+        acex_sitting_sitPosition[] = {0, -0.18, -0.45};  // Position relative to object (may behave weird with certain objects)
+	};
 };

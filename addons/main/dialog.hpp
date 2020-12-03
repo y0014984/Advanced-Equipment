@@ -9,6 +9,8 @@ class RscEdit;
 class RscButton;
 class RscSlider;
 
+/* ================================================================================ */
+
 class AE3_Rotate_Dialog
 {
 	idd = 14985;
@@ -46,3 +48,71 @@ class AE3_Rotate_Dialog
 		};
 	};
 };
+
+/* ================================================================================ */
+
+class Hacking_Dialog
+{
+	idd = 15984;
+	movingEnable = true;
+	enableSimulation = true;
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by y0014984, v1.063, #Xyqiwu)
+		////////////////////////////////////////////////////////
+
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "TERMINAL";
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {0,0.5,0,0.25};
+		};
+		class RscText_1100: RscText
+		{
+			// Console Output
+			idc = 1100;
+			text = "";
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 21 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.25};
+			
+			style = ST_MULTI;
+			lineSpacing = 1;
+		};
+		class RscEdit_1200: RscEdit
+		{
+			// Console Input
+			idc = 1200;
+			text = "";
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 31.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.25};
+		};
+		class RscButton_1300: RscButton
+		{
+			idc = 1300;
+			text = "Exit";
+			x = 32 * GUI_GRID_W + GUI_GRID_X;
+			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {0,0.5,0,0.25};
+			
+			action = "closeDialog 1;";
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+/* ================================================================================ */
