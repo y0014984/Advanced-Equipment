@@ -105,7 +105,7 @@
 	"Init",
 	{
 		params ["_entity"];
-		[_entity, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
+		[_entity, true, [0, 1, 1], 180] call ace_dragging_fnc_setCarryable;
 		[_entity, 1] call ace_cargo_fnc_setSize;
 	}, 
 	true, 
@@ -123,6 +123,36 @@
 		_handle = [_entity, "Table", 0, 0.5] execVM "\z\ae3\addons\main\scripts\OpenCloseActionTable.sqf";
 		[_entity, true, [0, 1, 0], 90] call ace_dragging_fnc_setDraggable;
 		[_entity, 4] call ace_cargo_fnc_setSize;
+	}, 
+	true, 
+	[], 
+	true
+] call CBA_fnc_addClassEventHandler;
+
+/* ================================================================================ */
+
+[
+	"B_supplyCrate_F",
+	"Init",
+	{
+		params ["_entity"];
+		_handle = [_entity, "CamoNet_wdl_big_F", "Tarnzelt", 1, 3] execVM "\z\ae3\addons\main\scripts\OpenCloseAction.sqf";
+		[_entity, true, [0, 1.5, 0], 90] call ace_dragging_fnc_setDraggable;
+		[_entity, 4] call ace_cargo_fnc_setSize;
+	}, 
+	true, 
+	[], 
+	true
+] call CBA_fnc_addClassEventHandler;
+
+/* ---------------------------------------- */
+
+[
+	"CamoNet_wdl_big_F",
+	"Init",
+	{
+		params ["_entity"];
+		_handle = [_entity, "B_supplyCrate_F", "Tarnzelt", 2, 3] execVM "\z\ae3\addons\main\scripts\OpenCloseAction.sqf";
 	}, 
 	true, 
 	[], 
@@ -150,7 +180,7 @@
 	true
 ] call CBA_fnc_addClassEventHandler;
 
-/* ================================================================================ */
+/* ---------------------------------------- */
 
 [
 	"Land_laptop_03_closed_sand_F", 

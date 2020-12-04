@@ -71,6 +71,7 @@ class Hacking_Dialog
 			w = 40 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0.5,0,0.25};
+			font = "EtelkaMonospaceProBold";
 		};
 		class RscText_1100: RscText
 		{
@@ -85,6 +86,7 @@ class Hacking_Dialog
 			
 			style = ST_MULTI;
 			lineSpacing = 1;
+			font = "EtelkaMonospacePro";
 		};
 		class RscEdit_1200: RscEdit
 		{
@@ -96,11 +98,12 @@ class Hacking_Dialog
 			w = 31.5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0.25};
+			font = "EtelkaMonospacePro";
 		};
 		class RscButton_1300: RscButton
 		{
 			idc = 1300;
-			text = "Exit";
+			text = "EXIT";
 			x = 32 * GUI_GRID_W + GUI_GRID_X;
 			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 8 * GUI_GRID_W;
@@ -108,6 +111,7 @@ class Hacking_Dialog
 			colorBackground[] = {0,0.5,0,0.25};
 			
 			action = "closeDialog 1;";
+			font = "EtelkaMonospaceProBold";
 		};
 		////////////////////////////////////////////////////////
 		// GUI EDITOR OUTPUT END

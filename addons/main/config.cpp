@@ -1,12 +1,14 @@
 #include "script_component.hpp"
 
-class CfgPatches {
-    class ADDON {
+class CfgPatches
+{
+    class ADDON
+	{
         name = QUOTE(COMPONENT);
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "ace_common"};
+        requiredAddons[] = {"cba_main", "ace_main", "acex_main"};
         author = "y0014984";
         VERSION_CONFIG;
     };
