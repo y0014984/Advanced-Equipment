@@ -101,37 +101,6 @@
 /* ================================================================================ */
 
 [
-	"Land_DeskChair_01_sand_F",
-	"Init",
-	{
-		params ["_entity"];
-		[_entity, true, [0, 1, 1], 180] call ace_dragging_fnc_setCarryable;
-		[_entity, 1] call ace_cargo_fnc_setSize;
-	}, 
-	true, 
-	[], 
-	true
-] call CBA_fnc_addClassEventHandler;
-
-/* ================================================================================ */
-
-[
-	"Land_PortableDesk_01_sand_F",
-	"Init",
-	{
-		params ["_entity"];
-		_handle = [_entity, "Table", 0, 0.5] execVM "\z\ae3\addons\main\scripts\OpenCloseActionTable.sqf";
-		[_entity, true, [0, 1, 0], 90] call ace_dragging_fnc_setDraggable;
-		[_entity, 4] call ace_cargo_fnc_setSize;
-	}, 
-	true, 
-	[], 
-	true
-] call CBA_fnc_addClassEventHandler;
-
-/* ================================================================================ */
-
-[
 	"B_supplyCrate_F",
 	"Init",
 	{
