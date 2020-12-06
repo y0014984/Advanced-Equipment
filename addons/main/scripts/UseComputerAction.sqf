@@ -1,4 +1,4 @@
-//_handle = [] execVM "Scripts\Hacking.sqf";
+params ["_entity"];
 
 if (!dialog) then
 {
