@@ -32,6 +32,6 @@ else
 			_entity setVariable ['AE3_powerState', 0, true];
 		},
 		{},
-		("Turn Off / Shutdown")
+		("Shutdown")
 	] call ace_common_fnc_progressBar;
 };

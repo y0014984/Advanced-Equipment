@@ -30,6 +30,6 @@ if (_batteryLevel > 0) then
 			_entity setVariable ['AE3_powerState', 2, true];
 		},
 		{},
-		("Turn on / Booting")
+		("Booting")
 	] call ace_common_fnc_progressBar;
 };

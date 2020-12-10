@@ -1,4 +1,4 @@
-params ["_entity"];
+params ["_target"];
 
 if (!dialog) then
 {

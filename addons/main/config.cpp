@@ -14,10 +14,10 @@ class CfgPatches
     };
 };
 
+#include "defines.hpp"
+#include "dialog.hpp"
+
 #include "CfgEventHandlers.hpp"
 #include "CfgEquipment.hpp"
 #include "CfgFunctions.hpp"
 #include "Cfg3DEN.hpp"
-
-#include "defines.hpp"
-#include "dialog.hpp"

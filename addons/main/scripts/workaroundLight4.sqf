@@ -1,4 +1,5 @@
 
+/*
 _entity = light4;
 
 _handle = [_entity, "Light 1 Pitch", "Light_1_pitch_source", 0.5] execVM "\z\ae3\addons\main\scripts\RotateAction.sqf";
@@ -32,6 +33,8 @@ _handle = [_entity, "Lampe 1", 1, 0, 0.5] execVM "\z\ae3\addons\main\scripts\OnO
 _handle = [_entity, "Lampe 2", 2, 0, 0.5] execVM "\z\ae3\addons\main\scripts\OnOffActionLight.sqf";
 _handle = [_entity, "Lampe 3", 3, 0, 0.5] execVM "\z\ae3\addons\main\scripts\OnOffActionLight.sqf";
 _handle = [_entity, "Lampe 4", 4, 0, 0.5] execVM "\z\ae3\addons\main\scripts\OnOffActionLight.sqf";
+
+*/
 
 /* -------------------------------------------------------------------------------- */
 

@@ -18,6 +18,74 @@ class CfgVehicles
         ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
         ace_cargo_size = 1;  // Cargo space the object takes
 	};
+	class Land_PortableGenerator_01_sand_F;
+	class Land_PortableGenerator_01_sand_F_AE3: Land_PortableGenerator_01_sand_F
+	{
+		// Dragging
+        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		
+		// Cargo
+        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+        ace_cargo_size = 4;  // Cargo space the object takes
+
+		// Refuel
+        ace_refuel_canReceive = 1; // For vehicles which can't be refueled
+        ace_refuel_fuelCapacity = 30; // Fuel tank volume
+
+		// Event Handlers
+		class EventHandlers
+		{
+			init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initGenerator.sqf';";
+		};
+        class ACE_Actions 
+		{
+			class ACE_MainActions
+			{
+				displayName = "Interaktionen";
+				condition = "true";
+				distance = 2;
+				class AE3_Generator_Group
+				{
+					displayName = "Generator";
+					condition = "true";
+					class AE3_TurnOn
+					{
+						displayName = "Turn On";
+						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 1)";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\TurnOnGeneratorAction.sqf';";
+						//icon = "\z\dance.paa";
+						exceptions[] = {};
+						//insertChildren
+						//modifierFunction
+						//runOnHover
+						//distance
+						//position
+						//selection
+						priority = -1;
+						showDisabled = 0;
+					};
+					class AE3_TurnOff
+					{
+						displayName = "Turn Off";
+						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 0)";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target, false] execVM '\z\ae3\addons\main\scripts\TurnOffGeneratorAction.sqf';";
+						//icon = "\z\dance.paa";
+						exceptions[] = {};
+						//insertChildren
+						//modifierFunction
+						//runOnHover
+						//distance
+						//position
+						//selection
+						priority = -1;
+						showDisabled = 0;
+					};
+				};
+			};
+		};
+	};
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
@@ -40,39 +108,8 @@ class CfgVehicles
 		ae3_power_batteryCapacity = 100;
 		ae3_power_powerConsumptionOn = 10;
 		ae3_power_powerConsumptionStandBy = 0.1;
-
-		class Attributes
-		{
-			// Attribute class, can be anything
-			class AE3_ComputerPowerLevelPercent
-			{
-				//--- Mandatory properties
-				displayName = "Computer Power Level"; // Name assigned to UI control class Title
-				tooltip = "1 is full and 0 is empty"; // Tooltip assigned to UI control class Title
-				property = "AE3ComputerPowerLevel"; // Unique config property name saved in SQM
-				control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
-
-				// Expression called when applying the attribute in Eden and at the scenario start
-				// The expression is called twice - first for data validation, and second for actual saving
-				// Entity is passed as _this, value is passed as _value
-				// %s is replaced by attribute config name. It can be used only once in the expression
-				// In MP scenario, the expression is called only on server.
-				expression = "_this setVariable ['%s', _value, true];";
-
-				// Expression called when custom property is undefined yet (i.e., when setting the attribute for the first time)
-				// Entity (unit, group, marker, comment etc.) is passed as _this
-				// Returned value is the default value
-				// Used when no value is returned, or when it is of other type than NUMBER, STRING or ARRAY
-				// Custom attributes of logic entities (e.g., modules) are saved always, even when they have default value
-				defaultValue = "1";
-
-				//--- Optional properties
-				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
-				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
-				condition = "object"; // Condition for attribute to appear (see the table below)
-				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
-			};
-		};
+		ae3_power_recharging = 50;
+		ae3_power_defaultPowerLevel = 1;
 
         class ACE_Actions 
 		{
@@ -81,7 +118,7 @@ class CfgVehicles
 				displayName = "Interaktionen";
 				condition = "true";
 				distance = 2;
-				class AE3_Asseble_Group
+				class AE3_Laptop_Group
 				{
 					displayName = "Laptop";
 					condition = "true";
@@ -89,7 +126,7 @@ class CfgVehicles
 					{
 						displayName = "Use Computer";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 2)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_entity] execVM '\z\ae3\addons\main\scripts\UseComputerAction.sqf';";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\UseComputerAction.sqf';";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
@@ -117,9 +154,25 @@ class CfgVehicles
 						priority = -1;
 						showDisabled = 0;
 					};
+					class AE3_ConnectToGenerator
+					{
+						displayName = "Connect To Generator";
+						condition = "(alive _target) and (count (nearestObjects [_target, ['Land_PortableGenerator_01_sand_F'], 10]) > 0)";
+						statement = "";
+						//icon = "\z\dance.paa";
+						exceptions[] = {};
+						insertChildren = "params ['_target', '_player', '_params']; _generators = nearestObjects [_target, ['Land_PortableGenerator_01_sand_F'], 10]; private _actions = []; { private _childStatement = { params ['_target', '_player', '_generator']; _handle = [_target, _generator] execVM '\z\ae3\addons\main\scripts\ConnectToGeneratorAction.sqf'; }; private _action = [typeOf _x, typeOf _x, '', _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; _actions pushBack [_action, [], _target]; } forEach (_generators); _actions";
+						//modifierFunction
+						//runOnHover
+						//distance
+						//position
+						//selection
+						priority = -1;
+						showDisabled = 0;
+					};
 					class AE3_TurnOn
 					{
-						displayName = "Einschalten";
+						displayName = "Turn On";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 2)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\TurnOnComputerAction.sqf';";
 						//icon = "\z\dance.paa";
@@ -135,7 +188,7 @@ class CfgVehicles
 					};
 					class AE3_TurnOff
 					{
-						displayName = "Ausschalten";
+						displayName = "Turn Off";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 0)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target, false] execVM '\z\ae3\addons\main\scripts\TurnOffComputerAction.sqf';";
 						//icon = "\z\dance.paa";
@@ -179,7 +232,7 @@ class CfgVehicles
 		
 		// Cargo
         ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 1;  // Cargo space the object takes
+        ace_cargo_size = 4;  // Cargo space the object takes
 		
 		// Event Handlers
 		class EventHandlers
