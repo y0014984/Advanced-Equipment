@@ -5,3 +5,4 @@ releases/*
 keys/*
 .hemtt/local
 ####
+.hemtt/template/
