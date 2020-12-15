@@ -73,8 +73,8 @@ _result = _consoleInput ctrlAddEventHandler
 			
 			switch (_activeApplication) do
 			{
-				case "LOGIN": { _result = [_consoleInput, _inputText, _outputText] call Y00_fnc_login; };
-				case "SHELL": { _result = [_consoleInput, _inputText, _outputText] call Y00_fnc_shell; };
+				case "LOGIN": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_login; };
+				case "SHELL": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_shell; };
 			};
 		};
 	}

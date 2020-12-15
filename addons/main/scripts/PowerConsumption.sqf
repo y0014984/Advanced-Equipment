@@ -8,7 +8,7 @@ _powerConsumptionOn = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_p
 _powerConsumptionStandBy = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_powerConsumptionStandBy");
 _recharging = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_recharging");
 
-_batteryLevelPercent = _entity getVariable ["AE3_ComputerPowerLevelPercent",  [configfile >> 'CfgVehicles' >> typeOf _entity,'ae3_power_defaultPowerLevel', -1] call BIS_fnc_returnConfigEntry];
+_batteryLevelPercent = _entity getVariable ["AE3_ComputerPowerLevelPercent",  [configfile >> 'CfgVehicles' >> typeOf _entity, "ae3_power_defaultPowerLevel", -1] call BIS_fnc_returnConfigEntry];
 _entity setVariable ["AE3_batteryLevel", _batteryCapacity * _batteryLevelPercent, true];
 
 while {true} do

@@ -6,9 +6,11 @@ _turnOffTime = 3;
 
 if (_silent) then 
 {
+			_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayGeneratorStopSound.sqf";
+			
 			_entity setVariable ["AE3_powerState", 0, true];
 
-			_handle = _entity getVariable "AE3_generatorSoundHandle";
+			_handle = _entity getVariable "AE3_generatorRunningSoundHandle";
 			terminate _handle;
 
 			[_entity, true, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;

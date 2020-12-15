@@ -1,6 +1,6 @@
 class CfgFunctions
 {
-	class Y00
+	class AE3
 	{
 		class Hacking
 		{
@@ -11,6 +11,11 @@ class CfgFunctions
 			class print {};
 			class login {};
 			class shell {};
+		};
+		class ObjectModifiers
+		{
+			file = "\z\ae3\addons\main\functions";
+			class moduleFilesystem{};
 		};
 	};
 };

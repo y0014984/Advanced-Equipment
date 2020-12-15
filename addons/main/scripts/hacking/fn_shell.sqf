@@ -1,5 +1,3 @@
-// [_consoleInput, _inputText, _outputText] call Y00_fnc_shell;
-
 params ["_consoleInput", "_inputText", "_outputText"];
 
 _commandElements = _inputText splitString " ";
@@ -13,10 +11,10 @@ _availableCommands = _consoleInput getVariable "availableCommands";
 switch (_command) do
 {
 	case "help": { _result = [format ["   Available commands: %1", _availableCommands joinString ", "]]; };
-	case "man": { _result = [_options, _consoleInput] call Y00_fnc_man; };
-	case "ls": { _result = [_options, _consoleInput] call Y00_fnc_ls; };
-	case "cd": { _result = [_options, _consoleInput] call Y00_fnc_cd; };
-	case "print": { _result = [_options, _consoleInput] call Y00_fnc_print; };
+	case "man": { _result = [_options, _consoleInput] call AE3_fnc_man; };
+	case "ls": { _result = [_options, _consoleInput] call AE3_fnc_ls; };
+	case "cd": { _result = [_options, _consoleInput] call AE3_fnc_cd; };
+	case "print": { _result = [_options, _consoleInput] call AE3_fnc_print; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
 

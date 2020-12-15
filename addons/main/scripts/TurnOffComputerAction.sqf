@@ -22,11 +22,12 @@ else
 {
 	[
 		_turnOffTime,
-		[_entity], 
+		[_entity, _color], 
 		{
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 			
 			_entity = _args select 0;
+			_color = _args select 2;
 
 			_entity setObjectTextureGlobal [1, _color];
 			_entity setVariable ['AE3_powerState', 0, true];

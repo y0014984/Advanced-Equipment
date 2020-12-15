@@ -14,13 +14,12 @@ _action =
 			
 			[
 				_totalTime,
-				[_target, _value, _axis], 
+				[_target,  _axis], 
 				{
 					params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 					
 					_target = _args select 0;
-					_value = _args select 1;
-					_axis = _args select 2;
+					_axis = _args select 1;
 					_handle = [_target, _axis] execVM "\z\ae3\addons\main\scripts\Rotate.sqf";
 				},
 				{},
