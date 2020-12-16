@@ -23,11 +23,10 @@ class CfgVehicles
 
 	/* ---------------------------------------- */
 
-	class Land_PortableGenerator_01_sand_F;
-	class Land_PortableGenerator_01_sand_F_AE3: Land_PortableGenerator_01_sand_F
+	//class Land_PortableGenerator_01_sand_F;
+	class B_Quadbike_01_F;
+	class Land_PortableGenerator_01_sand_F_AE3: B_Quadbike_01_F
 	{
-		fuelCapacity = 3;
-
 		// Dragging
         ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
         ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
@@ -39,7 +38,8 @@ class CfgVehicles
 
 		// Refuel
         ace_refuel_canReceive = 1; // For vehicles which can't be refueled
-        ace_refuel_fuelCapacity = 30; // Fuel tank volume
+        ace_refuel_fuelCapacity = 5; // Fuel tank volume
+        ace_refuel_flowRate = 1; // Speed?
 
 		// Event Handlers
 		class EventHandlers
@@ -50,6 +50,58 @@ class CfgVehicles
 		ae3_power_fuelConsumption = 1.5;
 		ae3_power_fuelCapacity = 5;
 		ae3_power_defaultFuelLevel = 1;
+
+		/* -------------------- */
+
+		//Quad Bike Override
+		faction = "Default";
+		editorCategory = "EdCat_Things";
+		editorSubcategory = "EdSubcat_Electronics";
+		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_sand_F.jpg";
+		model = "\A3\Props_F_Exp\Military\Camps\PortableGenerator_01_F.p3d";
+		hiddenSelections[] = {"Camo_1", "Camo_2", "Camo_3"};
+		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa", "a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa", "a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
+		icon = "iconObject_1x1"; // Object gets invisible, except the shadow
+		picture = "pictureThing";
+		displayName = "Generator";
+		hasDriver = 0;
+		getInAction = "";
+		maximumLoad = 0;
+		//transportSoldier = 0; // Removes the asset from list
+		cargoAction[] = {};
+		driverAction = "";
+		//typicalCargo[] = {};
+		//crew = "B_Soldier_F";
+		fuelCapacity = "5 * 0.165";
+		fuelConsumptionRate = 0.01;
+		textureList[] = {"Sand",1};
+
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {"BLU_F", "Default"};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
+			};
+			class Bluefor
+			{
+				author = "Bohemia Interactive";
+				displayName = "Green";
+				factions[] = {"BLU_F", "Default"};
+				textures[] = {"a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa"};
+			};
+			class ParkRanger
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {"BLU_F", "Default"};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"};
+			};
+		};
+
+		/* -------------------- */
 
         class ACE_Actions 
 		{
@@ -347,11 +399,7 @@ class CfgVehicles
 		{
 			class Default;
 			class Edit;					// Default edit box (i.e., text input field)
-			class Combo;				// Default combo box (i.e., drop-down menu)
-			class Checkbox;				// Default checkbox (returned value is Boolean)
-			class CheckboxNumber;		// Default checkbox (returned value is Number)
 			class ModuleDescription;	// Module description
-			class Units;				// Selection of units on which the module is applied
 		};
 		// Description base classes, for more information see below
 		class ModuleDescription
@@ -378,43 +426,114 @@ class CfgVehicles
 		// 1 if modules is to be disabled once it is activated (i.e., repeated trigger activation won't work)
 		isDisposable = 1;
 		// 1 to run init function in Eden Editor as well
-		is3DEN = 1;
+		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleNuke";
+		curatorInfoType = "RscDisplayAttributeModuleFilesystem";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
 		{
 			// Arguments shared by specific module type (have to be mentioned in order to be present)
-			class Units: Units
+			class AE3_ModuleFilesysten_FilesystemObject1: Edit
 			{
-				property = "AE3_ModuleFilesystem_Units";
-			};
-			// Module specific arguments
-			class Yield: Combo
-			{
-				// Unique property, use "<moduleClass>_<attributeClass>" format to make sure the name is unique in the world
-				property = "AE3_ModuleFilesystem_Yield";
-				displayName = "Nuclear weapon yield"; // Argument label
-				tooltip = "How strong will the explosion be"; // Tooltip description
-				typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				defaultValue = "50"; // Default attribute value. WARNING: This is an expression, and its returned value will be used (50 in this case)
-				class Values
-				{
-					class 50Mt	{name = "50 megatons";	value = 50;}; // Listbox item
-					class 100Mt	{name = "100 megatons"; value = 100;};
-				};
-			};
-			class Name: Edit
-			{
-				property = "AE3_ModuleFilesysten_Yield";
-				displayName = "Name";
-				tooltip = "Name of the nuclear device";
+				property = "AE3_ModuleFilesysten_FilesystemObject1";
+				displayName = "Filesystem Object 1";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """Tsar Bomba""";
+				defaultValue = """/users/y0014984/Desktop/passwords1.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject2: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject2";
+				displayName = "Filesystem Object 2";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords2.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject3: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject3";
+				displayName = "Filesystem Object 3";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords3.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject4: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject4";
+				displayName = "Filesystem Object 4";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords4.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject5: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject5";
+				displayName = "Filesystem Object 5";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords5.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject6: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject6";
+				displayName = "Filesystem Object 6";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords6.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject7: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject7";
+				displayName = "Filesystem Object 7";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords7.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject8: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject8";
+				displayName = "Filesystem Object 8";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords8.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject9: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject9";
+				displayName = "Filesystem Object 9";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords9.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemObject10: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemObject10";
+				displayName = "Filesystem Object 10";
+				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """/users/y0014984/Desktop/passwords10.txt""";
 			};
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};

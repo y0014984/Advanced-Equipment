@@ -8,7 +8,7 @@ class CfgPatches
         units[] = {"AE3_Filesystem"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"cba_main", "ace_main", "acex_main"};
+        requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main"};
         author = "y0014984";
         VERSION_CONFIG;
     };

@@ -1,45 +1,33 @@
-_mode = param [0,"",[""]];
-_input = param [1,[],[[]]];
+private ["_logic","_units","_filesystemObjects"];
 
-switch _mode do
+_logic = _this param [0,objnull,[objnull]];
+_units = _this param [1,[],[[]]];
+_activated = _this param [2,true,[true]];
+
+if (_activated) then
 {
-	// Default object init
-	case "init":
+	//--- Extract the user defined module arguments
+	_filesystemObjects = [];
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject1", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject2", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject3", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject4", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject5", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject6", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject7", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject8", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject9", ""]);
+	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject10", ""]);
+
+	//--- Add FileSystem Objects to Laptop Filesystem
 	{
-		_logic = _input param [0, objNull, [objNull]]; // Module logic
-		_isActivated = _input param [1, true, [true]]; // True when the module was activated, false when it is deactivated
-		_isCuratorPlaced = _input param [2, false, [true]]; // True if the module was placed by Zeus
-		// ... code here...
-	};
-	// When some attributes were changed (including position and rotation)
-	case "attributesChanged3DEN": 
-	{
-		_logic = _input param [0, objNull, [objNull]];
-		// ... code here...
-	};
-	// When added to the world (e.g., after undoing and redoing creation)
-	case "registeredToWorld3DEN": 
-	{
-		_logic = _input param [0, objNull, [objNull]];
-		// ... code here...
-	};
-	// When removed from the world (i.e., by deletion or undoing creation)
-	case "unregisteredFromWorld3DEN": 
-	{
-		_logic = _input param [0, objNull, [objNull]];
-		// ... code here...
-	};
-	// When connection to object changes (i.e., new one is added or existing one removed)
-	case "connectionChanged3DEN": 
-	{
-		_logic = _input param [0, objNull, [objNull]];
-		// ... code here...
-	};
-	// When object is being dragged
-	case "dragged3DEN": 
-	{
-		_logic = _input param [0, objNull, [objNull]];
-		// ...code here...
-	};
+		_filesystem = _x getVariable ["AE3_Filesystem", []];
+		{
+			_filesystem pushBack _x;
+		} forEach _filesystemObjects;
+		_x setVariable ["AE3_Filesystem", _filesystem];
+	} foreach _units;
+
 };
+
 true
