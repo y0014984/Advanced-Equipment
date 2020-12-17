@@ -8,16 +8,11 @@ if (_activated) then
 {
 	//--- Extract the user defined module arguments
 	_filesystemObjects = [];
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject1", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject2", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject3", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject4", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject5", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject6", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject7", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject8", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject9", ""]);
-	_filesystemObjects pushBack (_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject10", ""]);
+	_filesystemObjects pushBack ([_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject1", ""], _logic getVariable ["AE3_ModuleFilesysten_FilesystemContent1", ""]]);
+	_filesystemObjects pushBack ([_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject2", ""], _logic getVariable ["AE3_ModuleFilesysten_FilesystemContent2", ""]]);
+	_filesystemObjects pushBack ([_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject3", ""], _logic getVariable ["AE3_ModuleFilesysten_FilesystemContent3", ""]]);
+	_filesystemObjects pushBack ([_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject4", ""], _logic getVariable ["AE3_ModuleFilesysten_FilesystemContent4", ""]]);
+	_filesystemObjects pushBack ([_logic getVariable ["AE3_ModuleFilesysten_FilesystemObject5", ""], _logic getVariable ["AE3_ModuleFilesysten_FilesystemContent5", ""]]);
 
 	//--- Add FileSystem Objects to Laptop Filesystem
 	{

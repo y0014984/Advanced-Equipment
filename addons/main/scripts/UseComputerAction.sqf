@@ -10,24 +10,17 @@ _consoleDialog = findDisplay 15984;
 _consoleOutput = _consoleDialog displayCtrl 1100;
 _consoleInput = _consoleDialog displayCtrl 1200;
 
-_filesystem =
-[
-	["/Documents/Orders/Directive-345.txt", ["Directive 345", "-----", "Vorwärts immer, rückwärts nimmer!"]],
-	["/Documents/Orders/Directive-25.txt", ["Directive-25", "-----", "Es gibt nichts gutes, außer man tut es!"]],
-	["/Documents/Orders/Directive-666.txt", ["Directive-666", "-----", "Lieber ein Spatz in der Hand, als eine Taube auf dem Dach."]],
-	["/Files/Notes/Cameras.txt", ["Camera List", "----", "Camera 1 124-235-5", "Camera 2 434-121-1", "Camera 3 323-123-4"]],
-	["/Files/Notes/Fence.txt", ["Fence.txt"]],
-	["/Files/Reports/Hill-245.txt", ["Hill-245.txt"]],
-	["/Files/Reports/Top-Secret/Vanilla.txt", ["Vanilla.txt"]],
-	["/Files/Reports/Phantomas.txt", ["Phantomas.txt"]],
-	["/Users/Miller/Passwords.txt", ["Passwords.txt"]]
-];
+_filesystem = _target getVariable [ "AE3_Filesystem", [["/Info.txt", "No Filesystem found!"]] ];
 
 _pointer = "/";
 
-_availableCommands = ["help", "man", "ls", "cd", "print"];
+_availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history"];
 
-_activeApplication = "SHELL";
+_activeApplication = "LOGIN";
+
+_ip = "127.0.0.1";
+
+_history = _target getVariable ["history", []];
 
 _users =
 [
@@ -40,17 +33,21 @@ _consoleInput setVariable ["pointer", _pointer];
 _consoleInput setVariable ["availableCommands", _availableCommands];
 _consoleInput setVariable ["activeApplication", _activeApplication];
 _consoleInput setVariable ["users", _users];
+_consoleInput setVariable ["ip", _ip];
+_consoleInput setVariable ["computer", _target];
+_consoleInput setVariable ["history", _history];
 
 _outputText = 
 "armaOS Terminal v0.1 - © 2020 y0014984|Sebastian" + endl + 
 "Get a list of available commands by typing 'help'" + endl + 
-"Get detailed informations by typing 'man <command>'" + endl + 
+"Get detailed command informations by typing 'man <command>'" + endl + 
 " " + endl;
 
 switch (_activeApplication) do
 {
-	case "LOGIN": { _outputText = _outputText + " login> ";};
-	case "SHELL": { _outputText = _outputText + " " + _pointer + "> ";};
+	case "LOGIN": { _outputText = _outputText + " login: ";};
+	case "PASSWORD": { _outputText = _outputText + " password: ";};
+	case "SHELL": { _outputText = _outputText + _pointer + "> ";};
 };
 
 ctrlSetText [1100, _outputText];
@@ -74,6 +71,7 @@ _result = _consoleInput ctrlAddEventHandler
 			switch (_activeApplication) do
 			{
 				case "LOGIN": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_login; };
+				case "PASSWORD": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_login; };
 				case "SHELL": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_shell; };
 			};
 		};

@@ -2,6 +2,7 @@ class CfgVehicles
 {
 	/* ---------------------------------------- */
 
+	// CHAIR
 	class Land_DeskChair_01_sand_F;
 	class Land_DeskChair_01_sand_F_AE3: Land_DeskChair_01_sand_F
 	{
@@ -23,8 +24,9 @@ class CfgVehicles
 
 	/* ---------------------------------------- */
 
-	//class Land_PortableGenerator_01_sand_F;
+	// GENERATOR
 	class B_Quadbike_01_F;
+	//class Land_PortableGenerator_01_sand_F;
 	class Land_PortableGenerator_01_sand_F_AE3: B_Quadbike_01_F
 	{
 		// Dragging
@@ -169,6 +171,7 @@ class CfgVehicles
 
 	/* ---------------------------------------- */
 
+	// LAPTOP
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
@@ -324,6 +327,7 @@ class CfgVehicles
 
 	/* ---------------------------------------- */
 
+	// DESK
 	class Land_PortableDesk_01_sand_F;
 	class Land_PortableDesk_01_sand_F_AE3: Land_PortableDesk_01_sand_F
 	{
@@ -392,6 +396,8 @@ class CfgVehicles
 	};
 
 	/* ---------------------------------------- */
+
+	// MODULE FILESYSTEM
 	class Logic;
 	class Module_F: Logic
 	{
@@ -445,6 +451,16 @@ class CfgVehicles
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """/users/y0014984/Desktop/passwords1.txt""";
 			};
+			class AE3_ModuleFilesysten_FilesystemContent1: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemContent1";
+				displayName = "Filesystem Content 1";
+				tooltip = "Content of Filesystem Object, like text note oder path to image";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """Hidden Note 1""";
+			};
 			class AE3_ModuleFilesysten_FilesystemObject2: Edit
 			{
 				property = "AE3_ModuleFilesysten_FilesystemObject2";
@@ -454,6 +470,16 @@ class CfgVehicles
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """/users/y0014984/Desktop/passwords2.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemContent2: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemContent2";
+				displayName = "Filesystem Content 2";
+				tooltip = "Content of Filesystem Object, like text note oder path to image";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """Hidden Note 2""";
 			};
 			class AE3_ModuleFilesysten_FilesystemObject3: Edit
 			{
@@ -465,6 +491,16 @@ class CfgVehicles
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """/users/y0014984/Desktop/passwords3.txt""";
 			};
+			class AE3_ModuleFilesysten_FilesystemContent3: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemContent3";
+				displayName = "Filesystem Content 3";
+				tooltip = "Content of Filesystem Object, like text note oder path to image";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """Hidden Note 3""";
+			};
 			class AE3_ModuleFilesysten_FilesystemObject4: Edit
 			{
 				property = "AE3_ModuleFilesysten_FilesystemObject4";
@@ -474,6 +510,16 @@ class CfgVehicles
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """/users/y0014984/Desktop/passwords4.txt""";
+			};
+			class AE3_ModuleFilesysten_FilesystemContent4: Edit
+			{
+				property = "AE3_ModuleFilesysten_FilesystemContent4";
+				displayName = "Filesystem Content 4";
+				tooltip = "Content of Filesystem Object, like text note oder path to image";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """Hidden Note 4""";
 			};
 			class AE3_ModuleFilesysten_FilesystemObject5: Edit
 			{
@@ -485,55 +531,15 @@ class CfgVehicles
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """/users/y0014984/Desktop/passwords5.txt""";
 			};
-			class AE3_ModuleFilesysten_FilesystemObject6: Edit
+			class AE3_ModuleFilesysten_FilesystemContent5: Edit
 			{
-				property = "AE3_ModuleFilesysten_FilesystemObject6";
-				displayName = "Filesystem Object 6";
-				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				property = "AE3_ModuleFilesysten_FilesystemContent5";
+				displayName = "Filesystem Content 5";
+				tooltip = "Content of Filesystem Object, like text note oder path to image";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/users/y0014984/Desktop/passwords6.txt""";
-			};
-			class AE3_ModuleFilesysten_FilesystemObject7: Edit
-			{
-				property = "AE3_ModuleFilesysten_FilesystemObject7";
-				displayName = "Filesystem Object 7";
-				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/users/y0014984/Desktop/passwords7.txt""";
-			};
-			class AE3_ModuleFilesysten_FilesystemObject8: Edit
-			{
-				property = "AE3_ModuleFilesysten_FilesystemObject8";
-				displayName = "Filesystem Object 8";
-				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/users/y0014984/Desktop/passwords8.txt""";
-			};
-			class AE3_ModuleFilesysten_FilesystemObject9: Edit
-			{
-				property = "AE3_ModuleFilesysten_FilesystemObject9";
-				displayName = "Filesystem Object 9";
-				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/users/y0014984/Desktop/passwords9.txt""";
-			};
-			class AE3_ModuleFilesysten_FilesystemObject10: Edit
-			{
-				property = "AE3_ModuleFilesysten_FilesystemObject10";
-				displayName = "Filesystem Object 10";
-				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/users/y0014984/Desktop/passwords10.txt""";
+				defaultValue = """Hidden Note 5""";
 			};
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};

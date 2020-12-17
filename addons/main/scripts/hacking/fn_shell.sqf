@@ -15,8 +15,15 @@ switch (_command) do
 	case "ls": { _result = [_options, _consoleInput] call AE3_fnc_ls; };
 	case "cd": { _result = [_options, _consoleInput] call AE3_fnc_cd; };
 	case "print": { _result = [_options, _consoleInput] call AE3_fnc_print; };
+	case "date": { _result = [_options, _consoleInput] call AE3_fnc_date; };
+	case "ipconfig": { _result = [_options, _consoleInput] call AE3_fnc_ipconfig; };
+	case "shutdown": { _result = [_options, _consoleInput] call AE3_fnc_shutdown; };
+	case "standby": { _result = [_options, _consoleInput] call AE3_fnc_standby; };
+	case "history": { _result = [_options, _consoleInput] call AE3_fnc_history; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
+
+_result = [" "] + _result + [" "];
 
 _pointer = _consoleInput getVariable "pointer";
 
@@ -25,7 +32,7 @@ _prompt = _outputArray select ((count _outputArray) - 1);
 _outputArray resize ((count _outputArray) - 1);
 _outputArray append [_prompt + _inputText];
 _outputArray append _result;
-_outputArray append [" " + _pointer + "> "];
+_outputArray append [_pointer + "> "];
 
 if ((count _outputArray) > 21) then {_outputArray deleteRange [0, (count _outputArray) - 21];};
 
@@ -33,3 +40,7 @@ _outputText = _outputArray joinString endl;
 
 ctrlSetText [1100, _outputText];
 ctrlSetText [1200, ""];
+
+_history = _consoleInput getVariable "history";
+_history pushBack _inputText;
+_consoleInput setVariable ["history", _history];

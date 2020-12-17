@@ -8,11 +8,11 @@ _standbyTime = 3;
 	{
 		params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 		
-		_color = "#(argb,8,8,3)color(0.5,0.5,0.5,1.0,co)";
-
 		_entity = _args select 0;
 
-		_entity setObjectTextureGlobal [1, _color];
+		_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Standby.paa"];
+
+		_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayComputerStandbySound.sqf";
 
 		_entity setVariable ['AE3_powerState', 1, true];
 	},

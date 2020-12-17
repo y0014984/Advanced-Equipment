@@ -9,6 +9,11 @@ class CfgFunctions
 			class cd {};
 			class man {};
 			class print {};
+			class date {};
+			class ipconfig {};
+			class shutdown {};
+			class standby {};
+			class history {};
 			class login {};
 			class shell {};
 		};

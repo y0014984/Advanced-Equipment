@@ -1,11 +1,9 @@
-// _result = [_options, _consoleInput] call Y00_fnc_print;
-
 params ["_options", "_consoleInput"];
 
 _pointer = _consoleInput getVariable "pointer";
 _filesystem = _consoleInput getVariable "filesystem";
 
-_result = [""];
+_result = [];
 
 _optionsCount = count _options;
 
@@ -64,7 +62,12 @@ _content = [];
 			_item = [_item, 0, _item find "/"] call BIS_fnc_trimString;
 		};
 		_counter = _counter + 1;
-		_content append (_x select 1);
+
+		_textBlob = _x select 1;
+
+		_textArray = _textBlob splitString toString [10];
+
+		_content append (_textArray);
 	};
 } forEach _filesystem;
 

@@ -1,11 +1,9 @@
-// _result = [_options, _consoleInput] call Y00_fnc_cd;
-
 params ["_options", "_consoleInput"];
 
 _pointer = _consoleInput getVariable "pointer";
 _filesystem = _consoleInput getVariable "filesystem";
 
-_result = [""];
+_result = [];
 
 _optionsCount = count _options;
 

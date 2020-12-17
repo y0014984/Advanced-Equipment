@@ -27,10 +27,15 @@ else
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 			
 			_entity = _args select 0;
-			_color = _args select 2;
+			_color = _args select 1;
 
 			_entity setObjectTextureGlobal [1, _color];
+
+			_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayComputerStopSound.sqf";
+
 			_entity setVariable ['AE3_powerState', 0, true];
+
+			_entity setVariable ["history", [], true];
 		},
 		{},
 		("Shutdown")
