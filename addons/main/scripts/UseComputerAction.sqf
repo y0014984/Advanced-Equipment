@@ -2,7 +2,7 @@ params ["_target"];
 
 if (!dialog) then
 {
-	_ok = createDialog "Hacking_Dialog";
+	_ok = createDialog "AE3_ArmaOS_Dialog";
 	if (!_ok) then {hint "Dialog couldn't be opened!"};
 };
 
@@ -22,11 +22,7 @@ _ip = "127.0.0.1";
 
 _history = _target getVariable ["history", []];
 
-_users =
-[
-	["shebenst", "lala123"],
-	["topsykrett", "test123"]
-];
+_users = _target getVariable [ "AE3_Userlist", [["topsykrett", "test123"]] ];
 
 _consoleInput setVariable ["filesystem", _filesystem];
 _consoleInput setVariable ["pointer", _pointer];

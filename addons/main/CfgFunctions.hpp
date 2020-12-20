@@ -2,9 +2,9 @@ class CfgFunctions
 {
 	class AE3
 	{
-		class Hacking
+		class ArmaOS
 		{
-			file = "\z\ae3\addons\main\scripts\hacking";
+			file = "\z\ae3\addons\main\functions\armaos";
 			class ls {};
 			class cd {};
 			class man {};
@@ -17,10 +17,11 @@ class CfgFunctions
 			class login {};
 			class shell {};
 		};
-		class ObjectModifiers
+		class Modules
 		{
-			file = "\z\ae3\addons\main\functions";
+			file = "\z\ae3\addons\main\functions\modules";
 			class moduleFilesystem{};
+			class moduleUserlist{};
 		};
 	};
 };

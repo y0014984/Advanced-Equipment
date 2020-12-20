@@ -35,7 +35,8 @@ class Cfg3DEN
 						// Returned value is the default value
 						// Used when no value is returned, or when it is of other type than NUMBER, STRING or ARRAY
 						// Custom attributes of logic entities (e.g., modules) are saved always, even when they have default value
-						defaultValue = "[configfile >> 'CfgVehicles' >> 'Land_Laptop_03_sand_F_AE3', 'ae3_power_defaultPowerLevel', -1] call BIS_fnc_returnConfigEntry;";
+						//defaultValue = "[configfile >> 'CfgVehicles' >> 'Land_Laptop_03_sand_F_AE3', 'ae3_power_defaultPowerLevel', -1] call BIS_fnc_returnConfigEntry;";
+						defaultValue = "[configfile >> 'CfgVehicles' >> typeOf _this, 'ae3_power_defaultPowerLevel', -1] call BIS_fnc_returnConfigEntry;";
 
 						//--- Optional properties
 						unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
@@ -65,7 +66,8 @@ class Cfg3DEN
 						// Returned value is the default value
 						// Used when no value is returned, or when it is of other type than NUMBER, STRING or ARRAY
 						// Custom attributes of logic entities (e.g., modules) are saved always, even when they have default value
-						defaultValue = "[configfile >> 'CfgVehicles' >> 'Land_PortableGenerator_01_sand_F_AE3', 'ae3_power_defaultFuelLevel', -1] call BIS_fnc_returnConfigEntry;";
+						//defaultValue = "[configfile >> 'CfgVehicles' >> 'Land_PortableGenerator_01_sand_F_AE3', 'ae3_power_defaultFuelLevel', -1] call BIS_fnc_returnConfigEntry;";
+						defaultValue = "[configfile >> 'CfgVehicles' >> typeOf _this, 'ae3_power_defaultFuelLevel', -1] call BIS_fnc_returnConfigEntry;";
 
 						//--- Optional properties
 						unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)

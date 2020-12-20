@@ -1,8 +1,3 @@
-/*
-STRG + I für den Import aus dem Config File:
-	configfile >> "PPS_Main_Dialog"
-*/
-
 class RscListbox;
 class RscText;
 class RscEdit;
@@ -51,7 +46,7 @@ class AE3_Rotate_Dialog
 
 /* ================================================================================ */
 
-class Hacking_Dialog
+class AE3_ArmaOS_Dialog
 {
 	idd = 15984;
 	movingEnable = true;
