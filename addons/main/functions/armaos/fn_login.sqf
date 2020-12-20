@@ -65,6 +65,11 @@ if (_activeApplication isEqualTo "PASSWORD") then
 
 		if ((_username isEqualTo _activeUser) && (_password isEqualTo _inputText)) then
 		{
+			_computer = _consoleInput getVariable "computer";
+			
+			_computer setVariable ["passwordCorrect", true];
+			_computer setVariable ["activeUser", _username];
+
 			_consoleInput setVariable ["activeApplication", "SHELL"];
 
 			_passwordFound = true;

@@ -16,7 +16,14 @@ _pointer = "/";
 
 _availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history"];
 
+_activeUser = _target getVariable ["activeUser", nil];
+_passwordCorrect = _target getVariable ["passwordCorrect", false];
+
 _activeApplication = "LOGIN";
+if (!isNil "_activeUser" && _passwordCorrect) then
+{
+	_activeApplication = "SHELL";
+};
 
 _ip = "127.0.0.1";
 
