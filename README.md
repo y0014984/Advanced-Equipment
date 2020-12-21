@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/y0014984/pps/raw/master/logo/logo_pps_ca.jpg" width="512">
+    <img src="https://github.com/y0014984/Advanced-Equipment/raw/master/design/Advanced-Eqipment-Logo.jpg" width="512">
 </p>
 
 <p align="center">
