@@ -6,6 +6,8 @@ if (!dialog) then
 	if (!_ok) then {hint "Dialog couldn't be opened!"};
 };
 
+_handle = [_target] execVM "\z\ae3\addons\main\scripts\ShowBatteryLevel.sqf";
+
 _consoleDialog = findDisplay 15984;	
 _consoleOutput = _consoleDialog displayCtrl 1100;
 _consoleInput = _consoleDialog displayCtrl 1200;
