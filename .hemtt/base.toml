@@ -6,5 +6,10 @@ mainprefix = "z"
 folder_optionals = true
 sig_version = 3
 files = [
-    "mod.cpp"
+    "mod.cpp",
+    "README.md",
+    "AUTHORS.txt",
+    "LICENSE.md",
+    "logo_ae3_ca.paa",
+    "meta.cpp"
 ]
