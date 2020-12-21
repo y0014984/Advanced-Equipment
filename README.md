@@ -3,11 +3,11 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/y0014984/pps/releases/latest">
-        <img src="https://img.shields.io/badge/Version-0.4.2-blue.svg?style=flat-square" alt="PPS Version">
+    <a href="https://github.com/y0014984/Advanced-Equipment/releases/latest">
+        <img src="https://img.shields.io/badge/Version-0.1.0-blue.svg?style=flat-square" alt="Advanced Equipment Version">
     </a>
     <a href="https://www.bistudio.com/community/licenses/arma-public-license-share-alike">
-        <img src="https://img.shields.io/badge/License-APL%20SA-red.svg?style=flat-square" alt="PPS License">
+        <img src="https://img.shields.io/badge/License-APL%20SA-red.svg?style=flat-square" alt="Advanced Equipment License">
     </a>
 </p>
 
