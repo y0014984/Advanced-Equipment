@@ -21,7 +21,8 @@ The project is entirely **open-source** and all contributions are welcome. Feel 
 
 ## Features
 
-- Power Management (Power Consumption, Batteries, Sun Collectors, Generators, Turn On/Off/Standby things)
+- Power Management (Power Consumption, Batteries, Sun Collectors, Generators)
+- Advanced Equipment (Turn On/Off/Standby/Adjust/Use things like Laptops and Lamps)
 - armaOS (Unique Terminal-like interface for computers)
 - Network Management (not implemented yet)
 - Logistics (Fold and unfold objects, move them around, put them into vehicles)
