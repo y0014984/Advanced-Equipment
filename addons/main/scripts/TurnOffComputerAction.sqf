@@ -20,6 +20,8 @@ if (_silent) then
 }
 else 
 {
+	_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Shutting_Down.paa"];
+
 	[
 		_turnOffTime,
 		[_entity, _color], 

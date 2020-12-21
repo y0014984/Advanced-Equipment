@@ -15,6 +15,8 @@ if (_batteryLevel > 0) then
 		default {};
 	};
 
+	_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Booting.paa"];
+
 	[
 		_turnOnTime,
 		[_entity], 
