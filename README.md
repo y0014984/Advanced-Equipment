@@ -24,6 +24,8 @@ The project is entirely **open-source** and all contributions are welcome. Feel 
 - Power Management (Power Consumption, Batteries, Sun Collectors, Generators, Turn On/Off/Standby things)
 - armaOS (Unique Terminal-like interface for computers)
 - Network Management (not implemented yet)
+- Logistics (Fold and unfold objects, move them around, put them into vehicles)
+- 3DEN Modules (Easy Mission Making)
 
 ## Installation
 
