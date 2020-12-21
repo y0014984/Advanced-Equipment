@@ -88,7 +88,12 @@ if (_activeApplication isEqualTo "PASSWORD") then
 
 	if (_passwordFound) then
 	{
-		_outputArray append [_prompt + _inputText];
+		_passwordLength = count _inputText;
+		_hiddenPassword = "";
+		for "_i" from 1 to _passwordLength do { _hiddenPassword = _hiddenPassword + "*"; };
+				
+		_outputArray append [_prompt + _hiddenPassword];
+		_outputArray append [" "];
 		_outputArray append ["/> "];
 	}
 	else

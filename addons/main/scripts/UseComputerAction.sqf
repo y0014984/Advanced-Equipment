@@ -14,7 +14,7 @@ _filesystem = _target getVariable [ "AE3_Filesystem", [["/Info.txt", "No Filesys
 
 _pointer = "/";
 
-_availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history"];
+_availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history", "logout"];
 
 _activeUser = _target getVariable ["activeUser", nil];
 _passwordCorrect = _target getVariable ["passwordCorrect", false];
@@ -40,11 +40,7 @@ _consoleInput setVariable ["ip", _ip];
 _consoleInput setVariable ["computer", _target];
 _consoleInput setVariable ["history", _history];
 
-_outputText = 
-"armaOS Terminal v0.1 - © 2020 y0014984|Sebastian" + endl + 
-"Get a list of available commands by typing 'help'" + endl + 
-"Get detailed command informations by typing 'man <command>'" + endl + 
-" " + endl;
+_outputText = [] call AE3_fnc_headerText;
 
 switch (_activeApplication) do
 {
@@ -55,6 +51,8 @@ switch (_activeApplication) do
 
 ctrlSetText [1100, _outputText];
 ctrlSetFocus _consoleInput;
+
+/* ---------------------------------------- */
 
 _result = _consoleInput ctrlAddEventHandler
 [
@@ -80,3 +78,5 @@ _result = _consoleInput ctrlAddEventHandler
 		};
 	}
 ];
+
+/* ---------------------------------------- */

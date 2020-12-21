@@ -32,9 +32,10 @@ switch (true) do
 			case "print": { _result = ["   Usage print: 'print <file>' shows the content of a file."]; };
 			case "date": { _result = ["   Usage date: 'date' prints the actual date in format YYYY-MM-DD HH:MM:SS"]; };
 			case "ipconfig": { _result = ["   Usage ipconfig: 'ipconfig' prints the actual ip address in format XXX.XXX.XXX.XXX"]; };
-			case "shutdown": { _result = ["   Usage shutdown: 'shutdown' turns off the computer"]; };
-			case "standby": { _result = ["   Usage standby: 'standby' activates the computers standby mode"]; };
-			case "history": { _result = ["   Usage history: 'history' lists last commands since the start of the computer"]; };
+			case "shutdown": { _result = ["   Usage shutdown: 'shutdown' turns off the computer."]; };
+			case "standby": { _result = ["   Usage standby: 'standby' activates the computers standby mode."]; };
+			case "history": { _result = ["   Usage history: 'history' lists last commands since the start of the computer."]; };
+			case "logout": { _result = ["   Usage logout: 'logout' brings you back to login screen."]; };
 			default { _result = [format ["   Command '%1' not found.", _command]]; };
 		};
 	};

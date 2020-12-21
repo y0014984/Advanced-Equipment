@@ -14,8 +14,10 @@ class CfgFunctions
 			class shutdown {};
 			class standby {};
 			class history {};
+			class logout {};
 			class login {};
 			class shell {};
+			class headerText {};
 		};
 		class Modules
 		{

@@ -20,22 +20,35 @@ switch (_command) do
 	case "shutdown": { _result = [_options, _consoleInput] call AE3_fnc_shutdown; };
 	case "standby": { _result = [_options, _consoleInput] call AE3_fnc_standby; };
 	case "history": { _result = [_options, _consoleInput] call AE3_fnc_history; };
+	case "logout": { _result = [_options, _consoleInput] call AE3_fnc_logout; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
 
-_result = [" "] + _result + [" "];
 
+_result = [" "] + _result + [" "];
 _pointer = _consoleInput getVariable "pointer";
 
 _outputArray = _outputText splitString endl;
+
 _prompt = _outputArray select ((count _outputArray) - 1);
 _outputArray resize ((count _outputArray) - 1);
 _outputArray append [_prompt + _inputText];
+
 _outputArray append _result;
 _outputArray append [_pointer + "> "];
 
-if ((count _outputArray) > 21) then {_outputArray deleteRange [0, (count _outputArray) - 21];};
+if (_command isEqualTo "logout") then
+{
+	_outputText = [] call AE3_fnc_headerText;
+	_result = [" "];
 
+	_outputText = _outputText + " login: ";
+
+	_outputArray = _outputText splitString endl;
+};
+
+
+if ((count _outputArray) > 21) then {_outputArray deleteRange [0, (count _outputArray) - 21];};
 _outputText = _outputArray joinString endl;
 
 ctrlSetText [1100, _outputText];
