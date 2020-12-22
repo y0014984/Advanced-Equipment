@@ -27,7 +27,7 @@ if (!isNil "_activeUser" && _passwordCorrect) then
 	_activeApplication = "SHELL";
 };
 
-_ip = "127.0.0.1";
+_ip = _target getVariable ["AE3_ipAddress", "127.0.0.1"];
 
 _history = _target getVariable ["history", []];
 

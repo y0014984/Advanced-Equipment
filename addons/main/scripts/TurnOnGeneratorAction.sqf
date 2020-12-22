@@ -4,9 +4,9 @@ _fuelLevel = _entity getVariable "AE3_fuelLevel";
 
 if (_fuelLevel > 0) then
 {
-	_powerState = _entity getVariable 'AE3_powerState';
-
 	_turnOnTime = 3;
+
+	_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayGeneratorStartSound.sqf";
 
 	[
 		_turnOnTime,
@@ -16,9 +16,14 @@ if (_fuelLevel > 0) then
 			
 			_entity = _args select 0;
 
-			_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayGeneratorStartSound.sqf";
-			
 			_entity setVariable ["AE3_powerState", 1, true];
+
+			_connectedDevices = _entity getVariable ["AE3_connectedDevices", []];
+
+			{
+				_powerState = _x getVariable ["AE3_powerState", 0];
+				if (_powerState == 0) then { _x setVariable ["AE3_powerState", 1, true]; };
+			} forEach _connectedDevices;
 
 			[_entity, false, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
 		},

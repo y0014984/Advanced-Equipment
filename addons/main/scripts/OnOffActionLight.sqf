@@ -1,5 +1,3 @@
-//_handle = [_object, _name, _mode, _totalTime] execVM "Scripts\OnOffAction.sqf";
-
 params ["_object", "_name", "_light", "_mode", "_totalTime"];
 
 _modeString = "";

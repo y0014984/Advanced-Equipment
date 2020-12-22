@@ -11,7 +11,7 @@ if (_batteryLevel > 0) then
 	switch (_powerState) do
 	{
 		case 0: { _turnOnTime = 15; };
-		case 1: { _turnOnTime = 3; };
+		case 2: { _turnOnTime = 3; };
 		default {};
 	};
 
@@ -29,7 +29,7 @@ if (_batteryLevel > 0) then
 
 			_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayComputerStartSound.sqf";
 
-			_entity setVariable ['AE3_powerState', 2, true];
+			_entity setVariable ['AE3_powerState', 1, true];
 
 		},
 		{},

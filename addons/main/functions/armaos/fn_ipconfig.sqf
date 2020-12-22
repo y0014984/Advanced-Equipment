@@ -1,6 +1,14 @@
 params ["_options", "_consoleInput"];
 
 _ip = _consoleInput getVariable "ip";
+_computer = _consoleInput getVariable "computer";
+_router = _consoleInput getVariable ["AE3_networkCableDevice", nil];
+
+if (!isNil "_router") then 
+{
+	if (_router getVariable ["AE3_powerConsumptionState", 0] == 0) then { _ip = "127.0.0.1" };
+};
+
 
 _result = [];
 

@@ -14,7 +14,7 @@ _standbyTime = 3;
 
 		_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayComputerStandbySound.sqf";
 
-		_entity setVariable ['AE3_powerState', 1, true];
+		_entity setVariable ['AE3_powerState', 2, true];
 	},
 	{},
 	("Standby")
