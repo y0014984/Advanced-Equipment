@@ -21,6 +21,7 @@ switch (_command) do
 	case "standby": { _result = [_options, _consoleInput] call AE3_fnc_standby; };
 	case "history": { _result = [_options, _consoleInput] call AE3_fnc_history; };
 	case "logout": { _result = [_options, _consoleInput] call AE3_fnc_logout; };
+	case "ping": { _result = [_options, _consoleInput] call AE3_fnc_ping; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
 

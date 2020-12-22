@@ -10,6 +10,7 @@ class CfgFunctions
 			class man {};
 			class print {};
 			class date {};
+			class ping {};
 			class ipconfig {};
 			class shutdown {};
 			class standby {};

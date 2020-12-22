@@ -13,15 +13,16 @@ switch (true) do
 {
 	case (_optionsCount > 1):
 	{
-		//hint "Case 1";
-		
-		_result = ["   Command: open too many options"];
+		_result = ["   Command: print - too many options"];
+		_result breakOut "main";
+	};
+	case (_optionsCount == 0):
+	{
+		_result = ["   Command: print - too few options"];
 		_result breakOut "main";
 	};
 	case (_optionsCount == 1):
 	{
-		//hint "Case 2";
-		
 		_optionsString = _options select 0;
 		
 		if ((_optionsString select [0, 1]) isEqualTo "/") then
@@ -32,13 +33,6 @@ switch (true) do
 		{
 			_pointer = _pointer + _optionsString;
 		};
-	};
-	case (_optionsCount == 0):
-	{
-		//hint "Case 3";
-		
-		_result = ["   Command: open too few options"];
-		_result breakOut "main";
 	};
 };
 

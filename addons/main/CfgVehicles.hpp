@@ -166,7 +166,7 @@ class CfgVehicles
 					};
 					class AE3_PowerState
 					{
-						displayName = "Power State";
+						displayName = "Check Power State";
 						condition = "alive _target";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\GetPowerStateAction.sqf';";
 						//icon = "\z\dance.paa";
@@ -262,7 +262,7 @@ class CfgVehicles
 					};
 					class AE3_PowerState
 					{
-						displayName = "Power State";
+						displayName = "Check Power State";
 						condition = "alive _target";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\GetPowerStateAction.sqf';";
 						//icon = "\z\dance.paa";
@@ -466,7 +466,7 @@ class CfgVehicles
 					};
 					class AE3_PowerState
 					{
-						displayName = "Power State";
+						displayName = "Check Power State";
 						condition = "alive _target";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\GetPowerStateAction.sqf';";
 						//icon = "\z\dance.paa";
