@@ -23,6 +23,7 @@ switch (_command) do
 	case "logout": { _result = [_options, _consoleInput] call AE3_fnc_logout; };
 	case "ping": { _result = [_options, _consoleInput] call AE3_fnc_ping; };
 	case "clear": { _result = [_options, _consoleInput] call AE3_fnc_clear; };
+	case "rm": { _result = [_options, _consoleInput] call AE3_fnc_rm; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
 

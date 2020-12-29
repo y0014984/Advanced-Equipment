@@ -20,6 +20,7 @@ class CfgFunctions
 			class shell {};
 			class headerText {};
 			class clear {};
+			class rm {};
 		};
 		class Modules
 		{

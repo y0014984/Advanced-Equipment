@@ -16,7 +16,7 @@ _filesystem = _target getVariable [ "AE3_Filesystem", [["/Info.txt", "No Filesys
 
 _pointer = "/";
 
-_availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history", "logout", "clear"];
+_availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history", "logout", "clear", "rm"];
 
 _activeUser = _target getVariable ["activeUser", nil];
 _passwordCorrect = _target getVariable ["passwordCorrect", false];

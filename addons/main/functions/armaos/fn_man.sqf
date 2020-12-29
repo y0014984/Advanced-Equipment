@@ -37,6 +37,8 @@ switch (true) do
 			case "history": { _result = ["   Usage history: 'history' lists last commands since the start of the computer."]; };
 			case "logout": { _result = ["   Usage logout: 'logout' brings you back to login screen."]; };
 			case "ping": { _result = ["   Usage ping: 'ping <ip address ###.###.###.###>' tries to reach another computer."]; };
+			case "clear": { _result = ["   Usage clear: 'clear deletes most of the displayed text."]; };
+			case "rm": { _result = ["   Usage rm: 'rm <path>' deletes a file at the given path."]; };
 			default { _result = [format ["   Command '%1' not found.", _command]]; };
 		};
 	};
