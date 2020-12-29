@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/y0014984/Advanced-Equipment/raw/master/design/Advanced-Eqipment-Logo.jpg" width="512">
+    <img src="https://github.com/y0014984/Advanced-Equipment/raw/master/design/Advanced-Eqipment-Logo-Simple-Font.png" width="512">
 </p>
 
 <p align="center">
