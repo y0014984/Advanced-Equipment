@@ -39,6 +39,7 @@ switch (true) do
 			case "ping": { _result = ["   Usage ping: 'ping <ip address ###.###.###.###>' tries to reach another computer."]; };
 			case "clear": { _result = ["   Usage clear: 'clear deletes most of the displayed text."]; };
 			case "rm": { _result = ["   Usage rm: 'rm <path>' deletes a file at the given path."]; };
+			case "mv": { _result = ["   Usage mv: 'mv <old path> <new path>' moves file to new path or renames the file."]; };
 			default { _result = [format ["   Command '%1' not found.", _command]]; };
 		};
 	};

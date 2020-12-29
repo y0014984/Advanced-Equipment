@@ -21,6 +21,7 @@ class CfgFunctions
 			class headerText {};
 			class clear {};
 			class rm {};
+			class mv {};
 		};
 		class Modules
 		{
