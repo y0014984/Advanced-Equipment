@@ -46,7 +46,7 @@ class AE3_Rotate_Dialog
 
 /* ================================================================================ */
 
-class AE3_ArmaOS_Dialog
+class AE3_ArmaOS_Main_Dialog
 {
 	idd = 15984;
 	movingEnable = true;
@@ -101,6 +101,64 @@ class AE3_ArmaOS_Dialog
 			text = "EXIT";
 			x = 32 * GUI_GRID_W + GUI_GRID_X;
 			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {0,0.5,0,0.25};
+			
+			action = "closeDialog 1;";
+			font = "EtelkaMonospaceProBold";
+		};
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT END
+		////////////////////////////////////////////////////////
+	};
+};
+
+/* ================================================================================ */
+
+class AE3_ArmaOS_Waiting_Dialog
+{
+	idd = 16983;
+	movingEnable = true;
+	enableSimulation = true;
+	class controls
+	{
+		////////////////////////////////////////////////////////
+		// GUI EDITOR OUTPUT START (by y0014984, v1.063, #Xyqiwu)
+		////////////////////////////////////////////////////////
+
+		class RscText_1000: RscText
+		{
+			idc = 3000;
+			text = "WAITING";
+			x = 10 * GUI_GRID_W + GUI_GRID_X;
+			y = 10 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {0,0.5,0,0.25};
+			font = "EtelkaMonospaceProBold";
+		};
+		class RscText_1100: RscText
+		{
+			// Console Output
+			idc = 3100;
+			text = "Waiting for other computer to accept connection";
+			x = 10 * GUI_GRID_W + GUI_GRID_X;
+			y = 12 * GUI_GRID_H + GUI_GRID_Y;
+			w = 20 * GUI_GRID_W;
+			h = 3 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.25};
+			
+			style = ST_MULTI;
+			lineSpacing = 1;
+			font = "EtelkaMonospacePro";
+		};
+		class RscButton_1300: RscButton
+		{
+			idc = 3300;
+			text = "CANCEL";
+			x = 22 * GUI_GRID_W + GUI_GRID_X;
+			y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 8 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0.5,0,0.25};

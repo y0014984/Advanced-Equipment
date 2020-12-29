@@ -25,6 +25,7 @@ switch (_command) do
 	case "clear": { _result = [_options, _consoleInput] call AE3_fnc_clear; };
 	case "rm": { _result = [_options, _consoleInput] call AE3_fnc_rm; };
 	case "mv": { _result = [_options, _consoleInput] call AE3_fnc_mv; };
+	case "chat": { _result = [_options, _consoleInput] call AE3_fnc_chat; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
 

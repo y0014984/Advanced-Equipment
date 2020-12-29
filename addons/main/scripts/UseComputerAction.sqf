@@ -2,7 +2,7 @@ params ["_target"];
 
 if (!dialog) then
 {
-	_ok = createDialog "AE3_ArmaOS_Dialog";
+	_ok = createDialog "AE3_ArmaOS_Main_Dialog";
 	if (!_ok) then {hint "Dialog couldn't be opened!"};
 };
 
@@ -16,7 +16,7 @@ _filesystem = _target getVariable [ "AE3_Filesystem", [["/Info.txt", "No Filesys
 
 _pointer = "/";
 
-_availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history", "logout", "clear", "rm", "mv"];
+_availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history", "logout", "clear", "rm", "mv", "chat"];
 
 _activeUser = _target getVariable ["activeUser", nil];
 _passwordCorrect = _target getVariable ["passwordCorrect", false];
@@ -49,6 +49,7 @@ switch (_activeApplication) do
 	case "LOGIN": { _outputText = _outputText + " login: ";};
 	case "PASSWORD": { _outputText = _outputText + " password: ";};
 	case "SHELL": { _outputText = _outputText + _pointer + "> ";};
+	case "CHAT": { _outputText = "";};
 };
 
 ctrlSetText [1100, _outputText];

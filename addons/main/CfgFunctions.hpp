@@ -22,6 +22,7 @@ class CfgFunctions
 			class clear {};
 			class rm {};
 			class mv {};
+			class chat {};
 		};
 		class Modules
 		{
