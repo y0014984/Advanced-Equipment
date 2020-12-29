@@ -19,6 +19,7 @@ class CfgFunctions
 			class login {};
 			class shell {};
 			class headerText {};
+			class clear {};
 		};
 		class Modules
 		{

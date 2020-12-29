@@ -22,13 +22,14 @@ switch (_command) do
 	case "history": { _result = [_options, _consoleInput] call AE3_fnc_history; };
 	case "logout": { _result = [_options, _consoleInput] call AE3_fnc_logout; };
 	case "ping": { _result = [_options, _consoleInput] call AE3_fnc_ping; };
+	case "clear": { _result = [_options, _consoleInput] call AE3_fnc_clear; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
-
 
 _result = [" "] + _result + [" "];
 _pointer = _consoleInput getVariable "pointer";
 
+_outputText = ctrlText 1100;
 _outputArray = _outputText splitString endl;
 
 _prompt = _outputArray select ((count _outputArray) - 1);
@@ -37,6 +38,11 @@ _outputArray append [_prompt + _inputText];
 
 _outputArray append _result;
 _outputArray append [_pointer + "> "];
+
+if (_command isEqualTo "clear") then
+{
+	_outputArray = _outputText splitString endl;
+};
 
 if (_command isEqualTo "logout") then
 {
