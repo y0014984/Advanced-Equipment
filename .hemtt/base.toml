@@ -11,5 +11,7 @@ files = [
     "AUTHORS.txt",
     "LICENSE.md",
     "logo_ae3_ca.paa",
+    "logo_ae3_ca_hover.paa",
+    "logo_ae3_ca_font.paa",
     "meta.cpp"
 ]

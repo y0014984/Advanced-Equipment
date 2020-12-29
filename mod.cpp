@@ -1,10 +1,10 @@
 name = "Advanced Equipment v0.2.0";
-picture = "logo_ae3_ca.paa";
+picture = "logo_ae3_ca_font.paa";
 actionName = "GitHub";
 action = "https://github.com/y0014984/Advanced-Equipment";
 description = "Advanced Equipment v0.2.0";
 logo = "logo_ae3_ca.paa";
-logoOver = "logo_ae3_ca.paa";
+logoOver = "logo_ae3_ca_hover.paa";
 tooltip = "Advanced Equipment";
 tooltipOwned = "Advanced Equipment tooltipOwned";
 overview = "Advanced Equipment brings your dead equipment to life, like laptops and lamps.";
