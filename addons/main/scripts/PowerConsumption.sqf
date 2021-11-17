@@ -2,8 +2,12 @@ params ["_entity"];
 
 _class = typeOf _entity;
 
-_hasBattery = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_hasBattery");
-_powerConsumptionOn = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_powerConsumptionOn");
+private _hasBattery = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_hasBattery");
+private _powerConsumptionOn = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_powerConsumptionOn");
+
+private _batteryCapacity = 0;
+private _powerConsumptionStandBy = 0;
+private _recharging = 0;
 
 if (_hasBattery == 1) then 
 {
