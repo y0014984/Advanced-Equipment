@@ -6,3 +6,4 @@ keys/*
 .hemtt/local
 ####
 .hemtt/template/
+*.pbo
