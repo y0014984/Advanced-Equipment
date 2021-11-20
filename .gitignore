@@ -7,3 +7,4 @@ keys/*
 ####
 .hemtt/template/
 *.pbo
+.vscode/
