@@ -15,7 +15,7 @@
     <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a>, <a href="https://github.com/acemod/ACE3/releases">ACE</a> and <a href="https://github.com/acemod/ACEX/releases">ACEX</a> for server and client.<br/></strong></sup>
 </p>
 
-Test 3
+Test 4
 
 **Advanced Equipment** is a mod for Arma 3, still under development. I wanted to create a mod, that allows to really use a lot of the vanilla equipment like laptops and lamps.
 
