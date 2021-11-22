@@ -20,7 +20,7 @@ if (_silent) then
 }
 else 
 {
-	_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Shutting_Down_0.paa"];
+	_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_0.paa"];
 	_entity setVariable ["_shuttingDownTextureIndex", 0];
 
 	[
@@ -34,7 +34,7 @@ else
 
 			_entity setObjectTextureGlobal [1, _color];
 
-			_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayComputerStopSound.sqf";
+			_handle = [_entity] spawn AE3_armaos_fnc_playComputerStopSound;
 
 			_entity setVariable ['AE3_powerState', 0, true];
 
@@ -55,17 +55,17 @@ else
 			{
 				case ((_elapsedTimePercent >= 0.25) && (_shuttingDownTextureIndex < 1)):
 				{
-					_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Shutting_Down_1.paa"];
+					_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_1.paa"];
 					_entity setVariable ["_shuttingDownTextureIndex", 1];
 				};
 				case ((_elapsedTimePercent >= 0.5) && (_shuttingDownTextureIndex < 2)):
 				{
-					_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Shutting_Down_2.paa"];
+					_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_2.paa"];
 					_entity setVariable ["_shuttingDownTextureIndex", 2];
 				};
 				case ((_elapsedTimePercent >= 0.75) && (_shuttingDownTextureIndex < 3)):
 				{
-					_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Shutting_Down_3.paa"];
+					_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_3.paa"];
 					_entity setVariable ["_shuttingDownTextureIndex", 3];
 				};
 			};

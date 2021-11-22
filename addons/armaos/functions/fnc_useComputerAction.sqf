@@ -42,7 +42,7 @@ _consoleInput setVariable ["ip", _ip];
 _consoleInput setVariable ["computer", _target];
 _consoleInput setVariable ["history", _history];
 
-_outputText = [] call AE3_fnc_headerText;
+_outputText = [] call AE3_armaos_fnc_headerText;
 
 switch (_activeApplication) do
 {
@@ -74,9 +74,9 @@ _result = _consoleInput ctrlAddEventHandler
 			
 			switch (_activeApplication) do
 			{
-				case "LOGIN": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_login; };
-				case "PASSWORD": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_login; };
-				case "SHELL": { _result = [_consoleInput, _inputText, _outputText] call AE3_fnc_shell; };
+				case "LOGIN": { _result = [_consoleInput, _inputText, _outputText] call AE3_armaos_fnc_login; };
+				case "PASSWORD": { _result = [_consoleInput, _inputText, _outputText] call AE3_armaos_fnc_login; };
+				case "SHELL": { _result = [_consoleInput, _inputText, _outputText] call AE3_armaos_fnc_shell; };
 			};
 		};
 	}

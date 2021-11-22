@@ -11,21 +11,21 @@ _availableCommands = _consoleInput getVariable "availableCommands";
 switch (_command) do
 {
 	case "help": { _result = [format ["   Available commands: %1", _availableCommands joinString ", "]]; };
-	case "man": { _result = [_options, _consoleInput] call AE3_fnc_man; };
-	case "ls": { _result = [_options, _consoleInput] call AE3_fnc_ls; };
-	case "cd": { _result = [_options, _consoleInput] call AE3_fnc_cd; };
-	case "print": { _result = [_options, _consoleInput] call AE3_fnc_print; };
-	case "date": { _result = [_options, _consoleInput] call AE3_fnc_date; };
-	case "ipconfig": { _result = [_options, _consoleInput] call AE3_fnc_ipconfig; };
-	case "shutdown": { _result = [_options, _consoleInput] call AE3_fnc_shutdown; };
-	case "standby": { _result = [_options, _consoleInput] call AE3_fnc_standby; };
-	case "history": { _result = [_options, _consoleInput] call AE3_fnc_history; };
-	case "logout": { _result = [_options, _consoleInput] call AE3_fnc_logout; };
-	case "ping": { _result = [_options, _consoleInput] call AE3_fnc_ping; };
-	case "clear": { _result = [_options, _consoleInput] call AE3_fnc_clear; };
-	case "rm": { _result = [_options, _consoleInput] call AE3_fnc_rm; };
-	case "mv": { _result = [_options, _consoleInput] call AE3_fnc_mv; };
-	case "chat": { _result = [_options, _consoleInput] call AE3_fnc_chat; };
+	case "man": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_man; };
+	case "ls": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_ls; };
+	case "cd": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_cd; };
+	case "print": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_print; };
+	case "date": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_date; };
+	case "ipconfig": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_ipconfig; };
+	case "shutdown": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_shutdown; };
+	case "standby": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_standby; };
+	case "history": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_history; };
+	case "logout": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_logout; };
+	case "ping": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_ping; };
+	case "clear": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_clear; };
+	case "rm": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_rm; };
+	case "mv": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_mv; };
+	case "chat": { _result = [_options, _consoleInput] call AE3_armaos_fnc_os_chat; };
 	default { _result = [format ["   Command '%1' not found.", _command]]; };
 };
 
@@ -49,7 +49,7 @@ if (_command isEqualTo "clear") then
 
 if (_command isEqualTo "logout") then
 {
-	_outputText = [] call AE3_fnc_headerText;
+	_outputText = [] call AE3_armaos_fnc_headerText;
 	_result = [" "];
 
 	_outputText = _outputText + " login: ";

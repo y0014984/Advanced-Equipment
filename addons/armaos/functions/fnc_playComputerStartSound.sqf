@@ -1,6 +1,6 @@
 params ["_entity"];
 
-_filename = "z\ae3\addons\main\sounds\ComputerStartSound.ogg";
+_filename = "z\ae3\addons\armaos\sounds\ComputerStartSound.ogg";
 _isInside = false;
 _distance = 50;
 _volume = 5;

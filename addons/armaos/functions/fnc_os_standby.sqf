@@ -21,7 +21,7 @@ switch (true) do
 	{
 		//hint "Case 2";
 
-		_handle = [_computer, false] execVM '\z\ae3\addons\main\scripts\StandbyComputerAction.sqf';
+		_handle = [_computer, false] spawn AE3_armaos_fnc_standbyComputerAction;
 
 		_result = ["   Command: standby "];
 	};

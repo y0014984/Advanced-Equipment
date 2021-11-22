@@ -15,7 +15,7 @@ if (_batteryLevel > 0) then
 		default {};
 	};
 
-	_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Booting_0.paa"];
+	_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Booting_0.paa"];
 	_entity setVariable ["_bootingTextureIndex", 0];
 
 	[
@@ -26,9 +26,9 @@ if (_batteryLevel > 0) then
 			
 			_entity = _args select 0;
 
-			_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_On.paa"];
+			_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_On.paa"];
 
-			_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayComputerStartSound.sqf";
+			_handle = [_entity] spawn AE3_armaos_fnc_playComputerStartSound;
 
 			_entity setVariable ['AE3_powerState', 1, true];
 
@@ -48,17 +48,17 @@ if (_batteryLevel > 0) then
 			{
 				case ((_elapsedTimePercent >= 0.25) && (_bootingTextureIndex < 1)):
 				{
-					_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Booting_1.paa"];
+					_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Booting_1.paa"];
 					_entity setVariable ["_bootingTextureIndex", 1];
 				};
 				case ((_elapsedTimePercent >= 0.5) && (_bootingTextureIndex < 2)):
 				{
-					_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Booting_2.paa"];
+					_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Booting_2.paa"];
 					_entity setVariable ["_bootingTextureIndex", 2];
 				};
 				case ((_elapsedTimePercent >= 0.75) && (_bootingTextureIndex < 3)):
 				{
-					_entity setObjectTextureGlobal [1, "\z\ae3\addons\main\textures\Laptop_4_to_3_Booting_3.paa"];
+					_entity setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Booting_3.paa"];
 					_entity setVariable ["_bootingTextureIndex", 3];
 				};
 			};

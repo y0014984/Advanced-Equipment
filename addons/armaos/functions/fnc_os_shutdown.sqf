@@ -21,7 +21,7 @@ switch (true) do
 	{
 		//hint "Case 2";
 
-		_handle = [_computer, false] execVM '\z\ae3\addons\main\scripts\TurnOffComputerAction.sqf';
+		_handle = [_computer, false] spawn AE3_armaos_fnc_turnOffComputerAction;
 
 		_result = ["   Command: shutdown "];
 	};
