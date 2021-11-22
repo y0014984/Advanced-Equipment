@@ -65,7 +65,7 @@ while {true} do
 
 				switch (_class) do
 				{
-					case "Land_Laptop_03_sand_F_AE3": { _handle = [_entity, true] execVM "\z\ae3\addons\main\scripts\TurnOffComputerAction.sqf"; };
+					case "Land_Laptop_03_sand_F_AE3": { _handle = [_entity, true] spawn AE3_power_fnc_turnOffComputerAction; };
 					default {};
 				};
 			};

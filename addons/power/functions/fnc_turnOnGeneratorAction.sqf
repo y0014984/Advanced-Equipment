@@ -6,7 +6,7 @@ if (_fuelLevel > 0) then
 {
 	_turnOnTime = 3;
 
-	_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayGeneratorStartSound.sqf";
+	_handle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
 
 	[
 		_turnOnTime,

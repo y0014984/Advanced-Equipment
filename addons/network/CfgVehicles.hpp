@@ -48,7 +48,7 @@ class CfgVehicles
 						statement = "";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
-						insertChildren = "params ['_target', '_player', '_params']; _generators = nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]; private _actions = []; { private _childStatement = { params ['_target', '_player', '_generator']; _handle = [_target, _generator] execVM '\z\ae3\addons\main\scripts\ConnectToGeneratorAction.sqf'; }; private _action = [typeOf _x, typeOf _x, '', _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; _actions pushBack [_action, [], _target]; } forEach (_generators); _actions";
+						insertChildren = "params ['_target', '_player', '_params']; _generators = nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]; private _actions = []; { private _childStatement = { params ['_target', '_player', '_generator']; _handle = [_target, _generator] spawn AE3_power_fnc_connectToGeneratorAction; }; private _action = [typeOf _x, typeOf _x, '', _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; _actions pushBack [_action, [], _target]; } forEach (_generators); _actions";
 						//modifierFunction
 						//runOnHover
 						//distance
@@ -61,7 +61,7 @@ class CfgVehicles
 					{
 						displayName = "Disconnect From Generator";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerConsumptionState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\DisconnectFromGeneratorAction.sqf';";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_disconnectFromGeneratorAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
@@ -77,7 +77,7 @@ class CfgVehicles
 					{
 						displayName = "Check Power State";
 						condition = "alive _target";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\GetPowerStateAction.sqf';";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_getPowerStateAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren

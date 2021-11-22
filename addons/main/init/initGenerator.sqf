@@ -6,4 +6,4 @@ _entity setVariable ["AE3_powerState", 0, true];
 // array or nil
 _entity setVariable ["AE3_connectedDevices", nil, true];
 
-_handle = [_entity] execVM "\z\ae3\addons\main\scripts\FuelConsumption.sqf";
+_handle = [_entity] spawn AE3_power_fnc_fuelConsumption;

@@ -30,7 +30,7 @@ while {true} do
 
 			switch (_class) do
 			{
-				case "Land_PortableGenerator_01_sand_F_AE3": { _handle = [_entity, true] execVM "\z\ae3\addons\main\scripts\TurnOffGeneratorAction.sqf"; };
+				case "Land_PortableGenerator_01_sand_F_AE3": { _handle = [_entity, true] spawn AE3_power_fnc_turnOffGeneratorAction; };
 				default {};
 			};
 		};

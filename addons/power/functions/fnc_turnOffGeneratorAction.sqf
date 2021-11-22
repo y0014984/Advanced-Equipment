@@ -4,7 +4,7 @@ _powerState = _entity getVariable "AE3_powerState";
 
 _turnOffTime = 3;
 
-_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PlayGeneratorStopSound.sqf";
+_handle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
 
 _handle = _entity getVariable "AE3_generatorRunningSoundHandle";
 terminate _handle;

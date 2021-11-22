@@ -1,6 +1,6 @@
 params ["_entity"];
 
-_filename = "z\ae3\addons\main\sounds\GeneratorStopSound.ogg";
+_filename = "z\ae3\addons\power\sounds\GeneratorStopSound.ogg";
 _isInside = false;
 _distance = 100;
 _volume = 5;

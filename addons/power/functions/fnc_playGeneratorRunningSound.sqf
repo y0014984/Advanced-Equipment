@@ -1,6 +1,6 @@
 params ["_entity"];
 
-_filename = "z\ae3\addons\main\sounds\GeneratorRunningSound.ogg";
+_filename = "z\ae3\addons\power\sounds\GeneratorRunningSound.ogg";
 _isInside = false;
 _distance = 100;
 _volume = 5;
