@@ -109,7 +109,7 @@ class CfgVehicles
 						statement = "";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
-						insertChildren = "params ['_target', '_player', '_params']; _routers = nearestObjects [_target, ['Land_Router_01_sand_F_AE3'], 10]; private _actions = []; { private _childStatement = { params ['_target', '_player', '_router']; _handle = [_target, _router] execVM '\z\ae3\addons\main\scripts\ConnectToRouterAction.sqf'; }; private _action = [typeOf _x, typeOf _x, '', _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; _actions pushBack [_action, [], _target]; } forEach (_routers); _actions";
+						insertChildren = "params ['_target', '_player', '_params']; _routers = nearestObjects [_target, ['Land_Router_01_sand_F_AE3'], 10]; private _actions = []; { private _childStatement = { params ['_target', '_player', '_router']; _handle = [_target, _router] spawn AE3_network_fnc_connectToRouterAction; }; private _action = [typeOf _x, typeOf _x, '', _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; _actions pushBack [_action, [], _target]; } forEach (_routers); _actions";
 						//modifierFunction
 						//runOnHover
 						//distance
@@ -122,7 +122,7 @@ class CfgVehicles
 					{
 						displayName = "Disconnect From Router";
 						condition = "(alive _target) and (_target getVariable 'AE3_networkConnectionState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] execVM '\z\ae3\addons\main\scripts\DisconnectFromRouterAction.sqf';";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_network_fnc_disconnectFromRouterAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren

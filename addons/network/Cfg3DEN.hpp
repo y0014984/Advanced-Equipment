@@ -1,0 +1,4 @@
+class Cfg3DEN
+{
+	
+};
