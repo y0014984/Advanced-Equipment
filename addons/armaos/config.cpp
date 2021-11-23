@@ -5,10 +5,10 @@ class CfgPatches
     class ADDON
 	{
         name = QUOTE(COMPONENT);
-        units[] = {};
+        units[] = {"AE3_Filesystem"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main"};
+        requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main", "ae3_main", "ae3_network"};
         author = "y0014984";
         VERSION_CONFIG;
     };
