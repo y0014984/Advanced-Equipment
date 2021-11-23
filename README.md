@@ -35,7 +35,7 @@ Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@ACEX;@AE3`.
 
 ## Known Issues
 
-* This is mod still under development and isn't recommended for for productive use, at this moment.
+* This is mod still under development and isn't recommended for productive use, at this moment.
 
 ## Contact
 
