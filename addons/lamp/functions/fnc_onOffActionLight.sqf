@@ -37,7 +37,7 @@ _action =
 					_light = _args select 1;
 					_mode = _args select 2;
 					
-					_handle = [_target, _light, _mode] execVM "\z\ae3\addons\main\scripts\OnOffLight.sqf";
+					_handle = [_target, _light, _mode] spawn AE3_lamp_fnc_onOffLight;
 					
 					switch (_mode) do
 					{
