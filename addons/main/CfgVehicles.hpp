@@ -60,7 +60,7 @@ class CfgVehicles
 					{
 						displayName = "Einpacken";
 						condition = "(alive _target) and (_target getVariable 'OpenClosedState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target, 1, 0.5] execVM '\z\ae3\addons\main\scripts\OpenCloseTableAction.sqf';";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target, 1, 0.5] spawn AE3_main_fnc_openCloseTableAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
@@ -76,7 +76,7 @@ class CfgVehicles
 					{
 						displayName = "Auspacken";
 						condition = "(alive _target) and (_target getVariable 'OpenClosedState' == 0)";
-						statement = "params ['_target', '_player', '_params'];_handle = [_target, 0, 0.5] execVM '\z\ae3\addons\main\scripts\OpenCloseTableAction.sqf';";
+						statement = "params ['_target', '_player', '_params'];_handle = [_target, 0, 0.5] spawn AE3_main_fnc_openCloseTableAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren

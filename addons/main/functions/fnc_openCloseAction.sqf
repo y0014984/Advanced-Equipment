@@ -33,7 +33,7 @@ _action =
 					
 					_target = _args select 0;
 					_class = _args select 1;
-					_handle = [_target, _class] execVM "\z\ae3\addons\main\scripts\OpenClose.sqf";
+					_handle = [_target, _class] spawn AE3_main_fnc_openClose;
 				},
 				{},
 				(_modeString + " " + _name)

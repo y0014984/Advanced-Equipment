@@ -9,7 +9,7 @@ params ["_object", "_mode", "_totalTime"];
 		_object = _args select 0;
 		_mode = _args select 1;
 		
-		_handle = [_object, _mode] execVM "\z\ae3\addons\main\scripts\OpenCloseTable.sqf";
+		_handle = [_object, _mode] spawn AE3_main_fnc_openCloseTable;
 		
 		switch (_mode) do
 		{

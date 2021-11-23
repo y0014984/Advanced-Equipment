@@ -20,7 +20,7 @@ _action =
 					
 					_target = _args select 0;
 					_axis = _args select 1;
-					_handle = [_target, _axis] execVM "\z\ae3\addons\main\scripts\Rotate.sqf";
+					_handle = [_target, _axis] spawn AE3_main_fnc_rotate;
 				},
 				{},
 				("Drehen" + " " + _name)
