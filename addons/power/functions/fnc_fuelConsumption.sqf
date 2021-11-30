@@ -1,42 +1,40 @@
-params ["_entity"];
+/**
+ * Calculates and sets the new fuel level for a fuel based generator.
+ * 
+ * Arguments:
+ * 0: Generator Object <OBJECT>
+ *
+ * Returns:
+ * 0: Power state <BOOL>
+ * 1: Power output <FLOAT>
+ */
 
-_class = typeOf _entity;
+params ["_generator"];
 
-_fuelConsumption = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_fuelConsumption");
-_fuelCapacity = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_fuelCapacity");
+private _class = typeOf _generator;
 
-_fuelLevelPercent = _entity getVariable ["AE3_GeneratorFuelLevelPercent",  [configfile >> 'CfgVehicles' >> typeOf _entity, "ae3_power_defaultFuelLevel", -1] call BIS_fnc_returnConfigEntry];
+private _fuelConsumption = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_fuelConsumption");
+private _fuelCapacity = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_fuelCapacity");
 
-_entity setFuel (_fuelLevelPercent);
-_entity setVariable ["AE3_fuelLevel", _fuelCapacity * _fuelLevelPercent, true];
+private _fuelLevelPercent = fuel _generator;
+private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
 
-while {true} do
+private _fuelLevel = _generator getVariable ["AE3_fuelLevel", 0];
+private _newFuelLevel = _fuelLevel - (_fuelConsumption / 3600);
+private _newFuelLevelPercent = (_newFuelLevel / _fuelCapacity);
+
+if (_newFuelLevel < 0) then
 {
-	_powerState = _entity getVariable ["AE3_powerState", 0];
-
-	_fuelLevelPercent = fuel _entity;
-	_entity setVariable ["AE3_fuelLevel", _fuelCapacity * _fuelLevelPercent, true];
-
-	if (_powerState == 1) then
-	{
-		_fuelLevel = _entity getVariable "AE3_fuelLevel";
-		_newFuelLevel = _fuelLevel - (_fuelConsumption / 3600);
-		_newFuelLevelPercent = (_newFuelLevel / _fuelCapacity);
-
-		if (_newFuelLevel < 0) then
-		{
-			_newFuelLevel = 0;
-			_newFuelLevelPercent = 0;
-
-			switch (_class) do
-			{
-				case "Land_PortableGenerator_01_sand_F_AE3": { _handle = [_entity, true] spawn AE3_power_fnc_turnOffGeneratorAction; };
-				default {};
-			};
-		};
-
-		_entity setFuel (_newFuelLevelPercent);
-	};
-
-	sleep 1;
+	_newFuelLevel = 0;
+	_newFuelLevelPercent = 0;
 };
+
+_generator setFuel (_newFuelLevelPercent);
+_generator setVariable["AE3_fuelLevel", _newFuelLevel];
+
+if(_newFuelLevel > 0) exitWith 
+{
+	[true, 400];
+};
+
+[false, 0];

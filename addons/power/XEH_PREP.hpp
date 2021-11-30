@@ -8,6 +8,7 @@ PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
 
 /* Sys */
+PREP(generatorHandler);
 PREP(fuelConsumption);
 PREP(powerConsumption);
 

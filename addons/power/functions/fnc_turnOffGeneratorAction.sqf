@@ -1,3 +1,13 @@
+/*
+ * Turns off the generator.
+ *
+ * Arguments:
+ * 0: Generator <OBJECT>
+ * 1: If the ace progress bar is shown <BOOL>
+ * 
+ * Return:
+ * None
+*/
 params ["_entity", "_silent"];
 
 _powerState = _entity getVariable "AE3_powerState";
@@ -33,3 +43,6 @@ else
 		("Turn Off")
 	] call ace_common_fnc_progressBar;
 };
+
+_genHandle = _entity getVariable 'AE3_generatorHandle';
+[_genHandle] call CBA_fnc_removePerFrameHandler;
