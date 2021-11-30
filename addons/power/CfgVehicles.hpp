@@ -54,6 +54,10 @@ class CfgVehicles
 		fuelConsumptionRate = 0.01;
 		textureList[] = {"Sand",1};
 
+		soundEngine[] = {"z\ae3\addons\power\sounds\GeneratorRunningSound.ogg", 5, 1};
+		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorStartSound.ogg", 5, 1};
+		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorStopSound.ogg", 5, 1};
+
 		class TextureSources
 		{
 			class Black
