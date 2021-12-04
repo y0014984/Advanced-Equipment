@@ -5,7 +5,7 @@ class CfgPatches
     class ADDON
 	{
         name = QUOTE(COMPONENT);
-        units[] = {};
+        units[] = {"AE3_Filesystem"};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main"};
@@ -19,4 +19,5 @@ class CfgPatches
 
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
+#include "CfgFunctions.hpp"
 #include "Cfg3DEN.hpp"

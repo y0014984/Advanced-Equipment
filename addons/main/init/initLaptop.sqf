@@ -14,7 +14,7 @@ _entity setVariable ["AE3_powerConsumptionState", 0, true];
 // object or nil
 _entity setVariable ["AE3_powerCableDevice", nil, true];
 
-_handle = [_entity] spawn AE3_power_fnc_powerConsumption;
+_handle = [_entity] execVM "\z\ae3\addons\main\scripts\PowerConsumption.sqf";
 
 // ===== NETWORK SETTINGS =====
 
