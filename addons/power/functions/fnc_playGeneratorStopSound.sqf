@@ -11,7 +11,7 @@
 
 params ["_entity"];
 
-private _class = typeOf cursorObject;
+private _class = typeOf _entity;
 getArray (configFile >> "CfgVehicles" >> _class >> "soundStopEngine") params ["_filename", "_volume", "_speed"];
 
 if(!isNil "_filename") then
