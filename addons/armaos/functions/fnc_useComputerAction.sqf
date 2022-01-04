@@ -12,9 +12,9 @@ _consoleDialog = findDisplay 15984;
 _consoleOutput = _consoleDialog displayCtrl 1100;
 _consoleInput = _consoleDialog displayCtrl 1200;
 
-_filesystem = _target getVariable [ "AE3_Filesystem", [["/Info.txt", "No Filesystem found!"]] ];
+_filesystem = _target getVariable [ "AE3_filesystem", [["/Info.txt", "No Filesystem found!"]] ];
 
-_pointer = "/";
+_pointer = [];
 
 _availableCommands = ["help", "man", "ls", "cd", "print", "date", "ipconfig", "shutdown", "standby", "history", "logout", "clear", "rm", "mv", "chat"];
 
@@ -33,8 +33,8 @@ _history = _target getVariable ["history", []];
 
 _users = _target getVariable [ "AE3_Userlist", [["topsykrett", "test123"]] ];
 
-_consoleInput setVariable ["filesystem", _filesystem];
-_consoleInput setVariable ["pointer", _pointer];
+_consoleInput setVariable ["AE3_filesystem", _filesystem];
+_consoleInput setVariable ["AE3_filepointer", _pointer];
 _consoleInput setVariable ["availableCommands", _availableCommands];
 _consoleInput setVariable ["activeApplication", _activeApplication];
 _consoleInput setVariable ["users", _users];
@@ -48,7 +48,7 @@ switch (_activeApplication) do
 {
 	case "LOGIN": { _outputText = _outputText + " login: ";};
 	case "PASSWORD": { _outputText = _outputText + " password: ";};
-	case "SHELL": { _outputText = _outputText + _pointer + "> ";};
+	case "SHELL": { _outputText = _outputText + (_pointer joinString "/") + "> ";};
 	case "CHAT": { _outputText = "";};
 };
 

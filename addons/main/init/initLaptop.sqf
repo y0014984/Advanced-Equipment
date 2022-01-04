@@ -1,5 +1,7 @@
 params ["_entity"];
 
+[_entity] call AE3_filesystem_fnc_initFilesystem;
+
 // ===== POWER SETTINGS =====
 
 // 0 = off; 1 = on; 2 = standby

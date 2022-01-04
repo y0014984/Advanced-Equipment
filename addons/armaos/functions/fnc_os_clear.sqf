@@ -20,8 +20,8 @@ switch (true) do
 		//hint "Case 2";
 
 		_outputText = [] call AE3_fnc_headerText;
-		_pointer = _consoleInput getVariable "pointer";
-		_outputText = _outputText + _pointer + "> ";
+		_pointer = _consoleInput getVariable ["AE3_filepointer", []];
+		_outputText = _outputText + (_pointer joinString "/") + "> ";
 
 		ctrlSetText [1100, _outputText];
 

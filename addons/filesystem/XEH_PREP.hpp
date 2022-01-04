@@ -2,4 +2,7 @@
 PREP(moduleFilesystem);
 
 /* Base Functions */
-PREP(init_filesystem);
+PREP(initFilesystem);
+PREP(resolvePntr);
+PREP(chdir);
+PREP(lsdir);
