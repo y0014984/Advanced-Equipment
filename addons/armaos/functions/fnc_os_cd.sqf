@@ -2,13 +2,9 @@ params ["_options", "_consoleInput"];
 
 _options = _options joinString " ";
 
-systemChat _options;
-
 private _result = [_consoleInput getVariable ['AE3_filepointer', []], 
 				_consoleInput getVariable ['AE3_filesystem', createHashMap], 
 				_options] call AE3_filesystem_fnc_chdir;
-
-systemChat str _result;
 
 
 if(_result isEqualType []) exitWith {

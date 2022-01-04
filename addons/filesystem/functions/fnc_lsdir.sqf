@@ -14,8 +14,6 @@ params['_pntr', '_filesystem', '_target'];
 
 private _dir = [_pntr, _filesystem, _target] call AE3_filesystem_fnc_chdir;
 
-systemChat str _dir;
-
 if(_dir isEqualType []) exitWith 
 {
 	_dir params ['_pntr', '_current'];
