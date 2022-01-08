@@ -69,19 +69,12 @@ private _result = {
 
 		if(!(_x in _current)) then 
 		{
-			if(_create) then 
-			{
-				_current set [_x, createHashMap];
-			}else
-			{
-				throw (format ["%1 not found in %2!", _x, _pointer joinString "/"]);
-			};
+			if(!_create) throw (format ["'%1' not found in '%2'!", _x, "/" + (_pointer joinString "/")]); 
+
+			_current set [_x, createHashMap];
 		};
 
-		if(typeName (_current get _x) != "HASHMAP") exitWith
-		{
-			throw (format ["%1 is not a directory!", _x]);
-		};
+		if(typeName (_current get _x) != "HASHMAP") throw (format ["'%1' is not a directory!", _x]);
 
 		_current = _current get _x;
 		_pointer pushBack _x;
