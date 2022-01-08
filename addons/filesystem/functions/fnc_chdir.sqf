@@ -5,13 +5,14 @@
  * 1: Pointer <[STRING]>
  * 2: Filesystem <HASHMAP>
  * 3: Raw path to target directory <STRING>
+ * 4: Creates a directory if it is not found <BOOL> (Optional)
  *
  * Results:
  * 0: Absolute path to target dir <[STRING]>
  * 1: Target dir <HASHMAP>
  */
 
-params['_pntr', '_filesystem', '_target'];
+params['_pntr', '_filesystem', '_target', ['_create', false]];
 
 private _path = _target splitString "/";
 private _pointer = +_pntr;
@@ -30,8 +31,8 @@ if (_target find "/" == 0) then
 if (count _path == 0) exitWith {[_pointer, _current]};
 
 private _result = {
-	_iteration = [_pointer, _current, _filesystem] call {
-		params['_pointer', '_current', '_filesystem'];
+	_iteration = [_pointer, _current, _filesystem, _create] call {
+		params['_pointer', '_current', '_filesystem', '_create'];
 
 		if (_x isEqualTo ".") exitWith
 		{
@@ -66,9 +67,15 @@ private _result = {
 			[_current, _pointer];
 		};
 
-		if(!(_x in _current)) exitWith 
+		if(!(_x in _current)) then 
 		{
-			throw (format ["%1 not found in %2!", _x, _pointer joinString "/"]);
+			if(_create) then 
+			{
+				_current set [_x, createHashMap];
+			}else
+			{
+				throw (format ["%1 not found in %2!", _x, _pointer joinString "/"]);
+			};
 		};
 
 		if(typeName (_current get _x) != "HASHMAP") exitWith
