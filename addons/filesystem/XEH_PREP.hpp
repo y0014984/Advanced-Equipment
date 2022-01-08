@@ -8,3 +8,4 @@ PREP(chdir);
 PREP(lsdir);
 PREP(createDir);
 PREP(createFile);
+PREP(getFile);
