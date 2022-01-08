@@ -20,7 +20,7 @@ if(_dir isEqualType []) exitWith
 
 	_result = [];
 	{
-		if(typeName _y != "HASHMAP") then 
+		if(typeName _y isEqualTo "HASHMAP") then 
 		{
 			_result pushBack (_x + "/");
 		}else
