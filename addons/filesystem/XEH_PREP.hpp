@@ -11,3 +11,4 @@ PREP(createDir);
 PREP(createFile);
 PREP(getFile);
 PREP(mvObj);
+PREP(delObj);
