@@ -51,11 +51,11 @@ class CfgVehicles
 			{
 				property = "AE3_ModuleFilesystem_Path";
 				displayName = "Path";
-				tooltip = "Path and Name of Filesystem Object, for example /users/y0014984/Desktop/passwords.txt";
+				tooltip = "Path and Name of Filesystem Object, for example /home/y0014984/Desktop/passwords.txt";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/users/y0014984/Desktop/passwords1.txt""";
+				defaultValue = """/home/y0014984/Desktop/passwords1.txt""";
 			};
 			class AE3_ModuleFilesystem_FileContent: Edit
 			{
@@ -75,7 +75,7 @@ class CfgVehicles
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """""";
+				defaultValue = """root""";
 			};
 			
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
