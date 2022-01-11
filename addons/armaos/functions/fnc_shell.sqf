@@ -30,7 +30,7 @@ switch (_command) do
 };
 
 _result = [" "] + _result + [" "];
-_pointer = _consoleInput getVariable "pointer";
+_pointer = _consoleInput getVariable ["AE3_filepointer", []];
 
 _outputText = ctrlText 1100;
 _outputArray = _outputText splitString endl;
@@ -40,7 +40,7 @@ _outputArray resize ((count _outputArray) - 1);
 _outputArray append [_prompt + _inputText];
 
 _outputArray append _result;
-_outputArray append [_pointer + "> "];
+_outputArray append ["/" + (_pointer joinString "/") + "> "];
 
 if (_command isEqualTo "clear") then
 {

@@ -1,5 +1,4 @@
 /* Module Functions */
-PREP(moduleFilesystem);
 PREP(moduleUserlist);
 
 /* Base Functions */
