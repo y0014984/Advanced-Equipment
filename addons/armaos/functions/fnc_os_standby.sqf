@@ -1,30 +1,9 @@
-params ["_options", "_consoleInput"];
+params ["_computer", "_options"];
 
-_computer = _consoleInput getVariable "computer";
+if (count _options >= 1) exitWith {["   Command: standby has no options"];};
 
-_result = [];
+private _handle = [_computer, false] spawn AE3_armaos_fnc_standbyComputerAction;
 
-_optionsCount = count _options;
-
-scopeName "main";
-
-switch (true) do
-{
-	case (_optionsCount >= 1):
-	{
-		//hint "Case 1";
-		
-		_result = ["   Command: standby has no options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 0):
-	{
-		//hint "Case 2";
-
-		_handle = [_computer, false] spawn AE3_armaos_fnc_standbyComputerAction;
-
-		_result = ["   Command: standby "];
-	};
-};
+private _result = ["   Command: standby"];
 
 _result;

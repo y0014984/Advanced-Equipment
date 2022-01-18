@@ -1,7 +1,7 @@
-params ["_options", "_consoleInput"];
+params ["_computer", "_options"];
 
-private _pointer = _consoleInput getVariable "AE3_filepointer";
-private _filesystem = _consoleInput getVariable "AE3_filesystem";
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
 if (count _options > 2) exitWith {["   Command: mv - too many options"];};
 

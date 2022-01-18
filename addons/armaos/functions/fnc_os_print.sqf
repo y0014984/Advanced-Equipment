@@ -1,13 +1,9 @@
-params ["_options", "_consoleInput"];
+params ["_computer", "_options"];
 
-private _pointer = _consoleInput getVariable "AE3_filepointer";
-private _filesystem = _consoleInput getVariable "AE3_filesystem";
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
-
-if(count _options == 0) exitWith
-{
-	["   Command: print - too few options"];
-};
+if(count _options == 0) exitWith {["   Command: print - too few options"];};
 
 private _result = ["   Command: print "];
 private _path = _options select 0;

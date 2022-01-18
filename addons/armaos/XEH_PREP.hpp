@@ -3,7 +3,8 @@ PREP(moduleUserlist);
 
 /* Base Functions */
 PREP(login);
-PREP(shell);
+PREP(shell_process);
+PREP(shell_getAvailableCommands);
 PREP(headerText);
 
 PREP(playComputerStartSound);
@@ -33,3 +34,18 @@ PREP(os_print);
 PREP(os_rm);
 PREP(os_shutdown);
 PREP(os_standby);
+PREP(os_standby);
+
+/* Terminal Functions */
+PREP(terminal_init);
+PREP(terminal_addEventHandler);
+PREP(terminal_addChar);
+PREP(terminal_addLines);
+PREP(terminal_removeChar);
+PREP(terminal_addHeader);
+PREP(terminal_setPrompt);
+PREP(terminal_updateOutput);
+PREP(terminal_getAllowedKeysGerman);
+PREP(terminal_updateBufferVisable);
+PREP(terminal_updatePromptPointer);
+PREP(terminal_addToHistory);

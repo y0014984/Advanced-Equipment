@@ -14,9 +14,6 @@ class CfgPatches
     };
 };
 
-#include "defines.hpp"
-#include "dialog.hpp"
-
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
 #include "Cfg3DEN.hpp"
