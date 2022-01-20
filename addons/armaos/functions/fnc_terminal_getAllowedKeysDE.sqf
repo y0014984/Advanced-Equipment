@@ -1,4 +1,13 @@
-// https://community.bistudio.com/wiki/DIK_KeyCodes
+/**
+ * Creates and returns a hashmap for DE keyboard layout.
+ *
+ * Arguments:
+ * None
+ *
+ * Results:
+ * Keyboard Layout <HASHMAP>
+ */
+
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
 private _allowedKeys = createHashMapFromArray 

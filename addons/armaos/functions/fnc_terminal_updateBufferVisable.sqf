@@ -1,3 +1,13 @@
+/**
+ * Updates/sets the visable buffer variable in the terminal settings of a given computer by cropping the full terminal buffer to the visable size.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer"];
 
 private _terminal = _computer getVariable "AE3_terminal";
@@ -10,8 +20,6 @@ private _lastBufferLineIndex = _terminalBufferLength - 1;
 
 // + to preserve reference and force copy
 private _terminalBufferVisable = +_terminalBuffer;
-
-//hint format ["BUFFER: \n ***%1*** \n\n BUFFER VISABLE: \n ***%2***", _terminalBuffer, _terminalBufferVisable];
 
 if (_terminalBufferLength > _terminalMaxRows) then
 {

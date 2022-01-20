@@ -1,3 +1,14 @@
+/**
+ * Processes the given command for a given computer. Calls the according functions and updates the terminal output.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Command <STRING>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_commandString"];
 
 private _commandElements = _commandString splitString " ";

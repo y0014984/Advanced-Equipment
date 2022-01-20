@@ -1,3 +1,15 @@
+/**
+ * Adds multiple lines to the output buffer stored in terminal settings of a given computer.
+ * Long lines will be split into multiple lines according to maximum allowed length of lines in the given terminal.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Command <[STRING]>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_outputLines"];
 
 private _terminal = _computer getVariable "AE3_terminal";

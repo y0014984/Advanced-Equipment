@@ -1,3 +1,15 @@
+/**
+ * Switches the used keyboard layout for terminal inputs by cycling through the given layouts. Active layout is written to the button text.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Keyboard Layout UI Button <CONTROL>
+ * 3: UI Text Field <CONTROL>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_languageButton", "_consoleOutput"];
 
 private _terminal = _computer getVariable "AE3_terminal";

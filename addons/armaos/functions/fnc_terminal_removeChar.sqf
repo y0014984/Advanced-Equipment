@@ -1,3 +1,13 @@
+/**
+ * Removes the last character of the last line in the terminal buffer stored in the terminal settings of a given computer.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer"];
 
 private _terminal = _computer getVariable "AE3_terminal";

@@ -1,4 +1,13 @@
-// Useful when working with custom shortcuts. Contains defines for key codes.
+/**
+ * Initializes the terminal of a given computer by showing the terminal window, initializing terminal settings and adding event handlers.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ *
+ * Results:
+ * None
+ */
+
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
 params ["_computer"];
@@ -39,7 +48,7 @@ _consoleInput setVariable ["ip", _ip];
 _consoleInput setVariable ["computer", _computer];
 _consoleInput setVariable ["history", _history];
 
-private _outputText = [] call AE3_armaos_fnc_headerText;
+private _outputText = [] call AE3_armaos_fnc_terminal_getHeaderText;
 
 switch (_activeApplication) do
 {

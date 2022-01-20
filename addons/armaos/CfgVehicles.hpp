@@ -42,7 +42,7 @@ class CfgVehicles
 					{
 						displayName = "Use Computer";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_useComputerAction;";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_computer_processActionUse;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
@@ -138,7 +138,7 @@ class CfgVehicles
 					{
 						displayName = "Turn On";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_turnOnComputerAction;";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_computer_addActionTurnOn;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
@@ -154,7 +154,7 @@ class CfgVehicles
 					{
 						displayName = "Turn Off";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 0)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target, false] spawn AE3_armaos_fnc_turnOffComputerAction;";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target, false] spawn AE3_armaos_fnc_computer_addActionTurnOff;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
@@ -170,7 +170,7 @@ class CfgVehicles
 					{
 						displayName = "Standby";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_standbyComputerAction;";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_computer_addActionStandby;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren

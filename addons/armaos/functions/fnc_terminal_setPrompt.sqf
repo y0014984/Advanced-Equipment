@@ -1,3 +1,14 @@
+/**
+ * Uses the active prompt, stored in the prompt variable to change the last line of the terminal buffer accordingly, 
+ * all stored in the terminal settings of a given computer.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer"];
 
 private _terminal = _computer getVariable "AE3_terminal";

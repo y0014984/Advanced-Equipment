@@ -1,3 +1,14 @@
+/**
+ * Removes/deletes a given file on a given computer. Returns informations about the success of the command.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: File <[STRING]>
+ *
+ * Results:
+ * 1: Informations <[STRING]>
+ */
+
 params ["_computer", "_options"];
 
 private _pointer = _computer getVariable "AE3_filepointer";

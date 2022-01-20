@@ -5,18 +5,16 @@ PREP(moduleUserlist);
 PREP(login);
 PREP(shell_process);
 PREP(shell_getAvailableCommands);
-PREP(headerText);
 
-PREP(playComputerStartSound);
-PREP(playComputerStopSound);
-PREP(playComputerStandbySound);
+PREP(computer_playSoundStart);
+PREP(computer_playSoundStop);
+PREP(computer_playSoundStandby);
 
-PREP(standbyComputerAction);
+PREP(computer_addActionStandby);
+PREP(computer_addActionTurnOn);
+PREP(computer_addActionTurnOff);
 
-PREP(turnOnComputerAction);
-PREP(turnOffComputerAction);
-
-PREP(useComputerAction);
+PREP(computer_processActionUse);
 
 /* OS Internal Functions */
 PREP(os_cd);
@@ -47,6 +45,7 @@ PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);
 PREP(terminal_getAllowedKeysDE);
 PREP(terminal_getAllowedKeysUS);
+PREP(terminal_getHeaderText);
 PREP(terminal_updateBufferVisable);
 PREP(terminal_updatePromptPointer);
 PREP(terminal_addToHistory);

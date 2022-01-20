@@ -1,4 +1,14 @@
-// https://community.bistudio.com/wiki/DIK_KeyCodes
+/**
+ * Adds event handler to the user interface elements of a terminal.
+ *
+ * Arguments:
+ * 1: UI Text Field <CONTROL>
+ * 2: Keyboard Layout UI Button <CONTROL>
+ *
+ * Results:
+ * None
+ */
+
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
 params ["_terminalCtrl", "_languageButtonCtrl"];
@@ -10,8 +20,6 @@ private _result = _terminalCtrl ctrlAddEventHandler
 	"KeyDown", 
 	{
 		params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];
-
-		//hint format ["OUTPUT CONTROL KEY: %1 \n SHIFT: %2 \n CTRL: %3 \n ALT: %4", _key call BIS_fnc_keyCode, _shift, _ctrl, _alt];
 
 		private _computer = _displayorcontrol getVariable "AE3_computer";
 		private _terminal = _computer getVariable "AE3_terminal";
@@ -64,8 +72,6 @@ private _result = _terminalCtrl ctrlAddEventHandler
 						private _lastBufferLine = _terminalBuffer # (_lastBufferLineIndex);
 
 						private _commandString = _lastBufferLine select [(count _terminalPrompt), (count _lastBufferLine)];
-
-						hint format ["LAST BUFFER LINE: %1 \n\n PROMPT: %2 \n\n COMMAND: %3", _lastBufferLine, _terminalPrompt, _commandString];
 
 						private _result = [_computer, _commandString] call AE3_armaos_fnc_shell_process;
 					};

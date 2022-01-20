@@ -1,3 +1,14 @@
+/**
+ * Adds a single character to the output buffer stored in the terminal settings of a given computer.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Character <STRING>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_inputChar"];
 
 private _terminal = _computer getVariable "AE3_terminal";
@@ -5,8 +16,6 @@ private _terminal = _computer getVariable "AE3_terminal";
 private _terminalBuffer = _terminal get "AE3_terminalBuffer";
 private _terminalCursorPosition = _terminal get "AE3_terminalCursorPosition";
 private _terminalMaxColumns = _terminal get "AE3_terminalMaxColumns";
-
-hint format ["TERMINAL BUFFER: %1", _terminalBuffer];
 
 private _lastBufferLineIndex = (count _terminalBuffer) - 1;
 private _lastBufferLine = "";
@@ -26,8 +35,6 @@ if ((count _lastBufferLine) < _terminalMaxColumns) then
 if (_lastBufferLineIndex == -1) then { _lastBufferLineIndex = 0; };
 
 _terminalBuffer set [_lastBufferLineIndex, _lastBufferLine];
-
-hint format ["TERMINAL BUFFER: %1", _terminalBuffer];
 
 _terminal set ["AE3_terminalBuffer", _terminalBuffer];
 _terminal set ["AE3_terminalCursorPosition", _terminalCursorPosition];
