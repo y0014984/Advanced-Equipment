@@ -1,11 +1,13 @@
 /* Module Functions */
 PREP(moduleUserlist);
 
-/* Base Functions */
-PREP(login);
+/* Shell Functions */
 PREP(shell_process);
 PREP(shell_getAvailableCommands);
+PREP(shell_findLoginUser);
+PREP(shell_validatePassword);
 
+/* Computer Functions */
 PREP(computer_playSoundStart);
 PREP(computer_playSoundStop);
 PREP(computer_playSoundStandby);
@@ -38,8 +40,10 @@ PREP(os_standby);
 PREP(terminal_init);
 PREP(terminal_addEventHandler);
 PREP(terminal_addChar);
+PREP(terminal_addCharToPassword);
 PREP(terminal_addLines);
 PREP(terminal_removeChar);
+PREP(terminal_removeCharFromPassword);
 PREP(terminal_addHeader);
 PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);

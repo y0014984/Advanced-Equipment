@@ -1,33 +1,31 @@
-params ["_options", "_consoleInput"];
+/**
+ * Logs out the current user, so users need to login again.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Options <[STRING]>
+ *
+ * Results:
+ * 1: Informations <[STRING]>
+ */
 
-_result = [];
+params ["_computer", "_options"];
 
-_optionsCount = count _options;
+if (count _options >= 1) exitWith {["   Command: logout has no options"];};
 
-scopeName "main";
+private _terminal = _computer getVariable "AE3_terminal";
 
-switch (true) do
-{
-	case (_optionsCount >= 1):
-	{
-		//hint "Case 1";
-		
-		_result = ["   Command: logout has no options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 0):
-	{
-		//hint "Case 2";
+_terminal deleteAt "AE3_terminalLoginUser";
+_terminal deleteAt "AE3_terminalPasswordBuffer";
 
-		_computer = _consoleInput getVariable "computer";
+_terminal set ["AE3_terminalApplication", "LOGIN"];
+_terminal set ["AE3_terminalPrompt", "LOGIN>"];
+_terminal set ["AE3_terminalBuffer", []];
+_terminal set ["AE3_terminalCursorLine", 0];
+_terminal set ["AE3_terminalCursorPosition", 0];
 
-		_computer setVariable ["activeUser", nil];
-		_consoleInput setVariable ["activeApplication", "LOGIN"];
+[_computer] call AE3_armaos_fnc_terminal_addHeader;
 
-		_outputArray = _outputText splitString endl;
-
-		_result = ["   Command: logout"];
-	};
-};
+private _result = [];
 
 _result;

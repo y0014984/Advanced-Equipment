@@ -48,8 +48,15 @@ _result = _result + [""];
 
 [_computer, _result] call AE3_armaos_fnc_terminal_addLines;
 
-[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+private _terminal = _computer getVariable "AE3_terminal";
+
+private _terminalApplication = _terminal get "AE3_terminalApplication";
+
+if (_terminalApplication == "SHELL") then 
+{
+	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+};
 
 [_computer] call AE3_armaos_fnc_terminal_setPrompt;
 
-[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
+//[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;

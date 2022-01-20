@@ -23,41 +23,11 @@ private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
 
 /*
-private _consoleInput = _consoleDialog displayCtrl 1200;
-
 private _handle = [_computer] spawn AE3_power_fnc_showBatteryLevel;
-
-private _activeUser = _computer getVariable ["activeUser", nil];
-private _passwordCorrect = _computer getVariable ["passwordCorrect", false];
-
-private _activeApplication = "LOGIN";
-if (!isNil "_activeUser" && _passwordCorrect) then
-{
-	_activeApplication = "SHELL";
-};
 
 private _ip = _computer getVariable ["AE3_ipAddress", "127.0.0.1"];
 
-private _history = _computer getVariable ["history", []];
-
-private _users = _computer getVariable [ "AE3_Userlist", [["topsykrett", "test123"]] ];
-
-_consoleInput setVariable ["activeApplication", _activeApplication];
-_consoleInput setVariable ["users", _users];
 _consoleInput setVariable ["ip", _ip];
-_consoleInput setVariable ["computer", _computer];
-_consoleInput setVariable ["history", _history];
-
-private _outputText = [] call AE3_armaos_fnc_terminal_getHeaderText;
-
-switch (_activeApplication) do
-{
-	case "LOGIN": { _outputText = _outputText + " login: ";};
-	case "PASSWORD": { _outputText = _outputText + " password: ";};
-	case "SHELL": { _outputText = _outputText + (_pointer joinString "/") + "> ";};
-	case "CHAT": { _outputText = "";};
-};
-
 */
 
 private _filesystem = _computer getVariable [ "AE3_filesystem", [["/Info.txt", "No Filesystem found!"]] ];
@@ -73,7 +43,7 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalCommandHistory", []],
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],
-		["AE3_terminalApplication", "SHELL"],
+		["AE3_terminalApplication", "LOGIN"],
 		["AE3_terminalMaxRows", 21],
 		["AE3_terminalMaxColumns", 68],
 		["AE3_terminalKeyboardLayout", "US"]
@@ -94,7 +64,16 @@ _terminalBuffer = _terminal get "AE3_terminalBuffer";
 if (_terminalBuffer isEqualTo []) then
 {
 	[_computer] call AE3_armaos_fnc_terminal_addHeader;
-	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+	
+	private _terminalApplication = _terminal get "AE3_terminalApplication";
+	if (_terminalApplication == "LOGIN") then
+	{
+		_terminal set ["AE3_terminalPrompt", "LOGIN>"];
+	}
+	else 
+	{
+		[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+	};
 	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
 };
 

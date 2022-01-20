@@ -13,7 +13,7 @@ params ["_computer", "_options"];
 
 private _availableCommands = [] call AE3_armaos_fnc_shell_getAvailableCommands;
 
-_result = [];
+private _result = [];
 
 if (count _options > 1) exitWith {["   Command: mv - too many options"];};
 if (count _options < 1) exitWith {["   Command: rm - too few options"];};

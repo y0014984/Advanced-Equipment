@@ -21,7 +21,7 @@ if (count _options < 2) exitWith {["   Command: rm - too few options"];};
 
 _options params ['_oldPath', '_newPath'];
 
-_result = ["   Command: mv " + _oldPath + " " + _newPath];
+private _result = ["   Command: mv " + _oldPath + " " + _newPath];
 
 try
 {
