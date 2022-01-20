@@ -1,7 +1,7 @@
 // https://community.bistudio.com/wiki/DIK_KeyCodes
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
-params ["_terminalCtrl"];
+params ["_terminalCtrl", "_languageButtonCtrl"];
 
 /* ---------------------------------------- */
 
@@ -25,10 +25,15 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		// if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 		// perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 		private _allowedKeys = createHashMap;
+		/*
 		if (_localGameLanguage == "German") then
 		{
 			_allowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysGerman;
 		};
+		*/
+		private _terminalKeyboardLayout = _terminal get "AE3_terminalKeyboardLayout";
+		if (_terminalKeyboardLayout == "DE") then { _allowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
+		if (_terminalKeyboardLayout == "US") then { _allowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
 
 		private _keyCombination = format ["%1-%2-%3-%4", _key, _shift, _ctrl, _alt];
 
@@ -72,5 +77,18 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		true // Intercepts the default action, eg. pressing escape won't close the dialog.
 	}
 ];
+
+/* ---------------------------------------- */
+
+_languageButtonCtrl buttonSetAction
+	"
+		private _consoleDialog = findDisplay 15984;
+		private _consoleOutput = _consoleDialog displayCtrl 1100;
+		private _languageButton = _consoleDialog displayCtrl 1310;
+
+		private _computer = _consoleOutput getVariable 'AE3_computer';
+
+		[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
+	";
 
 /* ---------------------------------------- */

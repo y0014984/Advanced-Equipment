@@ -11,6 +11,7 @@ if (!dialog) then
 
 private _consoleDialog = findDisplay 15984;	
 private _consoleOutput = _consoleDialog displayCtrl 1100;
+private _languageButton = _consoleDialog displayCtrl 1310;
 
 /*
 private _consoleInput = _consoleDialog displayCtrl 1200;
@@ -65,7 +66,8 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "SHELL"],
 		["AE3_terminalMaxRows", 21],
-		["AE3_terminalMaxColumns", 68]
+		["AE3_terminalMaxColumns", 68],
+		["AE3_terminalKeyboardLayout", "US"]
 	];
 
 if (isNil { _computer getVariable "AE3_terminal" }) then 
@@ -76,7 +78,7 @@ if (isNil { _computer getVariable "AE3_terminal" }) then
 // Only nessecary to allow Event Handlers the access to _computer
 _consoleOutput setVariable ["AE3_computer", _computer];
 
-[_consoleOutput] call AE3_armaos_fnc_terminal_addEventHandler;
+[_consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
 _terminal = _computer getVariable "AE3_terminal";
 _terminalBuffer = _terminal get "AE3_terminalBuffer";
@@ -86,5 +88,7 @@ if (_terminalBuffer isEqualTo []) then
 	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
 };
+
+[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
