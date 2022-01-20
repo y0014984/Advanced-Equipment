@@ -49,17 +49,27 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalKeyboardLayout", "US"]
 	];
 
+// Only nessecary to allow Event Handlers the access to _computer
+_consoleOutput setVariable ["AE3_computer", _computer];
+
 if (isNil { _computer getVariable "AE3_terminal" }) then 
 {
 	_computer setVariable ["AE3_terminal", _terminal];
 };
+_terminal = _computer getVariable "AE3_terminal";
 
-// Only nessecary to allow Event Handlers the access to _computer
-_consoleOutput setVariable ["AE3_computer", _computer];
+private _localGameLanguage = language;
+// we can determine the language of arma 3 but not the language of the keyboard layout
+// if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
+// perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
+private _terminalAllowedKeys = createHashMap;
+private _terminalKeyboardLayout = _terminal get "AE3_terminalKeyboardLayout";
+if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
+if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
+_terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 
 [_consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
-_terminal = _computer getVariable "AE3_terminal";
 _terminalBuffer = _terminal get "AE3_terminalBuffer";
 if (_terminalBuffer isEqualTo []) then
 {

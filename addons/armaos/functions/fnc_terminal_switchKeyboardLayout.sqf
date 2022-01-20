@@ -26,7 +26,14 @@ if ((count _availableLanguages) > (_actualLanguageIndex + 1)) then
 	_newLanguageIndex = _actualLanguageIndex + 1;
 };
 
-_terminal set ["AE3_terminalKeyboardLayout", _availableLanguages select _newLanguageIndex];
+_terminalKeyboardLayout = _availableLanguages select _newLanguageIndex;
+
+_terminal set ["AE3_terminalKeyboardLayout", _terminalKeyboardLayout];
+
+private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
+if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
+if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
+_terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 
 _languageButton ctrlSetText "KEYBOARD " + (_availableLanguages select _newLanguageIndex);
 ctrlSetFocus _consoleOutput;

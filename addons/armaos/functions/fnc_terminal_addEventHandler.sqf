@@ -24,28 +24,13 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		private _computer = _displayorcontrol getVariable "AE3_computer";
 		private _terminal = _computer getVariable "AE3_terminal";
 		private _terminalApplication = _terminal get "AE3_terminalApplication";
-
-		private _localGameLanguage = language;
-
-		// we can determine the language of arma 3 but not the language of the keyboard layout
-		// if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
-		// perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
-		private _allowedKeys = createHashMap;
-		/*
-		if (_localGameLanguage == "German") then
-		{
-			_allowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysGerman;
-		};
-		*/
-		private _terminalKeyboardLayout = _terminal get "AE3_terminalKeyboardLayout";
-		if (_terminalKeyboardLayout == "DE") then { _allowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
-		if (_terminalKeyboardLayout == "US") then { _allowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
+		private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
 
 		private _keyCombination = format ["%1-%2-%3-%4", _key, _shift, _ctrl, _alt];
 
-		if (_keyCombination in _allowedKeys) then
+		if (_keyCombination in _terminalAllowedKeys) then
 		{
-			private _keyChar = _allowedKeys get _keyCombination;
+			private _keyChar = _terminalAllowedKeys get _keyCombination;
 
 			switch (_terminalApplication) do
 			{
