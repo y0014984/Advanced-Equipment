@@ -22,8 +22,6 @@ _terminal set ["AE3_terminalBuffer", []];
 _terminal set ["AE3_terminalCursorLine", 0];
 _terminal set ["AE3_terminalCursorPosition", 0];
 
-_computer setVariable ["AE3_terminal", _terminal];
-
 _result = [];
 
 _result;
