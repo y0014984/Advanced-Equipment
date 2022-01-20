@@ -36,5 +36,3 @@ _lastBufferVisableLine = _lastBufferVisableLine + "¶";
 _terminalBufferVisable set [_lastBufferVisableLineIndex, _lastBufferVisableLine];
 
 _terminal set ["AE3_terminalBufferVisable", _terminalBufferVisable];
-
-_computer setVariable ["AE3_terminal", _terminal];

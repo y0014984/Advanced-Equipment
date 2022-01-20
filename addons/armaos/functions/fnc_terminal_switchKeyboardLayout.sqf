@@ -30,5 +30,3 @@ _terminal set ["AE3_terminalKeyboardLayout", _availableLanguages select _newLang
 
 _languageButton ctrlSetText "KEYBOARD " + (_availableLanguages select _newLanguageIndex);
 ctrlSetFocus _consoleOutput;
-
-_computer setVariable ["AE3_terminal", _terminal];

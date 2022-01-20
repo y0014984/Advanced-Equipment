@@ -25,8 +25,6 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		private _terminal = _computer getVariable "AE3_terminal";
 		private _terminalApplication = _terminal get "AE3_terminalApplication";
 
-		hint format ["TERMINAL: %1", _terminal];
-
 		private _localGameLanguage = language;
 
 		// we can determine the language of arma 3 but not the language of the keyboard layout
