@@ -40,21 +40,23 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		{
 			private _keyChar = _terminalAllowedKeys get _keyCombination;
 
-			switch (_terminalApplication) do
+			[_terminalApplication, _computer, _keyChar] call
 			{
-				case "LOGIN":
-					{
-						[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
-					};
-				case "PASSWORD":
-					{
-						[_computer, "*"] call AE3_armaos_fnc_terminal_addChar;
-						[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToPassword;
-					};
-				case "SHELL":
-					{
-						[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
-					};
+				params ['_terminalApplication', '_computer', '_keyChar'];
+
+				if (_terminalApplication isEqualTo "LOGIN") exitWith
+				{
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
+				};
+				if (_terminalApplication isEqualTo "PASSWORD") exitWith
+				{
+					[_computer, "*"] call AE3_armaos_fnc_terminal_addChar;
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToPassword;
+				};
+				if (_terminalApplication isEqualTo "SHELL") exitWith
+				{
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
+				};
 			};
 		};
 
@@ -62,21 +64,23 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		if (_key isEqualTo DIK_BACKSPACE) then
 		{
-			switch (_terminalApplication) do
+			[_terminalApplication, _computer] call
 			{
-				case "LOGIN":
-					{
-						[_computer] call AE3_armaos_fnc_terminal_removeChar;
-					};
-				case "PASSWORD":
-					{
-						[_computer] call AE3_armaos_fnc_terminal_removeChar;
-						[_computer] call AE3_armaos_fnc_terminal_removeCharFromPassword;
-					};
-				case "SHELL":
-					{
-						[_computer] call AE3_armaos_fnc_terminal_removeChar;
-					};
+				params ['_terminalApplication', '_computer'];
+
+				if (_terminalApplication isEqualTo "LOGIN") exitWith
+				{
+					[_computer] call AE3_armaos_fnc_terminal_removeChar;
+				};
+				if (_terminalApplication isEqualTo "PASSWORD") exitWith
+				{
+					[_computer] call AE3_armaos_fnc_terminal_removeChar;
+					[_computer] call AE3_armaos_fnc_terminal_removeCharFromPassword;
+				};
+				if (_terminalApplication isEqualTo "SHELL") exitWith
+				{
+					[_computer] call AE3_armaos_fnc_terminal_removeChar;
+				};
 			};
 		};
 
@@ -88,20 +92,22 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 			private _input = _lastBufferLine select [(count _terminalPrompt), (count _lastBufferLine)];
 
-			switch (_terminalApplication) do
+			[_terminalApplication, _computer, _input] call
 			{
-				case "LOGIN":
-					{
-						[_computer, _input] call AE3_armaos_fnc_shell_findLoginUser;
-					};
-				case "PASSWORD":
-					{
-						[_computer] call AE3_armaos_fnc_shell_validatePassword;
-					};
-				case "SHELL":
-					{
-						[_computer, _input] call AE3_armaos_fnc_shell_process;
-					};
+				params ['_terminalApplication', '_computer', '_input'];
+
+				if (_terminalApplication isEqualTo "LOGIN") exitWith
+				{
+					[_computer, _input] call AE3_armaos_fnc_shell_findLoginUser;
+				};
+				if (_terminalApplication isEqualTo "PASSWORD") exitWith
+				{
+					[_computer] call AE3_armaos_fnc_shell_validatePassword;
+				};
+				if (_terminalApplication isEqualTo "SHELL") exitWith
+				{
+					[_computer, _input] call AE3_armaos_fnc_shell_process;
+				};
 			};
 		};
 

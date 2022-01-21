@@ -11,18 +11,20 @@
 
 params ["_computer", "_silent"];
 
-_powerState = _computer getVariable 'AE3_powerState';
+private _powerState = _computer getVariable 'AE3_powerState';
 
-_turnOffTime = 0;
+private _turnOffTime = 0;
 
-switch (_powerState) do
+if (_powerState == 1) then
 {
-	case 1: { _turnOffTime = 15; };
-	case 2: { _turnOffTime = 10; };
-	default {};
+	_turnOffTime = 15;
+}
+else
+{
+	_turnOffTime = 10;
 };
 
-_color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
+private _color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
 
 if (_silent) then 
 {
@@ -40,27 +42,29 @@ else
 		{
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 			
-			_computer = _args select 0;
-			_color = _args select 1;
+			private _computer = _args select 0;
+			private _color = _args select 1;
 
 			_computer setObjectTextureGlobal [1, _color];
 
-			_handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
+			private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
 
 			_computer setVariable ['AE3_powerState', 0, true];
 
-			_computer setVariable ["history", [], true];
+			private _terminal = _computer getVariable "AE3_terminal";
+
+			_terminal set ["AE3_terminalCommandHistory", []];
 		},
 		{},
 		"Shutdown",
 		{
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 
-			_computer = _args select 0;
+			private _computer = _args select 0;
 
-			_shuttingDownTextureIndex = _computer getVariable ["_shuttingDownTextureIndex", -1];
+			private _shuttingDownTextureIndex = _computer getVariable ["_shuttingDownTextureIndex", -1];
 
-			_elapsedTimePercent = _elapsedTime / _totalTime;
+			private _elapsedTimePercent = _elapsedTime / _totalTime;
 
 			switch (true) do
 			{

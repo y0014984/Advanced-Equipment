@@ -8,12 +8,12 @@
  * None
  */
  
- params ["_computer"];
+params ["_computer"];
 
-_filename = "z\ae3\addons\armaos\sounds\ComputerStartSound.ogg";
-_isInside = false;
-_distance = 50;
-_volume = 5;
+private _filename = "z\ae3\addons\armaos\sounds\ComputerStartSound.ogg";
+private _isInside = false;
+private _distance = 50;
+private _volume = 5;
 
 playSound3D [_filename, _computer, _isInside, getPos _computer, _volume, 1, _distance, 0];
 sleep 5;

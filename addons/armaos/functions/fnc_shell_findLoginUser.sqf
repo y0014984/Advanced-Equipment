@@ -13,7 +13,7 @@ params ["_computer", "_username"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
-private _users = _computer getVariable [ "AE3_Userlist", [["topsykrett", "test123"]] ];
+private _users = _computer getVariable "AE3_Userlist";
 
 private _result = [];
 

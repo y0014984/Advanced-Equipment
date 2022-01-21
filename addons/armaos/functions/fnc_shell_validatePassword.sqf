@@ -16,7 +16,7 @@ private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 private _password = _terminal get "AE3_terminalPasswordBuffer";
 
-private _users = _computer getVariable [ "AE3_Userlist", [["topsykrett", "test123"]] ];
+private _users = _computer getVariable "AE3_Userlist";
 
 private _userIndex = _users find [_username, _password];
 

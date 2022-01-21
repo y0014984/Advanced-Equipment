@@ -10,19 +10,21 @@
 
 params ["_computer"];
 
-_batteryLevel = _computer getVariable "AE3_batteryLevel";
+private _batteryLevel = _computer getVariable "AE3_batteryLevel";
 
 if (_batteryLevel > 0) then
 {
-	_powerState = _computer getVariable 'AE3_powerState';
+	private _powerState = _computer getVariable 'AE3_powerState';
 
-	_turnOnTime = 0;
+	private _turnOnTime = 0;
 
-	switch (_powerState) do
+	if (_powerState == 0) then
 	{
-		case 0: { _turnOnTime = 15; };
-		case 2: { _turnOnTime = 3; };
-		default {};
+		_turnOnTime = 15;
+	}
+	else
+	{
+		_turnOnTime = 3;
 	};
 
 	_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Booting_0.paa"];
@@ -34,11 +36,11 @@ if (_batteryLevel > 0) then
 		{
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 			
-			_computer = _args select 0;
+			private _computer = _args select 0;
 
 			_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_On.paa"];
 
-			_handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStart;
+			private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStart;
 
 			_computer setVariable ['AE3_powerState', 1, true];
 
@@ -48,11 +50,11 @@ if (_batteryLevel > 0) then
 		{
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 
-			_computer = _args select 0;
+			private _computer = _args select 0;
 
-			_bootingTextureIndex = _computer getVariable ["_bootingTextureIndex", -1];
+			private _bootingTextureIndex = _computer getVariable ["_bootingTextureIndex", -1];
 
-			_elapsedTimePercent = _elapsedTime / _totalTime;
+			private _elapsedTimePercent = _elapsedTime / _totalTime;
 
 			switch (true) do
 			{

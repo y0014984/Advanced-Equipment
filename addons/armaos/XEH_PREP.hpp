@@ -16,8 +16,6 @@ PREP(computer_addActionStandby);
 PREP(computer_addActionTurnOn);
 PREP(computer_addActionTurnOff);
 
-PREP(computer_processActionUse);
-
 /* OS Internal Functions */
 PREP(os_cd);
 PREP(os_chat);

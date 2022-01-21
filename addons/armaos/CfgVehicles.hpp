@@ -42,7 +42,7 @@ class CfgVehicles
 					{
 						displayName = "Use Computer";
 						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_computer_processActionUse;";
+						statement = "params ['_target', '_player', '_params']; _handle = [_target] call AE3_armaos_fnc_terminal_init;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
