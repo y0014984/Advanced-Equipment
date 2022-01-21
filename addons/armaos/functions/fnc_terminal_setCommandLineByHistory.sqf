@@ -73,5 +73,3 @@ _terminalCursorPosition = (count _lastBufferLine);
 _terminal set ["AE3_terminalBuffer", _terminalBuffer];
 _terminal set ["AE3_terminalCursorPosition", _terminalCursorPosition];
 _terminal set ["AE3_terminalCommandHistoryIndex", _terminalCommandHistoryIndex];
-
-hint format ["INDEX: %1", _terminalCommandHistoryIndex];

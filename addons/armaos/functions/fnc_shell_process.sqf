@@ -47,6 +47,8 @@ private _terminal = _computer getVariable "AE3_terminal";
 [_computer, _commandString] call AE3_armaos_fnc_terminal_addToHistory;
 _terminal set ["AE3_terminalCommandHistoryIndex", -1];
 
+_terminal set ["AE3_terminalScrollPosition", 0];
+
 _result = _result + [""];
 
 [_computer, _result] call AE3_armaos_fnc_terminal_addLines;

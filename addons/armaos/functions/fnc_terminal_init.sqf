@@ -38,6 +38,7 @@ private _terminal = createHashMapFromArray
 	[
 		["AE3_terminalBuffer", []],
 		["AE3_terminalBufferVisable", []],
+		["AE3_terminalScrollPosition", 0],
 		["AE3_terminalCursorLine", 0],
 		["AE3_terminalCursorPosition", 0],
 		["AE3_terminalCommandHistory", []],

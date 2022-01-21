@@ -13,7 +13,7 @@
 
 params ["_terminalCtrl", "_languageButtonCtrl"];
 
-/* ---------------------------------------- */
+/* ================================================================================ */
 
 private _result = _terminalCtrl ctrlAddEventHandler
 [
@@ -25,10 +25,16 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		private _terminal = _computer getVariable "AE3_terminal";
 		private _terminalApplication = _terminal get "AE3_terminalApplication";
 		private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
+		private _terminalBuffer = _terminal get "AE3_terminalBuffer";
+		private _terminalPrompt = _terminal get "AE3_terminalPrompt";
+
+		private _lastBufferLineIndex = (count _terminalBuffer) - 1;
+
+		_terminal set ["AE3_terminalScrollPosition", 0];
 
 		private _keyCombination = format ["%1-%2-%3-%4", _key, _shift, _ctrl, _alt];
 
-		/* ================================================================================ */
+		/* ---------------------------------------- */
 
 		if (_keyCombination in _terminalAllowedKeys) then
 		{
@@ -52,7 +58,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};
 
-		/* ================================================================================ */
+		/* ---------------------------------------- */
 
 		if (_key isEqualTo DIK_BACKSPACE) then
 		{
@@ -74,14 +80,10 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};
 
-		/* ================================================================================ */
+		/* ---------------------------------------- */
 
 		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then	
 		{
-			private _terminalBuffer = _terminal get "AE3_terminalBuffer";
-			private _terminalPrompt = _terminal get "AE3_terminalPrompt";
-
-			private _lastBufferLineIndex = (count _terminalBuffer) - 1;
 			private _lastBufferLine = _terminalBuffer # (_lastBufferLineIndex);
 
 			private _input = _lastBufferLine select [(count _terminalPrompt), (count _lastBufferLine)];
@@ -103,7 +105,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};
 
-		/* ================================================================================ */
+		/* ---------------------------------------- */
 
 		if ((_key isEqualTo DIK_UPARROW) || (_key isEqualTo DIK_DOWNARROW)) then	
 		{
@@ -113,7 +115,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};		
 
-		/* ================================================================================ */
+		/* ---------------------------------------- */
 
 		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
 
@@ -121,7 +123,36 @@ private _result = _terminalCtrl ctrlAddEventHandler
 	}
 ];
 
-/* ---------------------------------------- */
+/* ================================================================================ */
+
+private _result = _terminalCtrl ctrlAddEventHandler
+[
+	"MouseZChanged", 
+	{
+		params ["_displayOrControl", "_scroll"];
+
+		private _computer = _displayorcontrol getVariable "AE3_computer";
+		private _terminal = _computer getVariable "AE3_terminal";
+		private _terminalScrollPosition = _terminal get "AE3_terminalScrollPosition";
+		private _terminalApplication = _terminal get "AE3_terminalApplication";
+
+		if (_terminalApplication == "SHELL") then
+		{
+			if (_scroll >= 0) then 
+			{
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - 1];
+			}
+			else
+			{
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + 1];
+			};
+		};
+
+		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
+	}
+];
+
+/* ================================================================================ */
 
 _languageButtonCtrl buttonSetAction
 	"
@@ -134,4 +165,4 @@ _languageButtonCtrl buttonSetAction
 		[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
 	";
 
-/* ---------------------------------------- */
+/* ================================================================================ */
