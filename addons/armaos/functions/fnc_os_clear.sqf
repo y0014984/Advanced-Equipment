@@ -1,32 +1,25 @@
-params ["_options", "_consoleInput"];
+/**
+ * Clears the output buffer of a given terminal on a given computer.
+ * Also returns informations about the success of the command.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Options <[STRING]>
+ *
+ * Results:
+ * 1: Informations <[STRING]>
+ */
 
-_result = [];
+params ["_computer", "_options"];
 
-_optionsCount = count _options;
+if (count _options >= 1) exitWith {["   Command: clear has no options"];};
 
-scopeName "main";
+private _terminal = _computer getVariable "AE3_terminal";
 
-switch (true) do
-{
-	case (_optionsCount >= 1):
-	{
-		//hint "Case 1";
-		
-		_result = ["   Command: clear has no options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 0):
-	{
-		//hint "Case 2";
+_terminal set ["AE3_terminalBuffer", []];
+_terminal set ["AE3_terminalCursorLine", 0];
+_terminal set ["AE3_terminalCursorPosition", 0];
 
-		_outputText = [] call AE3_fnc_headerText;
-		_pointer = _consoleInput getVariable ["AE3_filepointer", []];
-		_outputText = _outputText + (_pointer joinString "/") + "> ";
-
-		ctrlSetText [1100, _outputText];
-
-		_result = [" "];
-	};
-};
+private _result = [];
 
 _result;

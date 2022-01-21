@@ -1,21 +1,20 @@
 /* Module Functions */
 PREP(moduleUserlist);
 
-/* Base Functions */
-PREP(login);
-PREP(shell);
-PREP(headerText);
+/* Shell Functions */
+PREP(shell_process);
+PREP(shell_getAvailableCommands);
+PREP(shell_findLoginUser);
+PREP(shell_validatePassword);
 
-PREP(playComputerStartSound);
-PREP(playComputerStopSound);
-PREP(playComputerStandbySound);
+/* Computer Functions */
+PREP(computer_playSoundStart);
+PREP(computer_playSoundStop);
+PREP(computer_playSoundStandby);
 
-PREP(standbyComputerAction);
-
-PREP(turnOnComputerAction);
-PREP(turnOffComputerAction);
-
-PREP(useComputerAction);
+PREP(computer_addActionStandby);
+PREP(computer_addActionTurnOn);
+PREP(computer_addActionTurnOff);
 
 /* OS Internal Functions */
 PREP(os_cd);
@@ -33,3 +32,24 @@ PREP(os_print);
 PREP(os_rm);
 PREP(os_shutdown);
 PREP(os_standby);
+PREP(os_standby);
+
+/* Terminal Functions */
+PREP(terminal_init);
+PREP(terminal_addEventHandler);
+PREP(terminal_addChar);
+PREP(terminal_addCharToPassword);
+PREP(terminal_addLines);
+PREP(terminal_removeChar);
+PREP(terminal_removeCharFromPassword);
+PREP(terminal_addHeader);
+PREP(terminal_setPrompt);
+PREP(terminal_updateOutput);
+PREP(terminal_getAllowedKeysDE);
+PREP(terminal_getAllowedKeysUS);
+PREP(terminal_getHeaderText);
+PREP(terminal_updateBufferVisable);
+PREP(terminal_updatePromptPointer);
+PREP(terminal_addToHistory);
+PREP(terminal_switchKeyboardLayout);
+PREP(terminal_setCommandLineByHistory);

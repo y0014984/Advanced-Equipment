@@ -14,9 +14,12 @@ class CfgPatches
     };
 };
 
-#include "defines.hpp"
-#include "dialog.hpp"
-
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
 #include "Cfg3DEN.hpp"
+
+// Grid Macros and Styles
+#include "defines.inc"
+
+// Advanced Equipment 3 Dialog Definitions
+#include "dialog.hpp"

@@ -1,13 +1,21 @@
-params ["_options", "_consoleInput"];
+/**
+ * Prints/outputs the content of a given file on a given computer.
+ * Returns informations about the success of the command and the content of the file.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: File <[STRING]>
+ *
+ * Results:
+ * 1: Informations/Content <[STRING]>
+ */
 
-private _pointer = _consoleInput getVariable "AE3_filepointer";
-private _filesystem = _consoleInput getVariable "AE3_filesystem";
+params ["_computer", "_options"];
 
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
-if(count _options == 0) exitWith
-{
-	["   Command: print - too few options"];
-};
+if(count _options == 0) exitWith {["   Command: print - too few options"];};
 
 private _result = ["   Command: print "];
 private _path = _options select 0;

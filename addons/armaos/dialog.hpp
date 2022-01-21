@@ -83,18 +83,6 @@ class AE3_ArmaOS_Main_Dialog
 			lineSpacing = 1;
 			font = "EtelkaMonospacePro";
 		};
-		class RscEdit_1200: RscEdit
-		{
-			// Console Input
-			idc = 1200;
-			text = "";
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 31.5 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.25};
-			font = "EtelkaMonospacePro";
-		};
 		class RscButton_1300: RscButton
 		{
 			idc = 1300;
@@ -106,6 +94,18 @@ class AE3_ArmaOS_Main_Dialog
 			colorBackground[] = {0,0.5,0,0.25};
 			
 			action = "closeDialog 1;";
+			font = "EtelkaMonospaceProBold";
+		};
+		class RscButton_1310: RscButton
+		{
+			idc = 1310;
+			text = "KEYBOARD";
+			x = 23.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {0,0.5,0,0.25};
+			
 			font = "EtelkaMonospaceProBold";
 		};
 		////////////////////////////////////////////////////////

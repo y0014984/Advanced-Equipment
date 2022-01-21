@@ -177,4 +177,14 @@
  */
 #define DIK_CIRCUMFLEX      DIK_PREVTRACK       /* Japanese keyboard */
 
+
+/*
+ *  Combination keys
+ */
+#define INPUT_CTRL_OFFSET	512
+#define INPUT_SHIFT_OFFSET	1024
+#define INPUT_ALT_OFFSET	2048
+
+
 #endif /* DIK_ESCAPE */
+

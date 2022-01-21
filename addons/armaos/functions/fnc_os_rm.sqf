@@ -1,9 +1,20 @@
-params ["_options", "_consoleInput"];
+/**
+ * Removes/deletes a given file on a given computer. Returns informations about the success of the command.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: File <[STRING]>
+ *
+ * Results:
+ * 1: Informations <[STRING]>
+ */
 
-private _pointer = _consoleInput getVariable "AE3_filepointer";
-private _filesystem = _consoleInput getVariable "AE3_filesystem";
+params ["_computer", "_options"];
 
-if (count _options > 1) exitWith {["   Command: rm - too many options"];;};
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
+
+if (count _options > 1) exitWith {["   Command: rm - too many options"];};
 
 if (count _options < 1) exitWith {["   Command: rm - too few options"];};
 
