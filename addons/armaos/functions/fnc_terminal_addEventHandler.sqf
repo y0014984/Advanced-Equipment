@@ -28,6 +28,8 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		private _keyCombination = format ["%1-%2-%3-%4", _key, _shift, _ctrl, _alt];
 
+		/* ================================================================================ */
+
 		if (_keyCombination in _terminalAllowedKeys) then
 		{
 			private _keyChar = _terminalAllowedKeys get _keyCombination;
@@ -50,6 +52,8 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};
 
+		/* ================================================================================ */
+
 		if (_key isEqualTo DIK_BACKSPACE) then
 		{
 			switch (_terminalApplication) do
@@ -70,6 +74,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};
 
+		/* ================================================================================ */
 
 		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then	
 		{
@@ -97,6 +102,18 @@ private _result = _terminalCtrl ctrlAddEventHandler
 					};
 			};
 		};
+
+		/* ================================================================================ */
+
+		if ((_key isEqualTo DIK_UPARROW) || (_key isEqualTo DIK_DOWNARROW)) then	
+		{
+			if (_terminalApplication == "SHELL") then
+			{
+				[_computer, _key] call AE3_armaos_fnc_terminal_setCommandLineByHistory;
+			};
+		};		
+
+		/* ================================================================================ */
 
 		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
 

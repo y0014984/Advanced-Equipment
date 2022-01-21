@@ -42,13 +42,14 @@ switch (_command) do
 
 if (_command == "shutdown") exitWith {};
 
+private _terminal = _computer getVariable "AE3_terminal";
+
 [_computer, _commandString] call AE3_armaos_fnc_terminal_addToHistory;
+_terminal set ["AE3_terminalCommandHistoryIndex", -1];
 
 _result = _result + [""];
 
 [_computer, _result] call AE3_armaos_fnc_terminal_addLines;
-
-private _terminal = _computer getVariable "AE3_terminal";
 
 private _terminalApplication = _terminal get "AE3_terminalApplication";
 
@@ -58,5 +59,3 @@ if (_terminalApplication == "SHELL") then
 };
 
 [_computer] call AE3_armaos_fnc_terminal_setPrompt;
-
-//[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
