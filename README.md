@@ -12,12 +12,12 @@
 </p>
 
 <p align="center">
-    <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a>, <a href="https://github.com/acemod/ACE3/releases">ACE</a> and <a href="https://github.com/acemod/ACEX/releases">ACEX</a> for server and client.<br/></strong></sup>
+    <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a> and <a href="https://github.com/acemod/ACE3/releases">ACE3</a> for server and client.<br/></strong></sup>
 </p>
 
-**Advanced Equipment** is a mod for Arma 3, still under development. I wanted to create a mod, that allows to really use a lot of the vanilla equipment like laptops and lamps.
+**Advanced Equipment** is a mod for Arma 3, still under development. I wanted to create a mod, that allows you to really use a lot of the vanilla equipment like laptops and lamps.
 
-The project is entirely **open-source** and all contributions are welcome. Feel free to maintain your own custom version, so long as the changes you make are open to the public in accordance with the ([APL-SA](https://www.bistudio.com/community/licenses/arma-public-license-share-alike)).
+This project is entirely **open-source** and all contributions are welcome. Feel free to maintain your own custom version, as long as the changes you make are open to the public in accordance with the ([APL-SA](https://www.bistudio.com/community/licenses/arma-public-license-share-alike)).
 
 ## Features
 
@@ -28,14 +28,17 @@ The project is entirely **open-source** and all contributions are welcome. Feel 
 - Logistics (Fold and unfold objects, move them around, put them into vehicles)
 - 3DEN Modules (Easy Mission Making)
 
+## Wiki
+See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional informations on how to use Advanced Equipment. 
+
 ## Installation
 
 Download the latest versions of Advanced Equipment, CBA_A3, ACE and ACEX and unpack them in your Arma 3 and Arma 3 server installation folders.
-Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@ACEX;@AE3`.
+Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@AE3`.
 
 ## Known Issues
 
-* This is mod still under development and isn't recommended for productive use, at this moment.
+* This is mod still under development and isn't recommended for productive use right now.
 
 ## Contact
 
