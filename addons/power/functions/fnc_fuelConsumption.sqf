@@ -13,8 +13,8 @@ params ["_generator"];
 
 private _class = typeOf _generator;
 
-private _fuelConsumption = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_fuelConsumption");
-private _fuelCapacity = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_fuelCapacity");
+private _fuelConsumption = _generator getVariable 'AE3_fuelConsumption';
+private _fuelCapacity = _generator getVariable 'AE3_fuelCapacity';
 
 private _fuelLevelPercent = fuel _generator;
 private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
@@ -34,7 +34,7 @@ _generator setVariable["AE3_fuelLevel", _newFuelLevel];
 
 if(_newFuelLevel > 0) exitWith 
 {
-	[true, 400];
+	[true, (_generator getVariable 'AE3_powerMax')];
 };
 
 [false, 0];

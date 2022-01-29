@@ -1,6 +1,6 @@
 params ["_entity"];
 
-_class = typeOf _entity;
+private _class = typeOf _entity;
 
 private _hasBattery = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_hasBattery");
 private _powerConsumptionOn = getNumber (configFile >> "CfgVehicles" >> _class >> "ae3_power_powerConsumptionOn");
