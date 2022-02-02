@@ -35,3 +35,10 @@ if (!_silent) then
 [_entity, true, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
 
 [_entity] call AE3_power_fnc_removeProviderHandler;
+
+// TODO: Wrapper?
+{
+		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');
+}forEach (_entity getVariable ['AE3_connectedDevices', []]);
+
+true;

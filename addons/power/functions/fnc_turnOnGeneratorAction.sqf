@@ -34,3 +34,5 @@ if (_fuelLevel > 0) then
 		("Turn on")
 	] call ace_common_fnc_progressBar;
 };
+
+true;

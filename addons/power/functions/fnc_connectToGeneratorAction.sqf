@@ -2,20 +2,13 @@ params ["_target", "_generator"];
 
 //hint format ["Target: %1\nGenerator: %2", _target, _generator];
 
-_target setVariable ["AE3_powerConsumptionState", 1, true];
-
-if (_generator getVariable ["AE3_powerState", 0] == 1) then
-{
-	_target setVariable ["AE3_powerState", 1, true];
-};
-
 _target setVariable ["AE3_powerCableDevice", _generator, true];
 
 [_target, false, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
 
 [_target, -1] call ace_cargo_fnc_setSize;
 
-_connectedDevices = _generator getVariable "AE3_connectedDevices";
+private _connectedDevices = _generator getVariable "AE3_connectedDevices";
 
 if (isNil "_connectedDevices") then 
 {

@@ -13,8 +13,6 @@ if (!isNil "_generator") then
 	_generator setVariable ["AE3_connectedDevices", _connectedDevices, true];
 };
 
-_target setVariable ["AE3_powerConsumptionState", 0, true];
-
 _target setVariable ["AE3_powerCableDevice", nil, true];
 
 [_target, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;

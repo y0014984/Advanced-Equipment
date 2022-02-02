@@ -15,16 +15,17 @@ private _pwrCap = _entity getVariable ['AE3_powerCapacity', 0];
 private _pwrDraw = 0;
 private _connected = _entity getVariable ['AE3_connectedDevices', []];
 {
-	_pwrDraw = _pwrCap + _x getVariable ['AE3_powerDraw'];
+	_pwrDraw = _pwrDraw + (_x getVariable ['AE3_powerDraw', 0]);
 } forEach _connected;
-
-_entity setVariable ['AE3_powerDraw', _pwrDraw];
 
 if (_pwrDraw > _pwrCap) then
 {
-	{
-		[_x] call AE3_fnc_power_turnOffDevice;
-	}forEach _connected;
+	[_entity, [true]] spawn (_entity getVariable 'AE3_power_fnc_turnOffWrapper');
+
+	_entity setVariable ['AE3_powerDraw', 0];
+}else
+{
+	_entity setVariable ['AE3_powerDraw', _pwrDraw];
 };
 
-_pwrDraw > _pwrCap;
+(_pwrDraw > _pwrCap);

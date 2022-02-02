@@ -13,6 +13,7 @@ PREP(initDevice);
 PREP(initPowerInterface);
 PREP(initBattery);
 PREP(initGenerator);
+PREP(initConsumer);
 
 /* Sys */
 PREP(batteryCalculation);

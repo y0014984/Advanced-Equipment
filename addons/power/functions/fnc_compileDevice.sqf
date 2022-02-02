@@ -14,7 +14,7 @@ params['_entity'];
 
 
 private _class = typeOf _entity;
-
+diag_log format ["AE3_COMPILE: %1: %2", str _entity, _class];
 
 if(isNil {missionNamespace getVariable _class}) then 
 {
@@ -32,6 +32,7 @@ if(isNil {missionNamespace getVariable _class}) then
 	_config set ['device', [
 		getText (_deviceCfg >> "displayName"),
 		getNumber (_deviceCfg >> "defaultPowerState"),
+		compile (getText (_deviceCfg >> "init")),
 		compile (getText (_deviceCfg >> "turnOnAction")),
 		compile (getText (_deviceCfg >> "turnOffAction"))
 	]];
@@ -66,6 +67,14 @@ if(isNil {missionNamespace getVariable _class}) then
 			getNumber (_generator >> "fuelLevel")
 		]];
 	};
+
+	private _consumer = (_deviceCfg >> "AE3_Consumer");
+	if(!isNull _consumer) then
+	{
+		_config set ['consumer', [
+			getNumber (_consumer >> "powerConsumption")
+		]];
+	};
 };
 
 private _config = missionNamespace getVariable _class;
@@ -87,4 +96,9 @@ if('battery' in _config) then
 if('generator' in _config) then 
 {
 	[_entity] + (_config get 'generator') call AE3_power_fnc_initGenerator;
+};
+
+if('consumer' in _config) then 
+{
+	[_entity] + (_config get 'consumer') call AE3_power_fnc_initConsumer;
 };
