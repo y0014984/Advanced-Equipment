@@ -15,6 +15,7 @@ _entity setVariable ["AE3_fuelCapacity", _fuelCapacity];
 _entity setVariable ["AE3_fuelLevel", _fuelCapacity * _fuelLevel];
 _entity setVariable ["AE3_fuelConsumption", _fuelConsumption];
 _entity setVariable ["AE3_powerMax", _power];
+_entity setVariable ['AE3_connectedDevices', []];
 
 private _check = ["AE3_PowerAction", "Check Fuel Level", "", 
 				{params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_checkFuelLevelAction;}, 

@@ -33,7 +33,7 @@ class CfgVehicles
 				fuelCapacity = 5;
 				fuelLevel = 1;
 
-				power = 0.1;
+				power = 8;
 			};
 		};
 
@@ -90,88 +90,6 @@ class CfgVehicles
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"};
 			};
 		};
-
-		/* -------------------- */
-
-		/*
-        class ACE_Actions 
-		{
-			class ACE_MainActions
-			{
-				displayName = "Interaktionen";
-				condition = "true";
-				distance = 2;
-				class AE3_Generator_Group
-				{
-					displayName = "Generator";
-					condition = "true";
-					class AE3_CheckFuelLevel
-					{
-						displayName = "Check Fuel Level";
-						condition = "alive _target";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_checkFuelLevelAction;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_TurnOn
-					{
-						displayName = "Turn On";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_turnOnGeneratorAction;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_TurnOff
-					{
-						displayName = "Turn Off";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 0)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target, false] spawn AE3_power_fnc_turnOffGeneratorAction;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_PowerState
-					{
-						displayName = "Check Power State";
-						condition = "alive _target";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_getPowerStateAction;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-				};
-			};
-		};*/
 	};
 
 
@@ -194,8 +112,8 @@ class CfgVehicles
 			displayName = "Battery";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "[_this, AE3_power_fnc_batteryCalculation] call AE3_power_fnc_addProviderHandler;";
-			turnOffAction = "_this call AE3_power_fnc_removeProviderHandler";
+			turnOnAction = "_this call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "_this call AE3_power_fnc_turnOffBatteryAction";
 
 			class AE3_PowerInterface
 			{
@@ -204,8 +122,8 @@ class CfgVehicles
 
 			class AE3_Battery
 			{
-				capacity = 100;
-				recharging = 50;
+				capacity = 10;
+				recharging = 0.1;
 				internal = 0;
 			};
 		};

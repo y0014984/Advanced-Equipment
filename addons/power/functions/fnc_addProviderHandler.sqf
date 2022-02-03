@@ -29,7 +29,7 @@ private _handle = [
 		{
 			_generator setVariable ['AE3_powerCapacity', _newPower, true];
 			
-			if(_newPower < _generator getVariable ['AE3_powerDraw', 0]) then
+			if(_newPower < _generator getVariable ['AE3_powerReq', 0]) then
 			{
 				[_generator, [true]] call _generatorTurnoff;
 			}

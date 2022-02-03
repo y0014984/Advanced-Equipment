@@ -4,6 +4,8 @@ PREP(checkFuelLevelAction);
 PREP(checkPowerStateAction);
 PREP(turnOffGeneratorAction);
 PREP(turnOnGeneratorAction);
+PREP(turnOffBatteryAction);
+PREP(turnOnBatteryAction);
 PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
 
@@ -20,7 +22,6 @@ PREP(batteryCalculation);
 PREP(addProviderHandler);
 PREP(removeProviderHandler);
 PREP(fuelConsumption);
-PREP(powerConsumption);
 PREP(updatePower);
 PREP(updateSelfPower);
 
