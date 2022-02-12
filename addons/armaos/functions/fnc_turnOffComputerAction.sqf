@@ -1,6 +1,6 @@
-params ["_entity", "_silent"];
+params ["_entity", ["_silent", true]];
 
-_powerState = _entity getVariable 'AE3_powerState';
+private _powerState = _entity getVariable 'AE3_powerState';
 
 _turnOffTime = 0;
 
@@ -72,3 +72,5 @@ else
 		}
 	] call ace_common_fnc_progressBar;
 };
+
+true;

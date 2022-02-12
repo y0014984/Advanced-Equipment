@@ -8,10 +8,22 @@
  * Return:
  * NULL
  */
-params['_generator', '_generatorFnc'];
+params['_generator', '_generatorFnc', ['_internal', false]];
 
 _generator setVariable ['AE3_powerCapacity', 0, true];
-_generatorTurnoff = _generator getVariable 'AE3_power_fnc_turnOffWrapper';
+
+private _generatorTurnoff = {
+	params ['_generator'];
+	{
+		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');
+	}forEach (_generator getVariable ['AE3_connectedDevices', []]);
+
+};
+
+if(!_internal) then
+{
+	_generatorTurnoff = _generator getVariable 'AE3_power_fnc_turnOffWrapper';
+};
 
 private _handle = [
 	{
@@ -22,6 +34,7 @@ private _handle = [
 		
 		if(!_powerState) then
 		{
+			diag_log format ["AE3 POWER: %1 powerState turnOff", _generator];
 			[_generator, [true]] call _generatorTurnoff;
 		};
 
@@ -31,6 +44,7 @@ private _handle = [
 			
 			if(_newPower < _generator getVariable ['AE3_powerReq', 0]) then
 			{
+				diag_log format ["AE3 POWER: %1 requirement turnOff", _generator];
 				[_generator, [true]] call _generatorTurnoff;
 			}
 		}
@@ -39,16 +53,6 @@ private _handle = [
 	[_generator, _generatorFnc, _generatorTurnoff]
 ] call CBA_fnc_addPerFrameHandler;
 
-if(_handle < 0) exitWith {};
+if(_handle < 0) exitWith {throw "GeneratorInitError";};
 
 _generator setVariable ['AE3_generatorHandle', _handle];
-//_generator setVariable ['AE3_powerState', 1, True];
-
-private _connectedDevices = _generator getVariable ["AE3_connectedDevices", []];
-
-/*
-{
-	_powerState = _x getVariable ["AE3_powerState", 0];
-	if (_powerState == 0) then { _x setVariable ["AE3_powerState", 1, true]; };
-} forEach _connectedDevices;
-*/

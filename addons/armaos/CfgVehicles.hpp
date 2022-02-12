@@ -17,7 +17,7 @@ class CfgVehicles
 		// Event Handlers
 		class EventHandlers
 		{
-			init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
+			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
 		};
 
 		ae3_power_hasBattery = 1;
@@ -27,6 +27,42 @@ class CfgVehicles
 		ae3_power_recharging = 50;
 		ae3_power_defaultPowerLevel = 1;
 
+		class AE3_Device
+		{
+			displayName = "Laptop";
+			defaultPowerLevel = 0;
+
+			turnOnAction = "_this call AE3_armaos_fnc_turnOnComputerAction;";
+			turnOffAction = "_this call AE3_armaos_fnc_turnOffComputerAction;";
+
+			class AE3_Consumer
+			{
+				powerConsumption = 0.02;
+			};
+		};
+
+		class AE3_InternalDevice
+		{
+			displayName = "Battery";
+			defaultPowerLevel = 1;
+
+			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "";
+
+			class AE3_PowerInterface
+			{
+				internal = 1;
+			};
+
+			class AE3_Battery
+			{
+				capacity = 10;
+				recharging = 0.1;
+				internal = 1;
+			};
+		};
+
+		
         class ACE_Actions 
 		{
 			class ACE_MainActions
@@ -54,6 +90,7 @@ class CfgVehicles
 						priority = -1;
 						showDisabled = 0;
 					};
+					/*
 					class AE3_CheckBatteryLevel
 					{
 						displayName = "Check Battery Level";
@@ -198,6 +235,7 @@ class CfgVehicles
 						priority = -1;
 						showDisabled = 0;
 					};
+					*/
 				};
 			};
 		};

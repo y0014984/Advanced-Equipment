@@ -20,6 +20,7 @@ private _connected = _entity getVariable ['AE3_connectedDevices', []];
 
 if (_pwrDraw > _pwrCap) then
 {
+	diag_log format ["AE3 POWER: %1 update turnOff", _entity];
 	[_entity, [true]] spawn (_entity getVariable 'AE3_power_fnc_turnOffWrapper');
 
 	_entity setVariable ['AE3_powerReq', 0];

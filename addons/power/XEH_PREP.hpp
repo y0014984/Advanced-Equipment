@@ -10,6 +10,7 @@ PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
 
 /* Init */
+PREP(compileConfig);
 PREP(compileDevice);
 PREP(initDevice);
 PREP(initPowerInterface);

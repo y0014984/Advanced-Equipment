@@ -29,51 +29,14 @@ if(isNil {missionNamespace getVariable _class}) then
 	private _config = createHashMap;
 	missionNamespace setVariable [_class, _config, True];
 
-	_config set ['device', [
-		getText (_deviceCfg >> "displayName"),
-		getNumber (_deviceCfg >> "defaultPowerState"),
-		compile (getText (_deviceCfg >> "init")),
-		compile (getText (_deviceCfg >> "turnOnAction")),
-		compile (getText (_deviceCfg >> "turnOffAction"))
-	]];
+	[_deviceCfg, _config] call AE3_power_fnc_compileConfig;
 
-	private _interface = (_deviceCfg >> "AE3_PowerInterface");
-	if(!isNull _interface) then
-	{
-		_config set ['powerInterface', [
-			getArray (_interface >> "connected"),
-			[_interface >> "internal"] call BIS_fnc_getCfgDataBool
-		]];
-	};
+	private _internalCfg = configFile >> "CfgVehicles" >> _class >> "AE3_InternalDevice";
 
-	private _battery = (_deviceCfg >> "AE3_Battery");
-	if(!isNull _battery) then
+	if (!isNull _internalCfg) then
 	{
-		_config set ['battery', [
-			getNumber (_battery >> "capacity"),
-			getNumber (_battery >> "recharging"),
-			getNumber (_battery >> "level"),
-			[_battery >> "internal"] call BIS_fnc_getCfgDataBool
-		]];
-	};
-
-	private _generator = (_deviceCfg >> "AE3_Generator");
-	if(!isNull _generator) then
-	{
-		_config set ['generator', [
-			getNumber (_generator >> "fuelCapacity"),
-			getNumber (_generator >> "fuelConsumption"),
-			getNumber (_generator >> "power"),
-			getNumber (_generator >> "fuelLevel")
-		]];
-	};
-
-	private _consumer = (_deviceCfg >> "AE3_Consumer");
-	if(!isNull _consumer) then
-	{
-		_config set ['consumer', [
-			getNumber (_consumer >> "powerConsumption")
-		]];
+		_config set ["internal", createHashMap];
+		[_internalCfg, _config get "internal"] call AE3_power_fnc_compileConfig;	
 	};
 };
 
@@ -101,4 +64,31 @@ if('generator' in _config) then
 if('consumer' in _config) then 
 {
 	[_entity] + (_config get 'consumer') call AE3_power_fnc_initConsumer;
+};
+
+if(!("internal" in _config)) exitWith {};
+
+private _internalConfig = _config get "internal";
+private _internal = true call CBA_fnc_createNamespace;
+
+diag_log format ["AE3_POWER: PWR IF %1 - %2",  str _entity, str _internal];
+
+_entity setVariable ['AE3_internal', _internal, true];
+_internal setVariable ['AE3_parent', _entity, true];
+
+[_internal] + (_internalConfig get 'device') call AE3_power_fnc_initDevice;
+
+if('powerInterface' in _internalConfig) then 
+{
+	[_internal] + (_internalConfig get 'powerInterface') call AE3_power_fnc_initPowerInterface;
+};
+
+if('battery' in _internalConfig) then 
+{
+	[_internal] + (_internalConfig get 'battery') call AE3_power_fnc_initBattery;
+};
+
+if('generator' in _internalConfig) then 
+{
+	[_internal] + (_internalConfig get 'generator') call AE3_power_fnc_initGenerator;
 };

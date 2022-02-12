@@ -8,8 +8,8 @@
  * None
 */
 
-params['_battery']; 
+params['_battery', ['_internal', false]]; 
 
-[_battery, AE3_power_fnc_batteryCalculation] call AE3_power_fnc_addProviderHandler; 
+[_battery, AE3_power_fnc_batteryCalculation, _internal] call AE3_power_fnc_addProviderHandler; 
 
 true;

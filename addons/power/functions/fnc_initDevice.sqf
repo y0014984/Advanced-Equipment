@@ -22,7 +22,7 @@ private _turnOnWrapper = {
 
 	_turnOnFnc =  _target getVariable "AE3_power_fnc_turnOn";
 	_result = [_target] + _args call _turnOnFnc;
-
+	if(isNil '_result') then {_result = false};
 
 	if(_result) then
 	{
@@ -36,7 +36,7 @@ private _turnOffWrapper = {
 
 	_turnOffFnc =  _target getVariable "AE3_power_fnc_turnOff";
 	_result = [_target] + _args call _turnOffFnc;
-
+	if(isNil '_result') then {_result = false};
 
 	if(_result) then
 	{
@@ -74,7 +74,7 @@ if (!((_turnOnFnc isEqualTo {}) || (_turnOffFnc isEqualTo {}))) then
 					{
 						params ['_target', '_player', '_params']; 
 						
-						[_target] spawn (_target getVariable "AE3_power_fnc_turnOffWrapper");
+						[_target, [false]] spawn (_target getVariable "AE3_power_fnc_turnOffWrapper");
 					}, 
 					{(alive _target) and (_target getVariable 'AE3_powerState' != 0)},
 					{}] call ace_interact_menu_fnc_createAction;
