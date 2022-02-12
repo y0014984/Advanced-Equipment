@@ -34,7 +34,6 @@ private _handle = [
 		
 		if(!_powerState) then
 		{
-			diag_log format ["AE3 POWER: %1 powerState turnOff", _generator];
 			[_generator, [true]] call _generatorTurnoff;
 		};
 
@@ -44,7 +43,6 @@ private _handle = [
 			
 			if(_newPower < _generator getVariable ['AE3_powerReq', 0]) then
 			{
-				diag_log format ["AE3 POWER: %1 requirement turnOff", _generator];
 				[_generator, [true]] call _generatorTurnoff;
 			}
 		}

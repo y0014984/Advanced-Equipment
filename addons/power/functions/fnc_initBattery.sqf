@@ -35,8 +35,6 @@ private _check = ["AE3_PowerAction", "Check Battery Charge", "",
 
 [_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _check] call ace_interact_menu_fnc_addActionToObject;
 
-diag_log format ['AE3_BATTERY: %1 : %2', str _battery, str _internal];
-
 _entity setVariable ['AE3_internalBattery', _internal, true];
 
 if(_internal) then

@@ -14,7 +14,6 @@ params['_entity'];
 
 
 private _class = typeOf _entity;
-diag_log format ["AE3_COMPILE: %1: %2", str _entity, _class];
 
 if(isNil {missionNamespace getVariable _class}) then 
 {
@@ -70,8 +69,6 @@ if(!("internal" in _config)) exitWith {};
 
 private _internalConfig = _config get "internal";
 private _internal = true call CBA_fnc_createNamespace;
-
-diag_log format ["AE3_POWER: PWR IF %1 - %2",  str _entity, str _internal];
 
 _entity setVariable ['AE3_internal', _internal, true];
 _internal setVariable ['AE3_parent', _entity, true];
