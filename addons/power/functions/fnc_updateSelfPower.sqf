@@ -3,6 +3,7 @@
  *
  * Arguments:
  * 0: Device <OBJECT>
+ * 1: New power draw <NUMBER>
  *
  * Returns:
  * If successfull <BOOL>

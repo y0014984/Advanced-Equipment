@@ -46,9 +46,11 @@ private _turnOffWrapper = {
 
 };
 
+if(isServer) then
+{
+	_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper, true];
+	_entity setVariable ["AE3_power_fnc_turnOffWrapper", _turnOffWrapper, true];
 
-_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper, true];
-_entity setVariable ["AE3_power_fnc_turnOffWrapper", _turnOffWrapper, true];
-
-_entity setVariable ["AE3_powerConsumption", _powerConsumption, true];
-_entity setVariable ['AE3_powerDraw', 0, true];
+	_entity setVariable ["AE3_powerConsumption", _powerConsumption, true];
+	_entity setVariable ['AE3_powerDraw', 0, true];
+};

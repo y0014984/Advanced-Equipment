@@ -1,6 +1,15 @@
-params ["_target", "_generator"];
+/**
+ * Connect device to power provider (Generator, Battery).
+ *
+ * Arguments:
+ * 0: Device <OBJECT>
+ * 0: Provider <OBJECT>
+ * 
+ * Returns:
+ * None
+ */
 
-//hint format ["Target: %1\nGenerator: %2", _target, _generator];
+params ["_target", "_generator"];
 
 _target setVariable ["AE3_powerCableDevice", _generator, true];
 

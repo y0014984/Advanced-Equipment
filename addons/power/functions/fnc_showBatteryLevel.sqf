@@ -1,6 +1,16 @@
+/**
+ * 
+ * TODO:
+ * - Depricated?
+ * - Documentation
+ * 
+ * 
+ * 
+ */
+
 params ["_computer"];
 
-_consoleDialog = findDisplay 15984;	
+private _consoleDialog = findDisplay 15984;	
 
 while {_consoleDialog != displayNull} do
 {

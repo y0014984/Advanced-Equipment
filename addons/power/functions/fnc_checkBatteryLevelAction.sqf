@@ -1,3 +1,13 @@
+/**
+ * Display battery charging level via hint.
+ *
+ * Arguments:
+ * 0: Battery <OBJECT>
+ * 
+ * Returns:
+ * None
+ */
+
 params ["_entity"];
 
 private _class = typeOf _entity;

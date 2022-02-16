@@ -26,7 +26,7 @@ if (_fuelLevel > 0) then
 			
 			_entity = _args select 0;
 
-			[_entity, AE3_power_fnc_fuelConsumption] call AE3_power_fnc_addProviderHandler;
+			[_entity, AE3_power_fnc_fuelConsumption] remoteExecCall ["AE3_power_fnc_addProviderHandler", 2];
 
 			[_entity, false, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
 		},

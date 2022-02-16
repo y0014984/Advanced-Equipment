@@ -1,3 +1,13 @@
+/**
+ * Disconnects a device from a power source.
+ *
+ * Arguments:
+ * 0: Device <OBJECT>
+ * 
+ * Returns:
+ * None
+ */
+
 params ["_target"];
 
 _generator = _target getVariable "AE3_powerCableDevice";

@@ -10,7 +10,7 @@
 
 params['_entity'];
 
-[_entity] call AE3_power_fnc_removeProviderHandler; 
+[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2]; 
 
 {
 		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');

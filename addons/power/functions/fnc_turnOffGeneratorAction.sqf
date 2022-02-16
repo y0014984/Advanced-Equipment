@@ -17,7 +17,7 @@ _turnOffTime = 3;
 _handle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
 
 _handle = _entity getVariable "AE3_generatorRunningSoundHandle";
-terminate _handle;
+terminate _handle; // TODO: Does this work in MP?
 
 if (!_silent) then 
 {
@@ -34,7 +34,7 @@ if (!_silent) then
 
 [_entity, true, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
 
-[_entity] call AE3_power_fnc_removeProviderHandler;
+[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
 
 // TODO: Wrapper?
 {

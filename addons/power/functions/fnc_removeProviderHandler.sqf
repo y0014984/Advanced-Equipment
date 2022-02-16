@@ -1,3 +1,13 @@
+/**
+ * Removes the provider handler.
+ *
+ * Arguments:
+ * 0: Generator <OBJECT>
+ * 
+ * Returns:
+ * None
+ */
+
 params ["_generator"];
 
 _generator setVariable ["AE3_powerState", 0, true];

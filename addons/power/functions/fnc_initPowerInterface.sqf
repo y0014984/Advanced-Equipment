@@ -2,24 +2,15 @@
  * Initializes a power interface
  * 
  * Arguments:
- * 0: Device
+ * 0: Device <OBJECT>
  * 1: Connected Devices <[OBJECT]> (Optional)
- * 2: Disables actions (Optional)
+ * 2: If Internal <BOOL> (Optional)
  *
  * Results:
  * None
  */
 
 params['_generator', ["_connectedDevices", nil], ['_internal', false]];
-
-private _device = _generator;
-
-if(_internal) then
-{
-	_device = _generator getVariable 'AE3_parent';
-};
-
-_generator setVariable ["AE3_powerCableDevice", nil, true];
 
 private _childs = 
 {
@@ -47,7 +38,7 @@ private _childs =
 	} forEach (_generators); _actions
 };
 
-_connect = ["AE3_ConnectAction", "Connect to generator", "",
+private _connect = ["AE3_ConnectAction", "Connect to generator", "",
 			{},
 			{
 				params ['_target', '_player', '_params']; 
@@ -58,7 +49,7 @@ _connect = ["AE3_ConnectAction", "Connect to generator", "",
 			[_generator]
 			] call ace_interact_menu_fnc_createAction;
 
-_disconnect = ["AE3_DisconnectAction", "Disconnect from generator", "",
+private _disconnect = ["AE3_DisconnectAction", "Disconnect from generator", "",
 				{params ['_target', '_player', '_params']; _params params ['_device']; _handle = [_device] spawn AE3_power_fnc_disconnectFromGeneratorAction;},
 				{
 					params ['_target', '_player', '_params']; 
@@ -69,5 +60,19 @@ _disconnect = ["AE3_DisconnectAction", "Disconnect from generator", "",
 				[_generator]
 				] call ace_interact_menu_fnc_createAction;
 
-[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
-[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+private _device = _generator;
+
+if(_internal) then
+{
+	_device = _generator getVariable 'AE3_parent';
+};
+
+if(!isDedicated) then {
+	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
+	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+};
+
+if(isServer) then
+{	
+	_generator setVariable ["AE3_powerCableDevice", nil, true];
+};
