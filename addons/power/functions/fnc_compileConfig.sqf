@@ -19,7 +19,8 @@ _config set ['device', [
 		getNumber (_deviceCfg >> "defaultPowerState"),
 		compile (getText (_deviceCfg >> "init")),
 		compile (getText (_deviceCfg >> "turnOnAction")),
-		compile (getText (_deviceCfg >> "turnOffAction"))
+		compile (getText (_deviceCfg >> "turnOffAction")),
+		compile (getText (_deviceCfg >> "standbyAction"))
 	]];
 
 private _interface = (_deviceCfg >> "AE3_PowerInterface");
@@ -57,6 +58,7 @@ private _consumer = (_deviceCfg >> "AE3_Consumer");
 if(!isNull _consumer) then
 {
 	_config set ['consumer', [
-		getNumber (_consumer >> "powerConsumption")
+		getNumber (_consumer >> "powerConsumption"),
+		getNumber (_consumer >> "standbyConsumption")
 	]];
 };

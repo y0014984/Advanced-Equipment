@@ -1,6 +1,6 @@
 params ["_entity"];
 
-_standbyTime = 3;
+private _standbyTime = 3;
 
 [
 	_standbyTime,
@@ -19,3 +19,5 @@ _standbyTime = 3;
 	{},
 	("Standby")
 ] call ace_common_fnc_progressBar;
+
+true;

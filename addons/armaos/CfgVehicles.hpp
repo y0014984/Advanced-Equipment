@@ -34,10 +34,12 @@ class CfgVehicles
 
 			turnOnAction = "_this call AE3_armaos_fnc_turnOnComputerAction;";
 			turnOffAction = "_this call AE3_armaos_fnc_turnOffComputerAction;";
+			standByAction = "_this call AE3_armaos_fnc_standbyComputerAction;";
 
 			class AE3_Consumer
 			{
 				powerConsumption = 0.02;
+				standbyConsumption = 0.01;
 			};
 		};
 
