@@ -57,12 +57,7 @@ private _standbyWrapper = {
 	if(_result) then
 	{
 		_target setVariable ['AE3_power_powerState', 2, true];
-	}else
-	{
-		[_target, 0] call AE3_power_fnc_updateSelfPower;
-	}
-
-	
+	};
 };
 
 if(isServer) then

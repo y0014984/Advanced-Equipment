@@ -28,3 +28,10 @@ _target setVariable ["AE3_power_powerCableDevice", nil, true];
 [_target, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
 
 [_target, 1] call ace_cargo_fnc_setSize;
+
+if(!isNil {_target getVariable 'AE3_power_powerConsumption'}) then
+{
+	[_target] call (_target getVariable 'AE3_power_fnc_turnOffWrapper')
+};
+
+[_generator] call AE3_power_fnc_updatePower;
