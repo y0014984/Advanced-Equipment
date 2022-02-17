@@ -10,7 +10,7 @@
 
 params ["_entity"];
 
-private _fuelLevel = _entity getVariable "AE3_fuelLevel";
+private _fuelLevel = _entity getVariable "AE3_power_fuelLevel";
 
 if (_fuelLevel > 0) then
 {

@@ -4,13 +4,13 @@ _router = _target getVariable "AE3_networkCableDevice";
 
 if (!isNil "_router") then
 {
-	_connectedDevices = _router getVariable "AE3_connectedDevices";
+	_connectedDevices = _router getVariable "AE3_power_connectedDevices";
 
 	_index = _connectedDevices findIf {_x isEqualTo _target};
 
 	_connectedDevices deleteAt _index;
 
-	_router setVariable ["AE3_connectedDevices", _connectedDevices, true];
+	_router setVariable ["AE3_power_connectedDevices", _connectedDevices, true];
 };
 
 _target setVariable ["AE3_networkConnectionState", 0, true];

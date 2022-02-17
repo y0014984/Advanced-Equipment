@@ -15,16 +15,16 @@ params['_generator', ["_connectedDevices", nil], ['_internal', false]];
 private _childs = 
 {
 	params ['_target', '_player', '_params']; 
-	_isBattery = !isNil {_target getVariable 'AE3_batteryCapacity'};
+	_isBattery = !isNil {_target getVariable 'AE3_power_batteryCapacity'};
 
-	_generators = (nearestObjects [_target, [], 10]) select {!isNil{_x getVariable 'AE3_connectedDevices'} && _x != _target && !( _isBattery && !isNil{_x getVariable 'AE3_batteryCapacity'}) && !(_x getVariable ['AE3_internalBattery', false])};
+	_generators = (nearestObjects [_target, [], 10]) select {!isNil{_x getVariable 'AE3_power_connectedDevices'} && _x != _target && !( _isBattery && !isNil{_x getVariable 'AE3_power_batteryCapacity'}) && !(_x getVariable ['AE3_power_internalBattery', false])};
 	private _actions = []; 
 	{ 
 		private _childStatement = 
 		{ 
 			params ['_target', '_player', '_generator']; 
 
-			_device = _target getVariable "AE3_internal";
+			_device = _target getVariable "AE3_power_internal";
 			if(isNil "_device") then
 			{
 				_device = _target;
@@ -43,7 +43,7 @@ private _connect = ["AE3_ConnectAction", "Connect to generator", "",
 			{
 				params ['_target', '_player', '_params']; 
 				_params params ['_device']; 
-				(alive _target) and (isNil {_device getVariable 'AE3_powerCableDevice'})
+				(alive _target) and (isNil {_device getVariable 'AE3_power_powerCableDevice'})
 			},
 			_childs,
 			[_generator]
@@ -54,7 +54,7 @@ private _disconnect = ["AE3_DisconnectAction", "Disconnect from generator", "",
 				{
 					params ['_target', '_player', '_params']; 
 					_params params ['_device'];
-					(alive _target) and (!isNil {_device getVariable 'AE3_powerCableDevice'})
+					(alive _target) and (!isNil {_device getVariable 'AE3_power_powerCableDevice'})
 				},
 				{},
 				[_generator]
@@ -64,7 +64,7 @@ private _device = _generator;
 
 if(_internal) then
 {
-	_device = _generator getVariable 'AE3_parent';
+	_device = _generator getVariable 'AE3_power_parent';
 };
 
 if(!isDedicated) then {
@@ -74,5 +74,5 @@ if(!isDedicated) then {
 
 if(isServer) then
 {	
-	_generator setVariable ["AE3_powerCableDevice", nil, true];
+	_generator setVariable ["AE3_power_powerCableDevice", nil, true];
 };

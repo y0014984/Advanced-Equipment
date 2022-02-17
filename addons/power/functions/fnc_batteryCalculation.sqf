@@ -12,20 +12,20 @@
 params ["_battery"];
 
 private _class = typeOf _battery;
-private _batteryCapacity = _battery getVariable 'AE3_batteryCapacity';
-private _recharging = _battery getVariable 'AE3_recharging';
+private _batteryCapacity = _battery getVariable 'AE3_power_batteryCapacity';
+private _recharging = _battery getVariable 'AE3_power_recharging';
 
-private _powerCableDevice = _battery getVariable ["AE3_powerCableDevice", nil];
+private _powerCableDevice = _battery getVariable ["AE3_power_powerCableDevice", nil];
 
-private _powerState = _battery getVariable "AE3_powerState";
-private _consumption = _battery getVariable ["AE3_powerReq", 0];
+private _powerState = _battery getVariable "AE3_power_powerState";
+private _consumption = _battery getVariable ["AE3_power_powerReq", 0];
 
-private _batteryLevel = _battery getVariable "AE3_batteryLevel";
+private _batteryLevel = _battery getVariable "AE3_power_batteryLevel";
 private _change = 0;
 
 if (!isNil "_powerCableDevice") then
 {
-	if (_powerCableDevice getVariable ["AE3_powerState", 0] == 1) then
+	if (_powerCableDevice getVariable ["AE3_power_powerState", 0] == 1) then
 	{
 		_change = _recharging;
 	};
@@ -41,10 +41,10 @@ private _newBatteryLevel = _batteryLevel + _change;
 if(_newBatteryLevel > _batteryCapacity) then
 {
 	_newBatteryLevel = _batteryCapacity;
-	_battery setVariable ['AE3_powerDraw', _consumption, true];
+	_battery setVariable ['AE3_power_powerDraw', _consumption, true];
 }else 
 {
-	_battery setVariable ['AE3_powerDraw', _recharging, true];
+	_battery setVariable ['AE3_power_powerDraw', _recharging, true];
 
 	if(_newBatteryLevel < 0) then {
 		_newBatteryLevel = 0;
@@ -52,7 +52,7 @@ if(_newBatteryLevel > _batteryCapacity) then
 	};
 };
 
-_battery setVariable ['AE3_batteryLevel', _newBatteryLevel, true];
-_battery setVariable ['AE3_powerState', _powerState, true];
+_battery setVariable ['AE3_power_batteryLevel', _newBatteryLevel, true];
+_battery setVariable ['AE3_power_powerState', _powerState, true];
 
 [_powerState == 1, _newBatteryLevel];

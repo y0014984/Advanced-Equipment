@@ -10,13 +10,13 @@
 */
 params ["_entity", ["_silent", false]];
 
-_powerState = _entity getVariable "AE3_powerState";
+_powerState = _entity getVariable "AE3_power_powerState";
 
 _turnOffTime = 3;
 
 _handle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
 
-_handle = _entity getVariable "AE3_generatorRunningSoundHandle";
+_handle = _entity getVariable "AE3_power_generatorRunningSoundHandle";
 terminate _handle; // TODO: Does this work in MP?
 
 if (!_silent) then 
@@ -39,6 +39,6 @@ if (!_silent) then
 // TODO: Wrapper?
 {
 		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');
-}forEach (_entity getVariable ['AE3_connectedDevices', []]);
+}forEach (_entity getVariable ['AE3_power_connectedDevices', []]);
 
 true;

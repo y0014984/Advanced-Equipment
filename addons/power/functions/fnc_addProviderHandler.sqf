@@ -10,13 +10,13 @@
  */
 params['_generator', '_generatorFnc', ['_internal', false]];
 
-_generator setVariable ['AE3_powerCapacity', 0, true];
+_generator setVariable ['AE3_power_powerCapacity', 0, true];
 
 private _generatorTurnoff = {
 	params ['_generator'];
 	{
 		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');
-	}forEach (_generator getVariable ['AE3_connectedDevices', []]);
+	}forEach (_generator getVariable ['AE3_power_connectedDevices', []]);
 
 };
 
@@ -37,11 +37,11 @@ private _handle = [
 			[_generator, [true]] call _generatorTurnoff;
 		};
 
-		if(_newPower != (_generator getVariable ['AE3_powerCapacity', 0])) then
+		if(_newPower != (_generator getVariable ['AE3_power_powerCapacity', 0])) then
 		{
-			_generator setVariable ['AE3_powerCapacity', _newPower, true];
+			_generator setVariable ['AE3_power_powerCapacity', _newPower, true];
 			
-			if(_newPower < _generator getVariable ['AE3_powerReq', 0]) then
+			if(_newPower < _generator getVariable ['AE3_power_powerReq', 0]) then
 			{
 				[_generator, [true]] call _generatorTurnoff;
 			}
@@ -53,4 +53,4 @@ private _handle = [
 
 if(_handle < 0) exitWith {throw "GeneratorInitError";};
 
-_generator setVariable ['AE3_generatorHandle', _handle];
+_generator setVariable ['AE3_power_generatorHandle', _handle];

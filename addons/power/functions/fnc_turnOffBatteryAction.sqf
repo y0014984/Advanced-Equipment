@@ -14,6 +14,6 @@ params['_entity'];
 
 {
 		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');
-}forEach (_entity getVariable ['AE3_connectedDevices', []]);
+}forEach (_entity getVariable ['AE3_power_connectedDevices', []]);
 
 true;

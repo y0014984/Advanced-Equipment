@@ -18,7 +18,7 @@ private _entity = _battery;
 
 if(_internal) then
 {
-	_entity = _battery getVariable 'AE3_parent';
+	_entity = _battery getVariable 'AE3_power_parent';
 };
 
 if(!isDedicated) then {
@@ -40,17 +40,17 @@ if(!isDedicated) then {
 
 if(isServer) then
 {
-	_battery setVariable ['AE3_batteryCapacity', _batteryCapacity, true];
-	_battery setVariable ['AE3_batteryLevel', 0, true];
-	_battery setVariable ['AE3_recharging', _recharging, true];
-	_battery setVariable ['AE3_powerDraw', 0, true];
-	_battery setVariable ['AE3_connectedDevices', [], true];
-	_entity setVariable ['AE3_internalBattery', _internal, true];
+	_battery setVariable ['AE3_power_batteryCapacity', _batteryCapacity, true];
+	_battery setVariable ['AE3_power_batteryLevel', 0, true];
+	_battery setVariable ['AE3_power_recharging', _recharging, true];
+	_battery setVariable ['AE3_power_powerDraw', 0, true];
+	_battery setVariable ['AE3_power_connectedDevices', [], true];
+	_entity setVariable ['AE3_power_internalBattery', _internal, true];
 
 	if(_internal) then
 	{
-		_battery setVariable ['AE3_connectedDevices', [_entity], true];
-		_entity setVariable ["AE3_powerCableDevice", _battery, true];
+		_battery setVariable ['AE3_power_connectedDevices', [_entity], true];
+		_entity setVariable ["AE3_power_powerCableDevice", _battery, true];
 		[_battery] call (_battery getVariable 'AE3_power_fnc_turnOnWrapper');
 	};
 };

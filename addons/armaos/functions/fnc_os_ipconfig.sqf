@@ -6,7 +6,7 @@ _router = _consoleInput getVariable ["AE3_networkCableDevice", nil];
 
 if (!isNil "_router") then 
 {
-	if (_router getVariable ["AE3_powerConsumptionState", 0] == 0) then { _ip = "127.0.0.1" };
+	if (_router getVariable ["AE3_power_powerConsumptionState", 0] == 0) then { _ip = "127.0.0.1" };
 };
 
 

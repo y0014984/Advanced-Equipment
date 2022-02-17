@@ -24,7 +24,7 @@ private _turnOnWrapper = {
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_powerState', 1, true];
+		_target setVariable ['AE3_power_powerState', 1, true];
 	};
 	
 };
@@ -38,7 +38,7 @@ private _turnOffWrapper = {
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_powerState', 0, true];
+		_target setVariable ['AE3_power_powerState', 0, true];
 	};
 	
 };
@@ -52,7 +52,7 @@ private _standbyWrapper = {
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_powerState', 2, true];
+		_target setVariable ['AE3_power_powerState', 2, true];
 	};
 	
 };
@@ -81,7 +81,7 @@ if(!isDedicated) then
 						};
 						
 					}, 
-					{(alive _target) and (_target getVariable 'AE3_powerState' != 1) and !(_target getVariable ['AE3_power_mutex', false])},
+					{(alive _target) and (_target getVariable 'AE3_power_powerState' != 1) and !(_target getVariable ['AE3_power_mutex', false])},
 					{}] call ace_interact_menu_fnc_createAction;
 
 		_turnOff = ["AE3_TurnOffAction", "Turn Off", "", 
@@ -95,7 +95,7 @@ if(!isDedicated) then
 								_target setVariable ['AE3_power_mutex', false, true];
 							};
 						}, 
-						{(alive _target) and (_target getVariable 'AE3_powerState' != 0) and !(_target getVariable ['AE3_power_mutex', false])},
+						{(alive _target) and (_target getVariable 'AE3_power_powerState' != 0) and !(_target getVariable ['AE3_power_mutex', false])},
 						{}] call ace_interact_menu_fnc_createAction;
 
 		[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _turnOn] call ace_interact_menu_fnc_addActionToObject;
@@ -115,7 +115,7 @@ if(!isDedicated) then
 								_target setVariable ['AE3_power_mutex', false, true];
 							};
 						}, 
-						{(alive _target) and (_target getVariable 'AE3_powerState' == 1) and !(_target getVariable ['AE3_power_mutex', false])},
+						{(alive _target) and (_target getVariable 'AE3_power_powerState' == 1) and !(_target getVariable ['AE3_power_mutex', false])},
 						{}] call ace_interact_menu_fnc_createAction;
 			
 			[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _standby] call ace_interact_menu_fnc_addActionToObject;
@@ -126,7 +126,7 @@ if(!isDedicated) then
 
 if(isServer) then
 {
-	_entity setVariable ["AE3_powerState", 0, true];
+	_entity setVariable ["AE3_power_powerState", 0, true];
 	_entity setVariable ["AE3_power_fnc_turnOn", _turnOnFnc, true];
 	_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper, true];
 	_entity setVariable ["AE3_power_fnc_turnOff", _turnOffFnc, true];

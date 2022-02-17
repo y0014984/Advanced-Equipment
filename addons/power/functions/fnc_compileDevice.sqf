@@ -71,19 +71,19 @@ if(!("internal" in _config)) exitWith {};
 	params ['_entity', '_config'];
 
 	private _internalConfig = _config get "internal";
-	private _internal = _entity getVariable 'AE3_internal';
+	private _internal = _entity getVariable 'AE3_power_internal';
 
 	/* Init internal namespace serverside to prevent race conditions */
 	if(isServer) then
 	{
 		_internal = true call CBA_fnc_createNamespace;
 
-		_entity setVariable ['AE3_internal', _internal, true];
-		_internal setVariable ['AE3_parent', _entity, true];
+		_entity setVariable ['AE3_power_internal', _internal, true];
+		_internal setVariable ['AE3_power_parent', _entity, true];
 	}else
 	{
-		waitUntil {!isNil {_entity getVariable 'AE3_internal';}};
-		_internal = _entity getVariable 'AE3_internal';
+		waitUntil {!isNil {_entity getVariable 'AE3_power_internal';}};
+		_internal = _entity getVariable 'AE3_power_internal';
 	};
 
 	[_internal] + (_internalConfig get 'device') call AE3_power_fnc_initDevice;

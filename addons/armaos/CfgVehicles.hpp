@@ -79,7 +79,7 @@ class CfgVehicles
 					class AE3_UseComputer
 					{
 						displayName = "Use Computer";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 1)";
+						condition = "(alive _target) and (_target getVariable 'AE3_power_powerState' == 1)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_useComputerAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
@@ -112,7 +112,7 @@ class CfgVehicles
 					class AE3_ConnectToGenerator
 					{
 						displayName = "Connect To Generator";
-						condition = "(alive _target) and (count (nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]) > 0) and (_target getVariable 'AE3_powerConsumptionState' == 0)";
+						condition = "(alive _target) and (count (nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]) > 0) and (_target getVariable 'AE3_power_powerConsumptionState' == 0)";
 						statement = "";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
@@ -128,7 +128,7 @@ class CfgVehicles
 					class AE3_DisconnectFromGenerator
 					{
 						displayName = "Disconnect From Generator";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerConsumptionState' == 1)";
+						condition = "(alive _target) and (_target getVariable 'AE3_power_powerConsumptionState' == 1)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_disconnectFromGeneratorAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
@@ -176,7 +176,7 @@ class CfgVehicles
 					class AE3_TurnOn
 					{
 						displayName = "Turn On";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 1)";
+						condition = "(alive _target) and (_target getVariable 'AE3_power_powerState' != 1)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_turnOnComputerAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
@@ -192,7 +192,7 @@ class CfgVehicles
 					class AE3_TurnOff
 					{
 						displayName = "Turn Off";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 0)";
+						condition = "(alive _target) and (_target getVariable 'AE3_power_powerState' != 0)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target, false] spawn AE3_armaos_fnc_turnOffComputerAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
@@ -208,7 +208,7 @@ class CfgVehicles
 					class AE3_Standby
 					{
 						displayName = "Standby";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 1)";
+						condition = "(alive _target) and (_target getVariable 'AE3_power_powerState' == 1)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_standbyComputerAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};

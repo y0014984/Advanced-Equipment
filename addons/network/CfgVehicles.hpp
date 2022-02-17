@@ -44,7 +44,7 @@ class CfgVehicles
 					class AE3_ConnectToGenerator
 					{
 						displayName = "Connect To Generator";
-						condition = "(alive _target) and (count (nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]) > 0) and (_target getVariable 'AE3_powerConsumptionState' == 0)";
+						condition = "(alive _target) and (count (nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]) > 0) and (_target getVariable 'AE3_power_powerConsumptionState' == 0)";
 						statement = "";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
@@ -60,7 +60,7 @@ class CfgVehicles
 					class AE3_DisconnectFromGenerator
 					{
 						displayName = "Disconnect From Generator";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerConsumptionState' == 1)";
+						condition = "(alive _target) and (_target getVariable 'AE3_power_powerConsumptionState' == 1)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_disconnectFromGeneratorAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};

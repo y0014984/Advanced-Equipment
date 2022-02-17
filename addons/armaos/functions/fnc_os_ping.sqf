@@ -48,14 +48,14 @@ switch (true) do
 					_router = _computer getVariable ["AE3_networkCableDevice", nil];
 					if (!isNil "_router") then
 					{
-						_connectedDevices = _router getVariable ["AE3_connectedDevices", []];
+						_connectedDevices = _router getVariable ["AE3_power_connectedDevices", []];
 						_matchingComputerIndex = _connectedDevices findIf { (_x getVariable ["AE3_ipAddress", "127.0.0.1"]) isEqualTo _ipPing };
 
 						if (_matchingComputerIndex != -1) then 
 						{
 							_matchingComputer = _connectedDevices select _matchingComputerIndex;
 							
-							if (_matchingComputer getVariable ["AE3_powerState", 0] == 1) then
+							if (_matchingComputer getVariable ["AE3_power_powerState", 0] == 1) then
 							{
 								_result = [ format ["   Command: ping %1 - 5 ms / packet loss 0%2", _ipPing, "%"] ];
 								_result breakOut "main";

@@ -28,4 +28,4 @@ if(!isNil "_filename") then
 };
 
 _handle = [_entity] spawn AE3_power_fnc_playGeneratorRunningSound;
-_entity setVariable ['AE3_generatorRunningSoundHandle', _handle, true];
+_entity setVariable ['AE3_power_generatorRunningSoundHandle', _handle, true];

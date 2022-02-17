@@ -14,7 +14,7 @@ private _standbyTime = 3;
 
 		_handle = [_entity] spawn AE3_armaos_fnc_playComputerStandbySound;
 
-		_entity setVariable ['AE3_powerState', 2, true];
+		_entity setVariable ['AE3_power_powerState', 2, true];
 	},
 	{},
 	("Standby")

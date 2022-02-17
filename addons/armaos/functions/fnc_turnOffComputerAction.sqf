@@ -1,6 +1,6 @@
 params ["_entity", ["_silent", true]];
 
-private _powerState = _entity getVariable 'AE3_powerState';
+private _powerState = _entity getVariable 'AE3_power_powerState';
 
 _turnOffTime = 0;
 
@@ -16,7 +16,7 @@ _color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
 if (_silent) then 
 {
 			_entity setObjectTextureGlobal [1, _color];
-			_entity setVariable ['AE3_powerState', 0, true];
+			_entity setVariable ['AE3_power_powerState', 0, true];
 }
 else 
 {
@@ -36,7 +36,7 @@ else
 
 			_handle = [_entity] spawn AE3_armaos_fnc_playComputerStopSound;
 
-			_entity setVariable ['AE3_powerState', 0, true];
+			_entity setVariable ['AE3_power_powerState', 0, true];
 
 			_entity setVariable ["history", [], true];
 		},

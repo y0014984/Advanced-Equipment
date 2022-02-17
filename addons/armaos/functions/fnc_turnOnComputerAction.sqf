@@ -1,7 +1,7 @@
 params ["_entity"];
 
 
-_powerState = _entity getVariable 'AE3_powerState';
+_powerState = _entity getVariable 'AE3_power_powerState';
 
 _turnOnTime = 0;
 
@@ -27,7 +27,7 @@ _entity setVariable ["_bootingTextureIndex", 0];
 
 		_handle = [_entity] spawn AE3_armaos_fnc_playComputerStartSound;
 
-		//_entity setVariable ['AE3_powerState', 1, true];
+		//_entity setVariable ['AE3_power_powerState', 1, true];
 
 	},
 	{},

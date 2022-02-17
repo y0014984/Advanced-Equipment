@@ -14,14 +14,14 @@ params['_entity', '_powerConsumption', '_standbyConsumption'];
 private _turnOnWrapper = {
 	params['_target', ['_args', []]];
 
-	if([_target, _target getVariable 'AE3_powerConsumption'] call AE3_power_fnc_updateSelfPower) exitWith {};
+	if([_target, _target getVariable 'AE3_power_powerConsumption'] call AE3_power_fnc_updateSelfPower) exitWith {};
 
 	_turnOnFnc =  _target getVariable "AE3_power_fnc_turnOn";
 	_result = [_target] + _args call _turnOnFnc;
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_powerState', 1, true];
+		_target setVariable ['AE3_power_powerState', 1, true];
 	}else
 	{
 		[_target, 0] call AE3_power_fnc_updateSelfPower;
@@ -39,7 +39,7 @@ private _turnOffWrapper = {
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_powerState', 0, true];
+		_target setVariable ['AE3_power_powerState', 0, true];
 
 		[_target, 0] call AE3_power_fnc_updateSelfPower;
 	};
@@ -49,14 +49,14 @@ private _turnOffWrapper = {
 private _standbyWrapper = {
 	params['_target', ['_args', []]];
 
-	if([_target, _target getVariable 'AE3_standbyConsumption'] call AE3_power_fnc_updateSelfPower) exitWith {};
+	if([_target, _target getVariable 'AE3_power_standbyConsumption'] call AE3_power_fnc_updateSelfPower) exitWith {};
 
 	_standbyFnc =  _target getVariable "AE3_power_fnc_standby";
 	_result = [_target] + _args call _standbyFnc;
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_powerState', 2, true];
+		_target setVariable ['AE3_power_powerState', 2, true];
 	}else
 	{
 		[_target, 0] call AE3_power_fnc_updateSelfPower;
@@ -71,7 +71,7 @@ if(isServer) then
 	_entity setVariable ["AE3_power_fnc_turnOffWrapper", _turnOffWrapper, true];
 	_entity setVariable ["AE3_power_fnc_standbyWrapper", _standbyWrapper, true];
 
-	_entity setVariable ["AE3_powerConsumption", _powerConsumption, true];
-	_entity setVariable ["AE3_standbyConsumption", _standbyConsumption, true];
-	_entity setVariable ['AE3_powerDraw', 0, true];
+	_entity setVariable ["AE3_power_powerConsumption", _powerConsumption, true];
+	_entity setVariable ["AE3_power_standbyConsumption", _standbyConsumption, true];
+	_entity setVariable ['AE3_power_powerDraw', 0, true];
 };
