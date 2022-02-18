@@ -94,9 +94,9 @@ class CfgVehicles
 
 
 	// Batteries
-	class Land_BatteryPack_01_open_black_F;
+	class Land_BatteryPack_01_open_sand_F;
 
-	class Land_BatteryPack_01_open_black_F_AE3 : Land_BatteryPack_01_open_black_F
+	class Land_BatteryPack_01_open_sand_F_AE3 : Land_BatteryPack_01_open_sand_F
 	{
 		// Carrying
         ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
