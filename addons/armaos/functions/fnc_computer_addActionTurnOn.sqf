@@ -12,7 +12,7 @@ params ["_computer"];
 
 
 
-private _powerState = _computer getVariable 'AE3_powerState';
+private _powerState = _computer getVariable 'AE3_power_powerState';
 
 private _turnOnTime = 0;
 
