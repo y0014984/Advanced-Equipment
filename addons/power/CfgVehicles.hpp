@@ -33,7 +33,7 @@ class CfgVehicles
 				fuelCapacity = 5;
 				fuelLevel = 1;
 
-				power = 8;
+				power = 8/3600;
 			};
 		};
 
@@ -122,8 +122,9 @@ class CfgVehicles
 
 			class AE3_Battery
 			{
-				capacity = 10;
-				recharging = 0.1;
+				capacity = 0.6;
+				recharging = 0.3/3600;
+				level = 0.6;
 				internal = 0;
 			};
 		};

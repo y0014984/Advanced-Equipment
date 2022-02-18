@@ -20,13 +20,6 @@ class CfgVehicles
 			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
 		};
 
-		ae3_power_hasBattery = 1;
-		ae3_power_batteryCapacity = 100;
-		ae3_power_powerConsumptionOn = 10;
-		ae3_power_powerConsumptionStandBy = 0.1;
-		ae3_power_recharging = 50;
-		ae3_power_defaultPowerLevel = 1;
-
 		class AE3_Device
 		{
 			displayName = "Laptop";
@@ -38,8 +31,8 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.02;
-				standbyConsumption = 0.01;
+				powerConsumption = 0.01/3600;
+				standbyConsumption = 0.0001/3600;
 			};
 		};
 
@@ -58,8 +51,9 @@ class CfgVehicles
 
 			class AE3_Battery
 			{
-				capacity = 10;
-				recharging = 0.1;
+				capacity = 0.1;
+				recharging = 0.05/3600;
+				level = 0.1;
 				internal = 1;
 			};
 		};

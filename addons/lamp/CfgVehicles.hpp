@@ -30,7 +30,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.03;
+				powerConsumption = 0.03/3600;
 			};
 		};
 	};
@@ -66,7 +66,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.06;
+				powerConsumption = 0.06/3600;
 			};
 		};
 

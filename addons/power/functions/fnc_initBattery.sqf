@@ -41,7 +41,7 @@ if(!isDedicated) then {
 if(isServer) then
 {
 	_battery setVariable ['AE3_power_batteryCapacity', _batteryCapacity, true];
-	_battery setVariable ['AE3_power_batteryLevel', 0, true];
+	_battery setVariable ['AE3_power_batteryLevel', _batteryLevel, true];
 	_battery setVariable ['AE3_power_recharging', _recharging, true];
 	_battery setVariable ['AE3_power_powerDraw', 0, true];
 	_battery setVariable ['AE3_power_connectedDevices', [], true];
