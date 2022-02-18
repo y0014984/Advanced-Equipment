@@ -1,8 +1,18 @@
+/**
+ * Display device power state via hint.
+ *
+ * Arguments:
+ * 0: Device <OBJECT>
+ * 
+ * Returns:
+ * None
+ */
+
 params ["_target"];
 
-_powerState = _target getVariable ["AE3_powerState", -1];
+private _powerState = _target getVariable ["AE3_power_powerState", -1];
 
-_powerStateString = "";
+private _powerStateString = "";
 
 switch (_powerState) do
 {

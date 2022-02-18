@@ -1,15 +1,30 @@
 /* Actions */
 PREP(checkBatteryLevelAction);
 PREP(checkFuelLevelAction);
-PREP(getPowerStateAction);
+PREP(checkPowerStateAction);
 PREP(turnOffGeneratorAction);
 PREP(turnOnGeneratorAction);
+PREP(turnOffBatteryAction);
+PREP(turnOnBatteryAction);
 PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
 
+/* Init */
+PREP(compileConfig);
+PREP(compileDevice);
+PREP(initDevice);
+PREP(initPowerInterface);
+PREP(initBattery);
+PREP(initGenerator);
+PREP(initConsumer);
+
 /* Sys */
+PREP(batteryCalculation);
+PREP(addProviderHandler);
+PREP(removeProviderHandler);
 PREP(fuelConsumption);
-PREP(powerConsumption);
+PREP(updatePower);
+PREP(updateSelfPower);
 
 
 /* Helper */

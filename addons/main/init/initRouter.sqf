@@ -1,13 +1,13 @@
 params ["_entity"];
 
 // 0 = off; 1 = on
-_entity setVariable ["AE3_powerState", 0, true];
+_entity setVariable ["AE3_power_powerState", 0, true];
 
 // 0 = no cable; 1 = cable
-_entity setVariable ["AE3_powerConsumptionState", 0, true];
+_entity setVariable ["AE3_power_powerConsumptionState", 0, true];
 
 // object or nil
-_entity setVariable ["AE3_powerCableDevice", nil, true];
+_entity setVariable ["AE3_power_powerCableDevice", nil, true];
 
 _handle = [_entity] spawn AE3_power_fnc_powerConsumption;
 

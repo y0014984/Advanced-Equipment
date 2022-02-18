@@ -8,7 +8,7 @@ _target setVariable ["AE3_networkCableDevice", _router, true];
 
 [_target, -1] call ace_cargo_fnc_setSize;
 
-_connectedDevices = _router getVariable "AE3_connectedDevices";
+_connectedDevices = _router getVariable "AE3_power_connectedDevices";
 
 _dhcpLeases = _router getVariable ["AE3_dhcpLeases", -1];
 
@@ -37,6 +37,6 @@ else
 	_connectedDevices pushBack _target;
 };
 
-_router setVariable ["AE3_connectedDevices", _connectedDevices, true];
+_router setVariable ["AE3_power_connectedDevices", _connectedDevices, true];
 
 _target setVariable ["AE3_networkCableDevice", _router, true];

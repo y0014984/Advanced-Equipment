@@ -11,7 +11,7 @@
 
 params ["_computer", "_silent"];
 
-private _powerState = _computer getVariable 'AE3_powerState';
+private _powerState = _computer getVariable 'AE3_power_powerState';
 
 private _turnOffTime = 0;
 
@@ -29,7 +29,6 @@ private _color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
 if (_silent) then 
 {
 			_computer setObjectTextureGlobal [1, _color];
-			_computer setVariable ['AE3_powerState', 0, true];
 }
 else 
 {
@@ -48,8 +47,6 @@ else
 			_computer setObjectTextureGlobal [1, _color];
 
 			private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
-
-			_computer setVariable ['AE3_powerState', 0, true];
 
 			private _terminal = _computer getVariable "AE3_terminal";
 
@@ -87,3 +84,5 @@ else
 		}
 	] call ace_common_fnc_progressBar;
 };
+
+true;

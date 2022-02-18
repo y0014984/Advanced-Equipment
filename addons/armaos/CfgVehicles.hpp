@@ -17,16 +17,48 @@ class CfgVehicles
 		// Event Handlers
 		class EventHandlers
 		{
-			init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
+			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
 		};
 
-		ae3_power_hasBattery = 1;
-		ae3_power_batteryCapacity = 100;
-		ae3_power_powerConsumptionOn = 10;
-		ae3_power_powerConsumptionStandBy = 0.1;
-		ae3_power_recharging = 50;
-		ae3_power_defaultPowerLevel = 1;
+		class AE3_Device
+		{
+			displayName = "Laptop";
+			defaultPowerLevel = 0;
 
+			turnOnAction = "_this call AE3_armaos_fnc_turnOnComputerAction;";
+			turnOffAction = "_this call AE3_armaos_fnc_turnOffComputerAction;";
+			standByAction = "_this call AE3_armaos_fnc_standbyComputerAction;";
+
+			class AE3_Consumer
+			{
+				powerConsumption = 0.01/3600;
+				standbyConsumption = 0.0001/3600;
+			};
+		};
+
+		class AE3_InternalDevice
+		{
+			displayName = "Battery";
+			defaultPowerLevel = 1;
+
+			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "";
+
+			class AE3_PowerInterface
+			{
+				internal = 1;
+			};
+
+			class AE3_Battery
+			{
+				capacity = 0.1;
+				recharging = 0.05/3600;
+				level = 0.1;
+				internal = 1;
+			};
+		};
+
+		
         class ACE_Actions 
 		{
 			class ACE_MainActions
@@ -36,157 +68,13 @@ class CfgVehicles
 				distance = 2;
 				class AE3_Laptop_Group
 				{
-					displayName = "Laptop";
+					displayName = "ArmaOS";
 					condition = "true";
 					class AE3_UseComputer
 					{
-						displayName = "Use Computer";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 1)";
+						displayName = "Use";
+						condition = "(alive _target) and (_target getVariable 'AE3_power_powerState' == 1)";
 						statement = "params ['_target', '_player', '_params']; _handle = [_target] call AE3_armaos_fnc_terminal_init;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_CheckBatteryLevel
-					{
-						displayName = "Check Battery Level";
-						condition = "alive _target";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_checkBatteryLevelAction;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_ConnectToGenerator
-					{
-						displayName = "Connect To Generator";
-						condition = "(alive _target) and (count (nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]) > 0) and (_target getVariable 'AE3_powerConsumptionState' == 0)";
-						statement = "";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						insertChildren = "params ['_target', '_player', '_params']; _generators = nearestObjects [_target, ['Land_PortableGenerator_01_sand_F_AE3'], 10]; private _actions = []; { private _childStatement = { params ['_target', '_player', '_generator']; _handle = [_target, _generator] spawn AE3_power_fnc_connectToGeneratorAction; }; private _action = [typeOf _x, typeOf _x, '', _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; _actions pushBack [_action, [], _target]; } forEach (_generators); _actions";
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_DisconnectFromGenerator
-					{
-						displayName = "Disconnect From Generator";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerConsumptionState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_disconnectFromGeneratorAction;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_ConnectToRouter
-					{
-						displayName = "Connect To Router";
-						condition = "(alive _target) and (count (nearestObjects [_target, ['Land_Router_01_sand_F_AE3'], 10]) > 0) and (_target getVariable 'AE3_networkConnectionState' == 0)";
-						statement = "";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						insertChildren = "params ['_target', '_player', '_params']; _routers = nearestObjects [_target, ['Land_Router_01_sand_F_AE3'], 10]; private _actions = []; { private _childStatement = { params ['_target', '_player', '_router']; _handle = [_target, _router] spawn AE3_network_fnc_connectToRouterAction; }; private _action = [typeOf _x, typeOf _x, '', _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; _actions pushBack [_action, [], _target]; } forEach (_routers); _actions";
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_DisconnectFromRouter
-					{
-						displayName = "Disconnect From Router";
-						condition = "(alive _target) and (_target getVariable 'AE3_networkConnectionState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_network_fnc_disconnectFromRouterAction;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_TurnOn
-					{
-						displayName = "Turn On";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_computer_addActionTurnOn;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_TurnOff
-					{
-						displayName = "Turn Off";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' != 0)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target, false] spawn AE3_armaos_fnc_computer_addActionTurnOff;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_Standby
-					{
-						displayName = "Standby";
-						condition = "(alive _target) and (_target getVariable 'AE3_powerState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_armaos_fnc_computer_addActionStandby;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-					class AE3_PowerState
-					{
-						displayName = "Check Power State";
-						condition = "alive _target";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_getPowerStateAction;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren

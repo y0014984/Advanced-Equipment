@@ -23,10 +23,10 @@ private _standbyTime = 3;
 		_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Standby.paa"];
 
 		private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStandby;
-
-		_computer setVariable ['AE3_powerState', 2, true];
 	},
 	{},
 	"Standby",
 	{true}
 ] call ace_common_fnc_progressBar;
+
+true;

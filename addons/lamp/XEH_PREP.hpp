@@ -1,3 +1,5 @@
+PREP(initLamp);
+
 /* Actions */
-PREP(onOffActionLight);
-PREP(onOffLight);
+PREP(onAction);
+PREP(offAction);
