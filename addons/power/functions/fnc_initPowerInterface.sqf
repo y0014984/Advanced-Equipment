@@ -38,7 +38,7 @@ private _childs =
 	} forEach (_generators); _actions
 };
 
-private _connect = ["AE3_ConnectAction", "Connect to generator", "",
+private _connect = ["AE3_ConnectAction", "Connect to power source", "",
 			{},
 			{
 				params ['_target', '_player', '_params']; 
@@ -49,7 +49,7 @@ private _connect = ["AE3_ConnectAction", "Connect to generator", "",
 			[_generator]
 			] call ace_interact_menu_fnc_createAction;
 
-private _disconnect = ["AE3_DisconnectAction", "Disconnect from generator", "",
+private _disconnect = ["AE3_DisconnectAction", "Disconnect from power source", "",
 				{params ['_target', '_player', '_params']; _params params ['_device']; _handle = [_device] spawn AE3_power_fnc_disconnectFromGeneratorAction;},
 				{
 					params ['_target', '_player', '_params']; 
