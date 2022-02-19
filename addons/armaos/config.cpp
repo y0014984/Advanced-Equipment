@@ -18,6 +18,8 @@ class CfgPatches
 #include "CfgVehicles.hpp"
 #include "Cfg3DEN.hpp"
 
+#include "CfgOsFunctions.hpp"
+
 // Grid Macros and Styles
 #include "defines.inc"
 

@@ -9,6 +9,11 @@ private _user = _module getVariable ['AE3_ModuleFilesystem_FileOwner', ''];
 
 if(_path isEqualTo '') exitWith {};
 
+if(_isFunction) then
+{
+	_content = compile _content;
+};
+
 [_syncedObjects, _path, _content, _user, _isFunction] spawn 
 {
 	params ['_syncedObjects', '_path', '_content', '_user', '_isFunction'];

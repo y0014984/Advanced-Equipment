@@ -17,11 +17,16 @@ PREP(computer_addActionStandby);
 PREP(computer_addActionTurnOn);
 PREP(computer_addActionTurnOff);
 
+/* OS Link Functions */
+PREP(link_add);
+PREP(link_init);
+
 /* OS Internal Functions */
 PREP(os_cd);
 PREP(os_chat);
 PREP(os_clear);
 PREP(os_date);
+PREP(os_help);
 PREP(os_history);
 PREP(os_ipconfig);
 PREP(os_logout);

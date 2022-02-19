@@ -3,8 +3,9 @@
  * 
  * Arguments:
  * 0: Computer <OBJECT>
- * 1: Path to file <STRING>
- * 2: Options <LIST>
+ * 1: File pointer [<STRING>]
+ * 2: Path to file <STRING>
+ * 3: Options <LIST>
  *
  * Returns:
  * Result of the file.
@@ -14,7 +15,7 @@ params['_computer', '_path', '_options'];
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
-private _result = format ["   Command '%1' not found.", _path];
+private _result = [format ["Command '%1' not found.", _path]];
 
 try
 {
@@ -24,17 +25,14 @@ try
 	{
 		_result = [_computer, _options] call _content;
 
-		if(isNil "_result") then 
-		{
-			_result = ""
-		}else
-		{
-			if(!(_result isEqualType "")) then 
-			{
-				_result = str _result
-			};
-		};
-	}
+		if(isNil "_result") exitWith {_result = [""]};
+
+		if(_result isEqualType []) exitWith {};
+
+		if(!(_result isEqualType "")) exitWith {_result = [str _result]};
+
+		_result = [_result];
+	};
 }catch {};
 
-[_result];
+_result;
