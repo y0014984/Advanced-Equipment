@@ -37,7 +37,7 @@ switch (_command) do
 	case "rm": { _result = [_computer, _options] call AE3_armaos_fnc_os_rm; };
 	case "mv": { _result = [_computer, _options] call AE3_armaos_fnc_os_mv; };
 	case "chat": { _result = [_computer, _options] call AE3_armaos_fnc_os_chat; };
-	default { _result = [format ["   Command '%1' not found.", _command]]; };
+	default { _result = [_computer, _command, _options] call AE3_armaos_fnc_shell_executeFile; };
 };
 
 if (_command == "shutdown") exitWith {};

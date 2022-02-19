@@ -10,6 +10,7 @@ class CfgVehicles
 		{
 			class Default;
 			class Edit;					// Default edit box (i.e., text input field)
+			class Checkbox;
 			class ModuleDescription;	// Module description
 		};
 		// Description base classes, for more information see below
@@ -66,6 +67,16 @@ class CfgVehicles
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """Lorem ipsum""";
+			};
+			class AE3_ModuleFilesystem_IsFunction: Checkbox
+			{
+				property = "AE3_ModuleFilesystem_IsFunction";
+				displayName = "Is executable?";
+				tooltip = "If the file content is a function or code which can be executed from terminal";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = false;
 			};
 			class AE3_ModuleFilesystem_FileOwner: Edit
 			{
