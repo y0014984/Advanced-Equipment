@@ -15,6 +15,9 @@ params ["_computer", "_options"];
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
+
 if(count _options == 0) exitWith {["Too few options"];};
 
 private _result = [];
@@ -22,7 +25,7 @@ private _path = _options select 0;
 
 try
 {
-	_content = [_pointer, _filesystem, _path] call AE3_filesystem_fnc_getFile;
+	_content = [_pointer, _filesystem, _path, _username] call AE3_filesystem_fnc_getFile;
 
 	if(!(_content isEqualType "")) exitWith 
 	{

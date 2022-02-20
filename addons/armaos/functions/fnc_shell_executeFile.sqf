@@ -15,11 +15,15 @@ params['_computer', '_path', '_options'];
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
+
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
+
 private _result = [format ["Command '%1' not found.", _path]];
 
 try
 {
-	_content = [_pointer, _filesystem, _path] call AE3_filesystem_fnc_getFile;
+	_content = [_pointer, _filesystem, _path, _username] call AE3_filesystem_fnc_getFile;
 
 	if(_content isEqualType {}) then
 	{
@@ -33,6 +37,8 @@ try
 
 		_result = [_result];
 	};
-}catch {};
+}catch {
+	diag_log str _exception;
+};
 
 _result;

@@ -2,9 +2,9 @@
  * List directory.
  *
  * Arguments:
- * 1: Pointer <[STRING]>
- * 2: Filesystem <HASHMAP>
- * 3: Raw path to target directory <STRING>
+ * 0: Pointer <[STRING]>
+ * 1: Filesystem <HASHMAP>
+ * 2: Raw path to target directory <STRING>
  *
  * Results:
  * Content of the directory <[STRING]>
@@ -16,10 +16,11 @@ private _dir = [_pntr, _filesystem, _target] call AE3_filesystem_fnc_chdir;
 
 if(_dir isEqualType []) exitWith 
 {
-	_dir params ['_pntr', '_current'];
+	_current = (_dir select 1) select 0;
 
 	_result = [];
 	{
+		_y = _y select 0;
 		if(typeName _y isEqualTo "HASHMAP") then 
 		{
 			_result pushBack (_x + "/");

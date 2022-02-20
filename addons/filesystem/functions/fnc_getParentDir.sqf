@@ -1,11 +1,11 @@
 /**
- * Get parent dir. Wrapper for chdir.
+ * Get parent dir.
  *
  * Arguments:
- * 1: Pointer <[STRING]>
- * 2: Filesystem <HASHMAP>
- * 3: Raw path to target directory <STRING>
- * 4: Creates a directory if it is not found <BOOL> (Optional)
+ * 0: Pointer <[STRING]>
+ * 1: Filesystem <HASHMAP>
+ * 2: Raw path to target directory <STRING>
+ * 3: Creates a directory if it is not found <BOOL> (Optional)
  *
  * Results:
  * 0: Absolute path to target dir <[STRING]>

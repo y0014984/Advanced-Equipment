@@ -90,7 +90,7 @@ class CfgOsFunctions
 
 	class mv : OsFunction
 	{
-		path = "/bin/rm";
+		path = "/bin/mv";
 		description = "Moves a file or folder.";
 		man = "Usage mv: 'mv <old path> <new path>' moves file to new path or renames the file.";
 		code = "_this call AE3_armaos_fnc_os_mv";

@@ -2,17 +2,17 @@
  * Change directory.
  *
  * Arguments:
- * 1: Pointer <[STRING]>
- * 2: Filesystem <HASHMAP>
- * 3: Raw path to target directory <STRING>
- * 4: Creates a directory if it is not found <BOOL> (Optional)
+ * 0: Pointer <[STRING]>
+ * 1: Filesystem object [<HASHMAP>, <STRING>]
+ * 2: Raw path to target directory <STRING>
+ * 3: Creates a directory if it is not found <BOOL> (Optional)
  *
  * Results:
  * 0: Absolute path to target dir <[STRING]>
  * 1: Target dir <HASHMAP>
  */
 
-params['_pntr', '_filesystem', '_target', ['_create', false]];
+params['_pntr', '_filesystem', '_target', ['_create', false], ['_user', '']];
 
 private _path = _target splitString "/";
 private _pointer = +_pntr;
@@ -30,9 +30,9 @@ if (_target find "/" == 0) then
 
 if (count _path == 0) exitWith {[_pointer, _current]};
 
-private _result = {
-	_iteration = [_pointer, _current, _filesystem, _create] call {
-		params['_pointer', '_current', '_filesystem', '_create'];
+{
+	_iteration = [_pointer, _current, _filesystem, _create, _user] call {
+		params['_pointer', '_current', '_filesystem', '_create', '_user'];
 
 		if (_x isEqualTo ".") exitWith
 		{
@@ -67,16 +67,16 @@ private _result = {
 			[_current, _pointer];
 		};
 
-		if(!(_x in _current)) then 
+		if(!(_x in (_current select 0))) then 
 		{
 			if(!_create) throw (format ["'%1' not found in '%2'!", _x, "/" + (_pointer joinString "/")]); 
 
-			_current set [_x, createHashMap];
+			(_current select 0) set [_x, [createHashMap, _user]];
 		};
 
-		if(typeName (_current get _x) != "HASHMAP") throw (format ["'%1' is not a directory!", _x]);
+		if(typeName (((_current select 0) get _x) select 0) != "HASHMAP") throw (format ["'%1' is not a directory!", _x]);
 
-		_current = _current get _x;
+		_current = (_current select 0) get _x;
 		_pointer pushBack _x;
 			
 		[_current, _pointer];
