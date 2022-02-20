@@ -1,11 +1,10 @@
-private ["_logic","_units","_userlistObjects"];
+params['_logic', '_units', '_activated'];
 
-_logic = _this param [0,objnull,[objnull]];
-_units = _this param [1,[],[[]]];
-_activated = _this param [2,true,[true]];
+[_logic, _units] spawn {
+	params['_logic', '_units'];
 
-if (_activated) then
-{
+	waitUntil { !isNil "BIS_fnc_init" };
+
 	//--- Extract the user defined module arguments
 	_user = _logic getVariable "AE3_ModuleUserlist_User";
 	if(isNil "_user") exitWith {};
@@ -17,6 +16,15 @@ if (_activated) then
 		_userlist = _x getVariable ["AE3_Userlist", createHashMap];
 		
 		_userlist set [_user, _pwd];
+
+		// Add user directory in /home/
+		if(!(_user isEqualTo 'root')) then
+		{
+			try
+			{
+				[[], _x getVariable 'AE3_filesystem', "/home/" + _user, 'root', _user] call AE3_filesystem_fnc_createDir;
+			} catch {};
+		};
 
 		_x setVariable ["AE3_Userlist", _userlist, True];
 	} foreach _units;
