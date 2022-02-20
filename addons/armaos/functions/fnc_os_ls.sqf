@@ -20,8 +20,8 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 try
 {
 	private _dir = [_pointer, _filesystem, _options] call AE3_filesystem_fnc_lsdir;
-	["   Command: ls " + (_pointer joinString "/")] + _dir;
+	_dir;
 }catch
 {
-	["   Command: ls " + _exception];
+	[_exception];
 }

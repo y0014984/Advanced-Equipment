@@ -14,14 +14,14 @@ params ["_computer", "_options"];
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
-if (count _options > 1) exitWith {["   Command: rm - too many options"];};
+if (count _options > 1) exitWith {["Too many options"];};
 
-if (count _options < 1) exitWith {["   Command: rm - too few options"];};
+if (count _options < 1) exitWith {["Too few options"];};
 
 
 private _obj = _options select 0;
 private _result = [];
-_result = ["   Command: rm " + _obj];
+_result = [_obj];
 
 try
 {
@@ -29,5 +29,5 @@ try
 	_result;
 }catch
 {
-	["   Command: rm " + _exception];
+	[_exception];
 };

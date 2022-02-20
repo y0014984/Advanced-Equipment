@@ -15,9 +15,9 @@ params ["_computer", "_options"];
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
-if(count _options == 0) exitWith {["   Command: print - too few options"];};
+if(count _options == 0) exitWith {["Too few options"];};
 
-private _result = ["   Command: print "];
+private _result = [];
 private _path = _options select 0;
 
 try
@@ -35,7 +35,7 @@ try
 
 }catch
 {
-	["   Command: print " + _exception];
+	[_exception];
 }
 
 

@@ -15,13 +15,13 @@ params ["_computer", "_options"];
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
-if (count _options > 2) exitWith {["   Command: mv - too many options"];};
+if (count _options > 2) exitWith {["Too many options"];};
 
-if (count _options < 2) exitWith {["   Command: rm - too few options"];};
+if (count _options < 2) exitWith {["Too few options"];};
 
 _options params ['_oldPath', '_newPath'];
 
-private _result = ["   Command: mv " + _oldPath + " " + _newPath];
+private _result = [_oldPath + " " + _newPath];
 
 try
 {

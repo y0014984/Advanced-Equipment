@@ -12,7 +12,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["   Command: clear has no options"];};
+if (count _options >= 1) exitWith {["Clear has no options"];};
 
 private _terminal = _computer getVariable "AE3_terminal";
 

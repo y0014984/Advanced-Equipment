@@ -15,8 +15,8 @@ private _availableCommands = _computer getVariable ['AE3_Links', createHashMap];
 
 private _result = [];
 
-if (count _options > 1) exitWith {["   Command: mv - too many options"];};
-if (count _options < 1) exitWith {["   Command: rm - too few options"];};
+if (count _options > 1) exitWith {["Too many options"];};
+if (count _options < 1) exitWith {["Too few options"];};
 
 private _command = _options select 0;
 

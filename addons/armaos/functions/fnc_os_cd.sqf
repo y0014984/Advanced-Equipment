@@ -21,9 +21,9 @@ try
 				_options] call AE3_filesystem_fnc_chdir;
 
 	_computer setVariable ['AE3_filepointer', _result select 0];
-	["   Command: cd " + _options];
+	[];
 
 }catch
 {
-	["   Command: cd " + _exception];
+	[_exception];
 };

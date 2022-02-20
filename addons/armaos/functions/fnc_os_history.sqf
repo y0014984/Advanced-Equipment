@@ -12,7 +12,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["   Command: history has no options"];};
+if (count _options >= 1) exitWith {["History has no options"];};
 
 private _terminal = _computer getVariable "AE3_terminal";
 
@@ -23,6 +23,4 @@ private _numberedHistory = [];
 	_numberedHistory pushBack (format ["%1: %2", (_forEachIndex + 1), _x]);
 } forEach _terminalCommandHistory;
 
-private _result = ["   Command: history "] + [" "] + _numberedHistory;
-
-_result;
+_numberedHistory;

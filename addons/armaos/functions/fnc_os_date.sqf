@@ -12,7 +12,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["   Command: date has no options"];};
+if (count _options >= 1) exitWith {["Date has no options"];};
 
 private _date = date;
 private _year = _date select 0;
@@ -26,6 +26,4 @@ private _time = [daytime, "HH:MM:SS"] call BIS_fnc_timeToString; // 07:21:12
 
 _date = format ["Date: %1-%2-%3 %4", _year, _month, _day, _time];
 
-private _result = ["   Command: date "] + [" "] + [_date];
-
-_result;
+[_date];
