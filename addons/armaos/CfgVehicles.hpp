@@ -137,107 +137,26 @@ class CfgVehicles
 		class Attributes: AttributesBase
 		{
 			// Arguments shared by specific module type (have to be mentioned in order to be present)
-			class AE3_ModuleUserlist_User1: Edit
+			class AE3_ModuleUserlist_User: Edit
 			{
 				property = "AE3_ModuleUserlist_User1";
-				displayName = "User 1";
+				displayName = "User";
 				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """admin""";
 			};
-			class AE3_ModuleUserlist_Password1: Edit
+			class AE3_ModuleUserlist_Password: Edit
 			{
 				property = "AE3_ModuleUserlist_Password1";
-				displayName = "Password 1";
+				displayName = "Password";
 				tooltip = "Password of authorized user, for example '123456', 'password' or 'Qf5&xxR12#fTG'";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """admin123""";
 			};
-			class AE3_ModuleUserlist_User2: Edit
-			{
-				property = "AE3_ModuleUserlist_User2";
-				displayName = "User 2";
-				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """guest""";
-			};
-			class AE3_ModuleUserlist_Password2: Edit
-			{
-				property = "AE3_ModuleUserlist_Password2";
-				displayName = "Password 2";
-				tooltip = "Password of authorized user, for example '123456', 'password' or 'Qf5&xxR12#fTG'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """guest123""";
-			};
-			class AE3_ModuleUserlist_User3: Edit
-			{
-				property = "AE3_ModuleUserlist_User3";
-				displayName = "User 3";
-				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """root""";
-			};
-			class AE3_ModuleUserlist_Password3: Edit
-			{
-				property = "AE3_ModuleUserlist_Password3";
-				displayName = "Password 3";
-				tooltip = "Password of authorized user, for example '123456', 'password' or 'Qf5&xxR12#fTG'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """root123""";
-			};
-			class AE3_ModuleUserlist_User4: Edit
-			{
-				property = "AE3_ModuleUserlist_User4";
-				displayName = "User 4";
-				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """security""";
-			};
-			class AE3_ModuleUserlist_Password4: Edit
-			{
-				property = "AE3_ModuleUserlist_Password4";
-				displayName = "Password 4";
-				tooltip = "Password of authorized user, for example '123456', 'password' or 'Qf5&xxR12#fTG'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """security123""";
-			};
-			class AE3_ModuleUserlist_User5: Edit
-			{
-				property = "AE3_ModuleUserlist_User5";
-				displayName = "User 5";
-				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """jesus""";
-			};
-			class AE3_ModuleUserlist_Password5: Edit
-			{
-				property = "AE3_ModuleUserlist_Password5";
-				displayName = "Password 5";
-				tooltip = "Password of authorized user, for example '123456', 'password' or 'Qf5&xxR12#fTG'";
-				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
-				// Default text filled in the input box
-				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """holyshit""";
-			};
-
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};
 
