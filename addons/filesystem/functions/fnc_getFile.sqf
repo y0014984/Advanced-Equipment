@@ -19,8 +19,6 @@ _current = _current select 0;
 
 private _file = _dir select 2;
 
-diag_log str _dir;
-
 if(!(_file in _current)) throw (format ["'%1' not found!", _file]);
 
 [_current get _file, _user, _permission] call AE3_filesystem_fnc_hasPermission;

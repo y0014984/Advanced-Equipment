@@ -37,8 +37,6 @@ try
 
 		_result = [_result];
 	};
-}catch {
-	diag_log str _exception;
-};
+}catch {};
 
 _result;
