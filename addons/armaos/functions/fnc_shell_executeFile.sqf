@@ -23,7 +23,7 @@ private _result = [format ["Command '%1' not found.", _path]];
 
 try
 {
-	_content = [_pointer, _filesystem, _path, _username] call AE3_filesystem_fnc_getFile;
+	_content = [_pointer, _filesystem, _path, _username, 0] call AE3_filesystem_fnc_getFile;
 
 	if(_content isEqualType {}) then
 	{

@@ -71,7 +71,7 @@ class CfgVehicles
 			class AE3_ModuleFilesystem_IsFunction: Checkbox
 			{
 				property = "AE3_ModuleFilesystem_IsFunction";
-				displayName = "Is executable?";
+				displayName = "Is code?";
 				tooltip = "If the file content is a function or code which can be executed from terminal";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
@@ -88,6 +88,72 @@ class CfgVehicles
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """root""";
 			};
+
+			/* ---- PERMISSIONS ---- */
+
+			class AE3_ModuleFilesystem_OwnerExecute: Checkbox
+			{
+				property = "AE3_ModuleFilesystem_OwnerExecute";
+				displayName = "Can be executed by the owner";
+				tooltip = "Can be executed by the owner";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = true;
+			};
+			class AE3_ModuleFilesystem_OwnerRead: Checkbox
+			{
+				property = "AE3_ModuleFilesystem_OwnerRead";
+				displayName = "Can be read by the owner";
+				tooltip = "Can be read by the owner";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = true;
+			};
+			class AE3_ModuleFilesystem_OwnerWrite: Checkbox
+			{
+				property = "AE3_ModuleFilesystem_OwnerWrite";
+				displayName = "Can be modified by the owner";
+				tooltip = "Can be modified by the owner";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = true;
+			};
+
+
+			class AE3_ModuleFilesystem_EveryoneExecute: Checkbox
+			{
+				property = "AE3_ModuleFilesystem_EveryoneExecute";
+				displayName = "Can be executed by everyone";
+				tooltip = "Can be executed by everyone";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = false;
+			};
+			class AE3_ModuleFilesystem_EveryoneRead: Checkbox
+			{
+				property = "AE3_ModuleFilesystem_EveryoneRead";
+				displayName = "Can be read by everyone";
+				tooltip = "Can be read by everyone";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = false;
+			};
+			class AE3_ModuleFilesystem_EveryoneWrite: Checkbox
+			{
+				property = "AE3_ModuleFilesystem_EveryoneWrite";
+				displayName = "Can be modified by everyone";
+				tooltip = "Can be modified by everyone";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = false;
+			};
+
 			
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};

@@ -25,7 +25,7 @@ private _path = _options select 0;
 
 try
 {
-	_content = [_pointer, _filesystem, _path, _username] call AE3_filesystem_fnc_getFile;
+	_content = [_pointer, _filesystem, _path, _username, 1] call AE3_filesystem_fnc_getFile;
 
 	if(!(_content isEqualType "")) exitWith 
 	{

@@ -21,6 +21,6 @@ _current = _current select 0;
 
 if(!(_obj in _current)) throw (format ["'%1' not found!", _obj]);
 
-[_current get _obj, _user] call AE3_filesystem_fnc_hasPermission;
+[_current get _obj, _user, 2] call AE3_filesystem_fnc_hasPermission;
 
 _current deleteAt _obj;

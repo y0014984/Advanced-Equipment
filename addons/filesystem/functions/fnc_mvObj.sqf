@@ -24,13 +24,13 @@ private _targetDir = [_pntr, _filesystem, _target] call AE3_filesystem_fnc_getPa
 private _targetCurrent = _targetDir select 1;
 private _targetNew = _targetDir select 2;
 
-[_targetCurrent, _user] call AE3_filesystem_fnc_hasPermission;
+[_targetCurrent, _user, 2] call AE3_filesystem_fnc_hasPermission;
 _targetCurrent = _targetCurrent select 0;
 
 _sourceCurrent = _sourceCurrent select 0;
 if(!(_sourceFile in _sourceCurrent)) throw (format ["'%1' not found!", _sourceFile]);
 
-[_sourceCurrent get _sourceFile, _user] call AE3_filesystem_fnc_hasPermission;
+[_sourceCurrent get _sourceFile, _user, 2] call AE3_filesystem_fnc_hasPermission;
 
 if((_target find ["/", count _target - 1]) == (count _target - 1)) then 
 {
