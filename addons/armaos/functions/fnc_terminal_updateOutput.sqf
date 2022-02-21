@@ -18,7 +18,7 @@ private _terminal = _computer getVariable "AE3_terminal";
 private _terminalBuffer = _terminal get "AE3_terminalBuffer";
 private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
 
-_outputControl ctrlSetText (_terminalBufferVisable joinString endl);
+_outputControl ctrlSetStructuredText parseText (_terminalBufferVisable joinString "<br/>");
 ctrlSetFocus _outputControl;
 
 _computer setVariable ["AE3_terminal", _terminal, true];

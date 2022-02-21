@@ -1,5 +1,6 @@
 class RscListbox;
 class RscText;
+class RscStructuredText;
 class RscEdit;
 class RscButton;
 class RscSlider;
@@ -68,7 +69,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorBackground[] = {0,0.5,0,0.25};
 			font = "EtelkaMonospaceProBold";
 		};
-		class RscText_1100: RscText
+		class RscText_1100: RscStructuredText
 		{
 			// Console Output
 			idc = 1100;
