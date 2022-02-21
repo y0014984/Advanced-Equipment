@@ -10,6 +10,8 @@
 
 params['_computer'];
 
+if(!isServer) exitWith {};
+
 private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _config = configFile >> "CfgOsFunctions";
@@ -26,3 +28,5 @@ private _functions = ("inheritsFrom _x == (configFile >> 'OsFunction')" configCl
 	[_computer, configName _x , getText (_x >> "path"), getText (_x >> "description"), getText (_x >> "man")] call AE3_armaos_fnc_link_add;
 
 } forEach _functions;
+
+_computer setVariable ['AE3_filesystem', _filesystem, True];

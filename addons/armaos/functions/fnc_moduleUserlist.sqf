@@ -1,5 +1,7 @@
 params['_logic', '_units', '_activated'];
 
+if(!isServer) exitWith {};
+
 [_logic, _units] spawn {
 	params['_logic', '_units'];
 
@@ -14,7 +16,8 @@ params['_logic', '_units', '_activated'];
 	//--- Add Users to Computer
 	{
 		_userlist = _x getVariable ["AE3_Userlist", createHashMap];
-		
+		_filesystem = _x getVariable 'AE3_filesystem';
+
 		_userlist set [_user, _pwd];
 
 		// Add user directory in /home/
@@ -22,11 +25,12 @@ params['_logic', '_units', '_activated'];
 		{
 			try
 			{
-				[[], _x getVariable 'AE3_filesystem', "/home/" + _user, 'root', _user] call AE3_filesystem_fnc_createDir;
+				[[], _filesystem, "/home/" + _user, 'root', _user] call AE3_filesystem_fnc_createDir;
 			} catch {};
 		};
 
-		_x setVariable ["AE3_Userlist", _userlist, True];
+		_x setVariable ['AE3_filesystem', _filesystem, true];
+		_x setVariable ["AE3_Userlist", _userlist, true];
 	} foreach _units;
 };
 

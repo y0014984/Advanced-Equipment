@@ -51,3 +51,5 @@ if (_terminalBufferLength > _terminalMaxRows) then
 };
 
 _terminal set ["AE3_terminalBufferVisable", _terminalBufferVisable];
+
+_computer setVariable ["AE3_terminal", _terminal, true];

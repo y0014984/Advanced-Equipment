@@ -29,6 +29,7 @@ _result = [_obj];
 try
 {
 	[_pointer, _filesystem, _obj, _username] call AE3_filesystem_fnc_delObj;
+	_computer setVariable ['AE3_filesystem', _filesystem, true];
 	[];
 }catch
 {

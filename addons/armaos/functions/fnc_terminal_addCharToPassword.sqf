@@ -23,3 +23,5 @@ if (!isNil { _terminal get "AE3_terminalPasswordBuffer" }) then
 _terminalPasswordBuffer = _terminalPasswordBuffer + _inputChar;
 
 _terminal set ["AE3_terminalPasswordBuffer", _terminalPasswordBuffer];
+
+_computer setVariable ["AE3_terminal", _terminal, true];

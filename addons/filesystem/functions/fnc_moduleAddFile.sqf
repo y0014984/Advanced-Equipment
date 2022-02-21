@@ -1,5 +1,7 @@
 params ["_module", "_syncedUnits"];
 
+if(!isServer) exitWith {};
+
 private _syncedObjects = synchronizedObjects _module;
 
 private _path = _module getVariable ['AE3_ModuleFilesystem_Path', ''];
@@ -33,14 +35,16 @@ if(_isFunction) then
 	waitUntil { !isNil "BIS_fnc_init" };
 
 	{
+		_filesystem = _x getVariable 'AE3_filesystem';
 		[
 			[],
-			_x getVariable 'AE3_filesystem',
+			_filesystem,
 			_path,
 			_content,
 			'root',
 			_owner,
 			_permission
 		] call AE3_filesystem_fnc_createFile;
+		_x setVariable ['AE3_filesystem', _filesystem, true];
 	} forEach _syncedObjects;
 };

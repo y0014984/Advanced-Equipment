@@ -10,6 +10,7 @@
 
 params['_entity'];
 
+if(!isServer) exitWith {};
 
 private _filesystem = [createHashMapFromArray [
 
