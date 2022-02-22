@@ -12,18 +12,23 @@
 
 params ["_computer", "_options"];
 
-_options = _options joinString " ";
+private _options = _options joinString " ";
+
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
 
 try
 {
 	private _result = [_computer getVariable ['AE3_filepointer', []], 
 				_computer getVariable ['AE3_filesystem', createHashMap], 
-				_options] call AE3_filesystem_fnc_chdir;
+				_options,
+				_username] call AE3_filesystem_fnc_chdir;
 
+	[(_result select 1), _username, 0] call AE3_filesystem_fnc_hasPermission;
 	_computer setVariable ['AE3_filepointer', _result select 0];
-	["   Command: cd " + _options];
+	[];
 
 }catch
 {
-	["   Command: cd " + _exception];
+	[_exception];
 };

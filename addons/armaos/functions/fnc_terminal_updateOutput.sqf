@@ -20,3 +20,5 @@ private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
 
 _outputControl ctrlSetText (_terminalBufferVisable joinString endl);
 ctrlSetFocus _outputControl;
+
+_computer setVariable ["AE3_terminal", _terminal, true];

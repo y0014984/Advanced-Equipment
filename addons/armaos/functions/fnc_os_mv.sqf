@@ -15,17 +15,21 @@ params ["_computer", "_options"];
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
-if (count _options > 2) exitWith {["   Command: mv - too many options"];};
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
 
-if (count _options < 2) exitWith {["   Command: rm - too few options"];};
+if (count _options > 2) exitWith {["Too many options"];};
+
+if (count _options < 2) exitWith {["Too few options"];};
 
 _options params ['_oldPath', '_newPath'];
 
-private _result = ["   Command: mv " + _oldPath + " " + _newPath];
+private _result = [];
 
 try
 {
-	[_pointer, _filesystem, _oldPath, _newPath] call AE3_filesystem_fnc_mvObj;
+	[_pointer, _filesystem, _oldPath, _newPath, _username] call AE3_filesystem_fnc_mvObj;
+	_computer setVariable ['AE3_filesystem', _filesystem, true];
 	
 }catch
 {

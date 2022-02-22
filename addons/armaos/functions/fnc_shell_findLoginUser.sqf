@@ -13,30 +13,20 @@ params ["_computer", "_username"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
-private _users = _computer getVariable "AE3_Userlist";
+private _users = _computer getVariable ["AE3_Userlist", createHashMap];
 
 private _result = [];
 
-private _userIndex = -1;
-{
-	scopeName "user";
-	if (_username isEqualTo (_x select 0)) then
-	{
-		_userIndex = _forEachIndex;
-		breakOut "user";
-	};
-} forEach _users;
-
-if (_userIndex == -1) then 
-{
-	_result = [format ["   User: %1 not found", _username]];
-	_terminal deleteAt "AE3_terminalLoginUser";
-}
-else 
+if (_username in _users) then 
 {
 	_terminal set ["AE3_terminalLoginUser", _username];
 	_terminal set ["AE3_terminalApplication", "PASSWORD"];
 	_terminal set ["AE3_terminalPrompt", "PASSWORD>"];
+}
+else 
+{
+	_result = [format ["   User: %1 not found", _username]];
+	_terminal deleteAt "AE3_terminalLoginUser";
 };
 
 _result = _result + [""];

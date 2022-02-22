@@ -11,7 +11,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["   Command: logout has no options"];};
+if (count _options >= 1) exitWith {["Logout has no options"];};
 
 private _terminal = _computer getVariable "AE3_terminal";
 
@@ -26,6 +26,4 @@ _terminal set ["AE3_terminalCursorPosition", 0];
 
 [_computer] call AE3_armaos_fnc_terminal_addHeader;
 
-private _result = [];
-
-_result;
+[];

@@ -1,10 +1,11 @@
 /**
- * Get parent dir. Wrapper for chdir.
+ * Get parent dir.
  *
  * Arguments:
- * 1: Pointer <[STRING]>
- * 2: Filesystem <HASHMAP>
- * 3: Raw path to target directory <STRING>
+ * 0: Pointer <[STRING]>
+ * 1: Filesystem <HASHMAP>
+ * 2: Raw path to target directory <STRING>
+ * 3: User <STRING> (Optional)
  * 4: Creates a directory if it is not found <BOOL> (Optional)
  *
  * Results:
@@ -13,7 +14,7 @@
  * 2: Tail <STRING>
  */
 
-params['_pntr', '_filesystem', '_target', ['_create', false]];
+params['_pntr', '_filesystem', '_target', ['_user', ''], ['_create', false]];
 
 private _path = _target splitString "/";
 private _new = _path select (count _path - 1);
@@ -25,7 +26,7 @@ if (_target find "/" == 0) then
 	_path = "/" + _path;
 };
 
-private _result = [_pntr, _filesystem, _path, _create] call AE3_filesystem_fnc_chdir;
+private _result = [_pntr, _filesystem, _path, _user, _create] call AE3_filesystem_fnc_chdir;
 _result pushBack _new;
 
 _result;

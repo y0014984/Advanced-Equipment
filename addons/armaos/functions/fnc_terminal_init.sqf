@@ -30,9 +30,14 @@ private _ip = _computer getVariable ["AE3_ipAddress", "127.0.0.1"];
 _consoleInput setVariable ["ip", _ip];
 */
 
-private _filesystem = _computer getVariable [ "AE3_filesystem", [["/Info.txt", "No Filesystem found!"]] ];
+private _filesystem = _computer getVariable "AE3_filesystem";
+
 private _pointer = [];
-_computer setVariable ["AE3_filepointer", _pointer];
+if (isNil { _computer getVariable "AE3_filepointer" }) then 
+{
+	_computer setVariable ["AE3_filepointer", _pointer, true];
+};
+_pointer = _computer getVariable "AE3_filepointer";
 
 private _terminal = createHashMapFromArray
 	[
@@ -56,7 +61,7 @@ _consoleOutput setVariable ["AE3_computer", _computer];
 
 if (isNil { _computer getVariable "AE3_terminal" }) then 
 {
-	_computer setVariable ["AE3_terminal", _terminal];
+	_computer setVariable ["AE3_terminal", _terminal, true];
 };
 _terminal = _computer getVariable "AE3_terminal";
 
@@ -92,3 +97,5 @@ if (_terminalBuffer isEqualTo []) then
 [_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
+
+_computer setVariable ["AE3_terminal", _terminal, true];

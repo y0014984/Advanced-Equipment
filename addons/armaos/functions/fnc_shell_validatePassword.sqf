@@ -18,22 +18,19 @@ private _password = _terminal get "AE3_terminalPasswordBuffer";
 
 private _users = _computer getVariable "AE3_Userlist";
 
-private _userIndex = _users find [_username, _password];
-
 private _result = [];
 
-if (_userIndex == -1) then 
+if((_users get _username) isEqualTo _password) then
+{
+	_terminal set ["AE3_terminalApplication", "SHELL"];
+	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+}else
 {
 	_result = [format ["   User: %1 failed login attempt", _username]];
 	_terminal deleteAt "AE3_terminalLoginUser";
 	_terminal deleteAt "AE3_terminalPasswordBuffer";
 	_terminal set ["AE3_terminalApplication", "LOGIN"];
 	_terminal set ["AE3_terminalPrompt", "LOGIN>"];
-}
-else 
-{
-	_terminal set ["AE3_terminalApplication", "SHELL"];
-	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 };
 
 _result = _result + [""];

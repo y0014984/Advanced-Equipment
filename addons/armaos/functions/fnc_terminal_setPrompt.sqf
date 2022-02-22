@@ -28,3 +28,5 @@ _terminalCursorPosition = (count _lastBufferLine);
 
 _terminal set ["AE3_terminalBuffer", _terminalBuffer];
 _terminal set ["AE3_terminalCursorPosition", _terminalCursorPosition];
+
+_computer setVariable ["AE3_terminal", _terminal, true];

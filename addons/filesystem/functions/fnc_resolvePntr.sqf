@@ -3,18 +3,20 @@
  *
  * Arguments:
  * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
+ * 1: Filesystem [<HASHMAP>, <STRING>]
  *
  * Results:
- * Directory <HASHMAP>
+ * Directory Object [<HASHMAP>, <STRING>]
  */
 
 params ['_pntr', '_filesystem'];
 
-private _current = _filesystem;
+private _obj = _filesystem;
+private _current = _obj select 0;
 
 {
-		_current = _current get _x;
+		_obj = (_current get _x);
+		_current = _obj select 0;
 }forEach _pntr;
 
-_current;
+_obj;
