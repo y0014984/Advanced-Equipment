@@ -15,23 +15,19 @@ params['_pntr', '_filesystem', '_target', ['_user', '']];
 
 private _dir = [_pntr, _filesystem, _target, _user] call AE3_filesystem_fnc_chdir;
 
-if(_dir isEqualType []) exitWith 
+[(_dir select 1), _user, 1] call AE3_filesystem_fnc_hasPermission;
+_current = (_dir select 1) select 0;
+
+_result = [];
 {
-	_current = (_dir select 1) select 0;
-
-	_result = [];
+	_y = _y select 0;
+	if(typeName _y isEqualTo "HASHMAP") then 
 	{
-		_y = _y select 0;
-		if(typeName _y isEqualTo "HASHMAP") then 
-		{
-			_result pushBack (_x + "/");
-		}else
-		{
-			_result pushBack _x;
-		};
-	} forEach _current;
+		_result pushBack (_x + "/");
+	}else
+	{
+		_result pushBack _x;
+	};
+} forEach _current;
 
-	_result
-};
-
-_dir;
+_result;

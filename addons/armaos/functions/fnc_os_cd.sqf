@@ -24,6 +24,7 @@ try
 				_options,
 				_username] call AE3_filesystem_fnc_chdir;
 
+	[(_result select 1), _username, 0] call AE3_filesystem_fnc_hasPermission;
 	_computer setVariable ['AE3_filepointer', _result select 0];
 	[];
 
