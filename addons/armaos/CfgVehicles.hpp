@@ -109,16 +109,16 @@ class CfgVehicles
 			class AnyBrain;
 		};
 	};
-	class AE3_Userlist: Module_F
+	class AE3_AddUser: Module_F
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
-		displayName = "AE3 Userlist"; // Name displayed in the menu
+		displayName = "AE3 Add User"; // Name displayed in the menu
 		//icon = "\myTag_addonName\data\iconNuke_ca.paa"; // Map icon. Delete this entry to use the default icon
 		category = "ObjectModifiers";
 
 		// Name of function triggered once conditions are met
-		function = "AE3_armaos_fnc_moduleUserlist";
+		function = "AE3_armaos_fnc_module_addUser";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution

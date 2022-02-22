@@ -1,5 +1,5 @@
 /* Module Functions */
-PREP(moduleUserlist);
+PREP(module_addUser);
 
 /* Shell Functions */
 PREP(shell_process);
