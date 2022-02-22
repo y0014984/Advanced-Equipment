@@ -18,7 +18,7 @@
 
 params['_pntr', '_filesystem', '_target', '_user', '_owner', ['_permissions', [[false, true, true], [false, false, false]]]];
 
-private _dir = [_pntr, _filesystem, _target, true] call AE3_filesystem_fnc_getParentDir;
+private _dir = [_pntr, _filesystem, _target, _user, true] call AE3_filesystem_fnc_getParentDir;
 
 private _current = _dir select 1;
 private _new = _dir select 2;

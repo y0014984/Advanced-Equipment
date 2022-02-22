@@ -13,7 +13,7 @@
 
 params['_pntr', '_filesystem', '_target', '_user', '_permission'];
 
-private _dir = [_pntr, _filesystem, _target] call AE3_filesystem_fnc_getParentDir;
+private _dir = [_pntr, _filesystem, _target, _user] call AE3_filesystem_fnc_getParentDir;
 private _current = _dir select 1;
 _current = _current select 0;
 

@@ -5,14 +5,15 @@
  * 0: Pointer <[STRING]>
  * 1: Filesystem object [<HASHMAP>, <STRING>]
  * 2: Raw path to target directory <STRING>
- * 3: Creates a directory if it is not found <BOOL> (Optional)
+ * 3: User <STRING> (Optional)
+ * 4: Creates a directory if it is not found <BOOL> (Optional)
  *
  * Results:
  * 0: Absolute path to target dir <[STRING]>
  * 1: Target dir <HASHMAP>
  */
 
-params['_pntr', '_filesystem', '_target', ['_create', false], ['_user', '']];
+params['_pntr', '_filesystem', '_target', ['_user', ''], ['_create', false]];
 
 private _path = _target splitString "/";
 private _pointer = +_pntr;
@@ -29,7 +30,6 @@ if (_target find "/" == 0) then
 };
 
 if (count _path == 0) exitWith {[_pointer, _current]};
-
 {
 	_iteration = [_pointer, _current, _filesystem, _create, _user] call {
 		params['_pointer', '_current', '_filesystem', '_create', '_user'];
@@ -52,16 +52,20 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 		
 		if (_x isEqualTo "~") exitWith
 		{
-			// TODO: Get Current User
-			
-			_currentUser = "root";
-
-			if(_currentUser isEqualTo "root") then
+			if(_user isEqualTo "root") then
 			{
+				_current = (_filesystem select 0) get 'root';
 				_pointer = ["root"];
 			}else
 			{
-				_pointer = ["home", _currentUser];
+				_current = (_filesystem select 0) get 'home';
+				_pointer = ["home"];
+
+				if(!(_user isEqualTo '')) then
+				{
+					_current = (_current select 0) get _user;
+					_pointer pushBack "home";
+				};
 			};
 
 			[_current, _pointer];

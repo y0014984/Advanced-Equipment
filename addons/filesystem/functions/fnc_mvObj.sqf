@@ -16,11 +16,11 @@
 params['_pntr', '_filesystem', '_source', '_target', '_user', ['_copy', false]];
 
 
-private _sourceDir = [_pntr, _filesystem, _source] call AE3_filesystem_fnc_getParentDir;
+private _sourceDir = [_pntr, _filesystem, _source, _user] call AE3_filesystem_fnc_getParentDir;
 private _sourceCurrent = _sourceDir select 1;
 private _sourceFile = _sourceDir select 2;
 
-private _targetDir = [_pntr, _filesystem, _target] call AE3_filesystem_fnc_getParentDir;
+private _targetDir = [_pntr, _filesystem, _target, _user] call AE3_filesystem_fnc_getParentDir;
 private _targetCurrent = _targetDir select 1;
 private _targetNew = _targetDir select 2;
 
