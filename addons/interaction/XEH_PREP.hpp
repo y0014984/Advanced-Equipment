@@ -11,3 +11,5 @@ PREP(animateInteraction);
 PREP(initInteraction);
 
 PREP(animateAction);
+
+PREP(initAceWorkaround);

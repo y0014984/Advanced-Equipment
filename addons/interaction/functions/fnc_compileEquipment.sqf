@@ -38,3 +38,20 @@ private _config = missionNamespace getVariable _equipmentConfigVarName;
 if(_config isEqualType "") exitWith {};
 
 [_equipment] + (_config get "equipment") call AE3_interaction_fnc_initInteraction;
+
+if('aceWorkaround' in _config) then 
+{
+	private _aceDragging = [];
+	if('aceDragging' in _config) then
+	{
+		_aceDragging = (_config get 'aceDragging');
+	};
+
+	private _aceCarrying = [];
+	if('aceCarrying' in _config) then
+	{
+		_aceCarrying = (_config get 'aceCarrying');
+	};
+
+	[_equipment] + [_aceDragging] + [_aceCarrying] call AE3_interaction_fnc_initAceWorkaround;
+};
