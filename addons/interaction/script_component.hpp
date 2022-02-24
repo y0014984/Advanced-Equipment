@@ -1,4 +1,4 @@
-#define COMPONENT lamp
+#define COMPONENT interaction
 #include "\z\ae3\addons\main\script_mod.hpp"
 
 #ifdef DEBUG_ENABLED_MAIN

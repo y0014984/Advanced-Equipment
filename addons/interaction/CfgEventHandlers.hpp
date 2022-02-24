@@ -3,7 +3,7 @@ class Extended_PreInit_EventHandlers
 	class ADDON
 	{
         // Like the normal preinit above, this one runs on all machines
-        init = call compile preprocessFileLineNumbers "\z\ae3\addons\lamp\XEH_preInit.sqf";
+        init = call compile preprocessFileLineNumbers "\z\ae3\addons\interaction\XEH_preInit.sqf";
 
         // This code will be executed once and only on the server
         serverInit = "";
