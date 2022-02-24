@@ -78,7 +78,7 @@ class AE3_ArmaOS_Main_Dialog
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 40 * GUI_GRID_W;
 			h = 21 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.25};
+			colorBackground[] = {0,0,0,0.35};
 			
 			style = ST_MULTI;
 			lineSpacing = 1;
