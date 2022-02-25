@@ -25,6 +25,4 @@ if (_newAnimateValue > _max) then { _newAnimateValue = _max; };
 
 _equipment animateSource [_animateItem, _newAnimateValue, true];
 
-hint format ["_equipment = %1\n_newAnimateValue = %2\n_animateValue = %3", _equipment, _newAnimateValue, _animateValue];
-
 _equipment setVariable [_animateItem, _newAnimateValue];

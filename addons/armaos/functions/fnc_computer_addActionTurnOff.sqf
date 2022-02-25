@@ -9,7 +9,7 @@
  * None
  */
 
-params ["_computer", "_silent"];
+params ["_computer", ["_silent", false]];
 
 private _powerState = _computer getVariable 'AE3_power_powerState';
 

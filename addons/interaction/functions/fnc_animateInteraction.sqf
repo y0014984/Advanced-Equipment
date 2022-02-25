@@ -3,35 +3,33 @@
  *
  * Argmuments:
  * 0: Equipment <OBJECT>
- * 1: Default Interaction Description <STRING>
- * 2: Default Animatable Aspect <STRING>
- * 3: ALT Interaction Description <STRING> (Optional)
- * 4: ALT Animatable Aspect <STRING> (Optional)
- * 5: CTRL Interaction Description <STRING> (Optional)
- * 6: CTRL Animatable Aspect <STRING> (Optional)
+ * 1: Main Animation <ARRAY>
+ * 2: Shift Animation <ARRAY>
+ * 3: Ctrl Animation <ARRAY>
+ * 4: Ctrl Animation <ARRAY>
  *
  * Returns:
  * None
  *
  */
 
-params ["_equipment", "_defaultInteractionDescription", "_defaultAction", ["_altInteractionDescription", nil], ["_altAction", nil], ["_ctrlInteractionDescription", nil], ["_ctrlAction", nil]];
+params ["_equipment", "_animationMain", "_animationModifiedShift", "_animationModifiedCtrl", "_animationModifiedAlt"];
 
 private _modifier = [];
 
-if (!isNil "_altInteractionDescription") then { _modifier pushBack ["alt", _altInteractionDescription] };
-if (!isNil "_ctrlInteractionDescription") then { _modifier pushBack ["control", _ctrlInteractionDescription] };
+if (!(_animationModifiedShift isEqualTo [])) then { _modifier pushBack ["shift", _animationModifiedShift select 0] };
+if (!(_animationModifiedCtrl isEqualTo [])) then { _modifier pushBack ["control", _animationModifiedCtrl select 0] };
+if (!(_animationModifiedAlt isEqualTo [])) then { _modifier pushBack ["alt", _animationModifiedAlt select 0] };
 
-["", "Exit interaction", _defaultInteractionDescription, _modifier] call ace_interaction_fnc_showMouseHint;
-
-hint format ["1: %1\n2: %2\n3: %3\n4: %4\n5: %5\n6: %6\n7: %7\n", _equipment, _defaultInteractionDescription, _defaultAction, _altInteractionDescription, _altAction, _ctrlInteractionDescription, _ctrlAction];
+["", "Exit interaction", _animationMain select 0, _modifier] call ace_interaction_fnc_showMouseHint;
 
 private _display = findDisplay 46;
 
 uiNamespace setVariable ["AE3_activeEquipment", _equipment];
-uiNamespace setVariable ["AE3_defaultAction", _defaultAction];
-uiNamespace setVariable ["AE3_altAction", _altAction];
-uiNamespace setVariable ["AE3_ctrlAction", _ctrlAction];
+uiNamespace setVariable ["AE3_animationMain", _animationMain];
+uiNamespace setVariable ["AE3_animationModifiedShift", _animationModifiedShift];
+uiNamespace setVariable ["AE3_animationModifiedCtrl", _animationModifiedCtrl];
+uiNamespace setVariable ["AE3_animationModifiedAlt", _animationModifiedAlt];
 
 /* ---------------------------------------- */
 
@@ -43,33 +41,66 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 	{
 		params ["_displayOrControl", "_scroll"];
 
-		hint format ["SCROLL VALUE: %1", _scroll];
-
 		private _equipment = uiNamespace getVariable "AE3_activeEquipment";
-		private _defaultAction = uiNamespace getVariable "AE3_defaultAction";
-		private _altAction = uiNamespace getVariable "AE3_altAction";
-		private _ctrlAction = uiNamespace getVariable "AE3_ctrlAction";
+		private _animationMain = uiNamespace getVariable "AE3_animationMain";
+		private _animationModifiedShift = uiNamespace getVariable "AE3_animationModifiedShift";
+		private _animationModifiedCtrl = uiNamespace getVariable "AE3_animationModifiedCtrl";
+		private _animationModifiedAlt = uiNamespace getVariable "AE3_animationModifiedAlt";
 
-
+		private _shiftKeyDown = uiNamespace getVariable ["AE3_shiftKeyDown", false];
 		private _ctrlKeyDown = uiNamespace getVariable ["AE3_ctrlKeyDown", false];
 		private _altKeyDown = uiNamespace getVariable ["AE3_altKeyDown", false];
 
-		if (_ctrlKeyDown || _altKeyDown) then
+		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == false) && (_altKeyDown == false) ) then
 		{
-			private _min = -90;
-			private _max = 90;
-			private _multiplier = 10;
-			private _action = _ctrlAction;
-			if (_altKeyDown) then { _action = _altAction };
-			[_equipment, _action, _min, _max, _scroll, _multiplier] call AE3_interaction_fnc_animateAction;
-		}
-		else 
-		{
-			private _min = 0;
-			private _max = 1;
-			private _multiplier = 0.1;
-			[_equipment, _defaultAction, _min, _max, _scroll, _multiplier] call AE3_interaction_fnc_animateAction;
+			[
+				_equipment,
+				_animationMain select 1,
+				_animationMain select 2,
+				_animationMain select 3,
+				_scroll,
+				_animationMain select 4
+			] call AE3_interaction_fnc_animateAction;			
 		};
+
+		if ( (_shiftKeyDown == true) && (_ctrlKeyDown == false) && (_altKeyDown == false) && (!(_animationModifiedShift isEqualTo [])) ) then
+		{
+			[
+				_equipment,
+				_animationModifiedShift select 1,
+				_animationModifiedShift select 2,
+				_animationModifiedShift select 3,
+				_scroll,
+				_animationModifiedShift select 4
+			] call AE3_interaction_fnc_animateAction;			
+		};
+
+		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == true) && (_altKeyDown == false) && (!(_animationModifiedCtrl isEqualTo [])) ) then
+		{
+			[
+				_equipment,
+				_animationModifiedCtrl select 1,
+				_animationModifiedCtrl select 2,
+				_animationModifiedCtrl select 3,
+				_scroll,
+				_animationModifiedCtrl select 4
+			] call AE3_interaction_fnc_animateAction;			
+		};
+
+		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == false) && (_altKeyDown == true) && (!(_animationModifiedAlt isEqualTo [])) ) then
+		{
+			
+			[
+				_equipment,
+				_animationModifiedAlt select 1,
+				_animationModifiedAlt select 2,
+				_animationModifiedAlt select 3,
+				_scroll,
+				_animationModifiedAlt select 4
+			] call AE3_interaction_fnc_animateAction;			
+		};
+
+		true
 	}
 ];
 
@@ -85,10 +116,11 @@ private _keyDownEhId = _display displayAddEventHandler
 	{
 		params ["_displayOrControl", "_key", "_shift", "_ctrl", "_alt"];
 
-		hint format ["KEY DOWN: %1\nSHIFT: %2\nCRTL: %3\nALT: %4", _key, _shift, _ctrl, _alt];
+		uiNamespace setVariable ["AE3_shiftKeyDown", _shift];
+		uiNamespace setVariable ["AE3_ctrlKeyDown", _ctrl];
+		uiNamespace setVariable ["AE3_altKeyDown", _alt];
 
-		if (_ctrl == true) then { uiNamespace setVariable ["AE3_ctrlKeyDown", true]; };
-		if (_alt == true) then { uiNamespace setVariable ["AE3_altKeyDown", true]; };
+		true
 	}
 ];
 
@@ -104,10 +136,11 @@ private _keyUpEhId = _display displayAddEventHandler
 	{
 		params ["_displayOrControl", "_key", "_shift", "_ctrl", "_alt"];
 
-		hint format ["KEY UP: %1\nSHIFT: %2\nCRTL: %3\nALT: %4", _key, _shift, _ctrl, _alt];
+		uiNamespace setVariable ["AE3_shiftKeyDown", _shift];
+		uiNamespace setVariable ["AE3_ctrlKeyDown", _ctrl];
+		uiNamespace setVariable ["AE3_altKeyDown", _alt];
 
-		if (_alt == false) then { uiNamespace setVariable ["AE3_ctrlKeyDown", false]; };
-		if (_ctrl == false) then { uiNamespace setVariable ["AE3_altKeyDown", false]; };
+		true
 	}
 ];
 
@@ -147,12 +180,16 @@ private _mouseButtonDownEhId = _display displayAddEventHandler
 			_display displayRemoveEventHandler [_keyUpEhType, _keyUpEhId];
 
 			uiNamespace setVariable ["AE3_activeEquipment", nil];
-			uiNamespace setVariable ["AE3_defaultAction", nil];
-			uiNamespace setVariable ["AE3_altAction", nil];
-			uiNamespace setVariable ["AE3_ctrlAction", nil];
+			uiNamespace setVariable ["AE3_animationMain", nil];
+			uiNamespace setVariable ["AE3_animationModifiedShift", nil];
+			uiNamespace setVariable ["AE3_animationModifiedCtrl", nil];
+			uiNamespace setVariable ["AE3_animationModifiedAlt", nil];
+			uiNamespace setVariable ["AE3_shiftKeyDown", nil];
 			uiNamespace setVariable ["AE3_ctrlKeyDown", nil];
 			uiNamespace setVariable ["AE3_altKeyDown", nil];
 		};
+
+		true
 	}
 ];
 

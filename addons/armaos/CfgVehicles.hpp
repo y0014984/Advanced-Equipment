@@ -24,8 +24,6 @@ class CfgVehicles
 		{
 			displayName = "Laptop";
 
-			animatableLampsCount = 0;
-
 			closeState = 1;
 
 			init = "_this call AE3_interaction_fnc_initLaptop;";

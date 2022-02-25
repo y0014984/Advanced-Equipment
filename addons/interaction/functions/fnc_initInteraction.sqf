@@ -3,13 +3,18 @@
  *
  * Arguments:
  * 0: Equipment <OBJECT>
- * 1: Animatable Lamps Count <NUMBER> (Optional)
+ * 1: Name <STRING> (Optional)
+ * 2: Close State <Number> (Optional)
+ * 3: Init <FUNCTION> (Optional)
+ * 4: Open Function <FUNCTION> (Optional)
+ * 5: Close Function <FUNCTION> (Optional)
+ * 6: Animation Points <ARRAY> (Optional)
  *
  * Returns:
  * none
  */
 
-params["_equipment", ["_name", "Equipment"], ["_animatableLampsCount", 0], ["_closeState", 0], ["_initFnc", {}], ["_openFnc", {}], ["_closeFnc", {}]];
+params["_equipment", ["_name", "Equipment"], ["_closeState", 0], ["_initFnc", {}], ["_openFnc", {}], ["_closeFnc", {}], ["_animationPoints", []]];
 
 /* ---------------------------------------- */
 
@@ -23,7 +28,7 @@ private _openWrapper =
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_interaction_closeState', 1, true];
+		_target setVariable ['AE3_interaction_closeState', 0, true];
 	};
 };
 
@@ -39,56 +44,53 @@ private _closeWrapper =
 
 	if(_result) then
 	{
-		_target setVariable ['AE3_interaction_closeState', 0, true];
+		_target setVariable ['AE3_interaction_closeState', 1, true];
 	};
 };
 
 /* ---------------------------------------- */
 
-if(!isDedicated) then
+if (!isDedicated) then
 {
-	for "_i" from 1 to _animatableLampsCount step 1 do
 	{
-		private _selectionName = format ["light_%1_pitch", _i];
-		private _interactionName = format ["animate lamp %1", _i];
-		private _extendInteractionDescription = format ["extend lamp %1", _i];
-		private _pitchInteractionDescription = format ["pitch lamp %1", _i];
-		private _yawInteractionDescription = format ["yaw lamp %1", _i];
-		private _animateItemExtend = format ["Light_%1_extend_source", _i];
-		private _animateItemPitch = format ["Light_%1_pitch_source", _i];
-		private _animateItemYaw = format ["Light_%1_yaw_source", _i];
+		private _animationPointDescription = _x select 0;
+		private _animationPointSelection = _x select 1;
+		private _animationMain = _x select 2;
+		private _animationModifiedShift = _x select 3;
+		private _animationModifiedCtrl = _x select 4;
+		private _animationModifiedAlt = _x select 5;
 
 		private _action = 
 		[
-			_interactionName,
-			_interactionName,
+			_animationPointDescription,
+			_animationPointDescription,
 			"",
 			{
 				params ["_target", "_player", "_params"];
 
-				private _extendInteractionDescription = _params select 0;
-				private _animateItemExtend = _params select 1;
-				private _pitchInteractionDescription = _params select 2;
-				private _animateItemPitch = _params select 3;
-				private _yawInteractionDescription = _params select 4;
-				private _animateItemYaw = _params select 5;
+				private _animationMain = _params select 0;
+				private _animationModifiedShift = _params select 1;
+				private _animationModifiedCtrl = _params select 2;
+				private _animationModifiedAlt = _params select 3;
 
-				_handle = [_target, _extendInteractionDescription, _animateItemExtend, _pitchInteractionDescription, _animateItemPitch, _yawInteractionDescription, _animateItemYaw] spawn AE3_interaction_fnc_animateInteraction;
+				_handle = [_target, _animationMain, _animationModifiedShift, _animationModifiedCtrl, _animationModifiedAlt] spawn AE3_interaction_fnc_animateInteraction;
 			},
 			{
 				alive _target;
 			},
 			{},
-			[_extendInteractionDescription, _animateItemExtend, _pitchInteractionDescription, _animateItemPitch, _yawInteractionDescription, _animateItemYaw],
-			_selectionName
+			[_animationMain, _animationModifiedShift, _animationModifiedCtrl, _animationModifiedAlt],
+			_animationPointSelection
 		] call ace_interact_menu_fnc_createAction;
 
 		[_equipment, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
-	};
+
+	} forEach _animationPoints;
 
 	/* ---------------------------------------- */
 
 	private _parentAction = ["AE3_EquipmentAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
+
 	[_equipment, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
 
 	// Add open/close action
@@ -96,35 +98,37 @@ if(!isDedicated) then
 	{
 		_open = ["AE3_openAction", "Open", "", 
 					{
-						params ['_target', '_player', '_params']; 
-
-						//_target setVariable ['AE3_power_mutex', true, true];
+						params ["_target", "_player", "_params"]; 
 
 						[_target] spawn {
-							params['_target'];
+							params["_target"];
 							[_target] call (_target getVariable "AE3_interaction_fnc_openWrapper");
 
-							//_target setVariable ['AE3_power_mutex', false, true];
+							if (_target getVariable 'AE3_power_powerState' == 2) then
+							{
+								[_target] call (_target getVariable "AE3_power_fnc_turnOnWrapper");
+							};
 						};
 						
 					}, 
-					{(alive _target) and (_target getVariable 'AE3_interaction_closeState' != 1) /* and !(_target getVariable ['AE3_power_mutex', false]) */ },
+					{(alive _target) and (_target getVariable "AE3_interaction_closeState" == 1) },
 					{}] call ace_interact_menu_fnc_createAction;
 
 		_close = ["AE3_closeAction", "Close", "", 
 					{
-						params ['_target', '_player', '_params']; 
+						params ["_target", "_player", "_params"]; 
 						
-						//_target setVariable ['AE3_power_mutex', true, true];
-
 						[_target] spawn {
-							params['_target'];
+							params ["_target"];
 							[_target] call (_target getVariable "AE3_interaction_fnc_closeWrapper");
 
-							//_target setVariable ['AE3_power_mutex', false, true];
+							if (_target getVariable 'AE3_power_powerState' == 1) then
+							{
+								[_target] call (_target getVariable "AE3_power_fnc_standbyWrapper");
+							};
 						};
 					}, 
-					{(alive _target) and (_target getVariable 'AE3_interaction_closeState' != 0) /* and !(_target getVariable ['AE3_power_mutex', false])*/ },
+					{(alive _target) and (_target getVariable "AE3_interaction_closeState" == 0) },
 					{}] call ace_interact_menu_fnc_createAction;
 
 		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _open] call ace_interact_menu_fnc_addActionToObject;

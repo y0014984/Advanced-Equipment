@@ -93,7 +93,41 @@ class CfgVehicles
 		{
 			displayName = "Lamp";
 
-			animatableLampsCount = 1;
+			class AE3_Animations
+			{
+				class AE3_Animation_Point_0
+				{
+					description = "lamp 1";
+					selection = "light_1_pitch";
+
+					class AE3_Animation_Main
+					{
+						description = "extend lamp 1";
+						animation = "Light_1_extend_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+
+					class AE3_Animation_Modified_Ctrl
+					{
+						description = "pitch lamp 1";
+						animation = "Light_1_pitch_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+
+					class AE3_Animation_Modified_Alt
+					{
+						description = "yaw lamp 1";
+						animation = "Light_1_yaw_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+			};
 
 			class AE3_aceWorkaround
 			{
@@ -153,7 +187,74 @@ class CfgVehicles
 		{
 			displayName = "Lamp";
 
-			animatableLampsCount = 2;
+			class AE3_Animations
+			{
+				class AE3_Animation_Point_0
+				{
+					description = "lamp 1";
+					selection = "light_1_pitch";
+
+					class AE3_Animation_Main
+					{
+						description = "extend lamp 1";
+						animation = "Light_1_extend_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+
+					class AE3_Animation_Modified_Ctrl
+					{
+						description = "pitch lamp 1";
+						animation = "Light_1_pitch_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+
+					class AE3_Animation_Modified_Alt
+					{
+						description = "yaw lamp 1";
+						animation = "Light_1_yaw_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+
+				class AE3_Animation_Point_1
+				{
+					description = "lamp 2";
+					selection = "light_2_pitch";
+
+					class AE3_Animation_Main
+					{
+						description = "extend lamp 2";
+						animation = "Light_2_extend_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+
+					class AE3_Animation_Modified_Ctrl
+					{
+						description = "pitch lamp 2";
+						animation = "Light_2_pitch_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+
+					class AE3_Animation_Modified_Alt
+					{
+						description = "yaw lamp 2";
+						animation = "Light_2_yaw_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+			};
 
 			class AE3_aceWorkaround
 			{
@@ -213,7 +314,140 @@ class CfgVehicles
 		{
 			displayName = "Lamp";
 			
-			animatableLampsCount = 4;
+			class AE3_Animations
+			{
+				class AE3_Animation_Point_0
+				{
+					description = "lamp 1";
+					selection = "light_1_pitch";
+
+					class AE3_Animation_Main
+					{
+						description = "extend lamp 1";
+						animation = "Light_1_extend_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+
+					class AE3_Animation_Modified_Ctrl
+					{
+						description = "pitch lamp 1";
+						animation = "Light_1_pitch_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+
+					class AE3_Animation_Modified_Alt
+					{
+						description = "yaw lamp 1";
+						animation = "Light_1_yaw_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+
+				class AE3_Animation_Point_1
+				{
+					description = "lamp 2";
+					selection = "light_2_pitch";
+
+					class AE3_Animation_Main
+					{
+						description = "extend lamp 2";
+						animation = "Light_2_extend_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+
+					class AE3_Animation_Modified_Ctrl
+					{
+						description = "pitch lamp 2";
+						animation = "Light_2_pitch_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+
+					class AE3_Animation_Modified_Alt
+					{
+						description = "yaw lamp 2";
+						animation = "Light_2_yaw_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+
+				class AE3_Animation_Point_2
+				{
+					description = "lamp 3";
+					selection = "light_3_pitch";
+
+					class AE3_Animation_Main
+					{
+						description = "extend lamp 3";
+						animation = "Light_3_extend_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+
+					class AE3_Animation_Modified_Ctrl
+					{
+						description = "pitch lamp 3";
+						animation = "Light_3_pitch_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+
+					class AE3_Animation_Modified_Alt
+					{
+						description = "yaw lamp 3";
+						animation = "Light_3_yaw_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+
+				class AE3_Animation_Point_3
+				{
+					description = "lamp 4";
+					selection = "light_4_pitch";
+
+					class AE3_Animation_Main
+					{
+						description = "extend lamp 4";
+						animation = "Light_4_extend_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+
+					class AE3_Animation_Modified_Ctrl
+					{
+						description = "pitch lamp 4";
+						animation = "Light_4_pitch_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+
+					class AE3_Animation_Modified_Alt
+					{
+						description = "yaw lamp 4";
+						animation = "Light_4_yaw_source";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+			};
 
 			class AE3_aceWorkaround
 			{
