@@ -18,7 +18,12 @@ _config set
 [
 	'equipment',
 	[
-		getNumber (_equipmentCfg >> "animatableLampsCount")
+		getText (_equipmentCfg >> "displayName"),
+		getNumber (_equipmentCfg >> "animatableLampsCount"),
+		getNumber (_equipmentCfg >> "closeState"),
+		compile (getText (_equipmentCfg >> "init")),
+		compile (getText (_equipmentCfg >> "openAction")),
+		compile (getText (_equipmentCfg >> "closeAction"))
 	]
 ];
 

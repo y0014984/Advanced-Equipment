@@ -22,8 +22,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_onAction";
-			turnOffAction = "_this call AE3_interaction_fnc_offAction";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
 
 			class AE3_PowerInterface
 			{
@@ -59,8 +59,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_onAction";
-			turnOffAction = "_this call AE3_interaction_fnc_offAction";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
 
 			class AE3_PowerInterface
 			{
@@ -91,6 +91,8 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
+			displayName = "Lamp";
+
 			animatableLampsCount = 1;
 
 			class AE3_aceWorkaround
@@ -112,8 +114,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_onAction";
-			turnOffAction = "_this call AE3_interaction_fnc_offAction";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
 
 			class AE3_PowerInterface
 			{
@@ -149,6 +151,8 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
+			displayName = "Lamp";
+
 			animatableLampsCount = 2;
 
 			class AE3_aceWorkaround
@@ -170,8 +174,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_onAction";
-			turnOffAction = "_this call AE3_interaction_fnc_offAction";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
 
 			class AE3_PowerInterface
 			{
@@ -207,6 +211,8 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
+			displayName = "Lamp";
+			
 			animatableLampsCount = 4;
 
 			class AE3_aceWorkaround
@@ -228,8 +234,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_onAction";
-			turnOffAction = "_this call AE3_interaction_fnc_offAction";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
 
 			class AE3_PowerInterface
 			{

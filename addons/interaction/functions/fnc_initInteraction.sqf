@@ -9,7 +9,41 @@
  * none
  */
 
-params["_equipment", ["_animatableLampsCount", 0]];
+params["_equipment", ["_name", "Equipment"], ["_animatableLampsCount", 0], ["_closeState", 0], ["_initFnc", {}], ["_openFnc", {}], ["_closeFnc", {}]];
+
+/* ---------------------------------------- */
+
+private _openWrapper =
+{
+	params['_target', ['_args', []]];
+
+	_openFnc =  _target getVariable "AE3_interaction_fnc_open";
+	_result = [_target] + _args call _openFnc;
+	if(isNil '_result') then {_result = false};
+
+	if(_result) then
+	{
+		_target setVariable ['AE3_interaction_closeState', 1, true];
+	};
+};
+
+/* ---------------------------------------- */
+
+private _closeWrapper =
+{
+	params['_target', ['_args', []]];
+
+	_closeFnc =  _target getVariable "AE3_interaction_fnc_close";
+	_result = [_target] + _args call _closeFnc;
+	if(isNil '_result') then {_result = false};
+
+	if(_result) then
+	{
+		_target setVariable ['AE3_interaction_closeState', 0, true];
+	};
+};
+
+/* ---------------------------------------- */
 
 if(!isDedicated) then
 {
@@ -49,11 +83,64 @@ if(!isDedicated) then
 			_selectionName
 		] call ace_interact_menu_fnc_createAction;
 
-		[
-			_equipment,
-			0, 
-			[],
-			_action
-		] call ace_interact_menu_fnc_addActionToObject;
+		[_equipment, 0, [], _action] call ace_interact_menu_fnc_addActionToObject;
+	};
+
+	/* ---------------------------------------- */
+
+	private _parentAction = ["AE3_EquipmentAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
+	[_equipment, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
+
+	// Add open/close action
+	if (!((_openFnc isEqualTo {}) || (_closeFnc isEqualTo {}))) then
+	{
+		_open = ["AE3_openAction", "Open", "", 
+					{
+						params ['_target', '_player', '_params']; 
+
+						//_target setVariable ['AE3_power_mutex', true, true];
+
+						[_target] spawn {
+							params['_target'];
+							[_target] call (_target getVariable "AE3_interaction_fnc_openWrapper");
+
+							//_target setVariable ['AE3_power_mutex', false, true];
+						};
+						
+					}, 
+					{(alive _target) and (_target getVariable 'AE3_interaction_closeState' != 1) /* and !(_target getVariable ['AE3_power_mutex', false]) */ },
+					{}] call ace_interact_menu_fnc_createAction;
+
+		_close = ["AE3_closeAction", "Close", "", 
+					{
+						params ['_target', '_player', '_params']; 
+						
+						//_target setVariable ['AE3_power_mutex', true, true];
+
+						[_target] spawn {
+							params['_target'];
+							[_target] call (_target getVariable "AE3_interaction_fnc_closeWrapper");
+
+							//_target setVariable ['AE3_power_mutex', false, true];
+						};
+					}, 
+					{(alive _target) and (_target getVariable 'AE3_interaction_closeState' != 0) /* and !(_target getVariable ['AE3_power_mutex', false])*/ },
+					{}] call ace_interact_menu_fnc_createAction;
+
+		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _open] call ace_interact_menu_fnc_addActionToObject;
+		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _close] call ace_interact_menu_fnc_addActionToObject;
 	};
 };
+
+/* ---------------------------------------- */
+
+if(isServer) then
+{
+	_equipment setVariable ["AE3_interaction_closeState", _closeState, true];
+	_equipment setVariable ["AE3_interaction_fnc_open", _openFnc, true];
+	_equipment setVariable ["AE3_interaction_fnc_openWrapper", _openWrapper, true];
+	_equipment setVariable ["AE3_interaction_fnc_close", _closeFnc, true];
+	_equipment setVariable ["AE3_interaction_fnc_closeWrapper", _closeWrapper, true];
+};
+
+[_equipment] call _initFnc;

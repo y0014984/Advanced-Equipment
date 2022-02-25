@@ -126,7 +126,7 @@ if(!isDedicated) then
 
 if(isServer) then
 {
-	_entity setVariable ["AE3_power_powerState", 0, true];
+	_entity setVariable ["AE3_power_powerState", _powerState, true];
 	_entity setVariable ["AE3_power_fnc_turnOn", _turnOnFnc, true];
 	_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper, true];
 	_entity setVariable ["AE3_power_fnc_turnOff", _turnOffFnc, true];

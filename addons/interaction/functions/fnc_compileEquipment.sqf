@@ -39,6 +39,8 @@ if(_config isEqualType "") exitWith {};
 
 [_equipment] + (_config get "equipment") call AE3_interaction_fnc_initInteraction;
 
+/* ---------------------------------------- */
+
 if('aceWorkaround' in _config) then 
 {
 	private _aceDragging = [];
