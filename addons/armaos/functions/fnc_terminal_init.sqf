@@ -52,7 +52,7 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
 		["AE3_terminalMaxRows", 21],
-		["AE3_terminalMaxColumns", 68],
+		["AE3_terminalMaxColumns", 85],
 		["AE3_terminalKeyboardLayout", "US"]
 	];
 

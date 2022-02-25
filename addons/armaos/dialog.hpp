@@ -1,5 +1,6 @@
 class RscListbox;
 class RscText;
+class RscStructuredText;
 class RscEdit;
 class RscButton;
 class RscSlider;
@@ -68,7 +69,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorBackground[] = {0,0.5,0,0.25};
 			font = "EtelkaMonospaceProBold";
 		};
-		class RscText_1100: RscText
+		class RscText_1100: RscStructuredText
 		{
 			// Console Output
 			idc = 1100;
@@ -77,7 +78,7 @@ class AE3_ArmaOS_Main_Dialog
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 40 * GUI_GRID_W;
 			h = 21 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.25};
+			colorBackground[] = {0,0,0,0.35};
 			
 			style = ST_MULTI;
 			lineSpacing = 1;
