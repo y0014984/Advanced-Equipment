@@ -1,5 +1,5 @@
 /**
- * Opens a laptop
+ * Closes a laptop
  *
  * Arguments:
  * 0: Laptop <OBJECT>

@@ -489,4 +489,125 @@ class CfgVehicles
 	};
 
 	/* ================================================================================ */
+
+	// Desk
+	class Land_PortableDesk_01_sand_F;
+	class Land_PortableDesk_01_sand_F_AE3: Land_PortableDesk_01_sand_F
+	{
+		// Dragging
+        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+        ace_dragging_dragDirection = 90;  // Model direction while dragging (same as setDir after attachTo)
+		
+		// Cargo
+        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+        ace_cargo_size = 4;  // Cargo space the object takes
+
+		class AE3_Equipment
+		{
+			displayName = "Desk";
+
+			closeState = 1;
+
+			init = "_this call AE3_interaction_fnc_initDesk;";
+
+			openAction = "_this call AE3_interaction_fnc_desk_addActionOpen;";
+			closeAction = "_this call AE3_interaction_fnc_desk_addActionClose;";
+
+			class AE3_Animations
+			{
+				/*
+				class AE3_Animation_Point_0
+				{
+					description = "drawer 1";
+					selection = "drawer_1";
+
+					class AE3_Animation_Main
+					{
+						description = "open/close drawer 1";
+						animation = "Drawer_1_move_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+				};
+				class AE3_Animation_Point_1
+				{
+					description = "drawer 2";
+					selection = "drawer_2";
+
+					class AE3_Animation_Main
+					{
+						description = "open/close drawer 2";
+						animation = "Drawer_2_move_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+				};
+				class AE3_Animation_Point_2
+				{
+					description = "drawer 3";
+					selection = "drawer_3";
+
+					class AE3_Animation_Main
+					{
+						description = "open/close drawer 3";
+						animation = "Drawer_3_move_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+				};
+				class AE3_Animation_Point_3
+				{
+					description = "drawer 4";
+					selection = "drawer_4";
+
+					class AE3_Animation_Main
+					{
+						description = "open/close drawer 4";
+						animation = "Drawer_4_move_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+				};
+				class AE3_Animation_Point_4
+				{
+					description = "drawer 5";
+					selection = "drawer_5";
+
+					class AE3_Animation_Main
+					{
+						description = "open/close drawer 5";
+						animation = "Drawer_5_move_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+				};
+				class AE3_Animation_Point_5
+				{
+					description = "drawer 6";
+					selection = "drawer_6";
+
+					class AE3_Animation_Main
+					{
+						description = "open/close drawer 6";
+						animation = "Drawer_6_move_source";
+						minValue = 0;
+						maxValue = 1;
+						scrollMultiplier = 0.1;
+					};
+				};
+				*/
+			};
+		};
+
+			
+
+	};
+
+	/* ================================================================================ */
 };
