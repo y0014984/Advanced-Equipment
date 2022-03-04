@@ -159,12 +159,12 @@ class CfgVehicles
 			{
 				class AE3_Animation_Point_0
 				{
-					description = "panel 1";
+					description = "solar panel 1";
 					selection = "panel_1";
 
 					class AE3_Animation_Main
 					{
-						description = "pitch panel 1";
+						description = "pitch solar panel 1";
 						animation = "Panel_1_Pitch";
 						minValue = -90;
 						maxValue = 90;
@@ -174,12 +174,12 @@ class CfgVehicles
 
 				class AE3_Animation_Point_1
 				{
-					description = "panel 2";
+					description = "solar panel 2";
 					selection = "panel_2";
 
 					class AE3_Animation_Main
 					{
-						description = "pitch panel 2";
+						description = "pitch solar panel 2";
 						animation = "Panel_2_Pitch";
 						minValue = -90;
 						maxValue = 90;
@@ -189,12 +189,12 @@ class CfgVehicles
 				
 				class AE3_Animation_Point_2
 				{
-					description = "panels";
+					description = "solar panels";
 					selection = "panels_base";
 
 					class AE3_Animation_Main
 					{
-						description = "yaw panels";
+						description = "yaw solar panels";
 						animation = "Panels_Yaw";
 						minValue = -90;
 						maxValue = 90;

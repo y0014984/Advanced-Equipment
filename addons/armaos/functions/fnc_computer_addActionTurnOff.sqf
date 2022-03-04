@@ -3,7 +3,7 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: Silent Switch <BOOL>
+ * 2: Silent Switch <BOOL> (Optional)
  *
  * Results:
  * None

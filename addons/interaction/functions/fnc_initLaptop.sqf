@@ -1,5 +1,5 @@
 /**
- * Initializes a laptop.
+ * Initializes a laptop, especially the initially open/closed animation phase.
  *
  * Arguments:
  * 0: Laptop <OBJECT>

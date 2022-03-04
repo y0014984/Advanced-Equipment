@@ -14,8 +14,6 @@ params["_equipment"];
 
 private _class = typeOf _equipment;
 
-diag_log format ["AE3 DEBUG: %1", _class];
-
 private _equipmentConfigVarName = _class + "_Equipment";
 
 if(isNil {missionNamespace getVariable _equipmentConfigVarName}) then 
