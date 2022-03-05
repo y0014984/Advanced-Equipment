@@ -3,17 +3,37 @@
  * Also returns informations about the success of the command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Folder/Directory <[STRING]>
- * 3: User <STRING>
+ * 0: Computer <OBJECT>
+ * 1: Folder/Directory <[STRING]>
  *
  * Results:
- * 1: Informations/Files <[STRING]>
+ * 0: Informations/Files <[STRING]>
  */
 
 params ["_computer", "_options"];
 
-_options = _options joinString " ";
+private _long = false;
+private _path = [];
+
+{
+	if((_x select [0,1]) == "-") then
+	{
+		{
+			if(_x == 'l' || _x == 'L') then
+			{
+				_long = true;
+			};
+		}forEach (_x splitString "");
+	}else
+	{
+		_path pushBack _x;
+	};
+}forEach _options;
+
+if (count _path == 0) then
+{
+	_path = [""];
+};
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
@@ -21,11 +41,18 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
+private _output = [];
+
 try
 {
-	private _dir = [_pointer, _filesystem, _options, _username] call AE3_filesystem_fnc_lsdir;
-	_dir;
+	{
+		_dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
+		_output append _dir;
+		_output pushBack "";
+	}forEach _path;
 }catch
 {
 	[_exception];
-}
+};
+
+_output;
