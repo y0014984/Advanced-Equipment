@@ -96,6 +96,14 @@ class CfgOsFunctions
 		code = "_this call AE3_armaos_fnc_os_mv";
 	};
 
+	class whoami : OsFunction
+	{
+		path = "/bin/whoami";
+		description = "Retuns the current user.";
+		man = "Usage whoami: 'Returns the current user.'";
+		code = "_this call AE3_armaos_fnc_os_whoami";
+	};
+
 
 	class logout : OsFunction
 	{

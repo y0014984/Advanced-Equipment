@@ -16,7 +16,7 @@
  * None
  */
 
-params['_pntr', '_filesystem', '_target', '_user', '_owner', ['_permissions', [[false, true, true], [false, false, false]]]];
+params['_pntr', '_filesystem', '_target', '_user', '_owner', ['_permissions', [[true, true, true], [false, false, false]]]];
 
 private _dir = [_pntr, _filesystem, _target, _user, true] call AE3_filesystem_fnc_getParentDir;
 
