@@ -55,25 +55,28 @@ private _dir = [_pntr, _filesystem, _target, _user] call AE3_filesystem_fnc_chdi
 
 // Check permissions
 [(_dir select 1), _user, 1] call AE3_filesystem_fnc_hasPermission;
-_current = (_dir select 1) select 0;
+_folder = (_dir select 1) select 0;
+_files = keys _folder;
+_files sort true;
 
 // Get max owner name length for align
 private _maxOwnerLength = 5;
 if(_long) then
 {
 	{
-
+		_y = _folder  get _x;
 		if(count (_y select 1) > _maxOwnerLength) then
 		{
 			_maxOwnerLength = count (_y select 1);
 		};
 
-	}forEach _current;
+	}forEach _files;
 };
 
 _result = [];
 {
 	_buffer = "";
+	_y = _folder  get _x;
 
 	if(_long) then
 	{
@@ -103,6 +106,6 @@ _result = [];
 
 	_result pushBack _buffer;
 
-} forEach _current;
+} forEach _files;
 
 _result;
