@@ -31,6 +31,7 @@ private _dragDirection = getNumber (_config >> "ace_dragging_dragDirection");
 
 if (_canDrag == 1) then { _canDrag = true; } else { _canDrag = false; };
 
-[_desk, _canDrag, _dragPosition, _dragDirection] call ace_dragging_fnc_setDraggable;
+[_desk, _canDrag, _dragPosition, _dragDirection] remoteExecCall ['ace_dragging_fnc_setDraggable', 0];
+//[_desk, _canDrag, _dragPosition, _dragDirection] call ace_dragging_fnc_setDraggable;
 
 true;
