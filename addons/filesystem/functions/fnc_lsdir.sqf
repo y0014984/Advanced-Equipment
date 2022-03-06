@@ -97,7 +97,7 @@ _result = [];
 		try
 		{
 			[_object, _user, 0] call AE3_filesystem_fnc_hasPermission;
-			format ["<t color='#8ce10b'>%1/</t>", _name];
+			format ["<t color='#8ce10b'>%1</t>", _name];
 		}catch
 		{
 			_name;
