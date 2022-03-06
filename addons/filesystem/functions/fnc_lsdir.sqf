@@ -6,6 +6,7 @@
  * 1: Filesystem <HASHMAP>
  * 2: Raw path to target directory <STRING>
  * 3: User <STRING> (Optional)
+ * 4: Long mode <BOOL> (Optional)
  *
  * Results:
  * Content of the directory <[STRING]>
@@ -35,10 +36,40 @@ private _permissionString =
 	_result;
 };
 
+private _ownerString =
+{
+	params['_object', '_length'];
+
+	private _result = _object select 1;
+
+	for [{private _i = 0}, {count _result < _length}, {_i = _i + 1}] do
+	{
+		_result = _result + " ";
+	};
+
+	_result;
+};
+
+// Get directory
 private _dir = [_pntr, _filesystem, _target, _user] call AE3_filesystem_fnc_chdir;
 
+// Check permissions
 [(_dir select 1), _user, 1] call AE3_filesystem_fnc_hasPermission;
 _current = (_dir select 1) select 0;
+
+// Get max owner name length for align
+private _maxOwnerLength = 5;
+if(_long) then
+{
+	{
+
+		if(count (_y select 1) > _maxOwnerLength) then
+		{
+			_maxOwnerLength = count (_y select 1);
+		};
+
+	}forEach _current;
+};
 
 _result = [];
 {
@@ -46,7 +77,7 @@ _result = [];
 
 	if(_long) then
 	{
-		_buffer = format ["%1  %2  ", [_y] call _permissionString, _y select 1];
+		_buffer = format ["%1  %2  ", [_y] call _permissionString, [_y, _maxOwnerLength] call _ownerString];
 	};
 
 	_buffer = _buffer + ([_x, _y, _user] call
