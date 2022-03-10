@@ -20,6 +20,18 @@ class CfgVehicles
 			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
 		};
 
+		class AE3_Equipment
+		{
+			displayName = "Laptop";
+
+			closeState = 1;
+
+			init = "_this call AE3_interaction_fnc_initLaptop;";
+
+			openAction = "_this call AE3_interaction_fnc_laptop_addActionOpen;";
+			closeAction = "_this call AE3_interaction_fnc_laptop_addActionClose;";
+		};
+
 		class AE3_Device
 		{
 			displayName = "Laptop";

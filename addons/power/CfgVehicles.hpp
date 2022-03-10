@@ -1,6 +1,8 @@
 class CfgVehicles 
 {
-	// GENERATOR
+	/* ================================================================================ */
+
+	// Generator
 	class B_Quadbike_01_F;
 	//class Land_PortableGenerator_01_sand_F;
 	class Land_PortableGenerator_01_sand_F_AE3: B_Quadbike_01_F
@@ -92,6 +94,7 @@ class CfgVehicles
 		};
 	};
 
+	/* ================================================================================ */
 
 	// Batteries
 	class Land_BatteryPack_01_open_sand_F;
@@ -129,4 +132,78 @@ class CfgVehicles
 			};
 		};
 	};
+
+	/* ================================================================================ */
+
+	// Solar Panel
+	class Land_SolarPanel_04_sand_F;
+
+	class Land_SolarPanel_04_sand_F_AE3 : Land_SolarPanel_04_sand_F
+	{
+		// Dragging
+        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+
+		// Cargo
+        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+        ace_cargo_size = 2;  // Cargo space the object takes
+
+		class AE3_Equipment
+		{
+			displayName = "Solar Panel";
+
+			init = "_this call AE3_interaction_fnc_initSolarPanel;";
+
+			class AE3_Animations
+			{
+				class AE3_Animation_Point_0
+				{
+					description = "solar panel 1";
+					selection = "panel_1";
+
+					class AE3_Animation_Main
+					{
+						description = "pitch solar panel 1";
+						animation = "Panel_1_Pitch";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+
+				class AE3_Animation_Point_1
+				{
+					description = "solar panel 2";
+					selection = "panel_2";
+
+					class AE3_Animation_Main
+					{
+						description = "pitch solar panel 2";
+						animation = "Panel_2_Pitch";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+				
+				class AE3_Animation_Point_2
+				{
+					description = "solar panels";
+					selection = "panels_base";
+
+					class AE3_Animation_Main
+					{
+						description = "yaw solar panels";
+						animation = "Panels_Yaw";
+						minValue = -90;
+						maxValue = 90;
+						scrollMultiplier = 10;
+					};
+				};
+			};
+		};
+	};
+
+	/* ================================================================================ */
 };

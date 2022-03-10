@@ -10,13 +10,13 @@ class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
 {
     class AE3_Device
         {
-            init = "params['_entity']; [_entity] call AE3_lamp_fnc_initLamp;";
+            init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
  
             displayName = "Lamp";
             defaultPowerLevel = 0;
  
-            turnOnAction = "_this call AE3_lamp_fnc_onAction";
-            turnOffAction = "_this call AE3_lamp_fnc_offAction";
+            turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
+            turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
  
             class AE3_PowerInterface
             {
