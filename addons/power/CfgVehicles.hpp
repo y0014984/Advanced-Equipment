@@ -7,11 +7,6 @@ class CfgVehicles
 	//class Land_PortableGenerator_01_sand_F;
 	class Land_PortableGenerator_01_sand_F_AE3: B_Quadbike_01_F
 	{
-		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
-		
 		// Cargo
         ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
         ace_cargo_size = 4;  // Cargo space the object takes
@@ -23,7 +18,7 @@ class CfgVehicles
 
 		class AE3_Device
 		{
-			displayName = "Generator";
+			displayName = "Portable Generator";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
@@ -39,6 +34,22 @@ class CfgVehicles
 			};
 		};
 
+		class AE3_Equipment
+		{
+			displayName = "Portable Generator";
+
+			class AE3_aceWorkaround
+			{
+				class AE3_aceDragging
+				{
+					// Dragging
+					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+			};
+		};
+
 		/* -------------------- */
 
 		//Quad Bike Override
@@ -51,7 +62,7 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa", "a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa", "a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
 		icon = "iconObject_1x1"; // Object gets invisible, except the shadow
 		picture = "pictureThing";
-		displayName = "Generator";
+		displayName = "Portable Generator";
 		hasDriver = 0;
 		getInAction = "";
 		maximumLoad = 0;
@@ -74,21 +85,21 @@ class CfgVehicles
 			{
 				author = "Bohemia Interactive";
 				displayName = "Black";
-				factions[] = {"BLU_F", "Default"};
+				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
 			};
-			class Bluefor
+			class Green
 			{
 				author = "Bohemia Interactive";
 				displayName = "Green";
-				factions[] = {"BLU_F", "Default"};
+				factions[] = {};
 				textures[] = {"a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa"};
 			};
-			class ParkRanger
+			class Sand
 			{
 				displayName = "Sand";
 				author = "Bohemia Interactive";
-				factions[] = {"BLU_F", "Default"};
+				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"};
 			};
 		};
