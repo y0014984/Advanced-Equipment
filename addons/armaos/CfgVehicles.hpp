@@ -28,8 +28,8 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initLaptop;";
 
-			openAction = "_this call AE3_interaction_fnc_laptop_addActionOpen;";
-			closeAction = "_this call AE3_interaction_fnc_laptop_addActionClose;";
+			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
 		};
 
 		class AE3_Device
@@ -39,9 +39,9 @@ class CfgVehicles
 
 			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init;";
 
-			turnOnAction = "_this call AE3_armaos_fnc_computer_addActionTurnOn;";
-			turnOffAction = "_this call AE3_armaos_fnc_computer_addActionTurnOff;";
-			standByAction = "_this call AE3_armaos_fnc_computer_addActionStandby;";
+			turnOnAction = "_this call AE3_armaos_fnc_computer_turnOn;";
+			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
 
 			class AE3_Consumer
 			{

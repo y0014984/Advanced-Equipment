@@ -22,8 +22,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -32,7 +32,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.03/3600;
+				powerConsumption = 0.15/3600; // consumes 150 Watts
 			};
 		};
 	};
@@ -59,8 +59,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -69,7 +69,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.06/3600;
+				powerConsumption = 0.3/3600; // consumes 300 Watts
 			};
 		};
 	};
@@ -148,8 +148,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -275,8 +275,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -468,8 +468,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -511,8 +511,8 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_addActionOpen;";
-			closeAction = "_this call AE3_interaction_fnc_desk_addActionClose;";
+			openAction = "_this call AE3_interaction_fnc_desk_open;";
+			closeAction = "_this call AE3_interaction_fnc_desk_close;";
 
 			class AE3_Animations
 			{

@@ -31,11 +31,11 @@ class CfgVehicles
 
 			class AE3_Generator
 			{
-				fuelConsumption = 1.5;
-				fuelCapacity = 5;
-				fuelLevel = 1;
+				fuelConsumption = 1.5; // 1.5 litres per hour consumption
+				fuelCapacity = 5; // 5 litres max. tank volume
+				fuelLevel = 1; // 100 % full tank
 
-				power = 8/3600;
+				power = 5/3600; // provides max. 5.000 Watts
 			};
 		};
 
