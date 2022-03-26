@@ -45,8 +45,8 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.01/3600;
-				standbyConsumption = 0.0001/3600;
+				powerConsumption = 0.01/3600; // 10 Watts
+				standbyConsumption = 0.0001/3600; // 0.1 Watts
 			};
 		};
 
@@ -65,9 +65,9 @@ class CfgVehicles
 
 			class AE3_Battery
 			{
-				capacity = 0.1;
-				recharging = 0.05/3600;
-				level = 0.1;
+				capacity = 0.1; // 100 Watts/hour max. capacity
+				recharging = 0.05/3600; // 50 Watts power consumption while recharging
+				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
 			};
 		};

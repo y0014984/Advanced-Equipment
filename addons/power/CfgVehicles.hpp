@@ -136,9 +136,9 @@ class CfgVehicles
 
 			class AE3_Battery
 			{
-				capacity = 0.6;
-				recharging = 0.3/3600;
-				level = 0.6;
+				capacity = 0.6; // 600 Watts/hour max. capacity
+				recharging = 0.3/3600; // 300 Watts power consumption while recharging
+				level = 0.6; // 600 Watts/hour capacity at the beginning
 				internal = 0;
 			};
 		};
