@@ -8,13 +8,13 @@ class CfgVehicles
 	class Land_PortableGenerator_01_sand_F_AE3: B_Quadbike_01_F
 	{
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 4;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 4;  // Cargo space the object takes
 
 		// Refuel
-        ace_refuel_canReceive = 1; // For vehicles which can't be refueled
-        ace_refuel_fuelCapacity = 5; // Fuel tank volume
-        ace_refuel_flowRate = 1; // Speed?
+		ace_refuel_canReceive = 1; // For vehicles which can't be refueled
+		ace_refuel_fuelCapacity = 5; // Fuel tank volume
+		ace_refuel_flowRate = 1; // Speed?
 
 		class AE3_Device
 		{
@@ -88,10 +88,10 @@ class CfgVehicles
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
 			};
-			class Green
+			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Green";
+				displayName = "Olive";
 				factions[] = {};
 				textures[] = {"a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa"};
 			};
@@ -112,14 +112,94 @@ class CfgVehicles
 
 	class Land_BatteryPack_01_open_sand_F_AE3 : Land_BatteryPack_01_open_sand_F
 	{
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\BatteryPack_01_Black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\BatteryPack_01_Olive_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\BatteryPack_01_Sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
+
 		// Carrying
-        ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
-        ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
+		ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 1;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 1;  // Cargo space the object takes
 
 		class AE3_Device
 		{
@@ -152,13 +232,13 @@ class CfgVehicles
 	class Land_SolarPanel_04_sand_F_AE3 : Land_SolarPanel_04_sand_F
 	{
 		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+		ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 2;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 2;  // Cargo space the object takes
 
 		class AE3_Equipment
 		{
