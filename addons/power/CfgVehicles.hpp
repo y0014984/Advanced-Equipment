@@ -231,10 +231,85 @@ class CfgVehicles
 
 	class Land_SolarPanel_04_sand_F_AE3 : Land_SolarPanel_04_sand_F
 	{
-		// Dragging
-		ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-		ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-		ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\SolarPanel_04_F_Black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\SolarPanel_04_F_Olive_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\SolarPanel_04_F_Sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
 
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
@@ -245,6 +320,17 @@ class CfgVehicles
 			displayName = "Solar Panel";
 
 			init = "_this call AE3_interaction_fnc_initSolarPanel;";
+
+			class AE3_aceWorkaround
+			{
+				class AE3_aceDragging
+				{
+					// Dragging
+					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+			};
 
 			class AE3_Animations
 			{
