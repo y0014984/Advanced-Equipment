@@ -4,12 +4,12 @@ PREP(initLaptop);
 PREP(initDesk);
 
 /* Action */
-PREP(lamp_addActionTurnOn);
-PREP(lamp_addActionTurnOff);
-PREP(laptop_addActionOpen);
-PREP(laptop_addActionClose);
-PREP(desk_addActionOpen);
-PREP(desk_addActionClose);
+PREP(lamp_turnOn);
+PREP(lamp_turnOff);
+PREP(laptop_open);
+PREP(laptop_close);
+PREP(desk_open);
+PREP(desk_close);
 
 /* Compile */
 PREP(compileConfig);

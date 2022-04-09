@@ -15,8 +15,8 @@ class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
             displayName = "Lamp";
             defaultPowerLevel = 0;
  
-            turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-            turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+            turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+            turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
  
             class AE3_PowerInterface
             {

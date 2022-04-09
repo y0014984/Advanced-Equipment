@@ -6,14 +6,17 @@ class CfgVehicles
 
 	class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
 	{
+		// Carrying
+		ace_dragging_canCarry = 0;  // Can be carried (0-no, 1-yes)
+
 		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+		ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 2;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 2;  // Cargo space the object takes
 
 		class AE3_Device
 		{
@@ -22,8 +25,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -32,7 +35,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.03/3600;
+				powerConsumption = 0.15/3600; // consumes 150 Watts
 			};
 		};
 	};
@@ -43,14 +46,17 @@ class CfgVehicles
 
 	class Land_PortableLight_double_F_AE3: Land_PortableLight_double_F
 	{
+        // Carrying
+        ace_dragging_canCarry = 0;  // Can be carried (0-no, 1-yes)
+		
 		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+		ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 2;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 2;  // Cargo space the object takes
 
 		class AE3_Device
 		{
@@ -59,8 +65,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -69,7 +75,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.06/3600;
+				powerConsumption = 0.3/3600; // consumes 300 Watts
 			};
 		};
 	};
@@ -80,14 +86,101 @@ class CfgVehicles
 
 	class Land_PortableLight_02_single_sand_F_AE3: Land_PortableLight_02_single_sand_F
 	{
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Olive_CO.paa"};
+			};
+			class Yellow
+			{
+				displayName = "Yellow";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Yellow_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
+
 		// Carrying
 		ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
-        ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 1;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 1;  // Cargo space the object takes
 
 		class AE3_Equipment
 		{
@@ -148,8 +241,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -158,7 +251,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.025/3600;
+				powerConsumption = 0.025/3600; // 25 Watts (1x 25 Watts)
 			};
 		};
 
@@ -174,14 +267,101 @@ class CfgVehicles
 
 	class Land_PortableLight_02_double_sand_F_AE3: Land_PortableLight_02_double_sand_F
 	{
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Olive_CO.paa"};
+			};
+			class Yellow
+			{
+				displayName = "Yellow";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Yellow_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
+
 		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+		ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 2;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 2;  // Cargo space the object takes
 
 		class AE3_Equipment
 		{
@@ -275,8 +455,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -285,7 +465,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.05/3600;
+				powerConsumption = 0.05/3600; // 50 Watts (2x 25 Watts)
 			};
 		};
 
@@ -301,14 +481,101 @@ class CfgVehicles
 
 	class Land_PortableLight_02_quad_sand_F_AE3: Land_PortableLight_02_quad_sand_F
 	{
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Olive_CO.paa"};
+			};
+			class Yellow
+			{
+				displayName = "Yellow";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Yellow_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
+
 		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+		ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 2;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 2;  // Cargo space the object takes
 
 		class AE3_Equipment
 		{
@@ -468,8 +735,8 @@ class CfgVehicles
 			displayName = "Lamp";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_addActionTurnOff";
+			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -478,7 +745,7 @@ class CfgVehicles
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.1/3600;
+				powerConsumption = 0.1/3600; // 100 Watts (4x 25 Watts)
 			};
 		};
 
@@ -494,14 +761,94 @@ class CfgVehicles
 	class Land_PortableDesk_01_sand_F;
 	class Land_PortableDesk_01_sand_F_AE3: Land_PortableDesk_01_sand_F
 	{
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableDesk_01_black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableDesk_01_olive_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableDesk_01_sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
+
 		// Dragging
-        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
-        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_dragDirection = 90;  // Model direction while dragging (same as setDir after attachTo)
+		ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+		ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_dragDirection = 90;  // Model direction while dragging (same as setDir after attachTo)
 		
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 4;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 4;  // Cargo space the object takes
 
 		class AE3_Equipment
 		{
@@ -511,8 +858,8 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_addActionOpen;";
-			closeAction = "_this call AE3_interaction_fnc_desk_addActionClose;";
+			openAction = "_this call AE3_interaction_fnc_desk_open;";
+			closeAction = "_this call AE3_interaction_fnc_desk_close;";
 
 			class AE3_Animations
 			{
@@ -615,20 +962,100 @@ class CfgVehicles
 	class Land_DeskChair_01_sand_F;
 	class Land_DeskChair_01_sand_F_AE3: Land_DeskChair_01_sand_F
 	{
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\RuggedChair_01_black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\RuggedChair_01_olive_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\RuggedChair_01_sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
+
 		//Sitting
-        acex_sitting_canSit = 1;  // Enable sitting
+		acex_sitting_canSit = 1;  // Enable sitting
 		acex_sitting_interactPosition[] = {0, 0, 0.3}; 
-        acex_sitting_sitDirection = 180;  // Direction relative to object
-        acex_sitting_sitPosition[] = {0, -0.18, -0.45};  // Position relative to object (may behave weird with certain objects)
+		acex_sitting_sitDirection = 180;  // Direction relative to object
+		acex_sitting_sitPosition[] = {0, -0.18, -0.45};  // Position relative to object (may behave weird with certain objects)
 	
-        // Carrying
-        ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
-        ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
-        ace_dragging_carryDirection = 180;  // Model direction while dragging (same as setDir after attachTo)
+		// Carrying
+		ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
+		ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+		ace_dragging_carryDirection = 180;  // Model direction while dragging (same as setDir after attachTo)
 		
 		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 1;  // Cargo space the object takes
+		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+		ace_cargo_size = 1;  // Cargo space the object takes
 	};
 
 	/* ================================================================================ */

@@ -13,9 +13,9 @@ PREP(computer_playSoundStart);
 PREP(computer_playSoundStop);
 PREP(computer_playSoundStandby);
 
-PREP(computer_addActionStandby);
-PREP(computer_addActionTurnOn);
-PREP(computer_addActionTurnOff);
+PREP(computer_standby);
+PREP(computer_turnOn);
+PREP(computer_turnOff);
 
 /* OS Link Functions */
 PREP(link_add);

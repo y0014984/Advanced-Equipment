@@ -5,6 +5,86 @@ class CfgVehicles
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
+		class TextureSources
+		{
+			class Black
+			{
+				author = "Bohemia Interactive";
+				displayName = "Black";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_black_CO.paa"};
+			};
+			class Olive
+			{
+				author = "Bohemia Interactive";
+				displayName = "Olive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_olive_CO.paa"};
+			};
+			class Sand
+			{
+				displayName = "Sand";
+				author = "Bohemia Interactive";
+				factions[] = {};
+				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_sand_CO.paa"};
+			};
+		};
+
+		simulation = "tankX";
+		preciseGetInOut = 0;
+		cargoPreciseGetInOut[] = {};
+		cargoProxyIndexes[] = {};
+		alphaTracks = 0;
+		class MFD {};
+		class Sounds {};
+		canFloat = 0;
+		leftDustEffect = "";
+		rightDustEffect = "";
+		leftWaterEffect = "";
+		rightWaterEffect = "";
+		tracksSpeed = 0;
+		class CargoLight
+		{
+			ambient[] = {0.6,0,0.15,1};
+			brightness = 0.007;
+			color[] = {0,0,0,0};
+		};
+		fireDustEffect = "";
+		turnCoef = 0;
+		class SquadTitles
+		{
+			color[] = {0,0,0,0};
+			name = "clan_sign";
+		};
+		class Exhausts {};
+		class RenderTargets {};
+		driverDoor = "";
+		cargoDoors[] = {};
+		selectionLeftOffset = "";
+		selectionRightOffset = "";
+		selectionBrakeLights = "";
+		memoryPointMissile = "";
+		memoryPointMissileDir = "";
+		textureTrackWheel = "";
+		memoryPointTrack1L = "";
+		memoryPointTrack2L = "";
+		gearBox[] = {};
+		memoryPointDriverOptics = "";
+		memoryPointsGetInDriver = "";
+		memoryPointsGetInDriverDir = "";
+		memoryPointsGetInCoDriver = "";
+		memoryPointsGetInCoDriverDir = "";
+		memoryPointsGetInCargo = "";
+		memoryPointsGetInCargoDir = "";
+		driverLeftHandAnimName = "";
+		driverRightHandAnimName = "";
+		driverLeftLegAnimName = "";
+		driverRightLegAnimName = "";
+		soundGear[] = {"",0.316228,1};
+		memoryPointsLeftWaterEffect = "";
+		memoryPointsRightWaterEffect = "";
+		memoryPointCargoLight = "";
+
         // Carrying
         ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
         ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
@@ -28,8 +108,8 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initLaptop;";
 
-			openAction = "_this call AE3_interaction_fnc_laptop_addActionOpen;";
-			closeAction = "_this call AE3_interaction_fnc_laptop_addActionClose;";
+			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
 		};
 
 		class AE3_Device
@@ -39,14 +119,14 @@ class CfgVehicles
 
 			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init;";
 
-			turnOnAction = "_this call AE3_armaos_fnc_computer_addActionTurnOn;";
-			turnOffAction = "_this call AE3_armaos_fnc_computer_addActionTurnOff;";
-			standByAction = "_this call AE3_armaos_fnc_computer_addActionStandby;";
+			turnOnAction = "_this call AE3_armaos_fnc_computer_turnOn;";
+			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
 
 			class AE3_Consumer
 			{
-				powerConsumption = 0.01/3600;
-				standbyConsumption = 0.0001/3600;
+				powerConsumption = 0.01/3600; // 10 Watts
+				standbyConsumption = 0.0001/3600; // 0.1 Watts
 			};
 		};
 
@@ -65,9 +145,9 @@ class CfgVehicles
 
 			class AE3_Battery
 			{
-				capacity = 0.1;
-				recharging = 0.05/3600;
-				level = 0.1;
+				capacity = 0.1; // 100 Watts/hour max. capacity
+				recharging = 0.05/3600; // 50 Watts power consumption while recharging
+				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
 			};
 		};
