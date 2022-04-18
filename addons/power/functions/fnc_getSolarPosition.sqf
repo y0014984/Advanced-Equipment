@@ -13,6 +13,8 @@ date params ['_year', '_month', '_day', '_hours', '_minutes'];
 private _latitude = -getNumber (configFile >> "CfgWorlds" >> worldName >> "latitude"); // Arma uses southing for the latitude for some reason
 private _longitude = getNumber (configFile >> "CfgWorlds" >> worldName >> "longitude");
 
+// TODO: Catch missing config entry!
+
 // Approximate timezone by longitude
 private _timezone = _longitude/180 * 12;
 
