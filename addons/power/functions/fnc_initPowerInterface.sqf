@@ -17,7 +17,16 @@ private _childs =
 	params ['_target', '_player', '_params']; 
 	_isBattery = !isNil {_target getVariable 'AE3_power_batteryCapacity'};
 
-	_generators = (nearestObjects [_target, [], 10]) select {!isNil{_x getVariable 'AE3_power_connectedDevices'} && _x != _target && !( _isBattery && !isNil{_x getVariable 'AE3_power_batteryCapacity'}) && !(_x getVariable ['AE3_power_internalBattery', false])};
+	_generators = (nearestObjects [_target, [], 10]) select 
+	{
+		!isNil{_x getVariable 'AE3_power_connectedDevices'} && 
+		_x != _target && 
+		!(
+			_isBattery && 
+			!isNil{_x getVariable 'AE3_power_batteryCapacity'}
+		) && 
+		!(_x getVariable ['AE3_power_internalBattery', false])};
+	
 	private _actions = []; 
 	{ 
 		private _childStatement = 

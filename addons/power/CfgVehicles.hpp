@@ -219,6 +219,28 @@ class CfgVehicles
 				height = 1.5;
 			};
 		};
+
+		class AE3_InternalDevice
+		{
+			displayName = "Battery";
+			defaultPowerLevel = 1;
+
+			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "";
+
+			class AE3_PowerInterface
+			{
+				internal = 0;
+			};
+
+			class AE3_Battery
+			{
+				capacity = 0.4;
+				recharging = 0.05/3600;
+				level = 0;
+				internal = 1;
+			};
+		};
 	};
 
 
