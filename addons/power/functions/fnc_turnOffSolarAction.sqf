@@ -32,4 +32,6 @@ if (!_silent) then
 		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');
 }forEach (_entity getVariable ['AE3_power_connectedDevices', []]);
 
+_entity setVariable ['AE3_power_powerCapacity', 0, true];
+
 true;

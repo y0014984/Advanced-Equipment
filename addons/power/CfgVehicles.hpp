@@ -216,7 +216,7 @@ class CfgVehicles
 			{
 				powerMax = 0.1/3600; // In this case per panel
 				orientationFnc = "_this call AE3_power_fnc_multSolarPanelOrientation";
-				height = 1.5;
+				height = 1.2;
 			};
 		};
 
