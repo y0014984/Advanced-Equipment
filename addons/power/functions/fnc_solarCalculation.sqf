@@ -27,8 +27,8 @@ private _mult = 0;
 }forEach _normalList;
 
 // If sun is visible
-private _solPos = getPosASL _solar vectorAdd (_solVecWorld vectorMultiply 100);
 private _panelPos = getPosASL _solar vectorAdd [0, 0, (_solar getVariable ['AE3_power_height', 0])]; // elevate panel position because of wiered ground stuff
+private _solPos = _panelPos vectorAdd (_solVecWorld vectorMultiply 100);
 private _solVis = [objNull, "VIEW"] checkVisibility [_panelPos, _solPos];
 
 private _effPower = sunOrMoon * _mult * _solVis * (_solar getVariable 'AE3_power_powerMax');
