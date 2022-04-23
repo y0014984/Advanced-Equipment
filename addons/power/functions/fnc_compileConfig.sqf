@@ -54,6 +54,16 @@ if(!isNull _generator) then
 	]];
 };
 
+private _solar = (_deviceCfg >> "AE3_SolarGenerator");
+if(!isNull _solar) then
+{
+	_config set ['solar', [
+		getNumber (_solar >> "powerMax"),
+		compile (getText (_solar >> "orientationFnc")),
+		getNumber (_solar >> "height")
+	]];
+};
+
 private _consumer = (_deviceCfg >> "AE3_Consumer");
 if(!isNull _consumer) then
 {

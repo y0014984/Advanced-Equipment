@@ -45,12 +45,20 @@ if(isServer) then
 	_battery setVariable ['AE3_power_recharging', _recharging, true];
 	_battery setVariable ['AE3_power_powerDraw', 0, true];
 	_battery setVariable ['AE3_power_connectedDevices', [], true];
-	_entity setVariable ['AE3_power_internalBattery', _internal, true];
 
 	if(_internal) then
 	{
-		_battery setVariable ['AE3_power_connectedDevices', [_entity], true];
-		_entity setVariable ["AE3_power_powerCableDevice", _battery, true];
+		if(isNil {_entity getVariable "AE3_power_connectedDevices"}) then
+		{
+			_entity setVariable ['AE3_power_internalBattery', _internal, true];
+			_battery setVariable ['AE3_power_connectedDevices', [_entity], true];
+			_entity setVariable ["AE3_power_powerCableDevice", _battery, true];
+		} else
+		{
+			_entity setVariable ['AE3_power_connectedDevices', [_battery], true];
+			_battery setVariable ["AE3_power_powerCableDevice", _entity, true];
+		};
+
 		[_battery] call (_battery getVariable 'AE3_power_fnc_turnOnWrapper');
 	};
 };

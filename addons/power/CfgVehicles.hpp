@@ -226,7 +226,7 @@ class CfgVehicles
 
 	/* ================================================================================ */
 
-	// Solar Panel
+	// Solar Panels
 	class Land_SolarPanel_04_sand_F;
 
 	class Land_SolarPanel_04_sand_F_AE3 : Land_SolarPanel_04_sand_F
@@ -343,9 +343,9 @@ class CfgVehicles
 					{
 						description = "pitch solar panel 1";
 						animation = "Panel_1_Pitch";
-						minValue = -90;
-						maxValue = 90;
-						scrollMultiplier = 10;
+						minValue = -45;
+						maxValue = 45;
+						scrollMultiplier = 5;
 					};
 				};
 
@@ -358,9 +358,9 @@ class CfgVehicles
 					{
 						description = "pitch solar panel 2";
 						animation = "Panel_2_Pitch";
-						minValue = -90;
-						maxValue = 90;
-						scrollMultiplier = 10;
+						minValue = -45;
+						maxValue = 45;
+						scrollMultiplier = 5;
 					};
 				};
 				
@@ -373,11 +373,80 @@ class CfgVehicles
 					{
 						description = "yaw solar panels";
 						animation = "Panels_Yaw";
-						minValue = -90;
-						maxValue = 90;
+						minValue = -180;
+						maxValue = 180;
 						scrollMultiplier = 10;
 					};
 				};
+			};
+		};
+
+		class AE3_Device
+		{
+			displayName = "Solarpanel";
+			defaultPowerLevel = 0;
+
+			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
+			turnOffAction = "_this call AE3_power_fnc_turnOffSolarAction";
+
+			class AE3_SolarGenerator
+			{
+				powerMax = 0.1/3600; // In this case per panel
+				orientationFnc = "_this call AE3_power_fnc_multSolarPanelOrientation";
+				height = 1.2;
+			};
+		};
+
+		class AE3_InternalDevice
+		{
+			displayName = "Battery";
+			defaultPowerLevel = 1;
+
+			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "";
+
+			class AE3_PowerInterface
+			{
+				internal = 0;
+			};
+
+			class AE3_Battery
+			{
+				capacity = 0.4;
+				recharging = 0.05/3600;
+				level = 0;
+				internal = 1;
+			};
+		};
+	};
+
+
+	class Land_PortableSolarPanel_01_sand_F;
+
+	class Land_PortableSolarPanel_01_sand_F_AE3 : Land_PortableSolarPanel_01_sand_F
+	{
+		// Dragging
+        ace_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+        ace_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+        ace_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+
+		// Cargo
+        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+        ace_cargo_size = 1;  // Cargo space the object takes
+
+		class AE3_Device
+		{
+			displayName = "Solarpanel";
+			defaultPowerLevel = 0;
+
+			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
+			turnOffAction = "_this call AE3_power_fnc_turnOffSolarAction";
+
+			class AE3_SolarGenerator
+			{
+				powerMax = 0.15/3600;
+				orientationFnc = "[(vectorUp (_this select 0))]";
+				height = 0.1;
 			};
 		};
 	};

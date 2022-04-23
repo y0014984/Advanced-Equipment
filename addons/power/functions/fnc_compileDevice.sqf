@@ -65,6 +65,11 @@ if('consumer' in _config) then
 	[_entity] + (_config get 'consumer') call AE3_power_fnc_initConsumer;
 };
 
+if('solar' in _config) then 
+{
+	[_entity] + (_config get 'solar') call AE3_power_fnc_initSolarPanel;
+};
+
 if(!("internal" in _config)) exitWith {};
 
 [_entity, _config] spawn {

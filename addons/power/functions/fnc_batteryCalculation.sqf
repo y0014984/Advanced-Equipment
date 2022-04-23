@@ -14,6 +14,15 @@ params ["_battery"];
 private _class = typeOf _battery;
 private _batteryCapacity = _battery getVariable 'AE3_power_batteryCapacity';
 private _recharging = _battery getVariable 'AE3_power_recharging';
+private _parent = _battery getVariable 'AE3_power_parent';
+
+if(!isNil "_parent") then // is internal battery
+{
+	if(!isNil {_parent getVariable "AE3_power_connectedDevices"}) then // is parent generator
+	{
+		_recharging = _parent getVariable ['AE3_power_powerCapacity', 0];
+	};
+};
 
 private _powerCableDevice = _battery getVariable ["AE3_power_powerCableDevice", nil];
 
