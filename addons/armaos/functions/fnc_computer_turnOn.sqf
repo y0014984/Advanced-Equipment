@@ -29,7 +29,7 @@ _computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_
 _computer setVariable ["_bootingTextureIndex", 0];
 
 [
-	_turnOnTime,
+	1,//_turnOnTime, //TODO: REMOVE
 	[_computer], 
 	{
 		params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];

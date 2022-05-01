@@ -104,6 +104,21 @@ class CfgOsFunctions
 		code = "_this call AE3_armaos_fnc_os_whoami";
 	};
 
+	class ping : OsFunction
+	{
+		path = "/sbin/ping";
+		description = "Pings the given address.";
+		man = "Usage whoami: 'Pings the given address.'";
+		code = "_this call AE3_armaos_fnc_os_ping";
+	};
+
+	class ipconfig : OsFunction
+	{
+		path = "/sbin/ipconfig";
+		description = "Returns the current ip configuration.";
+		man = "Usage whoami: 'Returns the current ip configuration.'";
+		code = "_this call AE3_armaos_fnc_os_ipconfig";
+	};
 
 	class logout : OsFunction
 	{

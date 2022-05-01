@@ -117,9 +117,9 @@ class CfgVehicles
 			displayName = "Laptop";
 			defaultPowerLevel = 0;
 
-			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init;";
+			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
 
-			turnOnAction = "_this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
 			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
 			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
 
