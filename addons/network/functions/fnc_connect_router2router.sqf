@@ -21,7 +21,7 @@ _router setVariable ['AE3_network_parent', _parent, true];
 private _children = _parent getVariable 'AE3_network_children';
 _parent setVariable ['AE3_network_children', _children + [_router], true];
 
-if([_router, _router] call AE3_network_fnc_connect_isCyclic) exitWith
+if([_parent, _parent] call AE3_network_fnc_connect_isCyclic) exitWith
 {
 	_router setVariable ['AE3_network_parent', objNull, true];
 

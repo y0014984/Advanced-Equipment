@@ -5,13 +5,14 @@
  * 0: Router <OBJECT>
  * 1: Parent router <OBJECT> (Optional)
  * 2: Ip address <[INT]> (Optional)
+ * 3: Internal <BOOL> (Optional)
  *
  * Returns:
  * None
  *
  */
 
-params['_entity', ['_parent', objNull], ['_address', [168, 178, 0, 1]]];
+params['_entity', ['_parent', objNull], ['_address', [168, 178, 0, 1]], ['_internal', false]];
 
 
 private _childs = 
@@ -59,7 +60,7 @@ private _disconnect = ["AE3_Network_DisconnectAction", "Disconnect from router",
 				] call ace_interact_menu_fnc_createAction;
 
 
-if(!isDedicated) then
+if(!isDedicated && !_internal) then
 {
 	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
 	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;

@@ -11,18 +11,22 @@
 
 params['_entity', '_cmp'];
 
-private _result = 
+systemChat (format ["%1 - %2", _entity, _cmp]);
+
+private _result = false;
+
 {
-
-	if(!isNil {_x getVariable ['AE3_network_childern']}) then
+	if(_cmp == _x) then 
 	{
-		if(_cmp == _x) exitWith {true};
-
-		if([_x, _cmp] call AE3_network_fnc_connect_isCyclic) exitWith {true};
+		_result = true;
+		break;
 	};
 
+	if([_x, _cmp] call AE3_network_fnc_connect_isCyclic) then 
+	{
+		_result = true;
+		break;
+	};
 }forEach (_entity getVariable ['AE3_network_children', []]);
 
-if(isNil "_result") exitWith {false};
-
-true;
+_result;

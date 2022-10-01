@@ -9,12 +9,13 @@
  * None
  */
 
-params['_entity', '_parent'];
+params['_entity'];
 
-_entity setVariable ['AE3_network_parent', objNull, true];
-
+private _parent = _entity getVariable 'AE3_network_parent';
 private _children = _parent getVariable 'AE3_network_children';
+
 _parent setVariable ['AE3_network_children', _children - [_entity], true];
+_entity setVariable ['AE3_network_parent', objNull, true];
 
 if(!isNil {_entity getVariable 'AE3_network_children'}) then
 {
