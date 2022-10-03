@@ -1,81 +1,31 @@
-params ["_options", "_consoleInput"];
+/**
+ * Pings a given address.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Address <[STRING]>
+ *
+ * Results:
+ * 1: Informations <[STRING]>
+ */
 
-_ip = _consoleInput getVariable "ip";
+params ["_computer", "_options"];
 
-_optionsCount = count _options;
+if (count _options > 1) exitWith {["Too many options"]};
+if (count _options < 1) exitWith {["Too few options"]};
 
-_ipPing = "";
-if (_optionsCount > 0) then 
+private _address = (_options select 0) splitString ".";
+
+if (count _address != 4) exitWith {["Invalid address!"]};
+
 {
-	_ipPing = _options select 0;
-};
+	_address set [_forEachIndex, parseNumber _x];
+}forEach _address;
 
-_result = [];
+private _result = [_computer, _address, _computer] call AE3_network_fnc_ping;
 
-scopeName "main";
+hint str _result;
 
-switch (true) do
-{
-	case (_optionsCount > 1):
-	{
-		_result = ["   Command: ping - too many options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 0):
-	{
-		_result = ["   Command: ping - too few options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 1):
-	{
-		switch (true) do 
-		{
-			case (_ipPing isEqualTo _ip):
-			{
-				_result = [ format ["   Command: ping %1 - 0 ms / packet loss 0%2", _ipPing, "%"] ];
-				_result breakOut "main";
-			};
-			case (_ip isEqualTo "127.0.0.1"):
-			{
-				_result = ["   Command: ping - missing network connection"];
-				_result breakOut "main";
-			};
-			default
-			{
-				_computer = _consoleInput getVariable ["computer", nil];
-				if (!isNil "_computer") then
-				{
-					_router = _computer getVariable ["AE3_networkCableDevice", nil];
-					if (!isNil "_router") then
-					{
-						_connectedDevices = _router getVariable ["AE3_power_connectedDevices", []];
-						_matchingComputerIndex = _connectedDevices findIf { (_x getVariable ["AE3_ipAddress", "127.0.0.1"]) isEqualTo _ipPing };
+if(isNull (_result select 0)) exitWith {["Package dropped."]};
 
-						if (_matchingComputerIndex != -1) then 
-						{
-							_matchingComputer = _connectedDevices select _matchingComputerIndex;
-							
-							if (_matchingComputer getVariable ["AE3_power_powerState", 0] == 1) then
-							{
-								_result = [ format ["   Command: ping %1 - 5 ms / packet loss 0%2", _ipPing, "%"] ];
-								_result breakOut "main";
-							}
-							else 
-							{
-								_result = [ format ["   Command: ping %1 - no answer / packet loss 100%2", _ipPing, "%"] ];
-								_result breakOut "main";
-							};
-						}
-						else 
-						{
-							_result = [ format ["   Command: ping %1 - no route to host", _ipPing] ];
-							_result breakOut "main";
-						};
-					};
-				};
-			};
-		};
-	};
-};
-
-_result;
+[format ["Answer from %1: Time:%2 ms", _options select 0, round ((_result select 1)/1e5)]];
