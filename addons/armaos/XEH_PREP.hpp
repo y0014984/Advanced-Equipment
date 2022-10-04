@@ -8,6 +8,8 @@ PREP(shell_findLoginUser);
 PREP(shell_validatePassword);
 PREP(shell_executeFile);
 PREP(shell_stdout);
+PREP(shell_stdin);
+
 
 /* Computer Functions */
 PREP(computer_playSoundStart);

@@ -23,6 +23,7 @@ private _result = [];
 if((_users get _username) isEqualTo _password) then
 {
 	_terminal set ["AE3_terminalApplication", "SHELL"];
+	_terminal set ["AE3_terminalInputBuffer", nil];
 	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 }else
 {
