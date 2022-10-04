@@ -7,6 +7,7 @@ PREP(shell_getAvailableCommands);
 PREP(shell_findLoginUser);
 PREP(shell_validatePassword);
 PREP(shell_executeFile);
+PREP(shell_stdout);
 
 /* Computer Functions */
 PREP(computer_playSoundStart);

@@ -7,12 +7,12 @@
  * 2: Options <[STRING]>
  *
  * Results:
- * 1: Informations/Commands <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["History has no options"];};
+if (count _options >= 1) exitWith {[_computer, "History has no options"] call AE3_armaos_fnc_shell_stdout;};
 
 private _terminal = _computer getVariable "AE3_terminal";
 
@@ -23,4 +23,4 @@ private _numberedHistory = [];
 	_numberedHistory pushBack (format ["%1: %2", (_forEachIndex + 1), _x]);
 } forEach _terminalCommandHistory;
 
-_numberedHistory;
+[_computer, _numberedHistory] call AE3_armaos_fnc_shell_stdout;

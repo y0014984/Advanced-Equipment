@@ -6,17 +6,17 @@
  * 2: Address <[STRING]>
  *
  * Results:
- * 1: Informations <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith {["Too many options"]};
-if (count _options < 1) exitWith {["Too few options"]};
+if (count _options > 1) exitWith {[_computer, "Too many options"] call AE3_armaos_fnc_shell_stdout};
+if (count _options < 1) exitWith {[_computer, "Too few options"] call AE3_armaos_fnc_shell_stdout};
 
 private _address = (_options select 0) splitString ".";
 
-if (count _address != 4) exitWith {["Invalid address!"]};
+if (count _address != 4) exitWith {[_computer, "Invalid address!"] call AE3_armaos_fnc_shell_stdout};
 
 {
 	_address set [_forEachIndex, parseNumber _x];
@@ -24,8 +24,6 @@ if (count _address != 4) exitWith {["Invalid address!"]};
 
 private _result = [_computer, _address, _computer] call AE3_network_fnc_ping;
 
-hint str _result;
+if(isNull (_result select 0)) exitWith {[_computer, "Package dropped."] call AE3_armaos_fnc_shell_stdout};
 
-if(isNull (_result select 0)) exitWith {["Package dropped."]};
-
-[format ["Answer from %1: Time:%2 ms", _options select 0, round ((_result select 1)/1e5)]];
+[_computer, format ["Answer from %1: Time:%2 ms", _options select 0, round ((_result select 1)/1e5)]] call AE3_armaos_fnc_shell_stdout;

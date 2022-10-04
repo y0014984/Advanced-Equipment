@@ -7,7 +7,7 @@
  * 2: File <[STRING]>
  *
  * Results:
- * 1: Informations/Content <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
@@ -34,11 +34,11 @@ try
 	};
 
 	_result pushBack _content;
-	_result;
+	[_computer, _result] call AE3_armaos_fnc_shell_stdout;
 
 }catch
 {
-	[_exception];
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 }
 
 

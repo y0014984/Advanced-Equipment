@@ -106,7 +106,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
-					[_computer, _input] call AE3_armaos_fnc_shell_process;
+					[_computer, _input] spawn AE3_armaos_fnc_shell_process;
 				};
 			};
 		};

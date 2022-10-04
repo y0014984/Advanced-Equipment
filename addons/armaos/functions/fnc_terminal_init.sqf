@@ -65,6 +65,8 @@ if (isNil { _computer getVariable "AE3_terminal" }) then
 };
 _terminal = _computer getVariable "AE3_terminal";
 
+_terminal set ["AE3_terminalOutput", _consoleOutput];
+
 private _localGameLanguage = language;
 // we can determine the language of arma 3 but not the language of the keyboard layout
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)

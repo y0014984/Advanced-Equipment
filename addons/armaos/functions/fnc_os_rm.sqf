@@ -6,7 +6,7 @@
  * 2: File <[STRING]>
  *
  * Results:
- * 1: Informations <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
@@ -17,9 +17,9 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
-if (count _options > 1) exitWith {["Too many options"];};
+if (count _options > 1) exitWith {[_computer, "Too many options"] call AE3_armaos_fnc_shell_stdout;};
 
-if (count _options < 1) exitWith {["Too few options"];};
+if (count _options < 1) exitWith {[_computer, "Too few options"] call AE3_armaos_fnc_shell_stdout;};
 
 
 private _obj = _options select 0;
@@ -30,8 +30,7 @@ try
 {
 	[_pointer, _filesystem, _obj, _username] call AE3_filesystem_fnc_delObj;
 	_computer setVariable ['AE3_filesystem', _filesystem, true];
-	[];
 }catch
 {
-	[_exception];
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 };

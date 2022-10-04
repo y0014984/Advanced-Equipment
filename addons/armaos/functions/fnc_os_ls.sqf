@@ -7,7 +7,7 @@
  * 1: Folder/Directory <[STRING]>
  *
  * Results:
- * 0: Informations/Files <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
@@ -52,7 +52,7 @@ try
 	}forEach _path;
 }catch
 {
-	[_exception];
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 };
 
-_output;
+[_computer, _output] call AE3_armaos_fnc_shell_stdout;
