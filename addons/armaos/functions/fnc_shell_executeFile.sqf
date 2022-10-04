@@ -27,6 +27,8 @@ try
 	if(_content isEqualType {}) then
 	{
 		_handler = [_computer, _options] spawn _content;
+		_terminal set ["AE3_terminalProcess", _handler];
+		_computer setVariable ["AE3_terminal", _terminal];
 
 		// Wait until programm is finished
 		waitUntil {

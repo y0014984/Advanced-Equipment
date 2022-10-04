@@ -36,6 +36,19 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		/* ---------------------------------------- */
 
+		// SIG INT
+		if (_key isEqualTo DIK_C && _ctrl && !_shift && !_alt) then
+		{
+			_process = _terminal get "AE3_terminalProcess";
+			if (!(isNil "_process")) then
+			{
+				if (!(isNull _process)) then
+				{
+					terminate _process;
+				}
+			}
+		};
+		
 		if (_keyCombination in _terminalAllowedKeys) then
 		{
 			private _keyChar = _terminalAllowedKeys get _keyCombination;
