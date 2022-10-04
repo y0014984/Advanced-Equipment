@@ -51,7 +51,12 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				if (_terminalApplication isEqualTo "PASSWORD") exitWith
 				{
 					[_computer, "*"] call AE3_armaos_fnc_terminal_addChar;
-					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToPassword;
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
+				};
+				if (_terminalApplication isEqualTo "INPUT") exitWith
+				{
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
@@ -75,7 +80,12 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				if (_terminalApplication isEqualTo "PASSWORD") exitWith
 				{
 					[_computer] call AE3_armaos_fnc_terminal_removeChar;
-					[_computer] call AE3_armaos_fnc_terminal_removeCharFromPassword;
+					[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
+				};
+				if (_terminalApplication isEqualTo "INPUT") exitWith
+				{
+					[_computer] call AE3_armaos_fnc_terminal_removeChar;
+					[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
@@ -103,6 +113,10 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				if (_terminalApplication isEqualTo "PASSWORD") exitWith
 				{
 					[_computer] call AE3_armaos_fnc_shell_validatePassword;
+				};
+				if (_terminalApplication isEqualTo "INPUT") exitWith
+				{
+					[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{

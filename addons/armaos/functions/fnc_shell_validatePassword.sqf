@@ -14,7 +14,7 @@ params ["_computer"];
 private _terminal = _computer getVariable "AE3_terminal";
 
 private _username = _terminal get "AE3_terminalLoginUser";
-private _password = _terminal get "AE3_terminalPasswordBuffer";
+private _password = _terminal get "AE3_terminalInputBuffer";
 
 private _users = _computer getVariable "AE3_Userlist";
 
@@ -28,7 +28,7 @@ if((_users get _username) isEqualTo _password) then
 {
 	_result = [format ["   User: %1 failed login attempt", _username]];
 	_terminal deleteAt "AE3_terminalLoginUser";
-	_terminal deleteAt "AE3_terminalPasswordBuffer";
+	_terminal deleteAt "AE3_terminalInputBuffer";
 	_terminal set ["AE3_terminalApplication", "LOGIN"];
 	_terminal set ["AE3_terminalPrompt", "LOGIN>"];
 };

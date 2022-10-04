@@ -16,7 +16,7 @@ if (count _options >= 1) exitWith {[_computer, "Logout has no options"] call AE3
 private _terminal = _computer getVariable "AE3_terminal";
 
 _terminal deleteAt "AE3_terminalLoginUser";
-_terminal deleteAt "AE3_terminalPasswordBuffer";
+_terminal deleteAt "AE3_terminalInputBuffer";
 
 _terminal set ["AE3_terminalApplication", "LOGIN"];
 _terminal set ["AE3_terminalPrompt", "LOGIN>"];

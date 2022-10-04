@@ -29,6 +29,7 @@ if (!(_commandElements isEqualTo [])) then
 			_pointer = [];
 		};
 
+		[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
 		[_computer, _command, _options] call AE3_armaos_fnc_shell_executeFile;
 
 		if (_command == "shutdown") exitWith {};
@@ -44,8 +45,9 @@ _terminal set ["AE3_terminalScrollPosition", 0];
 
 private _terminalApplication = _terminal get "AE3_terminalApplication";
 
-if (_terminalApplication == "SHELL") then 
+if (_terminalApplication != "LOGIN") then 
 {
+	[_computer, "SHELL"] call AE3_armaos_fnc_terminal_setInputMode;
 	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 };
 
