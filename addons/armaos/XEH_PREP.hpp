@@ -62,6 +62,7 @@ PREP(terminal_getHeaderText);
 PREP(terminal_updateBufferVisable);
 PREP(terminal_updatePromptPointer);
 PREP(terminal_addToHistory);
+PREP(terminal_setKeyboardLayout);
 PREP(terminal_switchKeyboardLayout);
 PREP(terminal_setCommandLineByHistory);
 PREP(terminal_setInputMode);

@@ -72,11 +72,10 @@ private _localGameLanguage = language;
 // we can determine the language of arma 3 but not the language of the keyboard layout
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
-private _terminalAllowedKeys = createHashMap;
+
 private _terminalKeyboardLayout = _terminal get "AE3_terminalKeyboardLayout";
-if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
-if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
-_terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
+hint _terminalKeyboardLayout;
+[_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
 
 [_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
@@ -96,8 +95,6 @@ if (_terminalBuffer isEqualTo []) then
 	};
 	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
 };
-
-[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
