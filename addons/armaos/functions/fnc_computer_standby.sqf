@@ -10,23 +10,13 @@
 
 params ["_computer"];
 
-private _standbyTime = 3;
+[_computer] spawn {
+	params ["_computer"];
 
-[
-	_standbyTime,
-	[_computer], 
-	{
-		params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
-		
-		private _computer = _args select 0;
+	sleep 3;
+	_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Standby.paa"];
 
-		_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Standby.paa"];
-
-		private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStandby;
-	},
-	{},
-	"Standby",
-	{true}
-] call ace_common_fnc_progressBar;
+	[_computer] call AE3_armaos_fnc_computer_playSoundStandby;
+};
 
 true;

@@ -11,76 +11,37 @@
 
 params ["_computer", ["_silent", false]];
 
-private _powerState = _computer getVariable 'AE3_power_powerState';
+[_computer] spawn {
+	params["_computer"];
 
-private _turnOffTime = 0;
+	private _powerState = _computer getVariable 'AE3_power_powerState';
 
-if (_powerState == 1) then
-{
-	_turnOffTime = 15;
-}
-else
-{
-	_turnOffTime = 10;
+	private _turnOffTime = 0;
+	private _elapsedTime = 0;
+	private _color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
+
+	if (_powerState == 1) then
+	{
+		_turnOffTime = 15;
+	}
+	else
+	{
+		_turnOffTime = 10;
+	};
+
+	for "_i" from 0 to 3 do
+	{
+		_computer setObjectTextureGlobal [1, format ["\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_%1.paa", _i]];
+
+		sleep (_turnOffTime / 4.0);
+		_elapsedTime = _elapsedTime + (_turnOffTime / 4.0);
+
+	};
+
+	_computer setObjectTextureGlobal [1, _color];
+
+	private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
+
+	_computer setVariable ["AE3_terminal", nil];
 };
-
-private _color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
-
-if (_silent) then 
-{
-			_computer setObjectTextureGlobal [1, _color];
-}
-else 
-{
-	_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_0.paa"];
-	_computer setVariable ["_shuttingDownTextureIndex", 0];
-
-	[
-		_turnOffTime,
-		[_computer, _color], 
-		{
-			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
-			
-			private _computer = _args select 0;
-			private _color = _args select 1;
-
-			_computer setObjectTextureGlobal [1, _color];
-
-			private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
-
-			_computer setVariable ["AE3_terminal", nil];
-		},
-		{},
-		"Shutdown",
-		{
-			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
-
-			private _computer = _args select 0;
-
-			private _shuttingDownTextureIndex = _computer getVariable ["_shuttingDownTextureIndex", -1];
-
-			private _elapsedTimePercent = _elapsedTime / _totalTime;
-
-			switch (true) do
-			{
-				case ((_elapsedTimePercent >= 0.25) && (_shuttingDownTextureIndex < 1)):
-				{
-					_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_1.paa"];
-					_computer setVariable ["_shuttingDownTextureIndex", 1];
-				};
-				case ((_elapsedTimePercent >= 0.5) && (_shuttingDownTextureIndex < 2)):
-				{
-					_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_2.paa"];
-					_computer setVariable ["_shuttingDownTextureIndex", 2];
-				};
-				case ((_elapsedTimePercent >= 0.75) && (_shuttingDownTextureIndex < 3)):
-				{
-					_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_3.paa"];
-					_computer setVariable ["_shuttingDownTextureIndex", 3];
-				};
-			};
-		}
-	] call ace_common_fnc_progressBar;
-};
-
 true;
