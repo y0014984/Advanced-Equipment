@@ -18,5 +18,5 @@ params ["_computer"];
 
 	[_computer] call AE3_armaos_fnc_computer_playSoundStandby;
 };
-
+closeDialog 2;
 true;

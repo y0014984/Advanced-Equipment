@@ -44,4 +44,5 @@ params ["_computer", ["_silent", false]];
 
 	_computer setVariable ["AE3_terminal", nil];
 };
+closeDialog 2;
 true;
