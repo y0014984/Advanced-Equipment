@@ -8,7 +8,7 @@
  * 3: Options <LIST>
  *
  * Returns:
- * Result of the file.
+ * None
  */
 
 params['_computer', '_path', '_options'];
@@ -20,23 +20,24 @@ private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
 private _result = [format ["Command '%1' not found.", _path]];
-
-try
+try 
 {
 	_content = [_pointer, _filesystem, _path, _username, 0] call AE3_filesystem_fnc_getFile;
 
 	if(_content isEqualType {}) then
 	{
-		_result = [_computer, _options] call _content;
+		_handler = [_computer, _options] spawn _content;
+		_terminal set ["AE3_terminalProcess", _handler];
+		_computer setVariable ["AE3_terminal", _terminal];
 
-		if(isNil "_result") exitWith {_result = [""]};
-
-		if(_result isEqualType []) exitWith {};
-
-		if(!(_result isEqualType "")) exitWith {_result = [str _result]};
-
-		_result = [_result];
+		// Wait until programm is finished
+		waitUntil {
+			isNull _handler;
+		};
 	};
-}catch {};
 
-_result;
+}catch{
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
+};
+
+

@@ -6,17 +6,17 @@
  * 2: Options <[STRING]>
  *
  * Results:
- * 1: Informations <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["Logout has no options"];};
+if (count _options >= 1) exitWith {[_computer, "Logout has no options"] call AE3_armaos_fnc_shell_stdout;};
 
 private _terminal = _computer getVariable "AE3_terminal";
 
 _terminal deleteAt "AE3_terminalLoginUser";
-_terminal deleteAt "AE3_terminalPasswordBuffer";
+_terminal deleteAt "AE3_terminalInputBuffer";
 
 _terminal set ["AE3_terminalApplication", "LOGIN"];
 _terminal set ["AE3_terminalPrompt", "LOGIN>"];
@@ -25,5 +25,3 @@ _terminal set ["AE3_terminalCursorLine", 0];
 _terminal set ["AE3_terminalCursorPosition", 0];
 
 [_computer] call AE3_armaos_fnc_terminal_addHeader;
-
-[];

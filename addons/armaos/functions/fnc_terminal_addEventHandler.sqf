@@ -36,6 +36,19 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		/* ---------------------------------------- */
 
+		// SIG INT
+		if (_key isEqualTo DIK_C && _ctrl && !_shift && !_alt) then
+		{
+			_process = _terminal get "AE3_terminalProcess";
+			if (!(isNil "_process")) then
+			{
+				if (!(isNull _process)) then
+				{
+					terminate _process;
+				}
+			}
+		};
+		
 		if (_keyCombination in _terminalAllowedKeys) then
 		{
 			private _keyChar = _terminalAllowedKeys get _keyCombination;
@@ -51,7 +64,12 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				if (_terminalApplication isEqualTo "PASSWORD") exitWith
 				{
 					[_computer, "*"] call AE3_armaos_fnc_terminal_addChar;
-					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToPassword;
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
+				};
+				if (_terminalApplication isEqualTo "INPUT") exitWith
+				{
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
+					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
@@ -75,7 +93,12 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				if (_terminalApplication isEqualTo "PASSWORD") exitWith
 				{
 					[_computer] call AE3_armaos_fnc_terminal_removeChar;
-					[_computer] call AE3_armaos_fnc_terminal_removeCharFromPassword;
+					[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
+				};
+				if (_terminalApplication isEqualTo "INPUT") exitWith
+				{
+					[_computer] call AE3_armaos_fnc_terminal_removeChar;
+					[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
@@ -104,9 +127,13 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				{
 					[_computer] call AE3_armaos_fnc_shell_validatePassword;
 				};
+				if (_terminalApplication isEqualTo "INPUT") exitWith
+				{
+					[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
+				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
-					[_computer, _input] call AE3_armaos_fnc_shell_process;
+					[_computer, _input] spawn AE3_armaos_fnc_shell_process;
 				};
 			};
 		};

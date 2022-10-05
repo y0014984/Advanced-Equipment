@@ -48,9 +48,7 @@ else
 
 			private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
 
-			private _terminal = _computer getVariable "AE3_terminal";
-
-			_terminal set ["AE3_terminalCommandHistory", []];
+			_computer setVariable ["AE3_terminal", nil];
 		},
 		{},
 		"Shutdown",

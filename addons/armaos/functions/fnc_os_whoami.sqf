@@ -5,11 +5,11 @@
  * 0: Computer <OBJECT>
  *
  * Results:
- * 0: Current User <[STRING]>
+ * None
  */
 
 params ["_computer"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
-[_terminal get "AE3_terminalLoginUser"];
+[_computer, _terminal get "AE3_terminalLoginUser"] call AE3_armaos_fnc_shell_stdout;

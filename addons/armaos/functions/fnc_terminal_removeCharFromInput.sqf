@@ -12,10 +12,10 @@ params ["_computer"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
-private _terminalPasswordBuffer = _terminal get "AE3_terminalPasswordBuffer";
+private _terminalPasswordBuffer = _terminal get "AE3_terminalInputBuffer";
 
 _terminalPasswordBuffer = _terminalPasswordBuffer select [0, (count _terminalPasswordBuffer) - 1];
 
-_terminal set ["AE3_terminalPasswordBuffer", _terminalPasswordBuffer];
+_terminal set ["AE3_terminalInputBuffer", _terminalPasswordBuffer];
 
 _computer setVariable ["AE3_terminal", _terminal, true];

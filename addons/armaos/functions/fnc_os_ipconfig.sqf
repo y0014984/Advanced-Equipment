@@ -6,13 +6,13 @@
  * 2: Address <[STRING]>
  *
  * Results:
- * 1: Informations <[STRING]>
+ * None
  */
 
 params ["_computer"];
 
 private _address = _computer getVariable 'AE3_network_address';
 
-if(isNil "_address") exitWith {["No addressdevice attached."]};
+if(isNil "_address") exitWith {[_computer, "No addressdevice attached."] call AE3_armaos_fnc_shell_stdout};
 
-[format ["IPv4 Adress: %1", [_address] call AE3_network_fnc_ip2str]];
+[_computer, format ["IPv4 Adress: %1", [_address] call AE3_network_fnc_ip2str]] call AE3_armaos_fnc_shell_stdout;

@@ -7,7 +7,7 @@
  * 2: Folder/Directory <[STRING]>
  *
  * Results:
- * 1: Informations <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
@@ -26,9 +26,8 @@ try
 
 	[(_result select 1), _username, 0] call AE3_filesystem_fnc_hasPermission;
 	_computer setVariable ['AE3_filepointer', _result select 0];
-	[];
 
 }catch
 {
-	[_exception];
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 };

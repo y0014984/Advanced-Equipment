@@ -7,12 +7,12 @@
  * 2: Options <[STRING]>
  *
  * Results:
- * 1: Informations/Date and Time <[STRING]>
+ * None
  */
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["Date has no options"];};
+if (count _options >= 1) exitWith {[_computer, "Date has no options"] call AE3_armaos_fnc_shell_stdout;};
 
 private _date = date;
 private _year = _date select 0;
@@ -26,4 +26,4 @@ private _time = [daytime, "HH:MM:SS"] call BIS_fnc_timeToString; // 07:21:12
 
 _date = format ["Date: %1-%2-%3 %4", _year, _month, _day, _time];
 
-[_date];
+[_computer, _date] call AE3_armaos_fnc_shell_stdout;

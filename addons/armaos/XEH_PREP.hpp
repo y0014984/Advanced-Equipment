@@ -7,6 +7,9 @@ PREP(shell_getAvailableCommands);
 PREP(shell_findLoginUser);
 PREP(shell_validatePassword);
 PREP(shell_executeFile);
+PREP(shell_stdout);
+PREP(shell_stdin);
+
 
 /* Computer Functions */
 PREP(computer_playSoundStart);
@@ -45,10 +48,10 @@ PREP(os_standby);
 PREP(terminal_init);
 PREP(terminal_addEventHandler);
 PREP(terminal_addChar);
-PREP(terminal_addCharToPassword);
+PREP(terminal_addCharToInput);
 PREP(terminal_addLines);
 PREP(terminal_removeChar);
-PREP(terminal_removeCharFromPassword);
+PREP(terminal_removeCharFromInput);
 PREP(terminal_addHeader);
 PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);
@@ -60,3 +63,4 @@ PREP(terminal_updatePromptPointer);
 PREP(terminal_addToHistory);
 PREP(terminal_switchKeyboardLayout);
 PREP(terminal_setCommandLineByHistory);
+PREP(terminal_setInputMode);
