@@ -58,6 +58,7 @@ private _terminal = createHashMapFromArray
 
 // Only nessecary to allow Event Handlers the access to _computer
 _consoleOutput setVariable ["AE3_computer", _computer];
+_consoleDialog setVariable ["AE3_computer", _computer];
 
 if (isNil { _computer getVariable "AE3_terminal" }) then 
 {
@@ -77,7 +78,7 @@ if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_a
 if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
 _terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 
-[_consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
+[_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
 _terminalBuffer = _terminal get "AE3_terminalBuffer";
 if (_terminalBuffer isEqualTo []) then

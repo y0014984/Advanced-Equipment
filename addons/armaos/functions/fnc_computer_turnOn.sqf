@@ -17,7 +17,7 @@ private _elapsedTime = 0;
 
 if (_powerState == 0) then
 {
-	_turnOnTime = 15; 
+	_turnOnTime = 3; 
 }
 else
 {
