@@ -97,3 +97,5 @@ if (_terminalBuffer isEqualTo []) then
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
 _computer setVariable ["AE3_terminal", _terminal, true];
+
+[_computer, false] call ace_dragging_fnc_setCarryable;
