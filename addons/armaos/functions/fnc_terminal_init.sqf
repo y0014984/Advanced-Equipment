@@ -74,7 +74,7 @@ private _localGameLanguage = language;
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
 private _terminalKeyboardLayout = _terminal get "AE3_terminalKeyboardLayout";
-hint _terminalKeyboardLayout;
+
 [_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
 
 [_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
