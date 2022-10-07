@@ -6,6 +6,7 @@
 # request, preferably including an email address.
 
 # CORE TEAM
-y0014984 <y0014984@gmail.com>
+y0014984
+Wasserstoff
 
 # CONTRIBUTORS

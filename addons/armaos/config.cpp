@@ -9,7 +9,7 @@ class CfgPatches
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main", "ae3_main", "ae3_network", "ae3_filesystem", "ae3_interaction"};
-        author = "y0014984";
+        author = "y0014984|Wasserstoff";
         VERSION_CONFIG;
     };
 };

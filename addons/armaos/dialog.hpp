@@ -54,10 +54,6 @@ class AE3_ArmaOS_Main_Dialog
 	enableSimulation = true;
 	class controls
 	{
-		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by y0014984, v1.063, #Xyqiwu)
-		////////////////////////////////////////////////////////
-
 		class RscText_1000: RscText
 		{
 			idc = 1000;
@@ -109,9 +105,6 @@ class AE3_ArmaOS_Main_Dialog
 			
 			font = "EtelkaMonospaceProBold";
 		};
-		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT END
-		////////////////////////////////////////////////////////
 	};
 };
 
@@ -124,10 +117,6 @@ class AE3_ArmaOS_Waiting_Dialog
 	enableSimulation = true;
 	class controls
 	{
-		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT START (by y0014984, v1.063, #Xyqiwu)
-		////////////////////////////////////////////////////////
-
 		class RscText_1000: RscText
 		{
 			idc = 3000;
@@ -167,9 +156,6 @@ class AE3_ArmaOS_Waiting_Dialog
 			action = "closeDialog 1;";
 			font = "EtelkaMonospaceProBold";
 		};
-		////////////////////////////////////////////////////////
-		// GUI EDITOR OUTPUT END
-		////////////////////////////////////////////////////////
 	};
 };
 
