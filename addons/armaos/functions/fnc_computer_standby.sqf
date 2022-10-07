@@ -12,8 +12,7 @@ params ["_computer"];
 
 [_computer] spawn {
 	params ["_computer"];
-
-	sleep 3;
+	
 	_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Standby.paa"];
 
 	[_computer] call AE3_armaos_fnc_computer_playSoundStandby;
