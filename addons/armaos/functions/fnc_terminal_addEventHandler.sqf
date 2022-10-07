@@ -206,8 +206,14 @@ private _result = _consoleDialog displayAddEventHandler [
 	{
 		params ["_display", "_exitCode"];
 
-		private _computer = _display getVariable "AE3_computer";
+		_computer = _display getVariable "AE3_computer";
 		_computer setVariable ["AE3_computer_mutex", objNull, true];
+
+		// Updates terminal variable for all
+		_terminal = _computer getVariable "AE3_terminal";
+		_computer setVariable ["AE3_terminal", _terminal, true];
+		_filepointer = _computer getVariable "AE3_filepointer";
+		_computer setVariable ["AE3_filepointer", _filepointer, true];
 	}
 ]
 

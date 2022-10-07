@@ -24,4 +24,4 @@ _terminalPasswordBuffer = _terminalPasswordBuffer + _inputChar;
 
 _terminal set ["AE3_terminalInputBuffer", _terminalPasswordBuffer];
 
-_computer setVariable ["AE3_terminal", _terminal, true];
+_computer setVariable ["AE3_terminal", _terminal];

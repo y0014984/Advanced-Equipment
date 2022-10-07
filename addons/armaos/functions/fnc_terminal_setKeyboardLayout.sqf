@@ -12,4 +12,4 @@ _terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 _languageButton ctrlSetText "KEYBOARD " + _terminalKeyboardLayout;
 ctrlSetFocus _consoleOutput;
 
-_computer setVariable ["AE3_terminal", _terminal, true];
+_computer setVariable ["AE3_terminal", _terminal];
