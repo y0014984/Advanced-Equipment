@@ -13,7 +13,7 @@
 params ["_computer", "_languageButton", "_consoleOutput"];
 
 private _terminal = _computer getVariable "AE3_terminal";
-private _terminalKeyboardLayout = _terminal get "AE3_terminalKeyboardLayout";
+private _terminalKeyboardLayout = _computer getVariable "AE3_terminalKeyboardLayout";
 
 private _availableLanguages = ["DE", "US"];
 

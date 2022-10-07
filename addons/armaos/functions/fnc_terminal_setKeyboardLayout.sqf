@@ -2,7 +2,7 @@ params ["_computer", "_languageButton", "_consoleOutput", "_terminalKeyboardLayo
 
 private _terminal = _computer getVariable "AE3_terminal";
 
-_terminal set ["AE3_terminalKeyboardLayout", _terminalKeyboardLayout];
+_computer setVariable ["AE3_terminalKeyboardLayout", _terminalKeyboardLayout];
 
 private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
 if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
