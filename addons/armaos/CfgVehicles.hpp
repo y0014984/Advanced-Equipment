@@ -109,7 +109,9 @@ class CfgVehicles
 			init = "_this call AE3_interaction_fnc_initLaptop;";
 
 			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
+			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 		};
 
 		class AE3_Device
@@ -120,8 +122,11 @@ class CfgVehicles
 			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
 
 			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
-			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			standByAction = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			standByActionCondition = "false";
 
 			class AE3_Consumer
 			{

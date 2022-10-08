@@ -82,7 +82,7 @@ if(!isDedicated) then
 						
 					}, 
 					{
-						(([_target] call (_target getVariable ["AE3_power_fnc_turnOnCondition", {true}]) and
+						((_target call (_target getVariable ["AE3_power_fnc_turnOnCondition", {true}]) and
 							(alive _target) and 
 						(_target getVariable 'AE3_power_powerState' != 1) and 
 						!(_target getVariable ['AE3_power_mutex', false]) and 
@@ -101,7 +101,7 @@ if(!isDedicated) then
 								_target setVariable ['AE3_power_mutex', false, true];
 							};
 						}, 
-						{(([_target] call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])) and (alive _target) and  (_target getVariable 'AE3_power_powerState' != 0) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])))
+						{((_target call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])) and (alive _target) and  (_target getVariable 'AE3_power_powerState' != 0) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])))
 						{}] call ace_interact_menu_fnc_createAction;
 
 		[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _turnOn] call ace_interact_menu_fnc_addActionToObject;
@@ -121,7 +121,7 @@ if(!isDedicated) then
 								_target setVariable ['AE3_power_mutex', false, true];
 							};
 						}, 
-						{(([_target] call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}])) and (alive _target) and (_target getVariable 'AE3_power_powerState' == 1) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}]))
+						{((_target call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}])) and (alive _target) and (_target getVariable 'AE3_power_powerState' == 1) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}]))
 						{}] call ace_interact_menu_fnc_createAction;
 			
 			[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _standby] call ace_interact_menu_fnc_addActionToObject;

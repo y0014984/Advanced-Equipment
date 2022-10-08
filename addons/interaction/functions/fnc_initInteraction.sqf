@@ -111,7 +111,7 @@ if (!isDedicated) then
 						};
 						
 					}, 
-					{([_target] call (_target getVariable ["openActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 1)},
+					{(_target call (_target getVariable ["openActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 1)},
 					{}] call ace_interact_menu_fnc_createAction;
 
 		_close = ["AE3_closeAction", "Close", "", 
@@ -128,7 +128,7 @@ if (!isDedicated) then
 							};
 						};
 					}, 
-					{([_target] call (_target getVariable ["closeActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 0) },
+					{(_target call (_target getVariable ["closeActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 0) },
 					{}] call ace_interact_menu_fnc_createAction;
 
 		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _open] call ace_interact_menu_fnc_addActionToObject;
