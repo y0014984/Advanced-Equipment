@@ -10,11 +10,13 @@
 
 params ["_entity"];
 
-private _fuelLevel = _entity getVariable "AE3_power_fuelLevel";
+private _fuelCapacity = _entity getVariable 'AE3_power_fuelCapacity';
+private _fuelLevelPercent = fuel _entity;
+private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
 
 if (_fuelLevel > 0) then
 {
-	_turnOnTime = 3;
+	_turnOnTime = 5;
 
 	_handle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
 
