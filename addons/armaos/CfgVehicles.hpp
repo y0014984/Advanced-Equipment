@@ -125,8 +125,8 @@ class CfgVehicles
 			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
 			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			standByAction = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			standByActionCondition = "false";
+			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 
 			class AE3_Consumer
 			{
