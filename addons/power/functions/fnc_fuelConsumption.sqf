@@ -30,7 +30,7 @@ if (_newFuelLevel < 0) then
 };
 
 _generator setFuel (_newFuelLevelPercent);
-_generator setVariable["AE3_power_fuelLevel", _newFuelLevel];
+_generator setVariable["AE3_power_fuelLevel", _newFuelLevel, true];
 
 if(_newFuelLevel > 0) exitWith 
 {
