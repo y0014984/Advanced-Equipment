@@ -16,8 +16,6 @@ _turnOffTime = 3;
 
 _handle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
 
-_handle = _entity getVariable "AE3_power_generatorRunningSoundHandle";
-terminate _handle; // TODO: Does this work in MP?
 
 if (!_silent) then 
 {

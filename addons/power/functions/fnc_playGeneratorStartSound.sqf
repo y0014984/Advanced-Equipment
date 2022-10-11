@@ -27,5 +27,4 @@ if(!isNil "_filename") then
 	sleep 6;
 };
 
-_handle = [_entity] spawn AE3_power_fnc_playGeneratorRunningSound;
-_entity setVariable ['AE3_power_generatorRunningSoundHandle', _handle, true];
+[_entity, true] remoteExecCall ["engineOn", _entity];

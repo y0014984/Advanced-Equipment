@@ -1,11 +1,10 @@
 class CfgVehicles 
 {
 	/* ================================================================================ */
-
 	// Generator
-	class B_Quadbike_01_F;
-	//class Land_PortableGenerator_01_sand_F;
-	class Land_PortableGenerator_01_sand_F_AE3: B_Quadbike_01_F
+	class B_Radar_System_01_F;
+
+	class Land_PortableGenerator_01_sand_F_AE3: B_Radar_System_01_F
 	{
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
@@ -52,7 +51,7 @@ class CfgVehicles
 
 		/* -------------------- */
 
-		//Quad Bike Override
+		// Override
 		faction = "Default";
 		editorCategory = "EdCat_Things";
 		editorSubcategory = "EdSubcat_Electronics";
@@ -66,18 +65,31 @@ class CfgVehicles
 		hasDriver = 0;
 		getInAction = "";
 		maximumLoad = 0;
-		//transportSoldier = 0; // Removes the asset from list
+
+		cargoCompartments[] = {};
 		cargoAction[] = {};
 		driverAction = "";
-		//typicalCargo[] = {};
-		//crew = "B_Soldier_F";
-		fuelCapacity = "5 * 0.165";
-		fuelConsumptionRate = 0.01;
+		typicalCargo[] = {};
+		weapons[] = {};
+
+		fuelCapacity = "5";
+		fuelConsumptionRate = 0.0;
+		
 		textureList[] = {"Sand",1};
 
-		soundEngine[] = {"z\ae3\addons\power\sounds\GeneratorRunningSound.ogg", 5, 1};
 		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorStartSound.ogg", 5, 1};
 		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorStopSound.ogg", 5, 1};
+		
+		// https://www.realitymod.com/forum/showthread.php?t=100826
+		class Sounds
+		{
+			class Engine 
+			{
+				frequency = "( randomizer*0.05 + 0.95 )";
+				volume = "engineOn";
+				sound[] = {"z\ae3\addons\power\sounds\GeneratorRunningSound.ogg", 5, 1, 100};
+			};
+		};
 
 		class TextureSources
 		{
