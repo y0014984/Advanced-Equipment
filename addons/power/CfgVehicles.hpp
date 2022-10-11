@@ -119,8 +119,8 @@ class CfgVehicles
 			class Engine 
 			{
 				frequency = "( randomizer*0.05 + 0.95 )";
-				volume = "engineOn";
-				sound[] = {"z\ae3\addons\power\sounds\GeneratorRunningSound.ogg", 5, 1, 100};
+				volume = "engineOn * camPos";
+				sound[] = {"z\ae3\addons\power\sounds\GeneratorRunningSound.ogg", 2, 1, 100};
 			};
 		};
 

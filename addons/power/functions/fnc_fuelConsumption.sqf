@@ -19,7 +19,6 @@ private _fuelCapacity = _generator getVariable 'AE3_power_fuelCapacity';
 private _fuelLevelPercent = fuel _generator;
 private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
 
-private _fuelLevel = _generator getVariable ["AE3_power_fuelLevel", 0];
 private _newFuelLevel = _fuelLevel - (_fuelConsumption / 3600);
 private _newFuelLevelPercent = (_newFuelLevel / _fuelCapacity);
 
