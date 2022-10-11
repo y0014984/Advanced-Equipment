@@ -215,7 +215,7 @@ private _result = _consoleDialog displayAddEventHandler [
 		_filepointer = _computer getVariable "AE3_filepointer";
 		_computer setVariable ["AE3_filepointer", _filepointer, true];
 
-		[_computer, true] call ace_dragging_fnc_setCarryable;
+		[_computer, true] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
 	}
 ]
 

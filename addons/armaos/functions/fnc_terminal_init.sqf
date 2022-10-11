@@ -98,4 +98,4 @@ if (_terminalBuffer isEqualTo []) then
 
 _computer setVariable ["AE3_terminal", _terminal, true];
 
-[_computer, false] call ace_dragging_fnc_setCarryable;
+[_computer, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
