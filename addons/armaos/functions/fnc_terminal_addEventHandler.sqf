@@ -11,7 +11,7 @@
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
-params ["_terminalCtrl", "_languageButtonCtrl"];
+params ["_consoleDialog", "_terminalCtrl", "_languageButtonCtrl"];
 
 /* ================================================================================ */
 
@@ -197,5 +197,26 @@ _languageButtonCtrl buttonSetAction
 
 		[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
 	";
+
+/* ================================================================================ */
+
+/* Unlocks terminal after it is closed */
+private _result = _consoleDialog displayAddEventHandler [
+	"Unload",
+	{
+		params ["_display", "_exitCode"];
+
+		_computer = _display getVariable "AE3_computer";
+		_computer setVariable ["AE3_computer_mutex", objNull, true];
+
+		// Updates terminal variable for all
+		_terminal = _computer getVariable "AE3_terminal";
+		_computer setVariable ["AE3_terminal", _terminal, true];
+		_filepointer = _computer getVariable "AE3_filepointer";
+		_computer setVariable ["AE3_filepointer", _filepointer, true];
+
+		[_computer, true] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
+	}
+]
 
 /* ================================================================================ */

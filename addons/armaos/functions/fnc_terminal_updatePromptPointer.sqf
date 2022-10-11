@@ -24,4 +24,4 @@ private _hostname = _computer getVariable ["ace_cargo_customName", "armaOS"];
 
 _terminal set ["AE3_terminalPrompt", format ["%1@%2:%3/>", _username, _hostname, _path]];
 
-_computer setVariable ["AE3_terminal", _terminal, true];
+_computer setVariable ["AE3_terminal", _terminal];

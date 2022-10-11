@@ -29,7 +29,7 @@ private _result = [];
 try
 {
 	[_pointer, _filesystem, _oldPath, _newPath, _username] call AE3_filesystem_fnc_mvObj;
-	_computer setVariable ['AE3_filesystem', _filesystem, true];
+	_computer setVariable ['AE3_filesystem', _filesystem];
 	
 }catch
 {

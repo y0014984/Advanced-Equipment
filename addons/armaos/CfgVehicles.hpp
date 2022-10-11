@@ -109,7 +109,9 @@ class CfgVehicles
 			init = "_this call AE3_interaction_fnc_initLaptop;";
 
 			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
+			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 		};
 
 		class AE3_Device
@@ -120,8 +122,11 @@ class CfgVehicles
 			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
 
 			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 
 			class AE3_Consumer
 			{
@@ -167,8 +172,8 @@ class CfgVehicles
 					class AE3_UseComputer
 					{
 						displayName = "Use";
-						condition = "(alive _target) and (_target getVariable 'AE3_power_powerState' == 1)";
-						statement = "params ['_target', '_player', '_params']; _handle = [_target] call AE3_armaos_fnc_terminal_init;";
+						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
+						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] call AE3_armaos_fnc_terminal_init;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
