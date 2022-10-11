@@ -1,6 +1,39 @@
 class CfgVehicles 
 {
 	/* ================================================================================ */
+
+	//Generator Dummy
+	class Land_PortableGenerator_01_F;
+	class Land_PortableGenerator_01_black_F;
+	class Land_PortableGenerator_01_sand_F;
+
+	class Land_PortableGenerator_01_F_AE3_Dummy: Land_PortableGenerator_01_F
+	{
+		// Event Handlers
+		class EventHandlers
+		{
+			init = "params ['_entity']; [_entity, 'Land_PortableGenerator_01_sand_F_AE3'] call AE3_main_fnc_replace;";
+		};
+	};
+
+	class Land_PortableGenerator_01_black_F_AE3_Dummy: Land_PortableGenerator_01_black_F
+	{
+		// Event Handlers
+		class EventHandlers
+		{
+			init = "params ['_entity']; [_entity, 'Land_PortableGenerator_01_sand_F_AE3', 'Black'] call AE3_main_fnc_replace;";
+		};
+	};
+
+	class Land_PortableGenerator_01_sand_F_AE3_Dummy: Land_PortableGenerator_01_sand_F
+	{
+		// Event Handlers
+		class EventHandlers
+		{
+			init = "params ['_entity']; [_entity, 'Land_PortableGenerator_01_sand_F_AE3', 'Sand'] call AE3_main_fnc_replace;";
+		};
+	};
+
 	// Generator
 	class B_Radar_System_01_F;
 
