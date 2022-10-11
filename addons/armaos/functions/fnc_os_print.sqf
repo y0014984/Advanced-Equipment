@@ -1,75 +1,45 @@
-params ["_options", "_consoleInput"];
+/**
+ * Prints/outputs the content of a given file on a given computer.
+ * Returns informations about the success of the command and the content of the file.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: File <[STRING]>
+ *
+ * Results:
+ * None
+ */
 
-_pointer = _consoleInput getVariable "pointer";
-_filesystem = _consoleInput getVariable "filesystem";
+params ["_computer", "_options"];
 
-_result = [];
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
-_optionsCount = count _options;
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
 
-scopeName "main";
+if(count _options == 0) exitWith {["Too few options"];};
 
-switch (true) do
+private _result = [];
+private _path = _options select 0;
+
+try
 {
-	case (_optionsCount > 1):
-	{
-		_result = ["   Command: print - too many options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 0):
-	{
-		_result = ["   Command: print - too few options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 1):
-	{
-		_optionsString = _options select 0;
-		
-		if ((_optionsString select [0, 1]) isEqualTo "/") then
-		{
-			_pointer = _optionsString;
-		}
-		else
-		{
-			_pointer = _pointer + _optionsString;
-		};
-	};
-};
+	_content = [_pointer, _filesystem, _path, _username, 1] call AE3_filesystem_fnc_getFile;
 
-_result = ["   Command: print " + _pointer];
+	if(!(_content isEqualType "")) exitWith 
+	{
+		_result pushBack ("Unable to read: " + _path);
+		_result;
+	};
 
-_counter = 0;
-_content = [];
+	_result pushBack _content;
+	[_computer, _result] call AE3_armaos_fnc_shell_stdout;
 
+}catch
 {
-	_file = _x select 0;
-	if ((_file find _pointer) == 0) then
-	{
-		_item = [_file, count _pointer] call BIS_fnc_trimString;
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
+}
 
-		if ((_item find "/") == 0) then
-		{
-			_item = [_item, 1] call BIS_fnc_trimString;
-		};
-		if ((_item find "/") != -1) then
-		{
-			_item = [_item, 0, _item find "/"] call BIS_fnc_trimString;
-		};
-		_counter = _counter + 1;
 
-		_textBlob = _x select 1;
 
-		_textArray = _textBlob splitString toString [10];
-
-		_content append (_textArray);
-	};
-} forEach _filesystem;
-
-if (_counter == 0) then {_result = [(_result select 0) + " - file not found"]};
-
-// Multiple Files with the same path in Filesystem or Path == Folder with multiple Files
-if (_counter > 1) then {_result = [(_result select 0) + " - error"]};
-
-if (_counter == 1) then {_result append _content;};
-
-_result;

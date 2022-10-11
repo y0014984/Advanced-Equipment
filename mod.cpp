@@ -8,6 +8,6 @@ logoOver = "logo_ae3_ca_hover.paa";
 tooltip = "Advanced Equipment";
 tooltipOwned = "Advanced Equipment tooltipOwned";
 overview = "Advanced Equipment brings your dead equipment to life, like laptops and lamps.";
-author = "y0014984";
+author = "y0014984|Wasserstoff";
 overviewPicture = "logo_ae3_ca.paa";
 dir = "@ae3";

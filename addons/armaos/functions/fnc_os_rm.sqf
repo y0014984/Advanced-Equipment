@@ -1,64 +1,36 @@
-params ["_options", "_consoleInput"];
+/**
+ * Removes/deletes a given file on a given computer. Returns informations about the success of the command.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: File <[STRING]>
+ *
+ * Results:
+ * None
+ */
 
-_pointer = _consoleInput getVariable "pointer";
-_filesystem = _consoleInput getVariable "filesystem";
+params ["_computer", "_options"];
 
-_result = [];
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
-_optionsCount = count _options;
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
 
-scopeName "main";
+if (count _options > 1) exitWith {[_computer, "Too many options"] call AE3_armaos_fnc_shell_stdout;};
 
-switch (true) do
+if (count _options < 1) exitWith {[_computer, "Too few options"] call AE3_armaos_fnc_shell_stdout;};
+
+
+private _obj = _options select 0;
+private _result = [];
+_result = [_obj];
+
+try
 {
-	case (_optionsCount > 1):
-	{
-		_result = ["   Command: rm - too many options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 0):
-	{
-		_result = ["   Command: rm - too few options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 1):
-	{
-		_optionsString = _options select 0;
-		
-		if ((_optionsString select [0, 1]) isEqualTo "/") then
-		{
-			_pointer = _optionsString;
-		}
-		else
-		{
-			_pointer = _pointer + _optionsString;
-		};
-	};
+	[_pointer, _filesystem, _obj, _username] call AE3_filesystem_fnc_delObj;
+	_computer setVariable ['AE3_filesystem', _filesystem];
+}catch
+{
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 };
-
-_result = ["   Command: rm " + _pointer];
-
-_counter = 0;
-_fileToDeleteIndex = -1;
-
-{
-	_file = _x select 0;
-	if ((_file find _pointer) == 0) then
-	{
-		_counter = _counter + 1;
-		_fileToDeleteIndex = _forEachIndex;
-	};
-} forEach _filesystem;
-
-if (_counter == 0) then {_result = [(_result select 0) + " - file not found"]};
-
-// Multiple Files with the same path in Filesystem or Path == Folder with multiple Files
-if (_counter > 1) then {_result = [(_result select 0) + " - error"]};
-
-if (_counter == 1) then
-{
-	_filesystem deleteAt _fileToDeleteIndex;
-	_consoleInput setVariable ["filesystem", _filesystem];
-};
-
-_result;

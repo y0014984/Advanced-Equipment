@@ -1,10 +1,22 @@
+/**
+ * Turns on the generator.
+ *
+ * Arguments:
+ * 0: Generator <OBJECT>
+ *
+ * Returns:
+ * None
+ */
+
 params ["_entity"];
 
-_fuelLevel = _entity getVariable "AE3_fuelLevel";
+private _fuelCapacity = _entity getVariable 'AE3_power_fuelCapacity';
+private _fuelLevelPercent = fuel _entity;
+private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
 
 if (_fuelLevel > 0) then
 {
-	_turnOnTime = 3;
+	_turnOnTime = 5;
 
 	_handle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
 
@@ -16,14 +28,7 @@ if (_fuelLevel > 0) then
 			
 			_entity = _args select 0;
 
-			_entity setVariable ["AE3_powerState", 1, true];
-
-			_connectedDevices = _entity getVariable ["AE3_connectedDevices", []];
-
-			{
-				_powerState = _x getVariable ["AE3_powerState", 0];
-				if (_powerState == 0) then { _x setVariable ["AE3_powerState", 1, true]; };
-			} forEach _connectedDevices;
+			[_entity, AE3_power_fnc_fuelConsumption] remoteExecCall ["AE3_power_fnc_addProviderHandler", 2];
 
 			[_entity, false, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
 		},
@@ -31,3 +36,5 @@ if (_fuelLevel > 0) then
 		("Turn on")
 	] call ace_common_fnc_progressBar;
 };
+
+true;

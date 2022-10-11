@@ -1,79 +1,33 @@
-params ["_options", "_consoleInput"];
+/**
+ * Changes/sets the current working directory of a given terminal on a given computer.
+ * Also returns informations about the success of the command.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Folder/Directory <[STRING]>
+ *
+ * Results:
+ * None
+ */
 
-_pointer = _consoleInput getVariable "pointer";
-_filesystem = _consoleInput getVariable "filesystem";
+params ["_computer", "_options"];
 
-_result = [];
+private _options = _options joinString " ";
 
-_optionsCount = count _options;
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
 
-scopeName "main";
-
-switch (true) do
+try
 {
-	case (_optionsCount > 1):
-	{
-		//hint "Case 1";
-		
-		_result = ["   Command: cd too many options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 1):
-	{
-		//hint "Case 2";
-		
-		_optionsString = _options select 0;
-		
-		if ((_optionsString select [0, 1]) isEqualTo "/") then
-		{
-			_pointer = _optionsString;
-		}
-		else
-		{
-			_pointer = _pointer + _optionsString;
-		};
-	};
-	case (_optionsCount == 0):
-	{
-		//hint "Case 3";
-		
-		_result = ["   Command: cd too few options"];
-		_result breakOut "main";
-	};
+	private _result = [_computer getVariable ['AE3_filepointer', []], 
+				_computer getVariable ['AE3_filesystem', createHashMap], 
+				_options,
+				_username] call AE3_filesystem_fnc_chdir;
+
+	[(_result select 1), _username, 0] call AE3_filesystem_fnc_hasPermission;
+	_computer setVariable ['AE3_filepointer', _result select 0];
+
+}catch
+{
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 };
-
-if (!((_pointer select [(count _pointer) - 1, 1]) isEqualTo "/")) then
-{
-	_pointer = _pointer + "/";
-};
-
-_result = ["   Command: cd " + _pointer];
-
-_counter = 0;
-
-{
-	_file = _x select 0;
-	if ((_file find _pointer) == 0) then
-	{
-		_item = [_file, count _pointer] call BIS_fnc_trimString;
-
-		if ((_item find "/") == 0) then
-		{
-			_item = [_item, 1] call BIS_fnc_trimString;
-		};
-		if ((_item find "/") != -1) then
-		{
-			_item = [_item, 0, _item find "/"] call BIS_fnc_trimString;
-		};
-		_counter = _counter + 1;
-	};
-} forEach _filesystem;
-
-if (_counter == 0) then {_result = [(_result select 0) + " - folder not found"]};
-
-if (_counter > 0) then
-{
-	_consoleInput setVariable ["pointer", _pointer];
-};
-
-_result;

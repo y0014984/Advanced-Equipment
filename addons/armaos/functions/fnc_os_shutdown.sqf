@@ -1,30 +1,7 @@
-params ["_options", "_consoleInput"];
+params ["_computer", "_options"];
 
-_computer = _consoleInput getVariable "computer";
+if (count _options >= 1) exitWith {[_computer, "Shutdown has no options"] call AE3_armaos_fnc_shell_stdout;};
 
-_result = [];
-
-_optionsCount = count _options;
-
-scopeName "main";
-
-switch (true) do
-{
-	case (_optionsCount >= 1):
-	{
-		//hint "Case 1";
-		
-		_result = ["   Command: shutdown has no options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 0):
-	{
-		//hint "Case 2";
-
-		_handle = [_computer, false] spawn AE3_armaos_fnc_turnOffComputerAction;
-
-		_result = ["   Command: shutdown "];
-	};
-};
-
-_result;
+_computer setVariable ["AE3_computer_mutex", objNull, true];
+closeDialog 1;
+private _handle = [_computer, [false]] call (_computer getVariable "AE3_power_fnc_turnOffWrapper");

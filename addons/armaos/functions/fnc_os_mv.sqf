@@ -1,87 +1,38 @@
-params ["_options", "_consoleInput"];
+/**
+ * Moves/renames a given file on a given computer.
+ * Returns informations about the success of the command.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: File <[STRING]>
+ *
+ * Results:
+ * None
+ */
 
-_pointer = _consoleInput getVariable "pointer";
-_filesystem = _consoleInput getVariable "filesystem";
+params ["_computer", "_options"];
 
-_oldPath = "";
-_newPath = "";
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
-_result = [];
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
 
-_optionsCount = count _options;
+if (count _options > 2) exitWith {[_computer, "Too many options"] call AE3_armaos_fnc_shell_stdout;};
 
-scopeName "main";
+if (count _options < 2) exitWith {[_computer, "Too few options"] call AE3_armaos_fnc_shell_stdout;};
 
-switch (true) do
+_options params ['_oldPath', '_newPath'];
+
+private _result = [];
+
+try
 {
-	case (_optionsCount > 2):
-	{
-		_result = ["   Command: mv - too many options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount <= 1):
-	{
-		_result = ["   Command: rm - too few options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 2):
-	{
-		_optionsString = _options select 0;
-		
-		if ((_optionsString select [0, 1]) isEqualTo "/") then
-		{
-			_oldPath = _optionsString;
-		}
-		else
-		{
-			_oldPath = _pointer + _optionsString;
-		};
-
-		_optionsString = _options select 1;
-		
-		if ((_optionsString select [0, 1]) isEqualTo "/") then
-		{
-			_newPath = _optionsString;
-		}
-		else
-		{
-			_newPath = _pointer + _optionsString;
-		};
-	};
+	[_pointer, _filesystem, _oldPath, _newPath, _username] call AE3_filesystem_fnc_mvObj;
+	_computer setVariable ['AE3_filesystem', _filesystem];
+	
+}catch
+{
+	_result pushBack _exception;
 };
-
-_result = ["   Command: mv " + _oldPath + " " + _newPath];
-
-_counterOldPath = 0;
-_counterNewPath = 0;
-_fileToMoveIndex = -1;
-
-{
-	_file = _x select 0;
-	if ((_file find _oldPath) == 0) then
-	{
-		_counterOldPath = _counterOldPath + 1;
-		_fileToMoveIndex = _forEachIndex;
-	};
-
-	if ((_file find _newPath) == 0) then
-	{
-		_counterNewPath = _counterNewPath + 1;
-	};
-} forEach _filesystem;
-
-if (_counterOldPath == 0) then {_result = [(_result select 0) + " - file not found"]};
-if (_counterNewPath > 0) then {_result = [(_result select 0) + " - file already exists"]};
-
-// Multiple Files with the same path in Filesystem or Path == Folder with multiple Files
-if ((_counterOldPath > 1) or (_counterNewPath > 1)) then {_result = [(_result select 0) + " - error"]};
-
-if ((_counterOldPath == 1) && (_counterNewPath == 0)) then
-{
-	_content = (_filesystem select _fileToMoveIndex) select 1;
-	_newFilesystemObject = [_newPath, _content];
-	_filesystem set [_fileToMoveIndex, _newFilesystemObject];
-	_consoleInput setVariable ["filesystem", _filesystem];
-};
-
-_result;
+[_computer, _result] call AE3_armaos_fnc_shell_stdout;

@@ -1,72 +1,58 @@
-params ["_options", "_consoleInput"];
+/**
+ * Lists/outputs the containing files of a given folder/directory on a given computer.
+ * Also returns informations about the success of the command.
+ *
+ * Arguments:
+ * 0: Computer <OBJECT>
+ * 1: Folder/Directory <[STRING]>
+ *
+ * Results:
+ * None
+ */
 
-_pointer = _consoleInput getVariable "pointer";
-_filesystem = _consoleInput getVariable "filesystem";
+params ["_computer", "_options"];
 
-_result = [];
+private _long = false;
+private _path = [];
 
-_optionsCount = count _options;
-
-scopeName "main";
-
-switch (true) do
 {
-	case (_optionsCount > 1):
+	if((_x select [0,1]) == "-") then
 	{
-		//hint "Case 1";
-		
-		_result = ["   Command: ls too many options"];
-		_result breakOut "main";
-	};
-	case (_optionsCount == 1):
-	{
-		//hint "Case 2";
-		
-		_optionsString = _options select 0;
-		
-		if ((_optionsString select [0, 1]) isEqualTo "/") then
 		{
-			_pointer = _optionsString;
-		}
-		else
-		{
-			_pointer = _pointer + _optionsString;
-		};
-	};
-	case (_optionsCount == 0):
+			if(_x == 'l' || _x == 'L') then
+			{
+				_long = true;
+			};
+		}forEach (_x splitString "");
+	}else
 	{
-		//hint "Case 3";
-		
-		_pointer = _consoleInput getVariable "pointer";
+		_path pushBack _x;
 	};
+}forEach _options;
+
+if (count _path == 0) then
+{
+	_path = [""];
 };
 
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
-if (!((_pointer select [(count _pointer) - 1, 1]) isEqualTo "/")) then
-{
-	_pointer = _pointer + "/";
-};
-		
-_result = ["   Command: ls " + _pointer];
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
 
+private _output = [];
+
+try
 {
-	_file = _x select 0;
-	if ((_file find _pointer) == 0) then
 	{
-		_item = [_file, count _pointer] call BIS_fnc_trimString;
+		_dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
+		_output append _dir;
+		_output pushBack "";
+	}forEach _path;
+}catch
+{
+	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
+};
 
-		if ((_item find "/") == 0) then
-		{
-			_item = [_item, 1] call BIS_fnc_trimString;
-		};
-		if ((_item find "/") != -1) then
-		{
-			_item = [_item, 0, _item find "/"] call BIS_fnc_trimString;
-		};
-		_result pushBackUnique ("      " + _item);
-	};
-} forEach _filesystem;
-
-if ((count _result) == 1) then {_result = [(_result select 0) + " - folder not found"]};
-
-_result;
+[_computer, _output] call AE3_armaos_fnc_shell_stdout;

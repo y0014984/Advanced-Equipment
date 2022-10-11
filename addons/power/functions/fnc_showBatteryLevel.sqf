@@ -1,15 +1,25 @@
+/**
+ * 
+ * TODO:
+ * - Depricated?
+ * - Documentation
+ * 
+ * 
+ * 
+ */
+
 params ["_computer"];
 
-_consoleDialog = findDisplay 15984;	
+private _consoleDialog = findDisplay 15984;	
 
 while {_consoleDialog != displayNull} do
 {
 	_consoleTitle = _consoleDialog displayCtrl 1000;
 
-	_batteryLevel = _computer getVariable ["AE3_batteryLevel", 1];
+	_batteryLevel = _computer getVariable ["AE3_power_batteryLevel", 1];
 
 	// 0 = battery; 1 = cable
-	_powerConsumptionState = _computer getVariable ["AE3_powerConsumptionState", 0];
+	_powerConsumptionState = _computer getVariable ["AE3_power_powerConsumptionState", 0];
 
 	_powerConsumptionStateText = "";
 
