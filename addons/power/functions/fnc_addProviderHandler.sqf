@@ -53,4 +53,4 @@ private _handle = [
 
 if(_handle < 0) exitWith {throw "GeneratorInitError";};
 
-_generator setVariable ['AE3_power_generatorHandle', _handle];
+_generator setVariable ['AE3_power_generatorHandle', _handle, true];
