@@ -222,6 +222,8 @@ class CfgVehicles
 		// 1 to run init function in Eden Editor as well
 		is3DEN = 0;
 
+		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icons_addUser.paa";
+
 		// Menu displayed when the module is placed or double-clicked on by Zeus
 		curatorInfoType = "RscDisplayAttributeModuleUserlist";
 
