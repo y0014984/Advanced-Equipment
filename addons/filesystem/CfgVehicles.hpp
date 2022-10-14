@@ -25,7 +25,7 @@ class CfgVehicles
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "AE3 Add File"; // Name displayed in the menu
-		//icon = "\myTag_addonName\data\iconNuke_ca.paa"; // Map icon. Delete this entry to use the default icon
+		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
 
 		// Name of function triggered once conditions are met
@@ -40,8 +40,6 @@ class CfgVehicles
 		isDisposable = 1;
 		// 1 to run init function in Eden Editor as well
 		is3DEN = 0;
-
-		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa";
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
 		curatorInfoType = "RscDisplayAttributeModuleFilesystem";
