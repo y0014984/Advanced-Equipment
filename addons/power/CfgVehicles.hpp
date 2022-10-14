@@ -39,6 +39,8 @@ class CfgVehicles
 
 	class Land_PortableGenerator_01_sand_F_AE3: B_Radar_System_01_F
 	{
+		scope = 1; //Hide class in 3DEN asset browser
+
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
 		ace_cargo_size = 4;  // Cargo space the object takes
