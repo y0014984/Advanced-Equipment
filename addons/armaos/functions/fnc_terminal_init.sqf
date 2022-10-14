@@ -52,12 +52,12 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
 		["AE3_terminalMaxRows", 21],
-		["AE3_terminalMaxColumns", 85],
-		["AE3_terminalKeyboardLayout", "US"]
+		["AE3_terminalMaxColumns", 85]
 	];
 
 // Only nessecary to allow Event Handlers the access to _computer
 _consoleOutput setVariable ["AE3_computer", _computer];
+_consoleDialog setVariable ["AE3_computer", _computer];
 
 if (isNil { _computer getVariable "AE3_terminal" }) then 
 {
@@ -71,13 +71,11 @@ private _localGameLanguage = language;
 // we can determine the language of arma 3 but not the language of the keyboard layout
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
-private _terminalAllowedKeys = createHashMap;
-private _terminalKeyboardLayout = _terminal get "AE3_terminalKeyboardLayout";
-if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
-if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
-_terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 
-[_consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
+private _terminalKeyboardLayout = _computer getVariable ["AE3_terminalKeyboardLayout", "US"];
+[_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
+
+[_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
 _terminalBuffer = _terminal get "AE3_terminalBuffer";
 if (_terminalBuffer isEqualTo []) then
@@ -96,8 +94,8 @@ if (_terminalBuffer isEqualTo []) then
 	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
 };
 
-[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
-
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
 _computer setVariable ["AE3_terminal", _terminal, true];
+
+[_computer, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];

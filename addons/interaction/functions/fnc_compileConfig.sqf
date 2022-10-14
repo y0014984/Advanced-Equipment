@@ -22,7 +22,9 @@ _config set
 		getNumber (_equipmentCfg >> "closeState"),
 		compile (getText (_equipmentCfg >> "init")),
 		compile (getText (_equipmentCfg >> "openAction")),
-		compile (getText (_equipmentCfg >> "closeAction"))
+		compile ([_equipmentCfg, "openActionCondition", "true"] call BIS_fnc_returnConfigEntry),
+		compile (getText (_equipmentCfg >> "closeAction")),
+		compile ([_equipmentCfg, "closeActionCondition", "true"] call BIS_fnc_returnConfigEntry)
 	]
 ];
 

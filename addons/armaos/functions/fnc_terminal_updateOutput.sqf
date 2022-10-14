@@ -21,4 +21,4 @@ private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
 _outputControl ctrlSetStructuredText parseText ("<t font='EtelkaMonospacePro' size='0.75'>" + (_terminalBufferVisable joinString "<br/>") + "</t>");
 ctrlSetFocus _outputControl;
 
-_computer setVariable ["AE3_terminal", _terminal, true];
+_computer setVariable ["AE3_terminal", _terminal];

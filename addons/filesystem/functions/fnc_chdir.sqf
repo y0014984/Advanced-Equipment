@@ -7,18 +7,25 @@
  * 2: Raw path to target directory <STRING>
  * 3: User <STRING> (Optional)
  * 4: Creates a directory if it is not found <BOOL> (Optional)
+ * 5: Onwer of the created directory <String> (Optional)
+ * 6: Permission of the created directory [[<BOOL>]] (Optional)
  *
  * Results:
  * 0: Absolute path to target dir <[STRING]>
  * 1: Target dir <HASHMAP>
  */
 
-params['_pntr', '_filesystem', '_target', ['_user', ''], ['_create', false]];
+params['_pntr', '_filesystem', '_target', ['_user', ''], ['_create', false], ['_owner', nil], ['_permissions', [[true, true, true], [false, false, false]]]];
 
 private _path = _target splitString "/";
 private _pointer = +_pntr;
 
 private ['_current'];
+
+if (isNil "_owner") then 
+{
+	_owner = _user;
+};
 
 if (_target find "/" == 0) then
 {
@@ -31,8 +38,8 @@ if (_target find "/" == 0) then
 
 if (count _path == 0) exitWith {[_pointer, _current]};
 {
-	_iteration = [_pointer, _current, _filesystem, _create, _user] call {
-		params['_pointer', '_current', '_filesystem', '_create', '_user'];
+	_iteration = [_pointer, _current, _filesystem, _create, _user, _owner, _permissions] call {
+		params['_pointer', '_current', '_filesystem', '_create', '_user', '_owner', '_permissions'];
 
 		if (_x isEqualTo ".") exitWith
 		{
@@ -75,7 +82,7 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 		{
 			if(!_create) throw (format ["'%1' not found in '%2'!", _x, "/" + (_pointer joinString "/")]); 
 
-			(_current select 0) set [_x, [createHashMap, _user]];
+			(_current select 0) set [_x, [createHashMap, _owner, _permissions]];
 		};
 
 		if(typeName (((_current select 0) get _x) select 0) != "HASHMAP") throw (format ["'%1' is not a directory!", _x]);

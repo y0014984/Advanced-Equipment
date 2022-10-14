@@ -12,4 +12,4 @@ params['_computer', '_mode'];
 
 private _terminal = _computer getVariable "AE3_terminal";
 _terminal set ["AE3_terminalApplication", _mode];
-_computer setVariable ["AE3_terminal", _terminal, true];
+_computer setVariable ["AE3_terminal", _terminal];

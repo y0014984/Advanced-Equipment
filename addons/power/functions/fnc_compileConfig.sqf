@@ -19,8 +19,11 @@ _config set ['device', [
 		getNumber (_deviceCfg >> "defaultPowerState"),
 		compile (getText (_deviceCfg >> "init")),
 		compile (getText (_deviceCfg >> "turnOnAction")),
+		compile ([_deviceCfg, "turnOnActionCondition", "true"] call BIS_fnc_returnConfigEntry),
 		compile (getText (_deviceCfg >> "turnOffAction")),
-		compile (getText (_deviceCfg >> "standbyAction"))
+		compile ([_deviceCfg, "turnOffActionCondition", "true"] call BIS_fnc_returnConfigEntry),
+		compile (getText (_deviceCfg >> "standbyAction")),
+		compile ([_deviceCfg, "standbyActionCondition", "true"] call BIS_fnc_returnConfigEntry)
 	]];
 
 private _interface = (_deviceCfg >> "AE3_PowerInterface");

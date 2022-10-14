@@ -77,7 +77,7 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_6, false, false, false], "6"],
 	[format ["%1-%2-%3-%4", DIK_6, true, false, false], "^"],
 	[format ["%1-%2-%3-%4", DIK_7, false, false, false], "7"],
-	[format ["%1-%2-%3-%4", DIK_7, true, false, false], "&"],
+	[format ["%1-%2-%3-%4", DIK_7, true, false, false], ""], // &
 	[format ["%1-%2-%3-%4", DIK_8, false, false, false], "8"],
 	[format ["%1-%2-%3-%4", DIK_8, true, false, false], "*"],
 	[format ["%1-%2-%3-%4", DIK_9, false, false, false], "9"],
@@ -100,9 +100,9 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_GRAVE, false, false, false], "`"],
 	[format ["%1-%2-%3-%4", DIK_GRAVE, true, false, false], "~"],
 	[format ["%1-%2-%3-%4", DIK_COMMA, false, false, false], ","],
-	[format ["%1-%2-%3-%4", DIK_COMMA, true, false, false], "<"],
+	[format ["%1-%2-%3-%4", DIK_COMMA, true, false, false], ""],  // <
 	[format ["%1-%2-%3-%4", DIK_PERIOD, false, false, false], "."],
-	[format ["%1-%2-%3-%4", DIK_PERIOD, true, false, false], ">"],
+	[format ["%1-%2-%3-%4", DIK_PERIOD, true, false, false], ""], // >
 	[format ["%1-%2-%3-%4", DIK_SLASH, false, false, false], "/"],
 	[format ["%1-%2-%3-%4", DIK_SLASH, true, false, false], "?"],
 	[format ["%1-%2-%3-%4", DIK_BACKSLASH, false, false, false], "\"],
