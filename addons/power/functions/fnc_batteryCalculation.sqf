@@ -61,7 +61,7 @@ if(_newBatteryLevel > _batteryCapacity) then
 	};
 };
 
-_battery setVariable ['AE3_power_batteryLevel', _newBatteryLevel, true];
+_battery setVariable ['AE3_power_batteryLevel', _newBatteryLevel];
 _battery setVariable ['AE3_power_powerState', _powerState, true];
 
 [_powerState == 1, _newBatteryLevel];
