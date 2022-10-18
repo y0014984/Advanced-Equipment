@@ -15,5 +15,6 @@ class CfgPatches
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgFactionClasses.hpp"
 #include "CfgVehicles.hpp"
 #include "Cfg3DEN.hpp"
