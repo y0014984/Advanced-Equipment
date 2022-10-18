@@ -48,7 +48,6 @@ try
 	{
 		_dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
 		_output append _dir;
-		_output pushBack "";
 	}forEach _path;
 }catch
 {
