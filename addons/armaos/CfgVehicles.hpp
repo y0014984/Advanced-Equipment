@@ -237,7 +237,7 @@ class CfgVehicles
 			class AE3_ModuleUserlist_User: Edit
 			{
 				property = "AE3_ModuleUserlist_User1";
-				displayName = "User";
+				displayName = "Username";
 				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
@@ -260,7 +260,7 @@ class CfgVehicles
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
 		class ModuleDescription: ModuleDescription
 		{
-			description = "This Module defines Users for a synced Laptop. You can sync multiple Modules with one Laptop."; // Short description, will be formatted as structured text
+			description = "This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer."; // Short description, will be formatted as structured text
 			sync[] = { "Land_Laptop_03_sand_F_AE3" }; // LocationArea_F // Array of synced entities (can contain base classes)
 
 			class Land_Laptop_03_sand_F_AE3
