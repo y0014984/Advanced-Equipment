@@ -1,5 +1,5 @@
 /**
- * Removes/deletes a given file on a given computer. Returns informations about the success of the command.
+ * Removes/deletes a given file on a given computer. Returns information about the success of the command.
  *
  * Arguments:
  * 1: Computer <OBJECT>

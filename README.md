@@ -29,7 +29,7 @@ This project is entirely **open-source** and all contributions are welcome. Feel
 - 3DEN Modules (Easy Mission Making)
 
 ## Wiki
-See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional informations on how to use Advanced Equipment. 
+See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional information on how to use Advanced Equipment. 
 
 ## Installation
 

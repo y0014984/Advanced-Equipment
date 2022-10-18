@@ -12,7 +12,7 @@ class CfgOsFunctions
 	{
 		path = "/bin/man";
 		description = "Prints usage information about a command.";
-		man = "Usage man: 'man <command>' returns usage informations for the command.";
+		man = "Usage man: 'man <command>' returns usage information for the command.";
 		code = "_this call AE3_armaos_fnc_os_man";
 	};
 

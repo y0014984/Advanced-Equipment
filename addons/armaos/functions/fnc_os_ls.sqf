@@ -1,6 +1,6 @@
 /**
  * Lists/outputs the containing files of a given folder/directory on a given computer.
- * Also returns informations about the success of the command.
+ * Also returns information about the success of the command.
  *
  * Arguments:
  * 0: Computer <OBJECT>
