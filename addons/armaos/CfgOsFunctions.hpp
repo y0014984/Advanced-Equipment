@@ -6,13 +6,15 @@ class OsFunction
 	code = "";
 };
 
+// DO NOT USE [] in Strings.
+
 class CfgOsFunctions
 {
 	class man : OsFunction
 	{
 		path = "/bin/man";
 		description = "Prints usage information about a command.";
-		man = "Usage man: 'man <command>' returns usage information for the command.";
+		man = "Usage man: 'man [command]' returns usage information for the command.";
 		code = "_this call AE3_armaos_fnc_os_man";
 	};
 
@@ -28,7 +30,7 @@ class CfgOsFunctions
 	{
 		path = "/bin/ls";
 		description = "Display the content of a directory.";
-		man = "Usage ls: 'ls <path>' returns a list of filesystem items found in this path.";
+		man = "Usage ls: 'ls [path]' returns a list of filesystem objects found in this path.";
 		code = "_this call AE3_armaos_fnc_os_ls";
 	};
 
@@ -36,30 +38,22 @@ class CfgOsFunctions
 	{
 		path = "/bin/cd";
 		description = "Change the working directory.";
-		man = "Usage cd: 'cd <path>' sets path as the new working directory.";
+		man = "Usage cd: 'cd [path]' sets path as the new working directory.";
 		code = "_this call AE3_armaos_fnc_os_cd";
 	};
 
 	class print : OsFunction
 	{
 		path = "/bin/print";
-		description = "Print the content of a file to std out.";
-		man = "Usage print: 'print <file>' shows the content of a file.";
-		code = "_this call AE3_armaos_fnc_os_print";
-	};
-
-	class cat : OsFunction
-	{
-		path = "/bin/print";
-		description = "Print the content of a file to std out.";
-		man = "Usage print: 'print <file>' shows the content of a file.";
+		description = "Print the content of a file.";
+		man = "Usage print: 'print [file]' shows the content of a file.";
 		code = "_this call AE3_armaos_fnc_os_print";
 	};
 
 	class date : OsFunction
 	{
 		path = "/bin/date";
-		description = "Prints the date to std out.";
+		description = "Prints the date.";
 		man = "Usage date: 'date' prints the actual date in format YYYY-MM-DD HH:MM:SS";
 		code = "_this call AE3_armaos_fnc_os_date";
 	};
@@ -67,7 +61,7 @@ class CfgOsFunctions
 	class history : OsFunction
 	{
 		path = "/bin/history";
-		description = "Prints the terminal history to std. out.";
+		description = "Prints the terminal history.";
 		man = "Usage history: 'history' lists last commands since the start of the computer.";
 		code = "_this call AE3_armaos_fnc_os_history";
 	};
@@ -76,7 +70,7 @@ class CfgOsFunctions
 	{
 		path = "/bin/clear";
 		description = "Clears the terminal history.";
-		man = "Usage clear: 'clear deletes most of the displayed text.";
+		man = "Usage clear: 'clear' deletes most of the displayed text.";
 		code = "_this call AE3_armaos_fnc_os_clear";
 	};
 
@@ -84,7 +78,7 @@ class CfgOsFunctions
 	{
 		path = "/bin/rm";
 		description = "Removes a file.";
-		man = "Usage rm: 'rm <path>' deletes a file at the given path.";
+		man = "Usage rm: 'rm [path]' deletes a file at the given path.";
 		code = "_this call AE3_armaos_fnc_os_rm";
 	};
 
@@ -92,7 +86,7 @@ class CfgOsFunctions
 	{
 		path = "/bin/mv";
 		description = "Moves a file or folder.";
-		man = "Usage mv: 'mv <old path> <new path>' moves file to new path or renames the file.";
+		man = "Usage mv: 'mv [old path] [new path]' moves file to new path or renames the file.";
 		code = "_this call AE3_armaos_fnc_os_mv";
 	};
 
@@ -100,7 +94,7 @@ class CfgOsFunctions
 	{
 		path = "/bin/whoami";
 		description = "Retuns the current user.";
-		man = "Usage whoami: 'Returns the current user.'";
+		man = "Usage whoami: 'whoami' returns the current user.";
 		code = "_this call AE3_armaos_fnc_os_whoami";
 	};
 
@@ -108,7 +102,7 @@ class CfgOsFunctions
 	{
 		path = "/sbin/ping";
 		description = "Pings the given address.";
-		man = "Usage whoami: 'Pings the given address.'";
+		man = "Usage ping: 'ping' pings the given address.";
 		code = "_this call AE3_armaos_fnc_os_ping";
 	};
 
@@ -116,19 +110,11 @@ class CfgOsFunctions
 	{
 		path = "/sbin/ipconfig";
 		description = "Returns the current ip configuration.";
-		man = "Usage whoami: 'Returns the current ip configuration.'";
+		man = "Usage ipconfig: 'ipconfig' returns the current ip configuration.";
 		code = "_this call AE3_armaos_fnc_os_ipconfig";
 	};
 
 	class logout : OsFunction
-	{
-		path = "/sbin/logout";
-		description = "Log out of the user session.";
-		man = "Usage logout: 'logout' brings you back to login screen.";
-		code = "_this call AE3_armaos_fnc_os_logout";
-	};
-
-	class exit : OsFunction
 	{
 		path = "/sbin/logout";
 		description = "Log out of the user session.";
