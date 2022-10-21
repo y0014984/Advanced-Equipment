@@ -42,17 +42,12 @@ class CfgOsFunctions
 		code = "_this call AE3_armaos_fnc_os_cd";
 	};
 
-	class print : OsFunction
+	class cat : OsFunction
 	{
-		path = "/bin/print";
-		description = "Print the content of a file.";
-		man = "Usage print: 'print [file]' shows the content of a file.";
-		code = "_this call AE3_armaos_fnc_os_print";
-	};
-
-	class cat : print
-	{
+		path = "/bin/cat";
+		description = "Prints the content of a file.";
 		man = "Usage cat: 'cat [file]' shows the content of a file.";
+		code = "_this call AE3_armaos_fnc_os_cat";
 	};
 
 	class date : OsFunction
@@ -119,17 +114,12 @@ class CfgOsFunctions
 		code = "_this call AE3_armaos_fnc_os_ipconfig";
 	};
 
-	class logout : OsFunction
+	class exit : OsFunction
 	{
-		path = "/sbin/logout";
+		path = "/sbin/exit";
 		description = "Log out of the user session.";
-		man = "Usage logout: 'logout' brings you back to login screen.";
-		code = "_this call AE3_armaos_fnc_os_logout";
-	};
-
-	class exit : logout
-	{
 		man = "Usage exit: 'exit' brings you back to login screen.";
+		code = "_this call AE3_armaos_fnc_os_exit";
 	};
 
 	class shutdown : OsFunction
