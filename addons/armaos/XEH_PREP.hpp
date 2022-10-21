@@ -40,10 +40,9 @@ PREP(os_mv);
 PREP(os_ping);
 PREP(os_print);
 PREP(os_rm);
-PREP(os_whoami);
 PREP(os_shutdown);
 PREP(os_standby);
-PREP(os_standby);
+PREP(os_whoami);
 
 /* Terminal Functions */
 PREP(terminal_init);
