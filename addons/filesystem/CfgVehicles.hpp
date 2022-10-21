@@ -56,7 +56,7 @@ class CfgVehicles
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/docs/tactical-plan.txt""";
+				defaultValue = """/tmp/new/example.txt""";
 			};
 			class AE3_ModuleFilesystem_FileContent
 			{
@@ -67,7 +67,7 @@ class CfgVehicles
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """true""";
+				defaultValue = """Lorem ipsum dolor sit amet""";
 				validate = "none";
 				expression = "_this setVariable [""AE3_ModuleFilesystem_FileContent"", _value]";
 			};
@@ -102,7 +102,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = false;
 			};
 			class AE3_ModuleFilesystem_OwnerRead: Checkbox
 			{
@@ -134,7 +134,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = false;
 			};
 			class AE3_ModuleFilesystem_EveryoneRead: Checkbox
 			{
