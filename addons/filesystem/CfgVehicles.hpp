@@ -58,15 +58,18 @@ class CfgVehicles
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """/docs/tactical-plan.txt""";
 			};
-			class AE3_ModuleFilesystem_FileContent: Edit
+			class AE3_ModuleFilesystem_FileContent
 			{
+				control = "EditCodeMulti5";
 				property = "AE3_ModuleFilesystem_FileContent";
 				displayName = "File content";
 				tooltip = "Content of Filesystem Object, like text note oder path to image";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """Lorem ipsum""";
+				defaultValue = """true""";
+				validate = "none";
+				expression = "_this setVariable [""AE3_ModuleFilesystem_FileContent"", _value]";
 			};
 			class AE3_ModuleFilesystem_IsFunction: Checkbox
 			{
