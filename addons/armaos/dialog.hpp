@@ -4,46 +4,8 @@ class RscStructuredText;
 class RscEdit;
 class RscButton;
 class RscSlider;
-
-/* ================================================================================ */
-
-class AE3_Rotate_Dialog
-{
-	idd = 14985;
-	movingEnable = true;
-	enableSimulation = true;
-	class controls
-	{
-		class AE3_RscText_2000: RscText
-		{
-			idc = 2000;
-			text = "Rotate";
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 0 * GUI_GRID_H + GUI_GRID_Y;
-			w = 40 * GUI_GRID_W;
-			h = 1 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,1};
-		};
-		class AE3_RscSlider_2500: RscEdit
-		{
-			idc = 2500;
-			text = "";
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 40 * GUI_GRID_W;
-			h = 2.5 * GUI_GRID_H;
-
-			deletable = 0;
-			fade = 0;
-			access = 0;
-			type = CT_SLIDER;
-			style = SL_HORZ;
-			color[] = {1,1,1,0.8};
-			colorActive[] = {1,1,1,1};
-			shadow = 0;		
-		};
-	};
-};
+class RscPicture;
+class RscPictureKeepAspect;
 
 /* ================================================================================ */
 
@@ -64,6 +26,15 @@ class AE3_ArmaOS_Main_Dialog
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0.5,0,0.25};
 			font = "EtelkaMonospaceProBold";
+		};
+		class RscPicture_1050: RscPictureKeepAspect
+		{
+			idc = 1050;
+			text = "\z\ae3\addons\armaos\images\AE3_battery_0_percent.paa";
+			x = 38 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
 		};
 		class RscText_1100: RscStructuredText
 		{
