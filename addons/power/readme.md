@@ -128,8 +128,8 @@ fuelConsumption    | number      | Fuel consumption in [l/h]                    
 #### Solar Generator
 Name               | Type        | Desciption                                                 | Location
 ----               | -----       | -----------                                                | -------
-height             | number      | Height of the solar panels relative to the object coords.  | public
-orientationFnc     | code        | returns a list of normal vectors for each solar panel      | public // TODO: server
+height             | number      | Height of the solar panels relative to the object coords.  | server
+orientationFnc     | code        | returns a list of normal vectors for each solar panel      | server
 
 #### Battery
 Name                  | Type        | Desciption                                                 | Location
