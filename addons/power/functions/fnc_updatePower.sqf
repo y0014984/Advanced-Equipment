@@ -11,6 +11,8 @@
 
 params['_entity'];
 
+[_entity, "AE3_power_powerCapacity"] call AE3_main_fnc_getRemoteVar;
+
 private _pwrCap = _entity getVariable ['AE3_power_powerCapacity', 0];
 private _pwrDraw = 0;
 private _connected = _entity getVariable ['AE3_power_connectedDevices', []];
