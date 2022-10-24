@@ -62,11 +62,11 @@ private _standbyWrapper = {
 
 if(isServer) then
 {
-	_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper, true];
-	_entity setVariable ["AE3_power_fnc_turnOffWrapper", _turnOffWrapper, true];
-	_entity setVariable ["AE3_power_fnc_standbyWrapper", _standbyWrapper, true];
-
 	_entity setVariable ["AE3_power_powerConsumption", _powerConsumption, true];
 	_entity setVariable ["AE3_power_standbyConsumption", _standbyConsumption, true];
-	_entity setVariable ['AE3_power_powerDraw', 0, true];
+	_entity setVariable ['AE3_power_powerDraw', 0];
 };
+
+_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper];
+_entity setVariable ["AE3_power_fnc_turnOffWrapper", _turnOffWrapper];
+_entity setVariable ["AE3_power_fnc_standbyWrapper", _standbyWrapper];

@@ -81,19 +81,19 @@ Adds generator functionality to the device
 
 ## Variables
 
-Name             | Type        | Desciption                                                 | Location
-----             | -----       | -----------                                                | -------
-mutex            | bool        | if the device is currently changes its power state         | public
-powerState       | int         | `1` if turned on, `0` if turned off `2` if on standby      | public
-turnOnWrapper    | code        | function, which defines the turn on behavior               | public // TODO: everwhere
-turnOnCondition  | code        | function, which defines if the turnOn action is available  | public // TODO: everwhere
-turnOnFunction   | code        | turnOn function for the device                             | public // TODO: everwhere
-turnOffWrapper   | code        | function, which defines the turn off behavior              | public // TODO: everwhere
-turnOffCondition | code        | function, which defines if the turnOff action is available | public // TODO: everwhere
-turnOffFunction  | code        | turnOff function for the device                            | public // TODO: everwhere
-standbyWrapper   | code        | function, which defines the standby behavior               | public // TODO: everwhere
-standbyCondition | code        | function, which defines if the standby action is available | public // TODO: everwhere
-standbyFunction  | code        | standby function for the device                            | public // TODO: everwhere
+Name                 | Type        | Desciption                                                 | Location
+----                 | -----       | -----------                                                | -------
+mutex                | bool        | if the device is currently changes its power state         | public
+powerState           | int         | `1` if turned on, `0` if turned off `2` if on standby      | public
+fnc_turnOnWrapper    | code        | function, which defines the turn on behavior               | public // TODO: everwhere
+fnc_turnOnCondition  | code        | function, which defines if the turnOn action is available  | public // TODO: everwhere
+fnc_turnOnFunction   | code        | turnOn function for the device                             | public // TODO: everwhere
+fnc_turnOffWrapper   | code        | function, which defines the turn off behavior              | public // TODO: everwhere
+fnc_turnOffCondition | code        | function, which defines if the turnOff action is available | public // TODO: everwhere
+fnc_turnOffFunction  | code        | turnOff function for the device                            | public // TODO: everwhere
+fnc_standbyWrapper   | code        | function, which defines the standby behavior               | public // TODO: everwhere
+fnc_standbyCondition | code        | function, which defines if the standby action is available | public // TODO: everwhere
+fnc_standbyFunction  | code        | standby function for the device                            | public // TODO: everwhere
 
 ### Consumer
 
