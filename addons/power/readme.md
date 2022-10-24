@@ -114,6 +114,7 @@ Name               | Type        | Desciption                                   
 ----               | -----       | -----------                                                | -------
 powerMax           | number      | Maximum power ouput in [kW]                                | public
 powerCapacity      | number      | Current power capacity in [kW]                             | server
+powerReq           | number      | Current power draw from connected devices in [kW]          | public
 connectedDevices   | [objects]   | Connected devices to the generator                         | public
 generatorHandle    | int         | Handler for the generator loop                             | server
 
