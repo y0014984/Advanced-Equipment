@@ -50,10 +50,10 @@ private _newBatteryLevel = _batteryLevel + _change;
 if(_newBatteryLevel > _batteryCapacity) then
 {
 	_newBatteryLevel = _batteryCapacity;
-	_battery setVariable ['AE3_power_powerDraw', _consumption, true];
+	_battery setVariable ['AE3_power_powerDraw', _consumption];
 }else 
 {
-	_battery setVariable ['AE3_power_powerDraw', _recharging, true];
+	_battery setVariable ['AE3_power_powerDraw', _recharging];
 
 	if(_newBatteryLevel < 0) then {
 		_newBatteryLevel = 0;
