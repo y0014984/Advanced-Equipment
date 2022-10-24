@@ -123,7 +123,6 @@ generatorHandle    | int         | Handler for the generator loop               
 Name               | Type        | Desciption                                                 | Location
 ----               | -----       | -----------                                                | -------
 fuelCapacity       | number      | Fuel capacity in [l]                                       | public 
-fuelLevel          | number      | Current fuel level in [l]                                  | public // TODO: server  
 fuelConsumption    | number      | Fuel consumption in [l/h]                                  | public 
 
 #### Solar Generator
