@@ -85,15 +85,15 @@ Name                 | Type        | Desciption                                 
 ----                 | -----       | -----------                                                | -------
 mutex                | bool        | if the device is currently changes its power state         | public
 powerState           | int         | `1` if turned on, `0` if turned off `2` if on standby      | public
-fnc_turnOnWrapper    | code        | function, which defines the turn on behavior               | public // TODO: everwhere
-fnc_turnOnCondition  | code        | function, which defines if the turnOn action is available  | public // TODO: everwhere
-fnc_turnOnFunction   | code        | turnOn function for the device                             | public // TODO: everwhere
-fnc_turnOffWrapper   | code        | function, which defines the turn off behavior              | public // TODO: everwhere
-fnc_turnOffCondition | code        | function, which defines if the turnOff action is available | public // TODO: everwhere
-fnc_turnOffFunction  | code        | turnOff function for the device                            | public // TODO: everwhere
-fnc_standbyWrapper   | code        | function, which defines the standby behavior               | public // TODO: everwhere
-fnc_standbyCondition | code        | function, which defines if the standby action is available | public // TODO: everwhere
-fnc_standbyFunction  | code        | standby function for the device                            | public // TODO: everwhere
+fnc_turnOnWrapper    | code        | function, which defines the turn on behavior               | everwhere
+fnc_turnOnCondition  | code        | function, which defines if the turnOn action is available  | everwhere
+fnc_turnOnFunction   | code        | turnOn function for the device                             | everwhere
+fnc_turnOffWrapper   | code        | function, which defines the turn off behavior              | everwhere
+fnc_turnOffCondition | code        | function, which defines if the turnOff action is available | everwhere
+fnc_turnOffFunction  | code        | turnOff function for the device                            | everwhere
+fnc_standbyWrapper   | code        | function, which defines the standby behavior               | everwhere
+fnc_standbyCondition | code        | function, which defines if the standby action is available | everwhere
+fnc_standbyFunction  | code        | standby function for the device                            | everwhere
 
 ### Consumer
 
