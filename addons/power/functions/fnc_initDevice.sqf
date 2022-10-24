@@ -46,7 +46,7 @@ private _turnOffWrapper = {
 private _standbyWrapper = {
 	params['_target', ['_args', []]];
 
-	_standbyFnc =  _target getVariable "AE3_power_fnc_standbyOff";
+	_standbyFnc =  _target getVariable "AE3_power_fnc_standby";
 	_result = [_target] + _args call _standbyFnc;
 	if(isNil '_result') then {_result = false};
 
