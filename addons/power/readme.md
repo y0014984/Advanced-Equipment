@@ -101,7 +101,7 @@ Name               | Type        | Desciption                                   
 ----               | -----       | -----------                                                | -------
 powerConsumption   | number      | Power consumption in [kW] when on                          | public
 standbyConsumption | number      | Power consumption in [kW] when in standby                  | public
-powerDraw          | number      | Current power consumption in [kW]                          | public
+powerDraw          | number      | Current power consumption in [kW]                          | server
 
 ### Power Interface
 Name               | Type        | Desciption                                                 | Location
@@ -114,7 +114,7 @@ Name               | Type        | Desciption                                   
 ----               | -----       | -----------                                                | -------
 powerMax           | number      | Maximum power ouput in [kW]                                | public
 powerCapacity      | number      | Current power capacity in [kW]                             | server
-powerReq           | number      | Current power draw from connected devices in [kW]          | public
+powerReq           | number      | Current power draw from connected devices in [kW]          | server
 connectedDevices   | [objects]   | Connected devices to the generator                         | public
 generatorHandle    | int         | Handler for the generator loop                             | server
 

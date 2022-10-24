@@ -25,10 +25,10 @@ if (_pwrDraw > _pwrCap) then
 {
 	[_entity, [true]] spawn (_entity getVariable 'AE3_power_fnc_turnOffWrapper');
 
-	_entity setVariable ['AE3_power_powerReq', 0, true];
+	_entity setVariable ['AE3_power_powerReq', 0, 2];
 }else
 {
-	_entity setVariable ['AE3_power_powerReq', _pwrDraw, true];
+	_entity setVariable ['AE3_power_powerReq', _pwrDraw, 2];
 };
 
 (_pwrDraw > _pwrCap);
