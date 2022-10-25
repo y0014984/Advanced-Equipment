@@ -14,3 +14,4 @@ params['_caller', '_namespace', '_variable'];
 
 private _value = _namespace getVariable _variable;
 _namespace setVariable [_variable, _value, _caller];
+_namespace setVariable [_variable + "_trans", true, _caller];

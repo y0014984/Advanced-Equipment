@@ -12,12 +12,14 @@
 
 params['_namespace', '_variable', ['_from', 2]];
 
-_namespace setVariable [_variable, nil];
+private _transfer = _variable + "_trans";
+_namespace setVariable [_transfer, false];
 
 [clientOwner, _namespace, _variable] remoteExecCall ["AE3_main_fnc_sendVarToRemote", _from];
 
 // Wait until the variable is set
 waitUntil
 {
-	!isNil {_namespace getVariable _variable};
-}
+	_namespace getVariable _transfer;
+};
+_namespace setVariable [_transfer, nil];

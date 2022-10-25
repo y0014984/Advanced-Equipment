@@ -173,7 +173,7 @@ class CfgVehicles
 					{
 						displayName = "Use";
 						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] call AE3_armaos_fnc_terminal_init;";
+						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren

@@ -60,9 +60,10 @@ private _terminal = createHashMapFromArray
 _consoleOutput setVariable ["AE3_computer", _computer];
 _consoleDialog setVariable ["AE3_computer", _computer];
 
+[_computer, "AE3_terminal"] call AE3_main_fnc_getRemoteVar;
 if (isNil { _computer getVariable "AE3_terminal" }) then 
 {
-	_computer setVariable ["AE3_terminal", _terminal, true];
+	_computer setVariable ["AE3_terminal", _terminal, [clientOwner, 2]];
 };
 _terminal = _computer getVariable "AE3_terminal";
 
@@ -97,6 +98,6 @@ if (_terminalBuffer isEqualTo []) then
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
-_computer setVariable ["AE3_terminal", _terminal, true];
+_computer setVariable ["AE3_terminal", _terminal];
 
 [_computer, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];

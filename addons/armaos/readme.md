@@ -5,7 +5,7 @@
 Name                   | Type        | Desciption                                                                    | Location
 ----                   | -----       | -----------                                                                   | -------
 computer_mutex         | object      | Current user (player)                                                         | public
-terminal               | hashmap     | Terminal settings (reference below)                                           | public
+terminal               | hashmap     | Terminal settings (reference below)                                           | server
 filesystem             | hashmap     | [name, [content, owner, [[ownerX, ownerR, ownerW],[ otherX, otherR, otherW]]] | server
 filepointer            | array       | Pointer to the current directory                                              | server
 Links                  | hashmap     | Storing available system commands (name -> [path, desc, man])                 | public
