@@ -20,7 +20,7 @@ private _username = _terminal get "AE3_terminalLoginUser";
 try
 {
 	private _result = [_computer getVariable ['AE3_filepointer', []], 
-				_computer getVariable ['AE3_filesystem', createHashMap], 
+				_computer getVariable ["AE3_filesystem", createHashMap], 
 				_options,
 				_username] call AE3_filesystem_fnc_chdir;
 

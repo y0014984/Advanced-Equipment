@@ -30,7 +30,7 @@ private _ip = _computer getVariable ["AE3_ipAddress", "127.0.0.1"];
 _consoleInput setVariable ["ip", _ip];
 */
 
-private _filesystem = _computer getVariable "AE3_filesystem";
+[_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
 
 private _pointer = [];
 if (isNil { _computer getVariable "AE3_filepointer" }) then 

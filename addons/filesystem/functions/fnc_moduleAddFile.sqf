@@ -35,7 +35,7 @@ if(_isFunction) then
 	waitUntil { !isNil "BIS_fnc_init" };
 
 	{
-		_filesystem = _x getVariable 'AE3_filesystem';
+		_filesystem = _x getVariable "AE3_filesystem";
 		[
 			[],
 			_filesystem,
@@ -45,6 +45,6 @@ if(_isFunction) then
 			_owner,
 			_permission
 		] call AE3_filesystem_fnc_createFile;
-		_x setVariable ['AE3_filesystem', _filesystem, true];
+		_x setVariable ["AE3_filesystem", _filesystem];
 	} forEach _syncedObjects;
 };
