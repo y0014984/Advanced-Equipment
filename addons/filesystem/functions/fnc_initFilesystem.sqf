@@ -34,4 +34,4 @@ private _filesystem = [createHashMapFromArray [
 ], 'root', [[true, true, true], [true, true, false]]];
 
 _entity setVariable ["AE3_filesystem", _filesystem];
-_entity setVariable ['AE3_filepointer', []];
+_entity setVariable ["AE3_filepointer", []];

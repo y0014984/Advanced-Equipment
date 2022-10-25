@@ -31,11 +31,12 @@ _consoleInput setVariable ["ip", _ip];
 */
 
 [_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
+[_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
 
 private _pointer = [];
 if (isNil { _computer getVariable "AE3_filepointer" }) then 
 {
-	_computer setVariable ["AE3_filepointer", _pointer, true];
+	_computer setVariable ["AE3_filepointer", _pointer, [clientOwner, 2]];
 };
 _pointer = _computer getVariable "AE3_filepointer";
 

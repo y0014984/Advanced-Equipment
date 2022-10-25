@@ -7,7 +7,7 @@ Name                   | Type        | Desciption                               
 computer_mutex         | object      | Current user (player)                                                         | public
 terminal               | hashmap     | Terminal settings (reference below)                                           | public
 filesystem             | hashmap     | [name, [content, owner, [[ownerX, ownerR, ownerW],[ otherX, otherR, otherW]]] | server
-filepointer            | array       | Pointer to the current directory                                              | public
+filepointer            | array       | Pointer to the current directory                                              | server
 Links                  | hashmap     | Storing available system commands (name -> [path, desc, man])                 | public
 Userlist               | hashmap     | Storing user -> pwd pairs                                                     | public                                    
 terminalKeyboardLayout | string      | Defining keyboard layout ("DE" or "US")                                       | public
