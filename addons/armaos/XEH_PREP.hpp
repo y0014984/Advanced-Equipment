@@ -3,7 +3,6 @@ PREP(module_addUser);
 
 /* Shell Functions */
 PREP(shell_process);
-PREP(shell_getAvailableCommands);
 PREP(shell_findLoginUser);
 PREP(shell_validatePassword);
 PREP(shell_getHomeDir);
@@ -26,24 +25,23 @@ PREP(link_add);
 PREP(link_init);
 
 /* OS Internal Functions */
+PREP(os_cat);
 PREP(os_cd);
 PREP(os_chat);
 PREP(os_clear);
 PREP(os_date);
+PREP(os_exit);
 PREP(os_help);
 PREP(os_history);
 PREP(os_ipconfig);
-PREP(os_logout);
 PREP(os_ls);
 PREP(os_man);
 PREP(os_mv);
 PREP(os_ping);
-PREP(os_print);
 PREP(os_rm);
-PREP(os_whoami);
 PREP(os_shutdown);
 PREP(os_standby);
-PREP(os_standby);
+PREP(os_whoami);
 
 /* Terminal Functions */
 PREP(terminal_init);

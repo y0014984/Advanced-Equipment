@@ -1,6 +1,6 @@
 /**
  * Moves/renames a given file on a given computer.
- * Returns informations about the success of the command.
+ * Returns information about the success of the command.
  *
  * Arguments:
  * 1: Computer <OBJECT>

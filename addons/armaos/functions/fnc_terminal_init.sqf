@@ -51,8 +51,8 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
-		["AE3_terminalMaxRows", 21],
-		["AE3_terminalMaxColumns", 85]
+		["AE3_terminalMaxRows", 27],
+		["AE3_terminalMaxColumns", 90]
 	];
 
 // Only nessecary to allow Event Handlers the access to _computer
@@ -72,7 +72,8 @@ private _localGameLanguage = language;
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
-private _terminalKeyboardLayout = _computer getVariable ["AE3_terminalKeyboardLayout", "US"];
+//AE3_KeyboardLayout is a CBA setting
+private _terminalKeyboardLayout = AE3_KeyboardLayout;
 [_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
 
 [_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;

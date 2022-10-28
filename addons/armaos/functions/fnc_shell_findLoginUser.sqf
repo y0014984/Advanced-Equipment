@@ -25,7 +25,15 @@ if (_username in _users) then
 }
 else 
 {
-	_result = [format ["   User: %1 not found", _username]];
+	if (_username isEqualTo "root") then
+	{
+		_result = ["   root login disabled"];
+	}
+	else
+	{
+		_result = [format ["   User: %1 not found", _username]];
+	};
+
 	_terminal deleteAt "AE3_terminalLoginUser";
 };
 

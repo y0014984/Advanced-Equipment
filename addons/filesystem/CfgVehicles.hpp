@@ -52,21 +52,24 @@ class CfgVehicles
 			{
 				property = "AE3_ModuleFilesystem_Path";
 				displayName = "Path";
-				tooltip = "Path and Name of Filesystem Object, for example /home/y0014984/Desktop/passwords.txt";
+				tooltip = "Path and Name of Filesystem Object, for example /docs/tactical-plan.txt";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """/home/y0014984/Desktop/passwords1.txt""";
+				defaultValue = """/tmp/new/example.txt""";
 			};
-			class AE3_ModuleFilesystem_FileContent: Edit
+			class AE3_ModuleFilesystem_FileContent
 			{
+				control = "EditCodeMulti5";
 				property = "AE3_ModuleFilesystem_FileContent";
 				displayName = "File content";
 				tooltip = "Content of Filesystem Object, like text note oder path to image";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = """Lorem ipsum""";
+				defaultValue = """Lorem ipsum dolor sit amet""";
+				validate = "none";
+				expression = "_this setVariable [""AE3_ModuleFilesystem_FileContent"", _value]";
 			};
 			class AE3_ModuleFilesystem_IsFunction: Checkbox
 			{
@@ -99,7 +102,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = false;
 			};
 			class AE3_ModuleFilesystem_OwnerRead: Checkbox
 			{
@@ -141,7 +144,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = false;
+				defaultValue = true;
 			};
 			class AE3_ModuleFilesystem_EveryoneWrite: Checkbox
 			{
@@ -151,7 +154,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = false;
+				defaultValue = true;
 			};
 
 			
@@ -161,7 +164,7 @@ class CfgVehicles
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
 		class ModuleDescription: ModuleDescription
 		{
-			description = "Adds a file to a object which supports filesystems."; // Short description, will be formatted as structured text
+			description = "This module adds a file to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object."; // Short description, will be formatted as structured text
 			sync[] = { "Land_Laptop_03_sand_F_AE3" }; // LocationArea_F // Array of synced entities (can contain base classes)
 
 			class Land_Laptop_03_sand_F_AE3

@@ -1,3 +1,5 @@
+//This function is not implemented yet and needs to be rewritten - y0014984 2022-10-21
+
 params ["_options", "_consoleInput"];
 
 _ip = _consoleInput getVariable "ip";

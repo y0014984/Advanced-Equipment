@@ -41,12 +41,12 @@ if (!(_commandElements isEqualTo [])) then
 
 _terminal set ["AE3_terminalScrollPosition", 0];
 
-[_computer, [""]] call AE3_armaos_fnc_terminal_addLines;
-
 private _terminalApplication = _terminal get "AE3_terminalApplication";
 
 if (_terminalApplication != "LOGIN") then 
 {
+	[_computer, [""]] call AE3_armaos_fnc_terminal_addLines;
+
 	[_computer, "SHELL"] call AE3_armaos_fnc_terminal_setInputMode;
 	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 };
