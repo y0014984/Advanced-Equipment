@@ -17,25 +17,24 @@ private _users = _computer getVariable ["AE3_Userlist", createHashMap];
 
 private _result = [];
 
-if (_username == "root") then
+if (_username in _users) then 
 {
-	_result = ["   root login disabled"];
-	_terminal deleteAt "AE3_terminalLoginUser";
+	_terminal set ["AE3_terminalLoginUser", _username];
+	_terminal set ["AE3_terminalApplication", "PASSWORD"];
+	_terminal set ["AE3_terminalPrompt", "PASSWORD>"];
 }
-else
+else 
 {
-	if (_username in _users) then 
+	if (_username isEqualTo "root") then
 	{
-		_terminal set ["AE3_terminalLoginUser", _username];
-		_terminal set ["AE3_terminalApplication", "PASSWORD"];
-		_terminal set ["AE3_terminalPrompt", "PASSWORD>"];
+		_result = ["   root login disabled"];
 	}
-
-	else 
+	else
 	{
 		_result = [format ["   User: %1 not found", _username]];
-		_terminal deleteAt "AE3_terminalLoginUser";
 	};
+
+	_terminal deleteAt "AE3_terminalLoginUser";
 };
 
 _result = _result + [""];
