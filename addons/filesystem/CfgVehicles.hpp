@@ -25,8 +25,8 @@ class CfgVehicles
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "AE3 Add File"; // Name displayed in the menu
-		//icon = "\myTag_addonName\data\iconNuke_ca.paa"; // Map icon. Delete this entry to use the default icon
-		category = "ObjectModifiers";
+		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa"; // Map icon. Delete this entry to use the default icon
+		category = "AE3_armaosModules";
 
 		// Name of function triggered once conditions are met
 		function = "AE3_filesystem_fnc_moduleAddFile";
