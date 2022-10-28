@@ -15,5 +15,5 @@
     {  
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
-    true // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
 ] call CBA_fnc_addSetting;
