@@ -3,14 +3,16 @@
  * Also returns information about the success of the command.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: Folder/Directory <[STRING]>
+ * 1: Computer <OBJECT>
+ * 2: Folder/Directory <[STRING]>
  *
  * Results:
  * None
  */
 
 params ["_computer", "_options"];
+
+if (count _options == 0) exitWith { [_computer, "'ls' has too few options"] call AE3_armaos_fnc_shell_stdout; };
 
 private _long = false;
 private _path = [];

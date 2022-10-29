@@ -1,6 +1,6 @@
 /**
  * Prints/outputs the content of a given file on a given computer.
- * Returns information about the success of the command and the content of the file.
+ * Returns information about the success of the command.
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -12,13 +12,14 @@
 
 params ["_computer", "_options"];
 
+if (count _options > 1) exitWith { [_computer, "'cat' has too many options"] call AE3_armaos_fnc_shell_stdout; };
+if (count _options < 1) exitWith { [_computer, "'cat' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
-
-if(count _options == 0) exitWith {["Too few options"];};
 
 private _result = [];
 private _path = _options select 0;

@@ -11,7 +11,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {[_computer, "Exit has no options"] call AE3_armaos_fnc_shell_stdout;};
+if (count _options >= 1) exitWith { [_computer, "'exit' has no options"] call AE3_armaos_fnc_shell_stdout; };
 
 private _terminal = _computer getVariable "AE3_terminal";
 

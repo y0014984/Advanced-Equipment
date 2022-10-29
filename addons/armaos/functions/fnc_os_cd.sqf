@@ -12,6 +12,8 @@
 
 params ["_computer", "_options"];
 
+if (count _options == 0) exitWith { [_computer, "'cd' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+
 private _options = _options joinString " ";
 
 private _terminal = _computer getVariable "AE3_terminal";

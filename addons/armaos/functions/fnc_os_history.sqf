@@ -1,6 +1,5 @@
 /**
  * Lists/outputs the last commands of a given terminal on a given computer.
- * Also returns information about the success of the command.
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -12,7 +11,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {[_computer, "History has no options"] call AE3_armaos_fnc_shell_stdout;};
+if (count _options >= 1) exitWith { [_computer, "'history' has no options"] call AE3_armaos_fnc_shell_stdout; };
 
 private _terminal = _computer getVariable "AE3_terminal";
 
