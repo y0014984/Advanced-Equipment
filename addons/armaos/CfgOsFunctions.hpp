@@ -137,4 +137,12 @@ class CfgOsFunctions
 		man = "Usage standby: 'standby' activates the computers standby mode.";
 		code = "_this call AE3_armaos_fnc_os_standby";
 	};
+
+	class echo : OsFunction
+	{
+		path = "/bin/echo";
+		description = "Print/output a line of text to stdout.";
+		man = "Usage echo: 'echo [text]' prints the given text to stdout.";
+		code = "_this call AE3_armaos_fnc_os_echo";
+	};
 };

@@ -30,6 +30,7 @@ PREP(os_cd);
 PREP(os_chat);
 PREP(os_clear);
 PREP(os_date);
+PREP(os_echo);
 PREP(os_exit);
 PREP(os_help);
 PREP(os_history);
