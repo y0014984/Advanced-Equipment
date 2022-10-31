@@ -33,4 +33,5 @@ if (!isNil "_to_textureSource") then {
 	[_to, _to_textureSource] call BIS_fnc_initVehicle;
 };
 
+_to call AE3_power_fnc_compileDevice;
 _to;
