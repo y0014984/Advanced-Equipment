@@ -12,7 +12,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options == 0) exitWith { [_computer, "'ls' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+if (count _options >= 3) exitWith { [_computer, "'ls' has too many options"] call AE3_armaos_fnc_shell_stdout; };
 
 private _long = false;
 private _path = [];
