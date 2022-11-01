@@ -18,7 +18,7 @@ if(isNil "_generator") exitWith {true};
 
 if((_generator getVariable 'AE3_power_powerState') != 1) exitWith {true};
 
-_entity setVariable ['AE3_power_powerDraw', _power, 2];
+_entity setVariable ['AE3_power_powerDraw', _power, [clientOwner, 2]];
 
 private _result = [_generator] call AE3_power_fnc_updatePower;
 
