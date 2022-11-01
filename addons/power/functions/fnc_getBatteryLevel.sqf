@@ -12,6 +12,8 @@
 
 params ["_battery"];
 
+[_battery, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar;
+
 private _batteryLevel = _battery getVariable "AE3_power_batteryLevel";
 private _batteryCapacity = _battery getVariable "AE3_power_batteryCapacity";
 private _batteryLevelPercent = (_batteryLevel / _batteryCapacity) * 100;
