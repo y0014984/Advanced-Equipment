@@ -75,7 +75,7 @@ private _localGameLanguage = language;
 private _terminalKeyboardLayout = _computer getVariable ["AE3_terminalKeyboardLayout", "US"];
 [_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
 
-private _handleUpdateBatteryStatus = [_computer, _consoleDialog] spawn AE3_armaos_fnc_terminal_updateBatteryStatus;
+private _handleUpdateBatteryStatus = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_updateBatteryStatus;
 _consoleDialog setVariable ["AE3_handleUpdateBatteryStatus", _handleUpdateBatteryStatus];
 
 [_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;

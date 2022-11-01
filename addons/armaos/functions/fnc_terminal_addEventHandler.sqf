@@ -211,7 +211,7 @@ private _result = _consoleDialog displayAddEventHandler
 		_computer setVariable ["AE3_computer_mutex", objNull, true];
 
 		_handleUpdateBatteryStatus = _display getVariable "AE3_handleUpdateBatteryStatus";
-		terminate _handleUpdateBatteryStatus;
+		[_handleUpdateBatteryStatus] call CBA_fnc_removePerFrameHandler;
 
 		// Updates terminal variable for all
 		_terminal = _computer getVariable "AE3_terminal";
