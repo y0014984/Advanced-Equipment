@@ -1,23 +1,35 @@
+/**
+  * Function is triggered by CBA setting changed value event handler. Starts/Stops the debug mode loop.
+  * 
+  * Arguments:
+  * 1: Debug Mode Status <BOOL>
+  * 
+  * Results:
+  * None
+  *
+  */
+
 params ["_debugMode"];
 
 if (_debugMode) then
 {
-    private _loopScriptHandle = [] spawn 
+
+
+    private _debugModeLoopHandle = 
+    [
         {
-            while { true } do
-            {
-                systemChat "AE3 DEBUG MODE ENABLED";
-
-                sleep 5;
-            };
-        };
-
-    localNamespace setVariable ["AE3_DebugModeLoopScriptHandle", _loopScriptHandle];
+            systemChat "AE3 DEBUG MODE ENABLED";
+        }, 
+        5, 
+        []
+    ] call CBA_fnc_addPerFrameHandler;
+    
+    localNamespace setVariable ["AE3_DebugModeLoopHandle", _debugModeLoopHandle];
 }
 else
 {
-    _loopScriptHandle = localNamespace getVariable "AE3_DebugModeLoopScriptHandle";
-    terminate _loopScriptHandle;
+    _debugModeLoopHandle = localNamespace getVariable "AE3_DebugModeLoopHandle";
+    [_debugModeLoopHandle] call CBA_fnc_removePerFrameHandler;
 
-    systemChat "AE3 DEBUG MODE DISABLED";
+    if (time > 3) then { systemChat "AE3 DEBUG MODE DISABLED"; };
 };
