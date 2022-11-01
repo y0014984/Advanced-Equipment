@@ -30,7 +30,10 @@ private _filesystem = [createHashMapFromArray [
 	["mnt", [createHashMap, 'root', [[true, true, true], [true, true, false]]]],
 
 	// temporaray files saved between reboots
-	["tmp", [createHashMap, 'root', [[true, true, true], [true, true, true]]]]
+	["tmp", [createHashMap, 'root', [[true, true, true], [true, true, true]]]],
+
+	// ???
+	["var", [createHashMap, 'root', [[true, true, true], [true, true, false]]]]
 ], 'root', [[true, true, true], [true, true, false]]];
 
 _entity setVariable ['AE3_filesystem', _filesystem, True];

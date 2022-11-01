@@ -9,6 +9,7 @@ PREP(getParentDir);
 PREP(lsdir);
 PREP(createDir);
 PREP(createFile);
+PREP(appendToFile);
 PREP(getFile);
 PREP(mvObj);
 PREP(delObj);

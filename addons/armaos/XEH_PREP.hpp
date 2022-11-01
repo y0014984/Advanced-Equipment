@@ -9,6 +9,7 @@ PREP(shell_getHomeDir);
 PREP(shell_executeFile);
 PREP(shell_stdout);
 PREP(shell_stdin);
+PREP(shell_writeToLogfile);
 
 
 /* Computer Functions */
