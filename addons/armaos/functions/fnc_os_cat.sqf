@@ -34,7 +34,9 @@ try
 		_result;
 	};
 
-	_result pushBack _content;
+	_content = _content splitString endl;
+	_result append _content;
+
 	[_computer, _result] call AE3_armaos_fnc_shell_stdout;
 
 }catch
