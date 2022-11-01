@@ -18,3 +18,5 @@ class CfgPatches
 #include "CfgFactionClasses.hpp"
 #include "CfgVehicles.hpp"
 #include "Cfg3DEN.hpp"
+
+#include "CfgFilesystemObjects.hpp"
