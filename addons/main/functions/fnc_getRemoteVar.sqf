@@ -12,6 +12,8 @@
 
 params['_namespace', '_variable', ['_from', 2]];
 
+if(!isMultiplayer) exitWith {};
+
 private _transfer = _variable + "_trans";
 _namespace setVariable [_transfer, false];
 
