@@ -22,7 +22,7 @@ if (!(_commandElements isEqualTo [])) then
 	if(!(_command isEqualTo "")) then 
 	{
 		_availableCommands = _computer getVariable ['AE3_Links', createHashMap];
-		_pointer = _computer getVariable ['AE3_filepointer', []];
+		_pointer = _computer getVariable ["AE3_filepointer", []];
 		if(_command in _availableCommands) then
 		{
 			_command = (_availableCommands get _command) select 0;

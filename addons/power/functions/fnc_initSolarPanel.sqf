@@ -25,7 +25,8 @@ if(!isDedicated) then
 if(isServer) then
 {
 	_entity setVariable ["AE3_power_powerMax", _powerMax, true];
-	_entity setVariable ["AE3_power_orientationFnc", _orientationFnc, true];
-	_entity setVariable ["AE3_power_height", _height, true];
 	_entity setVariable ['AE3_power_connectedDevices', [], true];
+	
+	_entity setVariable ["AE3_power_orientationFnc", _orientationFnc];
+	_entity setVariable ["AE3_power_height", _height];
 };
