@@ -10,7 +10,7 @@
  */
 params['_generator', '_generatorFnc', ['_internal', false]];
 
-_generator setVariable ['AE3_power_powerCapacity', 0, true];
+_generator setVariable ['AE3_power_powerCapacity', 0];
 
 private _generatorTurnoff = {
 	params ['_generator'];
@@ -39,7 +39,7 @@ private _handle = [
 
 		if(_newPower != (_generator getVariable ['AE3_power_powerCapacity', 0])) then
 		{
-			_generator setVariable ['AE3_power_powerCapacity', _newPower, true];
+			_generator setVariable ['AE3_power_powerCapacity', _newPower];
 			
 			if(_newPower < _generator getVariable ['AE3_power_powerReq', 0]) then
 			{
@@ -53,4 +53,4 @@ private _handle = [
 
 if(_handle < 0) exitWith {throw "GeneratorInitError";};
 
-_generator setVariable ['AE3_power_generatorHandle', _handle, true];
+_generator setVariable ['AE3_power_generatorHandle', _handle];

@@ -7,8 +7,8 @@
  * 2: Raw path to target directory <STRING>
  * 3: User <STRING> (Optional)
  * 4: Creates a directory if it is not found <BOOL> (Optional)
- * 5: Onwer of the created directory <String> (Optional)
- * 6: Permission of the created directory [[<BOOL>]] (Optional)
+ * 5: Owner of the created directory <String> (Optional)
+ * 6: Permissions of the created directory [[<BOOL>]] (Optional)
  *
  * Results:
  * 0: Absolute path to target dir <[STRING]>

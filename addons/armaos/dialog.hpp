@@ -24,7 +24,7 @@ class AE3_ArmaOS_Main_Dialog
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 40 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.25};
+			colorBackground[] = {0,0.5,0,0.5};
 			font = "EtelkaMonospaceProBold";
 		};
 		class RscPicture_1050: RscPictureKeepAspect
@@ -45,7 +45,7 @@ class AE3_ArmaOS_Main_Dialog
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
 			w = 40 * GUI_GRID_W;
 			h = 21 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.35};
+			colorBackground[] = {0,0,0,0.5};
 			
 			style = ST_MULTI;
 			lineSpacing = 1;
@@ -59,7 +59,7 @@ class AE3_ArmaOS_Main_Dialog
 			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 8 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.25};
+			colorBackground[] = {0,0.5,0,0.5};
 			
 			action = "closeDialog 1;";
 			font = "EtelkaMonospaceProBold";
@@ -72,7 +72,7 @@ class AE3_ArmaOS_Main_Dialog
 			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 8 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.25};
+			colorBackground[] = {0,0.5,0,0.5};
 			
 			font = "EtelkaMonospaceProBold";
 		};
@@ -96,7 +96,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			y = 10 * GUI_GRID_H + GUI_GRID_Y;
 			w = 20 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.25};
+			colorBackground[] = {0,0.5,0,0.5};
 			font = "EtelkaMonospaceProBold";
 		};
 		class RscText_1100: RscText
@@ -108,7 +108,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			y = 12 * GUI_GRID_H + GUI_GRID_Y;
 			w = 20 * GUI_GRID_W;
 			h = 3 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.25};
+			colorBackground[] = {0,0,0,0.5};
 			
 			style = ST_MULTI;
 			lineSpacing = 1;
@@ -122,7 +122,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			y = 15.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 8 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.25};
+			colorBackground[] = {0,0.5,0,0.5};
 			
 			action = "closeDialog 1;";
 			font = "EtelkaMonospaceProBold";

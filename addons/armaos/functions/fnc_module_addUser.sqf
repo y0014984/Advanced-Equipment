@@ -16,7 +16,7 @@ if(!isServer) exitWith {};
 	//--- Add Users to Computer
 	{
 		_userlist = _x getVariable ["AE3_Userlist", createHashMap];
-		_filesystem = _x getVariable 'AE3_filesystem';
+		_filesystem = _x getVariable "AE3_filesystem";
 
 		_userlist set [_user, _pwd];
 
@@ -29,7 +29,7 @@ if(!isServer) exitWith {};
 			} catch {};
 		};
 
-		_x setVariable ['AE3_filesystem', _filesystem, true];
+		_x setVariable ["AE3_filesystem", _filesystem];
 		_x setVariable ["AE3_Userlist", _userlist, true];
 	} foreach _units;
 };

@@ -1,6 +1,6 @@
 /**
  * Prints/outputs the content of a given file on a given computer.
- * Returns informations about the success of the command and the content of the file.
+ * Returns information about the success of the command and the content of the file.
  *
  * Arguments:
  * 1: Computer <OBJECT>

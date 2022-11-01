@@ -215,9 +215,9 @@ private _result = _consoleDialog displayAddEventHandler
 
 		// Updates terminal variable for all
 		_terminal = _computer getVariable "AE3_terminal";
-		_computer setVariable ["AE3_terminal", _terminal, true];
+		_computer setVariable ["AE3_terminal", _terminal, 2];
 		_filepointer = _computer getVariable "AE3_filepointer";
-		_computer setVariable ["AE3_filepointer", _filepointer, true];
+		_computer setVariable ["AE3_filepointer", _filepointer, 2];
 
 		[_computer, true] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
 	}

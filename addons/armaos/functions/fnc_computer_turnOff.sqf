@@ -42,7 +42,7 @@ params ["_computer", ["_silent", false]];
 
 	private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
 
-	_computer setVariable ["AE3_terminal", nil, true];
+	_computer setVariable ["AE3_terminal", nil, [clientOwner, 2]];
 };
 
 true;

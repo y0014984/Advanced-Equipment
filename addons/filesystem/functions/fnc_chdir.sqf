@@ -82,7 +82,17 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 		{
 			if(!_create) throw (format ["'%1' not found in '%2'!", _x, "/" + (_pointer joinString "/")]); 
 
-			(_current select 0) set [_x, [createHashMap, _owner, _permissions]];
+			//Set R-Permissions as X-Permissions, so a newly created folder with a R-Only-File could be entered
+			private _rOwner = (_permissions select 0) select 1;
+			private _rOthers = (_permissions select 1) select 1;
+			private _ownerPerms = +(_permissions select 0);
+			private _othersPerms = +(_permissions select 1);
+			_ownerPerms set [0, _rOwner];
+			_othersPerms set [0, _rOthers];
+			private _modifiedPerms = [_ownerPerms, _othersPerms];
+			
+			(_current select 0) set [_x, [createHashMap, _owner, _modifiedPerms]];
+
 		};
 
 		if(typeName (((_current select 0) get _x) select 0) != "HASHMAP") throw (format ["'%1' is not a directory!", _x]);

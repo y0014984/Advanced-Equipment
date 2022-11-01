@@ -1,6 +1,6 @@
 /**
  * Lists/outputs the containing files of a given folder/directory on a given computer.
- * Also returns informations about the success of the command.
+ * Also returns information about the success of the command.
  *
  * Arguments:
  * 0: Computer <OBJECT>
@@ -48,7 +48,6 @@ try
 	{
 		_dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
 		_output append _dir;
-		_output pushBack "";
 	}forEach _path;
 }catch
 {
