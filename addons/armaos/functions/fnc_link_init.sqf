@@ -29,4 +29,4 @@ private _functions = ("inheritsFrom _x == (configFile >> 'OsFunction')" configCl
 
 } forEach _functions;
 
-_computer setVariable ['AE3_filesystem', _filesystem, True];
+_computer setVariable ["AE3_filesystem", _filesystem];

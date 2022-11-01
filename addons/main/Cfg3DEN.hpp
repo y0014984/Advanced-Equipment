@@ -18,7 +18,7 @@ class Cfg3DEN
 					{
 						//--- Mandatory properties
 						displayName = "Power Level"; // Name assigned to UI control class Title
-						tooltip = "1 = full and 0 = empty"; // Tooltip assigned to UI control class Title
+						tooltip = "1 = full | 0.5 = 50% | 0 = empty"; // Tooltip assigned to UI control class Title
 						property = "AE3_ComputerPowerLevelPercent"; // Unique config property name saved in SQM
 						control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 
@@ -49,7 +49,7 @@ class Cfg3DEN
 					{
 						//--- Mandatory properties
 						displayName = "Fuel Level"; // Name assigned to UI control class Title
-						tooltip = "1 = full and 0 = empty"; // Tooltip assigned to UI control class Title
+						tooltip = "1 = full | 0.5 = 50% | 0 = empty"; // Tooltip assigned to UI control class Title
 						property = "AE3_GeneratorFuelLevelPercent"; // Unique config property name saved in SQM
 						control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 

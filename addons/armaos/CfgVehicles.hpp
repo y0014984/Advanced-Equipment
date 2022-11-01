@@ -173,7 +173,7 @@ class CfgVehicles
 					{
 						displayName = "Use";
 						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] call AE3_armaos_fnc_terminal_init;";
+						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
 						//icon = "\z\dance.paa";
 						exceptions[] = {};
 						//insertChildren
@@ -211,8 +211,8 @@ class CfgVehicles
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
 		displayName = "AE3 Add User"; // Name displayed in the menu
-		//icon = "\myTag_addonName\data\iconNuke_ca.paa"; // Map icon. Delete this entry to use the default icon
-		category = "ObjectModifiers";
+		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icons_addUser.paa"; // Map icon. Delete this entry to use the default icon
+		category = "AE3_armaosModules";
 
 		// Name of function triggered once conditions are met
 		function = "AE3_armaos_fnc_module_addUser";
@@ -237,7 +237,7 @@ class CfgVehicles
 			class AE3_ModuleUserlist_User: Edit
 			{
 				property = "AE3_ModuleUserlist_User1";
-				displayName = "User";
+				displayName = "Username";
 				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
@@ -260,7 +260,7 @@ class CfgVehicles
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
 		class ModuleDescription: ModuleDescription
 		{
-			description = "This Module defines Users for a synced Laptop. You can sync multiple Modules with one Laptop."; // Short description, will be formatted as structured text
+			description = "This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer."; // Short description, will be formatted as structured text
 			sync[] = { "Land_Laptop_03_sand_F_AE3" }; // LocationArea_F // Array of synced entities (can contain base classes)
 
 			class Land_Laptop_03_sand_F_AE3

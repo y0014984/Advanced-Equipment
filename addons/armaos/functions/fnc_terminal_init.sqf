@@ -30,12 +30,13 @@ private _ip = _computer getVariable ["AE3_ipAddress", "127.0.0.1"];
 _consoleInput setVariable ["ip", _ip];
 */
 
-private _filesystem = _computer getVariable "AE3_filesystem";
+[_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
+[_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
 
 private _pointer = [];
 if (isNil { _computer getVariable "AE3_filepointer" }) then 
 {
-	_computer setVariable ["AE3_filepointer", _pointer, true];
+	_computer setVariable ["AE3_filepointer", _pointer, [clientOwner, 2]];
 };
 _pointer = _computer getVariable "AE3_filepointer";
 
@@ -51,17 +52,18 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
-		["AE3_terminalMaxRows", 21],
-		["AE3_terminalMaxColumns", 85]
+		["AE3_terminalMaxRows", 27],
+		["AE3_terminalMaxColumns", 90]
 	];
 
 // Only nessecary to allow Event Handlers the access to _computer
 _consoleOutput setVariable ["AE3_computer", _computer];
 _consoleDialog setVariable ["AE3_computer", _computer];
 
+[_computer, "AE3_terminal"] call AE3_main_fnc_getRemoteVar;
 if (isNil { _computer getVariable "AE3_terminal" }) then 
 {
-	_computer setVariable ["AE3_terminal", _terminal, true];
+	_computer setVariable ["AE3_terminal", _terminal, [clientOwner, 2]];
 };
 _terminal = _computer getVariable "AE3_terminal";
 
@@ -72,7 +74,8 @@ private _localGameLanguage = language;
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
-private _terminalKeyboardLayout = _computer getVariable ["AE3_terminalKeyboardLayout", "US"];
+//AE3_KeyboardLayout is a CBA setting
+private _terminalKeyboardLayout = AE3_KeyboardLayout;
 [_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
 
 [_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
@@ -96,6 +99,6 @@ if (_terminalBuffer isEqualTo []) then
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
-_computer setVariable ["AE3_terminal", _terminal, true];
+_computer setVariable ["AE3_terminal", _terminal];
 
 [_computer, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];

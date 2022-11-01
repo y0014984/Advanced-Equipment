@@ -8,7 +8,7 @@ private _path = _module getVariable ['AE3_ModuleFilesystem_Path', ''];
 private _content = _module getVariable ['AE3_ModuleFilesystem_FileContent', ''];
 private _isFunction = _module getVariable ['AE3_ModuleFilesystem_IsFunction', ''];
 private _owner = _module getVariable ['AE3_ModuleFilesystem_FileOwner', ''];
-private _permission = [
+private _permissions = [
 	[
 		_module getVariable 'AE3_ModuleFilesystem_OwnerExecute',
 		_module getVariable 'AE3_ModuleFilesystem_OwnerRead',
@@ -28,14 +28,14 @@ if(_isFunction) then
 	_content = compile _content;
 };
 
-[_syncedObjects, _path, _content, _owner, _permission] spawn 
+[_syncedObjects, _path, _content, _owner, _permissions] spawn 
 {
-	params ['_syncedObjects', '_path', '_content', '_owner', '_permission'];
+	params ['_syncedObjects', '_path', '_content', '_owner', '_permissions'];
 
 	waitUntil { !isNil "BIS_fnc_init" };
 
 	{
-		_filesystem = _x getVariable 'AE3_filesystem';
+		_filesystem = _x getVariable "AE3_filesystem";
 		[
 			[],
 			_filesystem,
@@ -43,8 +43,8 @@ if(_isFunction) then
 			_content,
 			'root',
 			_owner,
-			_permission
+			_permissions
 		] call AE3_filesystem_fnc_createFile;
-		_x setVariable ['AE3_filesystem', _filesystem, true];
+		_x setVariable ["AE3_filesystem", _filesystem];
 	} forEach _syncedObjects;
 };

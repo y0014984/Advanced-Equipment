@@ -12,7 +12,7 @@ _result =
 	[
 		"armaOS Terminal v0.1 - © 2022 y0014984|Wasserstoff",
 		"Get a list of available commands by typing 'help'",
-		"Get detailed command informations by typing 'man [command]'",
+		"Get detailed command information by typing 'man [command]'",
 		"",
 		""
 	];

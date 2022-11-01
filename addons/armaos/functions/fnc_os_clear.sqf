@@ -1,13 +1,13 @@
 /**
  * Clears the output buffer of a given terminal on a given computer.
- * Also returns informations about the success of the command.
+ * Also returns information about the success of the command.
  *
  * Arguments:
  * 1: Computer <OBJECT>
  * 2: Options <[STRING]>
  *
  * Results:
- * 1: Informations <[STRING]>
+ * 1: Information <[STRING]>
  */
 
 params ["_computer", "_options"];

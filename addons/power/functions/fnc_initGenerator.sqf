@@ -32,7 +32,6 @@ if(isServer) then
 {
 	_entity setFuel (_fuelLevel);
 	_entity setVariable ["AE3_power_fuelCapacity", _fuelCapacity, true];
-	_entity setVariable ["AE3_power_fuelLevel", _fuelCapacity * _fuelLevel, true];
 	_entity setVariable ["AE3_power_fuelConsumption", _fuelConsumption, true];
 	_entity setVariable ["AE3_power_powerMax", _power, true];
 	_entity setVariable ['AE3_power_connectedDevices', [], true];
