@@ -26,4 +26,53 @@ class AE3_FilesystemObjects
         owner = "root";
         permissions[] = {{1, 1, 1}, {0, 1, 0}};
     };
+    class Tmp : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/tmp";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 1}};
+    };
+    class Mnt : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/mnt";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 0}};
+    };
+    class Var : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/var";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 0}};
+    };
+    class Home : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/home";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 0}};
+    };
+    class Sbin : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/sbin";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 0}};
+    };
+    class Bin : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/bin";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 0}};
+    };
+    class Root : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/root";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {0, 0, 0}};
+    };
 };
