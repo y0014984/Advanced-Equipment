@@ -153,4 +153,11 @@ class CfgOsFunctions
 		man = "Usage echo: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.";
 		code = "_this call AE3_armaos_fnc_os_crypto";
 	};
+	class crack : OsFunction
+	{
+		path = "/bin/crack";
+		description = "Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.";
+		man = "Usage echo: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.";
+		code = "_this call AE3_armaos_fnc_os_crack";
+	};
 };

@@ -45,6 +45,7 @@ PREP(os_shutdown);
 PREP(os_standby);
 PREP(os_whoami);
 PREP(os_crypto);
+PREP(os_crack);
 
 /* Encryption Functions */
 PREP(encryption_caesar);
