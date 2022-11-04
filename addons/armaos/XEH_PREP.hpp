@@ -44,6 +44,10 @@ PREP(os_rm);
 PREP(os_shutdown);
 PREP(os_standby);
 PREP(os_whoami);
+PREP(os_crypto);
+
+/* Encryption Functions */
+PREP(encryption_caesar);
 
 /* Terminal Functions */
 PREP(terminal_init);

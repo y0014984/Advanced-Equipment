@@ -145,4 +145,12 @@ class CfgOsFunctions
 		man = "Usage echo: 'echo [text]' prints the given text to stdout.";
 		code = "_this call AE3_armaos_fnc_os_echo";
 	};
+
+	class crypto : OsFunction
+	{
+		path = "/bin/crypto";
+		description = "Encrypts/decrypts text with a given algorythm and key.";
+		man = "Usage echo: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.";
+		code = "_this call AE3_armaos_fnc_os_crypto";
+	};
 };
