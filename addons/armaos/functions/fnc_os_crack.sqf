@@ -36,7 +36,7 @@ if (_mode isEqualTo "bruteforce") then
 {
     if (_algorythm == "caesar") then
     {
-        private _allowedAlphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private _allowedAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         for "_i" from 1 to (count _allowedAlphabet) do
         {

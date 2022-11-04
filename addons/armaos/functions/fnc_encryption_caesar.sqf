@@ -17,18 +17,19 @@
 params ["_key", "_mode", "_message"];
 
 // normalize Message to allowed characters
-private _allowedAlphabet = " ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+private _allowedAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 26 Characters
 
 // convert all characters to upper case
 _message = toUpper _message;
 
 // filter message with allowed characters
-_message = [_message, _allowedAlphabet] call BIS_fnc_filterString;
+_message = [_message, _allowedAlphabet + " "] call BIS_fnc_filterString;
 
 // normalize key to be lower then alphabet count
-if (_key >= (count _allowedAlphabet)) then { _key = _key % (count _allowedAlphabet)}; 
+if (_key >= (count _allowedAlphabet)) then { _key = _key % (count _allowedAlphabet)}; // 26 == 0
 
 // encrypt/decrypt message
+private _resultingChar = "";
 private _resultingMessage = [];
 
 _allowedAlphabet = _allowedAlphabet splitString "";
@@ -45,7 +46,7 @@ _message = _message splitString "";
             // check if index out of bounds and encrypt
             if ((_encryptionIndex + _key) > ((count _allowedAlphabet) -1)) then
             {
-                _encryptionIndex = (_encryptionIndex + _key) - ((count _allowedAlphabet) -1);
+                _encryptionIndex = (_encryptionIndex + _key) - (count _allowedAlphabet);
             }
             else
             {
@@ -57,19 +58,22 @@ _message = _message splitString "";
             // check if index out of bounds and encrypt
             if ((_encryptionIndex - _key) < 0) then
             {
-                _encryptionIndex = ((count _allowedAlphabet) -1) - ((_encryptionIndex - _key) * -1);
+                _encryptionIndex = (count _allowedAlphabet) - ((_encryptionIndex - _key) * -1);
             }
             else
             {
                 _encryptionIndex = _encryptionIndex - _key;
             };
         };
+
+        _resultingChar = _allowedAlphabet select _encryptionIndex;
+    }
+    else
+    {
+        _resultingChar = " ";
     };
 
-    hint format ["algorythm: %1 key: %2 mode: %3 message: %4 index: %5", _algorythm, _key, _mode, _message, _encryptionIndex];
-
-	private _encodedChar = _allowedAlphabet select _encryptionIndex;
-	_resultingMessage append [_encodedChar];
+    _resultingMessage append [_resultingChar];
 } forEach _message;
 
 _resultingMessage = _resultingMessage joinString "";
