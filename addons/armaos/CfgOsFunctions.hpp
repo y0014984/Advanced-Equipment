@@ -160,4 +160,11 @@ class CfgOsFunctions
 		man = "Usage echo: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.";
 		code = "_this call AE3_armaos_fnc_os_crack";
 	};
+	class find : OsFunction
+	{
+		path = "/bin/find";
+		description = "Searches in the current directory for a file with the given name.";
+		man = "Usage echo: 'find [filename]' prints the results to stdout.";
+		code = "_this call AE3_armaos_fnc_os_find";
+	};
 };
