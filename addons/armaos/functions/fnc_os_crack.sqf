@@ -32,18 +32,59 @@ _message = _message joinString " ";
 
 private _result = [];
 
+private _allowedAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+// convert all characters to upper case
+_message = toUpper _message;
+
+// filter message with allowed characters
+_message = [_message, _allowedAlphabet + " "] call BIS_fnc_filterString;
+
 if (_mode isEqualTo "bruteforce") then
 {
     if (_algorythm == "caesar") then
     {
-        private _allowedAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
         for "_i" from 1 to (count _allowedAlphabet) do
         {
-            private _test = format ["Test %1: %2", _i, [_i, "decrypt", _message] call AE3_armaos_fnc_encryption_caesar];
+            private _test = format ["Test %1: %2", _i, [_i, "decrypt", _message] call AE3_armaos_fnc_indexOfEncryption_caesar];
             _result pushBack _test;
         };
     };
+};
+
+if (_mode isEqualTo "statistics") then
+{
+    private _statistics = createHashMap;
+
+    {
+        if (!(_x isEqualTo " ")) then
+        {
+            private _count = 0;
+            if (_x in _statistics) then { _count = _statistics get _x; };
+            _count = _count + 1;
+
+            _statistics set [_x, _count];
+        };
+    } forEach (_message splitString "");
+
+    private _foundChars = keys _statistics;
+
+    _foundChars sort true;
+
+    {
+        private _indexOfE = _allowedAlphabet find "E";
+        private _keyIfThisIsAnE = _allowedAlphabet find _x;
+        if (_keyIfThisIsAnE >= _indexOfE) then
+        {
+            _keyIfThisIsAnE = _keyIfThisIsAnE - _indexOfE;
+        }
+        else
+        {
+            _keyIfThisIsAnE = (count _allowedAlphabet - _indexOfE) + _keyIfThisIsAnE;
+        };
+        private _found = format ["Character '%1' found %2 times (Possible key, if this is an 'E': %3)", _x, _statistics get _x, _keyIfThisIsAnE];     
+        _result pushBack _found;
+    } forEach _foundChars;
 };
 
 [_computer, _result] call AE3_armaos_fnc_shell_stdout;
