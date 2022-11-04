@@ -16,7 +16,7 @@ params ["_computer", "_options"];
 if (count _options < 3) exitWith { [_computer, "'crypto' has too few options"] call AE3_armaos_fnc_shell_stdout; };
 
 // parse options --> perhaps we should develop a general options parsing algorythm
-private _algorythm = "Ceasar";
+private _algorythm = "ceasar";
 private _key = "1337";
 private _mode = "";
 private _message = "";
