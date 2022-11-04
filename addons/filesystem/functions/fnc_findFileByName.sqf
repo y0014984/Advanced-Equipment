@@ -13,19 +13,38 @@
 
 params ["_pointer", "_filesystem", "_user", "_filename"];
 
+private _current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+
+_filesystem = _current;
+
 private _results = [];
 
-_filesystem = _filesystem select 0;
+private _content = _filesystem select 0; // HASHMAP or STRING or SCRIPT
+private _owner = _filesystem select 1; // STRING
+private _permissions = _filesystem select 2; // ARRAY
 
+if ((typeName _content) isEqualTo "HASHMAP") then
 {
-	//Hashmap key = _x ; value = _y
-
-	if (_filename in _x) then { _results pushback _x; };
-
-	if (typeName _y isEqualTo "HASHMAP") then
 	{
-		//_results pushBack [_pointer, _y, _user, _filename] call AE3_filesystem_fnc_findFileByName;
-	};
-} forEach _filesystem;
+		//Hashmap key = _x ; value = _y
+
+		private _tmpPointer = +_pointer;
+		_tmpPointer pushBack _x;
+		private _path = "/" + (_tmpPointer joinString "/");
+		if (_filename isEqualTo _x) then { _results pushBack _path; };
+
+		if ((typeName _content) isEqualTo "HASHMAP") then
+		{
+			private _subResults = [_tmpPointer, _filesystem, _user, _filename] call AE3_filesystem_fnc_findFileByName;
+			_results append _subResults;
+		};
+	} forEach _content;
+};
 
 _results;
+
+// TODOS:
+// - check permissions
+// - allow searching for substrings
+// - allow searching for file contents?
+// - change name to findFilesystemObjectByName
