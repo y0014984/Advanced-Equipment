@@ -10,6 +10,7 @@ PREP(lsdir);
 PREP(createDir);
 PREP(createFile);
 PREP(appendToFile);
+PREP(writeToFile);
 PREP(getFile);
 PREP(mvObj);
 PREP(delObj);
