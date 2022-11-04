@@ -10,22 +10,6 @@ class AE3_FilesystemObject
 
 class AE3_FilesystemObjects
 {
-    class Syslog : AE3_FilesystemObject
-    {
-        type = "File";
-        path = "/var/log/syslog";
-        content = "";
-        owner = "root";
-        permissions[] = {{1, 1, 1}, {0, 1, 0}};
-    };
-    class Authlog : AE3_FilesystemObject
-    {
-        type = "File";
-        path = "/var/log/auth.log";
-        content = "";
-        owner = "root";
-        permissions[] = {{1, 1, 1}, {0, 1, 0}};
-    };
     class Tmp : AE3_FilesystemObject
     {
         type = "Folder";
@@ -47,6 +31,22 @@ class AE3_FilesystemObjects
         owner = "root";
         permissions[] = {{1, 1, 1}, {1, 1, 0}};
     };
+        class Syslog : AE3_FilesystemObject
+        {
+            type = "File";
+            path = "/var/log/syslog";
+            content = "";
+            owner = "root";
+            permissions[] = {{1, 1, 1}, {0, 1, 0}};
+        };
+        class Authlog : AE3_FilesystemObject
+        {
+            type = "File";
+            path = "/var/log/auth.log";
+            content = "";
+            owner = "root";
+            permissions[] = {{1, 1, 1}, {0, 1, 0}};
+        };
     class Home : AE3_FilesystemObject
     {
         type = "Folder";
@@ -75,4 +75,18 @@ class AE3_FilesystemObjects
         owner = "root";
         permissions[] = {{1, 1, 1}, {0, 0, 0}};
     };
+    class Sys : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/sys";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 0}};
+    };
+        class BatteryCapacity : AE3_FilesystemObject
+        {
+            type = "File";
+            path = "/sys/battery/capacity";
+            owner = "root";
+            permissions[] = {{1, 1, 1}, {0, 1, 0}};
+        };
 };
