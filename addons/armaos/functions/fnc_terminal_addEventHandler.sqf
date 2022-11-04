@@ -173,11 +173,11 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		{
 			if (_scroll >= 0) then 
 			{
-				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - 1];
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + 1];
 			}
 			else
 			{
-				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + 1];
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - 1];
 			};
 		};
 
