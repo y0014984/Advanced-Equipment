@@ -61,7 +61,5 @@ private _filesystemObjects = ("inheritsFrom _x == (configFile >> 'AE3_Filesystem
 	}catch {};
 } forEach _filesystemObjects;
 
-/* ================================================================================ */
-
-_entity setVariable ['AE3_filesystem', _filesystem, true];
-_entity setVariable ['AE3_filepointer', [], true];
+_entity setVariable ["AE3_filesystem", _filesystem];
+_entity setVariable ["AE3_filepointer", []];

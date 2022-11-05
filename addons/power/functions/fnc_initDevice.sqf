@@ -46,7 +46,7 @@ private _turnOffWrapper = {
 private _standbyWrapper = {
 	params['_target', ['_args', []]];
 
-	_standbyFnc =  _target getVariable "AE3_power_fnc_standbyOff";
+	_standbyFnc =  _target getVariable "AE3_power_fnc_standby";
 	_result = [_target] + _args call _standbyFnc;
 	if(isNil '_result') then {_result = false};
 
@@ -133,15 +133,16 @@ if(!isDedicated) then
 if(isServer) then
 {
 	_entity setVariable ["AE3_power_powerState", _powerState, true];
-	_entity setVariable ["AE3_power_fnc_turnOn", _turnOnFnc, true];
-	_entity setVariable ["AE3_power_fnc_turnOnCondition", _turnOnCondition, true];
-	_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper, true];
-	_entity setVariable ["AE3_power_fnc_turnOff", _turnOffFnc, true];
-	_entity setVariable ["AE3_power_fnc_turnOffCondition", _turnOffCondition, true];
-	_entity setVariable ["AE3_power_fnc_turnOffWrapper", _turnOffWrapper, true];
-	_entity setVariable ["AE3_power_fnc_standby", _standbyFnc, true];
-	_entity setVariable ["AE3_power_fnc_standbyCondition", _standbyCondition, true];
-	_entity setVariable ["AE3_power_fnc_standbyWrapper", _standbyWrapper, true];
 };
+
+_entity setVariable ["AE3_power_fnc_turnOn", _turnOnFnc];
+_entity setVariable ["AE3_power_fnc_turnOnCondition", _turnOnCondition];
+_entity setVariable ["AE3_power_fnc_turnOnWrapper", _turnOnWrapper];
+_entity setVariable ["AE3_power_fnc_turnOff", _turnOffFnc];
+_entity setVariable ["AE3_power_fnc_turnOffCondition", _turnOffCondition];
+_entity setVariable ["AE3_power_fnc_turnOffWrapper", _turnOffWrapper];
+_entity setVariable ["AE3_power_fnc_standby", _standbyFnc];
+_entity setVariable ["AE3_power_fnc_standbyCondition", _standbyCondition];
+_entity setVariable ["AE3_power_fnc_standbyWrapper", _standbyWrapper];
 
 [_entity] call _initFnc;

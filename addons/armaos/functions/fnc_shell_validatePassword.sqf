@@ -29,7 +29,7 @@ if((_users get _username) isEqualTo _password) then
 	_terminal set ["AE3_terminalApplication", "SHELL"];
 	_terminal set ["AE3_terminalInputBuffer", nil];
 
-	_computer setVariable ['AE3_filepointer', [_username] call AE3_armaos_fnc_shell_getHomeDir];
+	_computer setVariable ["AE3_filepointer", [_username] call AE3_armaos_fnc_shell_getHomeDir];
 	
 	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 }else
