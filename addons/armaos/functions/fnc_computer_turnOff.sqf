@@ -29,6 +29,8 @@ params ["_computer", ["_silent", false]];
 		_turnOffTime = 10;
 	};
 
+	if (AE3_DebugMode) then { _turnOffTime = 3; };
+
 	for "_i" from 3 to 0 step -1 do
 	{
 		_computer setObjectTextureGlobal [1, format ["\z\ae3\addons\armaos\textures\Laptop_4_to_3_Shutting_Down_%1.paa", _i]];
