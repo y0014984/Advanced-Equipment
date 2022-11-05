@@ -20,15 +20,34 @@ private _users = _computer getVariable "AE3_Userlist";
 
 private _result = [];
 
-if((_users get _username) isEqualTo _password) then
+private _userPasswordMatch = false;
+
+if (AE3_DebugMode) then
+{
+	_userPasswordMatch = true;
+}
+else
+{
+	_userPasswordMatch = ((_users get _username) isEqualTo _password);
+};
+
+if (_userPasswordMatch) then
 {
 	_terminal set ["AE3_terminalApplication", "SHELL"];
 	_terminal set ["AE3_terminalInputBuffer", nil];
 
-	_computer setVariable ["AE3_filepointer", [_username] call AE3_armaos_fnc_shell_getHomeDir];
+	if (AE3_DebugMode) then
+	{
+		_computer setVariable ["AE3_filepointer", []];
+	}
+	else
+	{
+		_computer setVariable ["AE3_filepointer", [_username] call AE3_armaos_fnc_shell_getHomeDir];
+	};
 	
 	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
-}else
+}
+else
 {
 	_result = [format ["   User: %1 failed login attempt", _username]];
 	_terminal deleteAt "AE3_terminalLoginUser";
