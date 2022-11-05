@@ -34,7 +34,7 @@ class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
 ### Base (AE3_Device)
 Base device class.
 <br>
-| Config | Type | Description |
+| Config | Type | Description | 
 | ------ | ------ | ------ |
 | displayName | String | Device name (Optional) |
 | defaultPowerState | Number | Powerstate (0 = off, 1 = on, 2= standby)(Optional) |
@@ -79,3 +79,74 @@ Adds generator functionality to the device
 | power | Number | Power output in [kW] |
 | fuelLevel | Number | Default fuel level (Optional) |
 
+## Variables
+
+Name                 | Type        | Desciption                                                 | Location
+----                 | -----       | -----------                                                | -------
+mutex                | bool        | if the device is currently changes its power state         | public
+powerState           | int         | `1` if turned on, `0` if turned off `2` if on standby      | public
+fnc_turnOnWrapper    | code        | function, which defines the turn on behavior               | everwhere
+fnc_turnOnCondition  | code        | function, which defines if the turnOn action is available  | everwhere
+fnc_turnOnFunction   | code        | turnOn function for the device                             | everwhere
+fnc_turnOffWrapper   | code        | function, which defines the turn off behavior              | everwhere
+fnc_turnOffCondition | code        | function, which defines if the turnOff action is available | everwhere
+fnc_turnOffFunction  | code        | turnOff function for the device                            | everwhere
+fnc_standbyWrapper   | code        | function, which defines the standby behavior               | everwhere
+fnc_standbyCondition | code        | function, which defines if the standby action is available | everwhere
+fnc_standbyFunction  | code        | standby function for the device                            | everwhere
+
+### Consumer
+
+Name               | Type        | Desciption                                                 | Location
+----               | -----       | -----------                                                | -------
+powerConsumption   | number      | Power consumption in [kW] when on                          | public
+standbyConsumption | number      | Power consumption in [kW] when in standby                  | public
+powerDraw          | number      | Current power consumption in [kW]                          | server
+
+### Power Interface
+Name               | Type        | Desciption                                                 | Location
+----               | -----       | -----------                                                | -------
+powerCableDevice   | object      | Power suppling device                                      | public
+
+### Generator
+
+Name               | Type        | Desciption                                                 | Location
+----               | -----       | -----------                                                | -------
+powerMax           | number      | Maximum power ouput in [kW]                                | public
+powerCapacity      | number      | Current power capacity in [kW]                             | server
+powerReq           | number      | Current power draw from connected devices in [kW]          | server
+connectedDevices   | [objects]   | Connected devices to the generator                         | public
+generatorHandle    | int         | Handler for the generator loop                             | server
+
+#### Diesel Generator
+
+Name               | Type        | Desciption                                                 | Location
+----               | -----       | -----------                                                | -------
+fuelCapacity       | number      | Fuel capacity in [l]                                       | public 
+fuelConsumption    | number      | Fuel consumption in [l/h]                                  | public 
+
+#### Solar Generator
+Name               | Type        | Desciption                                                 | Location
+----               | -----       | -----------                                                | -------
+height             | number      | Height of the solar panels relative to the object coords.  | server
+orientationFnc     | code        | returns a list of normal vectors for each solar panel      | server
+
+#### Battery
+Name                  | Type        | Desciption                                                 | Location
+----                  | -----       | -----------                                                | -------
+batteryCapacity       | number      | Battery capacity in [kWh]                                  | public
+batteryLevel          | number      | Current battery level in [kWh]                             | server
+recharging            | number      | Maximum recharging rate in [kW]                            | public
+powerConsumptionState | int         | DEPRICATED                                                 | ------
+
+##### Internal
+
+**Parent Device:**
+Name                  | Type        | Desciption                                                 | Location
+----                  | -----       | -----------                                                | -------
+internalBattery       | bool        | If the device has an internal battery                      | public
+
+**Internal Battery:**
+Name                  | Type        | Desciption                                                 | Location
+----                  | -----       | -----------                                                | -------
+parent                | object      | Parent device to the interanl battery                      | public

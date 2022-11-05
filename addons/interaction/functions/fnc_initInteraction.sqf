@@ -111,7 +111,7 @@ if (!isDedicated) then
 						};
 						
 					}, 
-					{(_target call (_target getVariable ["openActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 1)},
+					{(_target call (_target getVariable ["AE3_interaction_fnc_openActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 1)},
 					{}] call ace_interact_menu_fnc_createAction;
 
 		_close = ["AE3_closeAction", "Close", "", 
@@ -128,7 +128,7 @@ if (!isDedicated) then
 							};
 						};
 					}, 
-					{(_target call (_target getVariable ["closeActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 0) },
+					{(_target call (_target getVariable ["AE3_interaction_fnc_closeActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 0) },
 					{}] call ace_interact_menu_fnc_createAction;
 
 		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _open] call ace_interact_menu_fnc_addActionToObject;
@@ -141,12 +141,13 @@ if (!isDedicated) then
 if(isServer) then
 {
 	_equipment setVariable ["AE3_interaction_closeState", _closeState, true];
-	_equipment setVariable ["AE3_interaction_fnc_open", _openFnc, true];
-	_equipment setVariable ["openActionCondition", _openCondition, true];
-	_equipment setVariable ["AE3_interaction_fnc_openWrapper", _openWrapper, true];
-	_equipment setVariable ["AE3_interaction_fnc_close", _closeFnc, true];
-	_equipment setVariable ["closeActionCondition", _closeCondition, true];
-	_equipment setVariable ["AE3_interaction_fnc_closeWrapper", _closeWrapper, true];
 };
+
+_equipment setVariable ["AE3_interaction_fnc_open", _openFnc];
+_equipment setVariable ["AE3_interaction_fnc_openActionCondition", _openCondition];
+_equipment setVariable ["AE3_interaction_fnc_openWrapper", _openWrapper];
+_equipment setVariable ["AE3_interaction_fnc_close", _closeFnc];
+_equipment setVariable ["AE3_interaction_fnc_closeActionCondition", _closeCondition];
+_equipment setVariable ["AE3_interaction_fnc_closeWrapper", _closeWrapper];
 
 [_equipment] call _initFnc;
