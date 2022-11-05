@@ -24,6 +24,14 @@ private _current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
 private _terminal = _computer getVariable "AE3_terminal";
 private _user = _terminal get "AE3_terminalLoginUser";
 
-private _result = [_pointer, _current, _user, _searchString] call AE3_filesystem_fnc_findFileByName;
+private _result = [_pointer, _current, _user, _searchString] call AE3_filesystem_fnc_findFilesystemObject;
 
-[_computer, _result] call AE3_armaos_fnc_shell_stdout;
+private _totalResults = _result select 0;
+private _missingPermissions = _result select 1;
+
+if (_missingPermissions > 0) then
+{
+	_totalResults append [format ["can't scan %1 folders due to missing permissions", _missingPermissions]];
+};
+
+[_computer, _totalResults] call AE3_armaos_fnc_shell_stdout;

@@ -15,4 +15,4 @@ PREP(getFile);
 PREP(mvObj);
 PREP(delObj);
 PREP(hasPermission);
-PREP(findFileByName);
+PREP(findFilesystemObject);
