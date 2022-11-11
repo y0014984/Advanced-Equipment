@@ -10,8 +10,6 @@
 
 params ["_entity"];
 
-private _fuelCapacity = _entity getVariable 'AE3_power_fuelCapacity';
-private _fuelLevelPercent = fuel _entity;
-
-private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
+private _fuelLevel = [_entity] call AE3_power_fnc_getFuelLevel;
+_fuelLevel = [_fuelLevel, 1, 2] call CBA_fnc_formatNumber; 
 hint format ["Fuel Level: %1 l", _fuelLevel];

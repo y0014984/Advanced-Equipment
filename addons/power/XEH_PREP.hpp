@@ -12,6 +12,10 @@ PREP(turnOnSolarAction);
 PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
 
+/* Getter */
+PREP(getFuelLevel);
+PREP(getPowerState);
+
 /* Init */
 PREP(compileConfig);
 PREP(compileDevice);
