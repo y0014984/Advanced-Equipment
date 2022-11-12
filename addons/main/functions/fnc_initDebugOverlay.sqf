@@ -71,6 +71,17 @@ params ["_ae3Objects"];
 			
 			private _debugText = [];
 			
+			// This function combines item name and custom name in format ["%1 [%2]", _itemName, _customName]
+			private _aceCargoName = [_obj, true] call ace_cargo_fnc_getNameItem;
+			_debugText pushBack format ["ACE3 Cargo Name: %1", _aceCargoName];
+
+			/* 
+			// Getting and Setting ACE3 Cargo Custom Name
+			cursorObject setVariable ["ACE_cargo_customName", "Generator 1", true];
+			cursorObject getVariable "ACE_cargo_customName";
+			// result "Generator 1"
+			*/
+
 			private _class = typeOf _obj;
 			_debugText pushBack format ["Device Class: %1", _class];
 
