@@ -80,8 +80,12 @@ params ["_ae3Objects"];
 			if (_class isEqualTo "Land_PortableGenerator_01_sand_F_AE3") then
 			{
 				private _fuelLevel = [_obj] call AE3_power_fnc_getFuelLevel;
-				_fuelLevel = [_fuelLevel, 1, 2] call CBA_fnc_formatNumber; 
+				_fuelLevel = [_fuelLevel, 1, 2] call CBA_fnc_formatNumber; // 123.45
 				_debugText pushBack format ["Fuel Level: %1 l", _fuelLevel];
+
+				private _powerOutput = [_obj] call AE3_power_fnc_getPowerOutput;
+				_powerOutput = [_powerOutput, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+				_debugText pushBack format ["Power Output: %1 W", _powerOutput];
 			};
 			
 			_debugText = _debugText joinString "<br/>";

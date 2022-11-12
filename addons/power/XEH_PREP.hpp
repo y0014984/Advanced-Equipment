@@ -15,6 +15,7 @@ PREP(disconnectFromGeneratorAction);
 /* Getter */
 PREP(getFuelLevel);
 PREP(getPowerState);
+PREP(getPowerOutput);
 
 /* Init */
 PREP(compileConfig);
