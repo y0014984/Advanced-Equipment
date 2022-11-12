@@ -80,9 +80,12 @@ params ["_ae3Objects"];
 			// fuel consuming devices
 			if (_class isEqualTo "Land_PortableGenerator_01_sand_F_AE3") then
 			{
-				private _fuelLevel = [_obj] call AE3_power_fnc_getFuelLevel;
-				_fuelLevel = [_fuelLevel, 1, 2, true] call CBA_fnc_formatNumber; // 1,234,56 and 123.45
-				_debugText pushBack format ["Fuel Level: %1 l", _fuelLevel];
+				private _result = [_obj] call AE3_power_fnc_getFuelLevel;
+				_result params ["_fuelLevel", "_fuelLevelPercent", "_fuelCapacity"];
+				_fuelLevel = [_fuelLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+				_fuelLevelPercent = [_fuelLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+				_fuelCapacity = [_fuelCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234 and 123
+				_debugText pushBack format ["Fuel Level: %1 l (%2%3 of %4 l)", _fuelLevel, _fuelLevelPercent, "%", _fuelCapacity];
 			};
 
 			// power generating devices
@@ -112,7 +115,7 @@ params ["_ae3Objects"];
 				_result params ["_batteryLevel", "_batteryLevelPercent", "_batteryCapacity"];
 				_batteryLevel = [_batteryLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 				_batteryLevelPercent = [_batteryLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
-				_batteryCapacity = [_batteryCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+				_batteryCapacity = [_batteryCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234 and 123
 				_debugText pushBack format ["Battery Level: %1 Wh (%2%3 of %4 Wh)", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];
 			};
 
