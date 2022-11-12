@@ -109,6 +109,9 @@ params ["_ae3Objects"];
 				private _powerOutput = [_obj] call AE3_power_fnc_getPowerOutput;
 				_powerOutput = [_powerOutput, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 				_debugText pushBack format ["Power Output: %1 W", _powerOutput];
+
+				_connectedDevices = _obj getVariable ["AE3_power_connectedDevices", []];
+				_debugText pushBack format ["Connected Power Devices: %1", count _connectedDevices];
 			};
 
 			// devices with internal battery
