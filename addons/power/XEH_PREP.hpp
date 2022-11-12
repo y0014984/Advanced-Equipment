@@ -2,7 +2,7 @@
 PREP(checkBatteryLevelAction);
 PREP(checkFuelLevelAction);
 PREP(checkPowerStateAction);
-PREP(checkPowerGenAction);
+PREP(checkPowerOutputAction);
 PREP(turnOffGeneratorAction);
 PREP(turnOnGeneratorAction);
 PREP(turnOffBatteryAction);
