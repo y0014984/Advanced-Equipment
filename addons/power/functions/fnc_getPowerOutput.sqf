@@ -8,7 +8,7 @@
  * 0: Power Output <STRING>
  */
 
-params["_entity"];
+params ["_entity"];
 
 // Update local copy of server var
 [_entity] spawn { params ["_entity"]; [_entity, "AE3_power_powerCapacity"] call AE3_main_fnc_getRemoteVar; };

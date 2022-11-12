@@ -8,15 +8,10 @@
  * None
  */
 
-params ["_entity"];
-[_entity] spawn {
-	params ["_entity"];
+params["_entity"];
 
-	[_entity, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar;
+private _result = [_entity] call AE3_power_fnc_getBatteryLevel;
 
-	private _batteryLevel = _entity getVariable "AE3_power_batteryLevel";
-	private _batteryCapacity = _entity getVariable "AE3_power_batteryCapacity";
-	private _batteryLevelPercent = (_batteryLevel / _batteryCapacity) * 100;
-	hint format ["Battery Level: %1 Wh (%2%3)", _batteryLevel  * 1000, _batteryLevelPercent, "%"];
+_result params ["_batteryLevel", "_batteryLevelPercent", "_batteryCapacity"];
 
-}
+hint format ["Battery Level: %1 Wh (%2%3 of %4 Wh)", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];

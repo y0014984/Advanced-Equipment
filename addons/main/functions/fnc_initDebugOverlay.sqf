@@ -53,9 +53,9 @@ params ["_ae3Objects"];
 
 	_control ctrlSetBackgroundColor [0.835, 0.345, 0.345, 0.5];
 	_control ctrlSetTextColor [1, 1, 1, 1];
-	_control ctrlSetFontHeight 0.03;
-	_control ctrlSetPositionW 0.25;
-	_control ctrlSetPositionH 0.25;
+	_control ctrlSetFontHeight 0.025;
+	_control ctrlSetPositionW 0.3;
+	_control ctrlSetPositionH 0.3;
 	_control ctrlCommit 0;
 	
 	_ae3Objects set [_forEachIndex, [_x, _control]];
@@ -77,17 +77,45 @@ params ["_ae3Objects"];
 			private _powerState = [_obj] call AE3_power_fnc_getPowerState;
 			_debugText pushBack format ["Power State: %1", _powerState];
 
+			// fuel consuming devices
 			if (_class isEqualTo "Land_PortableGenerator_01_sand_F_AE3") then
 			{
 				private _fuelLevel = [_obj] call AE3_power_fnc_getFuelLevel;
-				_fuelLevel = [_fuelLevel, 1, 2] call CBA_fnc_formatNumber; // 123.45
+				_fuelLevel = [_fuelLevel, 1, 2, true] call CBA_fnc_formatNumber; // 1,234,56 and 123.45
 				_debugText pushBack format ["Fuel Level: %1 l", _fuelLevel];
+			};
 
+			// power generating devices
+			if (
+				_class isEqualTo "Land_PortableGenerator_01_sand_F_AE3" ||
+				_class isEqualTo "Land_SolarPanel_04_sand_F_AE3" ||
+				_class isEqualTo "Land_PortableSolarPanel_01_sand_F_AE3"
+				) then
+			{
 				private _powerOutput = [_obj] call AE3_power_fnc_getPowerOutput;
 				_powerOutput = [_powerOutput, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 				_debugText pushBack format ["Power Output: %1 W", _powerOutput];
 			};
-			
+
+			// devices with internal battery
+			if (
+				_class isEqualTo "Land_Laptop_03_sand_F_AE3" ||
+				_class isEqualTo "Land_BatteryPack_01_open_sand_F_AE3"
+				) then
+			{
+				private _battery = _obj;
+				if (_obj getVariable ["AE3_power_InternalBattery", false]) then 
+				{
+					_battery = _obj getVariable "AE3_power_Internal"; 
+				};
+				private _result = [_battery] call AE3_power_fnc_getBatteryLevel;
+				_result params ["_batteryLevel", "_batteryLevelPercent", "_batteryCapacity"];
+				_batteryLevel = [_batteryLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+				_batteryLevelPercent = [_batteryLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+				_batteryCapacity = [_batteryCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+				_debugText pushBack format ["Battery Level: %1 Wh (%2%3 of %4 Wh)", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];
+			};
+
 			_debugText = _debugText joinString "<br/>";
 
 			_control ctrlSetStructuredText (parseText format ["<t align='center'> %1 </t>", _debugText]);
