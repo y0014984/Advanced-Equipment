@@ -12,8 +12,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith { [_computer, "'cat' has too many options"] call AE3_armaos_fnc_shell_stdout; };
-if (count _options < 1) exitWith { [_computer, "'cat' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+if (count _options == 0) exitWith { [_computer, "'cat' has too few options"] call AE3_armaos_fnc_shell_stdout; };
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
@@ -22,27 +21,31 @@ private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
 private _result = [];
-private _path = _options select 0;
 
-try
 {
-	_content = [_pointer, _filesystem, _path, _username, 1] call AE3_filesystem_fnc_getFile;
+	private _path = _x;
 
-	if(!(_content isEqualType "")) exitWith 
+	try
 	{
-		_result pushBack ("Unable to read: " + _path);
-		_result;
+		_content = [_pointer, _filesystem, _path, _username, 1] call AE3_filesystem_fnc_getFile;
+
+		if(!(_content isEqualType "")) exitWith 
+		{
+			_result pushBack ("Unable to read: " + _path);
+			_result;
+		};
+
+		_content = _content splitString endl;
+		_result append _content;
+	}
+	catch
+	{
+		[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 	};
 
-	_content = _content splitString endl;
-	_result append _content;
+} forEach _options;
 
-	[_computer, _result] call AE3_armaos_fnc_shell_stdout;
-
-}catch
-{
-	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
-}
+[_computer, _result] call AE3_armaos_fnc_shell_stdout;
 
 
 
