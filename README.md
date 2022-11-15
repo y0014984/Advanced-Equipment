@@ -44,6 +44,10 @@ Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@AE3`. You can also get this mod on
 
 If you want to contribute or have any questions, simply join my [Discord](https://discord.com/invite/JMmxXEx)
 
+## AE3 Developer Report
+
+See our <a href="https://www.youtube.com/watch?v=pfM_eAQinmY&list=PLbrLObIILp9NzNUi-QtDtAwV5UEnYMfO_">AE3-DEVREP</a> Developer Video Blog for letest changes, bugfixes and new features.
+
 ## License
 
 Advanced Equipment is licensed under the ([APL-SA](https://www.bistudio.com/community/licenses/arma-public-license-share-alike)).
