@@ -10,6 +10,8 @@
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
+// order: _shift, _ctrl, _alt
+
 private _allowedKeys = createHashMapFromArray 
 [
 	[format ["%1-%2-%3-%4", DIK_A, false, false, false], "a"],
@@ -89,6 +91,9 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_0, true, false, false], "="],
 	[format ["%1-%2-%3-%4", DIK_0, false, false, true], "}"],
 	[format ["%1-%2-%3-%4", DIK_SPACE, false, false, false], " "],
+	[format ["%1-%2-%3-%4", DIK_SPACE, true, false, false], " "],
+	[format ["%1-%2-%3-%4", DIK_SPACE, false, true, false], " "],
+	[format ["%1-%2-%3-%4", DIK_SPACE, false, false, true], " "],
 	[format ["%1-%2-%3-%4", DIK_SEMICOLON, false, false, false], "ö"],
 	[format ["%1-%2-%3-%4", DIK_SEMICOLON, true, false, false], "Ö"],
 	[format ["%1-%2-%3-%4", DIK_APOSTROPHE, false, false, false], "ä"],

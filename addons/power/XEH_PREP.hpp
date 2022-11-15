@@ -42,6 +42,7 @@ PREP(playGeneratorRunningSound);
 PREP(playGeneratorStartSound);
 PREP(playGeneratorStopSound);
 PREP(showBatteryLevel);
+PREP(getBatteryLevel);
 
 /* Solar */
 PREP(getSolarPosition);

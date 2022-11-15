@@ -19,7 +19,6 @@
 
 params['_pntr', '_filesystem', '_target', '_content', '_user', '_owner', ['_permissions', [[false, true, true], [false, false, false]]]];
 
-
 private _dir = [_pntr, _filesystem, _target, _user, true, _owner, _permissions] call AE3_filesystem_fnc_getParentDir;
 
 private _current = _dir select 1;
@@ -38,5 +37,3 @@ if(isNil '_owner') then
 };
 
 _current set [_new, [_content, _owner, _permissions]];
-
-_filesystem;
