@@ -15,6 +15,14 @@ private _terminal = _computer getVariable "AE3_terminal";
 
 private _terminalBuffer = _terminal get "AE3_terminalBuffer";
 private _terminalMaxRows = _terminal get "AE3_terminalMaxRows";
+private _terminalApplication = _terminal get "AE3_terminalApplication";
+
+private _terminalInputBuffer = ["", ""];
+
+if (!isNil { _terminal get "AE3_terminalInputBuffer" }) then 
+{
+	_terminalInputBuffer = _terminal get "AE3_terminalInputBuffer";
+};
 
 private _terminalScrollPosition = _terminal get "AE3_terminalScrollPosition";
 
@@ -28,7 +36,13 @@ private _terminalBufferVisable = +_terminalBuffer;
 private _lastBufferVisableLineIndex = (count _terminalBufferVisable) - 1;
 private _lastBufferVisableLine = _terminalBufferVisable # (_lastBufferVisableLineIndex);
 
-_lastBufferVisableLine = _lastBufferVisableLine + "¶";
+if (_terminalApplication isEqualTo "PASSWORD") then
+{
+	_lastBufferVisableLine = _lastBufferVisableLine + ((_terminalInputBuffer select 0) regexReplace [".", "*"]) + "¶" + ((_terminalInputBuffer select 1) regexReplace [".", "*"]);
+}else
+{
+	_lastBufferVisableLine = _lastBufferVisableLine + (_terminalInputBuffer select 0) + "¶" + (_terminalInputBuffer select 1);
+};
 
 _terminalBufferVisable set [_lastBufferVisableLineIndex, _lastBufferVisableLine];
 

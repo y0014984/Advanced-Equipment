@@ -53,89 +53,57 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		{
 			private _keyChar = _terminalAllowedKeys get _keyCombination;
 
-			[_terminalApplication, _computer, _keyChar] call
-			{
-				params ['_terminalApplication', '_computer', '_keyChar'];
-
-				if (_terminalApplication isEqualTo "LOGIN") exitWith
-				{
-					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
-				};
-				if (_terminalApplication isEqualTo "PASSWORD") exitWith
-				{
-					[_computer, "*"] call AE3_armaos_fnc_terminal_addChar;
-					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
-				};
-				if (_terminalApplication isEqualTo "INPUT") exitWith
-				{
-					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
-					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
-				};
-				if (_terminalApplication isEqualTo "SHELL") exitWith
-				{
-					[_computer, _keyChar] call AE3_armaos_fnc_terminal_addChar;
-				};
-			};
+			[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
 		};
 
 		/* ---------------------------------------- */
 
 		if (_key isEqualTo DIK_BACKSPACE) then
 		{
-			[_terminalApplication, _computer] call
-			{
-				params ['_terminalApplication', '_computer'];
-
-				if (_terminalApplication isEqualTo "LOGIN") exitWith
-				{
-					[_computer] call AE3_armaos_fnc_terminal_removeChar;
-				};
-				if (_terminalApplication isEqualTo "PASSWORD") exitWith
-				{
-					[_computer] call AE3_armaos_fnc_terminal_removeChar;
-					[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
-				};
-				if (_terminalApplication isEqualTo "INPUT") exitWith
-				{
-					[_computer] call AE3_armaos_fnc_terminal_removeChar;
-					[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
-				};
-				if (_terminalApplication isEqualTo "SHELL") exitWith
-				{
-					[_computer] call AE3_armaos_fnc_terminal_removeChar;
-				};
-			};
+			[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
 		};
 
 		/* ---------------------------------------- */
 
 		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then	
 		{
-			private _lastBufferLine = _terminalBuffer # (_lastBufferLineIndex);
+			//private _lastBufferLine = _terminalBuffer # (_lastBufferLineIndex);
 
-			private _input = _lastBufferLine select [(count _terminalPrompt), (count _lastBufferLine)];
+			private _input = [_computer] call AE3_armaos_fnc_terminal_getInput;
 
-			[_terminalApplication, _computer, _input] call
+			[_terminal, _terminalApplication, _computer, _displayorcontrol, _input] call
 			{
-				params ['_terminalApplication', '_computer', '_input'];
+				params ['_terminal', '_terminalApplication', '_computer', '_displayorcontrol', '_input'];
 
 				if (_terminalApplication isEqualTo "LOGIN") exitWith
 				{
+					_terminal deleteAt "AE3_terminalInputBuffer";
+					[_computer, _input] call AE3_armaos_fnc_terminaL_appendLine;
+
 					[_computer, _input] call AE3_armaos_fnc_shell_findLoginUser;
 				};
 				if (_terminalApplication isEqualTo "PASSWORD") exitWith
 				{
+					_terminal deleteAt "AE3_terminalInputBuffer";
+					[_computer, _input regexReplace [".", "*"]] call AE3_armaos_fnc_terminaL_appendLine;
+
 					[_computer] call AE3_armaos_fnc_shell_validatePassword;
 				};
 				if (_terminalApplication isEqualTo "INPUT") exitWith
 				{
 					[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
+					[_computer, _input] call AE3_armaos_fnc_terminaL_appendLine;
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
+					_terminal deleteAt "AE3_terminalInputBuffer";
+					[_computer, _input] call AE3_armaos_fnc_terminaL_appendLine;
+					[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
+
 					[_computer, _input] spawn AE3_armaos_fnc_shell_process;
 				};
 			};
+			
 		};
 
 		/* ---------------------------------------- */
@@ -146,7 +114,11 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			{
 				[_computer, _key] call AE3_armaos_fnc_terminal_setCommandLineByHistory;
 			};
-		};		
+		};
+
+		if (_key isEqualTo DIK_RIGHTARROW) then {[_computer, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
+		if (_key isEqualTo DIK_LEFTARROW) then {[_computer, false] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
+
 
 		/* ---------------------------------------- */
 

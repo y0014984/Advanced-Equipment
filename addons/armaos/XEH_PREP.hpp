@@ -47,11 +47,16 @@ PREP(os_whoami);
 /* Terminal Functions */
 PREP(terminal_init);
 PREP(terminal_addEventHandler);
-PREP(terminal_addChar);
+
 PREP(terminal_addCharToInput);
-PREP(terminal_addLines);
-PREP(terminal_removeChar);
 PREP(terminal_removeCharFromInput);
+PREP(terminal_shiftInputBuffer);
+PREP(terminal_getInput);
+
+PREP(terminal_addChar);
+PREP(terminal_addLines);
+PREP(terminal_appendLine);
+PREP(terminal_removeChar);
 PREP(terminal_addHeader);
 PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);

@@ -59,12 +59,13 @@ if (_key isEqualTo DIK_DOWNARROW) then
 
 if (_terminalCommandHistoryIndex != -1) then
 {
-    _lastBufferLine = _terminalPrompt + (_terminalCommandHistory select _terminalCommandHistoryIndex);
+    _terminal set ["AE3_terminalInputBuffer", [(_terminalCommandHistory select _terminalCommandHistoryIndex), ""]];
 }
 else
 {
-    _lastBufferLine = _terminalPrompt;
+    _terminal set ["AE3_terminalInputBuffer", ["", ""]];
 };
+_lastBufferLine = _terminalPrompt;
 
 _terminalBuffer set [_lastBufferLineIndex, _lastBufferLine];
 
