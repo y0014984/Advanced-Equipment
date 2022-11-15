@@ -74,8 +74,20 @@ private _localGameLanguage = language;
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
+private _terminalKeyboardLayout = "";
+
 //AE3_KeyboardLayout is a CBA setting
-private _terminalKeyboardLayout = AE3_KeyboardLayout;
+if (!isMultiplayer || (isServer && hasInterface)) then
+{
+	// In singeplayer or as host in a multiplayer session
+	_terminalKeyboardLayout = ["AE3_KeyboardLayout", "server"] call CBA_settings_fnc_get;
+}
+else
+{
+	// As client in a multiplayer session
+	_terminalKeyboardLayout = ["AE3_KeyboardLayout", "client"] call CBA_settings_fnc_get;
+};
+
 [_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
 
 private _handleUpdateBatteryStatus = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_updateBatteryStatus;

@@ -17,7 +17,7 @@ private _users = _computer getVariable ["AE3_Userlist", createHashMap];
 
 private _result = [];
 
-if (_username in _users) then 
+if ((_username in _users) || AE3_DebugMode) then 
 {
 	_terminal set ["AE3_terminalLoginUser", _username];
 	_terminal set ["AE3_terminalApplication", "PASSWORD"];
