@@ -12,4 +12,16 @@ _terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 _languageButton ctrlSetText "KEYBOARD " + _terminalKeyboardLayout;
 ctrlSetFocus _consoleOutput;
 
+// write/sync changed keyboard layout back to CBA settings
+if (!isMultiplayer || (isServer && hasInterface)) then
+{
+	// In singeplayer or as host in a multiplayer session
+	["AE3_KeyboardLayout", _terminalKeyboardLayout, 0, "server", true] call CBA_settings_fnc_set;
+}
+else
+{
+	// As client in a multiplayer session
+	["AE3_KeyboardLayout", _terminalKeyboardLayout, 0, "client", true] call CBA_settings_fnc_set;
+};
+
 _computer setVariable ["AE3_terminal", _terminal];

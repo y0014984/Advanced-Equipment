@@ -173,11 +173,11 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		{
 			if (_scroll >= 0) then 
 			{
-				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + 1];
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - AE3_TerminalScrollSpeed];
 			}
 			else
 			{
-				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - 1];
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + AE3_TerminalScrollSpeed];
 			};
 		};
 
@@ -201,13 +201,17 @@ _languageButtonCtrl buttonSetAction
 /* ================================================================================ */
 
 /* Unlocks terminal after it is closed */
-private _result = _consoleDialog displayAddEventHandler [
+private _result = _consoleDialog displayAddEventHandler
+[
 	"Unload",
 	{
 		params ["_display", "_exitCode"];
 
 		_computer = _display getVariable "AE3_computer";
 		_computer setVariable ["AE3_computer_mutex", objNull, true];
+
+		_handleUpdateBatteryStatus = _display getVariable "AE3_handleUpdateBatteryStatus";
+		[_handleUpdateBatteryStatus] call CBA_fnc_removePerFrameHandler;
 
 		// Updates terminal variable for all
 		_terminal = _computer getVariable "AE3_terminal";

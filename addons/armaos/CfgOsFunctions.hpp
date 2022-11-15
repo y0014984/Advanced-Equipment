@@ -98,6 +98,14 @@ class CfgOsFunctions
 		code = "_this call AE3_armaos_fnc_os_whoami";
 	};
 
+	class mkdir : OsFunction
+	{
+		path = "/bin/mkdir";
+		description = "Creates a directory/folder.";
+		man = "Usage standby: 'mkdir [path]' creates a new folder/directory.";
+		code = "_this call AE3_armaos_fnc_os_mkdir";
+	};
+
 	class ping : OsFunction
 	{
 		path = "/sbin/ping";

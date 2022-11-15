@@ -23,5 +23,3 @@ _terminal set ["AE3_terminalPrompt", "LOGIN>"];
 _terminal set ["AE3_terminalBuffer", []];
 _terminal set ["AE3_terminalCursorLine", 0];
 _terminal set ["AE3_terminalCursorPosition", 0];
-
-[_computer] call AE3_armaos_fnc_terminal_addHeader;

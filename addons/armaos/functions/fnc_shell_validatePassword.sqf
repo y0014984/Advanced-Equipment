@@ -21,7 +21,18 @@ private _users = _computer getVariable "AE3_Userlist";
 private _result = [];
 private _logMessage = "";
 
-if((_users get _username) isEqualTo _password) then
+private _userPasswordMatch = false;
+
+if (AE3_DebugMode) then
+{
+	_userPasswordMatch = true;
+}
+else
+{
+	_userPasswordMatch = ((_users get _username) isEqualTo _password);
+};
+
+if (_userPasswordMatch) then
 {
 	_logMessage = format ["User: %1 successfully logged in", _username];
 	[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;
@@ -29,10 +40,18 @@ if((_users get _username) isEqualTo _password) then
 	_terminal set ["AE3_terminalApplication", "SHELL"];
 	_terminal set ["AE3_terminalInputBuffer", nil];
 
-	_computer setVariable ["AE3_filepointer", [_username] call AE3_armaos_fnc_shell_getHomeDir];
+	if (AE3_DebugMode) then
+	{
+		_computer setVariable ["AE3_filepointer", []];
+	}
+	else
+	{
+		_computer setVariable ["AE3_filepointer", [_username] call AE3_armaos_fnc_shell_getHomeDir];
+	};
 	
 	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
-}else
+}
+else
 {
 	_logMessage = format ["User: %1 failed login attempt", _username];
 	[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;

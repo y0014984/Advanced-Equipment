@@ -24,6 +24,7 @@ else
 	_turnOnTime = 3;
 };
 
+if (AE3_DebugMode) then { _turnOnTime = 3; };
 
 for "_i" from 0 to 3 do
 {

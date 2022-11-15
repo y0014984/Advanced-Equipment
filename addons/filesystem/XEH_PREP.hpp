@@ -1,5 +1,6 @@
 /* Module Functions */
 PREP(moduleAddFile);
+PREP(moduleAddDir);
 
 /* Base Functions */
 PREP(initFilesystem);
