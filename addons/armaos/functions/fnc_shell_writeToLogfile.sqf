@@ -44,7 +44,7 @@ private _logMessage = format ["%1 %2 (%3): %4", _dateString, _dayTimeString, _se
 _logMessage = _logMessage + endl;
 
 
-[_pointer, _filesystem, _logFile, _user, _logMessage] call AE3_filesystem_fnc_appendToFile;
+[_pointer, _filesystem, _logFile, _user, _logMessage, true] call AE3_filesystem_fnc_writeToFile;
 
 
 
