@@ -118,7 +118,9 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		if (_key isEqualTo DIK_RIGHTARROW) then {[_computer, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
 		if (_key isEqualTo DIK_LEFTARROW) then {[_computer, false] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
-
+		
+		if (_key isEqualTo DIK_END) then {[_computer, true, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
+		if (_key isEqualTo DIK_HOME) then {[_computer, false, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
 
 		/* ---------------------------------------- */
 
