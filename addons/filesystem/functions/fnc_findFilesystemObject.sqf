@@ -4,8 +4,9 @@
  * Arguments:
  * 0: Pointer <[STRING]>
  * 1: Filesystem [<HASHMAP>, <STRING>]
- * 4: User <STRING>
- * 2: Filesystem Object Name aka Search String <STRING>
+ * 2: User <STRING>
+ * 3: Filesystem Object Name aka Search String <STRING>
+ * 4: Missing Permissions Count <NUMBER> (Optional) Only internally used for recursion
  *
  * Results:
  * 0: Paths to Filesystem Objects <[STRING]>
@@ -80,7 +81,3 @@ try
 } catch { _missingPermissions = _missingPermissions + 1; };
 
 [_totalResults, _missingPermissions];
-
-// TODOS:
-// - allow searching for substrings
-// - allow searching for file contents?
