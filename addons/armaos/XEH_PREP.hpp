@@ -64,3 +64,4 @@ PREP(terminal_setKeyboardLayout);
 PREP(terminal_switchKeyboardLayout);
 PREP(terminal_setCommandLineByHistory);
 PREP(terminal_setInputMode);
+PREP(terminal_updateBatteryStatus);
