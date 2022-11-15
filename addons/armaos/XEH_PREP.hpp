@@ -36,6 +36,7 @@ PREP(os_history);
 PREP(os_ipconfig);
 PREP(os_ls);
 PREP(os_man);
+PREP(os_mkdir);
 PREP(os_mv);
 PREP(os_ping);
 PREP(os_rm);
