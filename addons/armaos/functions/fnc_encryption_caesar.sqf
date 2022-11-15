@@ -26,7 +26,7 @@ _message = toUpper _message;
 _message = [_message, _allowedAlphabet + " "] call BIS_fnc_filterString;
 
 // normalize key to be lower then alphabet count
-if (_key >= (count _allowedAlphabet)) then { _key = _key % (count _allowedAlphabet)}; // 26 == 0
+_key = _key % (count _allowedAlphabet); // 26 == 0
 
 // encrypt/decrypt message
 private _resultingChar = "";
@@ -41,29 +41,15 @@ _message = _message splitString "";
     // ignore spaces for conversion
     if (!(_x isEqualTo " ")) then
     {
+        private _countAlphabet = count _allowedAlphabet;
+
         if (_mode isEqualTo "encrypt") then
         {
-            // check if index out of bounds and encrypt
-            if ((_encryptionIndex + _key) > ((count _allowedAlphabet) -1)) then
-            {
-                _encryptionIndex = (_encryptionIndex + _key) - (count _allowedAlphabet);
-            }
-            else
-            {
-                _encryptionIndex = _encryptionIndex + _key;
-            };
+            _encryptionIndex = (_countAlphabet + (_encryptionIndex  + _key) % _countAlphabet) % _countAlphabet;
         };
         if (_mode isEqualTo "decrypt") then
-        {
-            // check if index out of bounds and encrypt
-            if ((_encryptionIndex - _key) < 0) then
-            {
-                _encryptionIndex = (count _allowedAlphabet) - ((_encryptionIndex - _key) * -1);
-            }
-            else
-            {
-                _encryptionIndex = _encryptionIndex - _key;
-            };
+        {    
+            _encryptionIndex = (_countAlphabet + (_encryptionIndex  - _key) % _countAlphabet) % _countAlphabet;
         };
 
         _resultingChar = _allowedAlphabet select _encryptionIndex;

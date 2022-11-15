@@ -15,9 +15,8 @@ params ["_computer", "_options"];
 
 if (count _options < 3) exitWith { [_computer, "'crypto' has too few options"] call AE3_armaos_fnc_shell_stdout; };
 
-// parse options --> perhaps we should develop a general options parsing algorythm
-private _algorythm = "ceasar";
-private _key = "1337";
+private _algorythm = "";
+private _key = "";
 private _mode = "";
 private _message = "";
 
@@ -28,10 +27,19 @@ private _message = "";
     if (_x isEqualTo "-m") then { _mode = _options select (_forEachIndex + 1); _options set [_forEachIndex, ""]; _options set [_forEachIndex + 1, ""]; };
 } forEach _options;
 
+private _allowedAlgorythms = ["caesar"];
+private _allowedModes = ["encrypt", "decrypt"];
+
+if (!(_algorythm in _allowedAlgorythms)) exitWith { [_computer, "'crypto' has unknown or missing algorythm"] call AE3_armaos_fnc_shell_stdout; };
+if (!(_mode in _allowedModes)) exitWith { [_computer, "'crypto' has unknown or missing mode"] call AE3_armaos_fnc_shell_stdout; };
+if (_key isEqualTo "") exitWith { [_computer, "'crypto' has unknown or missing key"] call AE3_armaos_fnc_shell_stdout; };
+
 // remove all empty strings from options array
 _message = _options - [""];
 
 _message = _message joinString " ";
+
+if (_message isEqualTo "") exitWith { [_computer, "'crypto' has unknown or missing message"] call AE3_armaos_fnc_shell_stdout; };
 
 private _encryptedMessage = "";
 
