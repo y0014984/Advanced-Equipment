@@ -50,7 +50,7 @@ if (isNil "_debugOverlay") then
 	_debugOverlay = [];
 	missionNamespace setVariable ["AE3_DebugOverlay", _debugOverlay, true];
 };
-_debugOverlay pushBack _entity;
+_debugOverlay pushBack [_entity, controlNull];
 missionNamespace setVariable ["AE3_DebugOverlay", _debugOverlay];
 // ================================================================================
 

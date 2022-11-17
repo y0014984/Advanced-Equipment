@@ -45,7 +45,8 @@ addMissionEventHandler
 params ["_ae3Objects"];
 
 {
-	private _obj = _x;
+	private _obj = _x select 0;
+
 	private _objId = _forEachIndex;
 
 	_display = findDisplay 46;
@@ -58,7 +59,7 @@ params ["_ae3Objects"];
 	_control ctrlSetPositionH 0.3;
 	_control ctrlCommit 0;
 	
-	_ae3Objects set [_forEachIndex, [_x, _control]];
+	_ae3Objects set [_forEachIndex, [_obj, _control]];
 		
 	[
 		str _objId, // EH ID
