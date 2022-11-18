@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="AE3">
+    <Package name="Network">
+        <Container name="Interaction">
+            <Key ID="STR_AE3_Network_Interaction_ConnectToRouter">
+                <Original>Connect to router</Original>
+                <English>Connect to router</English>
+                <German>Verbinde mit Router</German>
+            </Key>
+            <Key ID="STR_AE3_Network_Interaction_DisconnectFromRouter">
+                <Original>Disconnect from router</Original>
+                <English>Disconnect from router</English>
+                <German>Trenne von Router</German>
+            </Key>
+        </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_Network_Config_RouterDisplayName">
+                <Original>Router</Original>
+                <English>Router</English>
+                <German>Router</German>
+            </Key>
+        </Container>
+    </Package>
+</Project>
