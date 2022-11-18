@@ -16,10 +16,10 @@ private _powerStateString = "";
 
 switch (_powerState) do
 {
-    case 0: { _powerStateString = "Off"; };
-    case 1: { _powerStateString = "On"; };
-    case 2: { _powerStateString = "Standby"; };
-    default { _powerStateString = "Unknown"; };
+    case 0: { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateOff"; };
+    case 1: { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateOn"; };
+    case 2: { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateStandby"; };
+    default { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateUnknown"; };
 };
 
-hint format ["Device Power State is: %1", _powerStateString];
+hint format [localize "STR_AE3_Power_Interaction_PowerStateHint", _powerStateString];

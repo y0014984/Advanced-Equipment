@@ -16,11 +16,11 @@ params['_entity', '_fuelCapacity', '_fuelConsumption', '_power', ['_fuelLevel', 
 
 if(!isDedicated) then
 {
-	private _check = ["AE3_PowerAction", "Check Fuel Level", "", 
+	private _check = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckFuelLevel", "", 
 				{params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_checkFuelLevelAction;}, 
 				{alive _target}] call ace_interact_menu_fnc_createAction;
 
-	private _power = ["AE3_PowerAction", "Check Power Generation", "", 
+	private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerOutput", "", 
 				{params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_checkPowerGenAction;}, 
 				{alive _target}] call ace_interact_menu_fnc_createAction;
 

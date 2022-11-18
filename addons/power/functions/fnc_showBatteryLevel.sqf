@@ -25,12 +25,12 @@ while {_consoleDialog != displayNull} do
 
 	switch (_powerConsumptionState) do
 	{
-		case 0: { _powerConsumptionStateText = "Battery Mode"; };
-		case 1: { _powerConsumptionStateText = "Power Adapter Mode"; };
-		default { _powerConsumptionStateText = "Unknown Mode"; };
+		case 0: { _powerConsumptionStateText = localize "STR_AE3_Power_Terminal_PowerConsumptionModeBattery"; };
+		case 1: { _powerConsumptionStateText = localize "STR_AE3_Power_Terminal_PowerConsumptionModePowerAdapter"; };
+		default { _powerConsumptionStateText = localize "STR_AE3_Power_Terminal_PowerConsumptionModeUnknown"; };
 	};
 
-	_titleText = format ["TERMINAL - %1%2 (%3)", ceil _batteryLevel, "%", _powerConsumptionStateText];
+	_titleText = format [localize "STR_AE3_Power_Terminal_TerminalTitle", ceil _batteryLevel, "%", _powerConsumptionStateText];
 
 	ctrlSetText [1000, _titleText];
 
