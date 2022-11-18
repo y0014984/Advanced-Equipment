@@ -25,8 +25,6 @@ if (_outputLines isEqualType "") then
 {
 	_terminalRenderedBuffer pushBack ([_computer, _x] call AE3_armaos_fnc_terminal_renderLine);
 
-	diag_log (str _x);
-
 	if (_x isEqualType "") then
 	{
 		_terminalBuffer pushBack [_x];

@@ -54,7 +54,7 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
 		["AE3_terminalMaxRows", 26],
-		["AE3_terminalMaxColumns", 90]
+		["AE3_terminalMaxColumns", 85]
 	];
 
 // Only nessecary to allow Event Handlers the access to _computer

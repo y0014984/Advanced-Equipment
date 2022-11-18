@@ -44,25 +44,32 @@ private _counter = 0;
 	if (!(_color isEqualTo "")) then {_buffer setAttributes ["color", _color];};
 	
 	_croppedOutputLines set [count _croppedOutputLines -1, composeText [(_croppedOutputLines select (count _croppedOutputLines -1)), _buffer]];
+	_c =  _counter + count (_tmpLine select [0, _terminalMaxColumns + 1 - _counter]); // _counter is still used in the line below
 	_tmpLine = _tmpLine select [_terminalMaxColumns + 1 - _counter];
-	_counter = count _tmpLine;
+	_counter = _c;
 
-	while {(_counter) >= _terminalMaxColumns} do
+	diag_log str _tmpLine;
+
+	while {(count _tmpLine) >= _terminalMaxColumns} do
 	{
 		_buffer = text (_tmpLine select [0, _terminalMaxColumns + 1]);
 		if (!(_color isEqualTo "")) then {_buffer setAttributes ["color", _color];};
 		
 		_croppedOutputLines pushBack _buffer;
 		_tmpLine = _tmpLine select [_terminalMaxColumns + 1];
-		_counter = count _tmpLine;
+		_counter = 0;
 	};
 
-	if(_counter > 0) then 
+	if((count _tmpLine) > 0) then 
 	{
+		_counter = count _tmpLine;
 		_buffer = text _tmpLine;
 		if (!(_color isEqualTo "")) then {_buffer setAttributes ["color", _color];};
 		_croppedOutputLines pushBack _buffer;
 	};
+	
+	diag_log str _counter;
+	diag_log str _croppedOutputLines;
 }forEach _line;
 
 _croppedOutputLines;
