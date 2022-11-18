@@ -17,7 +17,7 @@ private _render = [];
 
 {
 
-	_render pushBack ([_computer, _x] call AE3_aramos_fnc_terminal_renderLine);
+	_render pushBack ([_computer, _x] call AE3_armaos_fnc_terminal_renderLine);
 
 } forEach _terminalBuffer;
 

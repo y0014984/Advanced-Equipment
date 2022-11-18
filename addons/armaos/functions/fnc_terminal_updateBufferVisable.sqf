@@ -15,7 +15,10 @@ private _terminal = _computer getVariable "AE3_terminal";
 
 private _terminalBuffer = _terminal get "AE3_terminalBuffer";
 private _terminalRenderedBuffer = _terminal get "AE3_terminalRenderedBuffer";
-private _terminalMaxRows = _terminal get "AE3_terminalMaxRows";
+
+private _size = _terminal get "AE3_terminalSize";
+private _terminalMaxRows = (_terminal get "AE3_terminalMaxRows") * 0.75 / _size;
+
 private _terminalApplication = _terminal get "AE3_terminalApplication";
 
 private _terminalInputBuffer = ["", ""];

@@ -122,6 +122,26 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		if (_key isEqualTo DIK_END) then {[_computer, true, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
 		if (_key isEqualTo DIK_HOME) then {[_computer, false, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
 
+		if (_ctrl && _key isEqualTo DIK_ADD) then
+		{
+			_size = _terminal get "AE3_terminalSize";
+			if (_size + 0.05 <= 1.0) then
+			{
+				_terminal set ["AE3_terminalSize", _size + 0.05];
+				[_computer] call AE3_armaos_fnc_terminal_reRenderBuffer;
+			};
+		};
+
+		if (_ctrl && _key isEqualTo DIK_SUBTRACT) then
+		{
+			_size = _terminal get "AE3_terminalSize";
+			if (_size - 0.05 >= 0.5) then
+			{
+				_terminal set ["AE3_terminalSize", _size - 0.05];
+				[_computer] call AE3_armaos_fnc_terminal_reRenderBuffer;
+			};
+		};
+
 		/* ---------------------------------------- */
 
 		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;

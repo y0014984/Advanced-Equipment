@@ -12,7 +12,8 @@
 params['_computer', '_line'];
 
 private _terminal = _computer getVariable "AE3_terminal";
-private _terminalMaxColumns = _terminal get "AE3_terminalMaxColumns";
+private _size = _terminal get "AE3_terminalSize";
+private _terminalMaxColumns = (_terminal get "AE3_terminalMaxColumns") * 0.75 / _size;
 
 
 if (_line isEqualType "") then

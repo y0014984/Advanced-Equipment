@@ -17,11 +17,12 @@ private _terminal = _computer getVariable "AE3_terminal";
 
 private _terminalBuffer = _terminal get "AE3_terminalBuffer";
 private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
+private _size = _terminal get "AE3_terminalSize";
 
 private _output = [];
 {
 	_buffer = composeText [_x, lineBreak];
-	_buffer setAttributes ["size", "0.75", "font", "EtelkaMonospacePro"];
+	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
 	_output pushBack _buffer;
 } forEach _terminalBufferVisable;
 
