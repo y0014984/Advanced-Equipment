@@ -28,23 +28,23 @@ private _targetNew = _targetDir select 2;
 _targetCurrent = _targetCurrent select 0;
 
 _sourceCurrent = _sourceCurrent select 0;
-if(!(_sourceFile in _sourceCurrent)) throw (format ["'%1' not found!", _sourceFile]);
+if(!(_sourceFile in _sourceCurrent)) throw (format [localize "STR_AE3_Filesystem_Exception_NotFound", _sourceFile]);
 
 [_sourceCurrent get _sourceFile, _user, 2] call AE3_filesystem_fnc_hasPermission;
 
 if((_target find ["/", count _target - 1]) == (count _target - 1)) then 
 {
 
-	if(!(_targetNew in _targetCurrent)) throw {format ["'%1' not found!", _targetNew]};
+	if(!(_targetNew in _targetCurrent)) throw {format [localize "STR_AE3_Filesystem_Exception_NotFound", _targetNew]};
 
 	_targetCurrent = _targetCurrent get _targetNew;
 
-	if(_targetNew in _targetCurrent) throw (format ["'%1' already exists!", _sourceFile]);
+	if(_targetNew in _targetCurrent) throw (format [localize "STR_AE3_Filesystem_Exception_AlreadyExists", _sourceFile]);
 
 	_targetCurrent set [_sourceFile, _sourceCurrent get _sourceFile];
 }else
 {
-	if(_targetNew in _targetCurrent) throw (format ["'%1' already exists!", _sourceFile]);
+	if(_targetNew in _targetCurrent) throw (format [localize "STR_AE3_Filesystem_Exception_AlreadyExists", _sourceFile]);
 
 	_targetCurrent set [_targetNew, _sourceCurrent get _sourceFile];
 };

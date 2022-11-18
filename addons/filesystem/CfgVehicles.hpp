@@ -26,7 +26,7 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
-		displayName = "AE3 Add File"; // Name displayed in the menu
+		displayName = "$STR_AE3_Filesystem_Config_AddFileDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
 
@@ -53,8 +53,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_Path: Edit
 			{
 				property = "AE3_Module_AddFile_Path";
-				displayName = "Path";
-				tooltip = "Path and Name of Filesystem Object (File), for example /tmp/new/example.txt";
+				displayName = "$STR_AE3_Filesystem_Config_PathFileDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_PathFileTooltip";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -64,8 +64,8 @@ class CfgVehicles
 			{
 				control = "EditCodeMulti5";
 				property = "AE3_Module_AddFile_Content";
-				displayName = "File content";
-				tooltip = "Content of Filesystem Object, like text note oder path to image";
+				displayName = "$STR_AE3_Filesystem_Config_FileContentDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_FileContentTooltip";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -76,8 +76,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_IsFunction: Checkbox
 			{
 				property = "AE3_Module_AddFile_IsFunction";
-				displayName = "Is code?";
-				tooltip = "If the file content is a function or code which can be executed from terminal";
+				displayName = "$STR_AE3_Filesystem_Config_IsCodeDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_IsCodeTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -86,8 +86,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_Owner: Edit
 			{
 				property = "AE3_Module_AddFile_Owner";
-				displayName = "File owner";
-				tooltip = "Owner of the file";
+				displayName = "$STR_AE3_Filesystem_Config_FileOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_FileOwnerTooltip";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -99,8 +99,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_OwnerExecute: Checkbox
 			{
 				property = "AE3_Module_AddFile_OwnerExecute";
-				displayName = "Can be executed by the owner";
-				tooltip = "Can be executed by the owner";
+				displayName = "$STR_AE3_Filesystem_Config_ExeByOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ExeByOwnerTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -109,8 +109,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_OwnerRead: Checkbox
 			{
 				property = "AE3_Module_AddFile_OwnerRead";
-				displayName = "Can be read by the owner";
-				tooltip = "Can be read by the owner";
+				displayName = "$STR_AE3_Filesystem_Config_ReadByOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ReadByOwnerTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -119,8 +119,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_OwnerWrite: Checkbox
 			{
 				property = "AE3_Module_AddFile_OwnerWrite";
-				displayName = "Can be modified by the owner";
-				tooltip = "Can be modified by the owner";
+				displayName = "$STR_AE3_Filesystem_Config_WriteByOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_WriteByOwnerTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -131,8 +131,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_EveryoneExecute: Checkbox
 			{
 				property = "AE3_Module_AddFile_EveryoneExecute";
-				displayName = "Can be executed by everyone";
-				tooltip = "Can be executed by everyone";
+				displayName = "$STR_AE3_Filesystem_Config_ExeByOtherDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ExeByOtherTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -141,8 +141,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_EveryoneRead: Checkbox
 			{
 				property = "AE3_Module_AddFile_EveryoneRead";
-				displayName = "Can be read by everyone";
-				tooltip = "Can be read by everyone";
+				displayName = "$STR_AE3_Filesystem_Config_ReadByOtherDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ReadByOtherTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -151,8 +151,8 @@ class CfgVehicles
 			class AE3_Module_AddFile_EveryoneWrite: Checkbox
 			{
 				property = "AE3_Module_AddFile_EveryoneWrite";
-				displayName = "Can be modified by everyone";
-				tooltip = "Can be modified by everyone";
+				displayName = "$STR_AE3_Filesystem_Config_WriteByOtherDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_WriteByOtherTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -166,7 +166,7 @@ class CfgVehicles
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
 		class ModuleDescription: ModuleDescription
 		{
-			description = "This module adds a file to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object."; // Short description, will be formatted as structured text
+			description = "$STR_AE3_Filesystem_Config_ModuleAddFileDescription"; // Short description, will be formatted as structured text
 			sync[] = { "Land_Laptop_03_sand_F_AE3" }; // LocationArea_F // Array of synced entities (can contain base classes)
 
 			class Land_Laptop_03_sand_F_AE3
@@ -189,7 +189,7 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
-		displayName = "AE3 Add Directory"; // Name displayed in the menu
+		displayName = "$STR_AE3_Filesystem_Config_AddDirDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addDir.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
 
@@ -216,8 +216,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_Path: Edit
 			{
 				property = "AE3_Module_AddDir_Path";
-				displayName = "Path";
-				tooltip = "Path of Filesystem Object (Directory), for example /tmp/new";
+				displayName = "$STR_AE3_Filesystem_Config_PathDirDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_PathDirTooltip";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -226,8 +226,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_Owner: Edit
 			{
 				property = "AE3_Module_AddDir_Owner";
-				displayName = "Directory owner";
-				tooltip = "Owner of the directory";
+				displayName = "$STR_AE3_Filesystem_Config_DirOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_DirOwnerTooltip";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -239,8 +239,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_OwnerExecute: Checkbox
 			{
 				property = "AE3_Module_AddDir_OwnerExecute";
-				displayName = "Can be executed by the owner";
-				tooltip = "Can be executed by the owner";
+				displayName = "$STR_AE3_Filesystem_Config_ExeByOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ExeByOwnerTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -249,8 +249,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_OwnerRead: Checkbox
 			{
 				property = "AE3_Module_AddDir_OwnerRead";
-				displayName = "Can be read by the owner";
-				tooltip = "Can be read by the owner";
+				displayName = "$STR_AE3_Filesystem_Config_ReadByOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ReadByOwnerTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -259,8 +259,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_OwnerWrite: Checkbox
 			{
 				property = "AE3_Module_AddDir_OwnerWrite";
-				displayName = "Can be modified by the owner";
-				tooltip = "Can be modified by the owner";
+				displayName = "$STR_AE3_Filesystem_Config_WriteByOwnerDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_WriteByOwnerTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -271,8 +271,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_EveryoneExecute: Checkbox
 			{
 				property = "AE3_Module_AddDir_EveryoneExecute";
-				displayName = "Can be executed by everyone";
-				tooltip = "Can be executed by everyone";
+				displayName = "$STR_AE3_Filesystem_Config_ExeByOtherDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ExeByOtherTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -281,8 +281,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_EveryoneRead: Checkbox
 			{
 				property = "AE3_Module_AddDir_EveryoneRead";
-				displayName = "Can be read by everyone";
-				tooltip = "Can be read by everyone";
+				displayName = "$STR_AE3_Filesystem_Config_ReadByOtherDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_ReadByOtherTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -291,8 +291,8 @@ class CfgVehicles
 			class AE3_Module_AddDir_EveryoneWrite: Checkbox
 			{
 				property = "AE3_Module_AddDir_EveryoneWrite";
-				displayName = "Can be modified by everyone";
-				tooltip = "Can be modified by everyone";
+				displayName = "$STR_AE3_Filesystem_Config_WriteByOtherDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_WriteByOtherTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -306,7 +306,7 @@ class CfgVehicles
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
 		class ModuleDescription: ModuleDescription
 		{
-			description = "This module adds a direcotry to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object."; // Short description, will be formatted as structured text
+			description = "$STR_AE3_Filesystem_Config_ModuleAddDirDescription"; // Short description, will be formatted as structured text
 			sync[] = { "Land_Laptop_03_sand_F_AE3" }; // LocationArea_F // Array of synced entities (can contain base classes)
 
 			class Land_Laptop_03_sand_F_AE3

@@ -80,7 +80,7 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 
 		if(!(_x in (_current select 0))) then 
 		{
-			if(!_create) throw (format ["'%1' not found in '%2'!", _x, "/" + (_pointer joinString "/")]); 
+			if(!_create) throw (format [localize "STR_AE3_Filesystem_Exception_NotFoundInDir", _x, "/" + (_pointer joinString "/")]); 
 
 			//Set R-Permissions as X-Permissions, so a newly created folder with a R-Only-File could be entered
 			private _rOwner = (_permissions select 0) select 1;
@@ -95,7 +95,7 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 
 		};
 
-		if(typeName (((_current select 0) get _x) select 0) != "HASHMAP") throw (format ["'%1' is not a directory!", _x]);
+		if(typeName (((_current select 0) get _x) select 0) != "HASHMAP") throw (format [localize "STR_AE3_Filesystem_Exception_IsNotADir", _x]);
 
 		_current = (_current select 0) get _x;
 		_pointer pushBack _x;
