@@ -118,11 +118,13 @@ params ["_ae3Objects"];
 			// devices with internal battery
 			if (
 				_class isEqualTo "Land_Laptop_03_sand_F_AE3" ||
-				_class isEqualTo "Land_BatteryPack_01_open_sand_F_AE3"
+				_class isEqualTo "Land_BatteryPack_01_open_sand_F_AE3" ||
+				_class isEqualTo "Land_SolarPanel_04_sand_F_AE3"
 				) then
 			{
 				private _battery = _obj;
-				if (_obj getVariable ["AE3_power_InternalBattery", false]) then 
+				// this check can't be done for solar panel, because the variable has not been set; I'm not sure why
+				if ((_obj getVariable ["AE3_power_InternalBattery", false]) || (_class isEqualTo "Land_SolarPanel_04_sand_F_AE3")) then 
 				{
 					_battery = _obj getVariable "AE3_power_Internal"; 
 				};
