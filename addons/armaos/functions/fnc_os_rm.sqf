@@ -17,9 +17,9 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
-if (count _options > 1) exitWith {[_computer, "Too many options"] call AE3_armaos_fnc_shell_stdout;};
+if (count _options > 1) exitWith {[_computer, localize "STR_AE3_ArmaOS_Exception_TooManyOptions"] call AE3_armaos_fnc_shell_stdout;};
 
-if (count _options < 1) exitWith {[_computer, "Too few options"] call AE3_armaos_fnc_shell_stdout;};
+if (count _options < 1) exitWith {[_computer, localize "STR_AE3_ArmaOS_Exception_TooFewOptions"] call AE3_armaos_fnc_shell_stdout;};
 
 
 private _obj = _options select 0;

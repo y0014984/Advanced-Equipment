@@ -19,7 +19,7 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
-private _result = [format ["Command '%1' not found.", _path]];
+private _result = [format [localize "STR_AE3_ArmaOS_Exception_CommandNotFound", _path]];
 try 
 {
 	_content = [_pointer, _filesystem, _path, _username, 0] call AE3_filesystem_fnc_getFile;

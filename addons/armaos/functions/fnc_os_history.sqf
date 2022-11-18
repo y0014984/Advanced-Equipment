@@ -12,7 +12,9 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {[_computer, "History has no options"] call AE3_armaos_fnc_shell_stdout;};
+private _commandName = "history";
+
+if (count _options >= 1) exitWith {[_computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasNoOptions", _commandName]] call AE3_armaos_fnc_shell_stdout;};
 
 private _terminal = _computer getVariable "AE3_terminal";
 

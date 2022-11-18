@@ -18,7 +18,7 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
-if(count _options == 0) exitWith {["Too few options"];};
+if(count _options == 0) exitWith {[localize "STR_AE3_ArmaOS_Exception_TooFewOptions"];};
 
 private _result = [];
 private _path = _options select 0;
@@ -29,7 +29,7 @@ try
 
 	if(!(_content isEqualType "")) exitWith 
 	{
-		_result pushBack ("Unable to read: " + _path);
+		_result pushBack (format [localize "STR_AE3_ArmaOS_Exception_UnableToRead", _path]);
 		_result;
 	};
 

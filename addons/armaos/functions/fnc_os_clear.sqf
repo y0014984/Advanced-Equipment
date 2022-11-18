@@ -12,7 +12,9 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {["Clear has no options"];};
+private _commandName = "clear";
+
+if (count _options >= 1) exitWith { [ format [localize "STR_AE3_ArmaOS_Exception_CommandHasNoOptions", _commandName] ]; };
 
 private _terminal = _computer getVariable "AE3_terminal";
 

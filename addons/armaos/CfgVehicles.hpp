@@ -10,20 +10,20 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_ArmaOS_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_ArmaOS_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_olive_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_ArmaOS_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_sand_CO.paa"};
@@ -102,7 +102,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "Laptop";
+			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 
 			closeState = 1;
 
@@ -116,7 +116,7 @@ class CfgVehicles
 
 		class AE3_Device
 		{
-			displayName = "Laptop";
+			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 			defaultPowerLevel = 0;
 
 			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
@@ -137,7 +137,7 @@ class CfgVehicles
 
 		class AE3_InternalDevice
 		{
-			displayName = "Battery";
+			displayName = "$STR_AE3_ArmaOS_Config_BatteryDisplayName";
 			defaultPowerLevel = 1;
 
 			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
@@ -167,11 +167,11 @@ class CfgVehicles
 				distance = 2;
 				class AE3_Laptop_Group
 				{
-					displayName = "ArmaOS";
+					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
 					condition = "true";
 					class AE3_UseComputer
 					{
-						displayName = "Use";
+						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
 						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
 						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
 						//icon = "\z\dance.paa";
@@ -210,7 +210,7 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
-		displayName = "AE3 Add User"; // Name displayed in the menu
+		displayName = "$STR_AE3_ArmaOS_Config_AddUserDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icons_addUser.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
 
@@ -237,8 +237,8 @@ class CfgVehicles
 			class AE3_ModuleUserlist_User: Edit
 			{
 				property = "AE3_ModuleUserlist_User1";
-				displayName = "Username";
-				tooltip = "Name of authorized user, for example 'admin', 'guest' or 'stavros'";
+				displayName = "$STR_AE3_ArmaOS_Config_UsernameDisplayName";
+				tooltip = "$STR_AE3_ArmaOS_Config_UsernameTooltip";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -247,8 +247,8 @@ class CfgVehicles
 			class AE3_ModuleUserlist_Password: Edit
 			{
 				property = "AE3_ModuleUserlist_Password1";
-				displayName = "Password";
-				tooltip = "Password of authorized user, for example '123456', 'password' or 'Qf5&xxR12#fTG'";
+				displayName = "$STR_AE3_ArmaOS_Config_PasswordDisplayName";
+				tooltip = "$STR_AE3_ArmaOS_Config_PasswordTooltip";
 				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -260,7 +260,7 @@ class CfgVehicles
 		// Module description. Must inherit from base class, otherwise pre-defined entities won't be available
 		class ModuleDescription: ModuleDescription
 		{
-			description = "This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer."; // Short description, will be formatted as structured text
+			description = "$STR_AE3_ArmaOS_Config_ModuleAddUserDescription"; // Short description, will be formatted as structured text
 			sync[] = { "Land_Laptop_03_sand_F_AE3" }; // LocationArea_F // Array of synced entities (can contain base classes)
 
 			class Land_Laptop_03_sand_F_AE3

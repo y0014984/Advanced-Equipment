@@ -27,11 +27,11 @@ else
 {
 	if (_username isEqualTo "root") then
 	{
-		_result = ["   root login disabled"];
+		_result = [localize "STR_AE3_ArmaOS_Exception_RootLoginDisabled"];
 	}
 	else
 	{
-		_result = [format ["   User: %1 not found", _username]];
+		_result = [format [localize "STR_AE3_ArmaOS_Exception_UserNotFound", _username]];
 	};
 
 	_terminal deleteAt "AE3_terminalLoginUser";

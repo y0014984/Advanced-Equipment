@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="AE3">
+    <Package name="ArmaOS">
+        <Container name="Exceptions">
+            <Key ID="STR_AE3_ArmaOS_Exception_LinkAlreadyExists">
+                <Original>Link already exists!</Original>
+                <English>Link already exists!</English>
+                <German>Verknüpfung existiert bereits!</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_TooFewOptions">
+                <Original>Too few options</Original>
+                <English>Too few options</English>
+                <German>Zu wenige Parameter</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_TooManyOptions">
+                <Original>Too many options</Original>
+                <English>Too many options</English>
+                <German>Zu viele Parameter</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_UnableToRead">
+                <Original>Unable to read: %1</Original>
+                <English>Unable to read: %1</English>
+                <German>Kannn nicht gelesen werden: %1</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasNoOptions">
+                <Original>'%1' has no options</Original>
+                <English>'%1' has no options</English>
+                <German>'%1' hat keine Parameter</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_NoAddressDevice">
+                <Original>No address device attached</Original>
+                <English>No address device attached</English>
+                <German>Kein Adressgerät verbunden</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandNotFound">
+                <Original>Command '%1' not found.</Original>
+                <English>Command '%1' not found.</English>
+                <German>Befehl '%1' nicht gefunden.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_InvalidAddress">
+                <Original>Invalid address!</Original>
+                <English>Invalid address!</English>
+                <German>Ungültige Adresse!</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_PackageDropped">
+                <Original>Package dropped.</Original>
+                <English>Package dropped.</English>
+                <German>Paket verworfen.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_RootLoginDisabled">
+                <Original>root login disabled</Original>
+                <English>root login disabled</English>
+                <German>root Login deaktiviert</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_UserNotFound">
+                <Original>User: %1 not found</Original>
+                <English>User: %1 not found</English>
+                <German>Benutzer: %1 nicht gefunden</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_UserFailedLogin">
+                <Original>User: %1 failed login attempt</Original>
+                <English>User: %1 failed login attempt</English>
+                <German>Benutzer: %1 fehlgeschlagener Login-Versuch</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_DialogFailed">
+                <Original>Dialog couldn't be opened!</Original>
+                <English>Dialog couldn't be opened!</English>
+                <German>Der Dialog konnte nicht geöffnet werden!</German>
+            </Key>
+        </Container>
+        <Container name="Results">
+            <Key ID="STR_AE3_ArmaOS_Result_IPv4Address">
+                <Original>IPv4 Address: %1</Original>
+                <English>IPv4 Address: %1</English>
+                <German>IPv4 Adresse: %1</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_PingAnswer">
+                <Original>Answer from %1: Time: %2 ms</Original>
+                <English>Answer from %1: Time: %2 ms</English>
+                <German>Antwort von %1: Zeit: %2 ms</German>
+            </Key>
+        </Container>
+        <Container name="Header">
+            <Key ID="STR_AE3_ArmaOS_Header_Line1">
+                <Original>Get a list of available commands by typing 'help'</Original>
+                <English>Get a list of available commands by typing 'help'</English>
+                <German>Erhalte eine Liste der verfügbaren Befehle durch Eingabe von 'help'</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Header_Line2">
+                <Original>Get detailed command information by typing 'man [command]'</Original>
+                <English>Get detailed command information by typing 'man [command]'</English>
+                <German>Erhalte ausführliche Befehlsinformationen durch Eingabe von 'man [Befehl]'</German>
+            </Key>
+        </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_ArmaOS_Config_ArmaOSModulesKategoryDisplayName">
+                <Original>AE3 armaOS Modules</Original>
+                <English>AE3 armaOS Modules</English>
+                <German>AE3 armaOS Module</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandManDescr">
+                <Original>Prints usage information about a command.</Original>
+                <English>Prints usage information about a command.</English>
+                <German>Gibt Informationen zur Benutzung eines Befehls aus.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandManMan">
+                <Original>Usage man: 'man [command]' returns usage information for the command.</Original>
+                <English>Usage man: 'man [command]' returns usage information for the command.</English>
+                <German>Verwendung man: 'man [Befehl]' liefert Informationen zur Benutzung des Befehls zurück.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHelpDescr">
+                <Original>Prints all installed programs.</Original>
+                <English>Prints all installed programs.</English>
+                <German>Listet alle installierten Programme.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHelpMan">
+                <Original>Usage help: 'help' returns a list of available programs. No options needed.</Original>
+                <English>Usage help: 'help' returns a list of available programs. No options needed.</English>
+                <German>Verwendung help: 'help' liefert eine Liste aller verfügbaren Programme. Keine Parameter nötig.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsDescr">
+                <Original>Display the content of a directory.</Original>
+                <English>Display the content of a directory.</English>
+                <German>Listet den Inhalt eines Verzeichnisses.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsMan">
+                <Original>Usage ls: 'ls [path]' returns a list of filesystem objects found in this path.</Original>
+                <English>Usage ls: 'ls [path]' returns a list of filesystem objects found in this path.</English>
+                <German>Verwendung ls: 'ls [Pfad]' liefert eine Liste von in diesem Pfad gefundenen Dateisystemobjekten.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCdDescr">
+                <Original>Change the working directory.</Original>
+                <English>Change the working directory.</English>
+                <German>Wechselt das Arbeitsverzeichnis.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCdMan">
+                <Original>Usage cd: 'cd [path]' sets path as the new working directory.</Original>
+                <English>Usage cd: 'cd [path]' sets path as the new working directory.</English>
+                <German>Verwendung cd: 'cd [Pfad]' setzt den Pfad als das neue Arbeitsverzeichnis.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCatDescr">
+                <Original>Prints the content of a file.</Original>
+                <English>Prints the content of a file.</English>
+                <German>Gibt den Inhalt einer Datei aus.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCatMan">
+                <Original>Usage cat: 'cat [file]' shows the content of a file.</Original>
+                <English>Usage cat: 'cat [file]' shows the content of a file.</English>
+                <German>Verwendung cat: 'cat [Datei]' zeigt den Inhalt einer Datei.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandDateDescr">
+                <Original>Prints the date.</Original>
+                <English>Prints the date.</English>
+                <German>Gibt das Datum aus.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandDateMan">
+                <Original>Usage date: 'date' prints the actual date in format YYYY-MM-DD HH:MM:SS</Original>
+                <English>Usage date: 'date' prints the actual date in format YYYY-MM-DD HH:MM:SS</English>
+                <German>Verwendung date: 'date' gibt das aktuelle Datum in dem Format YYYY-MM-DD HH:MM:SS aus.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHistoryDescr">
+                <Original>Prints the terminal history.</Original>
+                <English>Prints the terminal history.</English>
+                <German>Gibt die Terminal-Historie aus.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHistoryMan">
+                <Original>Usage history: 'history' lists last commands since the start of the computer.</Original>
+                <English>Usage history: 'history' lists last commands since the start of the computer.</English>
+                <German>Verwendung history: 'history' listet die letzten Befehle seit dem Start des Computers.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandClearDescr">
+                <Original>Clears the terminal window.</Original>
+                <English>Clears the terminal window.</English>
+                <German>Bereinigt das Terminal-Fenster.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandClearMan">
+                <Original>Usage clear: 'clear' deletes most of the displayed text.</Original>
+                <English>Usage clear: 'clear' deletes most of the displayed text.</English>
+                <German>Verwendung clear: 'clear' entfernt des Meiste des dargestellten Textes.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandRmDescr">
+                <Original>Removes a file.</Original>
+                <English>Removes a file.</English>
+                <German>Entfernt eine Datei.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandRmMan">
+                <Original>Usage rm: 'rm [path]' deletes a file at the given path.</Original>
+                <English>Usage rm: 'rm [path]' deletes a file at the given path.</English>
+                <German>Verwendung rm: 'rm [Pfad]' entfernt eine Datei am angegebenen Pfad.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMvDescr">
+                <Original>Moves a file or folder.</Original>
+                <English>Moves a file or folder.</English>
+                <German>Verschiebt eine Datei oder ein Verzeichnis.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMvMan">
+                <Original>Usage mv: 'mv [old path] [new path]' moves file to new path or renames the file.</Original>
+                <English>Usage mv: 'mv [old path] [new path]' moves file to new path or renames the file.</English>
+                <German>Verwendung mv: 'mv [alter Pfad] [neuer Pfad]' verschiebt eine Datei zum neuen Pfad oder benennt die Datei um.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandWhoamiDescr">
+                <Original>Returns the current user.</Original>
+                <English>Returns the current user.</English>
+                <German>Liefert den aktuellen Benutzer zurück.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandWhoamiMan">
+                <Original>Usage whoami: 'whoami' returns the current user.</Original>
+                <English>Usage whoami: 'whoami' returns the current user.</English>
+                <German>Verwendung whoami: 'whoami' liefert den aktuellen Benutzer zurück.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMkdirDescr">
+                <Original>Creates a directory/folder.</Original>
+                <English>Creates a directory/folder.</English>
+                <German>Erstellt ein neues Verzeichnis/Ordner.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMkdirMan">
+                <Original>Usage mkdir: 'mkdir [path]' creates a new folder/directory.</Original>
+                <English>Usage mkdir: 'mkdir [path]' creates a new folder/directory.</English>
+                <German>Verwendung mkdir: 'mkdir [Pfad]' erstellt ein neues Verzeichnis/Ordner.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandPingDescr">
+                <Original>Pings the given address.</Original>
+                <English>Pings the given address.</English>
+                <German>Pingt die angegebene Adresse.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandPingMan">
+                <Original>Usage ping: 'ping [address]' pings the given address.</Original>
+                <English>Usage ping: 'ping [address]' pings the given address.</English>
+                <German>Verwendung ping: 'ping [Adresse]' pingt die angegebene Adresse.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandIpconfigDescr">
+                <Original>Returns the current ip configuration./Original>
+                <English>Returns the current ip configuration.</English>
+                <German>Liefert die aktuelle IP-Konfiguration zurück.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandIpconfigMan">
+                <Original>Usage ipconfig: 'ipconfig' returns the current ip configuration.</Original>
+                <English>Usage ipconfig: 'ipconfig' returns the current ip configuration.</English>
+                <German>Verwendung ipconfig: 'ipconfig' liefert die aktuelle IP-Konfiguration zurück.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandExitDescr">
+                <Original>Log out of the user session.</Original>
+                <English>Log out of the user session.</English>
+                <German>Trennt die Benutzersitzung.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandExitMan">
+                <Original>Usage exit: 'exit' brings you back to login screen.</Original>
+                <English>Usage exit: 'exit' brings you back to login screen.</English>
+                <German>Verwendung exit: 'exit' bringt dich zurück zum Login-Bildschirm.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandShutdownDescr">
+                <Original>Shuts down the computer.</Original>
+                <English>Shuts down the computer.</English>
+                <German>Fährt den Computer herunter.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandShutdownMan">
+                <Original>Usage shutdown: 'shutdown' turns off the computer.</Original>
+                <English>Usage shutdown: 'shutdown' turns off the computer.</English>
+                <German>Verwendung shutdown: 'shutdown' schaltet den Computer aus.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandStandbyDescr">
+                <Original>Puts the computer in standby mode.</Original>
+                <English>Puts the computer in standby mode.</English>
+                <German>Versetzt den Computer in den Ruhezustand.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandStandbyMan">
+                <Original>Usage standby: 'standby' activates the computers standby mode.</Original>
+                <English>Usage standby: 'standby' activates the computers standby mode.</English>
+                <German>Verwendung standby: 'standby' aktiviert den Ruhezustand des Computers.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureBlack">
+                <Original>Black</Original>
+                <English>Black</English>
+                <German>Schwarz</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureOlive">
+                <Original>Olive</Original>
+                <English>Olive</English>
+                <German>Oliv</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureYellow">
+                <Original>Yellow</Original>
+                <English>Yellow</English>
+                <German>Gelb</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureSand">
+                <Original>Sand</Original>
+                <English>Sand</English>
+                <German>Sand</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_LaptopDisplayName">
+                <Original>Laptop</Original>
+                <English>Laptop</English>
+                <German>Laptop</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_BatteryDisplayName">
+                <Original>Battery</Original>
+                <English>Battery</English>
+                <German>Batterie</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ArmaOSDisplayName">
+                <Original>ArmaOS</Original>
+                <English>ArmaOS</English>
+                <German>ArmaOS</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_UseDisplayName">
+                <Original>Use</Original>
+                <English>Use</English>
+                <German>Benutzen</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_AddUserDisplayName">
+                <Original>AE3 Add User</Original>
+                <English>AE3 Add User</English>
+                <German>AE3 Benutzer hinzufügen</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_UsernameDisplayName">
+                <Original>Username</Original>
+                <English>Username</English>
+                <German>Benutzername</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_UsernameTooltip">
+                <Original>Name of authorized user, for example 'admin', 'guest' or 'stavros'</Original>
+                <English>Name of authorized user, for example 'admin', 'guest' or 'stavros'</English>
+                <German>Name eines authorisierten Benutzers, zum Beispiel 'admin', 'guest' oder 'stavros'</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_PasswordDisplayName">
+                <Original>Password</Original>
+                <English>Password</English>
+                <German>Kennwort</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_PasswordTooltip">
+                <Original>Password of authorized user, for example '123456', 'password' or 'Qf5:xxR12#fTG'</Original>
+                <English>Password of authorized user, for example '123456', 'password' or 'Qf5:xxR12#fTG'</English>
+                <German>Kennwort eines authorisierten Benutzers, zum Beispiel '123456', 'password' oder 'Qf5:xxR12#fTG'</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddUserDescription">
+                <Original>This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer.</Original>
+                <English>This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer.</English>
+                <German>Dieses Modul definiert Benutzer für einen armaOS Computer. Synchronisiere einfach ein oder mehrere dieser Module mit einem unterstützten Computer.</German>
+            </Key>
+         </Container>
+        <Container name="CBA Settings">
+            <Key ID="STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName">
+                <Original>AE3 armaOS</Original>
+                <English>AE3 armaOS</English>
+                <German>AE3 armaOS</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutName">
+                <Original>Keyboard Layout</Original>
+                <English>Keyboard Layout</English>
+                <German>Tastaturbelegung</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutTooltip">
+                <Original>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</Original>
+                <English>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</English>
+                <German>Tastaturbelegung für armaOS. Du kannst dies auch im armaOS Terminal umstellen.</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedName">
+                <Original>Terminal Scroll Speed</Original>
+                <English>Terminal Scroll Speed</English>
+                <German>Terminal Scroll-Geschwindigkeit</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedTooltip">
+                <Original>Determines the speed in lines for the mouse wheel scroll feature for the terminal.</Original>
+                <English>Determines the speed in lines for the mouse wheel scroll feature for the terminal.</English>
+                <German>Legt die Geschwindigkeit in Zeilen für die Mausrad-Scroll-Funktion des Terminals fest.</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_1line">
+                <Original>1 line</Original>
+                <English>1 line</English>
+                <German>1 Zeile</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_2lines">
+                <Original>2 lines</Original>
+                <English>2 lines</English>
+                <German>2 Zeilen</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_3lines">
+                <Original>3 lines</Original>
+                <English>3 lines</English>
+                <German>3 Zeilen</German>
+            </Key>
+        </Container>
+    </Package>
+</Project>

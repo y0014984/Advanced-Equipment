@@ -49,7 +49,7 @@ if (_userPasswordMatch) then
 }
 else
 {
-	_result = [format ["   User: %1 failed login attempt", _username]];
+	_result = [format [localize "STR_AE3_ArmaOS_Exception_UserFailedLogin", _username]];
 	_terminal deleteAt "AE3_terminalLoginUser";
 	_terminal deleteAt "AE3_terminalInputBuffer";
 	_terminal set ["AE3_terminalApplication", "LOGIN"];

@@ -15,7 +15,7 @@ params ["_computer"];
 if (!dialog) then
 {
 	private _ok = createDialog "AE3_ArmaOS_Main_Dialog";
-	if (!_ok) then {hint "Dialog couldn't be opened!"};
+	if (!_ok) then {hint localize "STR_AE3_ArmaOS_Exception_DialogFailed"};
 };
 
 private _consoleDialog = findDisplay 15984;	
