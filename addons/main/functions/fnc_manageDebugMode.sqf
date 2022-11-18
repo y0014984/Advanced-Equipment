@@ -18,7 +18,7 @@ if (_debugMode) then
     private _debugModeLoopHandle = 
     [
         {
-            systemChat "AE3 DEBUG MODE ENABLED";
+            systemChat localize "STR_AE3_Main_DebugMode_enabled";
         }, 
         5, 
         []
@@ -31,5 +31,5 @@ else
     _debugModeLoopHandle = localNamespace getVariable "AE3_DebugModeLoopHandle";
     [_debugModeLoopHandle] call CBA_fnc_removePerFrameHandler;
 
-    if (time > 3) then { systemChat "AE3 DEBUG MODE DISABLED"; };
+    if (time > 3) then { systemChat localize "STR_AE3_Main_DebugMode_disabled"; };
 };

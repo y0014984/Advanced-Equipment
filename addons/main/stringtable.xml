@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="AE3">
+    <Package name="Main">
+        <Container name="General">
+            <Key ID="STR_AE3_Main_General_Yes">
+                <Original>yes</Original>
+                <English>yes</English>
+                <German>Ja</German>
+            </Key>
+            <Key ID="STR_AE3_Main_General_No">
+                <Original>no</Original>
+                <English>no</English>
+                <German>Nein</German>
+            </Key>
+        </Container>
+        <Container name="Debug Mode">
+            <Key ID="STR_AE3_Main_DebugMode_enabled">
+                <Original>AE3 DEBUG MODE ENABLED</Original>
+                <English>AE3 DEBUG MODE ENABLED</English>
+                <German>AE3 DEBUG MODUS AKTIVIERT</German>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_disabled">
+                <Original>AE3 DEBUG MODE DISABLED</Original>
+                <English>AE3 DEBUG MODE ENABLED</English>
+                <German>AE3 DEBUG MODUS DEAKTIVIERT</German>
+            </Key>
+        </Container>
+        <Container name="Eden Attributes">
+            <Key ID="STR_AE3_Main_EdenAttributes_AE3Attributes">
+                <Original>AE3 Attributes</Original>
+                <English>AE3 Attributes</English>
+                <German>AE3 Attribute</German>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelDisplayName">
+                <Original>Power Level</Original>
+                <English>Power Level</English>
+                <German>Füllstand Strom</German>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
+                <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
+                <English>1 = full | 0.5 = 50% | 0 = empty</English>
+                <German>1 = voll | 0.5 = 50% | 0 = leer</German>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
+                <Original>Fuel Level</Original>
+                <English>Fuel Level</English>
+                <German>Füllstand Treibstoff</German>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelTooltip">
+                <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
+                <English>1 = full | 0.5 = 50% | 0 = empty</English>
+                <German>1 = voll | 0.5 = 50% | 0 = leer</German>
+            </Key>
+        </Container>
+        <Container name="CBA Settings">
+            <Key ID="STR_AE3_Main_CbaSettings_MainCategoryName">
+                <Original>AE3 main</Original>
+                <English>AE3 main</English>
+                <German>AE3 Allgemein</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DebugModeName">
+                <Original>Debug Mode</Original>
+                <English>Debug Mode</English>
+                <German>Debug Modus</German>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DebugModeTooltip">
+                <Original>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</Original>
+                <English>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</English>
+                <German>Durch das Aktivieren des AE3 Debug Modus erhältst du zusätzliche Informationen über die interne Struktur von AE3.</German>
+            </Key>
+        </Container>
+    </Package>
+</Project>
