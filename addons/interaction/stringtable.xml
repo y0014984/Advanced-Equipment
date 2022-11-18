@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="AE3">
+    <Package name="Interaction">
+        <Container name="General">
+            <Key ID="STR_AE3_Interaction_General_Open">
+                <Original>Open</Original>
+                <English>Open</English>
+                <German>Öffnen</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_General_Close">
+                <Original>Close</Original>
+                <English>Close</English>
+                <German>Schließen</German>
+            </Key>
+        </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_Interaction_Config_LampDisplayName">
+                <Original>Lamp</Original>
+                <English>Lamp</English>
+                <German>Lampe</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp1">
+                <Original>lamp 1</Original>
+                <English>lamp 1</English>
+                <German>Lampe 1</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_ExtendLamp1">
+                <Original>extend lamp 1</Original>
+                <English>extend lamp 1</English>
+                <German>Lampe 1 ausfahren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_PitchLamp1">
+                <Original>pitch lamp 1</Original>
+                <English>pitch lamp 1</English>
+                <German>Lampe 1 neigen</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_YawLamp1">
+                <Original>yaw lamp 1</Original>
+                <English>yaw lamp 1</English>
+                <German>Lampe 1 gieren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp2">
+                <Original>lamp 2</Original>
+                <English>lamp 2</English>
+                <German>Lampe 2</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_ExtendLamp2">
+                <Original>extend lamp 2</Original>
+                <English>extend lamp 2</English>
+                <German>Lampe 2 ausfahren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_PitchLamp2">
+                <Original>pitch lamp 2</Original>
+                <English>pitch lamp 2</English>
+                <German>Lampe 2 neigen</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_YawLamp2">
+                <Original>yaw lamp 2</Original>
+                <English>yaw lamp 2</English>
+                <German>Lampe 2 gieren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp3">
+                <Original>lamp 3</Original>
+                <English>lamp 3</English>
+                <German>Lampe 3</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_ExtendLamp3">
+                <Original>extend lamp 3</Original>
+                <English>extend lamp 3</English>
+                <German>Lampe 3 ausfahren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_PitchLamp3">
+                <Original>pitch lamp 3</Original>
+                <English>pitch lamp 3</English>
+                <German>Lampe 3 neigen</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_YawLamp3">
+                <Original>yaw lamp 3</Original>
+                <English>yaw lamp 3</English>
+                <German>Lampe 3 gieren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp4">
+                <Original>lamp 4</Original>
+                <English>lamp 4</English>
+                <German>Lampe 4</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_ExtendLamp4">
+                <Original>extend lamp 4</Original>
+                <English>extend lamp 4</English>
+                <German>Lampe 4 ausfahren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_PitchLamp4">
+                <Original>pitch lamp 4</Original>
+                <English>pitch lamp 4</English>
+                <German>Lampe 4 neigen</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_YawLamp4">
+                <Original>yaw lamp 4</Original>
+                <English>yaw lamp 4</English>
+                <German>Lampe 4 gieren</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_DeskDisplayName">
+                <Original>desk</Original>
+                <English>desk</English>
+                <German>Tisch</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_TextureBlack">
+                <Original>Black</Original>
+                <English>Black</English>
+                <German>Schwarz</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_TextureOlive">
+                <Original>Olive</Original>
+                <English>Olive</English>
+                <German>Oliv</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_TextureYellow">
+                <Original>Yellow</Original>
+                <English>Yellow</English>
+                <German>Gelb</German>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_TextureSand">
+                <Original>Sand</Original>
+                <English>Sand</English>
+                <German>Sand</German>
+            </Key>
+        </Container>
+    </Package>
+</Project>
