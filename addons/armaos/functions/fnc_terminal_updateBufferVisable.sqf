@@ -27,8 +27,6 @@ if (!isNil { _terminal get "AE3_terminalInputBuffer" }) then
 
 private _terminalScrollPosition = _terminal get "AE3_terminalScrollPosition";
 
-private _terminalRenderedBufferLength = count _terminalRenderedBuffer;
-private _lastBufferLineIndex = _terminalRenderedBufferLength - 1;
 
 // + to preserve reference and force copy
 private _terminalRenderedBufferVisable = +_terminalRenderedBuffer;
@@ -49,7 +47,8 @@ if (_terminalApplication isEqualTo "PASSWORD") then
 _terminalRenderedBufferVisable set [_lastBufferVisableLineIndex, [_computer, _lastBufferVisableLine] call AE3_armaos_fnc_terminal_renderLine];
 
 // Flatten rendered buffer
-_terminalBufferVisable = flatten _terminalRenderedBufferVisable;
+private _terminalBufferVisable = flatten _terminalRenderedBufferVisable;
+private _terminalRenderedBufferLength = count _terminalBufferVisable;
 
 if (_terminalScrollPosition > (_terminalRenderedBufferLength - _terminalMaxRows)) then
 {
