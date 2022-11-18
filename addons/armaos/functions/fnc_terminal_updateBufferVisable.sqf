@@ -14,6 +14,7 @@ params ["_computer"];
 private _terminal = _computer getVariable "AE3_terminal";
 
 private _terminalBuffer = _terminal get "AE3_terminalBuffer";
+private _terminalRenderedBuffer = _terminal get "AE3_terminalRenderedBuffer";
 private _terminalMaxRows = _terminal get "AE3_terminalMaxRows";
 private _terminalApplication = _terminal get "AE3_terminalApplication";
 
@@ -26,29 +27,33 @@ if (!isNil { _terminal get "AE3_terminalInputBuffer" }) then
 
 private _terminalScrollPosition = _terminal get "AE3_terminalScrollPosition";
 
-private _terminalBufferLength = count _terminalBuffer;
-private _lastBufferLineIndex = _terminalBufferLength - 1;
+private _terminalRenderedBufferLength = count _terminalRenderedBuffer;
+private _lastBufferLineIndex = _terminalRenderedBufferLength - 1;
 
 // + to preserve reference and force copy
-private _terminalBufferVisable = +_terminalBuffer;
+private _terminalRenderedBufferVisable = +_terminalRenderedBuffer;
+private _buffer = +_terminalBuffer;
 
-// ENHANCEMENT: add block sign (needs new or modified font) instead of ¶ sign to the end of the _terminalBufferVisable
-private _lastBufferVisableLineIndex = (count _terminalBufferVisable) - 1;
-private _lastBufferVisableLine = _terminalBufferVisable # (_lastBufferVisableLineIndex);
+// ENHANCEMENT: add block sign (needs new or modified font) instead of ¶ sign to the end of the _terminalRenderedBufferVisable
+private _lastBufferVisableLineIndex = (count _buffer) - 1;
+private _lastBufferVisableLine = _buffer # (_lastBufferVisableLineIndex);
 
 if (_terminalApplication isEqualTo "PASSWORD") then
 {
-	_lastBufferVisableLine = _lastBufferVisableLine + ((_terminalInputBuffer select 0) regexReplace [".", "*"]) + "¶" + ((_terminalInputBuffer select 1) regexReplace [".", "*"]);
+	_lastBufferVisableLine pushBack ((_terminalInputBuffer select 0) regexReplace [".", "*"]) + "¶" + ((_terminalInputBuffer select 1) regexReplace [".", "*"]);
 }else
 {
-	_lastBufferVisableLine = _lastBufferVisableLine + (_terminalInputBuffer select 0) + "¶" + (_terminalInputBuffer select 1);
+	_lastBufferVisableLine pushBack (_terminalInputBuffer select 0) + "¶" + (_terminalInputBuffer select 1);
 };
 
-_terminalBufferVisable set [_lastBufferVisableLineIndex, _lastBufferVisableLine];
+_terminalRenderedBufferVisable set [_lastBufferVisableLineIndex, [_computer, _lastBufferVisableLine] call AE3_armaos_fnc_terminal_renderLine];
 
-if (_terminalScrollPosition > (_terminalBufferLength - _terminalMaxRows)) then
+// Flatten rendered buffer
+_terminalBufferVisable = flatten _terminalRenderedBufferVisable;
+
+if (_terminalScrollPosition > (_terminalRenderedBufferLength - _terminalMaxRows)) then
 {
-	_terminalScrollPosition = _terminalBufferLength - _terminalMaxRows;
+	_terminalScrollPosition = _terminalRenderedBufferLength - _terminalMaxRows;
 	_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition];
 };
 
@@ -59,9 +64,9 @@ if (_terminalScrollPosition < 0) then
 };
 
 
-if (_terminalBufferLength > _terminalMaxRows) then
+if (_terminalRenderedBufferLength > _terminalMaxRows) then
 {
-	_terminalBufferVisable = _terminalBufferVisable select [(_terminalBufferLength - _terminalMaxRows) - _terminalScrollPosition, _terminalMaxRows];
+	_terminalBufferVisable = _terminalBufferVisable select [(_terminalRenderedBufferLength - _terminalMaxRows) - _terminalScrollPosition, _terminalMaxRows];
 };
 
 _terminal set ["AE3_terminalBufferVisable", _terminalBufferVisable];

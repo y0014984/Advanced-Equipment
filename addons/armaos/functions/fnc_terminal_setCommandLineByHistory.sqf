@@ -65,7 +65,7 @@ else
 {
     _terminal set ["AE3_terminalInputBuffer", ["", ""]];
 };
-_lastBufferLine = _terminalPrompt;
+_lastBufferLine = [_terminalPrompt];
 
 _terminalBuffer set [_lastBufferLineIndex, _lastBufferLine];
 

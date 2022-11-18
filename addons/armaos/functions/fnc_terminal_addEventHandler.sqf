@@ -78,26 +78,26 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				if (_terminalApplication isEqualTo "LOGIN") exitWith
 				{
 					_terminal deleteAt "AE3_terminalInputBuffer";
-					[_computer, _input] call AE3_armaos_fnc_terminaL_appendLine;
+					[_computer, _input] call AE3_armaos_fnc_terminal_appendLine;
 
 					[_computer, _input] call AE3_armaos_fnc_shell_findLoginUser;
 				};
 				if (_terminalApplication isEqualTo "PASSWORD") exitWith
 				{
 					_terminal deleteAt "AE3_terminalInputBuffer";
-					[_computer, _input regexReplace [".", "*"]] call AE3_armaos_fnc_terminaL_appendLine;
+					[_computer, _input regexReplace [".", "*"]] call AE3_armaos_fnc_terminal_appendLine;
 
 					[_computer] call AE3_armaos_fnc_shell_validatePassword;
 				};
 				if (_terminalApplication isEqualTo "INPUT") exitWith
 				{
 					[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
-					[_computer, _input] call AE3_armaos_fnc_terminaL_appendLine;
+					[_computer, _input] call AE3_armaos_fnc_terminal_appendLine;
 				};
 				if (_terminalApplication isEqualTo "SHELL") exitWith
 				{
 					_terminal deleteAt "AE3_terminalInputBuffer";
-					[_computer, _input] call AE3_armaos_fnc_terminaL_appendLine;
+					[_computer, _input] call AE3_armaos_fnc_terminal_appendLine;
 					[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
 
 					[_computer, _input] spawn AE3_armaos_fnc_shell_process;

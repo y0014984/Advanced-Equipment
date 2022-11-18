@@ -43,6 +43,7 @@ _pointer = _computer getVariable "AE3_filepointer";
 private _terminal = createHashMapFromArray
 	[
 		["AE3_terminalBuffer", []],
+		["AE3_terminalRenderedBuffer", []],
 		["AE3_terminalBufferVisable", []],
 		["AE3_terminalScrollPosition", 0],
 		["AE3_terminalCursorLine", 0],
@@ -52,7 +53,7 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
-		["AE3_terminalMaxRows", 27],
+		["AE3_terminalMaxRows", 26],
 		["AE3_terminalMaxColumns", 90]
 	];
 

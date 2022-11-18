@@ -53,6 +53,9 @@ PREP(terminal_removeCharFromInput);
 PREP(terminal_shiftInputBuffer);
 PREP(terminal_getInput);
 
+PREP(terminal_renderLine);
+PREP(terminal_reRenderBuffer);
+
 PREP(terminal_addChar);
 PREP(terminal_addLines);
 PREP(terminal_appendLine);
