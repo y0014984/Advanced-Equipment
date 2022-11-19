@@ -33,7 +33,7 @@ if (isNil "_owner") then
 	_owner = _user;
 };
 
-private _result = [_pntr, _filesystem, _path, _user, _create, _owner, _permissions] call AE3_filesystem_fnc_chdir;
+private _result = [_pntr, _filesystem, _path, _user, _create, _owner, _permissions] call AE3_filesystem_fnc_chdir; // [_pointer, _current]
 _result pushBack _new;
 
 _result;

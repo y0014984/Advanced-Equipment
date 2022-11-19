@@ -3,7 +3,7 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: Address <[STRING]>
+ * 2: IP-Address <[STRING]>
  *
  * Results:
  * None
@@ -11,8 +11,8 @@
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith {[_computer, "Too many options"] call AE3_armaos_fnc_shell_stdout};
-if (count _options < 1) exitWith {[_computer, "Too few options"] call AE3_armaos_fnc_shell_stdout};
+if (count _options > 1) exitWith { [_computer, "'ping' has too many options"] call AE3_armaos_fnc_shell_stdout; };
+if (count _options < 1) exitWith { [_computer, "'ping' has too few options"] call AE3_armaos_fnc_shell_stdout; };
 
 private _address = (_options select 0) splitString ".";
 

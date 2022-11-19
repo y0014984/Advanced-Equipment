@@ -1,6 +1,5 @@
 /**
  * Prints/outputs the ingame date and time on a given computer.
- * Also returns information about the success of the command.
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -12,7 +11,7 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith {[_computer, "Date has no options"] call AE3_armaos_fnc_shell_stdout;};
+if (count _options >= 1) exitWith { [_computer, "'date' has no options"] call AE3_armaos_fnc_shell_stdout; };
 
 private _date = date;
 private _year = _date select 0;
