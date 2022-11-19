@@ -37,6 +37,5 @@ else
 	_terminal deleteAt "AE3_terminalLoginUser";
 };
 
-_result = _result + [""];
 [_computer, _result] call AE3_armaos_fnc_terminal_addLines;
 [_computer] call AE3_armaos_fnc_terminal_setPrompt;
