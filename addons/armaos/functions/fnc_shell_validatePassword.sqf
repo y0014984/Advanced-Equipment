@@ -9,12 +9,11 @@
  * None
  */
 
-params ["_computer"];
+params ["_computer", "_password"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
 private _username = _terminal get "AE3_terminalLoginUser";
-private _password = _terminal get "AE3_terminalInputBuffer";
 
 private _users = _computer getVariable "AE3_Userlist";
 
@@ -34,7 +33,6 @@ else
 if (_userPasswordMatch) then
 {
 	_terminal set ["AE3_terminalApplication", "SHELL"];
-	_terminal set ["AE3_terminalInputBuffer", nil];
 
 	if (AE3_DebugMode) then
 	{
@@ -51,7 +49,6 @@ else
 {
 	_result = [format ["   User: %1 failed login attempt", _username]];
 	_terminal deleteAt "AE3_terminalLoginUser";
-	_terminal deleteAt "AE3_terminalInputBuffer";
 	_terminal set ["AE3_terminalApplication", "LOGIN"];
 	_terminal set ["AE3_terminalPrompt", "LOGIN>"];
 };

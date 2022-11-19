@@ -67,8 +67,6 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then	
 		{
-			//private _lastBufferLine = _terminalBuffer # (_lastBufferLineIndex);
-
 			private _input = [_computer] call AE3_armaos_fnc_terminal_getInput;
 
 			[_terminal, _terminalApplication, _computer, _displayorcontrol, _input] call
@@ -87,7 +85,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 					_terminal deleteAt "AE3_terminalInputBuffer";
 					[_computer, _input regexReplace [".", "*"]] call AE3_armaos_fnc_terminal_appendLine;
 
-					[_computer] call AE3_armaos_fnc_shell_validatePassword;
+					[_computer, _input] call AE3_armaos_fnc_shell_validatePassword;
 				};
 				if (_terminalApplication isEqualTo "INPUT") exitWith
 				{
