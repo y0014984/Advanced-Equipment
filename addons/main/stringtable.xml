@@ -6,11 +6,13 @@
                 <Original>yes</Original>
                 <English>yes</English>
                 <German>Ja</German>
+                <Chinesesimp>是</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_General_No">
                 <Original>no</Original>
                 <English>no</English>
                 <German>Nein</German>
+                <Chinesesimp>否</Chinesesimp>
             </Key>
         </Container>
         <Container name="Debug Mode">
@@ -18,11 +20,13 @@
                 <Original>AE3 DEBUG MODE ENABLED</Original>
                 <English>AE3 DEBUG MODE ENABLED</English>
                 <German>AE3 DEBUG MODUS AKTIVIERT</German>
+                <Chinesesimp>AE3调试模式已启用</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_disabled">
                 <Original>AE3 DEBUG MODE DISABLED</Original>
-                <English>AE3 DEBUG MODE ENABLED</English>
+                <English>AE3 DEBUG MODE DISABLED</English>
                 <German>AE3 DEBUG MODUS DEAKTIVIERT</German>
+                <Chinesesimp>AE3调试模式已禁用</Chinesesimp>
             </Key>
         </Container>
         <Container name="Eden Attributes">
@@ -30,26 +34,31 @@
                 <Original>AE3 Attributes</Original>
                 <English>AE3 Attributes</English>
                 <German>AE3 Attribute</German>
+                <Chinesesimp>AE3属性</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelDisplayName">
                 <Original>Power Level</Original>
                 <English>Power Level</English>
                 <German>Füllstand Strom</German>
+                <Chinesesimp>功率</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
                 <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
                 <English>1 = full | 0.5 = 50% | 0 = empty</English>
                 <German>1 = voll | 0.5 = 50% | 0 = leer</German>
+                <Chinesesimp>1 = 满 | 0.5 = 50% | 0 = 空</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
                 <Original>Fuel Level</Original>
                 <English>Fuel Level</English>
                 <German>Füllstand Treibstoff</German>
+                <Chinesesimp>燃料</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelTooltip">
                 <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
                 <English>1 = full | 0.5 = 50% | 0 = empty</English>
                 <German>1 = voll | 0.5 = 50% | 0 = leer</German>
+                <Chinesesimp>1 = 满 | 0.5 = 50% | 0 = 空</Chinesesimp>
             </Key>
         </Container>
         <Container name="CBA Settings">
@@ -57,16 +66,19 @@
                 <Original>AE3 main</Original>
                 <English>AE3 main</English>
                 <German>AE3 Allgemein</German>
+                <Chinesesimp>AE3 主体</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_DebugModeName">
                 <Original>Debug Mode</Original>
                 <English>Debug Mode</English>
                 <German>Debug Modus</German>
+                <Chinesesimp>调试模式</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_DebugModeTooltip">
                 <Original>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</Original>
                 <English>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</English>
                 <German>Durch das Aktivieren des AE3 Debug Modus erhältst du zusätzliche Informationen über die interne Struktur von AE3.</German>
+                <Chinesesimp>你可以通过AE3调试模式获得更多有关AE3内部结构的信息.</Chinesesimp>
             </Key>
         </Container>
     </Package>
