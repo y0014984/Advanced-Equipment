@@ -13,7 +13,9 @@
 
 params ["_computer", "_options"];
 
-if (count _options < 3) exitWith { [_computer, "'crypto' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "crypto";
+
+if (count _options < 3) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _algorythm = "";
 private _key = "";
@@ -30,16 +32,16 @@ private _message = "";
 private _allowedAlgorythms = ["caesar"];
 private _allowedModes = ["encrypt", "decrypt"];
 
-if (!(_algorythm in _allowedAlgorythms)) exitWith { [_computer, "'crypto' has unknown or missing algorythm"] call AE3_armaos_fnc_shell_stdout; };
-if (!(_mode in _allowedModes)) exitWith { [_computer, "'crypto' has unknown or missing mode"] call AE3_armaos_fnc_shell_stdout; };
-if (_key isEqualTo "") exitWith { [_computer, "'crypto' has unknown or missing key"] call AE3_armaos_fnc_shell_stdout; };
+if (!(_algorythm in _allowedAlgorythms)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingAlgorythm", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+if (!(_mode in _allowedModes)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMode", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+if (_key isEqualTo "") exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingKey", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 // remove all empty strings from options array
 _message = _options - [""];
 
 _message = _message joinString " ";
 
-if (_message isEqualTo "") exitWith { [_computer, "'crypto' has unknown or missing message"] call AE3_armaos_fnc_shell_stdout; };
+if (_message isEqualTo "") exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _encryptedMessage = "";
 
@@ -60,16 +62,8 @@ if ((_mode isEqualTo "encrypt") || (_mode isEqualTo "decrypt")) then
         }
         else
         {
-            [_computer, "Caesar Cypher needs an integer greater then 0 as key"] call AE3_armaos_fnc_shell_stdout;
+            [_computer, localize "STR_AE3_ArmaOS_Exception_CaesarCypherNeedsIntegerGreaterNullAsKey"] call AE3_armaos_fnc_shell_stdout;
         };
-    }
-    else
-    {
-        [_computer, "Unknown algorythm"] call AE3_armaos_fnc_shell_stdout;
     };
-}
-else
-{
-    [_computer, "Unknown mode"] call AE3_armaos_fnc_shell_stdout;
 };
 

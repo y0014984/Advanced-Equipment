@@ -12,4 +12,4 @@ params["_entity"];
 
 private _powerCap = [_entity] call AE3_power_fnc_getPowerOutput;
 
-hint format ["Current power output: %1 W", _powerCap];
+hint format [localize "STR_AE3_Power_Interaction_PowerOutputHint", _powerCap];

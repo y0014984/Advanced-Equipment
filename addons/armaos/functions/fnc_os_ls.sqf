@@ -12,7 +12,9 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 3) exitWith { [_computer, "'ls' has too many options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "ls";
+
+if (count _options >= 3) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _long = false;
 private _path = [];

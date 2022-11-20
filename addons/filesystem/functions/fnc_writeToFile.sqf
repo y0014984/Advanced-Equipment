@@ -31,7 +31,7 @@ private _current = _dir select 1; // parent filesystemObject
 private _filename = _dir select 2; // name parent
 private _currentContent = _current select 0;
 
-if(!(_filename in _currentContent)) throw (format ["'%1' not found!", _filename]);
+if(!(_filename in _currentContent)) throw (format [localize "STR_AE3_Filesystem_Exception_NotFound", _filename]);
 
 private _fileObject = _currentContent get _filename;
 

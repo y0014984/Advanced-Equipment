@@ -11,15 +11,14 @@
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith { [_computer, "'man' has too many options"] call AE3_armaos_fnc_shell_stdout; };
-if (count _options < 1) exitWith { [_computer, "'man' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "man";
+
+if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _availableCommands = _computer getVariable ['AE3_Links', createHashMap];
 
 private _result = [];
-
-if (count _options > 1) exitWith {[_computer, localize "STR_AE3_ArmaOS_Exception_TooManyOptions"] call AE3_armaos_fnc_shell_stdout;};
-if (count _options < 1) exitWith {[_computer, localize "STR_AE3_ArmaOS_Exception_TooFewOptions"] call AE3_armaos_fnc_shell_stdout;};
 
 private _command = _options select 0;
 

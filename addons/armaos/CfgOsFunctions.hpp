@@ -149,30 +149,30 @@ class CfgOsFunctions
 	class echo : OsFunction
 	{
 		path = "/bin/echo";
-		description = "Print/output a line of text to stdout.";
-		man = "Usage echo: 'echo [text]' prints the given text to stdout.";
+		description = "$STR_AE3_ArmaOS_Config_CommandEchoDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandEchoMan";
 		code = "_this call AE3_armaos_fnc_os_echo";
 	};
 
 	class crypto : OsFunction
 	{
 		path = "/bin/crypto";
-		description = "Encrypts/decrypts text with a given algorythm and key.";
-		man = "Usage echo: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.";
+		description = "$STR_AE3_ArmaOS_Config_CommandCryptoDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandCryptoMan";
 		code = "_this call AE3_armaos_fnc_os_crypto";
 	};
 	class crack : OsFunction
 	{
 		path = "/bin/crack";
-		description = "Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.";
-		man = "Usage echo: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.";
+		description = "$STR_AE3_ArmaOS_Config_CommandCrackDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandCrackMan";
 		code = "_this call AE3_armaos_fnc_os_crack";
 	};
 	class find : OsFunction
 	{
 		path = "/bin/find";
-		description = "Searches in the current directory for a file with the given name.";
-		man = "Usage echo: 'find [filename]' prints the results to stdout.";
+		description = "$STR_AE3_ArmaOS_Config_CommandFindDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
 		code = "_this call AE3_armaos_fnc_os_find";
 	};
 };

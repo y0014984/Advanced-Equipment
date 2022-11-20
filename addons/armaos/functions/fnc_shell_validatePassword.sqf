@@ -33,7 +33,7 @@ else
 
 if (_userPasswordMatch) then
 {
-	_logMessage = format ["User: %1 successfully logged in", _username];
+	_logMessage = format [localize "STR_AE3_ArmaOS_Exception_UserLoginSuccessful", _username];
 	[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;
 
 	_terminal set ["AE3_terminalApplication", "SHELL"];

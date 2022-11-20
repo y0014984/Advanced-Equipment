@@ -12,7 +12,9 @@
 
 params ["_computer", "_options"];
 
-if (count _options < 2) exitWith { [_computer, "'crack' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "crack";
+
+if (count _options < 2) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _algorythm = "";
 private _mode = "";
@@ -27,14 +29,14 @@ private _message = "";
 private _allowedAlgorythms = ["caesar"];
 private _allowedModes = ["bruteforce", "statistics"];
 
-if (!(_mode in _allowedModes)) exitWith { [_computer, "'crack' has unknown or missing mode"] call AE3_armaos_fnc_shell_stdout; };
+if (!(_mode in _allowedModes)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMode", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 // remove all empty strings from options array
 _message = _options - [""];
 
 _message = _message joinString " ";
 
-if (_message isEqualTo "") exitWith { [_computer, "'crack' has unknown or missing message"] call AE3_armaos_fnc_shell_stdout; };
+if (_message isEqualTo "") exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _result = [];
 
@@ -48,13 +50,13 @@ _message = [_message, _allowedAlphabet + " "] call BIS_fnc_filterString;
 
 if (_mode isEqualTo "bruteforce") then
 {
-    if (!(_algorythm in _allowedAlgorythms)) exitWith { [_computer, "'crack' has unknown or missing algorythm"] call AE3_armaos_fnc_shell_stdout; };
+    if (!(_algorythm in _allowedAlgorythms)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
     if (_algorythm == "caesar") then
     {
         for "_i" from 1 to (count _allowedAlphabet) do
         {
-            private _test = format ["Test %1: %2", _i, [_i, "decrypt", _message] call AE3_armaos_fnc_encryption_caesar];
+            private _test = format [localize "STR_AE3_ArmaOS_Result_BruteForceTest", _i, [_i, "decrypt", _message] call AE3_armaos_fnc_encryption_caesar];
             _result pushBack _test;
         };
     };
@@ -85,7 +87,7 @@ if (_mode isEqualTo "statistics") then
 
         _keyIfThisIsAnE = ((_keyIfThisIsAnE + (count _allowedAlphabet)) - _indexOfE) % (count _allowedAlphabet);
 
-        private _found = format ["Character '%1' found %2 times (Possible key, if this is an 'E': %3)", _x, _statistics get _x, _keyIfThisIsAnE];     
+        private _found = format [localize "STR_AE3_ArmaOS_Result_CharacterFoundPossibleKey", _x, _statistics get _x, _keyIfThisIsAnE];     
         _result pushBack _found;
     } forEach _foundChars;
 };
