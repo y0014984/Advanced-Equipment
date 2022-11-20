@@ -21,6 +21,7 @@ _terminal deleteAt "AE3_terminalInputBuffer";
 _terminal set ["AE3_terminalApplication", "LOGIN"];
 _terminal set ["AE3_terminalPrompt", "LOGIN>"];
 _terminal set ["AE3_terminalBuffer", []];
+_terminal set ["AE3_terminalRenderedBuffer", []];
 _terminal set ["AE3_terminalCursorLine", 0];
 _terminal set ["AE3_terminalCursorPosition", 0];
 

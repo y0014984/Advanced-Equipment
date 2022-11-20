@@ -13,15 +13,14 @@ params ["_computer", "_inputChar"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
-private _terminalPasswordBuffer = "";
+private _terminalInputBuffer = ["", ""];
 
 if (!isNil { _terminal get "AE3_terminalInputBuffer" }) then 
 {
-	_terminalPasswordBuffer = _terminal get "AE3_terminalInputBuffer";
+	_terminalInputBuffer = _terminal get "AE3_terminalInputBuffer";
 };
 
-_terminalPasswordBuffer = _terminalPasswordBuffer + _inputChar;
-
-_terminal set ["AE3_terminalInputBuffer", _terminalPasswordBuffer];
+_terminalInputBuffer set [0, (_terminalInputBuffer select 0) + _inputChar];
+_terminal set ["AE3_terminalInputBuffer", _terminalInputBuffer];
 
 _computer setVariable ["AE3_terminal", _terminal];

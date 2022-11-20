@@ -16,5 +16,6 @@ if (count _options >= 1) exitWith { [_computer, "'clear' has no options"] call A
 private _terminal = _computer getVariable "AE3_terminal";
 
 _terminal set ["AE3_terminalBuffer", []];
+_terminal set ["AE3_terminalRenderedBuffer", []];
 _terminal set ["AE3_terminalCursorLine", 0];
 _terminal set ["AE3_terminalCursorPosition", 0];

@@ -75,32 +75,32 @@ if(_long) then
 
 _result = [];
 {
-	_buffer = "";
+	_buffer = [];
 	_y = _folder  get _x;
 
 	if(_long) then
 	{
-		_buffer = format ["%1  %2  ", [_y] call _permissionString, [_y, _maxOwnerLength] call _ownerString];
+		_buffer = [format ["%1  %2  ", [_y] call _permissionString, [_y, _maxOwnerLength] call _ownerString]];
 	};
 
-	_buffer = _buffer + ([_x, _y, _user] call
+	_buffer pushBack ([_x, _y, _user] call
 	{
 		params ['_name', '_object', '_user'];
 
 		// If directory
 		if(typeName (_object select 0) isEqualTo "HASHMAP") exitWith
 		{
-			format ["<t color='#008df8'>%1/</t>", _name];
+			[_name, "#008df8"];
 		};
 
 		// If executable
 		try
 		{
 			[_object, _user, 0] call AE3_filesystem_fnc_hasPermission;
-			format ["<t color='#8ce10b'>%1</t>", _name];
+			[_name, "#8ce10b"];
 		}catch
 		{
-			_name;
+			[_name];
 		}
 	});
 
