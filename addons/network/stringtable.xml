@@ -6,11 +6,13 @@
                 <Original>Connect to router</Original>
                 <English>Connect to router</English>
                 <German>Verbinde mit Router</German>
+                <Chinesesimp>连接路由器</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Network_Interaction_DisconnectFromRouter">
                 <Original>Disconnect from router</Original>
                 <English>Disconnect from router</English>
                 <German>Trenne von Router</German>
+                <Chinesesimp>断开路由器</Chinesesimp>
             </Key>
         </Container>
         <Container name="Config">
@@ -18,6 +20,7 @@
                 <Original>Router</Original>
                 <English>Router</English>
                 <German>Router</German>
+                <Chinesesimp>路由器</Chinesesimp>
             </Key>
         </Container>
     </Package>
