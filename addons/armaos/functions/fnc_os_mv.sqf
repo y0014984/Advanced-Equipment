@@ -12,6 +12,9 @@
 
 params ["_computer", "_options"];
 
+if (count _options > 2) exitWith { [_computer, "'mv' has too many options"] call AE3_armaos_fnc_shell_stdout; };
+if (count _options < 2) exitWith { [_computer, "'mv' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
@@ -35,4 +38,5 @@ try
 {
 	_result pushBack _exception;
 };
+
 [_computer, _result] call AE3_armaos_fnc_shell_stdout;

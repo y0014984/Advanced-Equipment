@@ -3,7 +3,7 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: Address <[STRING]>
+ * 2: IP-Address <[STRING]>
  *
  * Results:
  * None

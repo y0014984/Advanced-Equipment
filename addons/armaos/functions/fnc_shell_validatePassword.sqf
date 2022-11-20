@@ -9,16 +9,16 @@
  * None
  */
 
-params ["_computer"];
+params ["_computer", "_password"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
 private _username = _terminal get "AE3_terminalLoginUser";
-private _password = _terminal get "AE3_terminalInputBuffer";
 
 private _users = _computer getVariable "AE3_Userlist";
 
 private _result = [];
+private _logMessage = "";
 
 private _userPasswordMatch = false;
 
@@ -33,8 +33,10 @@ else
 
 if (_userPasswordMatch) then
 {
+	_logMessage = format ["User: %1 successfully logged in", _username];
+	[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;
+
 	_terminal set ["AE3_terminalApplication", "SHELL"];
-	_terminal set ["AE3_terminalInputBuffer", nil];
 
 	if (AE3_DebugMode) then
 	{
@@ -49,13 +51,15 @@ if (_userPasswordMatch) then
 }
 else
 {
-	_result = [format [localize "STR_AE3_ArmaOS_Exception_UserFailedLogin", _username]];
+	_logMessage = format [localize "STR_AE3_ArmaOS_Exception_UserFailedLogin", _username];
+	[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;
+
 	_terminal deleteAt "AE3_terminalLoginUser";
-	_terminal deleteAt "AE3_terminalInputBuffer";
 	_terminal set ["AE3_terminalApplication", "LOGIN"];
 	_terminal set ["AE3_terminalPrompt", "LOGIN>"];
 };
 
-_result = _result + [""];
+_result = ["   " + _logMessage];
+
 [_computer, _result] call AE3_armaos_fnc_terminal_addLines;
 [_computer] call AE3_armaos_fnc_terminal_setPrompt;

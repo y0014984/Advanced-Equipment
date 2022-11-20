@@ -1,3 +1,14 @@
+/**
+ * Powers down the computer immediately.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Options <[STRING]>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_options"];
 
 private _commandName = "shutdown";

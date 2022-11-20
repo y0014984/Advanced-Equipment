@@ -145,4 +145,34 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandStandbyMan";
 		code = "_this call AE3_armaos_fnc_os_standby";
 	};
+
+	class echo : OsFunction
+	{
+		path = "/bin/echo";
+		description = "Print/output a line of text to stdout.";
+		man = "Usage echo: 'echo [text]' prints the given text to stdout.";
+		code = "_this call AE3_armaos_fnc_os_echo";
+	};
+
+	class crypto : OsFunction
+	{
+		path = "/bin/crypto";
+		description = "Encrypts/decrypts text with a given algorythm and key.";
+		man = "Usage echo: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.";
+		code = "_this call AE3_armaos_fnc_os_crypto";
+	};
+	class crack : OsFunction
+	{
+		path = "/bin/crack";
+		description = "Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.";
+		man = "Usage echo: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.";
+		code = "_this call AE3_armaos_fnc_os_crack";
+	};
+	class find : OsFunction
+	{
+		path = "/bin/find";
+		description = "Searches in the current directory for a file with the given name.";
+		man = "Usage echo: 'find [filename]' prints the results to stdout.";
+		code = "_this call AE3_armaos_fnc_os_find";
+	};
 };

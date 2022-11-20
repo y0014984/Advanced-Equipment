@@ -12,7 +12,6 @@
 
 params['_entity'];
 
-
 private _class = typeOf _entity;
 
 if(isNil {missionNamespace getVariable _class}) then 
@@ -42,6 +41,18 @@ if(isNil {missionNamespace getVariable _class}) then
 private _config = missionNamespace getVariable _class;
 
 if(_config isEqualType "") exitWith {};
+
+// ================================================================================
+// Save all objects in an array, so debug mode can access them
+private _debugOverlay = missionNamespace getVariable "AE3_DebugOverlay";
+if (isNil "_debugOverlay") then
+{
+	_debugOverlay = [];
+	missionNamespace setVariable ["AE3_DebugOverlay", _debugOverlay, true];
+};
+_debugOverlay pushBack [_entity, controlNull];
+missionNamespace setVariable ["AE3_DebugOverlay", _debugOverlay];
+// ================================================================================
 
 [_entity] + (_config get 'device') call AE3_power_fnc_initDevice;
 

@@ -9,6 +9,7 @@ PREP(shell_getHomeDir);
 PREP(shell_executeFile);
 PREP(shell_stdout);
 PREP(shell_stdin);
+PREP(shell_writeToLogfile);
 
 
 /* Computer Functions */
@@ -30,6 +31,7 @@ PREP(os_cd);
 PREP(os_chat);
 PREP(os_clear);
 PREP(os_date);
+PREP(os_echo);
 PREP(os_exit);
 PREP(os_help);
 PREP(os_history);
@@ -43,15 +45,29 @@ PREP(os_rm);
 PREP(os_shutdown);
 PREP(os_standby);
 PREP(os_whoami);
+PREP(os_crypto);
+PREP(os_crack);
+PREP(os_find);
+
+/* Encryption Functions */
+PREP(encryption_caesar);
 
 /* Terminal Functions */
 PREP(terminal_init);
 PREP(terminal_addEventHandler);
-PREP(terminal_addChar);
+
 PREP(terminal_addCharToInput);
-PREP(terminal_addLines);
-PREP(terminal_removeChar);
 PREP(terminal_removeCharFromInput);
+PREP(terminal_shiftInputBuffer);
+PREP(terminal_getInput);
+
+PREP(terminal_renderLine);
+PREP(terminal_reRenderBuffer);
+
+PREP(terminal_addChar);
+PREP(terminal_addLines);
+PREP(terminal_appendLine);
+PREP(terminal_removeChar);
 PREP(terminal_addHeader);
 PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);

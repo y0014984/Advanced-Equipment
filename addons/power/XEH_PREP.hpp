@@ -2,7 +2,7 @@
 PREP(checkBatteryLevelAction);
 PREP(checkFuelLevelAction);
 PREP(checkPowerStateAction);
-PREP(checkPowerGenAction);
+PREP(checkPowerOutputAction);
 PREP(turnOffGeneratorAction);
 PREP(turnOnGeneratorAction);
 PREP(turnOffBatteryAction);
@@ -11,6 +11,12 @@ PREP(turnOffSolarAction);
 PREP(turnOnSolarAction);
 PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
+
+/* Getter */
+PREP(getFuelLevel);
+PREP(getPowerState);
+PREP(getPowerOutput);
+PREP(getBatteryLevel);
 
 /* Init */
 PREP(compileConfig);

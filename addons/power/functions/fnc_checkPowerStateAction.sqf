@@ -10,7 +10,7 @@
 
 params ["_target"];
 
-private _powerState = _target getVariable ["AE3_power_powerState", -1];
+private _powerState = [_target] call AE3_power_fnc_getPowerState;
 
 private _powerStateString = "";
 

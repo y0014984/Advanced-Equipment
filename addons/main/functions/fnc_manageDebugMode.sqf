@@ -25,11 +25,30 @@ if (_debugMode) then
     ] call CBA_fnc_addPerFrameHandler;
     
     localNamespace setVariable ["AE3_DebugModeLoopHandle", _debugModeLoopHandle];
+
+    [] spawn 
+    {
+        // enable debug overlay
+        waitUntil { !((findDisplay 46) isEqualto displayNull) };
+        private _objects = missionNamespace getVariable "AE3_DebugOverlay";
+        [_objects] call AE3_main_fnc_initDebugOverlay;
+    };
 }
 else
 {
     _debugModeLoopHandle = localNamespace getVariable "AE3_DebugModeLoopHandle";
     [_debugModeLoopHandle] call CBA_fnc_removePerFrameHandler;
 
-    if (time > 3) then { systemChat localize "STR_AE3_Main_DebugMode_disabled"; };
+
+    [] spawn 
+    {
+        // enable debug overlay
+        waitUntil { !((findDisplay 46) isEqualto displayNull) };
+        
+        systemChat localize "STR_AE3_Main_DebugMode_disabled";
+
+        //disable debug overlay
+        private _objects = missionNamespace getVariable "AE3_DebugOverlay";
+        [_objects] call AE3_main_fnc_killDebugOverlay;
+    };
 };

@@ -1,6 +1,5 @@
 /**
  * Prints/outputs the ingame date and time on a given computer.
- * Also returns information about the success of the command.
  *
  * Arguments:
  * 1: Computer <OBJECT>
