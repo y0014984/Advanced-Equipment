@@ -45,7 +45,7 @@ else
         // enable debug overlay
         waitUntil { !((findDisplay 46) isEqualto displayNull) };
         
-        systemChat localize "STR_AE3_Main_DebugMode_disabled";
+        if (!(time < 5)) then { systemChat localize "STR_AE3_Main_DebugMode_disabled"; };
 
         //disable debug overlay
         private _objects = missionNamespace getVariable "AE3_DebugOverlay";
