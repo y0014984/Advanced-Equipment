@@ -19,7 +19,7 @@ if (!_silent) then
 
 		},
 		{},
-		("Turn Off")
+		(localize "STR_AE3_Power_Interaction_TurnOff")
 	] call ace_common_fnc_progressBar;
 };
 

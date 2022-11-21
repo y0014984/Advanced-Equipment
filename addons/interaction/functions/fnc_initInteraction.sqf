@@ -96,7 +96,7 @@ if (!isDedicated) then
 	// Add open/close action
 	if (!((_openFnc isEqualTo {}) || (_closeFnc isEqualTo {}))) then
 	{
-		_open = ["AE3_openAction", "Open", "", 
+		_open = ["AE3_openAction", localize "STR_AE3_Interaction_General_Open", "", 
 					{
 						params ["_target", "_player", "_params"]; 
 
@@ -114,7 +114,7 @@ if (!isDedicated) then
 					{(_target call (_target getVariable ["AE3_interaction_fnc_openActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 1)},
 					{}] call ace_interact_menu_fnc_createAction;
 
-		_close = ["AE3_closeAction", "Close", "", 
+		_close = ["AE3_closeAction", localize "STR_AE3_Interaction_General_Close", "", 
 					{
 						params ["_target", "_player", "_params"]; 
 						

@@ -19,7 +19,7 @@ private _current = _dir select 1;
 private _obj = _dir select 2;
 _current = _current select 0;
 
-if(!(_obj in _current)) throw (format ["'%1' not found!", _obj]);
+if(!(_obj in _current)) throw (format [localize "STR_AE3_Filesystem_Exception_NotFound", _obj]);
 
 [_current get _obj, _user, 2] call AE3_filesystem_fnc_hasPermission;
 

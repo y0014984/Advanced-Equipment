@@ -11,8 +11,10 @@
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith { [_computer, "'rm' has too many options"] call AE3_armaos_fnc_shell_stdout; };
-if (count _options < 1) exitWith { [_computer, "'rm' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "rm";
+
+if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";

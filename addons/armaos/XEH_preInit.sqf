@@ -4,8 +4,8 @@
 [
 	"AE3_KeyboardLayout",
 	"LIST",
-	["Keyboard Layout", "Keyboard Layout for armaOS. You can also change this in armaOS terminal."],
-	"AE3 armaOS",
+	["STR_AE3_Main_CbaSettings_KeyboardLayoutName", "STR_AE3_Main_CbaSettings_KeyboardLayoutTooltip"],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	[
 		["US", "DE"],
 		[["US", "United States"], ["DE", "Deutschland"]], 
@@ -21,11 +21,15 @@
 [
 	"AE3_TerminalScrollSpeed",
 	"LIST",
-	["Terminal Scroll Speed", "Determines the speed in lines for the mouse wheel scroll feature for the terminal."],
-	"AE3 armaOS",
+	["STR_AE3_Main_CbaSettings_TerminalScrollSpeedName", "STR_AE3_Main_CbaSettings_TerminalScrollSpeedTooltip"],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	[
 		[1, 2, 3],
-		[["1 line", "1 line"], ["2 lines", "2 lines"], ["3 lines", "3 lines"]], 
+		[
+			["STR_AE3_Main_CbaSettings_1line", "STR_AE3_Main_CbaSettings_1line"], 
+			["STR_AE3_Main_CbaSettings_2lines", "STR_AE3_Main_CbaSettings_2lines"], 
+			["STR_AE3_Main_CbaSettings_3lines", "STR_AE3_Main_CbaSettings_3lines"]
+		], 
 		0
 	],
     nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer

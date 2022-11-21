@@ -33,7 +33,7 @@ private _childs =
 	} forEach (_routers); _actions
 };
 
-private _connect = ["AE3_Network_ConnectAction", "Connect to router", "",
+private _connect = ["AE3_Network_ConnectAction", localize "STR_AE3_Network_Interaction_ConnectToRouter", "",
 			{},
 			{
 				params ["_target", "_player", "_params"]; 
@@ -44,7 +44,7 @@ private _connect = ["AE3_Network_ConnectAction", "Connect to router", "",
 			[_entity]
 			] call ace_interact_menu_fnc_createAction;
 
-private _disconnect = ["AE3_Network_DisconnectAction", "Disconnect from router", "",
+private _disconnect = ["AE3_Network_DisconnectAction", localize "STR_AE3_Network_Interaction_DisconnectFromRouter", "",
 				{
 					params ["_target", "_player", "_params"]; 
 					_params params ["_device"]; 

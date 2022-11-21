@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="AE3">
+    <Package name="ArmaOS">
+        <Container name="Exceptions">
+            <Key ID="STR_AE3_ArmaOS_Exception_LinkAlreadyExists">
+                <Original>Link already exists!</Original>
+                <English>Link already exists!</English>
+                <German>Verknüpfung existiert bereits!</German>
+                <Chinesesimp>链接已存在!</Chinesesimp>
+                <Russian>Ссылка уже существует!</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_TooFewOptions">
+                <Original>Too few options</Original>
+                <English>Too few options</English>
+                <German>Zu wenige Parameter</German>
+                <Chinesesimp>参数过少</Chinesesimp>
+                <Russian>Слишком мало параметров</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions">
+                <Original>Command '%1' has too few options</Original>
+                <English>Command '%1' has too few options</English>
+                <German>Befehl '%1' hat zu wenige Parameter</German>
+                <Chinesesimp>命令 '%1' 参数过少</Chinesesimp>
+                <Russian>Команда '%1' имеет слишком мало параметров</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingMode">
+                <Original>Command '%1' has unknown or missing mode</Original>
+                <English>Command '%1' has unknown or missing mode</English>
+                <German>Befehl '%1' hat unbekannten oder fehlenden Modus</German>
+                <Chinesesimp>命令 '%1' 包含未知模式或丢失模式</Chinesesimp>
+                <Russian>Команда '%1' имеет неизвестный или отсутствующий режим</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingMessage">
+                <Original>Command '%1' has unknown or missing message</Original>
+                <English>Command '%1' has unknown or missing message</English>
+                <German>Befehl '%1' hat unbekannte oder fehlende Nachricht</German>
+                <Chinesesimp>命令 '%1' 包含未知信息或丢失信息</Chinesesimp>
+                <Russian>Command '%1' has unknown or missing message</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingAlgorythm">
+                <Original>Command '%1' has unknown or missing algorythm</Original>
+                <English>Command '%1' has unknown or missing algorythm</English>
+                <German>Befehl '%1' hat unbekannten oder fehlenden Algorithmus</German>
+                <Chinesesimp>命令 '%1' 包含未知算法或丢失算法</Chinesesimp>
+                <Russian>Command '%1' has unknown or missing algorythm</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingKey">
+                <Original>Command '%1' has unknown or missing key</Original>
+                <English>Command '%1' has unknown or missing key</English>
+                <German>Befehl '%1' hat unbekannten oder fehlenden Schlüssel</German>
+                <Chinesesimp>命令 '%1' 包含未知密钥或丢失密钥</Chinesesimp>
+                <Russian>Command '%1' has unknown or missing key</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CaesarCypherNeedsIntegerGreaterNullAsKey">
+                <Original>Caesar Cypher needs an integer greater then 0 as key.</Original>
+                <English>Caesar Cypher needs an integer greater then 0 as key</English>
+                <German>Die Cäsar Chiffre benötigt eine Ganzzahl größer 0 als Schlüssel.</German>
+                <Chinesesimp>凯撒密码需要一个大于0的整数作为密钥.</Chinesesimp>
+                <Russian>Шифр Цезаря требует в качестве ключа целое число больше 0.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_TooManyOptions">
+                <Original>Too many options</Original>
+                <English>Too many options</English>
+                <German>Zu viele Parameter</German>
+                <Chinesesimp>参数过多</Chinesesimp>
+                <Russian>Слишком много параметров</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions">
+                <Original>Command '%1' has too many options</Original>
+                <English>Command '%1' has too many options</English>
+                <German>Befehl '%1' hat zu viele Parameter</German>
+                <Chinesesimp>命令 '%1' 参数过多</Chinesesimp>
+                <Russian>Команда '%1' имеет слишком много параметров.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_UnableToRead">
+                <Original>Unable to read: %1</Original>
+                <English>Unable to read: %1</English>
+                <German>Kannn nicht gelesen werden: %1</German>
+                <Chinesesimp>无法读取: %1</Chinesesimp>
+                <Russian>Unable to read: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandHasNoOptions">
+                <Original>'%1' has no options</Original>
+                <English>'%1' has no options</English>
+                <German>'%1' hat keine Parameter</German>
+                <Chinesesimp>'%1' 不存在参数</Chinesesimp>
+                <Russian>'%1' has no options</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_NoAddressDevice">
+                <Original>No address device attached</Original>
+                <English>No address device attached</English>
+                <German>Kein Adressgerät verbunden</German>
+                <Chinesesimp>未连接设备地址</Chinesesimp>
+                <Russian>No address device attached</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CommandNotFound">
+                <Original>Command '%1' not found.</Original>
+                <English>Command '%1' not found.</English>
+                <German>Befehl '%1' nicht gefunden.</German>
+                <Chinesesimp>未找到 '%1' 命令.</Chinesesimp>
+                <Russian>Command '%1' not found.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_InvalidAddress">
+                <Original>Invalid address!</Original>
+                <English>Invalid address!</English>
+                <German>Ungültige Adresse!</German>
+                <Chinesesimp>无效地址!</Chinesesimp>
+                <Russian>Invalid address!</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_PackageDropped">
+                <Original>Package dropped.</Original>
+                <English>Package dropped.</English>
+                <German>Paket verworfen.</German>
+                <Chinesesimp>封包丢失</Chinesesimp>
+                <Russian>Package dropped.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_RootLoginDisabled">
+                <Original>root login disabled</Original>
+                <English>root login disabled</English>
+                <German>root Login deaktiviert</German>
+                <Chinesesimp>Root登录已禁用</Chinesesimp>
+                <Russian>root login disabled</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_UserNotFound">
+                <Original>User: %1 not found</Original>
+                <English>User: %1 not found</English>
+                <German>Benutzer: %1 nicht gefunden</German>
+                <Chinesesimp>未找到用户: %1</Chinesesimp>
+                <Russian>Пользователь: %1 не найден</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_UserFailedLogin">
+                <Original>User: %1 failed login attempt</Original>
+                <English>User: %1 failed login attempt</English>
+                <German>Benutzer: %1 fehlgeschlagener Login-Versuch</German>
+                <Chinesesimp>用户: %1 尝试登陆失败</Chinesesimp>
+                <Russian>Пользователь: %1 неудачная попытка входа</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_UserLoginSuccessful">
+                <Original>User: %1 successfully logged in</Original>
+                <English>User: %1 successfully logged in</English>
+                <German>Benutzer: %1 erfolgreich eingeloggt</German>
+                <Chinesesimp>用户: %1 登陆成功</Chinesesimp>
+                <Russian>Пользователь: %1 успешно вошел в систему</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_DialogFailed">
+                <Original>Dialog couldn't be opened!</Original>
+                <English>Dialog couldn't be opened!</English>
+                <German>Der Dialog konnte nicht geöffnet werden!</German>
+                <Chinesesimp>对话框无法打开</Chinesesimp>
+                <Russian>Dialog couldn't be opened!</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CantScanFolderMissionPermissions">
+                <Original>Can't scan %1 folders due to missing permissions.</Original>
+                <English>Can't scan %1 folders due to missing permissions.</English>
+                <German>Wegen fehlender Berechtigungen kann das Verzeichnis %1 nicht durchsucht werden.</German>
+                <Chinesesimp>缺少扫描 %1 文件夹的权限.</Chinesesimp>
+                <Russian>Не удается просканировать папки %1 из-за отсутствия разрешений.</Russian>
+            </Key>
+        </Container>
+        <Container name="Results">
+            <Key ID="STR_AE3_ArmaOS_Result_IPv4Address">
+                <Original>IPv4 Address: %1</Original>
+                <English>IPv4 Address: %1</English>
+                <German>IPv4 Adresse: %1</German>
+                <Chinesesimp>IPv4地址: %1</Chinesesimp>
+                <Russian>IPv4 Address: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_PingAnswer">
+                <Original>Answer from %1: Time: %2 ms</Original>
+                <English>Answer from %1: Time: %2 ms</English>
+                <German>Antwort von %1: Zeit: %2 ms</German>
+                <Chinesesimp>来自 %1 的应答: 时间: %2 毫秒</Chinesesimp>
+                <Russian>Answer from %1: Time: %2 ms</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_Date">
+                <Original>Date: %1-%2-%3 %4</Original>
+                <English>Date: %1-%2-%3 %4</English>
+                <German>Date: %1-%2-%3 %4</German>
+                <Chinesesimp>日期: %1-%2-%3 %4</Chinesesimp>
+                <Russian>Date: %1-%2-%3 %4</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_BruteForceTest">
+                <Original>Test %1: %2</Original>
+                <English>Test %1: %2</English>
+                <German>Test %1: %2</German>
+                <Chinesesimp>Test %1: %2</Chinesesimp>
+                <Russian>Test %1: %2</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_CharacterFoundPossibleKey">
+                <Original>Character '%1' found %2 times (Possible key, if this is an 'E': %3)</Original>
+                <English>Character '%1' found %2 times (Possible key, if this is an 'E': %3)</English>
+                <German>Zeichen '%1' %2 mal gefunden (Möglicher Schlüssel, falls dies ein 'E' ist: %3)</German>
+                <Chinesesimp>找到字符 '%1'  %2 次(如果这是 'E',可能的秘钥为: %3)</Chinesesimp>
+                <Russian>Character '%1' found %2 times (Possible key, if this is an 'E': %3)</Russian>
+            </Key>
+        </Container>
+        <Container name="Header">
+            <Key ID="STR_AE3_ArmaOS_Header_Line1">
+                <Original>Get a list of available commands by typing 'help'</Original>
+                <English>Get a list of available commands by typing 'help'</English>
+                <German>Erhalte eine Liste der verfügbaren Befehle durch Eingabe von 'help'</German>
+                <Chinesesimp>输入'help'获取可用命令列表</Chinesesimp>
+                <Russian>Получить список доступных команд: 'help'</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Header_Line2">
+                <Original>Get detailed command information by typing 'man [command]'</Original>
+                <English>Get detailed command information by typing 'man [command]'</English>
+                <German>Erhalte ausführliche Befehlsinformationen durch Eingabe von 'man [Befehl]'</German>
+                <Chinesesimp>输入'man[command]'获取详细的命令信息</Chinesesimp>
+                <Russian>Получить подробную информацию о команде: 'man [command]'</Russian>
+            </Key>
+        </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_ArmaOS_Config_ArmaOSModulesKategoryDisplayName">
+                <Original>AE3 armaOS Modules</Original>
+                <English>AE3 armaOS Modules</English>
+                <German>AE3 armaOS Module</German>
+                <Chinesesimp>AE3 armaOS 模块</Chinesesimp>
+                <Russian>AE3 armaOS Module</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandManDescr">
+                <Original>Prints usage information about a command.</Original>
+                <English>Prints usage information about a command.</English>
+                <German>Gibt Informationen zur Benutzung eines Befehls aus.</German>
+                <Chinesesimp>打印命令的说明信息.</Chinesesimp>
+                <Russian>Выводит информацию об использовании команды</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandManMan">
+                <Original>Usage man: 'man [command]' returns usage information for the command.</Original>
+                <English>Usage man: 'man [command]' returns usage information for the command.</English>
+                <German>Verwendung man: 'man [Befehl]' liefert Informationen zur Benutzung des Befehls zurück.</German>
+                <Chinesesimp>man说明:'man[command]'返回命令说明信息.</Chinesesimp>
+                <Russian>Использование man: 'man [command]' выводит информацию об использовании команды</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHelpDescr">
+                <Original>Prints all installed programs.</Original>
+                <English>Prints all installed programs.</English>
+                <German>Listet alle installierten Programme.</German>
+                <Chinesesimp>打印所有已安装的程序.</Chinesesimp>
+                <Russian>Выводит все доступные Команды</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHelpMan">
+                <Original>Usage help: 'help' returns a list of available programs. No options needed.</Original>
+                <English>Usage help: 'help' returns a list of available programs. No options needed.</English>
+                <German>Verwendung help: 'help' liefert eine Liste aller verfügbaren Programme. Keine Parameter nötig.</German>
+                <Chinesesimp>help说明:'help'返回可用程序列表. 无需参数.</Chinesesimp>
+                <Russian>Использование help: 'help [command]' Выводит список всех доступных Команд</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsDescr">
+                <Original>Display the content of a directory.</Original>
+                <English>Display the content of a directory.</English>
+                <German>Listet den Inhalt eines Verzeichnisses.</German>
+                <Chinesesimp>显示目录的内容.</Chinesesimp>
+                <Russian>Показывает содержимое директории</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsMan">
+                <Original>Usage ls: 'ls [path]' returns a list of filesystem objects found in this path.</Original>
+                <English>Usage ls: 'ls [path]' returns a list of filesystem objects found in this path.</English>
+                <German>Verwendung ls: 'ls [Pfad]' liefert eine Liste von in diesem Pfad gefundenen Dateisystemobjekten.</German>
+                <Chinesesimp>ls说明:'ls[path]返回在此路径中找到的文件系统对象的列表.</Chinesesimp>
+                <Russian>Использование ls: 'ls [path]' показывает список файлов найденных по этому пути</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCdDescr">
+                <Original>Change the working directory.</Original>
+                <English>Change the working directory.</English>
+                <German>Wechselt das Arbeitsverzeichnis.</German>
+                <Chinesesimp>更改工作目录.</Chinesesimp>
+                <Russian>Изменяет рабочую директорию</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCdMan">
+                <Original>Usage cd: 'cd [path]' sets path as the new working directory.</Original>
+                <English>Usage cd: 'cd [path]' sets path as the new working directory.</English>
+                <German>Verwendung cd: 'cd [Pfad]' setzt den Pfad als das neue Arbeitsverzeichnis.</German>
+                <Chinesesimp>cd说明:'cd[path]'将路径设置为新的工作目录.</Chinesesimp>
+                <Russian>Использование cd: 'cd [path] делает путь новой рабочей директорией</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCatDescr">
+                <Original>Prints the content of a file.</Original>
+                <English>Prints the content of a file.</English>
+                <German>Gibt den Inhalt einer Datei aus.</German>
+                <Chinesesimp>打印文件内容.</Chinesesimp>
+                <Russian>Показывает содержимое файла</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCatMan">
+                <Original>Usage cat: 'cat [file]' shows the content of a file.</Original>
+                <English>Usage cat: 'cat [file]' shows the content of a file.</English>
+                <German>Verwendung cat: 'cat [Datei]' zeigt den Inhalt einer Datei.</German>
+                <Chinesesimp>cat说明:'cat[file]'显示文件内容.</Chinesesimp>
+                <Russian>Использование cat: 'cat [file] Показывает содержимое файла</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandDateDescr">
+                <Original>Prints the date.</Original>
+                <English>Prints the date.</English>
+                <German>Gibt das Datum aus.</German>
+                <Chinesesimp>打印日期.</Chinesesimp>
+                <Russian>Выводит текущую дату и время</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandDateMan">
+                <Original>Usage date: 'date' prints the actual date in format YYYY-MM-DD HH:MM:SS</Original>
+                <English>Usage date: 'date' prints the actual date in format YYYY-MM-DD HH:MM:SS</English>
+                <German>Verwendung date: 'date' gibt das aktuelle Datum in dem Format YYYY-MM-DD HH:MM:SS aus.</German>
+                <Chinesesimp>date说明:'date'以YYYY-MM-DD HH:MM:SS格式打印实际日期.</Chinesesimp>
+                <Russian>Использование date: 'date' выводит текущую дату в формате ГОД-МЕСЯЦ-ДЕНЬ ЧАСЫ-МИНУТЫ-СЕКУНДЫ</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHistoryDescr">
+                <Original>Prints the terminal history.</Original>
+                <English>Prints the terminal history.</English>
+                <German>Gibt die Terminal-Historie aus.</German>
+                <Chinesesimp>打印终端历史记录.</Chinesesimp>
+                <Russian>Выводит историю ввода Команд</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandHistoryMan">
+                <Original>Usage history: 'history' lists last commands since the start of the computer.</Original>
+                <English>Usage history: 'history' lists last commands since the start of the computer.</English>
+                <German>Verwendung history: 'history' listet die letzten Befehle seit dem Start des Computers.</German>
+                <Chinesesimp>history说明:'history'列出自计算机启动以来的最后一个命令.</Chinesesimp>
+                <Russian>Использование history: 'history' выдаёт списко команд которые вводились после включение компьютера</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandClearDescr">
+                <Original>Clears the terminal window.</Original>
+                <English>Clears the terminal window.</English>
+                <German>Bereinigt das Terminal-Fenster.</German>
+                <Chinesesimp>清除终端窗口.</Chinesesimp>
+                <Russian>Очищает окно терминала</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandClearMan">
+                <Original>Usage clear: 'clear' deletes most of the displayed text.</Original>
+                <English>Usage clear: 'clear' deletes most of the displayed text.</English>
+                <German>Verwendung clear: 'clear' entfernt des Meiste des dargestellten Textes.</German>
+                <Chinesesimp>clear说明:'clear'删除大部分显示文本.</Chinesesimp>
+                <Russian>Использование clear: 'clear' очищает весь выведенный на экране текст</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandRmDescr">
+                <Original>Removes a file.</Original>
+                <English>Removes a file.</English>
+                <German>Entfernt eine Datei.</German>
+                <Chinesesimp>删除文件.</Chinesesimp>
+                <Russian>Удаляет файл</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandRmMan">
+                <Original>Usage rm: 'rm [path]' deletes a file at the given path.</Original>
+                <English>Usage rm: 'rm [path]' deletes a file at the given path.</English>
+                <German>Verwendung rm: 'rm [Pfad]' entfernt eine Datei am angegebenen Pfad.</German>
+                <Chinesesimp>rm说明:'rm[path]'删除指定路径上的文件.</Chinesesimp>
+                <Russian>Использование rm: 'rm [path]' удаляет файл по указанному пути.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMvDescr">
+                <Original>Moves a file or folder.</Original>
+                <English>Moves a file or folder.</English>
+                <German>Verschiebt eine Datei oder ein Verzeichnis.</German>
+                <Chinesesimp>移动文件或文件夹.</Chinesesimp>
+                <Russian>Перемещает файл или папку</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMvMan">
+                <Original>Usage mv: 'mv [old path] [new path]' moves file to new path or renames the file.</Original>
+                <English>Usage mv: 'mv [old path] [new path]' moves file to new path or renames the file.</English>
+                <German>Verwendung mv: 'mv [alter Pfad] [neuer Pfad]' verschiebt eine Datei zum neuen Pfad oder benennt die Datei um.</German>
+                <Chinesesimp>mv说明:'mv[old path] [new path]'将文件移动到新路径或重命名文件.</Chinesesimp>
+                <Russian>Использование mv: "mv [old path] [new path] Перемещает файл или папку или переименовывает</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandWhoamiDescr">
+                <Original>Returns the current user.</Original>
+                <English>Returns the current user.</English>
+                <German>Liefert den aktuellen Benutzer zurück.</German>
+                <Chinesesimp>返回当前用户.</Chinesesimp>
+                <Russian>Выводит текущего пользователя</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandWhoamiMan">
+                <Original>Usage whoami: 'whoami' returns the current user.</Original>
+                <English>Usage whoami: 'whoami' returns the current user.</English>
+                <German>Verwendung whoami: 'whoami' liefert den aktuellen Benutzer zurück.</German>
+                <Chinesesimp>whoami说明:'whoami'返回当前用户.</Chinesesimp>
+                <Russian>Использование whoami: 'whoami' Выводит текущего пользователя</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMkdirDescr">
+                <Original>Creates a directory/folder.</Original>
+                <English>Creates a directory/folder.</English>
+                <German>Erstellt ein neues Verzeichnis/Ordner.</German>
+                <Chinesesimp>创建目录或文件夹.</Chinesesimp>
+                <Russian>Создает директорию или папку</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMkdirMan">
+                <Original>Usage mkdir: 'mkdir [path]' creates a new folder/directory.</Original>
+                <English>Usage mkdir: 'mkdir [path]' creates a new folder/directory.</English>
+                <German>Verwendung mkdir: 'mkdir [Pfad]' erstellt ein neues Verzeichnis/Ordner.</German>
+                <Chinesesimp>mkdir说明:'mkdir [path]'创建新目录或文件夹</Chinesesimp>
+                <Russian>Использование mkdir: 'mkdir [path]' создаёт новый файл или директорию</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandPingDescr">
+                <Original>Pings the given address.</Original>
+                <English>Pings the given address.</English>
+                <German>Pingt die angegebene Adresse.</German>
+                <Chinesesimp>Ping指定地址</Chinesesimp>
+                <Russian>Пингует введенный адрес</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandPingMan">
+                <Original>Usage ping: 'ping [address]' pings the given address.</Original>
+                <English>Usage ping: 'ping [address]' pings the given address.</English>
+                <German>Verwendung ping: 'ping [Adresse]' pingt die angegebene Adresse.</German>
+                <Chinesesimp>ping说明:'ping [address]'ping指定地址.</Chinesesimp>
+                <Russian>Использование ping: 'ping [address]' пингует введенный адрес</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandIpconfigDescr">
+                <Original>Returns the current ip configuration.</Original>
+                <English>Returns the current ip configuration.</English>
+                <German>Liefert die aktuelle IP-Konfiguration zurück.</German>
+                <Chinesesimp>返回当前ip配置.</Chinesesimp>
+                <Russian>Выводит текущую конфигурацию IP</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandIpconfigMan">
+                <Original>Usage ipconfig: 'ipconfig' returns the current ip configuration.</Original>
+                <English>Usage ipconfig: 'ipconfig' returns the current ip configuration.</English>
+                <German>Verwendung ipconfig: 'ipconfig' liefert die aktuelle IP-Konfiguration zurück.</German>
+                <Chinesesimp>ipconfig说明:'ipconfig'返回当前ip配置.</Chinesesimp>
+                <Russian>Использование ipconfig: 'ipconfig' выводит текущую кофигурацию IP</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandExitDescr">
+                <Original>Log out of the user session.</Original>
+                <English>Log out of the user session.</English>
+                <German>Trennt die Benutzersitzung.</German>
+                <Chinesesimp>退出用户会话.</Chinesesimp>
+                <Russian>Выйти из сессии</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandExitMan">
+                <Original>Usage exit: 'exit' brings you back to login screen.</Original>
+                <English>Usage exit: 'exit' brings you back to login screen.</English>
+                <German>Verwendung exit: 'exit' bringt dich zurück zum Login-Bildschirm.</German>
+                <Chinesesimp>exit说明:'exit'”返回登录界面.</Chinesesimp>
+                <Russian>Использование exit: 'exit' Возвращает вас на экран авторизации</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandShutdownDescr">
+                <Original>Shuts down the computer.</Original>
+                <English>Shuts down the computer.</English>
+                <German>Fährt den Computer herunter.</German>
+                <Chinesesimp>关闭计算机.</Chinesesimp>
+                <Russian>Выключает компьютер</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandShutdownMan">
+                <Original>Usage shutdown: 'shutdown' turns off the computer.</Original>
+                <English>Usage shutdown: 'shutdown' turns off the computer.</English>
+                <German>Verwendung shutdown: 'shutdown' schaltet den Computer aus.</German>
+                <Chinesesimp>shutdown说明:'shutdown'关闭计算机.</Chinesesimp>
+                <Russian>Использование shutdown: 'shutdown' выключает компьютер</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandStandbyDescr">
+                <Original>Puts the computer in standby mode.</Original>
+                <English>Puts the computer in standby mode.</English>
+                <German>Versetzt den Computer in den Ruhezustand.</German>
+                <Chinesesimp>切换至待机模式.</Chinesesimp>
+                <Russian>Переводит компьютер в режим ожидания</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandStandbyMan">
+                <Original>Usage standby: 'standby' activates the computers standby mode.</Original>
+                <English>Usage standby: 'standby' activates the computers standby mode.</English>
+                <German>Verwendung standby: 'standby' aktiviert den Ruhezustand des Computers.</German>
+                <Chinesesimp>standby说明:'standby'切换至待机模式.</Chinesesimp>
+                <Russian>Использование standby: 'standby' переводит компьютер в режим ожидания</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandEchoDescr">
+                <Original>Print/output a line of text to stdout.</Original>
+                <English>Print/output a line of text to stdout.</English>
+                <German>Gibt eine Zeile Text nach stdout aus.</German>
+                <Chinesesimp>将一行文本打印/输出到标准输出流.</Chinesesimp>
+                <Russian>Печать/вывод строки текста на stdout.</Russan>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandEchoMan">
+                <Original>Usage echo: 'echo [text]' prints the given text to stdout.</Original>
+                <English>Usage echo: 'echo [text]' prints the given text to stdout.</English>
+                <German>Verwendung echo: 'echo [Text]' gibt den angegebenen Text nach stdout aus.</German>
+                <Chinesesimp>echo说明: 'echo [text]' 打印指定的文本到标准输出流.</Chinesesimp>
+                <Russian>Использование echo: 'echo [text]' выводит данный текст на stdout</Russan>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCryptoDescr">
+                <Original>Encrypts/decrypts text with a given algorythm and key.</Original>
+                <English>Encrypts/decrypts text with a given algorythm and key.</English>
+                <German>Ver-/Entschlüsselt text mit dem angegebenen Algorythmus und Schlüssel.</German>
+                <Chinesesimp>使用指定的算法和密钥加密/解密文本.</Chinesesimp>
+                <Russian>Шифрует/дешифрует текст с заданным алгоритмом и ключом.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCryptoMan">
+                <Original>Usage crypto: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.</Original>
+                <English>Usage crypto: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.</English>
+                <German>Verwendung crypto: 'crypto -a [Algorythmus] -k [Schlüssel] -m [Modus] [Text]' gibt den verarbeiteten Text nach stdout aus.</German>
+                <Chinesesimp>crypto说明: 'crypto -a [algorythm] -k [key] -m [mode] [text]' 将处理后的文本打印到标准输出流.</Chinesesimp>
+                <Russian>Использование crypto: 'crypto -a [algorythm] -k [key] -m [mode] [text]' выводит обработанный текст на stdout.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCrackDescr">
+                <Original>Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.</Original>
+                <English>Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.</English>
+                <German>Versucht den angegebenen Text durch verschiedene Methoden wie per Bruteforce oder über Statistiken zu entschlüsseln.</German>
+                <Chinesesimp>尝试使用多种指定算法(如bruteforce或statistics)解密文本.</Chinesesimp>
+                <Russian>Пытается расшифровать текст с заданным алгоритмом, используя брутфорс или статистику</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCrackMan">
+                <Original>Usage crack: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.</Original>
+                <English>Usage crack: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.</English>
+                <German>Verwendung crack: 'crack -a [Algorythmus] -m [Modus] [Text]' gibt die Ergebnisse nach stdout aus.</German>
+                <Chinesesimp>crack说明: 'crack -a [algorythm] -m [mode] [text]' 将结果打印到标准输出流.</Chinesesimp>
+                <Russian>Использование crack: crack -a [algorythm] -m [mode] [text]' выводит результаты на stdout</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandFindDescr">
+                <Original>Searches in the current directory for a file/folder with the given name.</Original>
+                <English>Searches in the current directory for a file/folder with the given name.</English>
+                <German>Sucht im aktuellen Verzeichnis hach einer Datei/einem Verzeichnis mit angegebenem Namen.</German>
+                <Chinesesimp>在当前目录中搜索具有指定名称的文件/文件夹.</Chinesesimp>
+                <Russian>Ищет в текущей директории файл/папку с заданным именем.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandFindMan">
+                <Original>Usage find: 'find [Name]' prints the results to stdout.</Original>
+                <English>Usage find: 'find [Name]' prints the results to stdout.</English>
+                <German>Verwendung find: 'find [Name]' gibt die Ergebnisse nach stdout aus.</German>
+                <Chinesesimp>find说明: 'find [Name]' 将结果打印到标准输出流.</Chinesesimp>
+                <Russian>Использование find: 'find [Name]' выводит результат на stdout</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureBlack">
+                <Original>Black</Original>
+                <English>Black</English>
+                <German>Schwarz</German>
+                <Chinesesimp>黑色</Chinesesimp>
+                <Russian>Black</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureOlive">
+                <Original>Olive</Original>
+                <English>Olive</English>
+                <German>Oliv</German>
+                <Chinesesimp>橄榄色</Chinesesimp>
+                <Russian>Olive</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureYellow">
+                <Original>Yellow</Original>
+                <English>Yellow</English>
+                <German>Gelb</German>
+                <Chinesesimp>黄色</Chinesesimp>
+                <Russian>Yellow</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_TextureSand">
+                <Original>Sand</Original>
+                <English>Sand</English>
+                <German>Sand</German>
+                <Chinesesimp>沙色</Chinesesimp>
+                <Russian>Sand</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_LaptopDisplayName">
+                <Original>Laptop</Original>
+                <English>Laptop</English>
+                <German>Laptop</German>
+                <Chinesesimp>笔记本电脑</Chinesesimp>
+                <Russian>Ноутбук</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_BatteryDisplayName">
+                <Original>Battery</Original>
+                <English>Battery</English>
+                <German>Batterie</German>
+                <Chinesesimp>电池</Chinesesimp>
+                <Russian>Батарея</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ArmaOSDisplayName">
+                <Original>ArmaOS</Original>
+                <English>ArmaOS</English>
+                <German>ArmaOS</German>
+                <Chinesesimp>ArmaOS</Chinesesimp>
+                <Russian>ArmaOS</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_UseDisplayName">
+                <Original>Use</Original>
+                <English>Use</English>
+                <German>Benutzen</German>
+                <Chinesesimp>使用</Chinesesimp>
+                <Russian>Использовать</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_AddUserDisplayName">
+                <Original>AE3 Add User</Original>
+                <English>AE3 Add User</English>
+                <German>AE3 Benutzer hinzufügen</German>
+                <Chinesesimp>AE3添加用户</Chinesesimp>
+                <Russian>AE3 Add User</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_UsernameDisplayName">
+                <Original>Username</Original>
+                <English>Username</English>
+                <German>Benutzername</German>
+                <Chinesesimp>用户名</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_UsernameTooltip">
+                <Original>Name of authorized user, for example 'admin', 'guest' or 'stavros'</Original>
+                <English>Name of authorized user, for example 'admin', 'guest' or 'stavros'</English>
+                <German>Name eines authorisierten Benutzers, zum Beispiel 'admin', 'guest' oder 'stavros'</German>
+                <Chinesesimp>授权用户的名称,例如'admin','guest'或'stavros'.</Chinesesimp>
+                <Russian>Имя авторизованного пользователя, например 'admin', 'guest' or 'stavros'</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_PasswordDisplayName">
+                <Original>Password</Original>
+                <English>Password</English>
+                <German>Kennwort</German>
+                <Chinesesimp>密码</Chinesesimp>
+                <Russian>Password</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_PasswordTooltip">
+                <Original>Password of authorized user, for example '123456', 'password' or 'Qf5:xxR12#fTG'</Original>
+                <English>Password of authorized user, for example '123456', 'password' or 'Qf5:xxR12#fTG'</English>
+                <German>Kennwort eines authorisierten Benutzers, zum Beispiel '123456', 'password' oder 'Qf5:xxR12#fTG'</German>
+                <Chinesesimp>授权用户的密码,例如'114514','password'或'Qf5:xxR12#fTG'</Chinesesimp>
+                <Russian>Пароль для авторизации пользователя, например '123456', 'password' или 'Qf5:xxR12#fTG'</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddUserDescription">
+                <Original>This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer.</Original>
+                <English>This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer.</English>
+                <German>Dieses Modul definiert Benutzer für einen armaOS Computer. Synchronisiere einfach ein oder mehrere dieser Module mit einem unterstützten Computer.</German>
+                <Chinesesimp>此模块定义armaOS计算机的用户.只需将这些模块中的一个或多个同步到指定的计算机.</Chinesesimp>
+                <Russian>Этот модуль определяет пользователей для компьютера с armaOS. Просто синхронизируйте один или несколько из этих модулей с поддерживаемым компьютером.</Russian>
+            </Key>
+        </Container>
+        <Container name="CBA Settings">
+            <Key ID="STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName">
+                <Original>AE3 armaOS</Original>
+                <English>AE3 armaOS</English>
+                <German>AE3 armaOS</German>
+                <Chinesesimp>AE3 armaOS</Chinesesimp>
+                <Russian>AE3 armaOS</Russan>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutName">
+                <Original>Keyboard Layout</Original>
+                <English>Keyboard Layout</English>
+                <German>Tastaturbelegung</German>
+                <Chinesesimp>键盘布局</Chinesesimp>
+                <Russian>Раскладка клавиатуры</Russan>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutTooltip">
+                <Original>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</Original>
+                <English>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</English>
+                <German>Tastaturbelegung für armaOS. Du kannst dies auch im armaOS Terminal umstellen.</German>
+                <Chinesesimp>armaOS键盘布局.您也可以在armaOS终端中更改此设置.</Chinesesimp>
+                <Russian>Раскладка клавиатуры для ArmaOS (Можно изменить в терминале ArmaOS)</Russan>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedName">
+                <Original>Terminal Scroll Speed</Original>
+                <English>Terminal Scroll Speed</English>
+                <German>Terminal Scroll-Geschwindigkeit</German>
+                <Chinesesimp>终端滚动速度</Chinesesimp>
+                <Russian>Скорость прокрутки терминала</Russan>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedTooltip">
+                <Original>Determines the speed in lines for the mouse wheel scroll feature for the terminal.</Original>
+                <English>Determines the speed in lines for the mouse wheel scroll feature for the terminal.</English>
+                <German>Legt die Geschwindigkeit in Zeilen für die Mausrad-Scroll-Funktion des Terminals fest.</German>
+                <Chinesesimp>确定终端鼠标滚轮滚动的速度(以行为单位).</Chinesesimp>
+                <Russian>Определяет скорость в строках для функции прокрутки колеса мыши в терминале</Russan>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_1line">
+                <Original>1 line</Original>
+                <English>1 line</English>
+                <German>1 Zeile</German>
+                <Chinesesimp>1行</Chinesesimp>
+                <Russian>1 line</Russan>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_2lines">
+                <Original>2 lines</Original>
+                <English>2 lines</English>
+                <German>2 Zeilen</German>
+                <Chinesesimp>2行</Chinesesimp>
+                <Russian>2 lines</Russan>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_3lines">
+                <Original>3 lines</Original>
+                <English>3 lines</English>
+                <German>3 Zeilen</German>
+                <Chinesesimp>3行</Chinesesimp>
+                <Russian>3 lines</Russan>
+            </Key>
+        </Container>
+    </Package>
+</Project>

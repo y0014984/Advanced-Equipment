@@ -12,4 +12,14 @@ params ["_target"];
 
 private _powerState = [_target] call AE3_power_fnc_getPowerState;
 
-hint format ["Power State: %1", _powerState];
+private _powerStateString = "";
+
+switch (_powerState) do
+{
+    case 0: { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateOff"; };
+    case 1: { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateOn"; };
+    case 2: { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateStandby"; };
+    default { _powerStateString = localize "STR_AE3_Power_Interaction_PowerStateUnknown"; };
+};
+
+hint format [localize "STR_AE3_Power_Interaction_PowerStateHint", _powerStateString];

@@ -23,7 +23,7 @@ if(_internal) then
 
 if(!isDedicated) then {
 
-	private _check = ["AE3_PowerAction", "Check Battery Charge", "", 
+	private _check = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckBatteryCharge", "", 
 				{
 					params ['_target', '_player', '_params']; 
 					_params params ['_battery'];

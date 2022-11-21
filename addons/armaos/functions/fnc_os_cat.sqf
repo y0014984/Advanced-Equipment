@@ -12,13 +12,17 @@
 
 params ["_computer", "_options"];
 
-if (count _options == 0) exitWith { [_computer, "'cat' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "cat";
+
+if (count _options == 0) exitWith { [_computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
+
+if(count _options == 0) exitWith {[localize "STR_AE3_ArmaOS_Exception_TooFewOptions"];};
 
 private _result = [];
 
@@ -31,7 +35,7 @@ private _result = [];
 
 		if(!(_content isEqualType "")) exitWith 
 		{
-			_result pushBack ("Unable to read: " + _path);
+			_result pushBack (format [localize "STR_AE3_ArmaOS_Exception_UnableToRead", _path]);
 			_result;
 		};
 

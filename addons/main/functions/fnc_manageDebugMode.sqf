@@ -18,7 +18,7 @@ if (_debugMode) then
     private _debugModeLoopHandle = 
     [
         {
-            systemChat "AE3 DEBUG MODE ENABLED";
+            systemChat localize "STR_AE3_Main_DebugMode_enabled";
         }, 
         5, 
         []
@@ -45,7 +45,7 @@ else
         // enable debug overlay
         waitUntil { !((findDisplay 46) isEqualto displayNull) };
         
-        systemChat "AE3 DEBUG MODE DISABLED";
+        systemChat localize "STR_AE3_Main_DebugMode_disabled";
 
         //disable debug overlay
         private _objects = missionNamespace getVariable "AE3_DebugOverlay";

@@ -74,7 +74,7 @@ params ["_ae3Objects"];
 			
 			// This function combines item name and custom name in format ["%1 [%2]", _itemName, _customName]
 			private _aceCargoName = [_obj, true] call ace_cargo_fnc_getNameItem;
-			_debugText pushBack format ["ACE3 Cargo Name: %1", _aceCargoName];
+			_debugText pushBack format [localize "STR_AE3_Main_DebugMode_ACE3CargoName", _aceCargoName];
 
 			/* 
 			// Getting and Setting ACE3 Cargo Custom Name
@@ -84,10 +84,10 @@ params ["_ae3Objects"];
 			*/
 
 			private _class = typeOf _obj;
-			_debugText pushBack format ["Device Class: %1", _class];
+			_debugText pushBack format [localize "STR_AE3_Main_DebugMode_DeviceClass", _class];
 
 			private _powerState = [_obj] call AE3_power_fnc_getPowerState;
-			_debugText pushBack format ["Power State: %1", _powerState];
+			_debugText pushBack format [localize "STR_AE3_Main_DebugMode_PowerState", _powerState];
 
 			// fuel consuming devices
 			if (_class isEqualTo "Land_PortableGenerator_01_sand_F_AE3") then
@@ -97,7 +97,7 @@ params ["_ae3Objects"];
 				_fuelLevel = [_fuelLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 				_fuelLevelPercent = [_fuelLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 				_fuelCapacity = [_fuelCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234 and 123
-				_debugText pushBack format ["Fuel Level: %1 l (%2%3 of %4 l)", _fuelLevel, _fuelLevelPercent, "%", _fuelCapacity];
+				_debugText pushBack format [localize "STR_AE3_Main_DebugMode_FuelLevel", _fuelLevel, _fuelLevelPercent, "%", _fuelCapacity];
 			};
 
 			// power generating devices
@@ -112,7 +112,7 @@ params ["_ae3Objects"];
 				_debugText pushBack format ["Power Output: %1 W", _powerOutput];
 
 				_connectedDevices = _obj getVariable ["AE3_power_connectedDevices", []];
-				_debugText pushBack format ["Connected Power Devices: %1", count _connectedDevices];
+				_debugText pushBack format [localize "STR_AE3_Main_DebugMode_ConnectedPowerDevices", count _connectedDevices];
 			};
 
 			// devices with internal battery
@@ -133,7 +133,7 @@ params ["_ae3Objects"];
 				_batteryLevel = [_batteryLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 				_batteryLevelPercent = [_batteryLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 				_batteryCapacity = [_batteryCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234 and 123
-				_debugText pushBack format ["Battery Level: %1 Wh (%2%3 of %4 Wh)", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];
+				_debugText pushBack format [localize "STR_AE3_Main_DebugMode_BatteryLevel", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];
 			};
 
 			_debugText = _debugText joinString "<br/>";

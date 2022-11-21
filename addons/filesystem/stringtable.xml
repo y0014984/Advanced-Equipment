@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="AE3">
+    <Package name="Filesystem">
+        <Container name="Exceptions">
+            <Key ID="STR_AE3_Filesystem_Exception_IsNotADir">
+                <Original>'%1' is not a directory!</Original>
+                <English>'%1' is not a directory!</English>
+                <German>'%1' ist kein Verzeichnis!</German>
+                <Chinesesimp>'%1' 不是目录!</Chinesesimp>
+                <Russian>'%1' не является директорией!</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Exception_NotFoundInDir">
+                <Original>'%1' not found in '%2'!</Original>
+                <English>'%1' not found in '%2'!</English>
+                <German>'%1' nicht in '%2' gefunden!</German>
+                <Chinesesimp>在 '%2'中找不到 '%1' !</Chinesesimp>
+                <Russian>'%1' не найден в '%2'!</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Exception_AlreadyExists">
+                <Original>'%1' already exists!</Original>
+                <English>'%1' already exists!</English>
+                <German>'%1' ist bereits vorhanden!</German>
+                <Chinesesimp>'%1' 已存在!</Chinesesimp>
+                <Russian>'%1' уже существует!</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Exception_NotFound">
+                <Original>'%1' not found!</Original>
+                <English>'%1' not found!</English>
+                <German>'%1' nicht gefunden!</German>
+                <Chinesesimp>找不到 %1' !</Chinesesimp>
+                <Russian>'%1' не найден!</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Exception_MissingPermissions">
+                <Original>Missing permissions</Original>
+                <English>Missing permissions</English>
+                <German>Zugriffsrechte fehlen</German>
+                <Chinesesimp>缺少权限</Chinesesimp>
+                <Russian>недостаточно прав</Russian>
+            </Key>
+        </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_Filesystem_Config_AddFileDisplayName">
+                <Original>AE3 Add File</Original>
+                <English>AE3 Add File</English>
+                <German>AE3 Datei hinzufügen</German>
+                <Chinesesimp>AE3添加文件</Chinesesimp>
+                <Russian>AE3 Add File</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_PathFileDisplayName">
+                <Original>Path</Original>
+                <English>Path</English>
+                <German>Pfad</German>
+                <Chinesesimp>路径</Chinesesimp>
+                <Russian>Путь</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_PathFileTooltip">
+                <Original>Path and Name of Filesystem Object (File), for example /tmp/new/example.txt</Original>
+                <English>Path and Name of Filesystem Object (File), for example /tmp/new/example.txt</English>
+                <German>Pfad und Name eines Dateisystemobjekts (Datei), zum Beispiel /tmp/new/example.txt</German>
+                <Chinesesimp>文件系统对象（文件）的路径和名称,例如</Chinesesimp>
+                <Russian>Путь и имя объекта файловой системы (файла), например /tmp/new/example.txt</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_FileContentDisplayName">
+                <Original>File content</Original>
+                <English>File content</English>
+                <German>Dateiinhalt</German>
+                <Chinesesimp>文件内容</Chinesesimp>
+                <Russian>Содержимое файла</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_FileContentTooltip">
+                <Original>Content of Filesystem Object, like text note oder path to image</Original>
+                <English>Content of Filesystem Object, like text note oder path to image</English>
+                <German>Inhalt eines Dateisystemobjekts, wie eine Textnotiz oder der Pfad zu einem Bild.</German>
+                <Chinesesimp>文件系统对象内容,如文本注释或图像路径</Chinesesimp>
+                <Russian>Содержимое объекта файловой системы, например текстовое примечание или путь к изображению.</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_IsCodeDisplayName">
+                <Original>Is code?</Original>
+                <English>Is code?</English>
+                <German>Ist Code?</German>
+                <Chinesesimp>是否为代码?</Chinesesimp>
+                <Russian>Это код?</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_IsCodeTooltip">
+                <Original>If the file content is a function or code which can be executed from terminal</Original>
+                <English>If the file content is a function or code which can be executed from terminal</English>
+                <German>Wenn der Dateiinhalt eine Funktion oder Code ist, der vom Terminal ausgeführt werden kann</German>
+                <Chinesesimp>如果文件内容是可以从终端执行的函数或代码</Chinesesimp>
+                <Russian>Если содержимое файла представляет собой функцию или код, который можно выполнить с терминала</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_FileOwnerDisplayName">
+                <Original>File owner</Original>
+                <English>File owner</English>
+                <German>Dateibesitzer</German>
+                <Chinesesimp>文件所有者</Chinesesimp>
+                <Russian>Владелец файла</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_FileOwnerTooltip">
+                <Original>Owner of the file</Original>
+                <English>Owner of the file</English>
+                <German>Besitzer der Datei</German>
+                <Chinesesimp>文件所有者</Chinesesimp>
+                <Russian>Владелец файла</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ExeByOwnerDisplayName">
+                <Original>Can be executed by the owner</Original>
+                <English>Can be executed by the owner</English>
+                <German>Kann vom Besitzer ausgeführt werden</German>
+                <Chinesesimp>所有者可运行</Chinesesimp>
+                <Russian>Может быть выполнен владельцем</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ExeByOwnerTooltip">
+                <Original>Can be executed by the owner</Original>
+                <English>Can be executed by the owner</English>
+                <German>Kann vom Besitzer ausgeführt werden</German>
+                <Chinesesimp>所有者可运行</Chinesesimp>
+                <Russian>Может быть выполнен владельцем</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ReadByOwnerDisplayName">
+                <Original>Can be read by the owner</Original>
+                <English>Can be read by the owner</English>
+                <German>Kann vom Besitzer gelesen werden</German>
+                <Chinesesimp>所有者可读取</Chinesesimp>
+                <Russian>Может просматриваться только владельцем</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ReadByOwnerTooltip">
+                <Original>Can be read by the owner</Original>
+                <English>Can be read by the owner</English>
+                <German>Kann vom Besitzer gelesen werden</German>
+                <Chinesesimp>所有者可读取</Chinesesimp>
+                <Russian>Может просматриваться только владельцем</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_WriteByOwnerDisplayName">
+                <Original>Can be modified by the owner</Original>
+                <English>Can be modified by the owner</English>
+                <German>Kann vom Besitzer verändert werden</German>
+                <Chinesesimp>所有者可修改</Chinesesimp>
+                <Russian>Может изменяться владельцем</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_WriteByOwnerTooltip">
+                <Original>Can be modified by the owner</Original>
+                <English>Can be modified by the owner</English>
+                <German>Kann vom Besitzer verändert werden</German>
+                <Chinesesimp>所有者可修改</Chinesesimp>
+                <Russian>Может изменяться владельцем</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ExeByOtherDisplayName">
+                <Original>Can be executed by everyone</Original>
+                <English>Can be executed by everyone</English>
+                <German>Kann von Jedem ausgeführt werden</German>
+                <Chinesesimp>任何人可运行</Chinesesimp>
+                <Russian>Может быть выполнен всеми</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ExeByOtherTooltip">
+                <Original>Can be executed by everyone</Original>
+                <English>Can be executed by everyone</English>
+                <German>Kann von Jedem ausgeführt werden</German>
+                <Chinesesimp>任何人可运行</Chinesesimp>
+                <Russian>Может быть выполнен всеми</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ReadByOtherDisplayName">
+                <Original>Can be read by everyone</Original>
+                <English>Can be read by everyone</English>
+                <German>Kann von Jedem gelesen werden</German>
+                <Chinesesimp>任何人可读取</Chinesesimp>
+                <Russian>Может просматриваться всеми</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ReadByOtherTooltip">
+                <Original>Can be read by everyone</Original>
+                <English>Can be read by everyone</English>
+                <German>Kann von Jedem gelesen werden</German>
+                <Chinesesimp>任何人可读取</Chinesesimp>
+                <Russian>Может просматриваться всеми</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_WriteByOtherDisplayName">
+                <Original>Can be modified by everyone</Original>
+                <English>Can be modified by everyone</English>
+                <German>Kann von Jedem verändert werden</German>
+                <Chinesesimp>任何人可修改</Chinesesimp>
+                <Russian>Может модифицироваться всеми</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_WriteByOtherTooltip">
+                <Original>Can be modified by everyone</Original>
+                <English>Can be modified by everyone</English>
+                <German>Kann von Jedem verändert werden</German>
+                <Chinesesimp>任何人可修改</Chinesesimp>
+                <Russian>Может модифицироваться всеми</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ModuleAddFileDescription">
+                <Original>This module adds a file to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object.</Original>
+                <English>This module adds a file to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object.</English>
+                <German>Dieses Modul fügt eine Datei zu einem Objekt hinzu, das Dateisysteme unterstützt, wie Computer. Synchronisiere einfach ein oder mehrere dieser Module mit einem unterstützten Objekt.</German>
+                <Chinesesimp>此模块将文件添加到支持文件系统的对象(如计算机). 只需一个或多个此模块同步到支持的对象.</Chinesesimp>
+                <Russian>Этот модуль добавляет файл к объекту, который поддерживает файловую систему (например компьютер). Просто синхронизируйте один или несколько этих модулей с поддерживаем объектом</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_AddDirDisplayName">
+                <Original>AE3 Add Directory</Original>
+                <English>AE3 Add Directory</English>
+                <German>AE3 Verzeichnis hinzufügen</German>
+                <Chinesesimp>AE3添加目录</Chinesesimp>
+                <Russian>AE3 Add Directory</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_PathDirDisplayName">
+                <Original>Path</Original>
+                <English>Path</English>
+                <German>Pfad</German>
+                <Chinesesimp>路径</Chinesesimp>
+                <Russian>Путь</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_PathDirTooltip">
+                <Original>Path of Filesystem Object (Directory), for example /tmp/new</Original>
+                <English>Path of Filesystem Object (Directory), for example /tmp/new</English>
+                <German>Pfad eines Dateisystemobjekts (Verzeichnis), zum Beispiel /tmp/new</German>
+                <Chinesesimp>文件系统对象(目录)的路径, 例如/tmp/new</Chinesesimp>
+                <Russian>Путь к объекту файловой системы (директории), например /tmp/new</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_DirOwnerDisplayName">
+                <Original>Directory owner</Original>
+                <English>Directory owner</English>
+                <German>Verzeichnisbesitzer</German>
+                <Chinesesimp>目录所有者</Chinesesimp>
+                <Russian>Владелец директории</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_DirOwnerTooltip">
+                <Original>Owner of the directory</Original>
+                <English>Owner of the directory</English>
+                <German>Besitzer des Verzeichnisses</German>
+                <Chinesesimp>目录所有者</Chinesesimp>
+                <Russian>Владелец директории</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ModuleAddDirDescription">
+                <Original>This module adds a directory to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object.</Original>
+                <English>This module adds a directory to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object.</English>
+                <German>Dieses Modul fügt ein Verzeichnis zu einem Objekt hinzu, das Dateisysteme unterstützt, wie Computer. Synchronisiere einfach ein oder mehrere dieser Module mit einem unterstützten Objekt.</German>
+                <Chinesesimp>此模块将目录添加到支持文件系统的对象(如计算机). 只需一个或多个此模块同步到支持的对象.</Chinesesimp>
+                <Russian>Этот модуль добавляет директорию к объекту, который поддерживает файловую систему (например компьютер). Просто синхронизируйте один или несколько этих модулей с поддерживаем объектом</Russian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_ArmaOSModulesKategoryDisplayName">
+                <Original>AE3 armaOS Modules</Original>
+                <English>AE3 armaOS Modules</English>
+                <German>AE3 armaOS Module</German>
+                <Chinesesimp>AE3 armaOS 模块</Chinesesimp>
+                <Russian>AE3 armaOS Modules</Russian>
+            </Key>
+        </Container>
+    </Package>
+</Project>

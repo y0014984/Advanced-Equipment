@@ -18,4 +18,4 @@ _batteryLevel = [_batteryLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.
 _batteryLevelPercent = [_batteryLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
 _batteryCapacity = [_batteryCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234 and 123
 
-hint format ["Battery Level: %1 Wh (%2%3 of %4 Wh)", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];
+hint format [localize "STR_AE3_Power_Interaction_BatteryLevelHint", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];

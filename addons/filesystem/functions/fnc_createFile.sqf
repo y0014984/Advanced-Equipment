@@ -28,7 +28,7 @@ private _new = _dir select 2;
 _current = _current select 0;
 
 if(_new in _current) then {
-	throw _new + " already exists!";
+	throw format [localize "STR_AE3_Filesystem_Exception_AlreadyExists", _new];
 };
 
 if(isNil '_owner') then

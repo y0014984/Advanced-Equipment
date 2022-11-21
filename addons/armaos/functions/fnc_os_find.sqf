@@ -11,8 +11,10 @@
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith { [_computer, "'find' has too many options"] call AE3_armaos_fnc_shell_stdout; };
-if (count _options < 1) exitWith { [_computer, "'find' has too few options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "find";
+
+if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _searchString = _options select 0;
 
@@ -31,7 +33,7 @@ private _missingPermissions = _result select 1;
 
 if (_missingPermissions > 0) then
 {
-	_totalResults append [format ["can't scan %1 folders due to missing permissions", _missingPermissions]];
+	_totalResults append [format [localize "STR_AE3_ArmaOS_Exception_CantScanFolderMissionPermissions", _missingPermissions]];
 };
 
 [_computer, _totalResults] call AE3_armaos_fnc_shell_stdout;

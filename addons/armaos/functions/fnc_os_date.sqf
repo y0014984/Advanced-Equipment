@@ -11,7 +11,9 @@
 
 params ["_computer", "_options"];
 
-if (count _options >= 1) exitWith { [_computer, "'date' has no options"] call AE3_armaos_fnc_shell_stdout; };
+private _commandName = "date";
+
+if (count _options >= 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasNoOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _date = date;
 private _year = _date select 0;
@@ -23,6 +25,6 @@ if (_day < 10) then {_day = format["0%1", _day]};
 
 private _time = [daytime, "HH:MM:SS"] call BIS_fnc_timeToString; // 07:21:12
 
-_date = format ["Date: %1-%2-%3 %4", _year, _month, _day, _time];
+_date = format [localize "STR_AE3_ArmaOS_Result_Date", _year, _month, _day, _time];
 
 [_computer, _date] call AE3_armaos_fnc_shell_stdout;

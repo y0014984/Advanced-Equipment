@@ -28,12 +28,12 @@ else
 {
 	if (_username isEqualTo "root") then
 	{
-		_logMessage = "root login disabled";
+		_logMessage = localize "STR_AE3_ArmaOS_Exception_RootLoginDisabled";
 		[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;
 	}
 	else
 	{
-		_logMessage = format ["User: %1 not found", _username];
+		_logMessage = format [localize "STR_AE3_ArmaOS_Exception_UserNotFound", _username];
 		[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;
 	};
 

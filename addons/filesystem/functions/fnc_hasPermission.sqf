@@ -22,4 +22,4 @@ if(_permissions select 1 select _permission) exitWith {};
 
 if((_owner isEqualTo _user) && (_permissions select 0 select _permission)) exitWith {};
 
-throw 'Missing permissions';
+throw localize "STR_AE3_Filesystem_Exception_MissingPermissions";
