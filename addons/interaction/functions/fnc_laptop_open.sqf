@@ -10,6 +10,8 @@
 
 params['_laptop'];
 
+_laptop enableSimulationGlobal false;
 _laptop animateSource ["Open_Source", 0, false];
+_laptop enableSimulationGlobal true;
 
 true;

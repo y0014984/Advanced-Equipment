@@ -104,7 +104,7 @@ class CfgVehicles
 		{
 			displayName = "Laptop";
 
-			closeState = 1;
+			closeState = 0;
 
 			init = "_this call AE3_interaction_fnc_initLaptop;";
 
