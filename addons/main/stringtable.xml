@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="AE3">
     <Package name="Main">
         <Container name="General">
@@ -32,19 +32,19 @@
                 <Original>ACE3 Cargo Name: %1</Original>
                 <English>ACE3 Cargo Name: %1</English>
                 <German>ACE3 Cargo Name: %1</German>
-                <Chinesesimp>ACE3 Cargo Name: %1</Chinesesimp>
+                <Chinesesimp>ACE3 货物名称: %1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_DeviceClass">
                 <Original>Device Class: %1</Original>
                 <English>Device Class: %1</English>
                 <German>Geräteklasse: %1</German>
-                <Chinesesimp>Device Class: %1</Chinesesimp>
+                <Chinesesimp>设备类: %1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_PowerState">
                 <Original>Power State: %1</Original>
                 <English>Power State: %1</English>
                 <German>Gerätezustand: %1</German>
-                <Chinesesimp>Power State: %1</Chinesesimp>
+                <Chinesesimp>电力状态: %1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_FuelLevel">
                 <Original>Fuel Level: %1 l (%2%3 of %4 l)</Original>
@@ -56,13 +56,13 @@
                 <Original>Connected Power Devices: %1</Original>
                 <English>Connected Power Devices: %1</English>
                 <German>Verbundene Geräte (Strom): %1</German>
-                <Chinesesimp>Connected Power Devices: %1</Chinesesimp>
+                <Chinesesimp>已连接的电力设备: %1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_BatteryLevel">
                 <Original>Battery Level: %1 Wh (%2%3 of %4 Wh)</Original>
                 <English>Battery Level: %1 Wh (%2%3 of %4 Wh)</English>
                 <German>Batterieladestand: %1 Wh (%2%3 von %4 Wh)</German>
-                <Chinesesimp>Battery Level: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
+                <Chinesesimp>电量: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
             </Key>
         </Container>
         <Container name="Eden Attributes">
@@ -76,7 +76,7 @@
                 <Original>Power Level</Original>
                 <English>Power Level</English>
                 <German>Füllstand Strom</German>
-                <Chinesesimp>功率</Chinesesimp>
+                <Chinesesimp>电力等级</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
                 <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
@@ -119,3 +119,4 @@
         </Container>
     </Package>
 </Project>
+

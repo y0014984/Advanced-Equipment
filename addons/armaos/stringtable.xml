@@ -18,37 +18,37 @@
                 <Original>Command '%1' has too few options</Original>
                 <English>Command '%1' has too few options</English>
                 <German>Befehl '%1' hat zu wenige Parameter</German>
-                <Chinesesimp>Command '%1' has too few options</Chinesesimp>
+                <Chinesesimp>命令 '%1' 参数过少</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingMode">
                 <Original>Command '%1' has unknown or missing mode</Original>
                 <English>Command '%1' has unknown or missing mode</English>
                 <German>Befehl '%1' hat unbekannten oder fehlenden Modus</German>
-                <Chinesesimp>Command '%1' has unknown or missing mode</Chinesesimp>
+                <Chinesesimp>命令 '%1' 包含未知模式或丢失模式</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingMessage">
                 <Original>Command '%1' has unknown or missing message</Original>
                 <English>Command '%1' has unknown or missing message</English>
                 <German>Befehl '%1' hat unbekannte oder fehlende Nachricht</German>
-                <Chinesesimp>Command '%1' has unknown or missing message</Chinesesimp>
+                <Chinesesimp>命令 '%1' 包含未知信息或丢失信息</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingAlgorythm">
                 <Original>Command '%1' has unknown or missing algorythm</Original>
                 <English>Command '%1' has unknown or missing algorythm</English>
                 <German>Befehl '%1' hat unbekannten oder fehlenden Algorithmus</German>
-                <Chinesesimp>Command '%1' has unknown or missing algorythm</Chinesesimp>
+                <Chinesesimp>命令 '%1' 包含未知算法或丢失算法</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_CommandHasMissingKey">
                 <Original>Command '%1' has unknown or missing key</Original>
                 <English>Command '%1' has unknown or missing key</English>
                 <German>Befehl '%1' hat unbekannten oder fehlenden Schlüssel</German>
-                <Chinesesimp>Command '%1' has unknown or missing key</Chinesesimp>
+                <Chinesesimp>命令 '%1' 包含未知密钥或丢失密钥</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_CaesarCypherNeedsIntegerGreaterNullAsKey">
                 <Original>Caesar Cypher needs an integer greater then 0 as key.</Original>
                 <English>Caesar Cypher needs an integer greater then 0 as key</English>
                 <German>Die Cäsar Chiffre benötigt eine Ganzzahl größer 0 als Schlüssel.</German>
-                <Chinesesimp>Caesar Cypher needs an integer greater then 0 as key.</Chinesesimp>
+                <Chinesesimp>凯撒密码需要一个大于0的整数作为密钥.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_TooManyOptions">
                 <Original>Too many options</Original>
@@ -60,7 +60,7 @@
                 <Original>Command '%1' has too many options</Original>
                 <English>Command '%1' has too many options</English>
                 <German>Befehl '%1' hat zu viele Parameter</German>
-                <Chinesesimp>Command '%1' has too many options</Chinesesimp>
+                <Chinesesimp>命令 '%1' 参数过多</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_UnableToRead">
                 <Original>Unable to read: %1</Original>
@@ -120,7 +120,7 @@
                 <Original>User: %1 successfully logged in</Original>
                 <English>User: %1 successfully logged in</English>
                 <German>Benutzer: %1 erfolgreich eingeloggt</German>
-                <Chinesesimp>User: %1 successfully logged in</Chinesesimp>
+                <Chinesesimp>用户: %1 登陆成功</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_DialogFailed">
                 <Original>Dialog couldn't be opened!</Original>
@@ -132,7 +132,7 @@
                 <Original>Can't scan %1 folders due to missing permissions.</Original>
                 <English>Can't scan %1 folders due to missing permissions.</English>
                 <German>Wegen fehlender Berechtigungen kann das Verzeichnis %1 nicht durchsucht werden.</German>
-                <Chinesesimp>Can't scan %1 folders due to missing permissions.</Chinesesimp>
+                <Chinesesimp>缺少扫描 %1 文件夹的权限.</Chinesesimp>
             </Key>
         </Container>
         <Container name="Results">
@@ -152,7 +152,7 @@
                 <Original>Date: %1-%2-%3 %4</Original>
                 <English>Date: %1-%2-%3 %4</English>
                 <German>Date: %1-%2-%3 %4</German>
-                <Chinesesimp>Date: %1-%2-%3 %4</Chinesesimp>
+                <Chinesesimp>日期: %1-%2-%3 %4</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Result_BruteForceTest">
                 <Original>Test %1: %2</Original>
@@ -164,7 +164,7 @@
                 <Original>Character '%1' found %2 times (Possible key, if this is an 'E': %3)</Original>
                 <English>Character '%1' found %2 times (Possible key, if this is an 'E': %3)</English>
                 <German>Zeichen '%1' %2 mal gefunden (Möglicher Schlüssel, falls dies ein 'E' ist: %3)</German>
-                <Chinesesimp>Character '%1' found %2 times (Possible key, if this is an 'E': %3)</Chinesesimp>
+                <Chinesesimp>找到字符 '%1'  %2 次(如果这是 'E',可能的秘钥为: %3)</Chinesesimp>
             </Key>
         </Container>
         <Container name="Header">
@@ -396,49 +396,49 @@
                 <Original>Print/output a line of text to stdout.</Original>
                 <English>Print/output a line of text to stdout.</English>
                 <German>Gibt eine Zeile Text nach stdout aus.</German>
-                <Chinesesimp>Print/output a line of text to stdout.</Chinesesimp>
+                <Chinesesimp>将一行文本打印/输出到标准输出流.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandEchoMan">
                 <Original>Usage echo: 'echo [text]' prints the given text to stdout.</Original>
                 <English>Usage echo: 'echo [text]' prints the given text to stdout.</English>
                 <German>Verwendung echo: 'echo [Text]' gibt den angegebenen Text nach stdout aus.</German>
-                <Chinesesimp>Usage echo: 'echo [text]' prints the given text to stdout.</Chinesesimp>
+                <Chinesesimp>echo说明: 'echo [text]' 打印指定的文本到标准输出流.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandCryptoDescr">
                 <Original>Encrypts/decrypts text with a given algorythm and key.</Original>
                 <English>Encrypts/decrypts text with a given algorythm and key.</English>
                 <German>Ver-/Entschlüsselt text mit dem angegebenen Algorythmus und Schlüssel.</German>
-                <Chinesesimp>Encrypts/decrypts text with a given algorythm and key.</Chinesesimp>
+                <Chinesesimp>使用指定的算法和密钥加密/解密文本.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandCryptoMan">
                 <Original>Usage crypto: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.</Original>
                 <English>Usage crypto: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.</English>
                 <German>Verwendung crypto: 'crypto -a [Algorythmus] -k [Schlüssel] -m [Modus] [Text]' gibt den verarbeiteten Text nach stdout aus.</German>
-                <Chinesesimp>Usage crypto: 'crypto -a [algorythm] -k [key] -m [mode] [text]' prints the processed text to stdout.</Chinesesimp>
+                <Chinesesimp>crypto说明: 'crypto -a [algorythm] -k [key] -m [mode] [text]' 将处理后的文本打印到标准输出流.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandCrackDescr">
                 <Original>Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.</Original>
                 <English>Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.</English>
                 <German>Versucht den angegebenen Text durch verschiedene Methoden wie per Bruteforce oder über Statistiken zu entschlüsseln.</German>
-                <Chinesesimp>Trys to decrypt text with a given algorythm using multiple methods like bruteforce or statistics.</Chinesesimp>
+                <Chinesesimp>尝试使用多种指定算法(如bruteforce或statistics)解密文本.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandCrackMan">
                 <Original>Usage crack: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.</Original>
                 <English>Usage crack: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.</English>
                 <German>Verwendung crack: 'crack -a [Algorythmus] -m [Modus] [Text]' gibt die Ergebnisse nach stdout aus.</German>
-                <Chinesesimp>Usage crack: 'crack -a [algorythm] -m [mode] [text]' prints the results to stdout.</Chinesesimp>
+                <Chinesesimp>crack说明: 'crack -a [algorythm] -m [mode] [text]' 将结果打印到标准输出流.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandFindDescr">
                 <Original>Searches in the current directory for a file/folder with the given name.</Original>
                 <English>Searches in the current directory for a file/folder with the given name.</English>
                 <German>Sucht im aktuellen Verzeichnis hach einer Datei/einem Verzeichnis mit angegebenem Namen.</German>
-                <Chinesesimp>Searches in the current directory for a file/folder with the given name.</Chinesesimp>
+                <Chinesesimp>在当前目录中搜索具有指定名称的文件/文件夹.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandFindMan">
                 <Original>Usage find: 'find [Name]' prints the results to stdout.</Original>
                 <English>Usage find: 'find [Name]' prints the results to stdout.</English>
                 <German>Verwendung find: 'find [Name]' gibt die Ergebnisse nach stdout aus.</German>
-                <Chinesesimp>Usage find: 'find [Name]' prints the results to stdout.</Chinesesimp>
+                <Chinesesimp>find说明: 'find [Name]' 将结果打印到标准输出流.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_TextureBlack">
                 <Original>Black</Original>

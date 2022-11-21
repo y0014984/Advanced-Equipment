@@ -6,13 +6,13 @@
                 <Original>Battery Level: %1 Wh (%2%3 of %4 Wh)</Original>
                 <English>Battery Level: %1 Wh (%2%3 of %4 Wh)</English>
                 <German>Batterieladestand: %1 Wh (%2%3 von %4 Wh)</German>
-                <Chinesesimp>Battery Level: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
+                <Chinesesimp>电量: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_FuelLevelHint">
                 <Original>Fuel Level: %1 l (%2%3 of %4 l)</Original>
                 <English>Fuel Level: %1 l (%2%3 of %4 l)</English>
                 <German>Treibstofffüllstand: %1 l (%2%3 von %4 l)</German>
-                <Chinesesimp>Fuel Level: %1 l (%2%3 of %4 l)</Chinesesimp>
+                <Chinesesimp>燃料: %1 l (%2%3 of %4 l)</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerOutputHint">
                 <Original>Current power output: %1 W</Original>
