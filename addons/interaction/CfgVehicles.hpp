@@ -215,8 +215,8 @@ class CfgVehicles
 					{
 						description = "yaw lamp 1";
 						animation = "Light_1_yaw_source";
-						minValue = -90;
-						maxValue = 90;
+						minValue = -180;
+						maxValue = 180;
 						scrollMultiplier = 10;
 					};
 				};
