@@ -96,7 +96,7 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa", "a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa", "a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
 		icon = "iconObject_1x1"; // Object gets invisible, except the shadow
 		picture = "pictureThing";
-		displayName = "Portable Generator";
+		displayName = "$STR_AE3_Power_Config_GeneratorDisplayName";
 		hasDriver = 0;
 		getInAction = "";
 		maximumLoad = 0;
