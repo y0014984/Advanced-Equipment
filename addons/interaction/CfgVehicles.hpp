@@ -854,7 +854,7 @@ class CfgVehicles
 		{
 			displayName = "Desk";
 
-			closeState = 1;
+			closeState = 0;
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
