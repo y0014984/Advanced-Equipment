@@ -104,7 +104,7 @@ class CfgVehicles
 		{
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 
-			closeState = 1;
+			closeState = 0;
 
 			init = "_this call AE3_interaction_fnc_initLaptop;";
 

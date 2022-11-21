@@ -215,8 +215,8 @@ class CfgVehicles
 					{
 						description = "$STR_AE3_Interaction_Config_YawLamp1";
 						animation = "Light_1_yaw_source";
-						minValue = -90;
-						maxValue = 90;
+						minValue = -180;
+						maxValue = 180;
 						scrollMultiplier = 10;
 					};
 				};
@@ -854,7 +854,7 @@ class CfgVehicles
 		{
 			displayName = "$STR_AE3_Interaction_Config_DeskDisplayName";
 
-			closeState = 1;
+			closeState = 0;
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
