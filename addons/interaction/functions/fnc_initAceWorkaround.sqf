@@ -15,6 +15,8 @@ params["_equipment", "_aceDragging", "_aceCarrying"];
 
 if(!isDedicated) then
 {
+	private _settingsAce3 = createHashMap;
+
 	if (!(_aceDragging isEqualTo [])) then
 	{
 		private _ae3_dragging_canDrag = _aceDragging select 0;
@@ -24,6 +26,11 @@ if(!isDedicated) then
 		if (_ae3_dragging_canDrag == 1) then { _ae3_dragging_canDrag = true; } else { _ae3_dragging_canDrag = false; };
 
 		[_equipment, _ae3_dragging_canDrag, _ae3_dragging_dragPosition, _ae3_dragging_dragDirection] call ace_dragging_fnc_setDraggable;
+
+		_settingsAce3 set ["ae3_dragging_canDrag", _ae3_dragging_canDrag];
+		_settingsAce3 set ["ae3_dragging_dragIsActive", true];
+		_settingsAce3 set ["ae3_dragging_dragPosition", _ae3_dragging_dragPosition];
+		_settingsAce3 set ["ae3_dragging_dragDirection", _ae3_dragging_dragDirection];
 	};
 
 	if (!(_aceCarrying isEqualTo [])) then
@@ -35,5 +42,12 @@ if(!isDedicated) then
 		if (_ae3_dragging_canCarry == 1) then { _ae3_dragging_canCarry = true; } else { _ae3_dragging_canCarry = false; };
 
 		[_equipment, _ae3_dragging_canCarry, _ae3_dragging_carryPosition, _ae3_dragging_carryDirection] call ace_dragging_fnc_setCarryable;
+
+		_settingsAce3 set ["ae3_dragging_canCarry", _ae3_dragging_canCarry];
+		_settingsAce3 set ["ae3_dragging_carryIsActive", true];
+		_settingsAce3 set ["ae3_dragging_carryPosition", _ae3_dragging_carryPosition];
+		_settingsAce3 set ["ae3_dragging_carryDirection", _ae3_dragging_carryDirection];
 	};
+
+	_equipment setVariable ["AE3_SettingsACE3", _settingsAce3, true];
 };
