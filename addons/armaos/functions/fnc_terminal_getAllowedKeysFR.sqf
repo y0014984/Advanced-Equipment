@@ -22,8 +22,9 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_C, true, false, false], "C"],
 	[format ["%1-%2-%3-%4", DIK_D, false, false, false], "d"],
 	[format ["%1-%2-%3-%4", DIK_D, true, false, false], "D"],
-	[format ["%1-%2-%3-%4", DIK_E, false, false, false], "e"],
-	[format ["%1-%2-%3-%4", DIK_E, true, false, false], "E"],
+	[format ["%1-%2-%3-%4", DIK_E, false, false, false], "e"], // 19
+	[format ["%1-%2-%3-%4", DIK_E, true, false, false], "E"], // 18
+	[format ["%1-%2-%3-%4", DIK_E, false, false, true], "€"], // 18
 	[format ["%1-%2-%3-%4", DIK_F, false, false, false], "f"],
 	[format ["%1-%2-%3-%4", DIK_F, true, false, false], "F"],
 	[format ["%1-%2-%3-%4", DIK_G, false, false, false], "g"],
@@ -66,30 +67,39 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_Y, true, false, false], "Y"], // 21
 	[format ["%1-%2-%3-%4", DIK_Z, false, false, false], "w"], // 44
 	[format ["%1-%2-%3-%4", DIK_Z, true, false, false], "W"], // 44
-	[format ["%1-%2-%3-%4", DIK_1, false, false, false], "&"],
-	[format ["%1-%2-%3-%4", DIK_1, true, false, false], "1"],
-	[format ["%1-%2-%3-%4", DIK_2, false, false, false], "é"],
-	[format ["%1-%2-%3-%4", DIK_2, true, false, false], "2"],
-	[format ["%1-%2-%3-%4", DIK_3, false, false, false], """"],
-	[format ["%1-%2-%3-%4", DIK_3, true, false, false], "3"],
-	[format ["%1-%2-%3-%4", DIK_4, false, false, false], "'"],
-	[format ["%1-%2-%3-%4", DIK_4, true, false, false], "4"],
-	[format ["%1-%2-%3-%4", DIK_5, false, false, false], "("],
-	[format ["%1-%2-%3-%4", DIK_5, true, false, false], "5"],
-	[format ["%1-%2-%3-%4", DIK_6, false, false, false], "-"],
-	[format ["%1-%2-%3-%4", DIK_6, true, false, false], "6"], 
-	[format ["%1-%2-%3-%4", DIK_7, false, false, false], "è"],
-	[format ["%1-%2-%3-%4", DIK_7, true, false, false], "7"],
-	[format ["%1-%2-%3-%4", DIK_7, false, false, true], "ò"],
-	[format ["%1-%2-%3-%4", DIK_8, false, false, false], "_"],
-	[format ["%1-%2-%3-%4", DIK_8, true, false, false], "8"],
-	[format ["%1-%2-%3-%4", DIK_8, false, false, true], "\"],
-	[format ["%1-%2-%3-%4", DIK_9, false, false, false], "c"], // weird sign
-	[format ["%1-%2-%3-%4", DIK_9, true, false, false], "9"],
-	[format ["%1-%2-%3-%4", DIK_9, false, false, true], "^"],
-	[format ["%1-%2-%3-%4", DIK_0, false, false, false], "à"],
-	[format ["%1-%2-%3-%4", DIK_0, true, false, false], "0"],
-	[format ["%1-%2-%3-%4", DIK_0, false, false, true], "@"],
+	[format ["%1-%2-%3-%4", DIK_1, false, false, false], "&"], // 2
+	[format ["%1-%2-%3-%4", DIK_1, true, false, false], "1"], // 2
+	[format ["%1-%2-%3-%4", DIK_2, false, false, false], "é"], // 3
+	[format ["%1-%2-%3-%4", DIK_2, true, false, false], "2"], // 3
+	[format ["%1-%2-%3-%4", DIK_3, false, false, false], """"], // 4
+	[format ["%1-%2-%3-%4", DIK_3, true, false, false], "3"], // 4
+	[format ["%1-%2-%3-%4", DIK_3, false, false, true], "#"], // 4
+	[format ["%1-%2-%3-%4", DIK_4, false, false, false], "'"], // 5
+	[format ["%1-%2-%3-%4", DIK_4, true, false, false], "4"], // 5
+	[format ["%1-%2-%3-%4", DIK_4, false, false, true], "{"], // 5
+	[format ["%1-%2-%3-%4", DIK_5, false, false, false], "("], // 6
+	[format ["%1-%2-%3-%4", DIK_5, true, false, false], "5"], // 6
+	[format ["%1-%2-%3-%4", DIK_5, false, false, true], "["], // 6
+	[format ["%1-%2-%3-%4", DIK_6, false, false, false], "-"], // 7
+	[format ["%1-%2-%3-%4", DIK_6, true, false, false], "6"], // 7
+	[format ["%1-%2-%3-%4", DIK_6, false, false, true], "|"], // 7
+	[format ["%1-%2-%3-%4", DIK_7, false, false, false], "è"], // 8
+	[format ["%1-%2-%3-%4", DIK_7, true, false, false], "7"], // 8
+	[format ["%1-%2-%3-%4", DIK_8, false, false, false], "_"], // 9
+	[format ["%1-%2-%3-%4", DIK_8, true, false, false], "8"], // 9
+	[format ["%1-%2-%3-%4", DIK_8, false, false, true], "\"], // 9
+	[format ["%1-%2-%3-%4", DIK_9, false, false, false], "ç"], // 10
+	[format ["%1-%2-%3-%4", DIK_9, true, false, false], "9"], // 10
+	[format ["%1-%2-%3-%4", DIK_9, false, false, true], "^"], // 10
+	[format ["%1-%2-%3-%4", DIK_0, false, false, false], "à"], // 11
+	[format ["%1-%2-%3-%4", DIK_0, true, false, false], "0"], // 11
+	[format ["%1-%2-%3-%4", DIK_0, false, false, true], "@"], // 11
+	[format ["%1-%2-%3-%4", DIK_MINUS, false, false, false], ")"], // 12
+	[format ["%1-%2-%3-%4", DIK_MINUS, true, false, false], "°"], // 12
+	[format ["%1-%2-%3-%4", DIK_MINUS, false, false, true], "]"], // 12
+	[format ["%1-%2-%3-%4", DIK_EQUALS, false, false, false], "="], // 13
+	[format ["%1-%2-%3-%4", DIK_EQUALS, true, false, false], "+"], // 13
+	[format ["%1-%2-%3-%4", DIK_EQUALS, false, false, true], "}"], // 13
 	[format ["%1-%2-%3-%4", DIK_SPACE, false, false, false], " "],
 	[format ["%1-%2-%3-%4", DIK_SPACE, true, false, false], " "],
 	[format ["%1-%2-%3-%4", DIK_SPACE, false, true, false], " "],
@@ -98,19 +108,10 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_SEMICOLON, true, false, false], "M"], // 39
 	[format ["%1-%2-%3-%4", DIK_APOSTROPHE, false, false, false], "ù"], // 40
 	[format ["%1-%2-%3-%4", DIK_APOSTROPHE, true, false, false], "%"], // 40
-	[format ["%1-%2-%3-%4", DIK_LBRACKET, false, false, false], "^"], // 26
-	[format ["%1-%2-%3-%4", DIK_LBRACKET, true, false, false], "Ü"], // 26 ???
-	[format ["%1-%2-%3-%4", DIK_MINUS, false, false, false], ")"], // 12
-	[format ["%1-%2-%3-%4", DIK_MINUS, true, false, false], "°"], // 12
-	[format ["%1-%2-%3-%4", DIK_MINUS, false, false, true], "]"], // 12
-	[format ["%1-%2-%3-%4", DIK_EQUALS, false, false, false], "="], // 13
-	[format ["%1-%2-%3-%4", DIK_EQUALS, true, false, false], "+"], // 13
-	[format ["%1-%2-%3-%4", DIK_EQUALS, false, false, true], "}"], // 13
 	[format ["%1-%2-%3-%4", DIK_RBRACKET, false, false, false], "$"], // 27
 	[format ["%1-%2-%3-%4", DIK_RBRACKET, true, false, false], "£"], // 27
 	[format ["%1-%2-%3-%4", DIK_RBRACKET, false, false, true], ""], // 27 - weird sign, looks like a bug
 	[format ["%1-%2-%3-%4", DIK_GRAVE, false, false, false], "²"], // 41
-	[format ["%1-%2-%3-%4", DIK_GRAVE, true, false, false], ""], // 41 - not assigned
 	[format ["%1-%2-%3-%4", DIK_COMMA, false, false, false], ";"], // 51
 	[format ["%1-%2-%3-%4", DIK_COMMA, true, false, false], "."], // 51
 	[format ["%1-%2-%3-%4", DIK_PERIOD, false, false, false], ":"], // 52

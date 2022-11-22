@@ -7,8 +7,8 @@
 	["Keyboard Layout", "Keyboard Layout for armaOS. You can also change this in armaOS terminal."],
 	"AE3 armaOS",
 	[
-		["US", "DE"],
-		[["US", "United States"], ["DE", "Deutschland"]], 
+		["US", "FR", "DE"],
+		[["US", "United States"], ["FR", "France"], ["DE", "Deutschland"]], 
 		0
 	],
     nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
