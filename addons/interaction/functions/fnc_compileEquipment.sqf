@@ -39,7 +39,7 @@ if(_config isEqualType "") exitWith {};
 
 /* ---------------------------------------- */
 
-if('aceWorkaround' in _config) then 
+if('ace3Interactions' in _config) then 
 {
 	private _aceDragging = [];
 	if('aceDragging' in _config) then
@@ -53,5 +53,5 @@ if('aceWorkaround' in _config) then
 		_aceCarrying = (_config get 'aceCarrying');
 	};
 
-	[_equipment] + [_aceDragging] + [_aceCarrying] call AE3_interaction_fnc_initAceWorkaround;
+	[_equipment] + [_aceDragging] + [_aceCarrying] call AE3_interaction_fnc_initAce3Interactions;
 };

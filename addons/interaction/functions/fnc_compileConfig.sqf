@@ -118,12 +118,12 @@ if(!isNull _animations) then
 
 /* ---------------------------------------- */
 
-private _aceWorkaround = (_equipmentCfg >> "AE3_ace3Interactions");
-if(!isNull _aceWorkaround) then
+private _ace3Interactions = (_equipmentCfg >> "AE3_ace3Interactions");
+if(!isNull _ace3Interactions) then
 {
-	_config set ["aceWorkaround", true];
+	_config set ["ace3Interactions", true];
 
-	private _aceDragging = (_aceWorkaround >> "AE3_aceDragging");
+	private _aceDragging = (_ace3Interactions >> "AE3_aceDragging");
 	if (!isNull _aceDragging) then
 	{
 		_config set 
@@ -137,7 +137,7 @@ if(!isNull _aceWorkaround) then
 		];
 	};
 
-	private _aceCarrying = (_aceWorkaround >> "AE3_aceCarrying");
+	private _aceCarrying = (_ace3Interactions >> "AE3_aceCarrying");
 	if (!isNull _aceCarrying) then
 	{
 		_config set 
