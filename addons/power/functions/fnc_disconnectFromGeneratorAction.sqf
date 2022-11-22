@@ -34,4 +34,7 @@ if(!isNil {_target getVariable 'AE3_power_powerConsumption'}) then
 
 [_generator] call AE3_power_fnc_updatePower;
 
+private _parent = _target getVariable "AE3_power_parent";
+if (!isNil "_parent") then {_target = _parent};
+
 [_target, "powerConnected", false] call AE3_interaction_fnc_manageAce3Interactions;

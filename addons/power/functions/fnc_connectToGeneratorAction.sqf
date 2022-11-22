@@ -34,4 +34,8 @@ else
 
 _generator setVariable ["AE3_power_connectedDevices", _connectedDevices, true];
 
+
+private _parent = _target getVariable "AE3_power_parent";
+if (!isNil "_parent") then {_target = _parent};
+
 [_target, "powerConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
