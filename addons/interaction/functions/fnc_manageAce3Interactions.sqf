@@ -1,5 +1,5 @@
 
-// Example: [_computer, ["powerConnected", true]] call AE3_interaction_fnc_manageAce3Interactions
+// Example: [_computer, "powerConnected", true] call AE3_interaction_fnc_manageAce3Interactions
 
 params ["_target", "_condition", "_status"];
 
@@ -12,10 +12,11 @@ if (!isNil "_settingsAce3") then
     private _networkConnected = _settingsAce3 getOrDefault ["powerConnected", false, true];
     private _unwrapped = _settingsAce3 getOrDefault ["unwrapped", false, true];
     private _turnedOn = _settingsAce3 getOrDefault ["turnedOn", false, true];
+    private _inUse = _settingsAce3 getOrDefault ["inUse", false, true];
 
     // ACE3 Carry, Drag and Load will only be available if the device is not connected via power/network, 
     // not unfold/opened/expanded, not turned on
-    if (_powerConnected || _networkConnected || _unwrapped || _turnedOn) then
+    if (_powerConnected || _networkConnected || _unwrapped || _turnedOn || _inUse) then
     {
         if (_settingsAce3 get "ae3_dragging_canDrag") then
         {

@@ -23,7 +23,7 @@ if (!_silent) then
 	] call ace_common_fnc_progressBar;
 };
 
-[_entity, true, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
+[_entity, "turnedOn", false] call AE3_interaction_fnc_manageAce3Interactions;
 
 [_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
 
