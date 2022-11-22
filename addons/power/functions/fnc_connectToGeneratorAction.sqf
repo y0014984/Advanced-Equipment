@@ -19,8 +19,6 @@ if(!isNil {_generator getVariable "AE3_power_internal"}) then
 
 _target setVariable ["AE3_power_powerCableDevice", _generator, true];
 
-[_target, false, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
-
 [_target, -1] call ace_cargo_fnc_setSize;
 
 private _connectedDevices = _generator getVariable "AE3_power_connectedDevices";
@@ -50,4 +48,6 @@ if (!isNil "_settingsAce3") then
 		[_target, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
 		_settingsAce3 set ["ae3_dragging_carryIsActive", false];
 	};
+
+	_target setVariable ["AE3_SettingsACE3", _settingsAce3, true];
 };

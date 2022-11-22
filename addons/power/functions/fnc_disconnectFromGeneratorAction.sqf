@@ -25,8 +25,6 @@ if (!isNil "_generator") then
 
 _target setVariable ["AE3_power_powerCableDevice", nil, true];
 
-[_target, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
-
 [_target, 1] call ace_cargo_fnc_setSize;
 
 if(!isNil {_target getVariable 'AE3_power_powerConsumption'}) then
@@ -45,7 +43,7 @@ if (!isNil "_settingsAce3") then
 		private _canDrag = _settingsAce3 get "ae3_dragging_canDrag";
 		private _dragPosition = _settingsAce3 get "ae3_dragging_dragPosition";
 		private _dragDirection = _settingsAce3 get "ae3_dragging_dragDirection";
-		[_target, _canDrag, _dragPosition, _dragDirection] remoteExecCall ['ace_dragging_fnc_setDraggable', 0, true];
+		[_target, _canDrag, _dragPosition, _dragDirection] remoteExecCall ["ace_dragging_fnc_setDraggable", 0, true];
 		_settingsAce3 set ["ae3_dragging_dragIsActive", true];
 	};
 	if (_settingsAce3 get "ae3_dragging_canCarry") then
@@ -53,7 +51,9 @@ if (!isNil "_settingsAce3") then
 		private _canCarry = _settingsAce3 get "ae3_dragging_canCarry";
 		private _carryPosition = _settingsAce3 get "ae3_dragging_carryPosition";
 		private _carryDirection = _settingsAce3 get "ae3_dragging_carryDirection";
-		[_target, _canCarry, _carryPosition, _carryDirection] remoteExecCall ['ace_dragging_fnc_setCarryable', 0, true];
+		[_target, _canCarry, _carryPosition, _carryDirection] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
 		_settingsAce3 set ["ae3_dragging_carryIsActive", true];
 	};
+
+	_target setVariable ["AE3_SettingsACE3", _settingsAce3, true];
 };
