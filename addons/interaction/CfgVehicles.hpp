@@ -41,6 +41,13 @@ class CfgVehicles
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 				};
+				class AE3_aceCarrying
+				{
+					// Carrying
+					ae3_dragging_canCarry = 0;  // Can be dragged (0-no, 1-yes)
+					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+					ae3_dragging_carryDirection = 180;  // Model direction while dragging (same as setDir after attachTo)
+				};
 			};
 		};
 	};
@@ -86,6 +93,13 @@ class CfgVehicles
 					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCarrying
+				{
+					// Carrying
+					ae3_dragging_canCarry = 0;  // Can be dragged (0-no, 1-yes)
+					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+					ae3_dragging_carryDirection = 180;  // Model direction while dragging (same as setDir after attachTo)
 				};
 			};
 		};
