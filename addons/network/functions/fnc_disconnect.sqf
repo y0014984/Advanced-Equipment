@@ -21,3 +21,17 @@ if(!isNil {_entity getVariable 'AE3_network_children'}) then
 {
 	[_entity] call AE3_network_fnc_dhcp_refresh;
 };
+
+_parent = _entity getVariable 'AE3_network_parent';
+if (isNull _parent) then
+{
+	_children = _entity getVariable ['AE3_network_children', []];
+	if (count _children == 0) then
+	{
+		[_entity, "networkConnected", false] call AE3_interaction_fnc_manageAce3Interactions;
+	};
+}
+else
+{
+    [_entity, "networkConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
+};
