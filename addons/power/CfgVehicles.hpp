@@ -72,7 +72,7 @@ class CfgVehicles
 		{
 			displayName = "$STR_AE3_Power_Config_GeneratorDisplayName";
 
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{
@@ -267,7 +267,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceCarrying
 				{
@@ -377,7 +377,7 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initSolarPanel;";
 
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{
@@ -504,7 +504,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{

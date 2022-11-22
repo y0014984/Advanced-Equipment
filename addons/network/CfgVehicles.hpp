@@ -32,7 +32,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceCarrying
 				{

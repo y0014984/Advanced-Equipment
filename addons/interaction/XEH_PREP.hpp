@@ -22,5 +22,5 @@ PREP(initInteraction);
 PREP(animateAction);
 
 /* ACE3 Workaround */
-PREP(initAceWorkaround);
+PREP(initAce3Interactions);
 PREP(manageAce3Interactions);

@@ -108,7 +108,7 @@ class CfgVehicles
 			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
 			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceCarrying
 				{

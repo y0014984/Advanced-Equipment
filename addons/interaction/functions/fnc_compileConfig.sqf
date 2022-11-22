@@ -118,7 +118,7 @@ if(!isNull _animations) then
 
 /* ---------------------------------------- */
 
-private _aceWorkaround = (_equipmentCfg >> "AE3_aceWorkaround");
+private _aceWorkaround = (_equipmentCfg >> "AE3_ace3Interactions");
 if(!isNull _aceWorkaround) then
 {
 	_config set ["aceWorkaround", true];

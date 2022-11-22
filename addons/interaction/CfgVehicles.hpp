@@ -32,7 +32,7 @@ class CfgVehicles
 		};
 		class AE3_Equipment
 		{
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{
@@ -85,7 +85,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{
@@ -242,7 +242,7 @@ class CfgVehicles
 				};
 			};
 
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceCarrying
 				{
@@ -451,7 +451,7 @@ class CfgVehicles
 				};
 			};
 
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{
@@ -726,7 +726,7 @@ class CfgVehicles
 				};
 			};
 
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{
@@ -955,7 +955,7 @@ class CfgVehicles
 				};
 				*/
 			};
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceDragging
 				{
@@ -1062,7 +1062,7 @@ class CfgVehicles
 	
 		class AE3_Equipment
 		{
-			class AE3_aceWorkaround
+			class AE3_ace3Interactions
 			{
 				class AE3_aceCarrying
 				{
