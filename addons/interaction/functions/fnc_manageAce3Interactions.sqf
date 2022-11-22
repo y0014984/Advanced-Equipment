@@ -9,7 +9,7 @@ if (!isNil "_settingsAce3") then
     _settingsAce3 set [_condition, _status];
 
     private _powerConnected = _settingsAce3 getOrDefault ["powerConnected", false, true];
-    private _networkConnected = _settingsAce3 getOrDefault ["powerConnected", false, true];
+    private _networkConnected = _settingsAce3 getOrDefault ["networkConnected", false, true];
     private _unwrapped = _settingsAce3 getOrDefault ["unwrapped", false, true];
     private _turnedOn = _settingsAce3 getOrDefault ["turnedOn", false, true];
     private _inUse = _settingsAce3 getOrDefault ["inUse", false, true];
