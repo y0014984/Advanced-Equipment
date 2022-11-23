@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://github.com/y0014984/Advanced-Equipment/releases/latest">
-        <img src="https://img.shields.io/badge/Version-0.5.0-blue.svg?style=flat-square" alt="Advanced Equipment Version">
+        <img src="https://img.shields.io/badge/Version-0.5.1-blue.svg?style=flat-square" alt="Advanced Equipment Version">
     </a>
     <a href="https://www.bistudio.com/community/licenses/arma-public-license-share-alike">
         <img src="https://img.shields.io/badge/License-APL%20SA-red.svg?style=flat-square" alt="Advanced Equipment License">
@@ -27,6 +27,7 @@ This project is entirely **open-source** and all contributions are welcome. Feel
 - Network Management (only basics implemented yet)
 - Logistics (Fold and unfold objects, move them around, put them into vehicles)
 - 3DEN Modules (Easy Mission Making)
+- Localization (English, German, Russian, Simplified Chinese)
 
 ## Wiki
 See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional information on how to use Advanced Equipment. 
