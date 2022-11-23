@@ -66,5 +66,5 @@ if(!isDedicated) then
 
 	_equipment setVariable ["AE3_SettingsACE3", _settingsAce3, true];
 
-	[_computer, "init", true] call AE3_interaction_fnc_manageAce3Interactions;
+	[_equipment, "init", true] call AE3_interaction_fnc_manageAce3Interactions;
 };
