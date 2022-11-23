@@ -1,20 +1,20 @@
 /**
- * Initializes a laptop.
+ * Initializes a desk, especially it's open/close state.
  *
  * Arguments:
- * 0: Laptop <OBJECT>
+ * 0: Desk <OBJECT>
  *
  * Returns:
  * None
  */
 
-params["_laptop"];
+params["_desk"];
 
-if (_laptop getVariable 'AE3_interaction_closeState' == 1) then
+if (_desk getVariable "AE3_interaction_closeState" == 1) then
 {
-    [_laptop] call (_laptop getVariable "AE3_interaction_fnc_close");
+    [_desk] call (_desk getVariable "AE3_interaction_fnc_close");
 }
 else
 {
-    [_laptop] call (_laptop getVariable "AE3_interaction_fnc_open");
+    [_desk] call (_desk getVariable "AE3_interaction_fnc_open");
 };

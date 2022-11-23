@@ -163,4 +163,16 @@ if(!isNull _ace3Interactions) then
 			]
 		];
 	};
+
+	private _interactionConditions = (_ace3Interactions >> "AE3_interactionConditions");
+	if (!isNull _interactionConditions) then
+	{
+		_config set 
+		[
+			'interactionConditions',
+			[
+				getNumber (_interactionConditions >> "ae3_unwrapped")
+			]
+		];
+	};
 };

@@ -12,7 +12,7 @@
  * none
  */
 
-params["_equipment", "_aceDragging", "_aceCarrying", "_aceCargo"];
+params["_equipment", "_aceDragging", "_aceCarrying", "_aceCargo", "_interactionConditions"];
 
 if(!isDedicated) then
 {
@@ -26,10 +26,7 @@ if(!isDedicated) then
 
 		if (_ae3_dragging_canDrag == 1) then { _ae3_dragging_canDrag = true; } else { _ae3_dragging_canDrag = false; };
 
-		[_equipment, _ae3_dragging_canDrag, _ae3_dragging_dragPosition, _ae3_dragging_dragDirection] call ace_dragging_fnc_setDraggable;
-
 		_settingsAce3 set ["ae3_dragging_canDrag", _ae3_dragging_canDrag];
-		_settingsAce3 set ["ae3_dragging_dragIsActive", true];
 		_settingsAce3 set ["ae3_dragging_dragPosition", _ae3_dragging_dragPosition];
 		_settingsAce3 set ["ae3_dragging_dragDirection", _ae3_dragging_dragDirection];
 	};
@@ -42,10 +39,7 @@ if(!isDedicated) then
 
 		if (_ae3_dragging_canCarry == 1) then { _ae3_dragging_canCarry = true; } else { _ae3_dragging_canCarry = false; };
 
-		[_equipment, _ae3_dragging_canCarry, _ae3_dragging_carryPosition, _ae3_dragging_carryDirection] call ace_dragging_fnc_setCarryable;
-
 		_settingsAce3 set ["ae3_dragging_canCarry", _ae3_dragging_canCarry];
-		_settingsAce3 set ["ae3_dragging_carryIsActive", true];
 		_settingsAce3 set ["ae3_dragging_carryPosition", _ae3_dragging_carryPosition];
 		_settingsAce3 set ["ae3_dragging_carryDirection", _ae3_dragging_carryDirection];
 	};
@@ -56,13 +50,21 @@ if(!isDedicated) then
 		private _ae3_cargo_size = _aceCargo select 1;
 
 		if (_ae3_cargo_canLoad == 1) then { _ae3_cargo_canLoad = true; } else { _ae3_cargo_canLoad = false; };
-	
-		[_equipment, _ae3_cargo_size] call ace_cargo_fnc_setSize;
 
 		_settingsAce3 set ["ae3_cargo_canLoad", _ae3_cargo_canLoad];
-		_settingsAce3 set ["ae3_cargo_isActive", true];
 		_settingsAce3 set ["ae3_cargo_size", _ae3_cargo_size];
 	};
 
+	if (!(_interactionConditions isEqualTo [])) then
+	{
+		private _ae3_unwrapped = _interactionConditions select 0;
+
+		if (_ae3_unwrapped == 1) then { _ae3_unwrapped = true; } else { _ae3_unwrapped = false; };
+
+		_settingsAce3 set ["unwrapped", _ae3_unwrapped];
+	};
+
 	_equipment setVariable ["AE3_SettingsACE3", _settingsAce3, true];
+
+	[_computer, "init", true] call AE3_interaction_fnc_manageAce3Interactions;
 };

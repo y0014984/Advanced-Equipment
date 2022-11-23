@@ -970,6 +970,10 @@ class CfgVehicles
 					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
 					ae3_cargo_size = 4;  // Cargo space the object takes
 				};
+				class AE3_interactionConditions
+				{
+					ae3_unwrapped = 1; // unwrapped = 1; wrapped = 0
+				};
 			};
 		};
 	};
