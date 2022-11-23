@@ -22,7 +22,7 @@ class CfgVehicles
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
 
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
@@ -42,7 +42,7 @@ class CfgVehicles
 
 	/* ================================================================================ */
 	
-	class Land_PortableLight_double_F;
+ 	class Land_PortableLight_double_F;
 
 	class Land_PortableLight_double_F_AE3: Land_PortableLight_double_F
 	{
@@ -62,7 +62,7 @@ class CfgVehicles
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
 
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
@@ -82,7 +82,7 @@ class CfgVehicles
 
 	/* ================================================================================ */
 
-	class Land_PortableLight_02_single_sand_F;
+ 	class Land_PortableLight_02_single_sand_F;
 
 	class Land_PortableLight_02_single_sand_F_AE3: Land_PortableLight_02_single_sand_F
 	{
@@ -91,27 +91,27 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Interaction_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Interaction_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Olive_CO.paa"};
 			};
 			class Yellow
 			{
-				displayName = "Yellow";
+				displayName = "$STR_AE3_Interaction_Config_TextureYellow";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Yellow_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Interaction_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Single_Sand_CO.paa"};
@@ -184,18 +184,18 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 
 			class AE3_Animations
 			{
 				class AE3_Animation_Point_0
 				{
-					description = "lamp 1";
+					description = "$STR_AE3_Interaction_Config_Lamp1";
 					selection = "light_1_pitch";
 
 					class AE3_Animation_Main
 					{
-						description = "extend lamp 1";
+						description = "$STR_AE3_Interaction_Config_ExtendLamp1";
 						animation = "Light_1_extend_source";
 						minValue = 0;
 						maxValue = 1;
@@ -204,7 +204,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Ctrl
 					{
-						description = "pitch lamp 1";
+						description = "$STR_AE3_Interaction_Config_PitchLamp1";
 						animation = "Light_1_pitch_source";
 						minValue = -90;
 						maxValue = 90;
@@ -213,10 +213,10 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Alt
 					{
-						description = "yaw lamp 1";
+						description = "$STR_AE3_Interaction_Config_YawLamp1";
 						animation = "Light_1_yaw_source";
-						minValue = -90;
-						maxValue = 90;
+						minValue = -180;
+						maxValue = 180;
 						scrollMultiplier = 10;
 					};
 				};
@@ -238,7 +238,7 @@ class CfgVehicles
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
 
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
@@ -272,27 +272,27 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Interaction_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Interaction_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Olive_CO.paa"};
 			};
 			class Yellow
 			{
-				displayName = "Yellow";
+				displayName = "$STR_AE3_Interaction_Config_TextureYellow";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Yellow_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Interaction_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Sand_CO.paa"};
@@ -365,18 +365,18 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 
 			class AE3_Animations
 			{
 				class AE3_Animation_Point_0
 				{
-					description = "lamp 1";
+					description = "$STR_AE3_Interaction_Config_Lamp1";
 					selection = "light_1_pitch";
 
 					class AE3_Animation_Main
 					{
-						description = "extend lamp 1";
+						description = "$STR_AE3_Interaction_Config_ExtendLamp1";
 						animation = "Light_1_extend_source";
 						minValue = 0;
 						maxValue = 1;
@@ -385,7 +385,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Ctrl
 					{
-						description = "pitch lamp 1";
+						description = "$STR_AE3_Interaction_Config_PitchLamp1";
 						animation = "Light_1_pitch_source";
 						minValue = -90;
 						maxValue = 90;
@@ -394,7 +394,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Alt
 					{
-						description = "yaw lamp 1";
+						description = "$STR_AE3_Interaction_Config_YawLamp1";
 						animation = "Light_1_yaw_source";
 						minValue = -90;
 						maxValue = 90;
@@ -404,12 +404,12 @@ class CfgVehicles
 
 				class AE3_Animation_Point_1
 				{
-					description = "lamp 2";
+					description = "$STR_AE3_Interaction_Config_Lamp2";
 					selection = "light_2_pitch";
 
 					class AE3_Animation_Main
 					{
-						description = "extend lamp 2";
+						description = "$STR_AE3_Interaction_Config_ExtendLamp2";
 						animation = "Light_2_extend_source";
 						minValue = 0;
 						maxValue = 1;
@@ -418,7 +418,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Ctrl
 					{
-						description = "pitch lamp 2";
+						description = "$STR_AE3_Interaction_Config_PitchLamp2";
 						animation = "Light_2_pitch_source";
 						minValue = -90;
 						maxValue = 90;
@@ -427,7 +427,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Alt
 					{
-						description = "yaw lamp 2";
+						description = "$STR_AE3_Interaction_Config_YawLamp2";
 						animation = "Light_2_yaw_source";
 						minValue = -90;
 						maxValue = 90;
@@ -452,7 +452,7 @@ class CfgVehicles
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
 
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
@@ -486,27 +486,27 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Interaction_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Interaction_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Olive_CO.paa"};
 			};
 			class Yellow
 			{
-				displayName = "Yellow";
+				displayName = "$STR_AE3_Interaction_Config_TextureYellow";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Yellow_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Interaction_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\Portable_light_02_Sand_CO.paa"};
@@ -579,18 +579,18 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			
 			class AE3_Animations
 			{
 				class AE3_Animation_Point_0
 				{
-					description = "lamp 1";
+					description = "$STR_AE3_Interaction_Config_Lamp1";
 					selection = "light_1_pitch";
 
 					class AE3_Animation_Main
 					{
-						description = "extend lamp 1";
+						description = "$STR_AE3_Interaction_Config_ExtendLamp1";
 						animation = "Light_1_extend_source";
 						minValue = 0;
 						maxValue = 1;
@@ -599,7 +599,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Ctrl
 					{
-						description = "pitch lamp 1";
+						description = "$STR_AE3_Interaction_Config_PitchLamp1";
 						animation = "Light_1_pitch_source";
 						minValue = -90;
 						maxValue = 90;
@@ -608,7 +608,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Alt
 					{
-						description = "yaw lamp 1";
+						description = "$STR_AE3_Interaction_Config_YawLamp1";
 						animation = "Light_1_yaw_source";
 						minValue = -90;
 						maxValue = 90;
@@ -618,12 +618,12 @@ class CfgVehicles
 
 				class AE3_Animation_Point_1
 				{
-					description = "lamp 2";
+					description = "$STR_AE3_Interaction_Config_Lamp2";
 					selection = "light_2_pitch";
 
 					class AE3_Animation_Main
 					{
-						description = "extend lamp 2";
+						description = "$STR_AE3_Interaction_Config_ExtendLamp2";
 						animation = "Light_2_extend_source";
 						minValue = 0;
 						maxValue = 1;
@@ -632,7 +632,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Ctrl
 					{
-						description = "pitch lamp 2";
+						description = "$STR_AE3_Interaction_Config_PitchLamp2";
 						animation = "Light_2_pitch_source";
 						minValue = -90;
 						maxValue = 90;
@@ -641,7 +641,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Alt
 					{
-						description = "yaw lamp 2";
+						description = "$STR_AE3_Interaction_Config_YawLamp2";
 						animation = "Light_2_yaw_source";
 						minValue = -90;
 						maxValue = 90;
@@ -651,12 +651,12 @@ class CfgVehicles
 
 				class AE3_Animation_Point_2
 				{
-					description = "lamp 3";
+					description = "$STR_AE3_Interaction_Config_Lamp3";
 					selection = "light_3_pitch";
 
 					class AE3_Animation_Main
 					{
-						description = "extend lamp 3";
+						description = "$STR_AE3_Interaction_Config_ExtendLamp3";
 						animation = "Light_3_extend_source";
 						minValue = 0;
 						maxValue = 1;
@@ -665,7 +665,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Ctrl
 					{
-						description = "pitch lamp 3";
+						description = "$STR_AE3_Interaction_Config_PitchLamp3";
 						animation = "Light_3_pitch_source";
 						minValue = -90;
 						maxValue = 90;
@@ -674,7 +674,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Alt
 					{
-						description = "yaw lamp 3";
+						description = "$STR_AE3_Interaction_Config_YawLamp3";
 						animation = "Light_3_yaw_source";
 						minValue = -90;
 						maxValue = 90;
@@ -684,12 +684,12 @@ class CfgVehicles
 
 				class AE3_Animation_Point_3
 				{
-					description = "lamp 4";
+					description = "$STR_AE3_Interaction_Config_Lamp4";
 					selection = "light_4_pitch";
 
 					class AE3_Animation_Main
 					{
-						description = "extend lamp 4";
+						description = "$STR_AE3_Interaction_Config_ExtendLamp4";
 						animation = "Light_4_extend_source";
 						minValue = 0;
 						maxValue = 1;
@@ -698,7 +698,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Ctrl
 					{
-						description = "pitch lamp 4";
+						description = "$STR_AE3_Interaction_Config_PitchLamp4";
 						animation = "Light_4_pitch_source";
 						minValue = -90;
 						maxValue = 90;
@@ -707,7 +707,7 @@ class CfgVehicles
 
 					class AE3_Animation_Modified_Alt
 					{
-						description = "yaw lamp 4";
+						description = "$STR_AE3_Interaction_Config_YawLamp4";
 						animation = "Light_4_yaw_source";
 						minValue = -90;
 						maxValue = 90;
@@ -732,7 +732,7 @@ class CfgVehicles
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
 
-			displayName = "Lamp";
+			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
@@ -766,20 +766,20 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Interaction_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableDesk_01_black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Interaction_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableDesk_01_olive_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Interaction_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableDesk_01_sand_CO.paa"};
@@ -852,9 +852,9 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "Desk";
+			displayName = "$STR_AE3_Interaction_Config_DeskDisplayName";
 
-			closeState = 1;
+			closeState = 0;
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
@@ -951,9 +951,6 @@ class CfgVehicles
 				*/
 			};
 		};
-
-			
-
 	};
 
 	/* ================================================================================ */
@@ -967,20 +964,20 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Interaction_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\RuggedChair_01_black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Interaction_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\RuggedChair_01_olive_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Interaction_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\RuggedChair_01_sand_CO.paa"};

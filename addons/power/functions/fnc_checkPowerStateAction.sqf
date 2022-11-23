@@ -10,16 +10,6 @@
 
 params ["_target"];
 
-private _powerState = _target getVariable ["AE3_power_powerState", -1];
+private _powerState = [_target] call AE3_power_fnc_getPowerState;
 
-private _powerStateString = "";
-
-switch (_powerState) do
-{
-    case 0: { _powerStateString = "Off"; };
-    case 1: { _powerStateString = "On"; };
-    case 2: { _powerStateString = "Standby"; };
-    default { _powerStateString = "Unknown"; };
-};
-
-hint format ["Device Power State is: %1", _powerStateString];
+hint format [localize "STR_AE3_Power_Interaction_PowerStateHint", _powerState];

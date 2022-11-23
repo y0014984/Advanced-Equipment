@@ -52,7 +52,7 @@ class CfgVehicles
 
 		class AE3_Device
 		{
-			displayName = "Portable Generator";
+			displayName = "$STR_AE3_Power_Config_GeneratorDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
@@ -70,7 +70,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "Portable Generator";
+			displayName = "$STR_AE3_Power_Config_GeneratorDisplayName";
 
 			class AE3_aceWorkaround
 			{
@@ -96,7 +96,7 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa", "a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa", "a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
 		icon = "iconObject_1x1"; // Object gets invisible, except the shadow
 		picture = "pictureThing";
-		displayName = "Portable Generator";
+		displayName = "$STR_AE3_Power_Config_GeneratorDisplayName";
 		hasDriver = 0;
 		getInAction = "";
 		maximumLoad = 0;
@@ -131,20 +131,20 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Power_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Power_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Power_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"};
@@ -164,20 +164,20 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Power_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\BatteryPack_01_Black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Power_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\BatteryPack_01_Olive_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Power_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\BatteryPack_01_Sand_CO.paa"};
@@ -250,7 +250,7 @@ class CfgVehicles
 
 		class AE3_Device
 		{
-			displayName = "Battery";
+			displayName = "$STR_AE3_Power_Config_BatteryDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_power_fnc_turnOnBatteryAction";
@@ -283,20 +283,20 @@ class CfgVehicles
 			class Black
 			{
 				author = "Bohemia Interactive";
-				displayName = "Black";
+				displayName = "$STR_AE3_Power_Config_TextureBlack";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\SolarPanel_04_F_Black_CO.paa"};
 			};
 			class Olive
 			{
 				author = "Bohemia Interactive";
-				displayName = "Olive";
+				displayName = "$STR_AE3_Power_Config_TextureOlive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\SolarPanel_04_F_Olive_CO.paa"};
 			};
 			class Sand
 			{
-				displayName = "Sand";
+				displayName = "$STR_AE3_Power_Config_TextureSand";
 				author = "Bohemia Interactive";
 				factions[] = {};
 				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\SolarPanel_04_F_Sand_CO.paa"};
@@ -364,7 +364,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "Solar Panel";
+			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 
 			init = "_this call AE3_interaction_fnc_initSolarPanel;";
 
@@ -383,12 +383,12 @@ class CfgVehicles
 			{
 				class AE3_Animation_Point_0
 				{
-					description = "solar panel 1";
+					description = "$STR_AE3_Power_Config_SolarPanel1";
 					selection = "panel_1";
 
 					class AE3_Animation_Main
 					{
-						description = "pitch solar panel 1";
+						description = "$STR_AE3_Power_Config_PitchSolarPanel1";
 						animation = "Panel_1_Pitch";
 						minValue = -45;
 						maxValue = 45;
@@ -398,12 +398,12 @@ class CfgVehicles
 
 				class AE3_Animation_Point_1
 				{
-					description = "solar panel 2";
+					description = "$STR_AE3_Power_Config_SolarPanel2";
 					selection = "panel_2";
 
 					class AE3_Animation_Main
 					{
-						description = "pitch solar panel 2";
+						description = "$STR_AE3_Power_Config_PitchSolarPanel2";
 						animation = "Panel_2_Pitch";
 						minValue = -45;
 						maxValue = 45;
@@ -413,12 +413,12 @@ class CfgVehicles
 				
 				class AE3_Animation_Point_2
 				{
-					description = "solar panels";
+					description = "$STR_AE3_Power_Config_SolarPanelsDisplayName";
 					selection = "panels_base";
 
 					class AE3_Animation_Main
 					{
-						description = "yaw solar panels";
+						description = "$STR_AE3_Power_Config_YawSolarPanels";
 						animation = "Panels_Yaw";
 						minValue = -180;
 						maxValue = 180;
@@ -430,7 +430,7 @@ class CfgVehicles
 
 		class AE3_Device
 		{
-			displayName = "Solarpanel";
+			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
@@ -446,7 +446,7 @@ class CfgVehicles
 
 		class AE3_InternalDevice
 		{
-			displayName = "Battery";
+			displayName = "$STR_AE3_Power_Config_BatteryDisplayName";
 			defaultPowerLevel = 1;
 
 			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
@@ -483,7 +483,7 @@ class CfgVehicles
 
 		class AE3_Device
 		{
-			displayName = "Solarpanel";
+			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";

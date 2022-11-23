@@ -4,7 +4,7 @@ private _links = _computer getVariable ['AE3_Links', createHashMap];
 
 if(_name in _links) then
 {
-	throw "Link already exists!";
+	throw localize "STR_AE3_ArmaOS_Exception_LinkAlreadyExists";
 };
 
 _links set [_name, [_path, _description, _man]];

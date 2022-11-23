@@ -61,7 +61,7 @@ if(!isDedicated) then
 {
 	// Add check power state action
 	private _parentAction = ["AE3_DeviceAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
-	private _power = ["AE3_PowerAction", "Check Power State", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
+	private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
 
 	[_entity, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
 	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _power] call ace_interact_menu_fnc_addActionToObject;
@@ -70,7 +70,7 @@ if(!isDedicated) then
 	if (!((_turnOnFnc isEqualTo {}) || (_turnOffFnc isEqualTo {}))) then
 	{
 		
-		_turnOn = ["AE3_TurnOnAction", "Turn On", "", 
+		_turnOn = ["AE3_TurnOnAction", localize "STR_AE3_Power_Interaction_TurnOn", "", 
 					{
 						params ['_target', '_player', '_params']; 
 						_target setVariable ['AE3_power_mutex', true, true];
@@ -90,7 +90,7 @@ if(!isDedicated) then
 						},
 					{}] call ace_interact_menu_fnc_createAction;
 
-		_turnOff = ["AE3_TurnOffAction", "Turn Off", "", 
+		_turnOff = ["AE3_TurnOffAction", localize "STR_AE3_Power_Interaction_TurnOff", "", 
 						{
 							params ['_target', '_player', '_params']; 
 							
@@ -110,7 +110,7 @@ if(!isDedicated) then
 		// Standby action
 		if(!(_standbyFnc isEqualTo {})) then
 		{
-			_standby = ["AE3_StandbyAction", "Standby", "", 
+			_standby = ["AE3_StandbyAction", localize "STR_AE3_Power_Interaction_Standby", "", 
 						{
 							params ['_target', '_player', '_params']; 
 							

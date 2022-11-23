@@ -3,14 +3,18 @@
  * Also returns information about the success of the command.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: Folder/Directory <[STRING]>
+ * 1: Computer <OBJECT>
+ * 2: Folder/Directory <[STRING]>
  *
  * Results:
  * None
  */
 
 params ["_computer", "_options"];
+
+private _commandName = "ls";
+
+if (count _options >= 3) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
 private _long = false;
 private _path = [];

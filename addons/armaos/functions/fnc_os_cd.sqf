@@ -12,6 +12,10 @@
 
 params ["_computer", "_options"];
 
+private _commandName = "cd";
+
+if (count _options == 0) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+
 private _options = _options joinString " ";
 
 private _terminal = _computer getVariable "AE3_terminal";

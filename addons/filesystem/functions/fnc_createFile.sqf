@@ -19,7 +19,6 @@
 
 params['_pntr', '_filesystem', '_target', '_content', '_user', '_owner', ['_permissions', [[false, true, true], [false, false, false]]]];
 
-
 private _dir = [_pntr, _filesystem, _target, _user, true, _owner, _permissions] call AE3_filesystem_fnc_getParentDir;
 
 private _current = _dir select 1;
@@ -29,7 +28,7 @@ private _new = _dir select 2;
 _current = _current select 0;
 
 if(_new in _current) then {
-	throw _new + " already exists!";
+	throw format [localize "STR_AE3_Filesystem_Exception_AlreadyExists", _new];
 };
 
 if(isNil '_owner') then
@@ -38,5 +37,3 @@ if(isNil '_owner') then
 };
 
 _current set [_new, [_content, _owner, _permissions]];
-
-_filesystem;

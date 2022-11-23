@@ -10,6 +10,8 @@
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
+// order: _shift, _ctrl, _alt
+
 private _allowedKeys = createHashMapFromArray 
 [
 	[format ["%1-%2-%3-%4", DIK_A, false, false, false], "a"],
@@ -75,7 +77,7 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_5, false, false, false], "5"],
 	[format ["%1-%2-%3-%4", DIK_5, true, false, false], "%"],
 	[format ["%1-%2-%3-%4", DIK_6, false, false, false], "6"],
-	[format ["%1-%2-%3-%4", DIK_6, true, false, false], ""], // &
+	[format ["%1-%2-%3-%4", DIK_6, true, false, false], "&"], // &
 	[format ["%1-%2-%3-%4", DIK_7, false, false, false], "7"],
 	[format ["%1-%2-%3-%4", DIK_7, true, false, false], "/"],
 	[format ["%1-%2-%3-%4", DIK_7, false, false, true], "{"],
@@ -89,6 +91,9 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_0, true, false, false], "="],
 	[format ["%1-%2-%3-%4", DIK_0, false, false, true], "}"],
 	[format ["%1-%2-%3-%4", DIK_SPACE, false, false, false], " "],
+	[format ["%1-%2-%3-%4", DIK_SPACE, true, false, false], " "],
+	[format ["%1-%2-%3-%4", DIK_SPACE, false, true, false], " "],
+	[format ["%1-%2-%3-%4", DIK_SPACE, false, false, true], " "],
 	[format ["%1-%2-%3-%4", DIK_SEMICOLON, false, false, false], "ö"],
 	[format ["%1-%2-%3-%4", DIK_SEMICOLON, true, false, false], "Ö"],
 	[format ["%1-%2-%3-%4", DIK_APOSTROPHE, false, false, false], "ä"],
@@ -113,8 +118,8 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_SLASH, true, false, false], "_"],
 	[format ["%1-%2-%3-%4", DIK_BACKSLASH, false, false, false], "#"],
 	[format ["%1-%2-%3-%4", DIK_BACKSLASH, true, false, false], "'"],
-	[format ["%1-%2-%3-%4", DIK_OEM_102, false, false, false], ""], // <
-	[format ["%1-%2-%3-%4", DIK_OEM_102, true, false, false], ""],  // >
+	[format ["%1-%2-%3-%4", DIK_OEM_102, false, false, false], "<"], // <
+	[format ["%1-%2-%3-%4", DIK_OEM_102, true, false, false], ">"],  // >
 	[format ["%1-%2-%3-%4", DIK_OEM_102, false, false, true], "|"],
 	[format ["%1-%2-%3-%4", DIK_NUMPAD0, false, false, false], "0"],
 	[format ["%1-%2-%3-%4", DIK_NUMPAD1, false, false, false], "1"],

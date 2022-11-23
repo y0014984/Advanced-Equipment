@@ -15,7 +15,7 @@ params ["_computer"];
 if (!dialog) then
 {
 	private _ok = createDialog "AE3_ArmaOS_Main_Dialog";
-	if (!_ok) then {hint "Dialog couldn't be opened!"};
+	if (!_ok) then {hint localize "STR_AE3_ArmaOS_Exception_DialogFailed"};
 };
 
 private _consoleDialog = findDisplay 15984;	
@@ -43,6 +43,7 @@ _pointer = _computer getVariable "AE3_filepointer";
 private _terminal = createHashMapFromArray
 	[
 		["AE3_terminalBuffer", []],
+		["AE3_terminalRenderedBuffer", []],
 		["AE3_terminalBufferVisable", []],
 		["AE3_terminalScrollPosition", 0],
 		["AE3_terminalCursorLine", 0],
@@ -52,8 +53,9 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
-		["AE3_terminalMaxRows", 27],
-		["AE3_terminalMaxColumns", 90]
+		["AE3_terminalSize", 0.75],
+		["AE3_terminalMaxRows", 26],
+		["AE3_terminalMaxColumns", 80]
 	];
 
 // Only nessecary to allow Event Handlers the access to _computer
@@ -74,9 +76,24 @@ private _localGameLanguage = language;
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
+private _terminalKeyboardLayout = "";
+
 //AE3_KeyboardLayout is a CBA setting
-private _terminalKeyboardLayout = AE3_KeyboardLayout;
+if (!isMultiplayer || (isServer && hasInterface)) then
+{
+	// In singeplayer or as host in a multiplayer session
+	_terminalKeyboardLayout = ["AE3_KeyboardLayout", "server"] call CBA_settings_fnc_get;
+}
+else
+{
+	// As client in a multiplayer session
+	_terminalKeyboardLayout = ["AE3_KeyboardLayout", "client"] call CBA_settings_fnc_get;
+};
+
 [_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
+
+private _handleUpdateBatteryStatus = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_updateBatteryStatus;
+_consoleDialog setVariable ["AE3_handleUpdateBatteryStatus", _handleUpdateBatteryStatus];
 
 [_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
@@ -94,8 +111,9 @@ if (_terminalBuffer isEqualTo []) then
 	{
 		[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 	};
-	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
 };
+
+[_computer] call AE3_armaos_fnc_terminal_setPrompt;
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 

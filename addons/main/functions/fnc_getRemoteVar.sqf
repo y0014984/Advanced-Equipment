@@ -22,6 +22,8 @@ _namespace setVariable [_transfer, false];
 // Wait until the variable is set
 waitUntil
 {
-	_namespace getVariable _transfer;
+	// if the var does not exist, waitUntil gets a nil error, because it expects true or false; therefore default value false
+	// this could be the case if there are a lot of requests for a var
+	_namespace getVariable [_transfer, false];
 };
 _namespace setVariable [_transfer, nil];

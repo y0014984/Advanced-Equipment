@@ -11,10 +11,9 @@
 _result = 
 	[
 		"armaOS Terminal v0.1 - © 2022 y0014984|Wasserstoff",
-		"Get a list of available commands by typing 'help'",
-		"Get detailed command information by typing 'man [command]'",
-		"",
-		""
+		localize "STR_AE3_ArmaOS_Header_Line1",
+		localize "STR_AE3_ArmaOS_Header_Line2",
+		" "
 	];
 
 _result

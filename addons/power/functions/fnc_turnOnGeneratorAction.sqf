@@ -33,7 +33,7 @@ if (_fuelLevel > 0) then
 			[_entity, false, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
 		},
 		{},
-		("Turn on")
+		(localize "STR_AE3_Power_Interaction_TurnOn")
 	] call ace_common_fnc_progressBar;
 };
 

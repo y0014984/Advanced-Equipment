@@ -16,7 +16,7 @@ class CfgVehicles
 
 		class AE3_Device
 		{
-			displayName = "Router";
+			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
 			init = "_this call AE3_network_fnc_initRouter;";
 
 			defaultPowerLevel = 0;

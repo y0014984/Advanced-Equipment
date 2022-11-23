@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="AE3">
+    <Package name="Main">
+        <Container name="General">
+            <Key ID="STR_AE3_Main_General_Yes">
+                <Original>yes</Original>
+                <English>yes</English>
+                <German>Ja</German>
+                <Chinesesimp>是</Chinesesimp>
+                <Russian>Да</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_General_No">
+                <Original>no</Original>
+                <English>no</English>
+                <German>Nein</German>
+                <Chinesesimp>否</Chinesesimp>
+                <Russian>Нет</Russian>
+            </Key>
+        </Container>
+        <Container name="Debug Mode">
+            <Key ID="STR_AE3_Main_DebugMode_enabled">
+                <Original>AE3 DEBUG MODE ENABLED</Original>
+                <English>AE3 DEBUG MODE ENABLED</English>
+                <German>AE3 DEBUG MODUS AKTIVIERT</German>
+                <Chinesesimp>AE3调试模式已启用</Chinesesimp>
+                <Russian>АЕ3 РЕЖИМ ОТЛАДКИ ВКЛЮЧЕН</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_disabled">
+                <Original>AE3 DEBUG MODE DISABLED</Original>
+                <English>AE3 DEBUG MODE DISABLED</English>
+                <German>AE3 DEBUG MODUS DEAKTIVIERT</German>
+                <Chinesesimp>AE3调试模式已禁用</Chinesesimp>
+                <Russian>АЕ3 РЕЖИМ ОТЛАДКИ ВЫКЛЮЧЕН</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_ACE3CargoName">
+                <Original>ACE3 Cargo Name: %1</Original>
+                <English>ACE3 Cargo Name: %1</English>
+                <German>ACE3 Cargo Name: %1</German>
+                <Chinesesimp>ACE3 货物名称: %1</Chinesesimp>
+                <Russian>ACE3 Cargo Name: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_DeviceClass">
+                <Original>Device Class: %1</Original>
+                <English>Device Class: %1</English>
+                <German>Geräteklasse: %1</German>
+                <Chinesesimp>设备类: %1</Chinesesimp>
+                <Russian>Device Class: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_PowerState">
+                <Original>Power State: %1</Original>
+                <English>Power State: %1</English>
+                <German>Gerätezustand: %1</German>
+                <Chinesesimp>电力状态: %1</Chinesesimp>
+                <Russian>Состояние питания: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_FuelLevel">
+                <Original>Fuel Level: %1 l (%2%3 of %4 l)</Original>
+                <English>Fuel Level: %1 l (%2%3 of %4 l)</English>
+                <German>Treibstofffüllstand: %1 l (%2%3 von %4 l)</German>
+                <Chinesesimp>Fuel Level: %1 l (%2%3 of %4 l)</Chinesesimp>
+                <Russian>Уровень топлива: %1 l (%2%3 of %4 l)</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_ConnectedPowerDevices">
+                <Original>Connected Power Devices: %1</Original>
+                <English>Connected Power Devices: %1</English>
+                <German>Verbundene Geräte (Strom): %1</German>
+                <Chinesesimp>已连接的电力设备: %1</Chinesesimp>
+                <Russian>Подключенные устройства (Питание): %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_DebugMode_BatteryLevel">
+                <Original>Battery Level: %1 Wh (%2%3 of %4 Wh)</Original>
+                <English>Battery Level: %1 Wh (%2%3 of %4 Wh)</English>
+                <German>Batterieladestand: %1 Wh (%2%3 von %4 Wh)</German>
+                <Chinesesimp>电量: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
+                <Russian>Уровень заряда батареи: %1 Wh (%2%3 of %4 Wh)</Russian>
+            </Key>
+        </Container>
+        <Container name="Eden Attributes">
+            <Key ID="STR_AE3_Main_EdenAttributes_AE3Attributes">
+                <Original>AE3 Attributes</Original>
+                <English>AE3 Attributes</English>
+                <German>AE3 Attribute</German>
+                <Chinesesimp>AE3属性</Chinesesimp>
+                <Russian>Атрибуты AE3</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelDisplayName">
+                <Original>Power Level</Original>
+                <English>Power Level</English>
+                <German>Füllstand Strom</German>
+                <Chinesesimp>电力等级</Chinesesimp>
+                <Russian>Уровень мощности</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
+                <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
+                <English>1 = full | 0.5 = 50% | 0 = empty</English>
+                <German>1 = voll | 0.5 = 50% | 0 = leer</German>
+                <Chinesesimp>1 = 满 | 0.5 = 50% | 0 = 空</Chinesesimp>
+                <Russian>1 = Полный | 0.5 = 50% | 0 = Пустой</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
+                <Original>Fuel Level</Original>
+                <English>Fuel Level</English>
+                <German>Füllstand Treibstoff</German>
+                <Chinesesimp>燃料</Chinesesimp>
+                <Russian>Уровень топлива</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelTooltip">
+                <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
+                <English>1 = full | 0.5 = 50% | 0 = empty</English>
+                <German>1 = voll | 0.5 = 50% | 0 = leer</German>
+                <Chinesesimp>1 = 满 | 0.5 = 50% | 0 = 空</Chinesesimp>
+                <Russian>1 = Полный | 0.5 = 50% | 0 = Пустой</Russian>
+            </Key>
+        </Container>
+        <Container name="CBA Settings">
+            <Key ID="STR_AE3_Main_CbaSettings_MainCategoryName">
+                <Original>AE3 main</Original>
+                <English>AE3 main</English>
+                <German>AE3 Allgemein</German>
+                <Chinesesimp>AE3 主体</Chinesesimp>
+                <Russian>AE3 Общие</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DebugModeName">
+                <Original>Debug Mode</Original>
+                <English>Debug Mode</English>
+                <German>Debug Modus</German>
+                <Chinesesimp>调试模式</Chinesesimp>
+                <Russian>Режим отладки</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DebugModeTooltip">
+                <Original>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</Original>
+                <English>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</English>
+                <German>Durch das Aktivieren des AE3 Debug Modus erhältst du zusätzliche Informationen über die interne Struktur von AE3.</German>
+                <Chinesesimp>你可以通过AE3调试模式获得更多有关AE3内部结构的信息.</Chinesesimp>
+                <Russian>Включив режим отладки AE3, вы получите дополнительную информацию о внутренней структуре AE3.</Russian>
+            </Key>
+        </Container>
+    </Package>
+</Project>

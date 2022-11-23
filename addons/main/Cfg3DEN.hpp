@@ -9,7 +9,7 @@ class Cfg3DEN
 			// Category class, can be anything
 			class AE3_AttributeCategory
 			{
-				displayName = "AE3 Attributes"; // Category name visible in Edit Attributes window
+				displayName = "$STR_AE3_Main_EdenAttributes_AE3Attributes"; // Category name visible in Edit Attributes window
 				collapsed = 1; // When 1, the category is collapsed by default
 				class Attributes
 				{
@@ -17,8 +17,8 @@ class Cfg3DEN
 					class AE3_ComputerPowerLevelPercent
 					{
 						//--- Mandatory properties
-						displayName = "Power Level"; // Name assigned to UI control class Title
-						tooltip = "1 = full | 0.5 = 50% | 0 = empty"; // Tooltip assigned to UI control class Title
+						displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+						tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
 						property = "AE3_ComputerPowerLevelPercent"; // Unique config property name saved in SQM
 						control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 
@@ -48,8 +48,8 @@ class Cfg3DEN
 					class AE3_GeneratorFuelLevelPercent
 					{
 						//--- Mandatory properties
-						displayName = "Fuel Level"; // Name assigned to UI control class Title
-						tooltip = "1 = full | 0.5 = 50% | 0 = empty"; // Tooltip assigned to UI control class Title
+						displayName = "$STR_AE3_Main_EdenAttributes_FuelLevelDisplayName"; // Name assigned to UI control class Title
+						tooltip = "$STR_AE3_Main_EdenAttributes_FuelLevelTooltip"; // Tooltip assigned to UI control class Title
 						property = "AE3_GeneratorFuelLevelPercent"; // Unique config property name saved in SQM
 						control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 
