@@ -6,10 +6,6 @@ class CfgVehicles
 
 	class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
 	{
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 2;  // Cargo space the object takes
-
 		class AE3_Device
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
@@ -48,6 +44,11 @@ class CfgVehicles
 					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_carryDirection = 180;  // Model direction while dragging (same as setDir after attachTo)
 				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 2;  // Cargo space the object takes
+				};
 			};
 		};
 	};
@@ -58,10 +59,6 @@ class CfgVehicles
 
 	class Land_PortableLight_double_F_AE3: Land_PortableLight_double_F
 	{
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 2;  // Cargo space the object takes
-
 		class AE3_Device
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
@@ -100,6 +97,11 @@ class CfgVehicles
 					ae3_dragging_canCarry = 0;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_carryDirection = 180;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 2;  // Cargo space the object takes
 				};
 			};
 		};
@@ -198,10 +200,6 @@ class CfgVehicles
 		memoryPointsRightWaterEffect = "";
 		memoryPointCargoLight = "";
 
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 1;  // Cargo space the object takes
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -250,6 +248,11 @@ class CfgVehicles
 					ae3_dragging_canCarry = 1;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 1;  // Cargo space the object takes
 				};
 			};
 		};
@@ -374,10 +377,6 @@ class CfgVehicles
 		memoryPointsRightWaterEffect = "";
 		memoryPointCargoLight = "";
 
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 2;  // Cargo space the object takes
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -459,6 +458,11 @@ class CfgVehicles
 					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 2;  // Cargo space the object takes
 				};
 			};
 		};
@@ -582,10 +586,6 @@ class CfgVehicles
 		memoryPointsLeftWaterEffect = "";
 		memoryPointsRightWaterEffect = "";
 		memoryPointCargoLight = "";
-
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 2;  // Cargo space the object takes
 
 		class AE3_Equipment
 		{
@@ -735,6 +735,11 @@ class CfgVehicles
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
 				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 2;  // Cargo space the object takes
+				};
 			};
 		};
 
@@ -851,10 +856,6 @@ class CfgVehicles
 		memoryPointsRightWaterEffect = "";
 		memoryPointCargoLight = "";
 
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 4;  // Cargo space the object takes
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_DeskDisplayName";
@@ -964,6 +965,11 @@ class CfgVehicles
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 90;  // Model direction while dragging (same as setDir after attachTo)
 				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 4;  // Cargo space the object takes
+				};
 			};
 		};
 	};
@@ -1071,12 +1077,13 @@ class CfgVehicles
 					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_carryDirection = 180;  // Model direction while dragging (same as setDir after attachTo)
 				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 1;  // Cargo space the object takes
+				};
 			};
 		};
-
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 1;  // Cargo space the object takes
 	};
 
 	/* ================================================================================ */

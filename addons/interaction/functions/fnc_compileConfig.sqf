@@ -150,4 +150,17 @@ if(!isNull _ace3Interactions) then
 			]
 		];
 	};
+
+	private _aceCargo = (_ace3Interactions >> "AE3_aceCargo");
+	if (!isNull _aceCargo) then
+	{
+		_config set 
+		[
+			'aceCargo',
+			[
+				getNumber (_aceCargo >> "ae3_cargo_canLoad"),
+				getNumber (_aceCargo >> "ae3_cargo_size")
+			]
+		];
+	};
 };

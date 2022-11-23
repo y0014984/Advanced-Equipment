@@ -41,10 +41,6 @@ class CfgVehicles
 	{
 		scope = 1; //Hide class in 3DEN asset browser
 
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 4;  // Cargo space the object takes
-
 		// Refuel
 		ace_refuel_canReceive = 1; // For vehicles which can't be refueled
 		ace_refuel_fuelCapacity = 5; // Fuel tank volume
@@ -80,6 +76,11 @@ class CfgVehicles
 					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 4;  // Cargo space the object takes
 				};
 			};
 		};
@@ -239,10 +240,6 @@ class CfgVehicles
 		memoryPointsRightWaterEffect = "";
 		memoryPointCargoLight = "";
 
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 1;  // Cargo space the object takes
-
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_BatteryDisplayName";
@@ -275,6 +272,11 @@ class CfgVehicles
 					ae3_dragging_canCarry = 1;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 1;  // Cargo space the object takes
 				};
 			};
 		};
@@ -367,10 +369,6 @@ class CfgVehicles
 		memoryPointsRightWaterEffect = "";
 		memoryPointCargoLight = "";
 
-		// Cargo
-		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-		ace_cargo_size = 2;  // Cargo space the object takes
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
@@ -385,6 +383,11 @@ class CfgVehicles
 					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 2;  // Cargo space the object takes
 				};
 			};
 
@@ -482,10 +485,6 @@ class CfgVehicles
 
 	class Land_PortableSolarPanel_01_sand_F_AE3 : Land_PortableSolarPanel_01_sand_F
 	{
-		// Cargo
-        ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-        ace_cargo_size = 1;  // Cargo space the object takes
-
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
@@ -512,6 +511,11 @@ class CfgVehicles
 					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
 					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
 					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 1;  // Cargo space the object takes
 				};
 			};
 		};

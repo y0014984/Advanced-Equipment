@@ -19,8 +19,6 @@ if(!isNil {_generator getVariable "AE3_power_internal"}) then
 
 _target setVariable ["AE3_power_powerCableDevice", _generator, true];
 
-[_target, -1] call ace_cargo_fnc_setSize;
-
 private _connectedDevices = _generator getVariable "AE3_power_connectedDevices";
 
 if (isNil "_connectedDevices") then 

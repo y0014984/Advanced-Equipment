@@ -1,17 +1,18 @@
 /**
- * Inits ACE3 Interactions likes dragging and carrying.
+ * Inits ACE3 Interactions likes dragging, carrying and cargo.
  * Workaround is needed for some classes, that can't use ACE3 config entries.
  *
  * Arguments:
  * 0: Equipment <OBJECT>
  * 1: Dragging Settings <ARRAY>
  * 2: Carrying Settings <ARRAY>
+ * 3: Cargo Settings <ARRAY>
  *
  * Returns:
  * none
  */
 
-params["_equipment", "_aceDragging", "_aceCarrying"];
+params["_equipment", "_aceDragging", "_aceCarrying", "_aceCargo"];
 
 if(!isDedicated) then
 {
@@ -47,6 +48,20 @@ if(!isDedicated) then
 		_settingsAce3 set ["ae3_dragging_carryIsActive", true];
 		_settingsAce3 set ["ae3_dragging_carryPosition", _ae3_dragging_carryPosition];
 		_settingsAce3 set ["ae3_dragging_carryDirection", _ae3_dragging_carryDirection];
+	};
+
+	if (!(_aceCargo isEqualTo [])) then
+	{
+		private _ae3_cargo_canLoad = _aceCargo select 0;
+		private _ae3_cargo_size = _aceCargo select 1;
+
+		if (_ae3_cargo_canLoad == 1) then { _ae3_cargo_canLoad = true; } else { _ae3_cargo_canLoad = false; };
+	
+		[_equipment, _ae3_cargo_size] call ace_cargo_fnc_setSize;
+
+		_settingsAce3 set ["ae3_cargo_canLoad", _ae3_cargo_canLoad];
+		_settingsAce3 set ["ae3_cargo_isActive", true];
+		_settingsAce3 set ["ae3_cargo_size", _ae3_cargo_size];
 	};
 
 	_equipment setVariable ["AE3_SettingsACE3", _settingsAce3, true];

@@ -53,5 +53,11 @@ if('ace3Interactions' in _config) then
 		_aceCarrying = (_config get 'aceCarrying');
 	};
 
-	[_equipment] + [_aceDragging] + [_aceCarrying] call AE3_interaction_fnc_initAce3Interactions;
+	private _aceCargo = [];
+	if('aceCargo' in _config) then
+	{
+		_aceCargo = (_config get 'aceCargo');
+	};
+
+	[_equipment] + [_aceDragging] + [_aceCarrying] + [_aceCargo] call AE3_interaction_fnc_initAce3Interactions;
 };

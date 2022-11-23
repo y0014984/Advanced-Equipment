@@ -1,5 +1,17 @@
-
-// Example: [_computer, "powerConnected", true] call AE3_interaction_fnc_manageAce3Interactions
+/**
+ * Receives a status update and sets ACE3 dragging, carrying and cargo accordingly.
+ *
+ * Arguments:
+ * 0: Equipment <OBJECT>
+ * 1: Condition <String>
+ * 2: Status <BOOLEAN>
+ *
+ * Returns:
+ * none
+ *
+ * Example:
+ * [_computer, "powerConnected", true] call AE3_interaction_fnc_manageAce3Interactions
+ */
 
 params ["_target", "_condition", "_status"];
 
@@ -28,6 +40,12 @@ if (!isNil "_settingsAce3") then
             [_target, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
             _settingsAce3 set ["ae3_dragging_carryIsActive", false];
         };
+        if (_settingsAce3 get "ae3_cargo_canLoad") then
+        {
+            [_target, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
+            [_target, -1] remoteExecCall ["ace_cargo_fnc_setSize", 0, true];
+            _settingsAce3 set ["ae3_cargo_isActive", false];
+        };
     }
     else
     {
@@ -46,6 +64,13 @@ if (!isNil "_settingsAce3") then
             private _carryDirection = _settingsAce3 get "ae3_dragging_carryDirection";
             [_target, _canCarry, _carryPosition, _carryDirection] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
             _settingsAce3 set ["ae3_dragging_carryIsActive", true];
+        };
+        if (_settingsAce3 get "ae3_cargo_canLoad") then
+        {
+            private _canLoad = _settingsAce3 get "ae3_cargo_canLoad";
+            private _cargoSize = _settingsAce3 get "ae3_cargo_size";
+            [_target, _cargoSize] remoteExecCall ["ace_cargo_fnc_setSize", 0, true];
+            _settingsAce3 set ["ae3_cargo_isActive", true];
         };
     };
 

@@ -25,8 +25,6 @@ if (!isNil "_generator") then
 
 _target setVariable ["AE3_power_powerCableDevice", nil, true];
 
-[_target, 1] call ace_cargo_fnc_setSize;
-
 if(!isNil {_target getVariable 'AE3_power_powerConsumption'}) then
 {
 	[_target] call (_target getVariable 'AE3_power_fnc_turnOffWrapper')
