@@ -41,9 +41,9 @@ Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@AE3`. You can also get this mod on
 
 * This mod is still under development and isn't recommended for productive use right now.
 
-## Contact
+## Contact and Contribution
 
-If you want to contribute or have any questions, simply join my [Discord](https://discord.com/invite/JMmxXEx)
+If you want to contribute or have any questions, simply join my [Discord](https://discord.com/invite/JMmxXEx) We are always searching for contributors that help us on translations.
 
 ## AE3 Developer Report
 
