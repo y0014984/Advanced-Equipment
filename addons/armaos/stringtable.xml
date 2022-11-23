@@ -461,14 +461,14 @@
                 <English>Print/output a line of text to stdout.</English>
                 <German>Gibt eine Zeile Text nach stdout aus.</German>
                 <Chinesesimp>将一行文本打印/输出到标准输出流.</Chinesesimp>
-                <Russian>Печать/вывод строки текста на stdout.</Russan>
+                <Russian>Печать/вывод строки текста на stdout.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandEchoMan">
                 <Original>Usage echo: 'echo [text]' prints the given text to stdout.</Original>
                 <English>Usage echo: 'echo [text]' prints the given text to stdout.</English>
                 <German>Verwendung echo: 'echo [Text]' gibt den angegebenen Text nach stdout aus.</German>
                 <Chinesesimp>echo说明: 'echo [text]' 打印指定的文本到标准输出流.</Chinesesimp>
-                <Russian>Использование echo: 'echo [text]' выводит данный текст на stdout</Russan>
+                <Russian>Использование echo: 'echo [text]' выводит данный текст на stdout</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandCryptoDescr">
                 <Original>Encrypts/decrypts text with a given algorythm and key.</Original>
@@ -616,56 +616,56 @@
                 <English>AE3 armaOS</English>
                 <German>AE3 armaOS</German>
                 <Chinesesimp>AE3 armaOS</Chinesesimp>
-                <Russian>AE3 armaOS</Russan>
+                <Russian>AE3 armaOS</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutName">
                 <Original>Keyboard Layout</Original>
                 <English>Keyboard Layout</English>
                 <German>Tastaturbelegung</German>
                 <Chinesesimp>键盘布局</Chinesesimp>
-                <Russian>Раскладка клавиатуры</Russan>
+                <Russian>Раскладка клавиатуры</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutTooltip">
                 <Original>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</Original>
                 <English>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</English>
                 <German>Tastaturbelegung für armaOS. Du kannst dies auch im armaOS Terminal umstellen.</German>
                 <Chinesesimp>armaOS键盘布局.您也可以在armaOS终端中更改此设置.</Chinesesimp>
-                <Russian>Раскладка клавиатуры для ArmaOS (Можно изменить в терминале ArmaOS)</Russan>
+                <Russian>Раскладка клавиатуры для ArmaOS (Можно изменить в терминале ArmaOS)</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedName">
                 <Original>Terminal Scroll Speed</Original>
                 <English>Terminal Scroll Speed</English>
                 <German>Terminal Scroll-Geschwindigkeit</German>
                 <Chinesesimp>终端滚动速度</Chinesesimp>
-                <Russian>Скорость прокрутки терминала</Russan>
+                <Russian>Скорость прокрутки терминала</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedTooltip">
                 <Original>Determines the speed in lines for the mouse wheel scroll feature for the terminal.</Original>
                 <English>Determines the speed in lines for the mouse wheel scroll feature for the terminal.</English>
                 <German>Legt die Geschwindigkeit in Zeilen für die Mausrad-Scroll-Funktion des Terminals fest.</German>
                 <Chinesesimp>确定终端鼠标滚轮滚动的速度(以行为单位).</Chinesesimp>
-                <Russian>Определяет скорость в строках для функции прокрутки колеса мыши в терминале</Russan>
+                <Russian>Определяет скорость в строках для функции прокрутки колеса мыши в терминале</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_1line">
                 <Original>1 line</Original>
                 <English>1 line</English>
                 <German>1 Zeile</German>
                 <Chinesesimp>1行</Chinesesimp>
-                <Russian>1 line</Russan>
+                <Russian>1 line</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_2lines">
                 <Original>2 lines</Original>
                 <English>2 lines</English>
                 <German>2 Zeilen</German>
                 <Chinesesimp>2行</Chinesesimp>
-                <Russian>2 lines</Russan>
+                <Russian>2 lines</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_3lines">
                 <Original>3 lines</Original>
                 <English>3 lines</English>
                 <German>3 Zeilen</German>
                 <Chinesesimp>3行</Chinesesimp>
-                <Russian>3 lines</Russan>
+                <Russian>3 lines</Russian>
             </Key>
         </Container>
     </Package>

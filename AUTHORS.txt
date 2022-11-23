@@ -10,3 +10,5 @@ y0014984
 Wasserstoff
 
 # CONTRIBUTORS
+Bilibagga (Russian translation)
+PowerBOXx (Simplified Chinese Translation)
