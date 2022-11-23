@@ -31,7 +31,7 @@ if (_debugMode) then
         // enable debug overlay
         waitUntil { !((findDisplay 46) isEqualto displayNull) };
         private _objects = missionNamespace getVariable "AE3_DebugOverlay";
-        [_objects] call AE3_main_fnc_initDebugOverlay;
+        if(!isNil "_objects") then { [_objects] call AE3_main_fnc_initDebugOverlay; };
     };
 }
 else
@@ -45,10 +45,11 @@ else
         // enable debug overlay
         waitUntil { !((findDisplay 46) isEqualto displayNull) };
         
-        systemChat localize "STR_AE3_Main_DebugMode_disabled";
+        if (!(time < 5)) then { systemChat localize "STR_AE3_Main_DebugMode_disabled"; };
 
         //disable debug overlay
         private _objects = missionNamespace getVariable "AE3_DebugOverlay";
-        [_objects] call AE3_main_fnc_killDebugOverlay;
+
+        if(!isNil "_objects") then { [_objects] call AE3_main_fnc_killDebugOverlay; };
     };
 };

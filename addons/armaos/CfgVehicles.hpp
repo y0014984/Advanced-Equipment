@@ -162,7 +162,7 @@ class CfgVehicles
 		{
 			class ACE_MainActions
 			{
-				displayName = "Interaktionen";
+				displayName = "$STR_ACE_Interaction_MainAction";
 				condition = "true";
 				distance = 2;
 				class AE3_Laptop_Group
