@@ -50,7 +50,7 @@ _message = [_message, _allowedAlphabet + " "] call BIS_fnc_filterString;
 
 if (_mode isEqualTo "bruteforce") then
 {
-    if (!(_algorythm in _allowedAlgorythms)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+    if (!(_algorythm in _allowedAlgorythms)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingAlgorythm", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
     if (_algorythm == "caesar") then
     {
