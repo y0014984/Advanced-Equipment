@@ -111,9 +111,9 @@ if (_terminalBuffer isEqualTo []) then
 	{
 		[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 	};
-};
 
-[_computer] call AE3_armaos_fnc_terminal_setPrompt;
+	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
+};
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
