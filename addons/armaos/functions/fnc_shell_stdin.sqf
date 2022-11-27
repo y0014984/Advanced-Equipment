@@ -20,7 +20,7 @@ waitUntil
 	(_terminal get "AE3_terminalApplication") isEqualTo "";
 };
 
-private _result = _terminal get "AE3_terminalInputBuffer";
+private _result = [_computer] call AE3_armaos_fnc_terminal_getInput;
 _terminal deleteAt "AE3_terminalInputBuffer";
 
 _result;
