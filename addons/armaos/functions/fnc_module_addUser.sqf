@@ -26,7 +26,7 @@ if(!isServer) exitWith {};
 			try
 			{
 				[[], _filesystem, "/home/" + _user, 'root', _user] call AE3_filesystem_fnc_createDir;
-			} catch {};
+			} catch { diag_log format ["AE3 exception: %1", _exception]; };
 		};
 
 		_x setVariable ["AE3_filesystem", _filesystem];

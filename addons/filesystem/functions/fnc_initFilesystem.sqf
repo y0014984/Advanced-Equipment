@@ -35,26 +35,34 @@ private _filesystemObjects = ("inheritsFrom _x == (configFile >> 'AE3_Filesystem
 
 	if (_type isEqualTo "File") then
 	{
-		[
-			_ptr, 
-			_filesystem, 
-			_path, 
-			(getText (_x >> "content")), 
-			"root", 
-			_owner,
-			_permissions 
-		] call AE3_filesystem_fnc_createFile;
+		// throws exception if file already exists
+		try 
+		{
+			[
+				_ptr, 
+				_filesystem, 
+				_path, 
+				(getText (_x >> "content")), 
+				"root", 
+				_owner,
+				_permissions 
+			] call AE3_filesystem_fnc_createFile;
+		} catch { diag_log format ["AE3 exception: %1", _exception]; };
 	}
 	else
 	{
-		[
-			_ptr,
-			_filesystem,
-			_path,
-			"root",
-			_owner, 
-			_permissions
-		] call AE3_filesystem_fnc_createDir;
+		// throws exception if directory already exists
+		try 
+		{
+			[
+				_ptr,
+				_filesystem,
+				_path,
+				"root",
+				_owner, 
+				_permissions
+			] call AE3_filesystem_fnc_createDir;
+		} catch { diag_log format ["AE3 exception: %1", _exception]; };
 	};
 } forEach _filesystemObjects;
 
