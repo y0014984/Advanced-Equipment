@@ -35,15 +35,19 @@ See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a>
 ## Installation
 
 Download the latest versions of Advanced Equipment, CBA_A3 and ACE. Unpack these mods in your Arma 3 and Arma 3 server installation folders.
-Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@AE3`.
+Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@AE3`. You can also get this mod on <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2888888564">Steam Workshop</a>.
 
 ## Known Issues
 
 * This mod is still under development and isn't recommended for productive use right now.
 
-## Contact
+## Contact and Contribution
 
-If you want to contribute or have any questions, simply join my [Discord](https://discord.com/invite/JMmxXEx)
+If you want to contribute or have any questions, simply join my [Discord](https://discord.com/invite/JMmxXEx) We are always searching for contributors that help us on translations.
+
+## AE3 Developer Report
+
+See our <a href="https://www.youtube.com/watch?v=pfM_eAQinmY&list=PLbrLObIILp9NzNUi-QtDtAwV5UEnYMfO_">AE3-DEVREP</a> Developer Video Blog for letest changes, bugfixes and new features.
 
 ## License
 
