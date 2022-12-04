@@ -11,10 +11,11 @@
 
 params ["_computer", ["_silent", false]];
 
-[_computer] spawn {
+[_computer] spawn
+{
 	params["_computer"];
 
-	private _powerState = _computer getVariable 'AE3_power_powerState';
+	private _powerState = _computer getVariable "AE3_power_powerState";
 
 	private _turnOffTime = 0;
 	private _elapsedTime = 0;
