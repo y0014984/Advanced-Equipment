@@ -24,4 +24,5 @@ if (isNull _parent) then
 else
 {
     [_device, "networkConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
+    [_parent, "networkConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
 };
