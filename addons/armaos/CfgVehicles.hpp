@@ -197,7 +197,9 @@ class CfgVehicles
 		};
 	};
 
-	// MODULE USERLIST
+	/* ================================================================================ */
+
+	// MODULE ADDUSER
 	class Logic;
 	class Module_F: Logic
 	{
