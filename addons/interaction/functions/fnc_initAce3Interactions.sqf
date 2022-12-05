@@ -14,7 +14,7 @@
 
 params["_equipment", "_aceDragging", "_aceCarrying", "_aceCargo", "_interactionConditions"];
 
-if(!isDedicated) then
+if(isServer || !isMultiplayer) then
 {
 	private _settingsAce3 = createHashMap;
 
