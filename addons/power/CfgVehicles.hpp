@@ -39,7 +39,7 @@ class CfgVehicles
 
 	class Land_PortableGenerator_01_sand_F_AE3: B_Radar_System_01_F
 	{
-		scope = 1; //Hide class in 3DEN asset browser
+		// scope = 1; //Hide class in 3DEN asset browser
 
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
@@ -62,7 +62,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 1.5; // 1.5 litres per hour consumption
 				fuelCapacity = 5; // 5 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank
+				fuelLevel = 1; // 100 % full tank; Doen't work here
 
 				power = 5/3600; // provides max. 5.000 Watts
 			};
