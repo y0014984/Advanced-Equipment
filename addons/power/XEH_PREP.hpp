@@ -47,3 +47,5 @@ PREP(showBatteryLevel);
 PREP(getSolarPosition);
 PREP(solarCalculation);
 PREP(multSolarPanelOrientation);
+
+PREP(processEdenAttributes);

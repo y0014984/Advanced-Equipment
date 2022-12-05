@@ -18,7 +18,7 @@ class Extended_PostInit_EventHandlers
 	class ADDON
 	{
         // Like the normal preinit above, this one runs on all machines
-        init = "";
+        init = call compile preprocessFileLineNumbers "\z\ae3\addons\power\XEH_postInit.sqf";
 		
         // This code will be executed once and only on the server
         serverInit = "";
