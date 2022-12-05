@@ -14,12 +14,12 @@ class Cfg3DEN
 				class Attributes
 				{
 					// Attribute class, can be anything
-					class AE3_ComputerPowerLevelPercent
+					class AE3_EdenAttribute_PowerLevel
 					{
 						//--- Mandatory properties
 						displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
 						tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
-						property = "AE3_ComputerPowerLevelPercent"; // Unique config property name saved in SQM
+						property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
 						control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 
 						// Expression called when applying the attribute in Eden and at the scenario start
@@ -45,12 +45,12 @@ class Cfg3DEN
 						typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 					};
 					// Attribute class, can be anything
-					class AE3_GeneratorFuelLevelPercent
+					class AE3_EdenAttribute_FuelLevel
 					{
 						//--- Mandatory properties
 						displayName = "$STR_AE3_Main_EdenAttributes_FuelLevelDisplayName"; // Name assigned to UI control class Title
 						tooltip = "$STR_AE3_Main_EdenAttributes_FuelLevelTooltip"; // Tooltip assigned to UI control class Title
-						property = "AE3_GeneratorFuelLevelPercent"; // Unique config property name saved in SQM
+						property = "AE3_EdenAttribute_FuelLevel"; // Unique config property name saved in SQM
 						control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 
 						// Expression called when applying the attribute in Eden and at the scenario start
