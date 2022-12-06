@@ -65,5 +65,8 @@ if('ace3Interactions' in _config) then
 		_interactionConditions = (_config get 'interactionConditions');
 	};
 
-	[_equipment] + [_aceDragging] + [_aceCarrying] + [_aceCargo] + [_interactionConditions] call AE3_interaction_fnc_initAce3Interactions;
+	if (isServer || !isMultiplayer) then
+	{
+		[_equipment] + [_aceDragging] + [_aceCarrying] + [_aceCargo] + [_interactionConditions] call AE3_interaction_fnc_initAce3Interactions;
+	};
 };

@@ -15,6 +15,10 @@
 
 params ["_target", "_condition", "_status"];
 
+// ace_dragging_fnc_setCarryable and ace_dragging_fnc_setDraggable need to be executed on all machines with JIP
+// ace_cargo_fnc_setSize can be executed locally because it handles JIP and remoteExecCall on it's own
+
+//this function only runs once per triggered interaction by player on players machine
 private _settingsAce3 = _target getVariable "AE3_SettingsACE3";
 if (!isNil "_settingsAce3") then
 {
@@ -40,7 +44,7 @@ if (!isNil "_settingsAce3") then
         };
         if (_settingsAce3 get "ae3_cargo_canLoad") then
         {
-            [_target, -1] remoteExecCall ["ace_cargo_fnc_setSize", 0, true];
+            [_target, -1] call ace_cargo_fnc_setSize;
         };
     }
     else
@@ -71,11 +75,16 @@ if (!isNil "_settingsAce3") then
         {
             private _canLoad = _settingsAce3 get "ae3_cargo_canLoad";
             private _cargoSize = _settingsAce3 get "ae3_cargo_size";
-            [_target, _cargoSize] remoteExecCall ["ace_cargo_fnc_setSize", 0, true];
+
+            // The following  line is a bug fix that is nesessary until the correspondig ACE3 issue is fixed, see here:
+            // https://github.com/acemod/ACE3/issues/9109
+            _target setVariable ["ace_cargo_setSize_jipID", nil, true];
+            
+            [_target, _cargoSize] call ace_cargo_fnc_setSize;
         }
         else
         {
-            [_target, -1] remoteExecCall ["ace_cargo_fnc_setSize", 0, true];
+            [_target, -1] call ace_cargo_fnc_setSize;
         };
     };
 

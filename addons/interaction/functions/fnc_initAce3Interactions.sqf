@@ -14,6 +14,7 @@
 
 params["_equipment", "_aceDragging", "_aceCarrying", "_aceCargo", "_interactionConditions"];
 
+// this function only runs once on mission start on server or on client if it's no multiplayer
 if(isServer || !isMultiplayer) then
 {
 	private _settingsAce3 = createHashMap;
