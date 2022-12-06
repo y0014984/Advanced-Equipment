@@ -10,6 +10,7 @@ PREP(shell_executeFile);
 PREP(shell_stdout);
 PREP(shell_stdin);
 PREP(shell_writeToLogfile);
+PREP(shell_getOpts);
 
 
 /* Computer Functions */
@@ -48,6 +49,7 @@ PREP(os_whoami);
 PREP(os_crypto);
 PREP(os_crack);
 PREP(os_find);
+PREP(os_test);
 
 /* Encryption Functions */
 PREP(encryption_caesar);

@@ -175,4 +175,11 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
 		code = "_this call AE3_armaos_fnc_os_find";
 	};
+	class test : OsFunction
+	{
+		path = "/bin/test";
+		description = "test";
+		man = "test";
+		code = "_this call AE3_armaos_fnc_os_test";
+	};
 };
