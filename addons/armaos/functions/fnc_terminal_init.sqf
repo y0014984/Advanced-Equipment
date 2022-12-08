@@ -48,7 +48,7 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalScrollPosition", 0],
 		["AE3_terminalCursorLine", 0],
 		["AE3_terminalCursorPosition", 0],
-		["AE3_terminalCommandHistory", []],
+		["AE3_terminalCommandHistory", createHashMap],
 		["AE3_terminalCommandHistoryIndex", -1],
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],

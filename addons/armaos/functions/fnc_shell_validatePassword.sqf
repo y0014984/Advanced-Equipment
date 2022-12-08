@@ -38,6 +38,9 @@ if (_userPasswordMatch) then
 
 	_terminal set ["AE3_terminalApplication", "SHELL"];
 
+	private _terminalCommandHistory = _terminal get "AE3_terminalCommandHistory";
+	_terminalCommandHistory getOrDefault [_username, [], true]; // set the user related history, if not existing yet
+
 	if (AE3_DebugMode) then
 	{
 		_computer setVariable ["AE3_filepointer", []];
