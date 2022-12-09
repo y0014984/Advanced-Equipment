@@ -47,15 +47,33 @@ if(_isFunction) then
 
 	{
 		_filesystem = _x getVariable "AE3_filesystem";
-		[
-			[],
-			_filesystem,
-			_path,
-			_content,
-			"root",
-			_owner,
-			_permissions
-		] call AE3_filesystem_fnc_createFile;
+
+		// throws exception if file already exists
+		try 
+		{
+			[
+				[],
+				_filesystem,
+				_path,
+				_content,
+				"root",
+				_owner,
+				_permissions
+			] call AE3_filesystem_fnc_createFile;
+		} 
+		catch
+		{
+			private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
+			if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
+			{
+				diag_log format ["AE3 exception: %1", _exception];
+			}
+			else
+			{
+				throw _exception;
+			};
+		};
+
 		_x setVariable ["AE3_filesystem", _filesystem];
 	} forEach _syncedObjects;
 };

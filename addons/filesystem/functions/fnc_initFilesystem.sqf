@@ -35,26 +35,58 @@ private _filesystemObjects = ("inheritsFrom _x == (configFile >> 'AE3_Filesystem
 
 	if (_type isEqualTo "File") then
 	{
-		[
-			_ptr, 
-			_filesystem, 
-			_path, 
-			(getText (_x >> "content")), 
-			"root", 
-			_owner,
-			_permissions 
-		] call AE3_filesystem_fnc_createFile;
+		// throws exception if file already exists
+		try 
+		{
+			[
+				_ptr, 
+				_filesystem, 
+				_path, 
+				(getText (_x >> "content")), 
+				"root", 
+				_owner,
+				_permissions 
+			] call AE3_filesystem_fnc_createFile;
+		} 
+		catch
+		{
+			private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
+			if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
+			{
+				diag_log format ["AE3 exception: %1", _exception];
+			}
+			else
+			{
+				throw _exception;
+			};
+		};
 	}
 	else
 	{
-		[
-			_ptr,
-			_filesystem,
-			_path,
-			"root",
-			_owner, 
-			_permissions
-		] call AE3_filesystem_fnc_createDir;
+		// throws exception if directory already exists
+		try 
+		{
+			[
+				_ptr,
+				_filesystem,
+				_path,
+				"root",
+				_owner, 
+				_permissions
+			] call AE3_filesystem_fnc_createDir;
+		} 
+		catch
+		{
+			private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
+			if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
+			{
+				diag_log format ["AE3 exception: %1", _exception];
+			}
+			else
+			{
+				throw _exception;
+			};
+		};
 	};
 } forEach _filesystemObjects;
 
