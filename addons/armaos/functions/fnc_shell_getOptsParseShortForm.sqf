@@ -26,26 +26,29 @@ if (((count _shortOptWithoutArg) == 1) && !(_arg isEqualTo "")) then
 else
 {
     // else process all chars as single opts without arg, like in ls -alh --> 3 bool options
-    
-    private _shortOptsArray = _shortOptWithoutArg splitString "";
+    // but only if there is no set arg; if arg is set, user missed the second '-', -width=5 instead of --width=5
+    if (_arg isEqualTo "") then
     {
-        private _searchIndex = _searchArray find _x;
-        if (_searchIndex != -1) then
+        private _shortOptsArray = _shortOptWithoutArg splitString "";
         {
-            private _shortOptSettings = _commandOpts select _searchIndex;
+            private _searchIndex = _searchArray find _x;
+            if (_searchIndex != -1) then
+            {
+                private _shortOptSettings = _commandOpts select _searchIndex;
 
-            if ((count _shortOptsArray) == 1) then
-            {
-                // a single short opt can have a arg, like in ls -w=5
-                _result set ([_shortOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
-            }
-            else
-            {
-                // multiple opts, like in ls -alh can't have arg like single opts, so value set to 'true'
-                _result set ([_shortOptSettings, true] call AE3_armaos_fnc_shell_getOptsConvertArgType);
+                if ((count _shortOptsArray) == 1) then
+                {
+                    // a single short opt can have a arg, like in ls -w=5
+                    _result set ([_shortOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
+                }
+                else
+                {
+                    // multiple opts, like in ls -alh can't have arg like single opts, so value set to 'true'
+                    _result set ([_shortOptSettings, true] call AE3_armaos_fnc_shell_getOptsConvertArgType);
+                };
             };
-        };
-    } forEach _shortOptsArray;
+        } forEach _shortOptsArray;
+    };
 };
 
 _result;
