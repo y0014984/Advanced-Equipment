@@ -47,7 +47,19 @@ private _filesystemObjects = ("inheritsFrom _x == (configFile >> 'AE3_Filesystem
 				_owner,
 				_permissions 
 			] call AE3_filesystem_fnc_createFile;
-		} catch { diag_log format ["AE3 exception: %1", _exception]; };
+		} 
+		catch
+		{
+			private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
+			if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
+			{
+				diag_log format ["AE3 exception: %1", _exception];
+			}
+			else
+			{
+				throw _exception;
+			};
+		};
 	}
 	else
 	{
@@ -62,7 +74,19 @@ private _filesystemObjects = ("inheritsFrom _x == (configFile >> 'AE3_Filesystem
 				_owner, 
 				_permissions
 			] call AE3_filesystem_fnc_createDir;
-		} catch { diag_log format ["AE3 exception: %1", _exception]; };
+		} 
+		catch
+		{
+			private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
+			if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
+			{
+				diag_log format ["AE3 exception: %1", _exception];
+			}
+			else
+			{
+				throw _exception;
+			};
+		};
 	};
 } forEach _filesystemObjects;
 
