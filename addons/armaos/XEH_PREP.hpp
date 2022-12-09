@@ -11,6 +11,11 @@ PREP(shell_stdout);
 PREP(shell_stdin);
 PREP(shell_writeToLogfile);
 PREP(shell_getOpts);
+PREP(shell_getOptsConvertArgType);
+PREP(shell_getOptsCreateSearchArray);
+PREP(shell_getOptsParseLongForm);
+PREP(shell_getOptsParseShortForm);
+PREP(shell_getOptsSplitOptionArgument);
 
 
 /* Computer Functions */
