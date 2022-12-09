@@ -12,23 +12,19 @@ _optsSettings set ["width", ["arg", "_width", 20, true]];
 _optsSettings set ["c", ["arg", "_comment", "helloworld", false]];
 _optsSettings set ["comment", ["arg", "_comment", "helloworld", false]];
 
-private _results = [_options, _optsSettings] call AE3_armaos_fnc_shell_getOpts;
+[] params ([_options, _optsSettings] call AE3_armaos_fnc_shell_getOpts); // initialising returned vars
 
-private _resultOpts = _results select 0; // HashMap
-_resultOpts = _resultOpts toArray false; // Convert HashMap to Array
-[] params _resultOpts; // initialising returned vars
-private _resultThings = _results select 1;
+{
+	private _somethingString = format ["Something %1: %2", _forEachIndex, _x];
+	[_computer, _somethingString] call AE3_armaos_fnc_shell_stdout;
+} forEach _ae3OptsThings; // this is the reserved variable, returned by getOpts
 
+private _results = [_options, _optsSettings] call AE3_armaos_fnc_shell_getOpts; // this line is for testing only
 {
 	private _optName = _x select 0;
 	private _optValue = _x select 1;
-	private _result = format ["Name: %1 Value: %2", _optName, _optValue];
-	[_computer, _result] call AE3_armaos_fnc_shell_stdout;
-} forEach _resultOpts;
-
-{
-	private _result = format ["Something %1: %2", _forEachIndex, _x];
-	[_computer, _result] call AE3_armaos_fnc_shell_stdout;
-} forEach _resultThings;
+	private _varString = format ["Name: %1 Value: %2", _optName, _optValue];
+	[_computer, _varString] call AE3_armaos_fnc_shell_stdout;
+} forEach _results; // this loop is for testing only
 
 hint format ["long: %1 \n human-readable: %2 \n width: %3 (%4) \n comment: %5 (%6)", _longOutput, _humanReadable, _width, typeName _width, _comment, typeName _comment];

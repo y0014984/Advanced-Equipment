@@ -14,6 +14,7 @@
 
 params ["_optsStringElements", "_commandOpts"];
 
+private _result = [];
 private _resultOpts = createHashMap;
 private _resultThings = [];
 
@@ -121,4 +122,9 @@ private _resultThings = [];
     };
 } forEach _optsStringElements;
 
-[_resultOpts, _resultThings];
+// add things as the additional reserved var "_ae3OptsThings" to the results
+_resultOpts set ["_ae3OptsThings", _resultThings];
+
+_result = _resultOpts toArray false; // Convert HashMap to Array
+
+_result;
