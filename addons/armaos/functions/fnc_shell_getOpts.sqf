@@ -18,6 +18,15 @@ private _resultOpts = createHashMap;
 private _requiredOpts = createHashMap;
 private _resultThings = [];
 
+// filter for '-h/--help'
+if (((count _options) == 1) && (((_options select 0) isEqualTo "-h") || ((_options select 0) isEqualTo "--help"))) exitWith
+{
+	[_computer, _commandOpts] call AE3_armaos_fnc_shell_getOptsPrintHelp;
+	_resultOpts set ["_ae3OptsSuccess", false];
+	_result = _resultOpts toArray false; // Convert HashMap to Array
+	_result;
+};
+
 // initialize options and set default values or keep track of required options
 {
 	private _optVarName = _x select 0;
@@ -28,12 +37,7 @@ private _resultThings = [];
 	private _optRequired = _x select 5;
 	private _optHelp = _x select 6;
 
-	if (!(_shortOpt isEqualTo "")) then { _shortOpt = "-" + _shortOpt; };
-	if (!(_longOpt isEqualTo "")) then { _longOpt = "--" + _longOpt; };
-	private _optName = format ["%1/%2", _shortOpt, _longOpt];
-	if (_shortOpt isEqualTo "") then { _optName = format ["%1", _longOpt]; };
-	if (_longOpt isEqualTo "") then { _optName = format ["%1", _shortOpt]; };
-	if (!(_optType isEqualTo "bool")) then { _optName = _optName + "=<VALUE>"; };
+	private _optName = [_shortOpt, _longOpt, _optType] call AE3_armaos_fnc_shell_getOptsFormatOptsName;
 
 	if (_optRequired) then { _requiredOpts set [_optVarName, [_optName, _optHelp]]; }
 	else { _resultOpts set [_optVarName, _optDefaultValue]; };

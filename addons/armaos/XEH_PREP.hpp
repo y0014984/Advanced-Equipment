@@ -13,8 +13,10 @@ PREP(shell_writeToLogfile);
 PREP(shell_getOpts);
 PREP(shell_getOptsConvertArgType);
 PREP(shell_getOptsCreateSearchArray);
+PREP(shell_getOptsFormatOptsName);
 PREP(shell_getOptsParseLongForm);
 PREP(shell_getOptsParseShortForm);
+PREP(shell_getOptsPrintHelp);
 PREP(shell_getOptsSplitOptionArgument);
 
 

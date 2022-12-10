@@ -6,12 +6,13 @@ private _commandOpts =
 		// 0: var name, 1: short, 2: long, 3: type, 4: default, 5: required, 6: help
 		// types "bool", "string", "number"
 		// enhancement: type "selectString", "selectNumber" --> choose from predefined values like ["encrypt","decrypt"] for crypto
-		["_longOutput", "l", "long", "bool", false, false, "long output format, containing permissions and owner"],
+		// enhancement: type "path", "pathExisting" --> check if exists
+		["_longOutput", "l", "long", "bool", false, false, "prints long output format, containing permissions and owner"],
 		["_humanReadable", "h", "human-readable", "bool", false, false, "converts bytes into kbytes, Mbytes and so on"],
-		["_width", "w", "width", "number", 5, false, "the width of ..."],
-		["_comment", "c", "comment", "string", false, false, "things you want to say"],
-		["_mode", "m", "mode", "string", "", true, "'encode' or 'decode'"],
-		["_algorithm", "a", "algorithm", "string", "", true, "only 'caesar' at the moment"],
+		["_width", "w", "width", "number", 5, false, "sets the width of ..."],
+		["_comment", "c", "comment", "string", false, false, "prints things you want to say"],
+		["_mode", "m", "mode", "string", "", true, "sets the mode; allowed args 'encode' or 'decode'"],
+		["_algorithm", "a", "algorithm", "string", "", true, "sets the algorith; allowed args 'caesar'"],
 		["_experimental1", "x", "", "bool", false, false, "example for an option with only short version"],
 		["_experimental2", "", "exp", "bool", false, false, "example for an option with only long version"]
 	];
