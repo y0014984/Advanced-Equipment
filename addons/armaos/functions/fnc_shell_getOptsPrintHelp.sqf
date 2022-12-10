@@ -7,8 +7,11 @@ params ["_computer", "_commandOpts"];
 	private _optDefaultValue = _x select 4;
 	private _optRequired = _x select 5;
 	private _optHelp = _x select 6;
+	private _optSelect = [];
 
-	private _optName = [_shortOpt, _longOpt, _optType] call AE3_armaos_fnc_shell_getOptsFormatOptsName;
+	if ((_optType isEqualTo "stringSelect") || (_optType isEqualTo "numberSelect")) then { _optSelect = _x select 7; };
+
+	private _optName = [_shortOpt, _longOpt, _optType, _optSelect] call AE3_armaos_fnc_shell_getOptsFormatOptsName;
 
     if (_optRequired) then { _optRequired = " (Required)"} else { _optRequired = ""; };
 
