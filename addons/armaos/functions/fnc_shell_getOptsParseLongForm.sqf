@@ -1,4 +1,4 @@
-params ["_longOpt", "_commandOpts"];
+params ["_computer", "_longOpt", "_commandOpts"];
 
 private _result = createHashMap;
 
@@ -15,7 +15,7 @@ if (_searchIndex != -1) then
 {
     private _longOptSettings = _commandOpts select _searchIndex;
 
-    _result set ([_longOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
+    _result set ([_computer, _longOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
 };
 
 _result;

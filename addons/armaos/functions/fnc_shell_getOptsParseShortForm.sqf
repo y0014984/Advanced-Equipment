@@ -1,4 +1,4 @@
-params ["_shortOpt", "_commandOpts"];
+params ["_computer", "_shortOpt", "_commandOpts"];
 
 private _result = createHashMap;
 
@@ -10,6 +10,7 @@ _shortOpt = _shortOpt select [1, (count _shortOpt) - 1];
 
 private _searchArray = [_commandOpts, "short"] call AE3_armaos_fnc_shell_getOptsCreateSearchArray;
 
+// if only one short option and the arg is set
 if (((count _shortOptWithoutArg) == 1) && !(_arg isEqualTo "")) then
 {
     // if single short opt with arg
@@ -20,35 +21,26 @@ if (((count _shortOptWithoutArg) == 1) && !(_arg isEqualTo "")) then
     {
         private _shortOptSettings = _commandOpts select _searchIndex;
 
-        _result set ([_shortOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
+        _result set ([_computer, _shortOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
     };
 }
 else
 {
     // else process all chars as single opts without arg, like in ls -alh --> 3 bool options
     // but only if there is no set arg; if arg is set, user missed the second '-', -width=5 instead of --width=5
-    if (_arg isEqualTo "") then
-    {
-        private _shortOptsArray = _shortOptWithoutArg splitString "";
-        {
-            private _searchIndex = _searchArray find _x;
-            if (_searchIndex != -1) then
-            {
-                private _shortOptSettings = _commandOpts select _searchIndex;
+    // multiple opts, like in ls -alh can't have arg like single opts, so value set to 'true'
+    _arg = true;
 
-                if ((count _shortOptsArray) == 1) then
-                {
-                    // a single short opt can have a arg, like in ls -w=5
-                    _result set ([_shortOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
-                }
-                else
-                {
-                    // multiple opts, like in ls -alh can't have arg like single opts, so value set to 'true'
-                    _result set ([_shortOptSettings, true] call AE3_armaos_fnc_shell_getOptsConvertArgType);
-                };
-            };
-        } forEach _shortOptsArray;
-    };
+    private _shortOptsArray = _shortOptWithoutArg splitString "";
+    {
+        private _searchIndex = _searchArray find _x;
+        if (_searchIndex != -1) then
+        {
+            private _shortOptSettings = _commandOpts select _searchIndex;
+           
+            _result set ([_computer, _shortOptSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType);
+        };
+    } forEach _shortOptsArray;
 };
 
 _result;

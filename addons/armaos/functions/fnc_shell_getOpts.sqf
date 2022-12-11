@@ -51,7 +51,7 @@ if (((count _options) == 1) && (((_options select 0) isEqualTo "-h") || ((_optio
 	if ( ((_x select [0, 2]) isEqualTo "--") && ((count _x) >= 4) ) then
 	{
 		// long form; min. count 4, because "--" + 2 or more chars
-		private _resultsLongForm = [_x, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseLongForm;
+		private _resultsLongForm = [_computer, _x, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseLongForm;
 		_resultOpts merge [_resultsLongForm, true]; // overwrite existing
 		continue;
 	};
@@ -59,7 +59,7 @@ if (((count _options) == 1) && (((_options select 0) isEqualTo "-h") || ((_optio
 	if ( ((_x select [0, 1]) isEqualTo "-") && ((count _x) >= 2) ) then
 	{
 		// short form; min. count 2, because "-" + 1 or more chars
-		private _resultsShortForm = [_x, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseShortForm;
+		private _resultsShortForm = [_computer, _x, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseShortForm;
 		_resultOpts merge [_resultsShortForm, true]; // overwrite existing
 		continue;
 	};

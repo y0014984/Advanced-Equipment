@@ -1,8 +1,9 @@
-params ["_optSettings", "_arg"];
+params ["_computer", "_optSettings", "_arg"];
 
 private _optVarName = _optSettings select 0;
 private _optType = _optSettings select 3;
 private _optSelect = [];
+private _fsObjExists = false;
 
 if (_optType isEqualTo "bool") exitWith { [_optVarName, true]; };
 
@@ -16,4 +17,28 @@ if ((_optType isEqualTo "stringSelect") && !(_arg isEqualTo "") && (_arg in _opt
 
 if ((_optType isEqualTo "numberSelect") && !(_arg isEqualTo "") && ((parseNumber _arg) in _optSelect)) exitWith { [_optVarName, parseNumber _arg]; };
 
-["_unknown", _arg];
+if ((_optType isEqualTo "file") && !(_arg isEqualTo "")) exitWith { [_optVarName, _arg]; };
+
+if ((_optType isEqualTo "folder") && !(_arg isEqualTo "")) exitWith { [_optVarName, _arg]; };
+
+if (((_optType isEqualTo "fileExist") || (_optType isEqualTo "folderExist") || (_optType isEqualTo "fileNonExist") || (_optType isEqualTo "folderNonExist")) && !(_arg isEqualTo "")) then
+{
+    // if _arg was set via multi bool option, like ls -alh, _arg is set to true instead of ""
+    if (!((typeName _arg) isEqualTo "BOOL")) then
+    {
+        private _pointer = _computer getVariable "AE3_filepointer";
+        private _filesystem = _computer getVariable "AE3_filesystem";
+        private _terminal = _computer getVariable "AE3_terminal";
+        private _username = _terminal get "AE3_terminalLoginUser";
+
+        _fsObjExists = [_pointer, _filesystem, _arg, _username] call AE3_filesystem_fnc_fsObjExists;
+    };
+};
+
+if ((_optType isEqualTo "fileExist") && (_fsObjExists) && !((typeName _arg) isEqualTo "BOOL")) exitWith { [_optVarName, _arg]; };
+
+if ((_optType isEqualTo "folderExist") && (_fsObjExists) && !((typeName _arg) isEqualTo "BOOL")) exitWith { [_optVarName, _arg]; };
+
+if ((_optType isEqualTo "fileNonExist") && (!_fsObjExists) && !((typeName _arg) isEqualTo "BOOL")) exitWith { [_optVarName, _arg]; };
+
+if ((_optType isEqualTo "folderNonExist") && (!_fsObjExists) && !((typeName _arg) isEqualTo "BOOL")) exitWith { [_optVarName, _arg]; };
