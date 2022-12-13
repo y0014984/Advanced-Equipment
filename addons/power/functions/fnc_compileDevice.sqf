@@ -12,33 +12,34 @@
 
 params['_entity'];
 
-private _class = typeOf _entity;
+private _class = (typeOf _entity);
+private _class_name = _class + "_power";
 
-if(isNil {missionNamespace getVariable _class}) then 
+if(isNil {missionNamespace getVariable _class_name}) then 
 {
 
 	private _deviceCfg = configFile >> "CfgVehicles" >> _class >> "AE3_Device";
 
-	if (isNull _deviceCfg) exitWith 
+	if (!isClass _deviceCfg) exitWith 
 	{
-		missionNamespace setVariable [_class, ""];
+		missionNamespace setVariable [_class_name, ""];
 	};
 
 	private _config = createHashMap;
-	missionNamespace setVariable [_class, _config];
+	missionNamespace setVariable [_class_name, _config];
 
 	[_deviceCfg, _config] call AE3_power_fnc_compileConfig;
 
 	private _internalCfg = configFile >> "CfgVehicles" >> _class >> "AE3_InternalDevice";
 
-	if (!isNull _internalCfg) then
+	if (isClass _internalCfg) then
 	{
 		_config set ["internal", createHashMap];
 		[_internalCfg, _config get "internal"] call AE3_power_fnc_compileConfig;	
 	};
 };
 
-private _config = missionNamespace getVariable _class;
+private _config = missionNamespace getVariable _class_name;
 
 if(_config isEqualType "") exitWith {};
 

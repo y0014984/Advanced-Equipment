@@ -26,7 +26,19 @@ if(!isServer) exitWith {};
 			try
 			{
 				[[], _filesystem, "/home/" + _user, 'root', _user] call AE3_filesystem_fnc_createDir;
-			} catch {};
+			} 
+			catch
+			{
+				private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
+				if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
+				{
+					diag_log format ["AE3 exception: %1", _exception];
+				}
+				else
+				{
+					throw _exception;
+				};
+			};
 		};
 
 		_x setVariable ["AE3_filesystem", _filesystem];

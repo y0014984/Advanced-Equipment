@@ -1,90 +1,247 @@
 class CfgVehicles 
 {
+	/* ================================================================================ */
 	
-	// LAPTOP
+	// LAPTOP BLACK
+	class Land_Laptop_03_black_F;
+	class Land_Laptop_03_black_F_AE3: Land_Laptop_03_black_F
+	{
+		// Event Handlers
+		class EventHandlers
+		{
+			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
+		};
+
+		class AE3_Equipment
+		{
+			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
+
+			closeState = 0;
+
+			init = "_this call AE3_interaction_fnc_initLaptop;";
+
+			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
+			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+      
+      class AE3_ace3Interactions
+			{
+				class AE3_aceCarrying
+				{
+					// Carrying
+					ae3_dragging_canCarry = 1;  // Can be dragged (0-no, 1-yes)
+					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+					ae3_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 1;  // Cargo space the object takes
+				};
+			};
+		};
+
+		class AE3_Device
+		{
+			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
+			defaultPowerLevel = 0;
+
+			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+
+			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+
+			class AE3_Consumer
+			{
+				powerConsumption = 0.01/3600; // 10 Watts
+				standbyConsumption = 0.0001/3600; // 0.1 Watts
+			};
+		};
+
+		class AE3_InternalDevice
+		{
+			displayName = "$STR_AE3_ArmaOS_Config_BatteryDisplayName";
+			defaultPowerLevel = 1;
+
+			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "";
+
+			class AE3_PowerInterface
+			{
+				internal = 1;
+			};
+
+			class AE3_Battery
+			{
+				capacity = 0.1; // 100 Watts/hour max. capacity
+				recharging = 0.05/3600; // 50 Watts power consumption while recharging
+				level = 0.1; // 100 Watts/hour capacity at the beginning
+				internal = 1;
+			};
+		};
+
+		
+        class ACE_Actions 
+		{
+			class ACE_MainActions
+			{
+				displayName = "$STR_ACE_Interaction_MainAction";
+				condition = "true";
+				distance = 2;
+				class AE3_Laptop_Group
+				{
+					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
+					condition = "true";
+					class AE3_UseComputer
+					{
+						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
+						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
+						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
+						//icon = "\z\dance.paa";
+						exceptions[] = {};
+						//insertChildren
+						//modifierFunction
+						//runOnHover
+						//distance
+						//position
+						//selection
+						priority = -1;
+						showDisabled = 0;
+					};
+				};
+			};
+		};
+	};
+
+	/* ================================================================================ */
+
+	// LAPTOP OLIVE
+	class Land_Laptop_03_olive_F;
+	class Land_Laptop_03_olive_F_AE3: Land_Laptop_03_olive_F
+	{
+		// Event Handlers
+		class EventHandlers
+		{
+			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
+		};
+
+		class AE3_Equipment
+		{
+			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
+
+			closeState = 0;
+
+			init = "_this call AE3_interaction_fnc_initLaptop;";
+
+			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
+			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+      
+      class AE3_ace3Interactions
+			{
+				class AE3_aceCarrying
+				{
+					// Carrying
+					ae3_dragging_canCarry = 1;  // Can be dragged (0-no, 1-yes)
+					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+					ae3_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 1;  // Cargo space the object takes
+				};
+			};
+		};
+
+		class AE3_Device
+		{
+			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
+			defaultPowerLevel = 0;
+
+			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+
+			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+
+			class AE3_Consumer
+			{
+				powerConsumption = 0.01/3600; // 10 Watts
+				standbyConsumption = 0.0001/3600; // 0.1 Watts
+			};
+		};
+
+		class AE3_InternalDevice
+		{
+			displayName = "$STR_AE3_ArmaOS_Config_BatteryDisplayName";
+			defaultPowerLevel = 1;
+
+			turnOnAction = "_this + [true] call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "";
+
+			class AE3_PowerInterface
+			{
+				internal = 1;
+			};
+
+			class AE3_Battery
+			{
+				capacity = 0.1; // 100 Watts/hour max. capacity
+				recharging = 0.05/3600; // 50 Watts power consumption while recharging
+				level = 0.1; // 100 Watts/hour capacity at the beginning
+				internal = 1;
+			};
+		};
+
+		
+        class ACE_Actions 
+		{
+			class ACE_MainActions
+			{
+				displayName = "$STR_ACE_Interaction_MainAction";
+				condition = "true";
+				distance = 2;
+				class AE3_Laptop_Group
+				{
+					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
+					condition = "true";
+					class AE3_UseComputer
+					{
+						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
+						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
+						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
+						//icon = "\z\dance.paa";
+						exceptions[] = {};
+						//insertChildren
+						//modifierFunction
+						//runOnHover
+						//distance
+						//position
+						//selection
+						priority = -1;
+						showDisabled = 0;
+					};
+				};
+			};
+		};
+	};
+
+	/* ================================================================================ */
+	
+	// LAPTOP SAND
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
-		class TextureSources
-		{
-			class Black
-			{
-				author = "Bohemia Interactive";
-				displayName = "$STR_AE3_ArmaOS_Config_TextureBlack";
-				factions[] = {};
-				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_black_CO.paa"};
-			};
-			class Olive
-			{
-				author = "Bohemia Interactive";
-				displayName = "$STR_AE3_ArmaOS_Config_TextureOlive";
-				factions[] = {};
-				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_olive_CO.paa"};
-			};
-			class Sand
-			{
-				displayName = "$STR_AE3_ArmaOS_Config_TextureSand";
-				author = "Bohemia Interactive";
-				factions[] = {};
-				textures[] = {"a3\Props_F_Enoch\Military\Equipment\data\Laptop_03_sand_CO.paa"};
-			};
-		};
-
-		simulation = "tankX";
-		preciseGetInOut = 0;
-		cargoPreciseGetInOut[] = {};
-		cargoProxyIndexes[] = {};
-		alphaTracks = 0;
-		class MFD {};
-		class Sounds {};
-		canFloat = 0;
-		leftDustEffect = "";
-		rightDustEffect = "";
-		leftWaterEffect = "";
-		rightWaterEffect = "";
-		tracksSpeed = 0;
-		class CargoLight
-		{
-			ambient[] = {0.6,0,0.15,1};
-			brightness = 0.007;
-			color[] = {0,0,0,0};
-		};
-		fireDustEffect = "";
-		turnCoef = 0;
-		class SquadTitles
-		{
-			color[] = {0,0,0,0};
-			name = "clan_sign";
-		};
-		class Exhausts {};
-		class RenderTargets {};
-		driverDoor = "";
-		cargoDoors[] = {};
-		selectionLeftOffset = "";
-		selectionRightOffset = "";
-		selectionBrakeLights = "";
-		memoryPointMissile = "";
-		memoryPointMissileDir = "";
-		textureTrackWheel = "";
-		memoryPointTrack1L = "";
-		memoryPointTrack2L = "";
-		gearBox[] = {};
-		memoryPointDriverOptics = "";
-		memoryPointsGetInDriver = "";
-		memoryPointsGetInDriverDir = "";
-		memoryPointsGetInCoDriver = "";
-		memoryPointsGetInCoDriverDir = "";
-		memoryPointsGetInCargo = "";
-		memoryPointsGetInCargoDir = "";
-		driverLeftHandAnimName = "";
-		driverRightHandAnimName = "";
-		driverLeftLegAnimName = "";
-		driverRightLegAnimName = "";
-		soundGear[] = {"",0.316228,1};
-		memoryPointsLeftWaterEffect = "";
-		memoryPointsRightWaterEffect = "";
-		memoryPointCargoLight = "";
-
 		// Event Handlers
 		class EventHandlers
 		{
@@ -285,4 +442,6 @@ class CfgVehicles
 			};
 		};
 	};
+
+	/* ================================================================================ */
 };

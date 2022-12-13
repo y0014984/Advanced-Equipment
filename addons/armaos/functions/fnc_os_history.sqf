@@ -17,7 +17,11 @@ if (count _options >= 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaO
 
 private _terminal = _computer getVariable "AE3_terminal";
 
+private _username = _terminal get "AE3_terminalLoginUser";
+
 private _terminalCommandHistory = _terminal get "AE3_terminalCommandHistory";
+
+_terminalCommandHistory = _terminalCommandHistory get _username;
 
 private _numberedHistory = [];
 {
