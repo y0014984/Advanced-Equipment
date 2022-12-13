@@ -67,7 +67,7 @@ else
 {
 	[_entity] call _turnOffGenFunc;
 
-	_return = true;
+	_result = true;
 };
 
 // function immediately returns false, because progress bar runs unscheduled
