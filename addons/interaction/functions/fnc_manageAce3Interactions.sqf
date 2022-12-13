@@ -88,5 +88,9 @@ if (!isNil "_settingsAce3") then
         };
     };
 
+    // ensures that cargo rename feature is enabled on all assets, no matter if canLoad is true
+    // some classes have a disabled renaming feature via ACE3 config, like the yellow lamps
+    _target setVariable ["ace_cargo_noRename", false, true];
+
 	_target setVariable ["AE3_SettingsACE3", _settingsAce3, true];
 };
