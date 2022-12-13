@@ -38,11 +38,15 @@ if (!isNil "_generator") then
 
 _target setVariable ["AE3_power_powerCableDevice", nil, true];
 
+_tmpTar = _target;
+// if target has internal power parent, change interaction for that parent instead of target itself
+private _powerParent = _tmpTar getVariable "AE3_power_parent";
+if (!(isNil "_powerParent")) then { _tmpTar = _powerParent };
+[_tmpTar, "powerConnected", false] call AE3_interaction_fnc_manageAce3Interactions;
+
 if(!isNil {_target getVariable 'AE3_power_powerConsumption'}) then
 {
 	[_target] call (_target getVariable 'AE3_power_fnc_turnOffWrapper')
 };
 
 [_generator] call AE3_power_fnc_updatePower;
-
-[_target, "powerConnected", false] call AE3_interaction_fnc_manageAce3Interactions;

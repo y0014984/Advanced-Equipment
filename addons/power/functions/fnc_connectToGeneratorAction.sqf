@@ -35,7 +35,7 @@ _generator setVariable ["AE3_power_connectedDevices", _connectedDevices, true];
 
 _tmpTar = _target;
 // if target has internal power parent, change interaction for that parent instead of target itself
-private _powerParent = _target getVariable "AE3_power_parent";
+private _powerParent = _tmpTar getVariable "AE3_power_parent";
 if (!(isNil "_powerParent")) then { _tmpTar = _powerParent };
 [_tmpTar, "powerConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
 
