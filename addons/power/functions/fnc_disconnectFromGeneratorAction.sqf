@@ -20,12 +20,17 @@ if (!isNil "_generator") then
 
 	_connectedDevices deleteAt _index;
 
-	// if power source has no connected devices and it's battery is not connected to another power source (stand alone battery)
+	
 	if (count _connectedDevices == 0) then
 	{
-		private _parent = _generator getVariable "AE3_power_parent";
-		if (!isNil "_parent") then {_target = _parent};
-		[_generator, "powerConnected", false] call AE3_interaction_fnc_manageAce3Interactions;
+		_tmpGen = _generator;
+		// if generator has internal power parent, change interaction for that parent instead of generator itself
+		private _powerParent = _tmpGen getVariable "AE3_power_parent";
+		if (!(isNil "_powerParent")) then { _tmpGen = _powerParent };
+			
+		// if generator is not connected to another generator (in case of battery pack)
+		private _parentGenerator = _tmpGen getVariable "AE3_power_powerCableDevice";
+		if (isNil "_parentGenerator") then { [_tmpGen, "powerConnected", false] call AE3_interaction_fnc_manageAce3Interactions; };
 	};
 
 	_generator setVariable ["AE3_power_connectedDevices", _connectedDevices, true];
