@@ -10,7 +10,11 @@
 // _short = single char or "" if not set
 // _long = multiple chars or "" if not set
 
-params ["_computer", "_options", "_commandOpts"];
+params ["_computer", "_options", "_commandSettings"];
+
+private _commandName = _commandSettings select 0;
+private _commandOpts = _commandSettings select 1;
+private _commandSyntax = _commandSettings select 2;
 
 private _result = [];
 // _resultOpts is a hashmap to allow overwriting with 'set' if one option occurs multiple times
@@ -21,7 +25,7 @@ private _resultThings = [];
 // filter for '-h/--help'
 if (((count _options) == 1) && (((_options select 0) isEqualTo "-h") || ((_options select 0) isEqualTo "--help"))) exitWith
 {
-	[_computer, _commandOpts] call AE3_armaos_fnc_shell_getOptsPrintHelp;
+	[_computer, _commandSettings] call AE3_armaos_fnc_shell_getOptsPrintHelp;
 	_resultOpts set ["_ae3OptsSuccess", false];
 	_result = _resultOpts toArray false; // Convert HashMap to Array
 	_result;
@@ -53,6 +57,7 @@ if (((count _options) == 1) && (((_options select 0) isEqualTo "-h") || ((_optio
 		// long form; min. count 4, because "--" + 2 or more chars
 		private _resultsLongForm = [_computer, _x, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseLongForm;
 		_resultOpts merge [_resultsLongForm, true]; // overwrite existing
+		_resultThings = []; // reset things, so it will only contain things that appeared after the last option
 		continue;
 	};
 
@@ -61,6 +66,7 @@ if (((count _options) == 1) && (((_options select 0) isEqualTo "-h") || ((_optio
 		// short form; min. count 2, because "-" + 1 or more chars
 		private _resultsShortForm = [_computer, _x, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseShortForm;
 		_resultOpts merge [_resultsShortForm, true]; // overwrite existing
+		_resultThings = []; // reset things, so it will only contain things that appeared after the last option
 		continue;
 	};
 

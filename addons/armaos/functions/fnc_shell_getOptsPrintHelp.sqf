@@ -1,5 +1,29 @@
-params ["_computer", "_commandOpts"];
+params ["_computer", "_commandSettings"];
 
+private _commandName = _commandSettings select 0;
+private _commandOpts = _commandSettings select 1;
+private _commandSyntax = _commandSettings select 2;
+
+// print command syntax to stdout
+[_computer, ["COMMAND SYNTAX", ""]] call AE3_armaos_fnc_shell_stdout;
+{
+	private _commandSyntaxString = "";
+	private _commandSyntaxVariant = _x;
+	{
+		_commandSyntaxString = _commandSyntaxString + (_x select 1);
+		// if syntax element is set to 'unlimited' ... is appended
+		if (_x select 3) then { _commandSyntaxString = _commandSyntaxString + "..."; };
+		// if syntax element is not set to 'required' it is enclosed in [ ]; not for command
+		if (!(_x select 2) && !((_x select 2) isEqualTo "command")) then { _commandSyntaxString = "[" + _commandSyntaxString + "]"; };
+		_commandSyntaxString = _commandSyntaxString + " ";
+	} forEach _commandSyntaxVariant;
+
+	[_computer, _commandSyntaxString] call AE3_armaos_fnc_shell_stdout;
+} forEach _commandSyntax;
+[_computer, ""] call AE3_armaos_fnc_shell_stdout;
+
+// print command options to stdout
+[_computer, ["COMMAND OPTIONS", ""]] call AE3_armaos_fnc_shell_stdout;
 {
 	private _shortOpt = _x select 1;
 	private _longOpt = _x select 2;
@@ -18,3 +42,7 @@ params ["_computer", "_commandOpts"];
     private _result = format ["%1%2 : %3", _optName, _optRequired, _optHelp];
     [_computer, _result] call AE3_armaos_fnc_shell_stdout;
 } forEach _commandOpts;
+
+// also add the help option to every command help output
+private _result = format ["%1 : %2", "-h/--help", "display this help and exit"];
+[_computer, _result] call AE3_armaos_fnc_shell_stdout;

@@ -1,5 +1,7 @@
 params ["_computer", "_options"];
 
+private _commandName = "test";
+/*
 private _commandOpts =
 	[
 		// if long or short form are empty then they have no short or long form, so just one of them
@@ -14,15 +16,58 @@ private _commandOpts =
 		["_delay", 			"", 	"delay", 			"numberSelect", 	"1", 			false, 	"sets the delay in seconds", 									[1, 3, 5]],
 		["_experimental1", 	"x", 	"", 				"bool", 			false, 			false, 	"example for an option with only short version"],
 		["_experimental2", 	"", 	"exp", 				"bool", 			false, 			false, 	"example for an option with only long version"],
-		["_file1",	 		"", 	"file1",			"file",				"/var/tmp/obj1",false, 	"sets a file"],
-		["_folder1",	 	"", 	"folder1",			"folder",			"/var/tmp/",	false, 	"sets a folder"],
+		["_file1",	 		"", 	"file1",			"file",				"/var/obj1", 	false, 	"sets a file"],
+		["_folder1",	 	"", 	"folder1",			"folder",			"/var/",		false, 	"sets a folder"],
 		["_inFile", 		"i", 	"input", 			"fileExist",		"", 			true, 	"sets the input file"],
 		["_outFile", 		"o", 	"output", 			"fileNonExist",		"", 			true, 	"sets the output file"],
 		["_inFolder", 		"s", 	"source", 			"folderExist",		"", 			true, 	"sets the source folder"],
 		["_outFolder", 		"d", 	"destination",		"folderNonExist",	"", 			true, 	"sets the destination folder"]
 	];
+*/
 
-[] params ([_computer, _options, _commandOpts] call AE3_armaos_fnc_shell_getOpts); // initialising returned vars
+private _commandOpts =
+	[
+		["_longOutput", 	"l", 	"long", 			"bool", 			false, 			false, 	"prints long output format, containing permissions and owner"],
+		["_humanReadable",	"h", 	"human-readable", 	"bool", 			false, 			false, 	"converts bytes into kbytes, Mbytes and so on"]
+	];
+
+private _commandSyntax =
+[
+	[
+		// There could be multiple syntax variants in this array
+		// allowed syntax types: command, options, path, ip, string, number
+		//	0: Syntax Element,	1: Syntax Name		2: Required 3: unlimited
+			["command", 			"test",			true,		false],
+			["options", 			"OPTION",		false,		false],
+			["path",				"PATH",			true, 		false]	
+	],
+	[
+			["command", 			"test",			true,		false],
+			["options", 			"OPTION",		false,		false],
+			["path",				"PATH1",		true,		false],
+			["path",				"PATH2",		true,		false]
+	],
+	[
+			["command", 			"test",			true,		false],
+			["options", 			"OPTION",		false,		false],
+			["path",				"PATH",			true,		true]
+	]
+];
+
+/*
+	SYNTAX EXAMPLES:
+
+	cat [OPTION] PATH
+	cp [OPTION] SOURCE DIRECTORY
+	mv [OPTION] SOURCE DIRECTORY
+	ls [OPTION] [PATH]
+	exit
+	crypto [OPTION] MESSAGE
+*/
+
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
+
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts); // initialising returned vars
 
 if (_ae3OptsSuccess) then
 {
@@ -31,7 +76,7 @@ if (_ae3OptsSuccess) then
 		[_computer, _somethingString] call AE3_armaos_fnc_shell_stdout;
 	} forEach _ae3OptsThings; // this is the reserved variable, returned by getOpts
 
-	hint format [
+/* 	hint format [
 		"long: %1" + endl + 
 		"human-readable: %2" + endl + 
 		"width: %3 (%4)" + endl + 
@@ -48,5 +93,5 @@ if (_ae3OptsSuccess) then
 		"Source Folder: %16" + endl +
 		"Destination Folder: %17",
 	_longOutput, _humanReadable, _width, typeName _width, _comment, typeName _comment, _mode, _algorithm, 
-	_experimental1, _experimental2, _delay, _file1, _folder1, _inFile, _outFile, _inFolder, _outFolder];
+	_experimental1, _experimental2, _delay, _file1, _folder1, _inFile, _outFile, _inFolder, _outFolder]; */
 };
