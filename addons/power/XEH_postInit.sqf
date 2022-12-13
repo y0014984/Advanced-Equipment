@@ -1,1 +1,0 @@
-["All", "init", {_this call AE3_power_fnc_processEdenAttributes}] call CBA_fnc_addClassEventHandler;

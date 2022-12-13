@@ -24,6 +24,7 @@ PREP(compileDevice);
 PREP(initDevice);
 PREP(initPowerInterface);
 PREP(initBattery);
+PREP(initBatteryLevelWithEdenAttribute);
 PREP(initGenerator);
 PREP(initConsumer);
 PREP(initSolarPanel);
@@ -47,5 +48,3 @@ PREP(showBatteryLevel);
 PREP(getSolarPosition);
 PREP(solarCalculation);
 PREP(multSolarPanelOrientation);
-
-PREP(processEdenAttributes);
