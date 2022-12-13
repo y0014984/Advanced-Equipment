@@ -62,7 +62,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 1.5; // 1.5 litres per hour consumption
 				fuelCapacity = 5; // 5 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank; Doen't work here
+				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
 
 				power = 5/3600; // provides max. 5.000 Watts
 			};
