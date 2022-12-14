@@ -122,25 +122,25 @@
                 <Russian>root login disabled</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_UserNotFound">
-                <Original>User: %1 not found</Original>
-                <English>User: %1 not found</English>
-                <German>Benutzer: %1 nicht gefunden</German>
-                <Chinesesimp>未找到用户: %1</Chinesesimp>
-                <Russian>Пользователь: %1 не найден</Russian>
+                <Original>User: '%1' not found</Original>
+                <English>User: '%1' not found</English>
+                <German>Benutzer: '%1' nicht gefunden</German>
+                <Chinesesimp>未找到用户: '%1'</Chinesesimp>
+                <Russian>Пользователь: '%1' не найден</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_UserFailedLogin">
-                <Original>User: %1 failed login attempt</Original>
-                <English>User: %1 failed login attempt</English>
-                <German>Benutzer: %1 fehlgeschlagener Login-Versuch</German>
-                <Chinesesimp>用户: %1 尝试登陆失败</Chinesesimp>
-                <Russian>Пользователь: %1 неудачная попытка входа</Russian>
+                <Original>User: '%1' failed login attempt</Original>
+                <English>User: '%1' failed login attempt</English>
+                <German>Benutzer: '%1' fehlgeschlagener Login-Versuch</German>
+                <Chinesesimp>用户: '%1' 尝试登陆失败</Chinesesimp>
+                <Russian>Пользователь: '%1' неудачная попытка входа</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_UserLoginSuccessful">
-                <Original>User: %1 successfully logged in</Original>
-                <English>User: %1 successfully logged in</English>
-                <German>Benutzer: %1 erfolgreich eingeloggt</German>
-                <Chinesesimp>用户: %1 登陆成功</Chinesesimp>
-                <Russian>Пользователь: %1 успешно вошел в систему</Russian>
+                <Original>User: '%1' successfully logged in</Original>
+                <English>User: '%1' successfully logged in</English>
+                <German>Benutzer: '%1' erfolgreich eingeloggt</German>
+                <Chinesesimp>用户: '%1' 登陆成功</Chinesesimp>
+                <Russian>Пользователь: '%1' успешно вошел в систему</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_DialogFailed">
                 <Original>Dialog couldn't be opened!</Original>
