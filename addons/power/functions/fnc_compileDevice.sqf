@@ -82,7 +82,8 @@ if('solar' in _config) then
 	[_entity] + (_config get 'solar') call AE3_power_fnc_initSolarPanel;
 };
 
-if(!("internal" in _config)) exitWith {};
+// "AE3_power_hasInternal" is my only indicator to check, if a device (with or without internal) is completely initialized
+if(!("internal" in _config)) exitWith { _entity setVariable ['AE3_power_hasInternal', false, true]; };
 
 [_entity, _config] spawn {
 	params ['_entity', '_config'];
@@ -95,6 +96,8 @@ if(!("internal" in _config)) exitWith {};
 	{
 		_internal = true call CBA_fnc_createNamespace;
 
+		// "AE3_power_hasInternal" is my only indicator to check, if a device (with or without internal) is completely initialized
+		_entity setVariable ['AE3_power_hasInternal', true, true];
 		_entity setVariable ['AE3_power_internal', _internal, true];
 		_internal setVariable ['AE3_power_parent', _entity, true];
 	}else
