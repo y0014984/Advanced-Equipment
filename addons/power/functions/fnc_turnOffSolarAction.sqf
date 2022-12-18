@@ -49,10 +49,7 @@ if (!_silent) then
 			_entity setVariable ["AE3_power_powerState", 0, true];
 		},
 		{
-			// following code only runs on progress bar success
-			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
-			
-			_args params ["_entity", "_turnOffSolPanFunc"];
+			// following code only runs on progress bar fail
 		},
 		(localize "STR_AE3_Power_Interaction_TurnOff" + "...")
 	] call ace_common_fnc_progressBar;

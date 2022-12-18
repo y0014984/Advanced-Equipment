@@ -49,7 +49,7 @@ if (!_silent) then
 			_entity setVariable ["AE3_power_powerState", 0, true];
 		},
 		{
-			// following code only runs on progress bar success
+			// following code only runs on progress bar fail
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 			
 			_args params ["_entity", "_stopSoundHandle", "_turnOffGenFunc"];

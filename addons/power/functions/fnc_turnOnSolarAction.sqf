@@ -33,9 +33,6 @@ private _turnOnTime = 3;
 	},
 	{
 		// following code only runs on progress bar fail
-		params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
-		
-		_args params ["_entity"];
 	},
 	(localize "STR_AE3_Power_Interaction_TurnOn" + "...")
 ] call ace_common_fnc_progressBar;
