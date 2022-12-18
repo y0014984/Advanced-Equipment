@@ -11,8 +11,6 @@
 
 params['_entity', '_cmp'];
 
-systemChat (format ["%1 - %2", _entity, _cmp]);
-
 private _result = false;
 
 {
