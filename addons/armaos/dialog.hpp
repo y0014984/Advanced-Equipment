@@ -9,6 +9,29 @@ class RscPictureKeepAspect;
 
 /* ================================================================================ */
 
+class AE3_ArmaOS_Retro_Dialog
+{
+	idd = 15985;
+	movingEnable = true;
+	enableSimulation = true;
+	
+	class ControlsBackground
+	{
+		class AE3_ArmaOS_Retro_Background: RscText
+		{
+			idc = 2000;
+			text = "";
+			colorBackground[] = {0,0,0,0};
+			x = 0;
+			y = 0;
+			w = pixelW * pixelGrid * 1;
+			h = pixelH * pixelGrid * 1;
+		};
+	};
+};
+
+/* ================================================================================ */
+
 class AE3_ArmaOS_Main_Dialog
 {
 	idd = 15984;
