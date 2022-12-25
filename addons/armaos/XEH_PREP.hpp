@@ -19,6 +19,16 @@ PREP(shell_getOptsParseShortForm);
 PREP(shell_getOptsPrintHelp);
 PREP(shell_getOptsSplitOptionArgument);
 
+/* Retro Games */
+PREP(games_snake);
+
+/* Retro Gaming Functions */
+PREP(retro_createCanvas);
+PREP(retro_setPixelColor);
+PREP(retro_getPixelColor);
+PREP(retro_getCanvasHeight);
+PREP(retro_getCanvasWidth);
+PREP(retro_addEventHandler);
 
 /* Computer Functions */
 PREP(computer_playSoundStart);
