@@ -1,15 +1,32 @@
+/**
+ * Let's user play the game 'snake' and returns the user's score.
+ *
+ * Arguments:
+ * 1: Size <NUMBER>
+ *
+ * Results:
+ * Score <STRING>
+ */
+
+params ["_computer", "_options"];
+
 //hint format ["canSuspend: %1", canSuspend]; // true
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
-private _dialog = [] call AE3_armaos_fnc_retro_createCanvas;
+private _size = 1;
+
+// will be rewritten if PR #265 is merged (parsing arguments)
+if ((_options select 0) isEqualTo "--big") then { _size = 2; };
+
+private _dialog = [_size] call AE3_armaos_fnc_retro_createCanvas;
 
 // define key down event handler
 private _upArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "up"]; };
 private _downArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "down"]; };
 private _leftArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "left"]; };
 private _rightArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "right"]; };
-private _escFunc = { params ["_dialog"]; closeDialog 1; _dialog setVariable ["AE3_Retro_Snake_Running", false]; };
+private _escFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Running", false]; };
 
 // create keydown event handler HashMap
 private _keyDownEventHandlerSettings = createHashMapFromArray
@@ -99,11 +116,17 @@ private _growPhase = false;
 private _growMaxAmount = 3;
 private _growAmount = 0;
 
+// init speed
+private _speed = 0;
+
+// start time
+private _startTime = time;
+
 // Game loop
 while { _dialog getVariable "AE3_Retro_Snake_Running" } do
 {
     // set snake speed
-    private _speed = ceil ((count _snake) / 10);    // increase snake speed at new length 10, 20, 30 and so on
+    _speed = ceil ((count _snake) / 10);    // increase snake speed at new length 10, 20, 30 and so on
 
     _dir = _dialog getVariable "AE3_Retro_Snake_Dir";
 
@@ -114,11 +137,11 @@ while { _dialog getVariable "AE3_Retro_Snake_Running" } do
     _head params ["_x", "_y"];
 
     // if snake is out of canvas bounds then game over
-    if ((_x < 0) || (_y < 0) || (_x == _width) || (_y == _height)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; hint "Fallen. Game over!"; break; };
+    if ((_x < 0) || (_y < 0) || (_x == _width) || (_y == _height)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; [_computer, "Fallen. Game over!"] call AE3_armaos_fnc_shell_stdout; break; };
 
     // if snake collides with itself then game over
     private _findResult = _snake find _head;
-    if (_findResult != ((count _snake) - 1)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; hint "Bitten. Game over!"; break; };
+    if (_findResult != ((count _snake) - 1)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; [_computer, "Bitten. Game over!"] call AE3_armaos_fnc_shell_stdout; break; };
     
     // draw pixel at new head pos
     [_dialog, _x, _y, [1,1,1,1]] call AE3_armaos_fnc_retro_setPixelColor;
@@ -156,7 +179,16 @@ while { _dialog getVariable "AE3_Retro_Snake_Running" } do
         };
     };
 
-    hint format ["length: %1 \n speed: %2 \n grow phase: %3 \n grow amount: %4", (count _snake), _speed, _growPhase, _growAmount];
-
     sleep (0.5 / _speed);
 };
+
+closeDialog 1;
+
+// stop time
+private _stopTime = time;
+
+private _duration = _stopTime - _startTime;
+
+[_computer, format ["snake length: %1", (count _snake)]] call AE3_armaos_fnc_shell_stdout;
+[_computer, format ["speed level: %1", _speed]] call AE3_armaos_fnc_shell_stdout;
+[_computer, format ["duration: %1  s", _duration]] call AE3_armaos_fnc_shell_stdout;
