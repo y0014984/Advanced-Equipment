@@ -3,6 +3,9 @@ params ["_dialog", "_x", "_y", "_color"];
 private _width = _dialog getVariable "AE3_Retro_Width";
 private _height = _dialog getVariable "AE3_Retro_Height";
 
+private _pixelWidth = _dialog getVariable "AE3_Retro_PixelWidth";
+private _pixelHeight = _dialog getVariable "AE3_Retro_PixelHeight";
+
 if ((_x < 0) || (_x >= _width)) exitWith {};
 if ((_y < 0) || (_y >= _height)) exitWith {};
 
@@ -23,10 +26,10 @@ if (isNil "_pixelCtrl") then
         // if pixel control does not exist and color is not bg color, then create control
         _pixelCtrl = _dialog ctrlCreate ["RscText", -1];
 
-        private _ctrlWidth = pixelW * pixelGrid * 1;
-        private _ctrlHeight = pixelH * pixelGrid * 1;
-        private _ctrlX = pixelW * pixelGrid * _x;
-        private _ctrlY = pixelH * pixelGrid * _y;
+        private _ctrlWidth = pixelW * pixelGrid * _pixelWidth;
+        private _ctrlHeight = pixelH * pixelGrid * _pixelHeight;
+        private _ctrlX = pixelW * pixelGrid * _x * _pixelWidth;
+        private _ctrlY = pixelH * pixelGrid * _y * _pixelHeight;
         _pixelCtrl ctrlSetPosition [_ctrlX, _ctrlY, _ctrlWidth, _ctrlHeight];
         _pixelCtrl ctrlCommit 0;
 
