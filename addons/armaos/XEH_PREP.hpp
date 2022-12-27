@@ -1,5 +1,6 @@
 /* Module Functions */
 PREP(module_addUser);
+PREP(module_addGames);
 
 /* Shell Functions */
 PREP(shell_process);
@@ -20,6 +21,7 @@ PREP(shell_getOptsPrintHelp);
 PREP(shell_getOptsSplitOptionArgument);
 
 /* Retro Games */
+PREP(games_init);
 PREP(games_snake);
 
 /* Retro Gaming Functions */
