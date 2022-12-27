@@ -12,69 +12,127 @@ class RscPictureKeepAspect;
 class AE3_ArmaOS_Main_Dialog
 {
 	idd = 15984;
-	movingEnable = true;
+	movingEnable = true; // allow moving window by dragging the element with: moving = true
 	enableSimulation = true;
+	class controlsBackground
+	{
+		// size 40x25
+		class RscText_900: RscText
+		{
+			// Terminal Header Background
+			idc = 900;
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 2 * GUI_GRID_H;
+			colorBackground[] = {0.125,0.125,0.125,1}; // dark grey
+		};
+		class RscText_910: RscText
+		{
+			// Console Output Background
+			idc = 910;
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 23 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,1}; // light grey
+		};
+	};
 	class controls
 	{
 		class RscText_1000: RscText
 		{
+			// Terminal Header
 			idc = 1000;
-			text = "TERMINAL";
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 0 * GUI_GRID_H + GUI_GRID_Y;
-			w = 40 * GUI_GRID_W;
+			text = "YOO INDUSTRIES COMPUTER";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.25 * GUI_GRID_H + GUI_GRID_Y;
+			w = 29.5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.5};
+			colorBackground[] = {0,0,0,0}; // transparent
+			colorText[] = {1,1,1,1}; // white
 			font = "EtelkaMonospaceProBold";
-		};
-		class RscPicture_1050: RscPictureKeepAspect
-		{
-			idc = 1050;
-			text = "\z\ae3\addons\armaos\images\AE3_battery_0_percent.paa";
-			x = 38 * GUI_GRID_W + GUI_GRID_X;
-			y = 0 * GUI_GRID_H + GUI_GRID_Y;
-			w = 1.5 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
+			shadow = 0;
+			moving = true; // drag title bar to move window
 		};
 		class RscText_1100: RscStructuredText
 		{
 			// Console Output
 			idc = 1100;
 			text = "";
-			x = 0 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 40 * GUI_GRID_W;
-			h = 21 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0.5};
-			
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 39 * GUI_GRID_W;
+			h = 22 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0}; // transparent
+			colorText[] = {1,1,1,1}; // white
+			font = "EtelkaMonospacePro";
+			shadow = 0;
 			style = ST_MULTI;
 			lineSpacing = 1;
-			font = "EtelkaMonospacePro";
-		};
-		class RscButton_1300: RscButton
-		{
-			idc = 1300;
-			text = "EXIT";
-			x = 32 * GUI_GRID_W + GUI_GRID_X;
-			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 8 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.5};
-			
-			action = "closeDialog 1;";
-			font = "EtelkaMonospaceProBold";
 		};
 		class RscButton_1310: RscButton
 		{
+			// Switch Language Button
 			idc = 1310;
-			text = "KEYBOARD";
-			x = 23.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 8 * GUI_GRID_W;
-			h = 1.5 * GUI_GRID_H;
-			colorBackground[] = {0,0.5,0,0.5};
-			
+			text = "US";
+			x = 32 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 2 * GUI_GRID_W;
+			h = 2 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0}; // transparent
+			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorText[] = {1,1,1,1}; // white
 			font = "EtelkaMonospaceProBold";
+			shadow = 0;
+			tooltip = "change keyboard layout";
+		};
+		class RscButton_1320: RscButton
+		{
+			// Change Design Symbol
+			idc = 1320;
+			text = "\z\ae3\addons\armaos\images\AE3_bucket.paa";
+			x = 34 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 2 * GUI_GRID_W;
+			h = 2 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0}; // transparent
+			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorText[] = {1,1,1,1}; // white
+			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+			tooltip = "change terminal design";
+		};
+		class RscButton_1050: RscButton
+		{
+			// Battery Symbol
+			idc = 1050;
+			text = "\z\ae3\addons\armaos\images\AE3_battery_0_percent.paa";
+			x = 36 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 2 * GUI_GRID_W;
+			h = 2 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0}; // transparent
+			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorText[] = {1,1,1,1}; // white; this could prohibit to change color to yellow and red on low battery levels, but is necessary for design changes
+			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+			action = "[(uiNamespace getVariable 'AE3_Battery'), true] call AE3_power_fnc_getBatteryLevel; ctrlSetFocus (uiNamespace getVariable 'AE3_ConsoleOutput');";
+			tooltip = "check battery level";
+		};
+		class RscButton_1300: RscButton
+		{
+			// Close Button
+			idc = 1300;
+			text = "\z\ae3\addons\armaos\images\AE3_close.paa";
+			x = 38 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 2 * GUI_GRID_W;
+			h = 2 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0}; // transparent
+			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorText[] = {1,1,1,1}; // white
+			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+			action = "closeDialog 1;";
+			tooltip = "close armaOS";
 		};
 	};
 };
