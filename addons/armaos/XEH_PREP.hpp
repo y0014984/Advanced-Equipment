@@ -16,6 +16,7 @@ PREP(games_snake);
 
 /* Retro Gaming Functions */
 PREP(retro_createCanvas);
+PREP(retro_showSplashScreen);
 PREP(retro_setPixelColor);
 PREP(retro_getPixelColor);
 PREP(retro_getCanvasHeight);
