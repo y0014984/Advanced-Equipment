@@ -21,6 +21,8 @@ class CfgPatches
 
 #include "CfgOsFunctions.hpp"
 
+#include "CfgSounds.hpp"
+
 // Grid Macros and Styles
 #include "defines.inc"
 
