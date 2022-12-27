@@ -68,6 +68,13 @@ class AE3_FilesystemObjects
         owner = "root";
         permissions[] = {{1, 1, 1}, {1, 1, 0}};
     };
+    class Games : AE3_FilesystemObject
+    {
+        type = "Folder";
+        path = "/games";
+        owner = "root";
+        permissions[] = {{1, 1, 1}, {1, 1, 0}};
+    };
     class Root : AE3_FilesystemObject
     {
         type = "Folder";

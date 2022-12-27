@@ -1,5 +1,6 @@
 /* Module Functions */
 PREP(module_addUser);
+PREP(module_addGames);
 
 /* Shell Functions */
 PREP(shell_process);
@@ -12,6 +13,7 @@ PREP(shell_stdin);
 PREP(shell_writeToLogfile);
 
 /* Retro Games */
+PREP(games_init);
 PREP(games_snake);
 
 /* Retro Gaming Functions */
