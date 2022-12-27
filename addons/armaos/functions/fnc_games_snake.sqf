@@ -21,26 +21,9 @@ if ((_options select 0) isEqualTo "--big") then { _size = 2; };
 
 private _dialog = [_size] call AE3_armaos_fnc_retro_createCanvas;
 
-// define key down event handler
-private _upArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "up"]; };
-private _downArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "down"]; };
-private _leftArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "left"]; };
-private _rightArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "right"]; };
-private _escFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Running", false]; };
-
-// create keydown event handler HashMap
-private _keyDownEventHandlerSettings = createHashMapFromArray
-[
-    [DIK_UPARROW, _upArrowFunc],
-    [DIK_DOWNARROW, _downArrowFunc],
-    [DIK_LEFTARROW, _leftArrowFunc],
-    [DIK_RIGHTARROW, _rightArrowFunc],
-    [DIK_ESCAPE, _escFunc]
-];
-
-// add event handlers
-_dialog setVariable ["AE3_Retro_KeyDownEventHandlerSettings", _keyDownEventHandlerSettings];
-[_dialog] call AE3_armaos_fnc_retro_addEventHandler;
+// show splash screen
+playSound "SplashScreen";
+[_dialog, "\z\ae3\addons\armaos\images\Snake_Splash.paa", 3] call AE3_armaos_fnc_retro_showSplashScreen;
 
 // randomize starting direction
 private _directions = ["up", "down", "left", "right"];
@@ -122,6 +105,27 @@ private _speed = 0;
 // start time
 private _startTime = time;
 
+// define key down event handler
+private _upArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "up"]; };
+private _downArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "down"]; };
+private _leftArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "left"]; };
+private _rightArrowFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Dir", "right"]; };
+private _escFunc = { params ["_dialog"]; _dialog setVariable ["AE3_Retro_Snake_Running", false]; };
+
+// create keydown event handler HashMap
+private _keyDownEventHandlerSettings = createHashMapFromArray
+[
+    [DIK_UPARROW, _upArrowFunc],
+    [DIK_DOWNARROW, _downArrowFunc],
+    [DIK_LEFTARROW, _leftArrowFunc],
+    [DIK_RIGHTARROW, _rightArrowFunc],
+    [DIK_ESCAPE, _escFunc]
+];
+
+// add event handlers
+_dialog setVariable ["AE3_Retro_KeyDownEventHandlerSettings", _keyDownEventHandlerSettings];
+[_dialog] call AE3_armaos_fnc_retro_addEventHandler;
+
 // Game loop
 while { _dialog getVariable "AE3_Retro_Snake_Running" } do
 {
@@ -148,6 +152,8 @@ while { _dialog getVariable "AE3_Retro_Snake_Running" } do
 
     if (_head isEqualTo _food) then
     {
+        playSound "Blip";
+
         // set new food position
         _food = [_snake, _width, _height] call _getFoodSpawnPosFunc;
         _food params ["_x", "_y"];
@@ -181,6 +187,10 @@ while { _dialog getVariable "AE3_Retro_Snake_Running" } do
 
     sleep (0.5 / _speed);
 };
+
+// show gameover screen
+playSound "GameOver";
+[_dialog, "\z\ae3\addons\armaos\images\Snake_GameOver.paa", 3] call AE3_armaos_fnc_retro_showSplashScreen;
 
 closeDialog 1;
 
