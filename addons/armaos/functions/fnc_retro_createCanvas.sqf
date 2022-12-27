@@ -1,11 +1,11 @@
-params [["_width", 80], ["_height", 60], ["_bgColor", [0,0,0,1]]];
+params [["_width", 80], ["_height", 50], ["_bgColor", [0,0,0,1]]];
 
 private _dialog = createDialog ["AE3_ArmaOS_Retro_Dialog", false];
 
 if (_width < 0 ) then { _width = 80; };
 if (_width > 80 ) then { _width = 80; };
-if (_height < 0 ) then { _height = 60; };
-if (_height > 60 ) then { _height = 60; };
+if (_height < 0 ) then { _height = 50; };
+if (_height > 50 ) then { _height = 50; };
 
 _dialog setVariable ["AE3_Retro_Width", _width];
 _dialog setVariable ["AE3_Retro_Height", _height];
