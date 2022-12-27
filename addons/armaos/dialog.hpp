@@ -81,7 +81,7 @@ class AE3_ArmaOS_Main_Dialog
 			w = 2 * GUI_GRID_W;
 			h = 2 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0}; // transparent
-			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorBackgroundActive[] = {0,0,0,0.2}; // darken
 			colorText[] = {1,1,1,1}; // white
 			font = "EtelkaMonospaceProBold";
 			shadow = 0;
@@ -97,7 +97,7 @@ class AE3_ArmaOS_Main_Dialog
 			w = 2 * GUI_GRID_W;
 			h = 2 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0}; // transparent
-			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorBackgroundActive[] = {0,0,0,0.2}; // darken
 			colorText[] = {1,1,1,1}; // white
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			tooltip = "change terminal design";
@@ -112,7 +112,7 @@ class AE3_ArmaOS_Main_Dialog
 			w = 2 * GUI_GRID_W;
 			h = 2 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0}; // transparent
-			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorBackgroundActive[] = {0,0,0,0.2}; // darken
 			colorText[] = {1,1,1,1}; // white; this could prohibit to change color to yellow and red on low battery levels, but is necessary for design changes
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			action = "[(uiNamespace getVariable 'AE3_Battery'), true] call AE3_power_fnc_getBatteryLevel; ctrlSetFocus (uiNamespace getVariable 'AE3_ConsoleOutput');";
@@ -128,7 +128,7 @@ class AE3_ArmaOS_Main_Dialog
 			w = 2 * GUI_GRID_W;
 			h = 2 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0}; // transparent
-			colorBackgroundActive[] = {0,0,0,0}; // transparent; can't be set via command
+			colorBackgroundActive[] = {0,0,0,0.2}; // darken
 			colorText[] = {1,1,1,1}; // white
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			action = "closeDialog 1;";
