@@ -77,38 +77,6 @@ class CfgVehicles
 				internal = 1;
 			};
 		};
-
-		
-        class ACE_Actions 
-		{
-			class ACE_MainActions
-			{
-				displayName = "$STR_ACE_Interaction_MainAction";
-				condition = "true";
-				distance = 2;
-				class AE3_Laptop_Group
-				{
-					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
-					condition = "true";
-					class AE3_UseComputer
-					{
-						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
-						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-				};
-			};
-		};
 	};
 
 	/* ================================================================================ */
@@ -188,38 +156,6 @@ class CfgVehicles
 				internal = 1;
 			};
 		};
-
-		
-        class ACE_Actions 
-		{
-			class ACE_MainActions
-			{
-				displayName = "$STR_ACE_Interaction_MainAction";
-				condition = "true";
-				distance = 2;
-				class AE3_Laptop_Group
-				{
-					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
-					condition = "true";
-					class AE3_UseComputer
-					{
-						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
-						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-				};
-			};
-		};
 	};
 
 	/* ================================================================================ */
@@ -297,38 +233,6 @@ class CfgVehicles
 				recharging = 0.05/3600; // 50 Watts power consumption while recharging
 				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
-			};
-		};
-
-		
-        class ACE_Actions 
-		{
-			class ACE_MainActions
-			{
-				displayName = "$STR_ACE_Interaction_MainAction";
-				condition = "true";
-				distance = 2;
-				class AE3_Laptop_Group
-				{
-					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
-					condition = "true";
-					class AE3_UseComputer
-					{
-						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
-						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-				};
 			};
 		};
 	};
