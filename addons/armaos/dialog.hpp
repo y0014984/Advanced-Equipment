@@ -71,12 +71,28 @@ class AE3_ArmaOS_Main_Dialog
 			style = ST_MULTI;
 			lineSpacing = 1;
 		};
+		class RscButton_1050: RscButton
+		{
+			// Battery Symbol
+			idc = 1050;
+			text = "\z\ae3\addons\armaos\images\AE3_battery_0_percent.paa";
+			x = 32 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 2 * GUI_GRID_W;
+			h = 2 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0}; // transparent
+			colorBackgroundActive[] = {0,0,0,0.2}; // darken
+			colorText[] = {1,1,1,1}; // white; this could prohibit to change color to yellow and red on low battery levels, but is necessary for design changes
+			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+			action = "[(uiNamespace getVariable 'AE3_Battery'), true] call AE3_power_fnc_getBatteryLevel; ctrlSetFocus (uiNamespace getVariable 'AE3_ConsoleOutput');";
+			tooltip = "check battery level";
+		};
 		class RscButton_1310: RscButton
 		{
 			// Switch Language Button
 			idc = 1310;
 			text = "US";
-			x = 32 * GUI_GRID_W + GUI_GRID_X;
+			x = 34 * GUI_GRID_W + GUI_GRID_X;
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 2 * GUI_GRID_W;
 			h = 2 * GUI_GRID_H;
@@ -92,7 +108,7 @@ class AE3_ArmaOS_Main_Dialog
 			// Change Design Symbol
 			idc = 1320;
 			text = "\z\ae3\addons\armaos\images\AE3_bucket.paa";
-			x = 34 * GUI_GRID_W + GUI_GRID_X;
+			x = 36 * GUI_GRID_W + GUI_GRID_X;
 			y = 0 * GUI_GRID_H + GUI_GRID_Y;
 			w = 2 * GUI_GRID_W;
 			h = 2 * GUI_GRID_H;
@@ -101,22 +117,6 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			tooltip = "change terminal design";
-		};
-		class RscButton_1050: RscButton
-		{
-			// Battery Symbol
-			idc = 1050;
-			text = "\z\ae3\addons\armaos\images\AE3_battery_0_percent.paa";
-			x = 36 * GUI_GRID_W + GUI_GRID_X;
-			y = 0 * GUI_GRID_H + GUI_GRID_Y;
-			w = 2 * GUI_GRID_W;
-			h = 2 * GUI_GRID_H;
-			colorBackground[] = {0,0,0,0}; // transparent
-			colorBackgroundActive[] = {0,0,0,0.2}; // darken
-			colorText[] = {1,1,1,1}; // white; this could prohibit to change color to yellow and red on low battery levels, but is necessary for design changes
-			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
-			action = "[(uiNamespace getVariable 'AE3_Battery'), true] call AE3_power_fnc_getBatteryLevel; ctrlSetFocus (uiNamespace getVariable 'AE3_ConsoleOutput');";
-			tooltip = "check battery level";
 		};
 		class RscButton_1300: RscButton
 		{
