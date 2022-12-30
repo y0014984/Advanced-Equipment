@@ -20,6 +20,8 @@ class CfgPatches
 #include "Cfg3DEN.hpp"
 
 #include "CfgOsFunctions.hpp"
+#include "CfgSecurityCommands.hpp"
+#include "CfgHackingCommands.hpp"
 
 // Grid Macros and Styles
 #include "defines.inc"

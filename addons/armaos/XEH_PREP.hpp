@@ -1,5 +1,7 @@
 /* Module Functions */
 PREP(module_addUser);
+PREP(module_addHackingCommands);
+PREP(module_addSecurityCommands);
 
 /* Shell Functions */
 PREP(shell_process);
@@ -10,7 +12,6 @@ PREP(shell_executeFile);
 PREP(shell_stdout);
 PREP(shell_stdin);
 PREP(shell_writeToLogfile);
-
 
 /* Computer Functions */
 PREP(computer_playSoundStart);
@@ -24,6 +25,9 @@ PREP(computer_turnOff);
 /* OS Link Functions */
 PREP(link_add);
 PREP(link_init);
+
+PREP(securityCommands_init);
+PREP(hackingCommands_init);
 
 /* OS Internal Functions */
 PREP(os_cat);
