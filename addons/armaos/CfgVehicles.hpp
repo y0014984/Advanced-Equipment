@@ -14,11 +14,11 @@ class CfgVehicles
 				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
 				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
 				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
-				control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
 
 				expression = "_this setVariable ['%s', _value, true];";
 
-				defaultValue = "[configfile >> 'CfgVehicles' >> typeOf _this, 'ae3_power_defaultPowerLevel', -1] call BIS_fnc_returnConfigEntry;";
+				defaultValue = "1";
 
 				//--- Optional properties
 				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
