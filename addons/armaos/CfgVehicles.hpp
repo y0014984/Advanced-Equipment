@@ -5,6 +5,29 @@ class CfgVehicles
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
+		// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Edit"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "[configfile >> 'CfgVehicles' >> typeOf _this, 'ae3_power_defaultPowerLevel', -1] call BIS_fnc_returnConfigEntry;";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+
 		class TextureSources
 		{
 			class Black
