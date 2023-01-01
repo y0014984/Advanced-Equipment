@@ -1,4 +1,4 @@
-#define COMPONENT filesystem
+#define COMPONENT flashdrive
 #include "\z\ae3\addons\main\script_mod.hpp"
 
 #ifdef DEBUG_ENABLED_MAIN
@@ -9,3 +9,4 @@
 #endif
 
 #include "\z\ae3\addons\main\script_macros.hpp"
+#include "script_item_macro.hpp"
