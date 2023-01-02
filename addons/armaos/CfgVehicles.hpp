@@ -301,6 +301,48 @@ class CfgVehicles
 				internal = 1;
 			};
 		};
+
+		class AE3_USB_Interface
+		{
+			class Interface
+			{
+				rel_pos = [-0.18, 0.01, 0.012735];
+				rot_yaw = 0;
+				rot_pitch = 0;
+				rot_roll = 0;
+			};
+		};
+		
+        class ACE_Actions 
+		{
+			class ACE_MainActions
+			{
+				displayName = "$STR_ACE_Interaction_MainAction";
+				condition = "true";
+				distance = 2;
+				class AE3_Laptop_Group
+				{
+					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
+					condition = "true";
+					class AE3_UseComputer
+					{
+						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
+						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
+						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
+						//icon = "\z\dance.paa";
+						exceptions[] = {};
+						//insertChildren
+						//modifierFunction
+						//runOnHover
+						//distance
+						//position
+						//selection
+						priority = -1;
+						showDisabled = 0;
+					};
+				};
+			};
+		};
 	};
 
 	/* ================================================================================ */

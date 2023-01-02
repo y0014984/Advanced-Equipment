@@ -6,7 +6,7 @@ class CfgVehicles
 	class FlashDrive_AE3: Land_USB_Dongle_01_F
 	{
 		scope=2;
-		magazine = Item_FlashDisk_AE3;
+		ae3_item = Item_FlashDisk_AE3;
 
 		 class ACE_Actions {
             class GVAR(pickup) {

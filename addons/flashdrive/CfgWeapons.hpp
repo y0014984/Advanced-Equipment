@@ -13,6 +13,8 @@ class CfgWeapons {
         model = "\a3\Missions_F_Oldman\Props\DummyItemSmall_F.p3d";
         picture = "\A3\EditorPreviews_F_oldman\Data\CfgVehicles\Land_USB_Dongle_01_F.jpg";
 
+		ae3_vehicle = FlashDrive_AE3;
+
 		class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 1;
 			scope = 0;

@@ -6,11 +6,11 @@
 
 params ["_object", "_player"];
 
-private _itemClass = getText ((configOf _object) >> "magazine");
+private _itemClass = getText ((configOf _object) >> "ae3_item");
 
 if (isNil "_itemClass") exitWith {};
 
-private _buffer = missionNamespace getVariable ["AE3_ITEM_" + _itemClass, createHashMap];
+private _buffer = missionNamespace getVariable ["AE3_ITEM" , createHashMap];
 
 if (count _buffer > 511) exitWith {};
 
@@ -31,8 +31,10 @@ _itemNamespace = createHashMap;
 	_itemNamespace set [_x, _object getVariable _x];
 } forEach allVariables _object;
 
+_itemNamespace set ["AE3_OBJECT_TYPE", typeOf _object];
+
 _buffer set [_item, _itemNamespace];
-missionNamespace setVariable ["AE3_ITEM_" + _itemClass, _buffer];
+missionNamespace setVariable ["AE3_ITEM", _buffer];
 
 [_player, _item] remoteExecCall ["CBA_fnc_addItem", _player];
 
