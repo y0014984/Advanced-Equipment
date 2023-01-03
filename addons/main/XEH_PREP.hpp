@@ -11,7 +11,6 @@ PREP(initDebugOverlay);
 PREP(killDebugOverlay);
 
 // Eden Editor Connections
-PREP(3denEventHandlers_onConnectionStart);
 PREP(3denEventHandlers_onConnectionEnd);
 PREP(3den_checkConnection);
 PREP(3den_doNetworkConnection);
