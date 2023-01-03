@@ -34,6 +34,12 @@ private _typeCounter = 0;
     if (_type isEqualTo _tmpType) then { _typeCounter = _typeCounter + 1; };
 } forEach _fromConnections;
 
+if (_removeConnection) exitWith
+{
+    // if one of the above checks needs to remove the given connection
+    remove3DENConnection [_type, [_from], _to];
+};
+
 // check if the asset '_from' already has a connection of the given _type, but to another device
 // this prevents to have more then one connection of a type for the source asset
 // we use a distinct direction for our connections: the consumer is source and the generator is destination of the connection
@@ -45,10 +51,4 @@ if (_typeCounter > 1) then
 {
     _messageType = 0;
     [(format ["Connection warning: this asset already has a connection of type: %1", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
-};
-
-if (_removeConnection) then
-{
-    // if one of the above checks needs to remove the given connection
-    remove3DENConnection [_type, [_from], _to];
 };
