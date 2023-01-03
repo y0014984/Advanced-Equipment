@@ -16,7 +16,7 @@ params["_equipmentCfg", "_config"];
 
 _config set
 [
-	'equipment',
+	"equipment",
 	[
 		getText (_equipmentCfg >> "displayName"),
 		getNumber (_equipmentCfg >> "closeState"),
@@ -24,7 +24,10 @@ _config set
 		compile (getText (_equipmentCfg >> "openAction")),
 		compile ([_equipmentCfg, "openActionCondition", "true"] call BIS_fnc_returnConfigEntry),
 		compile (getText (_equipmentCfg >> "closeAction")),
-		compile ([_equipmentCfg, "closeActionCondition", "true"] call BIS_fnc_returnConfigEntry)
+		compile ([_equipmentCfg, "closeActionCondition", "true"] call BIS_fnc_returnConfigEntry),
+		[_equipmentCfg, "maxDamage", 1] call BIS_fnc_returnConfigEntry,
+		compile ([_equipmentCfg, "damagedAction", "true"] call BIS_fnc_returnConfigEntry),
+		compile ([_equipmentCfg, "destroyedAction", "true"] call BIS_fnc_returnConfigEntry)
 	]
 ];
 
@@ -128,7 +131,7 @@ if(!isNull _aceWorkaround) then
 	{
 		_config set 
 		[
-			'aceDragging',
+			"aceDragging",
 			[
 				getNumber (_aceDragging >> "ae3_dragging_canDrag"),
 				getArray (_aceDragging >> "ae3_dragging_dragPosition"),
@@ -142,7 +145,7 @@ if(!isNull _aceWorkaround) then
 	{
 		_config set 
 		[
-			'aceCarrying',
+			"aceCarrying",
 			[
 				getNumber (_aceCarrying >> "ae3_dragging_canCarry"),
 				getArray (_aceCarrying >> "ae3_dragging_carryPosition"),

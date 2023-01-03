@@ -35,7 +35,7 @@ private _config = missionNamespace getVariable _equipmentConfigVarName;
 
 if(_config isEqualType "") exitWith {};
 
-[_equipment] + (_config get "equipment") + [(_config get "animationPoints")] call AE3_interaction_fnc_initInteraction;
+[_equipment] + (_config get "equipment") + [(_config get "animationPoints")] call AE3_interaction_fnc_initEquipment;
 
 /* ---------------------------------------- */
 
