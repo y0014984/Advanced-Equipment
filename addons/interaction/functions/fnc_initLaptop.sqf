@@ -44,7 +44,8 @@ if(!isDedicated) then
             params ["_target", "_player", "_params"];
 
             (alive _target) && (_target getVariable "AE3_power_powerState" == 1) &&
-            (isNull (_target getVariable ["AE3_computer_mutex", objNull]))
+            (isNull (_target getVariable ["AE3_computer_mutex", objNull])) &&
+            (!(_target getVariable ["AE3_isDestroyed", false]))
         }
     ] call ace_interact_menu_fnc_createAction;
     [_laptop, 0, ["ACE_MainActions", "AE3_ArmaOSAction"], _useAction] call ace_interact_menu_fnc_addActionToObject; // 0 = action; 1 = self-action

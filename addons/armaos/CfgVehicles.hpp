@@ -33,6 +33,10 @@ class CfgVehicles
 			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
 			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+
+			maxDamage = 3;
+			damagedAction = "_this call AE3_interaction_fnc_laptop_damaged";
+			destroyedAction = "_this call AE3_interaction_fnc_laptop_destroyed";
 		};
 
 		class AE3_Device
@@ -43,11 +47,11 @@ class CfgVehicles
 			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
 
 			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
-			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			turnOnActionCondition = "(isNull (_this getVariable ['AE3_computer_mutex', objNull])) && (!(_target getVariable ['AE3_isDestroyed', false]))";
 			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
-			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull]) && (!(_target getVariable ['AE3_isDestroyed', false]))";
 			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
-			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
+			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull]) && (!(_target getVariable ['AE3_isDestroyed', false]))";
 
 			class AE3_Consumer
 			{

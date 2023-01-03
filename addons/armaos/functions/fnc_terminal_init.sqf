@@ -120,3 +120,15 @@ if (_terminalBuffer isEqualTo []) then
 _computer setVariable ["AE3_terminal", _terminal];
 
 [_computer, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
+
+/* ================================================================================ */
+
+private _damage = _computer getVariable "AE3_damage";
+
+if (_damage > 0) then 
+{
+	private _damagedFnc = _computer getVariable "AE3_fnc_damagedWrapper";
+	[_computer] call _damagedFnc;
+};
+
+/* ================================================================================ */

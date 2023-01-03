@@ -14,7 +14,7 @@ class AE3_ArmaOS_Main_Dialog
 	idd = 15984;
 	movingEnable = true;
 	enableSimulation = true;
-	class controls
+	class controlsBackground
 	{
 		class RscText_1000: RscText
 		{
@@ -75,6 +75,20 @@ class AE3_ArmaOS_Main_Dialog
 			colorBackground[] = {0,0.5,0,0.5};
 			
 			font = "EtelkaMonospaceProBold";
+		};
+	};
+	class controls
+	{
+		class RscPicture_1500: RscPicture
+		{
+			// Damaged Overlay; size max 40x25 GUI_GRID
+			idc = 1500;
+			text = "";
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 25 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0}; // transparent
 		};
 	};
 };

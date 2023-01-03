@@ -1,4 +1,5 @@
 /* Init */
+PREP(initEquipment);
 PREP(initLamp);
 PREP(initLaptop);
 PREP(initDesk);
@@ -11,14 +12,16 @@ PREP(laptop_close);
 PREP(desk_open);
 PREP(desk_close);
 
+/* Damage */
+PREP(laptop_damaged);
+PREP(laptop_destroyed);
+
 /* Compile */
 PREP(compileConfig);
 PREP(compileEquipment);
 
 /* Animation */
 PREP(animateInteraction);
-PREP(initInteraction);
-
 PREP(animateAction);
 
 /* ACE3 Workaround */
