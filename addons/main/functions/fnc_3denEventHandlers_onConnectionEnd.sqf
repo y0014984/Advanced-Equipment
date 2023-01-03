@@ -58,51 +58,40 @@ if (_type isEqualTo "AE3_NetworkConnection") then
 
 if (_type isEqualTo "AE3_PowerConnection") then
 {
-    private _allowedPowerFromClasses =
-    [
-        "Land_BatteryPack_01_open_sand_F_AE3",
-        "Land_BatteryPack_01_open_black_F_AE3",
-        "Land_BatteryPack_01_open_olive_F_AE3",
-        "Land_Laptop_03_sand_F_AE3",
-        "Land_Laptop_03_black_F_AE3",
-        "Land_Laptop_03_olive_F_AE3",
-        "Land_Router_01_sand_F_AE3",
-        "Land_Router_01_black_F_AE3",
-        "Land_Router_01_olive_F_AE3",
-        "Land_PortableLight_double_F_AE3",
-        "Land_PortableLight_single_F_AE3",
-        "Land_PortableLight_02_double_sand_F_AE3",
-        "Land_PortableLight_02_double_black_F_AE3",
-        "Land_PortableLight_02_double_olive_F_AE3",
-        "Land_PortableLight_02_double_yellow_F_AE3",
-        "Land_PortableLight_02_quad_sand_F_AE3",
-        "Land_PortableLight_02_quad_black_F_AE3",
-        "Land_PortableLight_02_quad_olive_F_AE3",
-        "Land_PortableLight_02_quad_yellow_F_AE3",
-        "Land_PortableLight_02_single_sand_F_AE3",
-        "Land_PortableLight_02_single_black_F_AE3",
-        "Land_PortableLight_02_single_olive_F_AE3",
-        "Land_PortableLight_02_single_yellow_F_AE3"
-    ];
+    // get all classes defined in CfgVehicles
+    private _config = configFile >> "CfgVehicles";
 
-    private _allowedPowerToClasses =
-    [
-        "Land_PortableGenerator_01_sand_F_AE3_Dummy",
-        "Land_PortableGenerator_01_black_F_AE3_Dummy",
-        "Land_PortableGenerator_01_F_AE3_Dummy",
-        "Land_PortableGenerator_01_sand_F_AE3",
-        "Land_PortableGenerator_01_black_F_AE3",
-        "Land_PortableGenerator_01_F_AE3",
-        "Land_BatteryPack_01_open_sand_F_AE3",
-        "Land_BatteryPack_01_open_black_F_AE3",
-        "Land_BatteryPack_01_open_olive_F_AE3",
-        "Land_SolarPanel_04_sand_F_AE3",
-        "Land_SolarPanel_04_black_F_AE3",
-        "Land_SolarPanel_04_olive_F_AE3",
-        "Land_PortableSolarPanel_01_sand_F_AE3",
-        "Land_PortableSolarPanel_01_olive_F_AE3"
-    ];
+    // filter classes to those, that contain AE3_Device and AE3_Consumer or AE_Battery config
+    private _powerConsumers =
+    "
+        isClass (_x >> 'AE3_Device' >> 'AE3_Consumer') ||
+        isClass (_x >> 'AE3_Device' >> 'AE3_Battery')
+    " configClasses _config;
 
+    // convert configs to class names
+    {
+        _powerConsumers set [_forEachIndex, configName _x];
+    } forEach _powerConsumers;
+
+    // filter classes to those, that contain AE3_Device and AE3_Generator or AE3_SolarGenerator or AE3_Battery config
+    private _powerProducers = 
+    "
+        isClass (_x >> 'AE3_Device' >> 'AE3_Generator') || 
+        isClass (_x >> 'AE3_Device' >> 'AE3_SolarGenerator') ||
+        isClass (_x >> 'AE3_Device' >> 'AE3_Battery')
+        
+    " configClasses _config;
+
+    // convert configs to class names
+    {
+        _powerProducers set [_forEachIndex, configName _x];
+    } forEach _powerProducers;
+
+    // unnecessary assignment but easier to read
+    private _allowedPowerFromClasses = _powerConsumers;
+    private _allowedPowerToClasses = _powerProducers;
+
+    // check connections; will be eliminated if not allowed
     private _fromObjects = _from select 0;
     {
         ["AE3_PowerConnection", _x, _to, _allowedPowerFromClasses, _allowedPowerToClasses] call AE3_main_fnc_3den_checkConnection;
