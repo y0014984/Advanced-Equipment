@@ -632,6 +632,76 @@
                 <Chinesesimp>armaOS键盘布局.您也可以在armaOS终端中更改此设置.</Chinesesimp>
                 <Russian>Раскладка клавиатуры для ArmaOS (Можно изменить в терминале ArmaOS)</Russian>
             </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignName">
+                <Original>Terminal Design</Original>
+                <English>Terminal Design</English>
+                <German>Terminal Design</German>
+                <Chinesesimp>Terminal Design</Chinesesimp>
+                <Russian>Terminal Design</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignTooltip">
+                <Original>Terminal Design for armaOS. You can also change this in armaOS terminal.</Original>
+                <English>Terminal Design for armaOS. You can also change this in armaOS terminal.</English>
+                <German>Terminal Design für armaOS. Du kannst dies auch im armaOS Terminal umstellen.</German>
+                <Chinesesimp>Terminal Design for armaOS. You can also change this in armaOS terminal.</Chinesesimp>
+                <Russian>Terminal Design for armaOS. You can also change this in armaOS terminal.</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameArmaOS">
+                <Original>armaOS default</Original>
+                <English>armaOS default</English>
+                <German>armaOS default</German>
+                <Chinesesimp>armaOS default</Chinesesimp>
+                <Russian>armaOS default</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignTooltipArmaOS">
+                <Original>armaOS default design (dark theme)</Original>
+                <English>armaOS default design (dark theme)</English>
+                <German>armaOS Standarddesign (dunkel)</German>
+                <Chinesesimp>armaOS default design (dark theme)</Chinesesimp>
+                <Russian>armaOS default design (dark theme)</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameC64">
+                <Original>C64</Original>
+                <English>C64</English>
+                <German>C64</German>
+                <Chinesesimp>C64</Chinesesimp>
+                <Russian>C64</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignTooltipC64">
+                <Original>C64 design (blue on blue theme)</Original>
+                <English>C64 design (blue on blue theme)</English>
+                <German>C64 Design (Blau auf Blau)</German>
+                <Chinesesimp>C64 design (blue on blue theme)</Chinesesimp>
+                <Russian>C64 design (blue on blue theme)</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameAppleII">
+                <Original>Apple II</Original>
+                <English>Apple II</English>
+                <German>Apple II</German>
+                <Chinesesimp>Apple II</Chinesesimp>
+                <Russian>Apple II</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignTooltipAppleII">
+                <Original>Apple II monochrome design (green on black)</Original>
+                <English>Apple II monochrome design (green on black)</English>
+                <German>Apple II - monochromes Design (Grün auf Schwarz)</German>
+                <Chinesesimp>Apple II monochrome design (green on black)</Chinesesimp>
+                <Russian>Apple II monochrome design (green on black)</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameAmber">
+                <Original>Amber</Original>
+                <English>Amber</English>
+                <German>Bernstein</German>
+                <Chinesesimp>Amber</Chinesesimp>
+                <Russian>Amber</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignTooltipAmber">
+                <Original>Amber monochrome design (amber on black)</Original>
+                <English>Amber monochrome design (amber on black)</English>
+                <German>Bernstein - monochromes Design (Bernstein auf Schwarz)</German>
+                <Chinesesimp>Amber monochrome design (amber on black)</Chinesesimp>
+                <Russian>Amber monochrome design (amber on black)</Russian>
+            </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedName">
                 <Original>Terminal Scroll Speed</Original>
                 <English>Terminal Scroll Speed</English>
