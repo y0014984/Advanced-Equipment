@@ -306,8 +306,8 @@ class CfgVehicles
 		{
 			class Interface
 			{
-				rel_pos = [-0.18, 0.01, 0.012735];
-				rot_yaw = 0;
+				rel_pos[] = {-0.19, 0.012, -0.145};
+				rot_yaw = 90;
 				rot_pitch = 0;
 				rot_roll = 0;
 			};

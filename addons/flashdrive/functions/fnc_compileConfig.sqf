@@ -21,7 +21,7 @@ private _config = [];
 	_config pushBack [
 		false,
 		configName _x,
-		getNumber (_x >> "rel_pos"),
+		(_x >> "rel_pos") call BIS_fnc_getCfgDataArray,
 		getNumber (_x >> "rot_yaw"),
 		getNumber (_x >> "rot_pitch"),
 		getNumber (_x >> "rot_roll")
