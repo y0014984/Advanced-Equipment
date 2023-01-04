@@ -15,7 +15,7 @@ private _buffer = missionNamespace getVariable ["AE3_ITEM" , createHashMap];
 if (count _buffer > 511) exitWith {};
 
 /* get free id */
-private _id = 0;
+private _id = 1;
 private _item = _itemClass + "_ID_";
 
 while {(_item + str _id) in _buffer} do
@@ -36,6 +36,6 @@ _itemNamespace set ["AE3_OBJECT_TYPE", typeOf _object];
 _buffer set [_item, _itemNamespace];
 missionNamespace setVariable ["AE3_ITEM", _buffer];
 
-[_player, _item] remoteExecCall ["CBA_fnc_addItem", _player];
+[_player, _item, true] remoteExecCall ["CBA_fnc_addItem", _player];
 
 deleteVehicle _object;
