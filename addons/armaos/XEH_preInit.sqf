@@ -7,8 +7,8 @@
 	["STR_AE3_Main_CbaSettings_KeyboardLayoutName", "STR_AE3_Main_CbaSettings_KeyboardLayoutTooltip"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	[
-		["US", "DE"],
-		[["US", "United States"], ["DE", "Deutschland"]], 
+		["US", "FR", "DE"],
+		[["US", "United States"], ["FR", "France"], ["DE", "Deutschland"]], 
 		0
 	],
     nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer

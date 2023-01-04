@@ -6,6 +6,28 @@ class CfgVehicles
 	class Land_Laptop_03_black_F;
 	class Land_Laptop_03_black_F_AE3: Land_Laptop_03_black_F
 	{
+		// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "1";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
         // Carrying
         ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
         ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
@@ -75,38 +97,6 @@ class CfgVehicles
 				recharging = 0.05/3600; // 50 Watts power consumption while recharging
 				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
-			};
-		};
-
-		
-        class ACE_Actions 
-		{
-			class ACE_MainActions
-			{
-				displayName = "$STR_ACE_Interaction_MainAction";
-				condition = "true";
-				distance = 2;
-				class AE3_Laptop_Group
-				{
-					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
-					condition = "true";
-					class AE3_UseComputer
-					{
-						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
-						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-				};
 			};
 		};
 	};
@@ -117,6 +107,28 @@ class CfgVehicles
 	class Land_Laptop_03_olive_F;
 	class Land_Laptop_03_olive_F_AE3: Land_Laptop_03_olive_F
 	{
+  	// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "1";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
         // Carrying
         ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
         ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
@@ -186,38 +198,6 @@ class CfgVehicles
 				recharging = 0.05/3600; // 50 Watts power consumption while recharging
 				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
-			};
-		};
-
-		
-        class ACE_Actions 
-		{
-			class ACE_MainActions
-			{
-				displayName = "$STR_ACE_Interaction_MainAction";
-				condition = "true";
-				distance = 2;
-				class AE3_Laptop_Group
-				{
-					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
-					condition = "true";
-					class AE3_UseComputer
-					{
-						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
-						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-				};
 			};
 		};
 	};
@@ -228,6 +208,28 @@ class CfgVehicles
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
+  	// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "1";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
         // Carrying
         ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
         ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
@@ -297,38 +299,6 @@ class CfgVehicles
 				recharging = 0.05/3600; // 50 Watts power consumption while recharging
 				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
-			};
-		};
-
-		
-        class ACE_Actions 
-		{
-			class ACE_MainActions
-			{
-				displayName = "$STR_ACE_Interaction_MainAction";
-				condition = "true";
-				distance = 2;
-				class AE3_Laptop_Group
-				{
-					displayName = "$STR_AE3_ArmaOS_Config_ArmaOSDisplayName";
-					condition = "true";
-					class AE3_UseComputer
-					{
-						displayName = "$STR_AE3_ArmaOS_Config_UseDisplayName";
-						condition = "(alive _target) && (_target getVariable 'AE3_power_powerState' == 1) && (isNull (_target getVariable ['AE3_computer_mutex', objNull]))";
-						statement = "params ['_target', '_player', '_params']; _target setVariable ['AE3_computer_mutex', _player, true]; _handle = [_target] spawn AE3_armaos_fnc_terminal_init;";
-						//icon = "\z\dance.paa";
-						exceptions[] = {};
-						//insertChildren
-						//modifierFunction
-						//runOnHover
-						//distance
-						//position
-						//selection
-						priority = -1;
-						showDisabled = 0;
-					};
-				};
 			};
 		};
 	};

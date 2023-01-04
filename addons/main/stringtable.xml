@@ -91,11 +91,11 @@
                 <Russian>Уровень мощности</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
-                <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
-                <English>1 = full | 0.5 = 50% | 0 = empty</English>
-                <German>1 = voll | 0.5 = 50% | 0 = leer</German>
-                <Chinesesimp>1 = 满 | 0.5 = 50% | 0 = 空</Chinesesimp>
-                <Russian>1 = Полный | 0.5 = 50% | 0 = Пустой</Russian>
+                <Original>Power Level set at the beginning of the mission</Original>
+                <English>Power Level set at the beginning of the mission</English>
+                <German>Batteriefüllstand zu Beginn der Mission</German>
+                <Chinesesimp>Power Level set at the beginning of the mission</Chinesesimp>
+                <Russian>Power Level set at the beginning of the mission</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
                 <Original>Fuel Level</Original>
@@ -105,11 +105,11 @@
                 <Russian>Уровень топлива</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelTooltip">
-                <Original>1 = full | 0.5 = 50% | 0 = empty</Original>
-                <English>1 = full | 0.5 = 50% | 0 = empty</English>
-                <German>1 = voll | 0.5 = 50% | 0 = leer</German>
-                <Chinesesimp>1 = 满 | 0.5 = 50% | 0 = 空</Chinesesimp>
-                <Russian>1 = Полный | 0.5 = 50% | 0 = Пустой</Russian>
+                <Original>Fuel Level set at the beginning of the mission</Original>
+                <English>Fuel Level set at the beginning of the mission</English>
+                <German>Treibstofffüllstand zu Beginn der Mission</German>
+                <Chinesesimp>Fuel Level set at the beginning of the mission</Chinesesimp>
+                <Russian>Fuel Level set at the beginning of the mission</Russian>
             </Key>
         </Container>
         <Container name="CBA Settings">

@@ -61,4 +61,6 @@ if(isServer) then
 
 		[_battery] call (_battery getVariable 'AE3_power_fnc_turnOnWrapper');
 	};
+
+	[_battery, _entity] call AE3_power_fnc_initBatteryLevelWithEdenAttribute;
 };

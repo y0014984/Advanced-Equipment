@@ -18,7 +18,14 @@ private _users = _computer getVariable ["AE3_Userlist", createHashMap];
 private _result = [];
 private _logMessage = "";
 
-if ((_username in _users) || AE3_DebugMode) then 
+if (AE3_DebugMode) then
+{
+	private _debugUsername = [_username] call BIS_fnc_filterString; // (default filter a..z, A..Z, 0..9, "_")
+	// no empty string allowed or changing an existing username
+	if (((count _debugUsername) > 0) && !(_username in _users)) then { _username = _debugUsername; };
+};
+
+if ((_username in _users) || AE3_DebugMode) then
 {
 	_terminal set ["AE3_terminalLoginUser", _username];
 	_terminal set ["AE3_terminalApplication", "PASSWORD"];
