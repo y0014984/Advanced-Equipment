@@ -20,7 +20,7 @@ if(isNil {missionNamespace getVariable _equipmentConfigVarName}) then
 {
 	private _equipmentCfg = configFile >> "CfgVehicles" >> _class >> "AE3_Equipment";
 
-	if (isNull _equipmentCfg) exitWith 
+	if (!isClass _equipmentCfg) exitWith 
 	{
 		missionNamespace setVariable [_equipmentConfigVarName, ""];
 	};

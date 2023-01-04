@@ -16,6 +16,8 @@ params ["_computer", "_key"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
+private _username = _terminal get "AE3_terminalLoginUser";
+
 private _terminalBuffer = _terminal get "AE3_terminalBuffer";
 private _terminalPrompt = _terminal get "AE3_terminalPrompt";
 
@@ -23,6 +25,7 @@ private _lastBufferLineIndex = (count _terminalBuffer) - 1;
 private _lastBufferLine = "";
 
 private _terminalCommandHistory = _terminal get "AE3_terminalCommandHistory";
+_terminalCommandHistory = _terminalCommandHistory get _username;
 private _terminalCommandHistoryIndex = _terminal get "AE3_terminalCommandHistoryIndex";
 
 private _terminalCommandHistoryLength = count _terminalCommandHistory;
