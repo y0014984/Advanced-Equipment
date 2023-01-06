@@ -49,7 +49,7 @@ private _children = {
 	{
 		_y params ['_occupied', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 		
-		private _action = [_name, format ["USB Port %1", str _forEachIndex], "", {hint "Test";}, _condition, _flash_drives, [_y]] call ace_interact_menu_fnc_createAction;  
+		private _action = [_name, _name, "", {hint "Test";}, _condition, _flash_drives, [_y]] call ace_interact_menu_fnc_createAction;  
 		_actions pushBack [_action, [], _target];
 	} forEach _interfaces;
 
