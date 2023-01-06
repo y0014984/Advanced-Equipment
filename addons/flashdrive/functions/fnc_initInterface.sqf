@@ -1,3 +1,14 @@
+/**
+ * Initializes a interface.
+ * 
+ * Arguments:
+ * 0: Device <OBJECT>
+ * 1: Interface config <ARRAY>
+ *
+ * Results:
+ * None
+*/
+
 params ["_device", "_config"];
 
 private _flash_drives = {
@@ -32,13 +43,13 @@ private _children = {
 	{
 		params ["_target", "_player", "_params"];
 		(_params select 0) params ['_occupied', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
-		!_occupied;
+		isNull _occupied;
 	};
 	
 	{
-		_x params ['_occupied', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
+		_y params ['_occupied', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 		
-		private _action = [_name, format ["USB Port %1", str _forEachIndex], "", {hint "Test";}, _condition, _flash_drives, [_x]] call ace_interact_menu_fnc_createAction;  
+		private _action = [_name, format ["USB Port %1", str _forEachIndex], "", {hint "Test";}, _condition, _flash_drives, [_y]] call ace_interact_menu_fnc_createAction;  
 		_actions pushBack [_action, [], _target];
 	} forEach _interfaces;
 

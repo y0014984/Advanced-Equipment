@@ -56,6 +56,8 @@ PREP(os_whoami);
 PREP(os_crypto);
 PREP(os_crack);
 PREP(os_find);
+PREP(os_mount);
+PREP(os_unmount);
 
 /* Encryption Functions */
 PREP(encryption_caesar);

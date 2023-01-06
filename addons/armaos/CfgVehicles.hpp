@@ -304,7 +304,7 @@ class CfgVehicles
 
 		class AE3_USB_Interface
 		{
-			class Interface
+			class USB0
 			{
 				rel_pos[] = {-0.19, 0.012, -0.145};
 				rot_yaw = 90;

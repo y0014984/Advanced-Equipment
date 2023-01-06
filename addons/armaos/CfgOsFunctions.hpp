@@ -175,4 +175,18 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
 		code = "_this call AE3_armaos_fnc_os_find";
 	};
+	class mount : OsFunction
+	{
+		path = "/bin/mount";
+		description = "$STR_AE3_ArmaOS_Config_CommandFindDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
+		code = "_this call AE3_armaos_fnc_os_mount";
+	};
+	class unmount : OsFunction
+	{
+		path = "/bin/unmount";
+		description = "$STR_AE3_ArmaOS_Config_CommandFindDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
+		code = "_this call AE3_armaos_fnc_os_unmount";
+	};
 };
