@@ -41,6 +41,7 @@ try
 	] call AE3_filesystem_fnc_delObj;
 
 	_computer setVariable ["AE3_filesystem", _filesystem, 2];
+	_interfaces set [1, false];
 }catch
 {
 	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;

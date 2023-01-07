@@ -18,8 +18,8 @@ class CfgVehicles
 				displayName = CSTRING(Pickup);
 				icon = "\a3\ui_f\data\igui\cfg\actions\take_ca.paa";
 				distance = 2;
-				//condition = QUOTE(_this call FUNC(canPickup));
-				statement = "_this remoteExecCall ['AE3_flashdrive_fnc_obj2item', 2];";
+				condition = "true";
+				statement = "_this remoteExec ['AE3_flashdrive_fnc_obj2item', 2];";
 			};
         };
 	};

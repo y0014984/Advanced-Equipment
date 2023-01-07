@@ -17,7 +17,10 @@ private _type = _itemnamespace get "AE3_OBJECT_TYPE";
 private _object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
 
 {
-	_object setVariable [_x, _y];
+	if (!(isNil "_y")) then
+	{
+		_object setVariable [_x, _y];
+	};
 } forEach _itemnamespace;
 
 [_player, _item] remoteExecCall ["CBA_fnc_removeItem", _player];

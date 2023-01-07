@@ -59,6 +59,8 @@ try
 	] call AE3_filesystem_fnc_chown;
 
 	_computer setVariable ["AE3_filesystem", _filesystem, 2];
+
+	(_interfaces get _obj) set [1, true];
 }catch
 {
 	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
