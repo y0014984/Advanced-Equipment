@@ -65,7 +65,7 @@ if(isServer) then
 		_settingsAce3 set ["unwrapped", _ae3_unwrapped];
 	};
 
-	_equipment setVariable ["AE3_SettingsACE3", _settingsAce3, true];
+	_equipment setVariable ["AE3_SettingsACE3", _settingsAce3];
 
-	[_equipment, "init", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
+	[_equipment, "init", true] call AE3_interaction_fnc_manageAce3Interactions;
 };

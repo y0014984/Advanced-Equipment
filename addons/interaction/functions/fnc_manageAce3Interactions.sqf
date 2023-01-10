@@ -92,5 +92,5 @@ if (!isNil "_settingsAce3") then
     // some classes have a disabled renaming feature via ACE3 config, like the yellow lamps
     _target setVariable ["ace_cargo_noRename", false, true];
 
-	_target setVariable ["AE3_SettingsACE3", _settingsAce3, true];
+	_target setVariable ["AE3_SettingsACE3", _settingsAce3];
 };
