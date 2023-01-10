@@ -11,7 +11,7 @@
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
-params ["_consoleDialog", "_terminalCtrl", "_languageButtonCtrl"];
+params ["_consoleDialog", "_terminalCtrl", "_languageButtonCtrl", "_designButtonCtrl"];
 
 /* ================================================================================ */
 
@@ -188,6 +188,15 @@ _languageButtonCtrl buttonSetAction
 		private _computer = _consoleOutput getVariable 'AE3_computer';
 
 		[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
+	";
+
+/* ================================================================================ */
+
+_designButtonCtrl buttonSetAction
+	"
+		private _consoleDialog = findDisplay 15984;
+
+		[_consoleDialog] call AE3_armaos_fnc_terminal_switchTerminalDesign;
 	";
 
 /* ================================================================================ */
