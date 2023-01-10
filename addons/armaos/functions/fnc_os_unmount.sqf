@@ -14,34 +14,9 @@ params ["_computer", "_options"];
 if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", "mount"] ] call AE3_armaos_fnc_shell_stdout; };
 if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", "mount"] ] call AE3_armaos_fnc_shell_stdout; };
 
-private _pointer = _computer getVariable "AE3_filepointer";
-private _filesystem = _computer getVariable "AE3_filesystem";
-
-private _terminal = _computer getVariable "AE3_terminal";
-private _username = _terminal get "AE3_terminalLoginUser";
-private _interfaces = _computer getVariable ["AE3_USB_Interfaces", createHashMap];
-
-private _obj = _options select 0;
-
-if (!(_obj in _interfaces)) exitWith { [ _computer, "Interface does not exits!"] call AE3_armaos_fnc_shell_stdout; };
-
-private _flashdrive = (_interfaces get _obj) select 0;
-
-if (isNull _flashdrive) exitWith { [ _computer, "Interface is empty!"] call AE3_armaos_fnc_shell_stdout; };
-
-private _fdFilesystem = _flashdrive getVariable "AE3_filesystem";
-
 try
 {
-	[
-		_pointer,
-		_filesystem,
-		format ["/mnt/%1", _obj],
-		"root"
-	] call AE3_filesystem_fnc_delObj;
-
-	_computer setVariable ["AE3_filesystem", _filesystem, 2];
-	_interfaces set [1, false];
+	[_computer, _options select 0] call AE3_flashdrive_fnc_unmount;
 }catch
 {
 	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;

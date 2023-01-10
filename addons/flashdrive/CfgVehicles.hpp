@@ -19,7 +19,7 @@ class CfgVehicles
 				icon = "\a3\ui_f\data\igui\cfg\actions\take_ca.paa";
 				distance = 2;
 				condition = "true";
-				statement = "_this remoteExec ['AE3_flashdrive_fnc_obj2item', 2];";
+				statement = "_this remoteExec ['AE3_flashdrive_fnc_take', 2];";
 			};
         };
 	};

@@ -24,3 +24,19 @@ _object attachTo [_computer, _rel_pos];
 [_object, [_rot_yaw, _rot_pitch, _rot_roll]] call BIS_fnc_setObjectRotation;
 
 _USBInterface set [0, _object];
+
+_object setVariable ['AE3_Flashdrive_Parent', _computer];
+_object setVariable ['AE3_Flashdrive_Interface', _USBInterface];
+
+[_object, "AE3_Flashdrive_takeEH", {
+	params['_flashdrive', '_player'];
+
+	private _computer = _flashDrive getVariable 'AE3_Flashdrive_Parent';
+	private _USBInterface = _flashDrive getVariable 'AE3_Flashdrive_Interface';
+
+	[_computer, _player, _USBInterface] call AE3_flashdrive_fnc_disconnectFlashDrive;
+
+	[_flashDrive, "AE3_Flashdrive_takeEH", _thisScriptedEventHandler] call BIS_fnc_removeScriptedEventHandler;
+
+	true;
+}] call BIS_fnc_addScriptedEventHandler;

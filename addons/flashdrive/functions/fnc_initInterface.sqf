@@ -116,7 +116,7 @@ private _disconnect = ["AE3_USBInterfaceConnectAction", "Disconnect Flash Drive"
 if(!isDedicated) then
 {
 	[_device, 0, ["ACE_MainActions"], _connect] call ace_interact_menu_fnc_addActionToObject;
-	[_device, 0, ["ACE_MainActions"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	//[_device, 0, ["ACE_MainActions"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
 };
 
 _device setVariable ["AE3_USB_Interfaces", _config];
