@@ -20,19 +20,33 @@ params ["_target", "_condition", "_status"];
 
 //this function only runs once per triggered interaction by player on server machine
 private _settingsAce3 = _target getVariable "AE3_SettingsACE3";
-if (!isNil "_settingsAce3") then
+if (isNil "_settingsAce3") exitWith {};
+
+private _isBlocked = _settingsAce3 getOrDefault ["isBlocked", false, true];
+
+if (!(_condition isEqualTo "init")) then
 {
-    if (!(_condition isEqualTo "init")) then { _settingsAce3 set [_condition, _status]; };
+    _settingsAce3 set [_condition, _status];
+} 
+else
+{
+    // condition = init
+    // _isBlocked needs to be true on init
+    _isBlocked = true;
+};
 
-    private _powerConnected = _settingsAce3 getOrDefault ["powerConnected", false, true];
-    private _networkConnected = _settingsAce3 getOrDefault ["networkConnected", false, true];
-    private _unwrapped = _settingsAce3 getOrDefault ["unwrapped", false, true];
-    private _turnedOn = _settingsAce3 getOrDefault ["turnedOn", false, true];
-    private _inUse = _settingsAce3 getOrDefault ["inUse", false, true];
+private _powerConnected = _settingsAce3 getOrDefault ["powerConnected", false, true];
+private _networkConnected = _settingsAce3 getOrDefault ["networkConnected", false, true];
+private _unwrapped = _settingsAce3 getOrDefault ["unwrapped", false, true];
+private _turnedOn = _settingsAce3 getOrDefault ["turnedOn", false, true];
+private _inUse = _settingsAce3 getOrDefault ["inUse", false, true];
 
-    // ACE3 Carry, Drag and Load will only be available if the device is not connected via power/network, 
-    // not unfold/opened/expanded, not turned on
-    if (_powerConnected || _networkConnected || _unwrapped || _turnedOn || _inUse) then
+// ACE3 Carry, Drag and Load will only be available if the device is not connected via power/network, 
+// not unfold/opened/expanded, not turned on
+if (_powerConnected || _networkConnected || _unwrapped || _turnedOn || _inUse) then
+{
+    // block the device, if it isn't blocked already
+    if (!_isBlocked) then
     {
         if (_settingsAce3 get "ae3_dragging_canDrag") then
         {
@@ -46,8 +60,14 @@ if (!isNil "_settingsAce3") then
         {
             [_target, -1] call ace_cargo_fnc_setSize;
         };
-    }
-    else
+
+        _settingsAce3 set ["isBlocked", true];
+    };
+}
+else
+{
+    // unblock the device, if it isn't unblocked already
+    if (_isBlocked) then
     {
         if (_settingsAce3 get "ae3_dragging_canDrag") then
         {
@@ -86,11 +106,13 @@ if (!isNil "_settingsAce3") then
         {
             [_target, -1] call ace_cargo_fnc_setSize;
         };
+
+        _settingsAce3 set ["isBlocked", false];
     };
-
-    // ensures that cargo rename feature is enabled on all assets, no matter if canLoad is true
-    // some classes have a disabled renaming feature via ACE3 config, like the yellow lamps
-    _target setVariable ["ace_cargo_noRename", false, true];
-
-	_target setVariable ["AE3_SettingsACE3", _settingsAce3];
 };
+
+// ensures that cargo rename feature is enabled on all assets, no matter if canLoad is true
+// some classes have a disabled renaming feature via ACE3 config, like the yellow lamps
+_target setVariable ["ace_cargo_noRename", false, true];
+
+_target setVariable ["AE3_SettingsACE3", _settingsAce3];
