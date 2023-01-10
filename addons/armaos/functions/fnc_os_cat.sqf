@@ -13,16 +13,28 @@
 params ["_computer", "_options"];
 
 private _commandName = "cat";
+private _commandOpts = 
+	[
+		["_numbered", "n", "number", "bool", false, false, "prints numbered output lines"]
+	];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+			["path", "PATH", true, true]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
-if (count _options == 0) exitWith { [_computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
+
+if (!_ae3OptsSuccess) exitWith {};
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
-
-if(count _options == 0) exitWith {[localize "STR_AE3_ArmaOS_Exception_TooFewOptions"];};
 
 private _result = [];
 
@@ -40,6 +52,14 @@ private _result = [];
 		};
 
 		_content = _content splitString endl;
+
+		if (_numbered) then
+		{
+			{
+				_content set [_forEachIndex, format ["%1: %2", _forEachIndex, _x]];
+			} forEach _content;
+		};
+
 		_result append _content;
 	}
 	catch
@@ -47,7 +67,7 @@ private _result = [];
 		[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 	};
 
-} forEach _options;
+} forEach _ae3OptsThings;
 
 [_computer, _result] call AE3_armaos_fnc_shell_stdout;
 
