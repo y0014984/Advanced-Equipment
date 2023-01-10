@@ -28,7 +28,7 @@ if (count _children == 0) then
 	private _parentParent = _parent getVariable 'AE3_network_parent';
 	if (isNull _parentParent) then
 	{
-		[_parent, "networkConnected", false] call AE3_interaction_fnc_manageAce3Interactions;
+		[_parent, "networkConnected", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 	};
 };
 
@@ -36,7 +36,7 @@ if (count _children == 0) then
 _children = _entity getVariable ['AE3_network_children', []];
 if (count _children == 0) then
 {
-	[_entity, "networkConnected", false] call AE3_interaction_fnc_manageAce3Interactions;
+	[_entity, "networkConnected", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 };
 
 _entity setVariable ['AE3_network_parent', objNull, true];

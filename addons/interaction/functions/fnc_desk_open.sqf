@@ -22,6 +22,6 @@ _desk animateSource ["Lid_2_hide_source", 1, false];
 _desk animateSource ["Wing_L_Hide_Source", 0, false];
 _desk animateSource ["Wing_R_Hide_Source", 0, false];
 
-[_desk, "unwrapped", true] call AE3_interaction_fnc_manageAce3Interactions;
+[_desk, "unwrapped", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
 true;

@@ -67,5 +67,5 @@ if(isServer || !isMultiplayer) then
 
 	_equipment setVariable ["AE3_SettingsACE3", _settingsAce3, true];
 
-	[_equipment, "init", true] call AE3_interaction_fnc_manageAce3Interactions;
+	[_equipment, "init", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 };

@@ -19,7 +19,7 @@ private _turnOffSolPanFunc =
 {
 	params ["_entity"];
 
-	[_entity, "turnedOn", false] call AE3_interaction_fnc_manageAce3Interactions;
+	[_entity, "turnedOn", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
 	[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
 

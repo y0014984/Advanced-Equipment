@@ -16,6 +16,6 @@ params['_battery'];
 		[_x] call (_x getVariable 'AE3_power_fnc_turnOffWrapper');
 }forEach (_battery getVariable ['AE3_power_connectedDevices', []]);
 
-[_battery, "turnedOn", false] call AE3_interaction_fnc_manageAce3Interactions;
+[_battery, "turnedOn", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
 true;

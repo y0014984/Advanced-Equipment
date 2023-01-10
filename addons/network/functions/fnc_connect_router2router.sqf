@@ -36,5 +36,5 @@ if(count (_router getVariable 'AE3_network_children') != 0) then
 	[_router] call AE3_network_fnc_dhcp_refresh;
 };
 
-[_router, "networkConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
-[_parent, "networkConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
+[_router, "networkConnected", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
+[_parent, "networkConnected", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];

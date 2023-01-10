@@ -33,7 +33,7 @@ if (_fuelLevel > 0) then
 
 			[_entity, AE3_power_fnc_fuelConsumption] remoteExecCall ["AE3_power_fnc_addProviderHandler", 2];
 
-			[_entity, "turnedOn", true] call AE3_interaction_fnc_manageAce3Interactions;
+			[_entity, "turnedOn", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
 			// we need to set power state here because function already returned false
 			// and therefore the turn on wrapper doesn't set the state to turned on

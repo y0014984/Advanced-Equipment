@@ -1,5 +1,5 @@
 /**
- * Receives a status update and sets ACE3 dragging, carrying and cargo accordingly.
+ * Receives a status update and sets ACE3 dragging, carrying and cargo accordingly. Should be executed on server.
  *
  * Arguments:
  * 0: Equipment <OBJECT>
@@ -10,7 +10,7 @@
  * none
  *
  * Example:
- * [_computer, "powerConnected", true] call AE3_interaction_fnc_manageAce3Interactions
+ * [_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
  */
 
 params ["_target", "_condition", "_status"];
@@ -18,7 +18,7 @@ params ["_target", "_condition", "_status"];
 // ace_dragging_fnc_setCarryable and ace_dragging_fnc_setDraggable need to be executed on all machines with JIP
 // ace_cargo_fnc_setSize can be executed locally because it handles JIP and remoteExecCall on it's own
 
-//this function only runs once per triggered interaction by player on players machine
+//this function only runs once per triggered interaction by player on server machine
 private _settingsAce3 = _target getVariable "AE3_SettingsACE3";
 if (!isNil "_settingsAce3") then
 {

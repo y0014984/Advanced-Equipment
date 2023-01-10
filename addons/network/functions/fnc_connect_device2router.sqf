@@ -19,10 +19,10 @@ _device setVariable ['AE3_network_address', [_device] call AE3_network_fnc_dhcp_
 
 if (isNull _parent) then
 {
-    [_device, "networkConnected", false] call AE3_interaction_fnc_manageAce3Interactions;
+    [_device, "networkConnected", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 }
 else
 {
-    [_device, "networkConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
-    [_parent, "networkConnected", true] call AE3_interaction_fnc_manageAce3Interactions;
+    [_device, "networkConnected", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
+    [_parent, "networkConnected", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 };

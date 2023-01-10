@@ -220,7 +220,7 @@ private _result = _consoleDialog displayAddEventHandler
 		_filepointer = _computer getVariable "AE3_filepointer";
 		_computer setVariable ["AE3_filepointer", _filepointer, 2];
 
-		[_computer, "inUse", false] call AE3_interaction_fnc_manageAce3Interactions;
+		[_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 	}
 ]
 
