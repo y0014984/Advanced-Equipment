@@ -11,9 +11,8 @@
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "crypto";
 private _commandOpts = 
 	[
 		["_mode", "m", "mode", "stringSelect", "", true, "sets the mode", ["encrypt", "decrypt"]],

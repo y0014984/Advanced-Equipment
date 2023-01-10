@@ -9,9 +9,8 @@
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "clear";
 private _commandOpts = [];
 private _commandSyntax =
 [

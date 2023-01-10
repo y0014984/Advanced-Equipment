@@ -10,9 +10,8 @@
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "cd";
 private _commandOpts = [];
 private _commandSyntax =
 [

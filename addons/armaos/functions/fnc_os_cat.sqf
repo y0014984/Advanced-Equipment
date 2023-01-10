@@ -10,9 +10,8 @@
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "cat";
 private _commandOpts = 
 	[
 		["_numbered", "n", "number", "bool", false, false, "prints numbered output lines"]
