@@ -13,28 +13,26 @@
 params ["_computer", "_options"];
 
 private _commandName = "crack";
+private _commandOpts = 
+	[
+		["_mode", "m", "mode", "stringSelect", "", true, "sets the mode", ["bruteforce", "statistics"]],
+        ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, "sets the algorithm", ["caesar"]]
+	];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+            ["options", "OPTIONS", true, false],
+			["path", "MESSAGE", true, false]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
-if (count _options < 2) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
-private _algorythm = "";
-private _mode = "";
-private _message = "";
+if (!_ae3OptsSuccess) exitWith {};
 
-// recognized options are overwritten by "" so the resulting string is the message to process; No need for quotations
-{
-    if (_x isEqualTo "-a") then { _algorythm = _options select (_forEachIndex + 1); _options set [_forEachIndex, ""]; _options set [_forEachIndex + 1, ""]; };
-    if (_x isEqualTo "-m") then { _mode = _options select (_forEachIndex + 1); _options set [_forEachIndex, ""]; _options set [_forEachIndex + 1, ""]; };
-} forEach _options;
-
-private _allowedAlgorythms = ["caesar"];
-private _allowedModes = ["bruteforce", "statistics"];
-
-if (!(_mode in _allowedModes)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMode", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
-
-// remove all empty strings from options array
-_message = _options - [""];
-
-_message = _message joinString " ";
+private _message = _ae3OptsThings joinString " ";
 
 if (_message isEqualTo "") exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
@@ -50,9 +48,7 @@ _message = [_message, _allowedAlphabet + " "] call BIS_fnc_filterString;
 
 if (_mode isEqualTo "bruteforce") then
 {
-    if (!(_algorythm in _allowedAlgorythms)) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingAlgorythm", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
-
-    if (_algorythm == "caesar") then
+    if (_algorithm == "caesar") then
     {
         for "_i" from 1 to (count _allowedAlphabet) do
         {
