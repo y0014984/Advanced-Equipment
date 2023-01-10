@@ -22,16 +22,25 @@ private _commandSyntax = _commandSettings select 2;
 	private _commandSyntaxString = "";
 	private _commandSyntaxVariant = _x;
 	{
-		_commandSyntaxString = _commandSyntaxString + (_x select 1);
-		// if syntax element is set to 'unlimited' ... is appended
-		if (_x select 3) then { _commandSyntaxString = _commandSyntaxString + "..."; };
-		// if syntax element is not set to 'required' it is enclosed in [ ]; not for command
-		if (!(_x select 2) && !((_x select 2) isEqualTo "command")) then { _commandSyntaxString = "[" + _commandSyntaxString + "]"; };
-		_commandSyntaxString = _commandSyntaxString + " ";
+		private _commandSyntaxType = _x select 0;
+		private _commandSyntaxElement = _x select 1;
+		private _isRequired = _x select 2;
+		private _isUnlimited = _x select 3;
+		
+		if (!(_commandSyntaxType isEqualTo "command")) then
+		{
+			// if syntax element is set to 'unlimited' ... is appended
+			if (_isUnlimited) then { _commandSyntaxElement = _commandSyntaxElement + "..."; };
+			// if syntax element is not set to 'required' it is enclosed in [ ]; not for command
+			if (!(_isRequired)) then { _commandSyntaxElement = "[" + _commandSyntaxElement + "]"; };
+		};
+		
+		_commandSyntaxString = _commandSyntaxString + _commandSyntaxElement + " ";
 	} forEach _commandSyntaxVariant;
-
+	
 	[_computer, _commandSyntaxString] call AE3_armaos_fnc_shell_stdout;
 } forEach _commandSyntax;
+
 [_computer, ""] call AE3_armaos_fnc_shell_stdout;
 
 // print command options to stdout

@@ -21,7 +21,8 @@ private _commandSyntax =
 [
 	[
 			["command", _commandName, true, false],
-			["path", "PATH", true, true]
+			["options", "OPTIONS", false, false],
+			["path", "FILEPATH", true, true]
 	]
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
