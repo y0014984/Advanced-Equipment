@@ -71,7 +71,7 @@ else
     {
         if (_settingsAce3 get "ae3_dragging_canDrag") then
         {
-            private _canDrag = _settingsAce3 get "ae3_dragging_canDrag";
+            private _canDrag = true;
             private _dragPosition = _settingsAce3 get "ae3_dragging_dragPosition";
             private _dragDirection = _settingsAce3 get "ae3_dragging_dragDirection";
             [_target, _canDrag, _dragPosition, _dragDirection] remoteExecCall ["ace_dragging_fnc_setDraggable", 0, true];
@@ -82,7 +82,7 @@ else
         };
         if (_settingsAce3 get "ae3_dragging_canCarry") then
         {
-            private _canCarry = _settingsAce3 get "ae3_dragging_canCarry";
+            private _canCarry = true;
             private _carryPosition = _settingsAce3 get "ae3_dragging_carryPosition";
             private _carryDirection = _settingsAce3 get "ae3_dragging_carryDirection";
             [_target, _canCarry, _carryPosition, _carryDirection] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
@@ -93,7 +93,7 @@ else
         };
         if (_settingsAce3 get "ae3_cargo_canLoad") then
         {
-            private _canLoad = _settingsAce3 get "ae3_cargo_canLoad";
+            private _canLoad = true;
             private _cargoSize = _settingsAce3 get "ae3_cargo_size";
 
             // The following  line is a bug fix that is nesessary until the correspondig ACE3 issue is fixed, see here:
