@@ -1,3 +1,15 @@
+/**
+ * Creates an ARRAY of options, that is easy to search through by 'find' command
+ *
+ * Arguments:
+ * 1: Command Options <[ARRAY]>
+ * 2: Form Type <STRING>
+ *
+ * Results:
+ * 1: Results <[STRING]>
+ *
+ */
+
 params ["_commandOpts", "_formType"];
 
 private _result = [];

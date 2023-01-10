@@ -1,3 +1,14 @@
+/**
+ * Splits an option string into option and agument, if existing.
+ *
+ * Arguments:
+ * 1: Option-Argument-Combo <STRING>
+ *
+ * Results:
+ * 1: Option and Argument <[STRING]>
+ *
+ */
+
 params ["_opt"];
 
 // split into option and argument, if existing

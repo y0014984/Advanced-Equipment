@@ -1,3 +1,16 @@
+/**
+ * Converts a given STRING argument to it's specific type (BOOL, STRING, NUMBER, etc.) according to the given settings.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Command Options Settings <ARRAY>
+ * 3: Arg <STRING>
+ *
+ * Results:
+ * 1: Results <[STRING, ANY]>
+ *
+ */
+
 params ["_computer", "_optSettings", "_arg"];
 
 private _optVarName = _optSettings select 0;

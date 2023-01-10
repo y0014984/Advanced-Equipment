@@ -1,3 +1,16 @@
+/**
+ * Converts the raw short form option to a parsed option.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Short Option <STRING>
+ * 3: Command Options <[ARRAY]>
+ *
+ * Results:
+ * 1: Parsed Options <HASHMAP>
+ *
+ */
+
 params ["_computer", "_shortOpt", "_commandOpts"];
 
 private _result = createHashMap;

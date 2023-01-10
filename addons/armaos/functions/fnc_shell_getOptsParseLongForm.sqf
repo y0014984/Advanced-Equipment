@@ -1,3 +1,16 @@
+/**
+ * Converts the raw long form option to a parsed option.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Long Option <STRING>
+ * 3: Command Options <[ARRAY]>
+ *
+ * Results:
+ * 1: Parsed Option <HASHMAP>
+ *
+ */
+
 params ["_computer", "_longOpt", "_commandOpts"];
 
 private _result = createHashMap;

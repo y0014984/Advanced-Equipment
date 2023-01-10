@@ -1,3 +1,17 @@
+/**
+ * Creates an humandreadable STRING, that describes an command option.
+ *
+ * Arguments:
+ * 1: Short Form of Option <STRING>
+ * 2: Long Form of Option <STRING>
+ * 3: Option Type <STRING>
+ * 4: Select Options <[STRING]>
+ *
+ * Results:
+ * 1: Command Description <STRING>
+ *
+ */
+
 params ["_shortOpt", "_longOpt", "_optType", "_optSelect"];
 
 if (!(_shortOpt isEqualTo "")) then { _shortOpt = "-" + _shortOpt; };

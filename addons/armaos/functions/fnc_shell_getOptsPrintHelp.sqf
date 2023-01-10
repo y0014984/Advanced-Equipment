@@ -1,3 +1,15 @@
+/**
+ * Prints help for a given command.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Command Settings <[STRING,ARRAY,ARRAY]>
+ *
+ * Results:
+ * None
+ *
+ */
+
 params ["_computer", "_commandSettings"];
 
 private _commandName = _commandSettings select 0;

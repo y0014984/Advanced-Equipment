@@ -1,14 +1,16 @@
-// Parse command string and return set command arguments
-
-// option short form:
-// 'ls -a' or combining multiple arguments 'ls -alh'
-// option long form:
-// 'ls --all -l --human-readable'
-// option with argument:
-// 'ls --width=5'
-
-// _short = single char or "" if not set
-// _long = multiple chars or "" if not set
+/**
+ * Parses options string/array from a command with given settings and returns a variables HashMap that can be loaded directly
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Options <[STRING]>
+ * 3: Command Settings <[STRING,ARRAY,ARRAY]>
+ *
+ * Results:
+ * 1: Results <[ARRAY]>
+ *
+ * See AE3 wiki on how to you this in your own commands and applications
+ */
 
 params ["_computer", "_options", "_commandSettings"];
 
