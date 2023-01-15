@@ -10,6 +10,8 @@ PREP(laptop_open);
 PREP(laptop_close);
 PREP(desk_open);
 PREP(desk_close);
+PREP(start_desk_open);
+PREP(start_desk_close);
 
 /* Compile */
 PREP(compileConfig);

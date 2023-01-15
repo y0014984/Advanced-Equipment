@@ -1757,8 +1757,8 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_open;";
-			closeAction = "_this call AE3_interaction_fnc_desk_close;";
+			openAction = "_this call AE3_interaction_fnc_start_desk_open;";
+			closeAction = "_this call AE3_interaction_fnc_start_desk_close;";
 
 			class AE3_Animations
 			{
@@ -1875,8 +1875,8 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_open;";
-			closeAction = "_this call AE3_interaction_fnc_desk_close;";
+			openAction = "_this call AE3_interaction_fnc_start_desk_open;";
+			closeAction = "_this call AE3_interaction_fnc_start_desk_close;";
 
 			class AE3_Animations
 			{
@@ -1993,8 +1993,8 @@ class CfgVehicles
 
 			init = "_this call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_open;";
-			closeAction = "_this call AE3_interaction_fnc_desk_close;";
+			openAction = "_this call AE3_interaction_fnc_start_desk_open;";
+			closeAction = "_this call AE3_interaction_fnc_start_desk_close;";
 
 			class AE3_Animations
 			{
