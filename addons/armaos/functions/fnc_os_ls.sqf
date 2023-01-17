@@ -33,8 +33,6 @@ if (!_ae3OptsSuccess) exitWith {};
 
 private _path = _ae3OptsThings;
 
-hint format ["_ae3OptsThings: %1", _ae3OptsThings];
-
 if (count _path == 0) then
 {
 	_path = [""];
