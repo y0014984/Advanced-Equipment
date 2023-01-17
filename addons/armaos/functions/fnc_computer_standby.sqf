@@ -21,7 +21,7 @@ params ["_computer"];
 	// _terminal var dosn't seem to be set, so there's no need to sync that undefined var to server
 	if (!isNil "_terminal") then 
 	{
-		[_computer, []] call AE3_armaos_fnc_os_exit;
+		[_computer, [], "exit"] call AE3_armaos_fnc_os_exit;
 
 		private _terminal = _computer getVariable "AE3_terminal";
 
