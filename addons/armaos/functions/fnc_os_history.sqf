@@ -32,11 +32,16 @@ if (!_ae3OptsSuccess) exitWith {};
 
 private _terminal = _computer getVariable "AE3_terminal";
 
+private _username = _terminal get "AE3_terminalLoginUser";
+
 private _terminalCommandHistory = _terminal get "AE3_terminalCommandHistory";
+
+private _terminalCommandHistoryUser = _terminalCommandHistory get _username;
 
 if (_clear) exitWith
 {
-	_terminalCommandHistory = [];
+	_terminalCommandHistoryUser = [];
+  _terminalCommandHistory set [_username, _terminalCommandHistoryUser];
 	_terminal set ["AE3_terminalCommandHistory", _terminalCommandHistory];
 
 	[_computer, "history cleared"] call AE3_armaos_fnc_shell_stdout;
@@ -44,7 +49,8 @@ if (_clear) exitWith
 
 if ((_deleteAtOffset != -1) && (_deleteAtOffset != 0) && !(_deleteAtOffset > (count _terminalCommandHistory))) exitWith
 {
-	_terminalCommandHistory deleteAt (_deleteAtOffset - 1);
+	_terminalCommandHistoryUser deleteAt (_deleteAtOffset - 1);
+  _terminalCommandHistory set [_username, _terminalCommandHistoryUser];
 	_terminal set ["AE3_terminalCommandHistory", _terminalCommandHistory];
 
 	[_computer, format ["history element at index %1 deleted", _deleteAtOffset]] call AE3_armaos_fnc_shell_stdout;
@@ -53,6 +59,6 @@ if ((_deleteAtOffset != -1) && (_deleteAtOffset != 0) && !(_deleteAtOffset > (co
 private _numberedHistory = [];
 {
 	_numberedHistory pushBack (format ["%1: %2", (_forEachIndex + 1), _x]);
-} forEach _terminalCommandHistory;
+} forEach _terminalCommandHistoryUser;
 
 [_computer, _numberedHistory] call AE3_armaos_fnc_shell_stdout;

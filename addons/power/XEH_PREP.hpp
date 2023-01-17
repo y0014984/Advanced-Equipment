@@ -24,7 +24,9 @@ PREP(compileDevice);
 PREP(initDevice);
 PREP(initPowerInterface);
 PREP(initBattery);
+PREP(initBatteryLevelWithEdenAttribute);
 PREP(initGenerator);
+PREP(initFuelLevelWithEdenAttribute);
 PREP(initConsumer);
 PREP(initSolarPanel);
 

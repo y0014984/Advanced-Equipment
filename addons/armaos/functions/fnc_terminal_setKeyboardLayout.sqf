@@ -6,10 +6,11 @@ _computer setVariable ["AE3_terminalKeyboardLayout", _terminalKeyboardLayout];
 
 private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
 if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
+if (_terminalKeyboardLayout == "FR") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysFR; };
 if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
 _terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 
-_languageButton ctrlSetText "KEYBOARD " + _terminalKeyboardLayout;
+_languageButton ctrlSetText _terminalKeyboardLayout;
 ctrlSetFocus _consoleOutput;
 
 // write/sync changed keyboard layout back to CBA settings
