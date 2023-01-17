@@ -4,7 +4,7 @@
  * Arguments:
  * 1: Computer <OBJECT>
  * 2: Options <[STRING]>
- * 2: Command Name <STRING>
+ * 3: Command Name <STRING>
  *
  * Results:
  * None
