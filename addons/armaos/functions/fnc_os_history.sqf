@@ -47,7 +47,7 @@ if (_clear) exitWith
 	[_computer, "history cleared"] call AE3_armaos_fnc_shell_stdout;
 };
 
-if ((_deleteAtOffset != -1) && (_deleteAtOffset != 0) && !(_deleteAtOffset > (count _terminalCommandHistory))) exitWith
+if ((_deleteAtOffset != -1) && (_deleteAtOffset != 0) && !(_deleteAtOffset > (count _terminalCommandHistoryUser))) exitWith
 {
 	_terminalCommandHistoryUser deleteAt (_deleteAtOffset - 1);
   _terminalCommandHistory set [_username, _terminalCommandHistoryUser];
