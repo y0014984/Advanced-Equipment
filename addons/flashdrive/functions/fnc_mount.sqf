@@ -60,3 +60,7 @@ private _fdFilesystem = _flashdrive getVariable "AE3_filesystem";
 _computer setVariable ["AE3_filesystem", _filesystem, [_computer] call AE3_armaos_fnc_computer_getLocality];
 
 (_interfaces get _interface) set [1, true];
+if(!isServer) then 
+{
+	_computer setVariable ["AE3_USB_Interfaces", _interfaces, 2];
+};

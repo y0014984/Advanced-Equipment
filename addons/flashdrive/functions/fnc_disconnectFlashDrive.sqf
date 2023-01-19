@@ -16,10 +16,9 @@ _USBInterface params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', 
 
 if(isNull _occupied) exitWith {};
 
-[_occupied, _player] call AE3_flashdrive_fnc_obj2item;
-
 if (_mounted) then 
 {
 	[_computer, _name] call AE3_flashdrive_fnc_unmount;
 };
 
+[_occupied, _player] call AE3_flashdrive_fnc_obj2item;

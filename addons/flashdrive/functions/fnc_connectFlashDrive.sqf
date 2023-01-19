@@ -29,15 +29,16 @@ private _interfaces = _computer getVariable "AE3_USB_Interfaces";
 _interfaces set [_name, _USBInterface];
 
 _object setVariable ['AE3_Flashdrive_Parent', _computer];
-_object setVariable ['AE3_Flashdrive_Interface', _USBInterface];
+_object setVariable ['AE3_Flashdrive_Interface', _name];
 
 [_object, "AE3_Flashdrive_takeEH", {
 	params['_flashdrive', '_player'];
 
 	private _computer = _flashDrive getVariable 'AE3_Flashdrive_Parent';
-	private _USBInterface = _flashDrive getVariable 'AE3_Flashdrive_Interface';
+	private _interface_name = _flashDrive getVariable 'AE3_Flashdrive_Interface';
+	private _interfaces = _computer getVariable "AE3_USB_Interfaces";
 
-	[_computer, _player, _USBInterface] call AE3_flashdrive_fnc_disconnectFlashDrive;
+	[_computer, _player, _interfaces get _interface_name] call AE3_flashdrive_fnc_disconnectFlashDrive;
 
 	[_flashDrive, "AE3_Flashdrive_takeEH", _thisScriptedEventHandler] call BIS_fnc_removeScriptedEventHandler;
 
