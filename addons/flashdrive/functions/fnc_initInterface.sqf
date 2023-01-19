@@ -20,7 +20,7 @@ private _flash_drives = {
 
 	private _add = {
 		params ["_target", "_player", "_params"];
-		([_target] + _params) spawn AE3_flashdrive_fnc_connectFlashDrive;
+		([_target] + _params) remoteExec ["AE3_flashdrive_fnc_connectFlashDrive", 2];
 	};
 
 	{

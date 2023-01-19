@@ -13,6 +13,10 @@ params['_computer', '_interface'];
 
 private _filesystem = _computer getVariable "AE3_filesystem";
 
+if(!isServer) then
+{
+	[_computer, "AE3_USB_Interfaces"] call AE3_main_fnc_getRemoteVar;
+};
 private _interfaces = _computer getVariable ["AE3_USB_Interfaces", createHashMap];
 
 if (!(_interface in _interfaces)) throw "Interface does not exits!";
@@ -21,7 +25,20 @@ private _flashdrive = (_interfaces get _interface) select 0;
 
 if (isNull _flashdrive) throw "Interface is empty!";
 
-private _fdFilesystem = _flashdrive getVariable "AE3_filesystem";
+private _parent = [
+	[],
+	_filesystem,
+	format ["/mnt/%1", _interface],
+	"root"
+] call AE3_filesystem_fnc_getParentDir;
+
+private _parent = (_parent select 1) select 0;
+
+if (!(_interface in _parent)) exitWith {};
+
+private _fdFilesystem = (_parent get _interface);
+_flashdrive setVariable ["AE3_filesystem", _fdFilesystem, 2];
+
 
 [
 	[],
@@ -30,5 +47,5 @@ private _fdFilesystem = _flashdrive getVariable "AE3_filesystem";
 	"root"
 ] call AE3_filesystem_fnc_delObj;
 
-_computer setVariable ["AE3_filesystem", _filesystem, 2];
+_computer setVariable ["AE3_filesystem", _filesystem, [_computer] call AE3_armaos_fnc_computer_getLocality];
 (_interfaces get _interface) set [1, false];

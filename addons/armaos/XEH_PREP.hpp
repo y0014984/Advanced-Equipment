@@ -29,6 +29,8 @@ PREP(computer_standby);
 PREP(computer_turnOn);
 PREP(computer_turnOff);
 
+PREP(computer_getLocality);
+
 /* OS Link Functions */
 PREP(link_add);
 PREP(link_init);

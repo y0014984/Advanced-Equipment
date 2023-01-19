@@ -25,5 +25,5 @@ private _result = false;
 
 if(!_result) then
 {
-	_this remoteExec ["AE3_flashdrive_fnc_obj2item", 2];
+	_this call AE3_flashdrive_fnc_obj2item;
 };
