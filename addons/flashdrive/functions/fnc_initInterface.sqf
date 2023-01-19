@@ -35,6 +35,8 @@ private _flash_drives = {
 private _children = {
 	params ["_target", "_player", "_params"];
 	_params params ['_flash_drives'];
+
+	[_target, "AE3_USB_Interfaces"] call AE3_main_fnc_getRemoteVar;
 	private _interfaces = _target getVariable "AE3_USB_Interfaces";
 
 	private _actions = [];
@@ -49,8 +51,11 @@ private _children = {
 	{
 		_y params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 		
-		private _action = [_name, _name, "", {}, _condition, _flash_drives, [_y]] call ace_interact_menu_fnc_createAction;  
-		_actions pushBack [_action, [], _target];
+		if (isNull _occupied) then 
+		{
+			private _action = [_name, _name, "", {}, _condition, _flash_drives, [_y]] call ace_interact_menu_fnc_createAction;  
+			_actions pushBack [_action, [], _target];
+		};
 	} forEach _interfaces;
 
 	_actions;
