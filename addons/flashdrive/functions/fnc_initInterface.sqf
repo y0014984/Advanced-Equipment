@@ -61,7 +61,7 @@ private _children = {
 	_actions;
 };
 
-private _connect = ["AE3_USBInterfaceConnectAction", "Connect Flash Drive", "",
+private _connect = ["AE3_USBInterfaceConnectAction", (localize "STR_AE3_Flashdrive_Interaction_Connect"), "",
 			{},
 			{
 				params ["_target", "_player", "_params"]; 

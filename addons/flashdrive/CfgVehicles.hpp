@@ -14,8 +14,8 @@ class CfgVehicles
 		};
 
 		class ACE_Actions {
-			class GVAR(pickup) {
-				displayName = CSTRING(Pickup);
+			class Pickup {
+				displayName = "$STR_AE3_Flashdrive_Interaction_Take";
 				icon = "\a3\ui_f\data\igui\cfg\actions\take_ca.paa";
 				distance = 2;
 				condition = "true";

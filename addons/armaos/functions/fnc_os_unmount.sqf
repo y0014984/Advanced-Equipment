@@ -11,8 +11,8 @@
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", "mount"] ] call AE3_armaos_fnc_shell_stdout; };
-if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", "mount"] ] call AE3_armaos_fnc_shell_stdout; };
+if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", "unmount"] ] call AE3_armaos_fnc_shell_stdout; };
+if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", "unmount"] ] call AE3_armaos_fnc_shell_stdout; };
 
 try
 {

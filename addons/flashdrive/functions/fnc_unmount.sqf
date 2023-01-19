@@ -19,11 +19,11 @@ if(!isServer) then
 };
 private _interfaces = _computer getVariable ["AE3_USB_Interfaces", createHashMap];
 
-if (!(_interface in _interfaces)) throw "Interface does not exits!";
+if (!(_interface in _interfaces)) throw (localize "STR_AE3_Flashdrive_Exception_InterfaceNotExisting");
 
 private _flashdrive = (_interfaces get _interface) select 0;
 
-if (isNull _flashdrive) throw "Interface is empty!";
+if (isNull _flashdrive) throw (localize "STR_AE3_Flashdrive_Exception_InterfaceEmpty");
 
 private _parent = [
 	[],
