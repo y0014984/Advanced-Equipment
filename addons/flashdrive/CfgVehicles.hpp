@@ -3,7 +3,7 @@ class CfgVehicles
 	/* ================================================================================ */
 	// Flash Drive
 	class Land_USB_Dongle_01_F;
-	class FlashDrive_AE3: Land_USB_Dongle_01_F
+	class Land_USB_Dongle_01_F_AE3: Land_USB_Dongle_01_F
 	{
 		scope=2;
 		ae3_item = Item_FlashDisk_AE3;
