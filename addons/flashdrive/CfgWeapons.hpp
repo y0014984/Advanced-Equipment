@@ -21,5 +21,5 @@ class CfgWeapons {
         };
 	};
 
-	ITEM_ID_LIST(Item_FlashDisk_AE3)
+	ITEM_ID_LIST(Item_FlashDisk_AE3, Flash drive )
 };

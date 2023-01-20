@@ -25,7 +25,7 @@ private _flash_drives = {
 
 	{
 		_config params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
-		private _action = [_name, "USB Stick", "", _add, {true}, {}, [_x, _config]] call ace_interact_menu_fnc_createAction; 
+		private _action = [_name, (getText (configFile >> "CfgWeapons" >> _x >> "displayName")), "", _add, {true}, {}, [_x, _config]] call ace_interact_menu_fnc_createAction; 
 		_actions pushBack [_action, [], _target];
 	} forEach (items _player select {inheritsFrom (configFile >> "CfgWeapons" >> _x) == _class});
 
