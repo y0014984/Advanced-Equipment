@@ -1,5 +1,5 @@
 /**
- * Compiles the interface from config for an object's class.
+ * Compiles the (usb) interface from config for an object's class.
  * Analoge to ACE3 MenuCompile.
  *
  * Argmuments:

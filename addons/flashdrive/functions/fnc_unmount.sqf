@@ -1,5 +1,5 @@
 /**
- * Unmounts a flashdrive attached to a given interface.
+ * Unmounts a flashdrive attached to a given (usb) interface.
  * 
  * Arguments:
  * 0: Computer <OBJECT>

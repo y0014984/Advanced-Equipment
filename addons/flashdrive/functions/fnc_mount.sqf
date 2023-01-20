@@ -1,5 +1,5 @@
 /**
- * Mounts a flashdrive attached to a given interface for a given (armaOS) user.
+ * Mounts a flashdrive attached to a given (usb) interface for a given (armaOS) user.
  * 
  * Arguments:
  * 0: Computer <OBJECT>

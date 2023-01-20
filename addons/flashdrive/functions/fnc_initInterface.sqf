@@ -1,5 +1,5 @@
 /**
- * Initializes a interface.
+ * Initializes a (usb) interface.
  * 
  * Arguments:
  * 0: Device <OBJECT>
