@@ -512,6 +512,34 @@
                 <Chinesesimp>find说明: 'find [Name]' 将结果打印到标准输出流.</Chinesesimp>
                 <Russian>Использование find: 'find [Name]' выводит результат на stdout</Russian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMountDescr">
+                <Original>Mounts a flash drive in the specified usb port.</Original>
+                <English>Mounts a flash drive in the specified usb port.</English>
+                <German>Hängt einen usb stick in den gegeben usb port ein.</German>
+                <Chinesesimp>Mounts a flash drive in the specified usb port.</Chinesesimp>
+                <Russian>Mounts a flash drive in the specified usb port.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMountMan">
+                <Original>Usage mount: 'mount [interface name]' mounts given interface.</Original>
+                <English>Usage mount: 'mount [interface name]' mounts given interface.</English>
+                <German>Verwendung mount: 'mount [Name]' hängt usb stick in gegebenen Port ein.</German>
+                <Chinesesimp>Usage mount: 'mount [interface name]' mounts given interface.</Chinesesimp>
+                <Russian>Usage mount: 'mount [interface name]' mounts given interface.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandUmountDescr">
+                <Original>Unmounts a flash drive from the specified usb port.</Original>
+                <English>Unmounts a flash drive from the specified usb port.</English>
+                <German>Hängt einen usb stick aus den gegeben usb port aus.</German>
+                <Chinesesimp>Unmounts a flash drive from the specified usb port.</Chinesesimp>
+                <Russian>Unmounts a flash drive from the specified usb port.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandUmountMan">
+                <Original>Usage umount: 'umount [interface name]' unmounts given interface.</Original>
+                <English>Usage umount: 'umount [interface name]' unmounts given interface.</English>
+                <German>Verwendung umount: 'umount [Name]' hängt usb stick in gegebenen Port aus.</German>
+                <Chinesesimp>Usage umount: 'umount [interface name]' unmounts given interface.</Chinesesimp>
+                <Russian>Usage umount: 'umount [interface name]' unmounts given interface.</Russian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_TextureBlack">
                 <Original>Black</Original>
                 <English>Black</English>
