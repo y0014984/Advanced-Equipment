@@ -1,3 +1,18 @@
+/**
+ * Changes the file owner to the given user.
+ *
+ * Arguments:
+ * 0: Pointer <[STRING]>
+ * 1: Filesystem <HASHMAP>
+ * 2: Path to target directory <STRING>
+ * 3: User <STRING>
+ * 4: New owner <String>
+ * 5: Recursive? <Bool> (Optional)
+ *
+ * Results:
+ * None
+ */
+
 params['_pntr', '_filesystem', '_target', '_user', '_owner', ['_recursive', false]];
 
 private _chown = {
