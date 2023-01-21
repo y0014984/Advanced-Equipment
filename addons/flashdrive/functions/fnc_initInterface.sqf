@@ -36,7 +36,11 @@ private _children = {
 	params ["_target", "_player", "_params"];
 	_params params ['_flash_drives'];
 
-	[_target, "AE3_USB_Interfaces"] call AE3_main_fnc_getRemoteVar;
+	// Necessary, because this code runs unsheduled in editor MP
+	if(!isServer) then
+	{
+		[_target, "AE3_USB_Interfaces"] call AE3_main_fnc_getRemoteVar;
+	};
 	private _interfaces = _target getVariable "AE3_USB_Interfaces";
 
 	private _actions = [];
