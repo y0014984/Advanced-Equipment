@@ -35,7 +35,7 @@ if(!(_sourceFile in _sourceCurrent)) throw (format [localize "STR_AE3_Filesystem
 if((_target find ["/", count _target - 1]) == (count _target - 1)) then 
 {
 
-	if(!(_targetNew in _targetCurrent)) throw {format [localize "STR_AE3_Filesystem_Exception_NotFound", _targetNew]};
+	if(!(_targetNew in _targetCurrent)) throw (format [localize "STR_AE3_Filesystem_Exception_NotFound", _targetNew]);
 
 	_targetCurrent = _targetCurrent get _targetNew;
 
