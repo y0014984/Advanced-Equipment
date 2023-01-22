@@ -1,5 +1,5 @@
 /**
- * Mounts a filesystem which is connect via a given interface.
+ * Changes the owner of file
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -12,12 +12,16 @@
 
 params ["_computer", "_options", "_commandName"];
 
-private _commandOpts = [];
+private _commandOpts = [
+	["_recursive", "r", "recursive", "bool", false, false, "recursively changes owner"]
+];
 private _commandSyntax =
 [
 	[
 			["command", _commandName, true, false],
-			["path", "INTERFACE", true, false]
+			["options", "OPTIONS", false, false],
+			["path", "PATH", true, false],
+			["path", "OWNER", true, false]
 	]
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
@@ -25,14 +29,17 @@ private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
-_ae3OptsThings params ["_interfaceName"];
+_ae3OptsThings params ["_path", '_owner'];
+
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
 try
 {
-	[_computer, _interfaceName, _username] call AE3_flashdrive_fnc_mount;
+	[_pointer, _filesystem, _path, _username, _owner, _recursive] call AE3_filesystem_fnc_chown;
 }catch
 {
 	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;

@@ -3,7 +3,8 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: File <[STRING]>
+ * 2: Options <[STRING]>
+ * 3: Command Name <STRING>
  *
  * Results:
  * None

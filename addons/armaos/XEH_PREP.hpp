@@ -60,6 +60,7 @@ PREP(os_crack);
 PREP(os_find);
 PREP(os_mount);
 PREP(os_unmount);
+PREP(os_chown);
 
 /* Encryption Functions */
 PREP(encryption_caesar);
