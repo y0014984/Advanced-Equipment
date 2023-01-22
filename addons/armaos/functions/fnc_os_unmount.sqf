@@ -11,12 +11,26 @@
 
 params ["_computer", "_options"];
 
-if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", "unmount"] ] call AE3_armaos_fnc_shell_stdout; };
-if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", "unmount"] ] call AE3_armaos_fnc_shell_stdout; };
+params ["_computer", "_options", "_commandName"];
+
+private _commandOpts = [];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+			["path", "INTERFACE", true, false]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
+
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
+
+if (!_ae3OptsSuccess) exitWith {};
+_ae3OptsThings params ["_interfaceName"];
 
 try
 {
-	[_computer, _options select 0] call AE3_flashdrive_fnc_unmount;
+	[_computer, _interfaceName] call AE3_flashdrive_fnc_unmount;
 }catch
 {
 	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;

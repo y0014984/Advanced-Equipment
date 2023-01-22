@@ -9,17 +9,29 @@
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-if (count _options > 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", "mount"] ] call AE3_armaos_fnc_shell_stdout; };
-if (count _options < 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", "mount"] ] call AE3_armaos_fnc_shell_stdout; };
+private _commandOpts = [];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+			["path", "INTERFACE", true, false]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
+
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
+
+if (!_ae3OptsSuccess) exitWith {};
+_ae3OptsThings params ["_interfaceName"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
 
 try
 {
-	[_computer, _options select 0, _username] call AE3_flashdrive_fnc_mount;
+	[_computer, _interfaceName, _username] call AE3_flashdrive_fnc_mount;
 }catch
 {
 	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
