@@ -4,19 +4,30 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: Folder/Directory <[STRING]>
+ * 2: Options <[STRING]>
+ * 3: Command Name <STRING>
  *
  * Results:
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "cd";
+private _commandOpts = [];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+			["path", "DIRECTORY", true, false]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
-if (count _options == 0) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
-private _options = _options joinString " ";
+if (!_ae3OptsSuccess) exitWith {};
+
+private _ae3OptsThings = _ae3OptsThings joinString " ";
 
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
@@ -25,7 +36,7 @@ try
 {
 	private _result = [_computer getVariable ["AE3_filepointer", []], 
 				_computer getVariable ["AE3_filesystem", createHashMap], 
-				_options,
+				_ae3OptsThings,
 				_username] call AE3_filesystem_fnc_chdir;
 
 	[(_result select 1), _username, 0] call AE3_filesystem_fnc_hasPermission;

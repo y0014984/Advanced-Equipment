@@ -11,7 +11,7 @@
  * None
  */
 
-params['_computer', '_path', '_options'];
+params["_computer", "_path", "_options"];
 
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
@@ -22,11 +22,12 @@ private _username = _terminal get "AE3_terminalLoginUser";
 private _result = [format [localize "STR_AE3_ArmaOS_Exception_CommandNotFound", _path]];
 try 
 {
-	_content = [_pointer, _filesystem, _path, _username, 0] call AE3_filesystem_fnc_getFile;
+	private _content = [_pointer, _filesystem, _path, _username, 0] call AE3_filesystem_fnc_getFile;
 
 	if(_content isEqualType {}) then
 	{
-		_handler = [_computer, _options] spawn _content;
+		private _commandName = (_path splitString "/") select ((count (_path splitString "/")) - 1);
+		private _handler = [_computer, _options, _commandName] spawn _content;
 		_terminal set ["AE3_terminalProcess", _handler];
 		_computer setVariable ["AE3_terminal", _terminal];
 
