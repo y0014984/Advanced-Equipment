@@ -9,6 +9,7 @@ PREP(take);
 
 PREP(mount);
 PREP(unmount);
+PREP(lsInterfaces);
 
 PREP(connectFlashDrive);
 PREP(disconnectFlashDrive);

@@ -61,6 +61,7 @@ PREP(os_find);
 PREP(os_mount);
 PREP(os_unmount);
 PREP(os_chown);
+PREP(os_lsusb);
 
 /* Encryption Functions */
 PREP(encryption_caesar);

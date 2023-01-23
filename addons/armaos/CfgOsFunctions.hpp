@@ -189,6 +189,13 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandUmountMan";
 		code = "_this call AE3_armaos_fnc_os_unmount";
 	};
+	class lsusb : OsFunction
+	{
+		path = "/bin/lsusb";
+		description = "$STR_AE3_ArmaOS_Config_CommandLsusbDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandLsusbMan";
+		code = "_this call AE3_armaos_fnc_os_lsusb";
+	};
 	class chown : OsFunction
 	{
 		path = "/bin/chown";

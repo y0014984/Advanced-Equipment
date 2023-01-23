@@ -554,6 +554,20 @@
                 <Chinesesimp>Usage chown: 'chown [path] [new owner]' changes the owner.</Chinesesimp>
                 <Russian>Usage chown: 'chown [path] [new owner]' changes the owner.</Russian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsusbDescr">
+                <Original>Lists the available (usb) interfaces.</Original>
+                <English>Lists the available (usb) interfaces.</English>
+                <German>Zeigt die verfügbaren usb Ports an.</German>
+                <Chinesesimp>Lists the available (usb) interfaces.</Chinesesimp>
+                <Russian>Lists the available (usb) interfaces.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsusbMan">
+                <Original>Usage lsusb: 'lsusb' lists usb interfaces.</Original>
+                <English>Usage lsusb: 'lsusb' lists usb interfaces.</English>
+                <German>Verwendung lsusb: 'lsusb' zeigt die usb Ports an.</German>
+                <Chinesesimp>Usage lsusb: 'lsusb' lists usb interfaces.</Chinesesimp>
+                <Russian>Usage lsusb: 'lsusb' lists usb interfaces.</Russian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_TextureBlack">
                 <Original>Black</Original>
                 <English>Black</English>

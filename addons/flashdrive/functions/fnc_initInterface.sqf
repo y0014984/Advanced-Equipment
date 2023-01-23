@@ -23,8 +23,8 @@ private _flash_drives = {
 		([_target, _player] + _params) remoteExec ["AE3_flashdrive_fnc_connectFlashDrive", 2];
 	};
 
+	_config params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 	{
-		_config params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 		private _action = [_name, (getText (configFile >> "CfgWeapons" >> _x >> "displayName")), "", _add, {true}, {}, [_x, _config]] call ace_interact_menu_fnc_createAction; 
 		_actions pushBack [_action, [], _target];
 	} forEach (items _player select {inheritsFrom (configFile >> "CfgWeapons" >> _x) == _class});
