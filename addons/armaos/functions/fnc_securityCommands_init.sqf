@@ -16,7 +16,7 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _config = configFile >> "CfgSecurityCommands";
 
-private _securityCommands = ("inheritsFrom _x == (configFile >> 'SecurityCommand')" configClasses _config);
+private _securityCommands = ("inheritsFrom _x == (configFile >> 'OsFunction')" configClasses _config);
 
 {
 	try

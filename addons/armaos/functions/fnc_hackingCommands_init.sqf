@@ -16,7 +16,7 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _config = configFile >> "CfgHackingCommands";
 
-private _hackingCommands = ("inheritsFrom _x == (configFile >> 'HackingCommand')" configClasses _config);
+private _hackingCommands = ("inheritsFrom _x == (configFile >> 'OsFunction')" configClasses _config);
 
 {
 	try
