@@ -39,7 +39,7 @@ private _children = {
 	// Necessary, because this code runs unsheduled in editor MP
 	if(!isServer) then
 	{
-		[_target, "AE3_USB_Interfaces"] call AE3_main_fnc_getRemoteVar;
+		[_target, "AE3_USB_Interfaces"] spawn AE3_main_fnc_getRemoteVar;
 	};
 	private _interfaces = _target getVariable "AE3_USB_Interfaces";
 
