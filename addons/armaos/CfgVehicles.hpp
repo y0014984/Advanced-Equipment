@@ -305,7 +305,6 @@ class CfgVehicles
 
 	/* ================================================================================ */
 
-	// MODULE USERLIST
 	class Logic;
 	class Module_F: Logic
 	{
@@ -313,6 +312,7 @@ class CfgVehicles
 		{
 			class Default;
 			class Edit;					// Default edit box (i.e., text input field)
+			class Checkbox;
 			class ModuleDescription;	// Module description
 		};
 		// Description base classes, for more information see below
@@ -321,6 +321,10 @@ class CfgVehicles
 			class AnyBrain;
 		};
 	};
+
+	/* ================================================================================ */
+
+	// MODULE USERLIST
 	class AE3_AddUser: Module_F
 	{
 		// Standard object definitions
@@ -395,21 +399,6 @@ class CfgVehicles
 	/* ================================================================================ */
 
 	// MODULE ADD SECURITY COMMANDS
-	class Logic;
-	class Module_F: Logic
-	{
-		class AttributesBase
-		{
-			class Default;
-			class Edit;					// Default edit box (i.e., text input field)
-			class ModuleDescription;	// Module description
-		};
-		// Description base classes, for more information see below
-		class ModuleDescription
-		{
-			class AnyBrain;
-		};
-	};
 	class AE3_AddSecurityCommands: Module_F
 	{
 		// Standard object definitions
@@ -437,6 +426,31 @@ class CfgVehicles
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
 		{
+
+			// Arguments shared by specific module type (have to be mentioned in order to be present)
+			class AE3_ModuleAddSecurityCommands_IsCrypto: Checkbox
+			{
+				property = "AE3_Module_AddSecurityCommands_Crypto";
+				displayName = "crypto";
+				tooltip = "crypto tooltip";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = true;
+			};
+
+			// Arguments shared by specific module type (have to be mentioned in order to be present)
+			class AE3_ModuleAddSecurityCommands_IsCrack: Checkbox
+			{
+				property = "AE3_Module_AddSecurityCommands_Crack";
+				displayName = "crack";
+				tooltip = "crack tooltip";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = true;
+			};
+
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};
 
@@ -464,21 +478,6 @@ class CfgVehicles
 
 
 	// MODULE ADD HACKING COMMANDS
-	class Logic;
-	class Module_F: Logic
-	{
-		class AttributesBase
-		{
-			class Default;
-			class Edit;					// Default edit box (i.e., text input field)
-			class ModuleDescription;	// Module description
-		};
-		// Description base classes, for more information see below
-		class ModuleDescription
-		{
-			class AnyBrain;
-		};
-	};
 	class AE3_AddHackingCommands: Module_F
 	{
 		// Standard object definitions
