@@ -199,8 +199,8 @@ class CfgOsFunctions
 	class chown : OsFunction
 	{
 		path = "/bin/chown";
-		description = "$STR_AE3_ArmaOS_Config_CommandUmountDescr";
-		man = "$STR_AE3_ArmaOS_Config_CommandUmountMan";
+		description = "$STR_AE3_ArmaOS_Config_CommandChownDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandChownMan";
 		code = "_this call AE3_armaos_fnc_os_chown";
 	};
 };
