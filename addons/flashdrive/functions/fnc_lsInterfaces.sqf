@@ -10,21 +10,20 @@
 
 params['_computer'];
 
-if(!isServer) then
-{
-	[_computer, "AE3_USB_Interfaces"] call AE3_main_fnc_getRemoteVar;
-};
 private _interfaces = _computer getVariable ["AE3_USB_Interfaces", createHashMap];
+private _occupiedList = _computer getVariable "AE3_USB_Interfaces_occupied";
+private _mountedList = _computer getVariable "AE3_USB_Interfaces_mounted";
 
 private _result = [[["USB Interfaces:"]]];
 
 {
-	_y params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
+	_y params ['_index', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 	
 	private _device = "";
 	private _mountstr = "";
 
-
+	private _occupied = _occupiedList select _index;
+	private _mounted = _mountedList select _index;
 	if (isNull _occupied) then
 	{
 		_device = "None";

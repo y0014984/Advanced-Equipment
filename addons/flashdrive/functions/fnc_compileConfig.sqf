@@ -20,8 +20,7 @@ private _config = createHashMap;
 {
 	_config set [configName _x,
 	[
-		objNull,
-		false,
+		_forEachIndex,
 		configName _x,
 		(_x >> "rel_pos") call BIS_fnc_getCfgDataArray,
 		getNumber (_x >> "rot_yaw"),

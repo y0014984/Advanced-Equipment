@@ -23,7 +23,7 @@ private _flash_drives = {
 		([_target, _player] + _params) remoteExec ["AE3_flashdrive_fnc_connectFlashDrive", 2];
 	};
 
-	_config params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
+	_config params ['_index', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 	{
 		private _action = [_name, (getText (configFile >> "CfgWeapons" >> _x >> "displayName")), "", _add, {true}, {}, [_x, _config]] call ace_interact_menu_fnc_createAction; 
 		_actions pushBack [_action, [], _target];
@@ -36,26 +36,24 @@ private _children = {
 	params ["_target", "_player", "_params"];
 	_params params ['_flash_drives'];
 
-	// Necessary, because this code runs unsheduled in editor MP
-	if(!isServer) then
-	{
-		[_target, "AE3_USB_Interfaces"] spawn AE3_main_fnc_getRemoteVar;
-	};
 	private _interfaces = _target getVariable "AE3_USB_Interfaces";
+	private _occupiedList = _target getVariable "AE3_USB_Interfaces_occupied";
 
 	private _actions = [];
 	
 	private _condition = 
 	{
 		params ["_target", "_player", "_params"];
-		(_params select 0) params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
-		isNull _occupied;
+		(_params select 0) params ['_index', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
+		private _occupiedList = _target getVariable "AE3_USB_Interfaces_occupied";
+
+		isNull (_occupiedList select _index);
 	};
 	
 	{
-		_y params ['_occupied', '_mounted', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
+		_y params ['_index', '_name', '_rel_pos', '_rot_yaw', '_rot_pitch', '_rot_roll'];
 		
-		if (isNull _occupied) then 
+		if (isNull (_occupiedList select _index)) then 
 		{
 			private _action = [_name, _name, "", {}, _condition, _flash_drives, [_y]] call ace_interact_menu_fnc_createAction;  
 			_actions pushBack [_action, [], _target];
@@ -79,6 +77,16 @@ private _connect = ["AE3_USBInterfaceConnectAction", (localize "STR_AE3_Flashdri
 if(!isDedicated) then
 {
 	[_device, 0, ["ACE_MainActions"], _connect] call ace_interact_menu_fnc_addActionToObject;
+
+	private _occupied = [];
+	private _mounted = [];
+	{
+		_occupied pushBack objNull;
+		_mounted pushBack false;
+	} forEach _config;
+
+	_device setVariable ["AE3_USB_Interfaces_occupied", _occupied, true];
+	_device setVariable ["AE3_USB_Interfaces_mounted", _mounted, true];
 };
 
 _device setVariable ["AE3_USB_Interfaces", _config];
