@@ -12,6 +12,14 @@ PREP(shell_executeFile);
 PREP(shell_stdout);
 PREP(shell_stdin);
 PREP(shell_writeToLogfile);
+PREP(shell_getOpts);
+PREP(shell_getOptsConvertArgType);
+PREP(shell_getOptsCreateSearchArray);
+PREP(shell_getOptsFormatOptsName);
+PREP(shell_getOptsParseLongForm);
+PREP(shell_getOptsParseShortForm);
+PREP(shell_getOptsPrintHelp);
+PREP(shell_getOptsSplitOptionArgument);
 
 /* Computer Functions */
 PREP(computer_playSoundStart);
@@ -83,7 +91,9 @@ PREP(terminal_updateBufferVisable);
 PREP(terminal_updatePromptPointer);
 PREP(terminal_addToHistory);
 PREP(terminal_setKeyboardLayout);
+PREP(terminal_setTerminalDesign);
 PREP(terminal_switchKeyboardLayout);
+PREP(terminal_switchTerminalDesign);
 PREP(terminal_setCommandLineByHistory);
 PREP(terminal_setInputMode);
 PREP(terminal_updateBatteryStatus);

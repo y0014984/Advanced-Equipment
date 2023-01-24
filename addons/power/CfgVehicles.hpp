@@ -39,7 +39,30 @@ class CfgVehicles
 
 	class Land_PortableGenerator_01_sand_F_AE3: B_Radar_System_01_F
 	{
-		scope = 1; //Hide class in 3DEN asset browser
+		// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_FuelLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_FuelLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_FuelLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_FuelLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "1";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+
+		// scope = 1; //Hide class in 3DEN asset browser
 
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
@@ -62,7 +85,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 1.5; // 1.5 litres per hour consumption
 				fuelCapacity = 5; // 5 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank
+				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
 
 				power = 5/3600; // provides max. 5.000 Watts
 			};
@@ -158,6 +181,29 @@ class CfgVehicles
 	class Land_BatteryPack_01_open_olive_F;
 	class Land_BatteryPack_01_open_olive_F_AE3 : Land_BatteryPack_01_open_olive_F
 	{
+		// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "1";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+
 		// Carrying
 		ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
 		ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
@@ -196,6 +242,29 @@ class CfgVehicles
 	class Land_BatteryPack_01_open_black_F;
 	class Land_BatteryPack_01_open_black_F_AE3 : Land_BatteryPack_01_open_black_F
 	{
+  	// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "1";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+    
 		// Carrying
 		ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
 		ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
@@ -234,6 +303,29 @@ class CfgVehicles
 	class Land_BatteryPack_01_open_sand_F;
 	class Land_BatteryPack_01_open_sand_F_AE3 : Land_BatteryPack_01_open_sand_F
 	{
+    // Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "1";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+    
 		// Carrying
 		ace_dragging_canCarry = 1;  // Can be carried (0-no, 1-yes)
 		ace_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
@@ -272,6 +364,29 @@ class CfgVehicles
 	class Land_SolarPanel_04_olive_F;
 	class Land_SolarPanel_04_olive_F_AE3 : Land_SolarPanel_04_olive_F
 	{
+		// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "0";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
 		ace_cargo_size = 2;  // Cargo space the object takes
@@ -387,6 +502,29 @@ class CfgVehicles
 	class Land_SolarPanel_04_black_F;
 	class Land_SolarPanel_04_black_F_AE3 : Land_SolarPanel_04_black_F
 	{
+  	// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "0";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+    
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
 		ace_cargo_size = 2;  // Cargo space the object takes
@@ -502,6 +640,29 @@ class CfgVehicles
 	class Land_SolarPanel_04_sand_F;
 	class Land_SolarPanel_04_sand_F_AE3 : Land_SolarPanel_04_sand_F
 	{
+  	// Eden Editor Attributes
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerLevel
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerLevelDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerLevelTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerLevel"; // Unique config property name saved in SQM
+				control = "Slider"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "0";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
+				condition = "1"; // Condition for attribute to appear (see the table below)
+				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+		};
+    
 		// Cargo
 		ace_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
 		ace_cargo_size = 2;  // Cargo space the object takes

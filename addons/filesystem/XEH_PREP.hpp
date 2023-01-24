@@ -16,3 +16,4 @@ PREP(mvObj);
 PREP(delObj);
 PREP(hasPermission);
 PREP(findFilesystemObject);
+PREP(fsObjExists);
