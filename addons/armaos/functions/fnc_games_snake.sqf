@@ -8,22 +8,36 @@
  * Score <STRING>
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
 //hint format ["canSuspend: %1", canSuspend]; // true
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
-private _size = 1;
+private _commandOpts = 
+	[
+        ["_size", "", "big", "bool", false, false, "increases the pixel size"]
+	];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+            ["options", "OPTION", true, false]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
-// will be rewritten if PR #265 is merged (parsing arguments)
-if ((_options select 0) isEqualTo "--big") then { _size = 2; };
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
+
+if (!_ae3OptsSuccess) exitWith {};
+
+if (_size)  then { _size = 2; } else { _size = 1; };
 
 private _dialog = [_size] call AE3_armaos_fnc_retro_createCanvas;
 
 // show splash screen
 playSound "SplashScreen";
-[_dialog, "\z\ae3\addons\armaos\images\Snake_Splash.paa", 3] call AE3_armaos_fnc_retro_showSplashScreen;
+[_dialog, "\z\ae3\addons\armaos\images\Snake_Splash.paa", 3, _size] call AE3_armaos_fnc_retro_showSplashScreen;
 
 // randomize starting direction
 private _directions = ["up", "down", "left", "right"];
@@ -190,7 +204,7 @@ while { _dialog getVariable "AE3_Retro_Snake_Running" } do
 
 // show gameover screen
 playSound "GameOver";
-[_dialog, "\z\ae3\addons\armaos\images\Snake_GameOver.paa", 3] call AE3_armaos_fnc_retro_showSplashScreen;
+[_dialog, "\z\ae3\addons\armaos\images\Snake_GameOver.paa", 3, _size] call AE3_armaos_fnc_retro_showSplashScreen;
 
 closeDialog 1;
 
