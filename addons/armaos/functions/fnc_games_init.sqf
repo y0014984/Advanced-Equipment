@@ -16,7 +16,7 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _config = configFile >> "CfgGames";
 
-private _games = ("inheritsFrom _x == (configFile >> 'Game')" configClasses _config);
+private _games = ("inheritsFrom _x == (configFile >> 'OsFunction')" configClasses _config);
 
 {
 	try

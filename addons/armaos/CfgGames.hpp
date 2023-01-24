@@ -1,16 +1,10 @@
-class Game
-{
-	path = "";
-	description = "";
-	man = "";
-	code = "";
-};
+class OsFunction;
 
 // DO NOT USE [] in Strings.
 
 class CfgGames
 {
-	class snake : Game
+	class snake : OsFunction
 	{
 		path = "/games/snake";
 		description = "Retro Snake Game";
