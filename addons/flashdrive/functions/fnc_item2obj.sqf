@@ -25,7 +25,4 @@ private _object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
 
 [_player, _item] remoteExecCall ["CBA_fnc_removeItem", _player];
 
-_buffer deleteAt _item;
-missionNamespace setVariable ["AE3_ITEM", _buffer, 2];
-
 _object;
