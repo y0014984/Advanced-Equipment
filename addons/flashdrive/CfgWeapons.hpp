@@ -10,7 +10,7 @@ class CfgWeapons {
         descriptionShort = "Flash drive";
 		useActionTitle = "AE3: Pick up flash drive";
 
-        model = "\a3\Missions_F_Oldman\Props\DummyItemSmall_F.p3d";
+        model = "\A3\Props_F_Oldman\Items\USB_Dongle_01_F.p3d";
         picture = "\z\ae3\addons\flashdrive\ui\AE3_flashdrive_ca.paa";
 
 		ae3_vehicle = Land_USB_Dongle_01_F_AE3;
