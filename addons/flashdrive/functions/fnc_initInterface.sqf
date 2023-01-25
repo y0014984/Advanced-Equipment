@@ -77,7 +77,10 @@ private _connect = ["AE3_USBInterfaceConnectAction", (localize "STR_AE3_Flashdri
 if(!isDedicated) then
 {
 	[_device, 0, ["ACE_MainActions"], _connect] call ace_interact_menu_fnc_addActionToObject;
+};
 
+if (isServer) then
+{
 	private _occupied = [];
 	private _mounted = [];
 	{
