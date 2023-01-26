@@ -90,7 +90,7 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 				if(!(_user isEqualTo '')) then
 				{
 					_current = (_current select 0) get _user;
-					_pointer pushBack "home";
+					_pointer pushBack _user;
 				};
 			};
 
