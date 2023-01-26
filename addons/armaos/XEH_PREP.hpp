@@ -29,6 +29,8 @@ PREP(computer_standby);
 PREP(computer_turnOn);
 PREP(computer_turnOff);
 
+PREP(computer_getLocality);
+
 /* OS Link Functions */
 PREP(link_add);
 PREP(link_init);
@@ -56,6 +58,10 @@ PREP(os_whoami);
 PREP(os_crypto);
 PREP(os_crack);
 PREP(os_find);
+PREP(os_mount);
+PREP(os_unmount);
+PREP(os_chown);
+PREP(os_lsusb);
 
 /* Encryption Functions */
 PREP(encryption_caesar);

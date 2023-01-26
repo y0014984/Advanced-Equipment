@@ -512,6 +512,62 @@
                 <Chinesesimp>find说明: 'find [Name]' 将结果打印到标准输出流.</Chinesesimp>
                 <Russian>Использование find: 'find [Name]' выводит результат на stdout</Russian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMountDescr">
+                <Original>Mounts a flash drive in the specified usb port.</Original>
+                <English>Mounts a flash drive in the specified usb port.</English>
+                <German>Hängt einen usb stick in den gegeben usb port ein.</German>
+                <Chinesesimp>Mounts a flash drive in the specified usb port.</Chinesesimp>
+                <Russian>Mounts a flash drive in the specified usb port.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandMountMan">
+                <Original>Usage mount: 'mount [interface name]' mounts given interface.</Original>
+                <English>Usage mount: 'mount [interface name]' mounts given interface.</English>
+                <German>Verwendung mount: 'mount [Name]' hängt usb stick in gegebenen Port ein.</German>
+                <Chinesesimp>Usage mount: 'mount [interface name]' mounts given interface.</Chinesesimp>
+                <Russian>Usage mount: 'mount [interface name]' mounts given interface.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandUmountDescr">
+                <Original>Unmounts a flash drive from the specified usb port.</Original>
+                <English>Unmounts a flash drive from the specified usb port.</English>
+                <German>Hängt einen usb stick aus den gegeben usb port aus.</German>
+                <Chinesesimp>Unmounts a flash drive from the specified usb port.</Chinesesimp>
+                <Russian>Unmounts a flash drive from the specified usb port.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandUmountMan">
+                <Original>Usage umount: 'umount [interface name]' unmounts given interface.</Original>
+                <English>Usage umount: 'umount [interface name]' unmounts given interface.</English>
+                <German>Verwendung umount: 'umount [Name]' hängt usb stick in gegebenen Port aus.</German>
+                <Chinesesimp>Usage umount: 'umount [interface name]' unmounts given interface.</Chinesesimp>
+                <Russian>Usage umount: 'umount [interface name]' unmounts given interface.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandChownDescr">
+                <Original>Changes the owner of a file or directory.</Original>
+                <English>Changes the owner of a file or directory.</English>
+                <German>Ändert den Besitzer einer Datei oder Ordner.</German>
+                <Chinesesimp>Changes the owner of a file or directory.</Chinesesimp>
+                <Russian>Changes the owner of a file or directory.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandChownMan">
+                <Original>Usage chown: 'chown [path] [new owner]' changes the owner.</Original>
+                <English>Usage chown: 'chown [path] [new owner]' changes the owner.</English>
+                <German>Verwendung chown: 'chown [pfad] [neuer Besitzer]' ändert den Besitzer.</German>
+                <Chinesesimp>Usage chown: 'chown [path] [new owner]' changes the owner.</Chinesesimp>
+                <Russian>Usage chown: 'chown [path] [new owner]' changes the owner.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsusbDescr">
+                <Original>Lists the available (usb) interfaces.</Original>
+                <English>Lists the available (usb) interfaces.</English>
+                <German>Zeigt die verfügbaren usb Ports an.</German>
+                <Chinesesimp>Lists the available (usb) interfaces.</Chinesesimp>
+                <Russian>Lists the available (usb) interfaces.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandLsusbMan">
+                <Original>Usage lsusb: 'lsusb' lists usb interfaces.</Original>
+                <English>Usage lsusb: 'lsusb' lists usb interfaces.</English>
+                <German>Verwendung lsusb: 'lsusb' zeigt die usb Ports an.</German>
+                <Chinesesimp>Usage lsusb: 'lsusb' lists usb interfaces.</Chinesesimp>
+                <Russian>Usage lsusb: 'lsusb' lists usb interfaces.</Russian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_TextureBlack">
                 <Original>Black</Original>
                 <English>Black</English>
