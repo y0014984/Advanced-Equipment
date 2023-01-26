@@ -358,6 +358,20 @@
                 <Chinesesimp>mv说明:'mv[old path] [new path]'将文件移动到新路径或重命名文件.</Chinesesimp>
                 <Russian>Использование mv: "mv [old path] [new path] Перемещает файл или папку или переименовывает</Russian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCpDescr">
+                <Original>Copies a file or folder.</Original>
+                <English>Copies a file or folder.</English>
+                <German>Kopiert eine Datei oder ein Verzeichnis.</German>
+                <Chinesesimp>Copies a file or folder.</Chinesesimp>
+                <Russian>Copies a file or folder.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandCpMan">
+                <Original>Usage cp: 'cp [old path] [new path]' copies file to new path.</Original>
+                <English>Usage cp: 'cp [old path] [new path]' copies file to new path.</English>
+                <German>Verwendung cp: 'cp [alter Pfad] [neuer Pfad]' kopiert eine Datei in neuen Pfad.</German>
+                <Chinesesimp>Usage cp: 'cp [old path] [new path]' copies file to new path.</Chinesesimp>
+                <Russian>Usage cp: 'cp [old path] [new path]' copies file to new path.</Russian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandWhoamiDescr">
                 <Original>Returns the current user.</Original>
                 <English>Returns the current user.</English>
