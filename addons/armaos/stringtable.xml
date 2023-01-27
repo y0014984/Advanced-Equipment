@@ -707,6 +707,20 @@
                 <Chinesesimp>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
                 <Russian>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Russian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCryptoTooltip">
+                <Original>The 'crypto' command allows you to encrypt and decrypt messages.</Original>
+                <English>The 'crypto' command allows you to encrypt and decrypt messages.</English>
+                <German>Der 'crypto' Befehl ermöglicht Nachrichten zu ver- und entschlüsseln.</German>
+                <Chinesesimp>The 'crypto' command allows you to encrypt and decrypt messages.</Chinesesimp>
+                <Russian>The 'crypto' command allows you to encrypt and decrypt messages.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCrackTooltip">
+                <Original>The 'crack' command allows you to crack encrypted messages.</Original>
+                <English>The 'crack' command allows you to crack encrypted messages.</English>
+                <German>Der 'crack' Befehl ermöglicht verschlüsselte Nachrichten zu knacken.</German>
+                <Chinesesimp>The 'crack' command allows you to crack encrypted messages.</Chinesesimp>
+                <Russian>The 'crack' command allows you to crack encrypted messages.</Russian>
+            </Key>
         </Container>
         <Container name="CBA Settings">
             <Key ID="STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName">

@@ -489,7 +489,7 @@ class CfgVehicles
 			{
 				property = "AE3_Module_AddSecurityCommands_Crypto";
 				displayName = "crypto";
-				tooltip = "The 'crypto' command allows you to encrypt and decrypt messages.";
+				tooltip = "$STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCryptoTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
@@ -501,7 +501,7 @@ class CfgVehicles
 			{
 				property = "AE3_Module_AddSecurityCommands_Crack";
 				displayName = "crack";
-				tooltip = "The 'crack' command allows you to crack encrypted messages.";
+				tooltip = "$STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCrackTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
