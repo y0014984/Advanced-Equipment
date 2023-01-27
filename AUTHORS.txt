@@ -2,7 +2,7 @@
 # If you contributed, but are not listed here, contact me:
 # y0014984@gmail.com
 #
-# Feel free to add yourself to this when creating a pull
+# Feel free to add yourself to this list when creating a pull
 # request, preferably including an email address.
 
 # CORE TEAM
