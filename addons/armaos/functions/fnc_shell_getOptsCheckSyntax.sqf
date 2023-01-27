@@ -27,7 +27,7 @@ private _thingsCountVariants = [];
 	// for all syntax variants ...
 	
 	private _thingsCountMin = 0;
-	private _thingsCountMax = -1;
+	private _thingsCountMax = 0;
 
 	private _syntaxVariant = _x;
 	
@@ -61,10 +61,6 @@ private _thingsCountVariants = [];
         if (_elementCountUnlimited) then
         {
             _thingsCountMax = -1;
-        }
-        else
-        {
-            _thingsCountMax = _thingsCountMax + 1;
         };
 
         if (_elementRequired && !_elementCountUnlimited && (_thingsCountMax != -1)) then
@@ -74,18 +70,18 @@ private _thingsCountVariants = [];
 
 	} forEach _syntaxVariant;
 	
-	_thingsCountVariants pushBack _thingsCount;   
+	_thingsCountVariants pushBack [_thingsCountMin, _thingsCountMax];   
 
 } forEach _syntax;
 
 private _currentThingsCount = count _things;
 
 {
+    _x params ["_min", "_max"];
+
 	// the current count only needs to match one syntax variant
-	if (_currentThingsCount == _x) exitWith { _result = true; };
+	if ((_currentThingsCount >= _min) && ((_currentThingsCount <= _max) || (_max == -1))) exitWith { _result = true; };
 	
-	// with unlimited count allowed there only needs to be one element as a minimum
-	if ((_x == -1) && (_currentThingsCount >= 1)) exitWith { _result = true; };
 } forEach _thingsCountVariants;
 
 _result;
