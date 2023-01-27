@@ -23,7 +23,6 @@ PREP(shell_getOptsSplitOptionArgument);
 PREP(shell_getOptsCheckSyntax);
 
 /* Retro Games */
-PREP(games_init);
 PREP(games_snake);
 
 /* Retro Gaming Functions */

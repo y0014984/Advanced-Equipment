@@ -645,6 +645,13 @@
                 <Chinesesimp>AE3添加用户</Chinesesimp>
                 <Russian>AE3 Add User</Russian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_AddGamesDisplayName">
+                <Original>AE3 Add Games</Original>
+                <English>AE3 Add Games</English>
+                <German>AE3 Spiele hinzufügen</German>
+                <Chinesesimp>AE3 Add Games</Chinesesimp>
+                <Russian>AE3 Add Games</Russian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_AddSecurityCommandsDisplayName">
                 <Original>AE3 Add Security Commands</Original>
                 <English>AE3 Add Security Commands</English>
@@ -692,6 +699,13 @@
                 <German>Dieses Modul definiert Benutzer für einen armaOS Computer. Synchronisiere einfach ein oder mehrere dieser Module mit einem unterstützten Computer.</German>
                 <Chinesesimp>此模块定义armaOS计算机的用户.只需将这些模块中的一个或多个同步到指定的计算机.</Chinesesimp>
                 <Russian>Этот модуль определяет пользователей для компьютера с armaOS. Просто синхронизируйте один или несколько из этих модулей с поддерживаемым компьютером.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddGamesDescription">
+                <Original>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</Original>
+                <English>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</English>
+                <German>Dieses Modul fügt einem armaOS Computer Spiele hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
+                <Chinesesimp>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
+                <Russian>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsDescription">
                 <Original>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Original>

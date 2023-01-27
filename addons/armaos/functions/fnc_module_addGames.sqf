@@ -10,7 +10,7 @@ if(!isServer) exitWith {};
 
 	//--- Add Games to all synced Computers
 	{
-		[_x] call AE3_armaos_fnc_games_init;
+		[_x, "CfgGames", ["all"]] call AE3_armaos_fnc_link_init;
 	} foreach _units;
 };
 
