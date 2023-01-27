@@ -3,18 +3,38 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: String <[STRING]>
+ * 2: Options <[STRING]>
+ * 3: Command Name <STRING>
  *
  * Results:
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "echo";
+private _commandOpts =
+[
+    ["_backslashInterpretion", "e", "", "bool", false, false, "enables interpretation of backslash escapes"]
+];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+			["options", "OPTIONS", false, false],
+            ["path", "TEXT", true, true]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
-if (count _options == 0) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooFewOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
-private _text = _options joinString " "; 
+if (!_ae3OptsSuccess) exitWith {};
+
+private _text = _ae3OptsThings joinString " ";
+
+if (_backslashInterpretion) then
+{
+    _text = _text splitString "\n";
+};
 
 [_computer, _text] call AE3_armaos_fnc_shell_stdout;

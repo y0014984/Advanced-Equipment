@@ -16,3 +16,7 @@ PREP(mvObj);
 PREP(delObj);
 PREP(hasPermission);
 PREP(findFilesystemObject);
+PREP(fsObjExists);
+PREP(chown);
+PREP(mount);
+PREP(unmount);

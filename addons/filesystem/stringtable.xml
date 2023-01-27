@@ -37,6 +37,13 @@
                 <Chinesesimp>缺少权限</Chinesesimp>
                 <Russian>недостаточно прав</Russian>
             </Key>
+            <Key ID="STR_AE3_Filesystem_Exception_InvalidDirectory">
+                <Original>Invalid directory</Original>
+                <English>Invalid directory</English>
+                <German>Ungültiger Ordner</German>
+                <Chinesesimp>Invalid directory</Chinesesimp>
+                <Russian>Invalid directory</Russian>
+            </Key>
         </Container>
         <Container name="Config">
             <Key ID="STR_AE3_Filesystem_Config_AddFileDisplayName">

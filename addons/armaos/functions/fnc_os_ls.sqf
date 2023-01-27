@@ -5,34 +5,33 @@
  * Arguments:
  * 1: Computer <OBJECT>
  * 2: Folder/Directory <[STRING]>
+ * 3: Command Name <STRING>
  *
  * Results:
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "ls";
+private _commandOpts = 
+	[
+		["_long", "l", "long", "bool", false, false, "prints folder content in long form"]
+	];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false],
+			["options", "OPTIONS", false, false],
+			["path", "DIRECTORIES", false, true]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
-if (count _options >= 3) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasTooManyOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
-private _long = false;
-private _path = [];
+if (!_ae3OptsSuccess) exitWith {};
 
-{
-	if((_x select [0,1]) == "-") then
-	{
-		{
-			if(_x == 'l' || _x == 'L') then
-			{
-				_long = true;
-			};
-		}forEach (_x splitString "");
-	}else
-	{
-		_path pushBack _x;
-	};
-}forEach _options;
+private _path = _ae3OptsThings;
 
 if (count _path == 0) then
 {
