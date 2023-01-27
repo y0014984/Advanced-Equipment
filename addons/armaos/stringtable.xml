@@ -645,6 +645,20 @@
                 <Chinesesimp>AE3添加用户</Chinesesimp>
                 <Russian>AE3 Add User</Russian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_AddSecurityCommandsDisplayName">
+                <Original>AE3 Add Security Commands</Original>
+                <English>AE3 Add Security Commands</English>
+                <German>AE3 Security-Befehle hinzufügen</German>
+                <Chinesesimp>AE3 Add Security Commands</Chinesesimp>
+                <Russian>AE3 Add Security Commands</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_AddHackingCommandsDisplayName">
+                <Original>AE3 Add Hacking Commands</Original>
+                <English>AE3 Add Hacking Commands</English>
+                <German>AE3 Hacking-Befehle hinzufügen</German>
+                <Chinesesimp>AE3 Add Hacking Commands</Chinesesimp>
+                <Russian>AE3 Add Hacking Commands</Russian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_UsernameDisplayName">
                 <Original>Username</Original>
                 <English>Username</English>
@@ -678,6 +692,34 @@
                 <German>Dieses Modul definiert Benutzer für einen armaOS Computer. Synchronisiere einfach ein oder mehrere dieser Module mit einem unterstützten Computer.</German>
                 <Chinesesimp>此模块定义armaOS计算机的用户.只需将这些模块中的一个或多个同步到指定的计算机.</Chinesesimp>
                 <Russian>Этот модуль определяет пользователей для компьютера с armaOS. Просто синхронизируйте один или несколько из этих модулей с поддерживаемым компьютером.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsDescription">
+                <Original>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Original>
+                <English>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</English>
+                <German>Dieses Modul fügt Security-Befehle zu einem armaOS Computer hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
+                <Chinesesimp>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
+                <Russian>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddHackingCommandsDescription">
+                <Original>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Original>
+                <English>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</English>
+                <German>Dieses Modul fügt Hacking-Befehle zu einem armaOS Computer hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
+                <Chinesesimp>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
+                <Russian>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCryptoTooltip">
+                <Original>The 'crypto' command allows you to encrypt and decrypt messages.</Original>
+                <English>The 'crypto' command allows you to encrypt and decrypt messages.</English>
+                <German>Der 'crypto' Befehl ermöglicht Nachrichten zu ver- und entschlüsseln.</German>
+                <Chinesesimp>The 'crypto' command allows you to encrypt and decrypt messages.</Chinesesimp>
+                <Russian>The 'crypto' command allows you to encrypt and decrypt messages.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCrackTooltip">
+                <Original>The 'crack' command allows you to crack encrypted messages.</Original>
+                <English>The 'crack' command allows you to crack encrypted messages.</English>
+                <German>Der 'crack' Befehl ermöglicht verschlüsselte Nachrichten zu knacken.</German>
+                <Chinesesimp>The 'crack' command allows you to crack encrypted messages.</Chinesesimp>
+                <Russian>The 'crack' command allows you to crack encrypted messages.</Russian>
             </Key>
         </Container>
         <Container name="CBA Settings">

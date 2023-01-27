@@ -1,5 +1,6 @@
 /* Module Functions */
 PREP(module_addUser);
+PREP(module_addSecurityCommands);
 
 /* Shell Functions */
 PREP(shell_process);
