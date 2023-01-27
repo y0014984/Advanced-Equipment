@@ -21,7 +21,6 @@ class CfgPatches
 
 #include "CfgOsFunctions.hpp"
 #include "CfgSecurityCommands.hpp"
-#include "CfgHackingCommands.hpp"
 
 // Grid Macros and Styles
 #include "defines.inc"

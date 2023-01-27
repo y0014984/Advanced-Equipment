@@ -13,17 +13,17 @@ private _isCrack = _logic getVariable ["AE3_ModuleAddSecurityCommands_IsCrack", 
 
 	if (_isCrypto) then
 	{
-		//--- Add security commands to all synced Computers
+		//--- add 'crypto' command to all synced computers
 		{
-			[_x] call AE3_armaos_fnc_securityCommands_init;
+			[_x, "CfgSecurityCommands", ["crypto"]] call AE3_armaos_fnc_link_init;
 		} foreach _units;
 	};
 
 	if (_isCrack) then
 	{
-		//--- Add security commands to all synced Computers
+		//--- add 'crack' command to all synced computers
 		{
-			[_x] call AE3_armaos_fnc_hackingCommands_init;
+			[_x, "CfgSecurityCommands", ["crack"]] call AE3_armaos_fnc_link_init;
 		} foreach _units;
 	};
 };
