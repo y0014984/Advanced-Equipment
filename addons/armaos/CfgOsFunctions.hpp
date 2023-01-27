@@ -90,6 +90,14 @@ class CfgOsFunctions
 		code = "_this call AE3_armaos_fnc_os_mv";
 	};
 
+	class cp : OsFunction
+	{
+		path = "/bin/cp";
+		description = "$STR_AE3_ArmaOS_Config_CommandCpDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandCpMan";
+		code = "_this call AE3_armaos_fnc_os_cp";
+	};
+
 	class whoami : OsFunction
 	{
 		path = "/bin/whoami";

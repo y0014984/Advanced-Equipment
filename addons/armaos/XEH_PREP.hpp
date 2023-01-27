@@ -50,6 +50,7 @@ PREP(os_ls);
 PREP(os_man);
 PREP(os_mkdir);
 PREP(os_mv);
+PREP(os_cp);
 PREP(os_ping);
 PREP(os_rm);
 PREP(os_shutdown);
