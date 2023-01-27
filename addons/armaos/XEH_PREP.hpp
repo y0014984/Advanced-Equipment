@@ -20,6 +20,7 @@ PREP(shell_getOptsParseLongForm);
 PREP(shell_getOptsParseShortForm);
 PREP(shell_getOptsPrintHelp);
 PREP(shell_getOptsSplitOptionArgument);
+PREP(shell_getOptsCheckSyntax);
 
 /* Computer Functions */
 PREP(computer_playSoundStart);
@@ -29,6 +30,8 @@ PREP(computer_playSoundStandby);
 PREP(computer_standby);
 PREP(computer_turnOn);
 PREP(computer_turnOff);
+
+PREP(computer_getLocality);
 
 /* OS Link Functions */
 PREP(link_add);
@@ -52,6 +55,7 @@ PREP(os_ls);
 PREP(os_man);
 PREP(os_mkdir);
 PREP(os_mv);
+PREP(os_cp);
 PREP(os_ping);
 PREP(os_rm);
 PREP(os_shutdown);
@@ -60,6 +64,10 @@ PREP(os_whoami);
 PREP(os_crypto);
 PREP(os_crack);
 PREP(os_find);
+PREP(os_mount);
+PREP(os_unmount);
+PREP(os_chown);
+PREP(os_lsusb);
 
 /* Encryption Functions */
 PREP(encryption_caesar);

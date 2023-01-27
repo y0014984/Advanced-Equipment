@@ -49,8 +49,6 @@ private _counter = 0;
 	_tmpLine = _tmpLine select [_terminalMaxColumns + 1 - _counter];
 	_counter = _c;
 
-	diag_log str _tmpLine;
-
 	while {(count _tmpLine) >= _terminalMaxColumns} do
 	{
 		_buffer = text (_tmpLine select [0, _terminalMaxColumns + 1]);
@@ -68,9 +66,6 @@ private _counter = 0;
 		if (!(_color isEqualTo "")) then {_buffer setAttributes ["color", _color];};
 		_croppedOutputLines pushBack _buffer;
 	};
-	
-	diag_log str _counter;
-	diag_log str _croppedOutputLines;
 }forEach _line;
 
 _croppedOutputLines;

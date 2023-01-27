@@ -62,7 +62,7 @@ class CfgVehicles
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 			defaultPowerLevel = 0;
 
-			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
 
 			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
 			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
@@ -97,6 +97,25 @@ class CfgVehicles
 				recharging = 0.05/3600; // 50 Watts power consumption while recharging
 				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
+			};
+		};
+
+		class AE3_USB_Interface
+		{
+			class USB0
+			{
+				rel_pos[] = {-0.19, 0.042, -0.145};
+				rot_yaw = 90;
+				rot_pitch = 0;
+				rot_roll = 0;
+			};
+
+			class USB1
+			{
+				rel_pos[] = {-0.19, -0.028, -0.145};
+				rot_yaw = 90;
+				rot_pitch = 0;
+				rot_roll = 180;
 			};
 		};
 	};
@@ -163,7 +182,7 @@ class CfgVehicles
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 			defaultPowerLevel = 0;
 
-			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
 
 			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
 			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
@@ -198,6 +217,25 @@ class CfgVehicles
 				recharging = 0.05/3600; // 50 Watts power consumption while recharging
 				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
+			};
+		};
+
+		class AE3_USB_Interface
+		{
+			class USB0
+			{
+				rel_pos[] = {-0.19, 0.042, -0.145};
+				rot_yaw = 90;
+				rot_pitch = 0;
+				rot_roll = 0;
+			};
+
+			class USB1
+			{
+				rel_pos[] = {-0.19, -0.028, -0.145};
+				rot_yaw = 90;
+				rot_pitch = 0;
+				rot_roll = 180;
 			};
 		};
 	};
@@ -264,7 +302,7 @@ class CfgVehicles
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 			defaultPowerLevel = 0;
 
-			init = "_this call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
 
 			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
 			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
@@ -299,6 +337,25 @@ class CfgVehicles
 				recharging = 0.05/3600; // 50 Watts power consumption while recharging
 				level = 0.1; // 100 Watts/hour capacity at the beginning
 				internal = 1;
+			};
+		};
+
+		class AE3_USB_Interface
+		{
+			class USB0
+			{
+				rel_pos[] = {-0.19, 0.042, -0.145};
+				rot_yaw = 90;
+				rot_pitch = 0;
+				rot_roll = 0;
+			};
+
+			class USB1
+			{
+				rel_pos[] = {-0.19, -0.028, -0.145};
+				rot_yaw = 90;
+				rot_pitch = 0;
+				rot_roll = 180;
 			};
 		};
 	};

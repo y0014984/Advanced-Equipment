@@ -33,13 +33,23 @@ if (_target find "/" == 0) then
 	_current = _fileSystem;
 }else
 {
-	_current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+	try
+	{
+		_current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+	} catch
+	{
+		// Allows for paths getting out of invalid dirs
+		if (count _path == 0) throw _exception;
+		if ((_path select 0) != ".." && (_path select 0) != "~") throw _exception;
+		_current = createHashMap;
+	}
+	
 };
 
 if (count _path == 0) exitWith {[_pointer, _current]};
 {
-	_iteration = [_pointer, _current, _filesystem, _create, _user, _owner, _permissions] call {
-		params['_pointer', '_current', '_filesystem', '_create', '_user', '_owner', '_permissions'];
+	_iteration = [_pointer, _current, _filesystem, _create, _user, _owner, _permissions, _path] call {
+		params['_pointer', '_current', '_filesystem', '_create', '_user', '_owner', '_permissions', '_path'];
 
 		if (_x isEqualTo ".") exitWith
 		{
@@ -52,7 +62,16 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 			if (count _pointer != 0) then 
 			{
 				_pointer deleteAt (count _pointer - 1);
-				_current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+				try
+				{
+					_current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+				} catch
+				{
+					// Allows for paths getting out of invalid dirs
+					if (count _path - _forEachIndex - 1 == 0) throw _exception;
+					if ((_path select (_forEachIndex + 1)) != ".." && (_path select (_forEachIndex + 1)) != "~") throw _exception;
+					_current = createHashMap;
+				}
 			};
 			[_current, _pointer];
 		};
@@ -71,7 +90,7 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 				if(!(_user isEqualTo '')) then
 				{
 					_current = (_current select 0) get _user;
-					_pointer pushBack "home";
+					_pointer pushBack _user;
 				};
 			};
 
