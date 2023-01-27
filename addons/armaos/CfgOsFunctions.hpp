@@ -90,6 +90,14 @@ class CfgOsFunctions
 		code = "_this call AE3_armaos_fnc_os_mv";
 	};
 
+	class cp : OsFunction
+	{
+		path = "/bin/cp";
+		description = "$STR_AE3_ArmaOS_Config_CommandCpDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandCpMan";
+		code = "_this call AE3_armaos_fnc_os_cp";
+	};
+
 	class whoami : OsFunction
 	{
 		path = "/bin/whoami";
@@ -160,5 +168,33 @@ class CfgOsFunctions
 		description = "$STR_AE3_ArmaOS_Config_CommandFindDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
 		code = "_this call AE3_armaos_fnc_os_find";
+	};
+	class mount : OsFunction
+	{
+		path = "/bin/mount";
+		description = "$STR_AE3_ArmaOS_Config_CommandMountDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandMountMan";
+		code = "_this call AE3_armaos_fnc_os_mount";
+	};
+	class umount : OsFunction
+	{
+		path = "/bin/umount";
+		description = "$STR_AE3_ArmaOS_Config_CommandUmountDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandUmountMan";
+		code = "_this call AE3_armaos_fnc_os_unmount";
+	};
+	class lsusb : OsFunction
+	{
+		path = "/bin/lsusb";
+		description = "$STR_AE3_ArmaOS_Config_CommandLsusbDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandLsusbMan";
+		code = "_this call AE3_armaos_fnc_os_lsusb";
+	};
+	class chown : OsFunction
+	{
+		path = "/bin/chown";
+		description = "$STR_AE3_ArmaOS_Config_CommandChownDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandChownMan";
+		code = "_this call AE3_armaos_fnc_os_chown";
 	};
 };

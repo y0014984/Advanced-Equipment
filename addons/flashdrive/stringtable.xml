@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project name="AE3">
+    <Package name="FlashDrive">
+        <Container name="Interaction">
+            <Key ID="STR_AE3_Flashdrive_Interaction_Connect">
+                <Original>Connect Flash Drive</Original>
+                <English>Connect Flash Drive</English>
+                <German>USB Stick verbinden</German>
+                <Chinesesimp>解放香港，我们时代的革命</Chinesesimp>
+                <Russian>Слава Украине</Russian>
+            </Key>
+            <Key ID="STR_AE3_Flashdrive_Interaction_Take">
+                <Original>Take</Original>
+                <English>Take</English>
+                <German>Nehmen</German>
+                <Chinesesimp>解放香港，我们时代的革命</Chinesesimp>
+                <Russian>Слава Украине</Russian>
+            </Key>
+        </Container>
+        <Container name="Exceptions">
+            <Key ID="STR_AE3_Flashdrive_Exception_InterfaceNotExisting">
+                    <Original>Interface does not exit!</Original>
+                    <English>Interface does not exit!</English>
+                    <German>Interface exestiert nicht!</German>
+                    <Chinesesimp>解放香港，我们时代的革命</Chinesesimp>
+                    <Russian>Слава Украине</Russian>
+            </Key>
+            <Key ID="STR_AE3_Flashdrive_Exception_InterfaceEmpty">
+                    <Original>Interface is empty!</Original>
+                    <English>Interface is empty!</English>
+                    <German>Interface ist leer!</German>
+                    <Chinesesimp>解放香港，我们时代的革命</Chinesesimp>
+                    <Russian>Слава Украине</Russian>
+            </Key>
+        </Container>
+    </Package>
+</Project>

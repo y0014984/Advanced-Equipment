@@ -100,6 +100,14 @@ _resultOpts set ["_ae3OptsSuccess", true];
 	};
 } forEach _requiredOpts;
 
+private _syntaxMatch = [_commandSyntax, _resultThings] call AE3_armaos_fnc_shell_getOptsCheckSyntax;
+
+if (!_syntaxMatch) then
+{
+	_resultOpts set ["_ae3OptsSuccess", false];
+	[_computer, format ["Syntax mismatch! See output of '%1 -h' for allowed syntax.", _commandName]] call AE3_armaos_fnc_shell_stdout;
+};
+
 _result = _resultOpts toArray false; // Convert HashMap to Array
 
 _result;
