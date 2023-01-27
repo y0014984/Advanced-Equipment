@@ -1,6 +1,7 @@
 /* Module Functions */
 PREP(module_addUser);
 PREP(module_addSecurityCommands);
+PREP(module_addGames);
 
 /* Shell Functions */
 PREP(shell_process);
@@ -20,6 +21,18 @@ PREP(shell_getOptsParseShortForm);
 PREP(shell_getOptsPrintHelp);
 PREP(shell_getOptsSplitOptionArgument);
 PREP(shell_getOptsCheckSyntax);
+
+/* Retro Games */
+PREP(games_snake);
+
+/* Retro Gaming Functions */
+PREP(retro_createCanvas);
+PREP(retro_showSplashScreen);
+PREP(retro_setPixelColor);
+PREP(retro_getPixelColor);
+PREP(retro_getCanvasHeight);
+PREP(retro_getCanvasWidth);
+PREP(retro_addEventHandler);
 
 /* Computer Functions */
 PREP(computer_playSoundStart);
