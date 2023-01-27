@@ -15,8 +15,9 @@ private _obj = _filesystem;
 private _current = _obj select 0;
 
 {
-		_obj = (_current get _x);
-		_current = _obj select 0;
+	if (!(_x in _current)) throw (localize "STR_AE3_Filesystem_Exception_InvalidDirectory");
+	_obj = (_current get _x);
+	_current = _obj select 0;
 }forEach _pntr;
 
 _obj;

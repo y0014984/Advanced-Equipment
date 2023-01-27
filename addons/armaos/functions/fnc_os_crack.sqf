@@ -22,7 +22,7 @@ private _commandSyntax =
 	[
 			["command", _commandName, true, false],
             ["options", "OPTIONS", true, false],
-			["path", "MESSAGE", true, false]
+			["path", "MESSAGE", true, true]
 	]
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
