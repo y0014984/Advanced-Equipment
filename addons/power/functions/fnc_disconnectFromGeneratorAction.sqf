@@ -20,14 +20,29 @@ if (!isNil "_generator") then
 
 	_connectedDevices deleteAt _index;
 
+	
+	if (count _connectedDevices == 0) then
+	{
+		_tmpGen = _generator;
+		// if generator has internal power parent, change interaction for that parent instead of generator itself
+		private _powerParent = _tmpGen getVariable "AE3_power_parent";
+		if (!(isNil "_powerParent")) then { _tmpGen = _powerParent };
+			
+		// if generator is not connected to another generator (in case of battery pack)
+		private _parentGenerator = _tmpGen getVariable "AE3_power_powerCableDevice";
+		if (isNil "_parentGenerator") then { [_tmpGen, "powerConnected", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2]; };
+	};
+
 	_generator setVariable ["AE3_power_connectedDevices", _connectedDevices, true];
 };
 
 _target setVariable ["AE3_power_powerCableDevice", nil, true];
 
-[_target, true, [0, 1, 1], 0] call ace_dragging_fnc_setCarryable;
-
-[_target, 1] call ace_cargo_fnc_setSize;
+_tmpTar = _target;
+// if target has internal power parent, change interaction for that parent instead of target itself
+private _powerParent = _tmpTar getVariable "AE3_power_parent";
+if (!(isNil "_powerParent")) then { _tmpTar = _powerParent };
+[_tmpTar, "powerConnected", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
 if(!isNil {_target getVariable 'AE3_power_powerConsumption'}) then
 {

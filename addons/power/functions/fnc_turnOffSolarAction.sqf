@@ -19,7 +19,7 @@ private _turnOffSolPanFunc =
 {
 	params ["_entity"];
 
-	[_entity, true, [0, 1, 0], 0] call ace_dragging_fnc_setDraggable;
+	[_entity, "turnedOn", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
 	[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
 

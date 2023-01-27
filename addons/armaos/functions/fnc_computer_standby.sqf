@@ -9,9 +9,10 @@
  */
 
 params ["_computer"];
+
 [_computer] spawn 
 {
-	params ['_computer'];
+	params ["_computer"];
 
 	[_computer, "AE3_terminal"] call AE3_main_fnc_getRemoteVar;
 

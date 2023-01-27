@@ -25,6 +25,6 @@ private _result = false;
 		_result = true;
 		break;
 	};
-}forEach (_entity getVariable ['AE3_network_children', []]);
+} forEach (_entity getVariable ['AE3_network_children', []]);
 
 _result;
