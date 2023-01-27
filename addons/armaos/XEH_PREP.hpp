@@ -18,7 +18,7 @@ PREP(shell_getOptsParseLongForm);
 PREP(shell_getOptsParseShortForm);
 PREP(shell_getOptsPrintHelp);
 PREP(shell_getOptsSplitOptionArgument);
-
+PREP(shell_getOptsCheckSyntax);
 
 /* Computer Functions */
 PREP(computer_playSoundStart);
