@@ -11,8 +11,6 @@
 
 params['_entity', '_cmp'];
 
-systemChat (format ["%1 - %2", _entity, _cmp]);
-
 private _result = false;
 
 {
@@ -27,6 +25,6 @@ private _result = false;
 		_result = true;
 		break;
 	};
-}forEach (_entity getVariable ['AE3_network_children', []]);
+} forEach (_entity getVariable ['AE3_network_children', []]);
 
 _result;

@@ -9,9 +9,10 @@
  */
 
 params ["_computer"];
+
 [_computer] spawn 
 {
-	params ['_computer'];
+	params ["_computer"];
 
 	[_computer, "AE3_terminal"] call AE3_main_fnc_getRemoteVar;
 
@@ -21,7 +22,7 @@ params ["_computer"];
 	// _terminal var dosn't seem to be set, so there's no need to sync that undefined var to server
 	if (!isNil "_terminal") then 
 	{
-		[_computer, []] call AE3_armaos_fnc_os_exit;
+		[_computer, [], "exit"] call AE3_armaos_fnc_os_exit;
 
 		private _terminal = _computer getVariable "AE3_terminal";
 

@@ -16,4 +16,3 @@ private _distance = 50;
 private _volume = 5;
 
 playSound3D [_filename, _computer, _isInside, getPos _computer, _volume, 1, _distance, 0];
-sleep 5;

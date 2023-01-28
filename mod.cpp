@@ -1,8 +1,8 @@
-name = "Advanced Equipment v0.5.1";
+name = "Advanced Equipment v0.5.2";
 picture = "logo_ae3_ca_font.paa";
 actionName = "GitHub";
 action = "https://github.com/y0014984/Advanced-Equipment";
-description = "Advanced Equipment v0.5.1";
+description = "Advanced Equipment v0.5.2";
 logo = "logo_ae3_ca.paa";
 logoOver = "logo_ae3_ca_hover.paa";
 tooltip = "Advanced Equipment";

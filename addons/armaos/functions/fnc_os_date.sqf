@@ -4,16 +4,26 @@
  * Arguments:
  * 1: Computer <OBJECT>
  * 2: Options <[STRING]>
+ * 3: Command Name <STRING>
  *
  * Results:
  * None
  */
 
-params ["_computer", "_options"];
+params ["_computer", "_options", "_commandName"];
 
-private _commandName = "date";
+private _commandOpts = [];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
-if (count _options >= 1) exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasNoOptions", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
+
+if (!_ae3OptsSuccess) exitWith {};
 
 private _date = date;
 private _year = _date select 0;

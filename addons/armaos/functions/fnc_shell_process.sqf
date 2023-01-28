@@ -29,13 +29,13 @@ if (!(_commandElements isEqualTo [])) then
 			_pointer = [];
 		};
 
+		[_computer, _commandString] call AE3_armaos_fnc_terminal_addToHistory;
+		_terminal set ["AE3_terminalCommandHistoryIndex", -1];
+
 		[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
 		[_computer, _command, _options] call AE3_armaos_fnc_shell_executeFile;
 
 		if (_command == "shutdown") exitWith {};
-
-		[_computer, _commandString] call AE3_armaos_fnc_terminal_addToHistory;
-		_terminal set ["AE3_terminalCommandHistoryIndex", -1];
 	};
 };
 

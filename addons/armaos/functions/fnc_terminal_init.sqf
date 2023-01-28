@@ -21,6 +21,7 @@ if (!dialog) then
 private _consoleDialog = findDisplay 15984;	
 private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
+private _designButton = _consoleDialog displayCtrl 1320;
 
 /*
 private _handle = [_computer] spawn AE3_power_fnc_showBatteryLevel;
@@ -48,7 +49,7 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalScrollPosition", 0],
 		["AE3_terminalCursorLine", 0],
 		["AE3_terminalCursorPosition", 0],
-		["AE3_terminalCommandHistory", []],
+		["AE3_terminalCommandHistory", createHashMap],
 		["AE3_terminalCommandHistoryIndex", -1],
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],
@@ -76,6 +77,8 @@ private _localGameLanguage = language;
 // if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
 // perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
+/* ---------------------------------------- */
+
 private _terminalKeyboardLayout = "";
 
 //AE3_KeyboardLayout is a CBA setting
@@ -90,12 +93,47 @@ else
 	_terminalKeyboardLayout = ["AE3_KeyboardLayout", "client"] call CBA_settings_fnc_get;
 };
 
+// set the keyboard layout on terminal init with layout saved as a CBA setting
 [_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
+
+/* ---------------------------------------- */
+
+private _currentDesignIndex = 0;
+
+//AE3_TerminalDesign is a CBA setting
+if (!isMultiplayer || (isServer && hasInterface)) then
+{
+	// In singeplayer or as host in a multiplayer session
+	_currentDesignIndex = ["AE3_TerminalDesign", "server"] call CBA_settings_fnc_get;
+}
+else
+{
+	// As client in a multiplayer session
+	_currentDesignIndex = ["AE3_TerminalDesign", "client"] call CBA_settings_fnc_get;
+};
+
+// background color header, background color console, font color header, font color console
+private _designs =
+[
+	[[0.125,0.125,0.125,1], [0.2,0.2,0.2,1], [1,1,1,1], [1,1,1,1]], // default armaOS design
+	[[0.502,0.459,0.835,1], [0.243,0.192,0.635,1], [0.243,0.192,0.635,1], [0.502,0.459,0.835,1]], // C64 design
+	[[0.2,1,0.2,1], [0.157,0.157,0.157,1],[0.157,0.157,0.157,1] , [0.2,1,0.2,1]], // Apple II ( green monochrome)
+	[[1,0.69,0,1], [0.157,0.157,0.157,1],[0.157,0.157,0.157,1] , [1,0.69,0,1]] // Amber monochrome
+];
+
+_terminal set ["AE3_terminalDesigns", _designs];
+
+private _currentDesign = _designs select _currentDesignIndex;
+
+// set the terminal design on terminal init with design saved as a CBA setting
+[_consoleDialog, _currentDesign] call AE3_armaos_fnc_terminal_setTerminalDesign;
+
+/* ---------------------------------------- */
 
 private _handleUpdateBatteryStatus = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_updateBatteryStatus;
 _consoleDialog setVariable ["AE3_handleUpdateBatteryStatus", _handleUpdateBatteryStatus];
 
-[_consoleDialog, _consoleOutput, _languageButton] call AE3_armaos_fnc_terminal_addEventHandler;
+[_consoleDialog, _consoleOutput, _languageButton, _designButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
 _terminalBuffer = _terminal get "AE3_terminalBuffer";
 if (_terminalBuffer isEqualTo []) then
@@ -111,12 +149,12 @@ if (_terminalBuffer isEqualTo []) then
 	{
 		[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
 	};
-};
 
-[_computer] call AE3_armaos_fnc_terminal_setPrompt;
+	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
+};
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
 _computer setVariable ["AE3_terminal", _terminal];
 
-[_computer, false] remoteExecCall ["ace_dragging_fnc_setCarryable", 0, true];
+[_computer, "inUse", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];

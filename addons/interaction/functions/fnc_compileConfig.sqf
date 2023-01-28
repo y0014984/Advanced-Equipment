@@ -118,12 +118,12 @@ if(!isNull _animations) then
 
 /* ---------------------------------------- */
 
-private _aceWorkaround = (_equipmentCfg >> "AE3_aceWorkaround");
-if(!isNull _aceWorkaround) then
+private _ace3Interactions = (_equipmentCfg >> "AE3_ace3Interactions");
+if(!isNull _ace3Interactions) then
 {
-	_config set ["aceWorkaround", true];
+	_config set ["ace3Interactions", true];
 
-	private _aceDragging = (_aceWorkaround >> "AE3_aceDragging");
+	private _aceDragging = (_ace3Interactions >> "AE3_aceDragging");
 	if (!isNull _aceDragging) then
 	{
 		_config set 
@@ -137,7 +137,7 @@ if(!isNull _aceWorkaround) then
 		];
 	};
 
-	private _aceCarrying = (_aceWorkaround >> "AE3_aceCarrying");
+	private _aceCarrying = (_ace3Interactions >> "AE3_aceCarrying");
 	if (!isNull _aceCarrying) then
 	{
 		_config set 
@@ -147,6 +147,31 @@ if(!isNull _aceWorkaround) then
 				getNumber (_aceCarrying >> "ae3_dragging_canCarry"),
 				getArray (_aceCarrying >> "ae3_dragging_carryPosition"),
 				getNumber (_aceCarrying >> "ae3_dragging_carryDirection")
+			]
+		];
+	};
+
+	private _aceCargo = (_ace3Interactions >> "AE3_aceCargo");
+	if (!isNull _aceCargo) then
+	{
+		_config set 
+		[
+			'aceCargo',
+			[
+				getNumber (_aceCargo >> "ae3_cargo_canLoad"),
+				getNumber (_aceCargo >> "ae3_cargo_size")
+			]
+		];
+	};
+
+	private _interactionConditions = (_ace3Interactions >> "AE3_interactionConditions");
+	if (!isNull _interactionConditions) then
+	{
+		_config set 
+		[
+			'interactionConditions',
+			[
+				getNumber (_interactionConditions >> "ae3_unwrapped")
 			]
 		];
 	};
