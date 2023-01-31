@@ -722,56 +722,56 @@
                 <English>Mounts a flash drive in the specified usb port.</English>
                 <German>Hängt einen usb stick in den gegeben usb port ein.</German>
                 <Chinesesimp>Mounts a flash drive in the specified usb port.</Chinesesimp>
-                <Russian>Mounts a flash drive in the specified usb port.</Russian>
+                <Russian>Подключает флэш-накопитель к указанному порту USB.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandMountMan">
                 <Original>Usage mount: 'mount [interface name]' mounts given interface.</Original>
                 <English>Usage mount: 'mount [interface name]' mounts given interface.</English>
                 <German>Verwendung mount: 'mount [Name]' hängt usb stick in gegebenen Port ein.</German>
                 <Chinesesimp>Usage mount: 'mount [interface name]' mounts given interface.</Chinesesimp>
-                <Russian>Usage mount: 'mount [interface name]' mounts given interface.</Russian>
+                <Russian>Использование mount: 'mount [interface name]' подключает usb-накопитель к заданному порту.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandUmountDescr">
                 <Original>Unmounts a flash drive from the specified usb port.</Original>
                 <English>Unmounts a flash drive from the specified usb port.</English>
                 <German>Hängt einen usb stick aus den gegeben usb port aus.</German>
                 <Chinesesimp>Unmounts a flash drive from the specified usb port.</Chinesesimp>
-                <Russian>Unmounts a flash drive from the specified usb port.</Russian>
+                <Russian>Отсоединяет флэш-накопитель от указанного USB-порта.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandUmountMan">
                 <Original>Usage umount: 'umount [interface name]' unmounts given interface.</Original>
                 <English>Usage umount: 'umount [interface name]' unmounts given interface.</English>
                 <German>Verwendung umount: 'umount [Name]' hängt usb stick in gegebenen Port aus.</German>
                 <Chinesesimp>Usage umount: 'umount [interface name]' unmounts given interface.</Chinesesimp>
-                <Russian>Usage umount: 'umount [interface name]' unmounts given interface.</Russian>
+                <Russian>Использование umount: 'umount [interface name]' отключает usb-накопитель от заданного порта</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandChownDescr">
                 <Original>Changes the owner of a file or directory.</Original>
                 <English>Changes the owner of a file or directory.</English>
                 <German>Ändert den Besitzer einer Datei oder Ordner.</German>
                 <Chinesesimp>Changes the owner of a file or directory.</Chinesesimp>
-                <Russian>Changes the owner of a file or directory.</Russian>
+                <Russian>Изменяет владельца файла или каталога.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandChownMan">
                 <Original>Usage chown: 'chown [path] [new owner]' changes the owner.</Original>
                 <English>Usage chown: 'chown [path] [new owner]' changes the owner.</English>
                 <German>Verwendung chown: 'chown [pfad] [neuer Besitzer]' ändert den Besitzer.</German>
                 <Chinesesimp>Usage chown: 'chown [path] [new owner]' changes the owner.</Chinesesimp>
-                <Russian>Usage chown: 'chown [path] [new owner]' changes the owner.</Russian>
+                <Russian>Использование chown: 'chown [path] [new owner]' изменяет владельца</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandLsusbDescr">
                 <Original>Lists the available (usb) interfaces.</Original>
                 <English>Lists the available (usb) interfaces.</English>
                 <German>Zeigt die verfügbaren usb Ports an.</German>
                 <Chinesesimp>Lists the available (usb) interfaces.</Chinesesimp>
-                <Russian>Lists the available (usb) interfaces.</Russian>
+                <Russian>Перечисляет доступные интерфейсы (usb).</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandLsusbMan">
                 <Original>Usage lsusb: 'lsusb' lists usb interfaces.</Original>
                 <English>Usage lsusb: 'lsusb' lists usb interfaces.</English>
                 <German>Verwendung lsusb: 'lsusb' zeigt die usb Ports an.</German>
                 <Chinesesimp>Usage lsusb: 'lsusb' lists usb interfaces.</Chinesesimp>
-                <Russian>Usage lsusb: 'lsusb' lists usb interfaces.</Russian>
+                <Russian>Использование lsusb: 'lsusb' отображает порты usb</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_TextureBlack">
                 <Original>Black</Original>
@@ -896,35 +896,35 @@
                 <English>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</English>
                 <German>Dieses Modul fügt einem armaOS Computer Spiele hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
                 <Chinesesimp>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
-                <Russian>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</Russian>
+                <Russian>Этот модуль добавляет компьютерные игры в armaOS. Просто синхронизируйте этот модуль с поддерживаемым компьютером.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsDescription">
                 <Original>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Original>
                 <English>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</English>
                 <German>Dieses Modul fügt Security-Befehle zu einem armaOS Computer hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
                 <Chinesesimp>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
-                <Russian>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Russian>
+                <Russian>Этот модуль добавляет команды безопасности к компьютеру armaOS. Просто синхронизируйте этот модуль с поддерживаемым компьютером.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_ModuleAddHackingCommandsDescription">
                 <Original>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Original>
                 <English>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</English>
                 <German>Dieses Modul fügt Hacking-Befehle zu einem armaOS Computer hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
                 <Chinesesimp>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
-                <Russian>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Russian>
+                <Russian>Этот модуль добавляет команды взлома на компьютер armaOS. Просто синхронизируйте этот модуль с поддерживаемым компьютером.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCryptoTooltip">
                 <Original>The 'crypto' command allows you to encrypt and decrypt messages.</Original>
                 <English>The 'crypto' command allows you to encrypt and decrypt messages.</English>
                 <German>Der 'crypto' Befehl ermöglicht Nachrichten zu ver- und entschlüsseln.</German>
                 <Chinesesimp>The 'crypto' command allows you to encrypt and decrypt messages.</Chinesesimp>
-                <Russian>The 'crypto' command allows you to encrypt and decrypt messages.</Russian>
+                <Russian>Команда "crypto" позволяет вам шифровать и расшифровывать сообщения.</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSecurityCommandsCrackTooltip">
                 <Original>The 'crack' command allows you to crack encrypted messages.</Original>
                 <English>The 'crack' command allows you to crack encrypted messages.</English>
                 <German>Der 'crack' Befehl ermöglicht verschlüsselte Nachrichten zu knacken.</German>
                 <Chinesesimp>The 'crack' command allows you to crack encrypted messages.</Chinesesimp>
-                <Russian>The 'crack' command allows you to crack encrypted messages.</Russian>
+                <Russian>Команда "взломать" позволяет вам взламывать зашифрованные сообщения.</Russian>
             </Key>
         </Container>
         <Container name="CBA Settings">
@@ -961,7 +961,7 @@
                 <English>Terminal Design for armaOS. You can also change this in armaOS terminal.</English>
                 <German>Terminal Design für armaOS. Du kannst dies auch im armaOS Terminal umstellen.</German>
                 <Chinesesimp>Terminal Design for armaOS. You can also change this in armaOS terminal.</Chinesesimp>
-                <Russian>Terminal Design for armaOS. You can also change this in armaOS terminal.</Russian>
+                <Russian>Дизайн терминала для armaOS. Вы также можете изменить это в терминале armaOS.</Russian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameArmaOS">
                 <Original>armaOS default</Original>

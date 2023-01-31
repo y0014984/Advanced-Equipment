@@ -102,7 +102,7 @@
                 <English>Power Level set at the beginning of the mission</English>
                 <German>Batteriefüllstand zu Beginn der Mission</German>
                 <Chinesesimp>Power Level set at the beginning of the mission</Chinesesimp>
-                <Russian>Power Level set at the beginning of the mission</Russian>
+                <Russian>Уровень мощности, установленный в начале миссии</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
                 <Original>Fuel Level</Original>
@@ -116,7 +116,7 @@
                 <English>Fuel Level set at the beginning of the mission</English>
                 <German>Treibstofffüllstand zu Beginn der Mission</German>
                 <Chinesesimp>Fuel Level set at the beginning of the mission</Chinesesimp>
-                <Russian>Fuel Level set at the beginning of the mission</Russian>
+                <Russian>Уровень топлива установленный в начале миссии</Russian>
             </Key>
         </Container>
         <Container name="Eden Connections">
@@ -125,28 +125,28 @@
                 <English>Forbidden connection removed: this source asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Ausgangsgerät sind Verbindungen diesen Typs unzulässig: %1</German>
                 <Chinesesimp>Forbidden connection removed: this source asset is not allowed for connection type: %1</Chinesesimp>
-                <Russian>Forbidden connection removed: this source asset is not allowed for connection type: %1</Russian>
+                <Russian>Удалено недопустимое соединение: для этого устройства вывода соединения такого типа недопустимы: %1</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Forbidden2">
                 <Original>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Original>
                 <English>Forbidden connection removed: this destination asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Zielgerät sind Verbindungen diesen Typs unzulässig: %1</German>
                 <Chinesesimp>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Chinesesimp>
-                <Russian>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Russian>
+                <Russian>Удалено запрещенное подключение: этот целевой ресурс не разрешен для типа подключения: %1</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Forbidden3">
                 <Original>Forbidden connection removed: source and destination are identical</Original>
                 <English>Forbidden connection removed: source and destination are identical</English>
                 <German>Unzulässige Verbindung entfernt: Ausgang und Ziel sind identisch</German>
                 <Chinesesimp>Forbidden connection removed: source and destination are identical</Chinesesimp>
-                <Russian>Forbidden connection removed: source and destination are identical</Russian>
+                <Russian>Удалено недопустимое соединение: выход и пункт назначения идентичны</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Warning">
                 <Original>Connection warning: this asset already has a connection of type: %1</Original>
                 <English>Connection warning: this asset already has a connection of type: %1</English>
                 <German>Verbindungswarnung: dieses Gerät hat bereits eine Verbindung vom Typ: %1</German>
                 <Chinesesimp>Connection warning: this asset already has a connection of type: %1</Chinesesimp>
-                <Russian>Connection warning: this asset already has a connection of type: %1</Russian>
+                <Russian>Предупреждение о подключении: у этого устройства уже есть подключение такого типа: %1</Russian>
             </Key>
         </Container>
         <Container name="CBA Settings">

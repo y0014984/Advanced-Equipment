@@ -21,7 +21,7 @@
                 <English>Exit interaction</English>
                 <German>Interaction verlassen</German>
                 <Chinesesimp>Exit interaction</Chinesesimp>
-                <Russian>Exit interaction</Russian>
+                <Russian>Завершить взаимодействие</Russian>
             </Key>
         </Container>
         <Container name="Config">
