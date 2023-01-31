@@ -6,9 +6,9 @@ class CfgWeapons {
 	{
 		author[] = {"Wasserstoff"};
         scope = 1;
-        displayName = "Flash drive";
-        descriptionShort = "Flash drive";
-		useActionTitle = "AE3: Pick up flash drive";
+        displayName = "$STR_AE3_Flashdrive_DisplayName";
+        descriptionShort = "$STR_AE3_Flashdrive_DescrShort";
+		useActionTitle = "$STR_AE3_Flashdrive_UseActionTitle";
 
         model = "\A3\Props_F_Oldman\Items\USB_Dongle_01_F.p3d";
         picture = "\z\ae3\addons\flashdrive\ui\AE3_flashdrive_ca.paa";

@@ -158,6 +158,90 @@
             </Key>
         </Container>
         <Container name="Results">
+            <Key ID="STR_AE3_ArmaOS_Result_GetOpts_MissingOpt">
+                <Original>Command option '%1' missing!</Original>
+                <English>Command option '%1' missing!</English>
+                <German>Befehlsoption '%1' fehlt!</German>
+                <Chinesesimp>Command option '%1' missing!</Chinesesimp>
+                <Russian>Command option '%1' missing!</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_GetOpts_Help">
+                <Original>Help: %1</Original>
+                <English>Help: %1</English>
+                <German>Hilfe: %1</German>
+                <Chinesesimp>Help: %1</Chinesesimp>
+                <Russian>Help: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_GetOpts_SyntaxMismatch">
+                <Original>Syntax mismatch! See output of '%1 -h' for allowed syntax.</Original>
+                <English>Syntax mismatch! See output of '%1 -h' for allowed syntax.</English>
+                <German>Syntax falsch! Siehe Ausgabe von '%1 -h' für eine gültige Syntax.</German>
+                <Chinesesimp>Syntax mismatch! See output of '%1 -h' for allowed syntax.</Chinesesimp>
+                <Russian>Syntax mismatch! See output of '%1 -h' for allowed syntax.</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_GetOpts_CommandSyntax">
+                <Original>COMMAND SYNTAX</Original>
+                <English>COMMAND SYNTAX</English>
+                <German>BEFEHLSSYNTAX</German>
+                <Chinesesimp>COMMAND SYNTAX</Chinesesimp>
+                <Russian>COMMAND SYNTAX</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_GetOpts_CommandOptionen">
+                <Original>COMMAND OPTIONS</Original>
+                <English>COMMAND OPTIONS</English>
+                <German>BEFEHLSOPTIONEN</German>
+                <Chinesesimp>COMMAND OPTIONS</Chinesesimp>
+                <Russian>COMMAND OPTIONS</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_HistoryCleared">
+                <Original>history cleared</Original>
+                <English>history cleared</English>
+                <German>Historie gelöscht</German>
+                <Chinesesimp>history cleared</Chinesesimp>
+                <Russian>history cleared</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_HistoryElementDeleted">
+                <Original>history element at index %1 deleted</Original>
+                <English>history element at index %1 deleted</English>
+                <German>Eintrag aus der Historie an Position %1 entfernt</German>
+                <Chinesesimp>history element at index %1 deleted</Chinesesimp>
+                <Russian>history element at index %1 deleted</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_Fallen">
+                <Original>Fallen. Game over!</Original>
+                <English>Fallen. Game over!</English>
+                <German>Runtergefallen. Game over!</German>
+                <Chinesesimp>Fallen. Game over!</Chinesesimp>
+                <Russian>Fallen. Game over!</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_Bitten">
+                <Original>Bitten. Game over!</Original>
+                <English>Bitten. Game over!</English>
+                <German>Gebissen. Game over!</German>
+                <Chinesesimp>Bitten. Game over!</Chinesesimp>
+                <Russian>Bitten. Game over!</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_SnakeLength">
+                <Original>snake length: %1</Original>
+                <English>snake length: %1</English>
+                <German>Länge der Schlange: %1</German>
+                <Chinesesimp>snake length: %1</Chinesesimp>
+                <Russian>snake length: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_SnakeSpeedlevel">
+                <Original>speed level: %1</Original>
+                <English>speed level: %1</English>
+                <German>Geschwindigkeitsstufe: %1</German>
+                <Chinesesimp>speed level: %1</Chinesesimp>
+                <Russian>speed level: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_SnakeDuration">
+                <Original>duration: %1 s</Original>
+                <English>duration: %1 s</English>
+                <German>Dauer: %1 s</German>
+                <Chinesesimp>duration: %1 s</Chinesesimp>
+                <Russian>duration: %1 s</Russian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Result_IPv4Address">
                 <Original>IPv4 Address: %1</Original>
                 <English>IPv4 Address: %1</English>
@@ -210,6 +294,99 @@
                 <Russian>Получить подробную информацию о команде: 'man [command]'</Russian>
             </Key>
         </Container>
+        <Container name="CommandHelp">
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_GetOpts_help">
+                <Original>display this help and exit</Original>
+                <English>display this help and exit</English>
+                <German>diese Hilfe anzeigen und beenden</German>
+                <Chinesesimp>display this help and exit</Chinesesimp>
+                <Russian>display this help and exit</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Snake_size">
+                <Original>increases the pixel size</Original>
+                <English>increases the pixel size</English>
+                <German>erhöht die Pixelgröße</German>
+                <Chinesesimp>increases the pixel size</Chinesesimp>
+                <Russian>increases the pixel size</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Cat_numbered">
+                <Original>prints numbered output lines</Original>
+                <English>prints numbered output lines</English>
+                <German>gibt Zeilennummern aus</German>
+                <Chinesesimp>prints numbered output lines</Chinesesimp>
+                <Russian>prints numbered output lines</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Chown_recursive">
+                <Original>recursively changes owner</Original>
+                <English>recursively changes owner</English>
+                <German>ändert rekursiv den Besitzer</German>
+                <Chinesesimp>recursively changes owner</Chinesesimp>
+                <Russian>recursively changes owner</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Crack_mode">
+                <Original>sets the mode</Original>
+                <English>sets the mode</English>
+                <German>setzt den Modus</German>
+                <Chinesesimp>sets the mode</Chinesesimp>
+                <Russian>sets the mode</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Crack_algorithm">
+                <Original>sets the algorithm</Original>
+                <English>sets the algorithm</English>
+                <German>setzt den Algorithmus</German>
+                <Chinesesimp>sets the algorithm</Chinesesimp>
+                <Russian>sets the algorithm</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Crypto_mode">
+                <Original>sets the mode</Original>
+                <English>sets the mode</English>
+                <German>setzt den Modus</German>
+                <Chinesesimp>sets the mode</Chinesesimp>
+                <Russian>sets the mode</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Crypto_algorithm">
+                <Original>sets the algorithm</Original>
+                <English>sets the algorithm</English>
+                <German>setzt den Algorithmus</German>
+                <Chinesesimp>sets the algorithm</Chinesesimp>
+                <Russian>sets the algorithm</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Crypto_key">
+                <Original>sets the key/password/pin</Original>
+                <English>sets the key/password/pin</English>
+                <German>setzt den Schlüssel/Passwort/PIN</German>
+                <Chinesesimp>sets the key/password/pin</Chinesesimp>
+                <Russian>sets the key/password/pin</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Echo_backslash">
+                <Original>"enables interpretation of backslash escapes</Original>
+                <English>"enables interpretation of backslash escapes</English>
+                <German>"aktiviert die Interpretation von Backslash-Steuerzeichen</German>
+                <Chinesesimp>"enables interpretation of backslash escapes</Chinesesimp>
+                <Russian>"enables interpretation of backslash escapes</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_History_clear">
+                <Original>"clears the history list</Original>
+                <English>"clears the history list</English>
+                <German>"löscht die Befehlshistorie</German>
+                <Chinesesimp>"clears the history list</Chinesesimp>
+                <Russian>"clears the history list</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_History_deleteAtOffset">
+                <Original>"deletes a history entry at the given position offset</Original>
+                <English>"deletes a history entry at the given position offset</English>
+                <German>"entfernt den Eintrag aus der Historie mit der angegebenen Position</German>
+                <Chinesesimp>"deletes a history entry at the given position offset</Chinesesimp>
+                <Russian>"deletes a history entry at the given position offset</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_CommandHelp_Ls_long">
+                <Original>"prints folder content in long form</Original>
+                <English>"prints folder content in long form</English>
+                <German>"gibt den Inhalt des Ordners in der Langform aus</German>
+                <Chinesesimp>"prints folder content in long form</Chinesesimp>
+                <Russian>"prints folder content in long form</Russian>
+            </Key>
+        </Container>
         <Container name="Config">
             <Key ID="STR_AE3_ArmaOS_Config_ArmaOSModulesKategoryDisplayName">
                 <Original>AE3 armaOS Modules</Original>
@@ -217,6 +394,20 @@
                 <German>AE3 armaOS Module</German>
                 <Chinesesimp>AE3 armaOS 模块</Chinesesimp>
                 <Russian>AE3 armaOS Module</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandSnakeDescr">
+                <Original>Retro Snake Game</Original>
+                <English>Retro Snake Game</English>
+                <German>Retro Spiel Snake</German>
+                <Chinesesimp>Retro Snake Game</Chinesesimp>
+                <Russian>Retro Snake Game</Russian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandSnakeMan">
+                <Original>Retro Snake Game - use option --big for doubled block size</Original>
+                <English>Retro Snake Game - use option --big for doubled block size</English>
+                <German>Retro Spiel Snake - benutze die Option --big für eine doppelte Blockgröße</German>
+                <Chinesesimp>Retro Snake Game - use option --big for doubled block size</Chinesesimp>
+                <Russian>Retro Snake Game - use option --big for doubled block size</Russian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandManDescr">
                 <Original>Prints usage information about a command.</Original>

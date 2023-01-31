@@ -74,6 +74,13 @@
                 <Chinesesimp>电量: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
                 <Russian>Уровень заряда батареи: %1 Wh (%2%3 of %4 Wh)</Russian>
             </Key>
+            <Key ID="STR_AE3_Main_DebugMode_PowerOutput">
+                <Original>Power Output: %1 W)</Original>
+                <English>Power Output: %1 W</English>
+                <German>Ausgangsleistung: %1 W</German>
+                <Chinesesimp>Power Output: %1 W</Chinesesimp>
+                <Russian>Power Output: %1 W</Russian>
+            </Key>
         </Container>
         <Container name="Eden Attributes">
             <Key ID="STR_AE3_Main_EdenAttributes_AE3Attributes">
@@ -110,6 +117,36 @@
                 <German>Treibstofffüllstand zu Beginn der Mission</German>
                 <Chinesesimp>Fuel Level set at the beginning of the mission</Chinesesimp>
                 <Russian>Fuel Level set at the beginning of the mission</Russian>
+            </Key>
+        </Container>
+        <Container name="Eden Connections">
+            <Key ID="STR_AE3_Main_EdenConnections_Forbidden1">
+                <Original>Forbidden connection removed: this source asset is not allowed for connection type: %1</Original>
+                <English>Forbidden connection removed: this source asset is not allowed for connection type: %1</English>
+                <German>Unzulässige Verbindung entfernt: für dieses Ausgangsgerät sind Verbindungen diesen Typs unzulässig: %1</German>
+                <Chinesesimp>Forbidden connection removed: this source asset is not allowed for connection type: %1</Chinesesimp>
+                <Russian>Forbidden connection removed: this source asset is not allowed for connection type: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenConnections_Forbidden2">
+                <Original>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Original>
+                <English>Forbidden connection removed: this destination asset is not allowed for connection type: %1</English>
+                <German>Unzulässige Verbindung entfernt: für dieses Zielgerät sind Verbindungen diesen Typs unzulässig: %1</German>
+                <Chinesesimp>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Chinesesimp>
+                <Russian>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenConnections_Forbidden3">
+                <Original>Forbidden connection removed: source and destination are identical</Original>
+                <English>Forbidden connection removed: source and destination are identical</English>
+                <German>Unzulässige Verbindung entfernt: Ausgang und Ziel sind identisch</German>
+                <Chinesesimp>Forbidden connection removed: source and destination are identical</Chinesesimp>
+                <Russian>Forbidden connection removed: source and destination are identical</Russian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenConnections_Warning">
+                <Original>Connection warning: this asset already has a connection of type: %1</Original>
+                <English>Connection warning: this asset already has a connection of type: %1</English>
+                <German>Verbindungswarnung: dieses Gerät hat bereits eine Verbindung vom Typ: %1</German>
+                <Chinesesimp>Connection warning: this asset already has a connection of type: %1</Chinesesimp>
+                <Russian>Connection warning: this asset already has a connection of type: %1</Russian>
             </Key>
         </Container>
         <Container name="CBA Settings">

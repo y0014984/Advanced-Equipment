@@ -15,7 +15,7 @@ params ["_computer", "_options", "_commandName"];
 
 private _commandOpts = 
 	[
-		["_numbered", "n", "number", "bool", false, false, "prints numbered output lines"]
+		["_numbered", "n", "number", "bool", false, false, localize "STR_AE3_ArmaOS_CommandHelp_Cat_numbered"]
 	];
 private _commandSyntax =
 [

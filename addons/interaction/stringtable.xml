@@ -16,6 +16,13 @@
                 <Chinesesimp>关闭</Chinesesimp>
                 <Russian>Закрыть</Russian>
             </Key>
+            <Key ID="STR_AE3_Interaction_General_Exit">
+                <Original>Exit interaction</Original>
+                <English>Exit interaction</English>
+                <German>Interaction verlassen</German>
+                <Chinesesimp>Exit interaction</Chinesesimp>
+                <Russian>Exit interaction</Russian>
+            </Key>
         </Container>
         <Container name="Config">
             <Key ID="STR_AE3_Interaction_Config_LampDisplayName">

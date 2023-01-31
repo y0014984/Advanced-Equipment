@@ -13,7 +13,7 @@
 params ["_computer", "_options", "_commandName"];
 
 private _commandOpts = [
-	["_recursive", "r", "recursive", "bool", false, false, "recursively changes owner"]
+	["_recursive", "r", "recursive", "bool", false, false, localize "STR_AE3_ArmaOS_CommandHelp_Chown_recursive"]
 ];
 private _commandSyntax =
 [

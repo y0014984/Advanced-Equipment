@@ -14,7 +14,7 @@ params ["_computer", "_options", "_commandName"];
 
 private _commandOpts =
 [
-    ["_backslashInterpretion", "e", "", "bool", false, false, "enables interpretation of backslash escapes"]
+    ["_backslashInterpretion", "e", "", "bool", false, false, localize "STR_AE3_ArmaOS_CommandHelp_Echo_backslash"]
 ];
 private _commandSyntax =
 [

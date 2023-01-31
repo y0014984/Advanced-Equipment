@@ -33,5 +33,28 @@
                     <Russian>Слава Украине</Russian>
             </Key>
         </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_Flashdrive_DisplayName">
+                    <Original>Flash drive</Original>
+                    <English>Flash drive</English>
+                    <German>Flash drive</German>
+                    <Chinesesimp>Flash drive</Chinesesimp>
+                    <Russian>Flash drive</Russian>
+            </Key>
+            <Key ID="STR_AE3_Flashdrive_DescrShort">
+                    <Original>Flash drive</Original>
+                    <English>Flash drive</English>
+                    <German>Flash Drive</German>
+                    <Chinesesimp>Flash drive</Chinesesimp>
+                    <Russian>Flash drive</Russian>
+            </Key>
+            <Key ID="STR_AE3_Flashdrive_UseActionTitle">
+                    <Original>AE3: Pick up flash drive</Original>
+                    <English>AE3: Pick up flash drive</English>
+                    <German>AE3: Flash Drive aufnehmen</German>
+                    <Chinesesimp>AE3: Pick up flash drive</Chinesesimp>
+                    <Russian>AE3: Pick up flash drive</Russian>
+            </Key>
+        </Container>
     </Package>
 </Project>
