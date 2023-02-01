@@ -28,7 +28,7 @@ This project is entirely **open-source** and all contributions are welcome. Feel
 - Network Management (only basics implemented yet)
 - Logistics (Fold and unfold objects, move them around, put them into vehicles)
 - 3DEN Modules (Easy Mission Making)
-- Localization (English, German, Russian, Simplified Chinese)
+- Localization (English, German, French, Russian, Simplified Chinese)
 
 ## Wiki
 See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional information on how to use Advanced Equipment. 
