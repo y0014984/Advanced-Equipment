@@ -90,8 +90,8 @@ _resultOpts set ["_ae3OptsSuccess", true];
 
 		private _missingOptions = 
 		[
-			format ["Command option '%1' missing!", _y select 0],
-			format ["Help: %1", _y select 1]
+			format [localize "STR_AE3_ArmaOS_Result_GetOpts_MissingOpt", _y select 0],
+			format [localize "STR_AE3_ArmaOS_Result_GetOpts_Help", _y select 1]
 		];
 
 		[_computer, _missingOptions] call AE3_armaos_fnc_shell_stdout;
@@ -105,7 +105,7 @@ private _syntaxMatch = [_commandSyntax, _resultThings] call AE3_armaos_fnc_shell
 if (!_syntaxMatch) then
 {
 	_resultOpts set ["_ae3OptsSuccess", false];
-	[_computer, format ["Syntax mismatch! See output of '%1 -h' for allowed syntax.", _commandName]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, format [localize "STR_AE3_ArmaOS_Result_GetOpts_SyntaxMismatch", _commandName]] call AE3_armaos_fnc_shell_stdout;
 };
 
 _result = _resultOpts toArray false; // Convert HashMap to Array

@@ -15,9 +15,9 @@ params ["_computer", "_options", "_commandName"];
 
 private _commandOpts = 
 	[
-		["_mode", "m", "mode", "stringSelect", "", true, "sets the mode", ["encrypt", "decrypt"]],
-        ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, "sets the algorithm", ["caesar"]],
-        ["_key", "k", "key", "string", "", true, "sets the key/password/pin"]
+		["_mode", "m", "mode", "stringSelect", "", true, localize "STR_AE3_ArmaOS_CommandHelp_Crypto_mode", ["encrypt", "decrypt"]],
+        ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, localize "STR_AE3_ArmaOS_CommandHelp_Crypto_algorithm", ["caesar"]],
+        ["_key", "k", "key", "string", "", true, localize "STR_AE3_ArmaOS_CommandHelp_Crypto_key"]
 	];
 private _commandSyntax =
 [

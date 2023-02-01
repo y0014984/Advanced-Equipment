@@ -15,7 +15,7 @@ params ["_computer", "_options", "_commandName"];
 
 private _commandOpts = 
 	[
-		["_long", "l", "long", "bool", false, false, "prints folder content in long form"]
+		["_long", "l", "long", "bool", false, false, localize "STR_AE3_ArmaOS_CommandHelp_Ls_long"]
 	];
 private _commandSyntax =
 [

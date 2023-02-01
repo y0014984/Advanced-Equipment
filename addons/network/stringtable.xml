@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="AE3">
     <Package name="Network">
         <Container name="Interaction">
@@ -8,6 +8,7 @@
                 <German>Verbinde mit Router</German>
                 <Chinesesimp>连接路由器.</Chinesesimp>
                 <Russian>Подключить к роутеру</Russian>
+                <French>Connecter au router</French>
             </Key>
             <Key ID="STR_AE3_Network_Interaction_DisconnectFromRouter">
                 <Original>Disconnect from router</Original>
@@ -15,6 +16,7 @@
                 <German>Trenne von Router</German>
                 <Chinesesimp>断开路由器.</Chinesesimp>
                 <Russian>Отключить от роутера</Russian>
+                <French>Déconnecter du routeur</French>
             </Key>
         </Container>
         <Container name="Config">
@@ -24,6 +26,7 @@
                 <German>Router</German>
                 <Chinesesimp>路由器</Chinesesimp>
                 <Russian>Роутер</Russian>
+                <French>Routeur</French>
             </Key>
         </Container>
     </Package>
