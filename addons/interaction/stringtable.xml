@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="AE3">
     <Package name="Interaction">
         <Container name="General">
@@ -8,6 +8,7 @@
                 <German>Öffnen</German>
                 <Chinesesimp>打开</Chinesesimp>
                 <Russian>Открыть</Russian>
+                <French>Ouvrir</French>
             </Key>
             <Key ID="STR_AE3_Interaction_General_Close">
                 <Original>Close</Original>
@@ -15,6 +16,7 @@
                 <German>Schließen</German>
                 <Chinesesimp>关闭</Chinesesimp>
                 <Russian>Закрыть</Russian>
+                <French>Fermer</French>
             </Key>
             <Key ID="STR_AE3_Interaction_General_Exit">
                 <Original>Exit interaction</Original>
@@ -22,6 +24,7 @@
                 <German>Interaction verlassen</German>
                 <Chinesesimp>Exit interaction</Chinesesimp>
                 <Russian>Завершить взаимодействие</Russian>
+                <French>Quitter l'interaction</French>
             </Key>
         </Container>
         <Container name="Config">
@@ -31,6 +34,7 @@
                 <German>Lampe</German>
                 <Chinesesimp>灯</Chinesesimp>
                 <Russian>Лампа</Russian>
+                <French>Lampe</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp1">
                 <Original>lamp 1</Original>
@@ -38,6 +42,7 @@
                 <German>Lampe 1</German>
                 <Chinesesimp>灯1</Chinesesimp>
                 <Russian>Лампа 1</Russian>
+                <French>lampe 1</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp1">
                 <Original>extend lamp 1</Original>
@@ -45,6 +50,7 @@
                 <German>Lampe 1 ausfahren</German>
                 <Chinesesimp>展开灯1</Chinesesimp>
                 <Russian>Выдвинуть лампу 1</Russian>
+                <French>déployer lampe 1</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp1">
                 <Original>pitch lamp 1</Original>
@@ -52,6 +58,7 @@
                 <German>Lampe 1 neigen</German>
                 <Chinesesimp>倾斜灯1</Chinesesimp>
                 <Russian>Наклонить лампу 1</Russian>
+                <French>Basculer lampe 1</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp1">
                 <Original>yaw lamp 1</Original>
@@ -59,6 +66,7 @@
                 <German>Lampe 1 gieren</German>
                 <Chinesesimp>偏转灯1</Chinesesimp>
                 <Russian> Повернуть лампу 1</Russian>
+                <French>Tourner lampe 1</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp2">
                 <Original>lamp 2</Original>
@@ -66,6 +74,7 @@
                 <German>Lampe 2</German>
                 <Chinesesimp>灯2</Chinesesimp>
                 <Russian>Лампа 2</Russian>
+                <French>lampe 2</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp2">
                 <Original>extend lamp 2</Original>
@@ -73,6 +82,7 @@
                 <German>Lampe 2 ausfahren</German>
                 <Chinesesimp>展开灯2</Chinesesimp>
                 <Russian>Выдвинуть лампу 2</Russian>
+                <French>déployer lampe 2</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp2">
                 <Original>pitch lamp 2</Original>
@@ -80,6 +90,7 @@
                 <German>Lampe 2 neigen</German>
                 <Chinesesimp>倾斜灯2</Chinesesimp>
                 <Russian>Наклонить лампу 2</Russian>
+                <French>Basculer lampe 2</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp2">
                 <Original>yaw lamp 2</Original>
@@ -87,6 +98,7 @@
                 <German>Lampe 2 gieren</German>
                 <Chinesesimp>偏转灯2</Chinesesimp>
                 <Russian>Повернуть лампу 2</Russian>
+                <French>Tourner lampe 2</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp3">
                 <Original>lamp 3</Original>
@@ -94,6 +106,7 @@
                 <German>Lampe 3</German>
                 <Chinesesimp>灯3</Chinesesimp>
                 <Russian>Лампа 3</Russian>
+                <French>lampe 3</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp3">
                 <Original>extend lamp 3</Original>
@@ -101,6 +114,7 @@
                 <German>Lampe 3 ausfahren</German>
                 <Chinesesimp>展开灯3</Chinesesimp>
                 <Russian>Выдвинуть лампу 3</Russian>
+                <French>Déployer lampe 3</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp3">
                 <Original>pitch lamp 3</Original>
@@ -108,6 +122,7 @@
                 <German>Lampe 3 neigen</German>
                 <Chinesesimp>倾斜灯3</Chinesesimp>
                 <Russian>Наклонить лампу 3</Russian>
+                <French>Basculer lampe 3</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp3">
                 <Original>yaw lamp 3</Original>
@@ -115,6 +130,7 @@
                 <German>Lampe 3 gieren</German>
                 <Chinesesimp>偏转灯3</Chinesesimp>
                 <Russian>Повернуть лампу 3</Russian>
+                <French>Tourner lampe 3</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp4">
                 <Original>lamp 4</Original>
@@ -122,6 +138,7 @@
                 <German>Lampe 4</German>
                 <Chinesesimp>灯4</Chinesesimp>
                 <Russian>Лампа 4</Russian>
+                <French>lampe 4</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp4">
                 <Original>extend lamp 4</Original>
@@ -129,6 +146,7 @@
                 <German>Lampe 4 ausfahren</German>
                 <Chinesesimp>展开灯4</Chinesesimp>
                 <Russian>Выдвинуть лампу 4</Russian>
+                <French>Déployer lampe 4</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp4">
                 <Original>pitch lamp 4</Original>
@@ -136,6 +154,7 @@
                 <German>Lampe 4 neigen</German>
                 <Chinesesimp>倾斜灯4</Chinesesimp>
                 <Russian>Наклонить лампу 4</Russian>
+                <French>Basculer lampe 4</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp4">
                 <Original>yaw lamp 4</Original>
@@ -143,6 +162,7 @@
                 <German>Lampe 4 gieren</German>
                 <Chinesesimp>偏转灯4</Chinesesimp>
                 <Russian>Повернуть лампу 4</Russian>
+                <French>Tourner lampe 4</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_DeskDisplayName">
                 <Original>desk</Original>
@@ -150,6 +170,7 @@
                 <German>Tisch</German>
                 <Chinesesimp>桌子</Chinesesimp>
                 <Russian>Стол</Russian>
+                <French>bureau</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureBlack">
                 <Original>Black</Original>
@@ -157,6 +178,7 @@
                 <German>Schwarz</German>
                 <Chinesesimp>黑色</Chinesesimp>
                 <Russian>Black</Russian>
+                <French>Noir</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureOlive">
                 <Original>Olive</Original>
@@ -164,6 +186,7 @@
                 <German>Oliv</German>
                 <Chinesesimp>橄榄色</Chinesesimp>
                 <Russian>Olive</Russian>
+                <French>Olive</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureYellow">
                 <Original>Yellow</Original>
@@ -171,6 +194,7 @@
                 <German>Gelb</German>
                 <Chinesesimp>黄色</Chinesesimp>
                 <Russian>Yellow</Russian>
+                <French>Jaune</French>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureSand">
                 <Original>Sand</Original>
@@ -178,6 +202,7 @@
                 <German>Sand</German>
                 <Chinesesimp>沙色</Chinesesimp>
                 <Russian>Sand</Russian>
+                <French>Sable</French>
             </Key>
         </Container>
     </Package>
