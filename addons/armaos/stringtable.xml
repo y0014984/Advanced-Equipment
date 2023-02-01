@@ -184,7 +184,7 @@
                 <Original>Command option '%1' missing!</Original>
                 <English>Command option '%1' missing!</English>
                 <German>Befehlsoption '%1' fehlt!</German>
-                <Chinesesimp>Command option '%1' missing!</Chinesesimp>
+                <Chinesesimp>缺少命令参数 '%1'!</Chinesesimp>
                 <Russian>Command option '%1' missing!</Russian>
                 <French>L'option de commande '%1' est manquante !</French>
             </Key>
@@ -192,7 +192,7 @@
                 <Original>Help: %1</Original>
                 <English>Help: %1</English>
                 <German>Hilfe: %1</German>
-                <Chinesesimp>Help: %1</Chinesesimp>
+                <Chinesesimp>帮助: %1</Chinesesimp>
                 <Russian>Help: %1</Russian>
                 <French>Aide: %1</French>
             </Key>
@@ -200,7 +200,7 @@
                 <Original>Syntax mismatch! See output of '%1 -h' for allowed syntax.</Original>
                 <English>Syntax mismatch! See output of '%1 -h' for allowed syntax.</English>
                 <German>Syntax falsch! Siehe Ausgabe von '%1 -h' für eine gültige Syntax.</German>
-                <Chinesesimp>Syntax mismatch! See output of '%1 -h' for allowed syntax.</Chinesesimp>
+                <Chinesesimp>语法不匹配! 查看 '%1 -h' 以了解语法.</Chinesesimp>
                 <Russian>Syntax mismatch! See output of '%1 -h' for allowed syntax.</Russian>
                 <French>Erreur de syntaxe ! Voir le retour de '%1 -h' pour la syntaxe autorisée.</French>
             </Key>
@@ -208,7 +208,7 @@
                 <Original>COMMAND SYNTAX</Original>
                 <English>COMMAND SYNTAX</English>
                 <German>BEFEHLSSYNTAX</German>
-                <Chinesesimp>COMMAND SYNTAX</Chinesesimp>
+                <Chinesesimp>命令语法</Chinesesimp>
                 <Russian>COMMAND SYNTAX</Russian>
                 <French>SYNTAXE DE LA COMMANDE</French>
             </Key>
@@ -216,7 +216,7 @@
                 <Original>COMMAND OPTIONS</Original>
                 <English>COMMAND OPTIONS</English>
                 <German>BEFEHLSOPTIONEN</German>
-                <Chinesesimp>COMMAND OPTIONS</Chinesesimp>
+                <Chinesesimp>命令参数</Chinesesimp>
                 <Russian>COMMAND OPTIONS</Russian>
                 <French>OPTION DE LA COMMANDE</French>
             </Key>
@@ -224,7 +224,7 @@
                 <Original>history cleared</Original>
                 <English>history cleared</English>
                 <German>Historie gelöscht</German>
-                <Chinesesimp>history cleared</Chinesesimp>
+                <Chinesesimp>历史记录已清除</Chinesesimp>
                 <Russian>history cleared</Russian>
                 <French>historique effacé</French>
             </Key>
@@ -232,7 +232,7 @@
                 <Original>history element at index %1 deleted</Original>
                 <English>history element at index %1 deleted</English>
                 <German>Eintrag aus der Historie an Position %1 entfernt</German>
-                <Chinesesimp>history element at index %1 deleted</Chinesesimp>
+                <Chinesesimp>索引 %1 处的历史记录元素已清除</Chinesesimp>
                 <Russian>history element at index %1 deleted</Russian>
                 <French>élément d'historique à l'index %1 supprimé</French>
             </Key>
@@ -240,7 +240,7 @@
                 <Original>Fallen. Game over!</Original>
                 <English>Fallen. Game over!</English>
                 <German>Runtergefallen. Game over!</German>
-                <Chinesesimp>Fallen. Game over!</Chinesesimp>
+                <Chinesesimp>Fallen. 游戏结束!</Chinesesimp>
                 <Russian>Fallen. Game over!</Russian>
                 <French>Perdu. Jeu terminé!</French>
             </Key>
@@ -248,7 +248,7 @@
                 <Original>Bitten. Game over!</Original>
                 <English>Bitten. Game over!</English>
                 <German>Gebissen. Game over!</German>
-                <Chinesesimp>Bitten. Game over!</Chinesesimp>
+                <Chinesesimp>Bitten. 游戏结束!</Chinesesimp>
                 <Russian>Bitten. Game over!</Russian>
                 <French>Mordu. Jeu terminé!</French>
             </Key>
@@ -256,7 +256,7 @@
                 <Original>snake length: %1</Original>
                 <English>snake length: %1</English>
                 <German>Länge der Schlange: %1</German>
-                <Chinesesimp>snake length: %1</Chinesesimp>
+                <Chinesesimp>长度: %1</Chinesesimp>
                 <Russian>snake length: %1</Russian>
                 <French>longueur du serpent : %1</French>
             </Key>
@@ -264,7 +264,7 @@
                 <Original>speed level: %1</Original>
                 <English>speed level: %1</English>
                 <German>Geschwindigkeitsstufe: %1</German>
-                <Chinesesimp>speed level: %1</Chinesesimp>
+                <Chinesesimp>速度: %1</Chinesesimp>
                 <Russian>speed level: %1</Russian>
                 <French>niveau de vitesse : %1</French>
             </Key>
@@ -272,7 +272,7 @@
                 <Original>duration: %1 s</Original>
                 <English>duration: %1 s</English>
                 <German>Dauer: %1 s</German>
-                <Chinesesimp>duration: %1 s</Chinesesimp>
+                <Chinesesimp>持续时间: %1 s</Chinesesimp>
                 <Russian>duration: %1 s</Russian>
                 <French>durée: %1 s</French>
             </Key>
@@ -304,7 +304,7 @@
                 <Original>Test %1: %2</Original>
                 <English>Test %1: %2</English>
                 <German>Test %1: %2</German>
-                <Chinesesimp>Test %1: %2</Chinesesimp>
+                <Chinesesimp>测试 %1: %2</Chinesesimp>
                 <Russian>Test %1: %2</Russian>
                 <French>Test %1: %2</French>
             </Key>
@@ -340,7 +340,7 @@
                 <Original>display this help and exit</Original>
                 <English>display this help and exit</English>
                 <German>diese Hilfe anzeigen und beenden</German>
-                <Chinesesimp>display this help and exit</Chinesesimp>
+                <Chinesesimp>显示此帮助并退出</Chinesesimp>
                 <Russian>display this help and exit</Russian>
                 <French>afficher cette aide et quitter</French>
             </Key>
@@ -348,7 +348,7 @@
                 <Original>increases the pixel size</Original>
                 <English>increases the pixel size</English>
                 <German>erhöht die Pixelgröße</German>
-                <Chinesesimp>increases the pixel size</Chinesesimp>
+                <Chinesesimp>增加像素大小</Chinesesimp>
                 <Russian>increases the pixel size</Russian>
                 <French>augmente la taille des pixels</French>
             </Key>
@@ -356,7 +356,7 @@
                 <Original>prints numbered output lines</Original>
                 <English>prints numbered output lines</English>
                 <German>gibt Zeilennummern aus</German>
-                <Chinesesimp>prints numbered output lines</Chinesesimp>
+                <Chinesesimp>打印带编号的输出行</Chinesesimp>
                 <Russian>prints numbered output lines</Russian>
                 <French>imprime des lignes de sortie numérotées</French>
             </Key>
@@ -364,7 +364,7 @@
                 <Original>recursively changes owner</Original>
                 <English>recursively changes owner</English>
                 <German>ändert rekursiv den Besitzer</German>
-                <Chinesesimp>recursively changes owner</Chinesesimp>
+                <Chinesesimp>递归改变所有者</Chinesesimp>
                 <Russian>recursively changes owner</Russian>
                 <French>change récursivement de propriétaire</French>
             </Key>
@@ -372,7 +372,7 @@
                 <Original>sets the mode</Original>
                 <English>sets the mode</English>
                 <German>setzt den Modus</German>
-                <Chinesesimp>sets the mode</Chinesesimp>
+                <Chinesesimp>设置模式</Chinesesimp>
                 <Russian>sets the mode</Russian>
                 <French>définit le mode</French>
             </Key>
@@ -380,7 +380,7 @@
                 <Original>sets the algorithm</Original>
                 <English>sets the algorithm</English>
                 <German>setzt den Algorithmus</German>
-                <Chinesesimp>sets the algorithm</Chinesesimp>
+                <Chinesesimp>设置算法</Chinesesimp>
                 <Russian>sets the algorithm</Russian>
                 <French>définit l'algorithme</French>
             </Key>
@@ -388,7 +388,7 @@
                 <Original>sets the mode</Original>
                 <English>sets the mode</English>
                 <German>setzt den Modus</German>
-                <Chinesesimp>sets the mode</Chinesesimp>
+                <Chinesesimp>设置模式</Chinesesimp>
                 <Russian>sets the mode</Russian>
                 <French>définit le mode</French>
             </Key>
@@ -396,7 +396,7 @@
                 <Original>sets the algorithm</Original>
                 <English>sets the algorithm</English>
                 <German>setzt den Algorithmus</German>
-                <Chinesesimp>sets the algorithm</Chinesesimp>
+                <Chinesesimp>设置算法</Chinesesimp>
                 <Russian>sets the algorithm</Russian>
                 <French>définit l'algorithme</French>
             </Key>
@@ -404,7 +404,7 @@
                 <Original>sets the key/password/pin</Original>
                 <English>sets the key/password/pin</English>
                 <German>setzt den Schlüssel/Passwort/PIN</German>
-                <Chinesesimp>sets the key/password/pin</Chinesesimp>
+                <Chinesesimp>设置key/password/pin</Chinesesimp>
                 <Russian>sets the key/password/pin</Russian>
                 <French>définit la clé/le mot de passe/le code PIN</French>
             </Key>
@@ -412,7 +412,7 @@
                 <Original>"enables interpretation of backslash escapes</Original>
                 <English>"enables interpretation of backslash escapes</English>
                 <German>"aktiviert die Interpretation von Backslash-Steuerzeichen</German>
-                <Chinesesimp>"enables interpretation of backslash escapes</Chinesesimp>
+                <Chinesesimp>"启用对反斜杠转义的解释</Chinesesimp>
                 <Russian>"enables interpretation of backslash escapes</Russian>
                 <French>"permet l'interprétation des échappements antislash</French>
             </Key>
@@ -420,7 +420,7 @@
                 <Original>"clears the history list</Original>
                 <English>"clears the history list</English>
                 <German>"löscht die Befehlshistorie</German>
-                <Chinesesimp>"clears the history list</Chinesesimp>
+                <Chinesesimp>"清除历史列表</Chinesesimp>
                 <Russian>"clears the history list</Russian>
                 <French>"efface la liste de l'historique</French>
             </Key>
@@ -428,7 +428,7 @@
                 <Original>"deletes a history entry at the given position offset</Original>
                 <English>"deletes a history entry at the given position offset</English>
                 <German>"entfernt den Eintrag aus der Historie mit der angegebenen Position</German>
-                <Chinesesimp>"deletes a history entry at the given position offset</Chinesesimp>
+                <Chinesesimp>"删除给定位置偏移量处的历史记录</Chinesesimp>
                 <Russian>"deletes a history entry at the given position offset</Russian>
                 <French>"supprime une entrée d'historique au décalage de position donné</French>
             </Key>
@@ -436,7 +436,7 @@
                 <Original>"prints folder content in long form</Original>
                 <English>"prints folder content in long form</English>
                 <German>"gibt den Inhalt des Ordners in der Langform aus</German>
-                <Chinesesimp>"prints folder content in long form</Chinesesimp>
+                <Chinesesimp>"以长式打印文件夹内容</Chinesesimp>
                 <Russian>"prints folder content in long form</Russian>
                 <French>"affiche le contenu du dossier au format long</French>
             </Key>
@@ -454,7 +454,7 @@
                 <Original>Retro Snake Game</Original>
                 <English>Retro Snake Game</English>
                 <German>Retro Spiel Snake</German>
-                <Chinesesimp>Retro Snake Game</Chinesesimp>
+                <Chinesesimp>贪吃蛇</Chinesesimp>
                 <Russian>Retro Snake Game</Russian>
                 <French>Jeu Rétro Snake</French>
             </Key>
@@ -462,7 +462,7 @@
                 <Original>Retro Snake Game - use option --big for doubled block size</Original>
                 <English>Retro Snake Game - use option --big for doubled block size</English>
                 <German>Retro Spiel Snake - benutze die Option --big für eine doppelte Blockgröße</German>
-                <Chinesesimp>Retro Snake Game - use option --big for doubled block size</Chinesesimp>
+                <Chinesesimp>贪吃蛇 - 使用参数 --big 使区块大小翻倍</Chinesesimp>
                 <Russian>Retro Snake Game - use option --big for doubled block size</Russian>
                 <French>Jeu Rétro Snake - utilisez l'option --big pour doubler la taille des blocs</French>
             </Key>
@@ -630,7 +630,7 @@
                 <Original>Copies a file or folder.</Original>
                 <English>Copies a file or folder.</English>
                 <German>Kopiert eine Datei oder ein Verzeichnis.</German>
-                <Chinesesimp>Copies a file or folder.</Chinesesimp>
+                <Chinesesimp>复制文件或文件夹.</Chinesesimp>
                 <Russian>Copies a file or folder.</Russian>
                 <French>Copies a file or folder.</French>
             </Key>
@@ -638,7 +638,7 @@
                 <Original>Usage cp: 'cp [old path] [new path]' copies file to new path.</Original>
                 <English>Usage cp: 'cp [old path] [new path]' copies file to new path.</English>
                 <German>Verwendung cp: 'cp [alter Pfad] [neuer Pfad]' kopiert eine Datei in neuen Pfad.</German>
-                <Chinesesimp>Usage cp: 'cp [old path] [new path]' copies file to new path.</Chinesesimp>
+                <Chinesesimp>cp说明: 'cp [old path] [new path]' 将文件复制到新路径.</Chinesesimp>
                 <Russian>Usage cp: 'cp [old path] [new path]' copies file to new path.</Russian>
                 <French>Utilisation cp: 'cp [ancien chemin d'accès] [nouveau chemin d'accès]' copie un fichier vers un nouveau chemin d'accès.</French>
             </Key>
@@ -822,7 +822,7 @@
                 <Original>Mounts a flash drive in the specified usb port.</Original>
                 <English>Mounts a flash drive in the specified usb port.</English>
                 <German>Hängt einen usb stick in den gegeben usb port ein.</German>
-                <Chinesesimp>Mounts a flash drive in the specified usb port.</Chinesesimp>
+                <Chinesesimp>在指定的usb端口装载一个闪盘驱动器.</Chinesesimp>
                 <Russian>Подключает флэш-накопитель к указанному порту USB.</Russian>
                 <French>Monte un lecteur flash dans le port USB spécifié.</French>
             </Key>
@@ -830,7 +830,7 @@
                 <Original>Usage mount: 'mount [interface name]' mounts given interface.</Original>
                 <English>Usage mount: 'mount [interface name]' mounts given interface.</English>
                 <German>Verwendung mount: 'mount [Name]' hängt usb stick in gegebenen Port ein.</German>
-                <Chinesesimp>Usage mount: 'mount [interface name]' mounts given interface.</Chinesesimp>
+                <Chinesesimp>mount说明: 'mount [interface name]' 装载给定的接口.</Chinesesimp>
                 <Russian>Использование mount: 'mount [interface name]' подключает usb-накопитель к заданному порту.</Russian>
                 <French>Utilisation mount: 'mount [nom interface]' monte l'interface donnée.</French>
             </Key>
@@ -838,7 +838,7 @@
                 <Original>Unmounts a flash drive from the specified usb port.</Original>
                 <English>Unmounts a flash drive from the specified usb port.</English>
                 <German>Hängt einen usb stick aus den gegeben usb port aus.</German>
-                <Chinesesimp>Unmounts a flash drive from the specified usb port.</Chinesesimp>
+                <Chinesesimp>在指定的usb端口卸载闪盘驱动器.</Chinesesimp>
                 <Russian>Отсоединяет флэш-накопитель от указанного USB-порта.</Russian>
                 <French>Ejecte un lecteur flash du port USB spécifié.</French>
             </Key>
@@ -846,7 +846,7 @@
                 <Original>Usage umount: 'umount [interface name]' unmounts given interface.</Original>
                 <English>Usage umount: 'umount [interface name]' unmounts given interface.</English>
                 <German>Verwendung umount: 'umount [Name]' hängt usb stick in gegebenen Port aus.</German>
-                <Chinesesimp>Usage umount: 'umount [interface name]' unmounts given interface.</Chinesesimp>
+                <Chinesesimp>umount说明: 'umount [interface name]'卸载给定的接口.</Chinesesimp>
                 <Russian>Использование umount: 'umount [interface name]' отключает usb-накопитель от заданного порта</Russian>
                 <French>Utilisation umount: 'umount [nom interface]' ejecte l'interface spécifié.</French>
             </Key>
@@ -854,7 +854,7 @@
                 <Original>Changes the owner of a file or directory.</Original>
                 <English>Changes the owner of a file or directory.</English>
                 <German>Ändert den Besitzer einer Datei oder Ordner.</German>
-                <Chinesesimp>Changes the owner of a file or directory.</Chinesesimp>
+                <Chinesesimp>更改文件或目录的所有者.</Chinesesimp>
                 <Russian>Изменяет владельца файла или каталога.</Russian>
                 <French>Modifie le propriétaire d'un fichier ou d'un répertoire.</French>
             </Key>
@@ -862,7 +862,7 @@
                 <Original>Usage chown: 'chown [path] [new owner]' changes the owner.</Original>
                 <English>Usage chown: 'chown [path] [new owner]' changes the owner.</English>
                 <German>Verwendung chown: 'chown [pfad] [neuer Besitzer]' ändert den Besitzer.</German>
-                <Chinesesimp>Usage chown: 'chown [path] [new owner]' changes the owner.</Chinesesimp>
+                <Chinesesimp>chown说明: 'chown [path] [new owner]' 改变所有者.</Chinesesimp>
                 <Russian>Использование chown: 'chown [path] [new owner]' изменяет владельца</Russian>
                 <French>Utilisation chown: 'chown [répertoire] [nouveau propriétaire]' change le propriétaire.</French>
             </Key>
@@ -870,7 +870,7 @@
                 <Original>Lists the available (usb) interfaces.</Original>
                 <English>Lists the available (usb) interfaces.</English>
                 <German>Zeigt die verfügbaren usb Ports an.</German>
-                <Chinesesimp>Lists the available (usb) interfaces.</Chinesesimp>
+                <Chinesesimp>列出可用的（usb）接口.</Chinesesimp>
                 <Russian>Перечисляет доступные интерфейсы (usb).</Russian>
                 <French>Liste les interfaces (usb) disponibles.</French>
             </Key>
@@ -878,7 +878,7 @@
                 <Original>Usage lsusb: 'lsusb' lists usb interfaces.</Original>
                 <English>Usage lsusb: 'lsusb' lists usb interfaces.</English>
                 <German>Verwendung lsusb: 'lsusb' zeigt die usb Ports an.</German>
-                <Chinesesimp>Usage lsusb: 'lsusb' lists usb interfaces.</Chinesesimp>
+                <Chinesesimp>lsusb说明: 'lsusb' 列出usb接口.</Chinesesimp>
                 <Russian>Использование lsusb: 'lsusb' отображает порты usb</Russian>
                 <French>Utilisation lsusb: 'lsusb' Liste les interfaces usb.</French>
             </Key>
@@ -958,7 +958,7 @@
                 <Original>AE3 Add Games</Original>
                 <English>AE3 Add Games</English>
                 <German>AE3 Spiele hinzufügen</German>
-                <Chinesesimp>AE3 Add Games</Chinesesimp>
+                <Chinesesimp>AE3添加游戏</Chinesesimp>
                 <Russian>AE3 Add Games</Russian>
                 <French>AE3 Ajouter des jeux</French>
             </Key>
@@ -966,7 +966,7 @@
                 <Original>AE3 Add Security Commands</Original>
                 <English>AE3 Add Security Commands</English>
                 <German>AE3 Security-Befehle hinzufügen</German>
-                <Chinesesimp>AE3 Add Security Commands</Chinesesimp>
+                <Chinesesimp>AE3添加安全命令</Chinesesimp>
                 <Russian>AE3 Add Security Commands</Russian>
                 <French>AE3 Ajouter des commandes de sécurité</French>
             </Key>
@@ -974,7 +974,7 @@
                 <Original>AE3 Add Hacking Commands</Original>
                 <English>AE3 Add Hacking Commands</English>
                 <German>AE3 Hacking-Befehle hinzufügen</German>
-                <Chinesesimp>AE3 Add Hacking Commands</Chinesesimp>
+                <Chinesesimp>AE3添加黑客命令</Chinesesimp>
                 <Russian>AE3 Add Hacking Commands</Russian>
                 <French>AE3 Ajouter des commandes de piratage</French>
             </Key>
@@ -1021,7 +1021,7 @@
                 <Original>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</Original>
                 <English>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</English>
                 <German>Dieses Modul fügt einem armaOS Computer Spiele hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
-                <Chinesesimp>This module adds games to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
+                <Chinesesimp>这个模块将游戏添加到armaOS电脑中.只需将这个模块同步到目标电脑上.</Chinesesimp>
                 <Russian>Этот модуль добавляет компьютерные игры в armaOS. Просто синхронизируйте этот модуль с поддерживаемым компьютером.</Russian>
                 <French>Ce module ajoute des jeux à un ordinateur armaOS. Synchronisez simplement ce module avec un ordinateur pris en charge.</French>
             </Key>
@@ -1029,7 +1029,7 @@
                 <Original>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Original>
                 <English>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</English>
                 <German>Dieses Modul fügt Security-Befehle zu einem armaOS Computer hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
-                <Chinesesimp>This module adds security commands to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
+                <Chinesesimp>这个模块将安全指令添加到armaOS电脑中.只需将这个模块同步到目标电脑上.</Chinesesimp>
                 <Russian>Этот модуль добавляет команды безопасности к компьютеру armaOS. Просто синхронизируйте этот модуль с поддерживаемым компьютером.</Russian>
                 <French>Ce module ajoute des commandes de sécurité à un ordinateur armaOS. Synchronisez simplement ce module avec un ordinateur pris en charge.</French>
             </Key>
@@ -1037,7 +1037,7 @@
                 <Original>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Original>
                 <English>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</English>
                 <German>Dieses Modul fügt Hacking-Befehle zu einem armaOS Computer hinzu. Synchronisiere einfach dieses Modul mit einem unterstützten Computer.</German>
-                <Chinesesimp>This module adds hacking commands to an armaOS computer. Simply sync this module to a supported computer.</Chinesesimp>
+                <Chinesesimp>这个模块将黑客命令添加到armaOS电脑中.只需将这个模块同步到目标电脑上.</Chinesesimp>
                 <Russian>Этот модуль добавляет команды взлома на компьютер armaOS. Просто синхронизируйте этот модуль с поддерживаемым компьютером.</Russian>
                 <French>Ce module ajoute des commandes de piratage à un ordinateur armaOS. Synchronisez simplement ce module avec un ordinateur pris en charge.</French>
             </Key>
@@ -1045,7 +1045,7 @@
                 <Original>The 'crypto' command allows you to encrypt and decrypt messages.</Original>
                 <English>The 'crypto' command allows you to encrypt and decrypt messages.</English>
                 <German>Der 'crypto' Befehl ermöglicht Nachrichten zu ver- und entschlüsseln.</German>
-                <Chinesesimp>The 'crypto' command allows you to encrypt and decrypt messages.</Chinesesimp>
+                <Chinesesimp>'crypto' 命令能让你对信息进行加密和解密.</Chinesesimp>
                 <Russian>Команда "crypto" позволяет вам шифровать и расшифровывать сообщения.</Russian>
                 <French>La commande 'crypto' permet de chiffrer et de déchiffrer les messages.</French>
             </Key>
@@ -1053,7 +1053,7 @@
                 <Original>The 'crack' command allows you to crack encrypted messages.</Original>
                 <English>The 'crack' command allows you to crack encrypted messages.</English>
                 <German>Der 'crack' Befehl ermöglicht verschlüsselte Nachrichten zu knacken.</German>
-                <Chinesesimp>The 'crack' command allows you to crack encrypted messages.</Chinesesimp>
+                <Chinesesimp>'crack'命令能让你破解加密的信息.</Chinesesimp>
                 <Russian>Команда "взломать" позволяет вам взламывать зашифрованные сообщения.</Russian>
                 <French>La commande 'crack' vous permet de cracker des messages cryptés.</French>
             </Key>
@@ -1087,7 +1087,7 @@
                 <Original>Terminal Design</Original>
                 <English>Terminal Design</English>
                 <German>Terminal Design</German>
-                <Chinesesimp>Terminal Design</Chinesesimp>
+                <Chinesesimp>终端风格</Chinesesimp>
                 <Russian>Terminal Design</Russian>
                 <French>Design du Terminal</French>
             </Key>
@@ -1095,7 +1095,7 @@
                 <Original>Terminal Design for armaOS. You can also change this in armaOS terminal.</Original>
                 <English>Terminal Design for armaOS. You can also change this in armaOS terminal.</English>
                 <German>Terminal Design für armaOS. Du kannst dies auch im armaOS Terminal umstellen.</German>
-                <Chinesesimp>Terminal Design for armaOS. You can also change this in armaOS terminal.</Chinesesimp>
+                <Chinesesimp>armaOS的终端风格.你也可以在armaOS终端中更改.</Chinesesimp>
                 <Russian>Дизайн терминала для armaOS. Вы также можете изменить это в терминале armaOS.</Russian>
                 <French>Design du terminal pour armaOS. Vous pouvez également modifier cela dans le terminal armaOS.</French>
             </Key>
@@ -1103,7 +1103,7 @@
                 <Original>armaOS default</Original>
                 <English>armaOS default</English>
                 <German>armaOS default</German>
-                <Chinesesimp>armaOS default</Chinesesimp>
+                <Chinesesimp>armaOS默认</Chinesesimp>
                 <Russian>armaOS default</Russian>
                 <French>armaOS par défaut</French>
             </Key>
@@ -1111,7 +1111,7 @@
                 <Original>armaOS default design (dark theme)</Original>
                 <English>armaOS default design (dark theme)</English>
                 <German>armaOS Standarddesign (dunkel)</German>
-                <Chinesesimp>armaOS default design (dark theme)</Chinesesimp>
+                <Chinesesimp>armaOS默认风格 (dark theme)</Chinesesimp>
                 <Russian>armaOS default design (dark theme)</Russian>
                 <French>armaOS design par défaut (dark theme)</French>
             </Key>
@@ -1127,7 +1127,7 @@
                 <Original>C64 design (blue on blue theme)</Original>
                 <English>C64 design (blue on blue theme)</English>
                 <German>C64 Design (Blau auf Blau)</German>
-                <Chinesesimp>C64 design (blue on blue theme)</Chinesesimp>
+                <Chinesesimp>C64 风格 (blue on blue theme)</Chinesesimp>
                 <Russian>C64 design (blue on blue theme)</Russian>
                 <French>C64 design (thème bleu sur bleu)</French>
             </Key>
@@ -1143,7 +1143,7 @@
                 <Original>Apple II monochrome design (green on black)</Original>
                 <English>Apple II monochrome design (green on black)</English>
                 <German>Apple II - monochromes Design (Grün auf Schwarz)</German>
-                <Chinesesimp>Apple II monochrome design (green on black)</Chinesesimp>
+                <Chinesesimp>Apple II 单色设计 (green on black)</Chinesesimp>
                 <Russian>Apple II monochrome design (green on black)</Russian>
                 <French>Apple II monochrome design (vert sur noir)</French>
             </Key>
@@ -1159,7 +1159,7 @@
                 <Original>Amber monochrome design (amber on black)</Original>
                 <English>Amber monochrome design (amber on black)</English>
                 <German>Bernstein - monochromes Design (Bernstein auf Schwarz)</German>
-                <Chinesesimp>Amber monochrome design (amber on black)</Chinesesimp>
+                <Chinesesimp>Amber 单色设计 (amber on black)</Chinesesimp>
                 <Russian>Amber monochrome design (amber on black)</Russian>
                 <French>Ambre monochrome (ambre sur noir)</French>
             </Key>
