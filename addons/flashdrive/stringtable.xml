@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="AE3">
     <Package name="FlashDrive">
         <Container name="Interaction">
@@ -8,6 +8,7 @@
                 <German>USB Stick verbinden</German>
                 <Chinesesimp>连接闪盘驱动器</Chinesesimp>
                 <Russian>Подключить флэш накопитель</Russian>
+                <French>Connecter la clé USB</French>
             </Key>
             <Key ID="STR_AE3_Flashdrive_Interaction_Take">
                 <Original>Take</Original>
@@ -15,45 +16,51 @@
                 <German>Nehmen</German>
                 <Chinesesimp>拿取</Chinesesimp>
                 <Russian>Взять</Russian>
+                <French>Prendre</French>
             </Key>
         </Container>
         <Container name="Exceptions">
             <Key ID="STR_AE3_Flashdrive_Exception_InterfaceNotExisting">
-                    <Original>Interface does not exit!</Original>
-                    <English>Interface does not exit!</English>
-                    <German>Interface exestiert nicht!</German>
-                    <Chinesesimp>接口未推出!</Chinesesimp>
-                    <Russian>Интерфейс не существует</Russian>
+                <Original>Interface does not exit!</Original>
+                <English>Interface does not exit!</English>
+                <German>Interface exestiert nicht!</German>
+                <Chinesesimp>接口未推出!</Chinesesimp>
+                <Russian>Интерфейс не существует</Russian>
+                <French>L'interface n'existe pas!</French>
             </Key>
             <Key ID="STR_AE3_Flashdrive_Exception_InterfaceEmpty">
-                    <Original>Interface is empty!</Original>
-                    <English>Interface is empty!</English>
-                    <German>Interface ist leer!</German>
-                    <Chinesesimp>接口为空!</Chinesesimp>
-                    <Russian>Интерфейс пуст</Russian>
+                <Original>Interface is empty!</Original>
+                <English>Interface is empty!</English>
+                <German>Interface ist leer!</German>
+                <Chinesesimp>接口为空!</Chinesesimp>
+                <Russian>Интерфейс пуст</Russian>
+                <French>L'interface est vide !</French>
             </Key>
         </Container>
         <Container name="Config">
             <Key ID="STR_AE3_Flashdrive_DisplayName">
-                    <Original>Flash drive</Original>
-                    <English>Flash drive</English>
-                    <German>Flash drive</German>
-                    <Chinesesimp>闪盘驱动器</Chinesesimp>
-                    <Russian>Флэш накопитель</Russian>
+                <Original>Flash drive</Original>
+                <English>Flash drive</English>
+                <German>Flash drive</German>
+                <Chinesesimp>闪盘驱动器</Chinesesimp>
+                <Russian>Флэш накопитель</Russian>
+                <French>Clé usb</French>
             </Key>
             <Key ID="STR_AE3_Flashdrive_DescrShort">
-                    <Original>Flash drive</Original>
-                    <English>Flash drive</English>
-                    <German>Flash Drive</German>
-                    <Chinesesimp>闪盘驱动器</Chinesesimp>
-                    <Russian>Флэш накопитель</Russian>
+                <Original>Flash drive</Original>
+                <English>Flash drive</English>
+                <German>Flash Drive</German>
+                <Chinesesimp>闪盘驱动器</Chinesesimp>
+                <Russian>Флэш накопитель</Russian>
+                <French>Clé usb</French>
             </Key>
             <Key ID="STR_AE3_Flashdrive_UseActionTitle">
-                    <Original>AE3: Pick up flash drive</Original>
-                    <English>AE3: Pick up flash drive</English>
-                    <German>AE3: Flash Drive aufnehmen</German>
-                    <Chinesesimp>AE3: 拾取闪盘驱动器</Chinesesimp>
-                    <Russian>AE3: Подобрать лэш накопитель</Russian>
+                <Original>AE3: Pick up flash drive</Original>
+                <English>AE3: Pick up flash drive</English>
+                <German>AE3: Flash Drive aufnehmen</German>
+                <Chinesesimp>AE3: 拾取闪盘驱动器</Chinesesimp>
+                <Russian>AE3: Подобрать лэш накопитель</Russian>
+                <French>AE3: Prendre une clé USB</French>
             </Key>
         </Container>
     </Package>
