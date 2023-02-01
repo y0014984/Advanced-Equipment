@@ -57,7 +57,7 @@
                 <Original>Fuel Level: %1 l (%2%3 of %4 l)</Original>
                 <English>Fuel Level: %1 l (%2%3 of %4 l)</English>
                 <German>Treibstofffüllstand: %1 l (%2%3 von %4 l)</German>
-                <Chinesesimp>Fuel Level: %1 l (%2%3 of %4 l)</Chinesesimp>
+                <Chinesesimp>燃料: %1 l (%2%3 of %4 l)</Chinesesimp>
                 <Russian>Уровень топлива: %1 l (%2%3 of %4 l)</Russian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_ConnectedPowerDevices">
@@ -78,7 +78,7 @@
                 <Original>Power Output: %1 W)</Original>
                 <English>Power Output: %1 W</English>
                 <German>Ausgangsleistung: %1 W</German>
-                <Chinesesimp>Power Output: %1 W</Chinesesimp>
+                <Chinesesimp>输出: %1 W</Chinesesimp>
                 <Russian>Power Output: %1 W</Russian>
             </Key>
         </Container>
@@ -94,14 +94,14 @@
                 <Original>Power Level</Original>
                 <English>Power Level</English>
                 <German>Füllstand Strom</German>
-                <Chinesesimp>电力等级</Chinesesimp>
+                <Chinesesimp>功率等级</Chinesesimp>
                 <Russian>Уровень мощности</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
                 <Original>Power Level set at the beginning of the mission</Original>
                 <English>Power Level set at the beginning of the mission</English>
                 <German>Batteriefüllstand zu Beginn der Mission</German>
-                <Chinesesimp>Power Level set at the beginning of the mission</Chinesesimp>
+                <Chinesesimp>任务开始时设定的功率等级</Chinesesimp>
                 <Russian>Уровень мощности, установленный в начале миссии</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
@@ -115,7 +115,7 @@
                 <Original>Fuel Level set at the beginning of the mission</Original>
                 <English>Fuel Level set at the beginning of the mission</English>
                 <German>Treibstofffüllstand zu Beginn der Mission</German>
-                <Chinesesimp>Fuel Level set at the beginning of the mission</Chinesesimp>
+                <Chinesesimp>任务开始时设定的燃料</Chinesesimp>
                 <Russian>Уровень топлива установленный в начале миссии</Russian>
             </Key>
         </Container>
@@ -124,28 +124,28 @@
                 <Original>Forbidden connection removed: this source asset is not allowed for connection type: %1</Original>
                 <English>Forbidden connection removed: this source asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Ausgangsgerät sind Verbindungen diesen Typs unzulässig: %1</German>
-                <Chinesesimp>Forbidden connection removed: this source asset is not allowed for connection type: %1</Chinesesimp>
+                <Chinesesimp>已移除非法连接: 此来源不适用于连接类型: %1</Chinesesimp>
                 <Russian>Удалено недопустимое соединение: для этого устройства вывода соединения такого типа недопустимы: %1</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Forbidden2">
                 <Original>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Original>
                 <English>Forbidden connection removed: this destination asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Zielgerät sind Verbindungen diesen Typs unzulässig: %1</German>
-                <Chinesesimp>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Chinesesimp>
+                <Chinesesimp>已移除非法连接: 此目标不适用于连接类型: %1</Chinesesimp>
                 <Russian>Удалено запрещенное подключение: этот целевой ресурс не разрешен для типа подключения: %1</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Forbidden3">
                 <Original>Forbidden connection removed: source and destination are identical</Original>
                 <English>Forbidden connection removed: source and destination are identical</English>
                 <German>Unzulässige Verbindung entfernt: Ausgang und Ziel sind identisch</German>
-                <Chinesesimp>Forbidden connection removed: source and destination are identical</Chinesesimp>
+                <Chinesesimp>已移除非法连接: 来源和目标重复</Chinesesimp>
                 <Russian>Удалено недопустимое соединение: выход и пункт назначения идентичны</Russian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Warning">
                 <Original>Connection warning: this asset already has a connection of type: %1</Original>
                 <English>Connection warning: this asset already has a connection of type: %1</English>
                 <German>Verbindungswarnung: dieses Gerät hat bereits eine Verbindung vom Typ: %1</German>
-                <Chinesesimp>Connection warning: this asset already has a connection of type: %1</Chinesesimp>
+                <Chinesesimp>连接警告: 此资产已有一个类型为 %1 的连接</Chinesesimp>
                 <Russian>Предупреждение о подключении: у этого устройства уже есть подключение такого типа: %1</Russian>
             </Key>
         </Container>
