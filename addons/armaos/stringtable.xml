@@ -409,36 +409,36 @@
                 <French>définit la clé/le mot de passe/le code PIN</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_CommandHelp_Echo_backslash">
-                <Original>"enables interpretation of backslash escapes</Original>
-                <English>"enables interpretation of backslash escapes</English>
-                <German>"aktiviert die Interpretation von Backslash-Steuerzeichen</German>
-                <Chinesesimp>"启用对反斜杠转义的解释</Chinesesimp>
-                <Russian>"enables interpretation of backslash escapes</Russian>
-                <French>"permet l'interprétation des échappements antislash</French>
+                <Original>enables interpretation of backslash escapes</Original>
+                <English>enables interpretation of backslash escapes</English>
+                <German>aktiviert die Interpretation von Backslash-Steuerzeichen</German>
+                <Chinesesimp>启用对反斜杠转义的解释</Chinesesimp>
+                <Russian>enables interpretation of backslash escapes</Russian>
+                <French>permet l'interprétation des échappements antislash</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_CommandHelp_History_clear">
-                <Original>"clears the history list</Original>
-                <English>"clears the history list</English>
-                <German>"löscht die Befehlshistorie</German>
-                <Chinesesimp>"清除历史列表</Chinesesimp>
-                <Russian>"clears the history list</Russian>
-                <French>"efface la liste de l'historique</French>
+                <Original>clears the history list</Original>
+                <English>clears the history list</English>
+                <German>löscht die Befehlshistorie</German>
+                <Chinesesimp>清除历史列表</Chinesesimp>
+                <Russian>clears the history list</Russian>
+                <French>efface la liste de l'historique</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_CommandHelp_History_deleteAtOffset">
-                <Original>"deletes a history entry at the given position offset</Original>
-                <English>"deletes a history entry at the given position offset</English>
-                <German>"entfernt den Eintrag aus der Historie mit der angegebenen Position</German>
-                <Chinesesimp>"删除给定位置偏移量处的历史记录</Chinesesimp>
-                <Russian>"deletes a history entry at the given position offset</Russian>
-                <French>"supprime une entrée d'historique au décalage de position donné</French>
+                <Original>deletes a history entry at the given position offset</Original>
+                <English>deletes a history entry at the given position offset</English>
+                <German>entfernt den Eintrag aus der Historie mit der angegebenen Position</German>
+                <Chinesesimp>删除给定位置偏移量处的历史记录</Chinesesimp>
+                <Russian>deletes a history entry at the given position offset</Russian>
+                <French>supprime une entrée d'historique au décalage de position donné</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_CommandHelp_Ls_long">
-                <Original>"prints folder content in long form</Original>
-                <English>"prints folder content in long form</English>
-                <German>"gibt den Inhalt des Ordners in der Langform aus</German>
-                <Chinesesimp>"以长式打印文件夹内容</Chinesesimp>
-                <Russian>"prints folder content in long form</Russian>
-                <French>"affiche le contenu du dossier au format long</French>
+                <Original>prints folder content in long form</Original>
+                <English>prints folder content in long form</English>
+                <German>gibt den Inhalt des Ordners in der Langform aus</German>
+                <Chinesesimp>以长式打印文件夹内容</Chinesesimp>
+                <Russian>prints folder content in long form</Russian>
+                <French>affiche le contenu du dossier au format long</French>
             </Key>
         </Container>
         <Container name="Config">

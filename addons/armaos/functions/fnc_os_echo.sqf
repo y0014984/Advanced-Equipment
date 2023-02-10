@@ -34,7 +34,7 @@ private _text = _ae3OptsThings joinString " ";
 
 if (_backslashInterpretion) then
 {
-    _text = _text splitString "\n";
+	_text = [_text, "\n", true] call BIS_fnc_splitString;
 };
 
 [_computer, _text] call AE3_armaos_fnc_shell_stdout;

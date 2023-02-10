@@ -137,7 +137,7 @@ private _allowedKeys = createHashMapFromArray
 	[format ["%1-%2-%3-%4", DIK_NUMPADSLASH, false, false, false], "/"],
 	[format ["%1-%2-%3-%4", DIK_ADD, false, false, false], "+"],
 	[format ["%1-%2-%3-%4", DIK_SUBTRACT, false, false, false], "-"],
-	[format ["%1-%2-%3-%4", DIK_DECIMAL, false, false, false], ","]
+	[format ["%1-%2-%3-%4", DIK_DECIMAL, false, false, false], "."]
 ];
 
 _allowedKeys
