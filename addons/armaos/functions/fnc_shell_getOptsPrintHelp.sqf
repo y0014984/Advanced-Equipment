@@ -17,7 +17,7 @@ private _commandOpts = _commandSettings select 1;
 private _commandSyntax = _commandSettings select 2;
 
 // print command syntax to stdout
-[_computer, ["COMMAND SYNTAX", ""]] call AE3_armaos_fnc_shell_stdout;
+[_computer, [localize "STR_AE3_ArmaOS_Result_GetOpts_CommandSyntax", ""]] call AE3_armaos_fnc_shell_stdout;
 {
 	private _commandSyntaxString = "";
 	private _commandSyntaxVariant = _x;
@@ -44,7 +44,7 @@ private _commandSyntax = _commandSettings select 2;
 [_computer, ""] call AE3_armaos_fnc_shell_stdout;
 
 // print command options to stdout
-[_computer, ["COMMAND OPTIONS", ""]] call AE3_armaos_fnc_shell_stdout;
+[_computer, [localize "STR_AE3_ArmaOS_Result_GetOpts_CommandOptionen", ""]] call AE3_armaos_fnc_shell_stdout;
 {
 	private _shortOpt = _x select 1;
 	private _longOpt = _x select 2;
@@ -65,5 +65,5 @@ private _commandSyntax = _commandSettings select 2;
 } forEach _commandOpts;
 
 // also add the help option to every command help output
-private _result = format ["%1 : %2", "-h/--help", "display this help and exit"];
+private _result = format ["%1 : %2", "-h/--help", localize "STR_AE3_ArmaOS_CommandHelp_GetOpts_help"];
 [_computer, _result] call AE3_armaos_fnc_shell_stdout;

@@ -21,7 +21,7 @@ if (!(_animationModifiedShift isEqualTo [])) then { _modifier pushBack ["shift",
 if (!(_animationModifiedCtrl isEqualTo [])) then { _modifier pushBack ["control", _animationModifiedCtrl select 0] };
 if (!(_animationModifiedAlt isEqualTo [])) then { _modifier pushBack ["alt", _animationModifiedAlt select 0] };
 
-["", "Exit interaction", _animationMain select 0, _modifier] call ace_interaction_fnc_showMouseHint;
+["", localize "STR_AE3_Interaction_General_Exit", _animationMain select 0, _modifier] call ace_interaction_fnc_showMouseHint;
 
 private _display = findDisplay 46;
 

@@ -14,7 +14,7 @@ params ["_computer", "_options", "_commandName"];
 
 private _commandOpts =
 [
-    ["_backslashInterpretion", "e", "", "bool", false, false, "enables interpretation of backslash escapes"]
+    ["_backslashInterpretion", "e", "", "bool", false, false, localize "STR_AE3_ArmaOS_CommandHelp_Echo_backslash"]
 ];
 private _commandSyntax =
 [
@@ -34,7 +34,7 @@ private _text = _ae3OptsThings joinString " ";
 
 if (_backslashInterpretion) then
 {
-    _text = _text splitString "\n";
+	_text = [_text, "\n", true] call BIS_fnc_splitString;
 };
 
 [_computer, _text] call AE3_armaos_fnc_shell_stdout;

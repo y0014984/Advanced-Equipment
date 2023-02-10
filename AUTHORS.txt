@@ -12,3 +12,4 @@ Wasserstoff
 # CONTRIBUTORS
 Bilibagga (Russian translation)
 PowerBOXx (Simplified Chinese Translation)
+alexisdu7589 (French translation)

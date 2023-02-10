@@ -14,8 +14,8 @@ params ["_computer", "_options", "_commandName"];
 
 private _commandOpts = 
 	[
-		["_mode", "m", "mode", "stringSelect", "", true, "sets the mode", ["bruteforce", "statistics"]],
-        ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, "sets the algorithm", ["caesar"]]
+		["_mode", "m", "mode", "stringSelect", "", true, localize "STR_AE3_ArmaOS_CommandHelp_Crack_mode", ["bruteforce", "statistics"]],
+        ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, localize "STR_AE3_ArmaOS_CommandHelp_Crack_algorithm", ["caesar"]]
 	];
 private _commandSyntax =
 [

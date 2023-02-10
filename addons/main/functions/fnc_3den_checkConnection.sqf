@@ -9,19 +9,19 @@ private _messageAnimate = true;
 if (!((typeOf _from) in _allowedFromClasses)) then
 {
     _removeConnection = true;
-    [(format ["Forbidden connection removed: this source asset is not allowed for connection type: %1", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [(format [localize "STR_AE3_Main_EdenConnections_Forbidden1", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };
 
 if (!((typeOf _to) in _allowedToClasses)) then
 {
     _removeConnection = true;
-    [(format ["Forbidden connection removed: this destination asset is not allowed for connection type: %1", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [(format [localize "STR_AE3_Main_EdenConnections_Forbidden2", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };
 
 if (_from isEqualTo _to) then
 {
     _removeConnection = true;
-    ["Forbidden connection removed: source and destination are identical", _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [localize "STR_AE3_Main_EdenConnections_Forbidden3", _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };
 
 // get all 3DEN connections for asset '_from', including the new connection
@@ -50,5 +50,5 @@ if (_removeConnection) exitWith
 if (_typeCounter > 1) then
 {
     _messageType = 0;
-    [(format ["Connection warning: this asset already has a connection of type: %1", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [(format [localize "STR_AE3_Main_EdenConnections_Warning", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };

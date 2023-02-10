@@ -16,7 +16,7 @@ params ["_computer", "_options", "_commandName"];
 
 private _commandOpts = 
 	[
-        ["_size", "", "big", "bool", false, false, "increases the pixel size"]
+        ["_size", "", "big", "bool", false, false, localize "STR_AE3_ArmaOS_CommandHelp_Snake_size"]
 	];
 private _commandSyntax =
 [
@@ -155,11 +155,11 @@ while { _dialog getVariable "AE3_Retro_Snake_Running" } do
     _head params ["_x", "_y"];
 
     // if snake is out of canvas bounds then game over
-    if ((_x < 0) || (_y < 0) || (_x == _width) || (_y == _height)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; [_computer, "Fallen. Game over!"] call AE3_armaos_fnc_shell_stdout; break; };
+    if ((_x < 0) || (_y < 0) || (_x == _width) || (_y == _height)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; [_computer, localize "STR_AE3_ArmaOS_Result_Fallen"] call AE3_armaos_fnc_shell_stdout; break; };
 
     // if snake collides with itself then game over
     private _findResult = _snake find _head;
-    if (_findResult != ((count _snake) - 1)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; [_computer, "Bitten. Game over!"] call AE3_armaos_fnc_shell_stdout; break; };
+    if (_findResult != ((count _snake) - 1)) then { _dialog setVariable ["AE3_Retro_Snake_Running", false]; [_computer, localize "STR_AE3_ArmaOS_Result_Bitten"] call AE3_armaos_fnc_shell_stdout; break; };
     
     // draw pixel at new head pos
     [_dialog, _x, _y, [1,1,1,1]] call AE3_armaos_fnc_retro_setPixelColor;
@@ -213,6 +213,6 @@ private _stopTime = time;
 
 private _duration = _stopTime - _startTime;
 
-[_computer, format ["snake length: %1", (count _snake)]] call AE3_armaos_fnc_shell_stdout;
-[_computer, format ["speed level: %1", _speed]] call AE3_armaos_fnc_shell_stdout;
-[_computer, format ["duration: %1  s", _duration]] call AE3_armaos_fnc_shell_stdout;
+[_computer, format [localize "STR_AE3_ArmaOS_Result_SnakeLength", (count _snake)]] call AE3_armaos_fnc_shell_stdout;
+[_computer, format [localize "STR_AE3_ArmaOS_Result_SnakeSpeedlevel", _speed]] call AE3_armaos_fnc_shell_stdout;
+[_computer, format [localize "STR_AE3_ArmaOS_Result_SnakeDuration", _duration]] call AE3_armaos_fnc_shell_stdout;
