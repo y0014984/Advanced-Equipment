@@ -34,24 +34,7 @@ private _text = _ae3OptsThings joinString " ";
 
 if (_backslashInterpretion) then
 {
-	_result = [];
-
-	while { true } do
-	{
-		private _pos = _text find "\n";
-		if (_pos != -1) then
-		{
-			_result pushBack (_text select [0, _pos]);		
-			_text = _text select [_pos + 2];
-		}
-		else
-		{
-			_result pushBack _text;
-			break;
-		};
-	};
-
-	_text = _result;
+	_text = [_text, "\n", true] call BIS_fnc_splitString;
 };
 
 [_computer, _text] call AE3_armaos_fnc_shell_stdout;
