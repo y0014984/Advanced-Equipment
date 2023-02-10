@@ -23,6 +23,15 @@ private _targetDir = [_pntr, _filesystem, _target, _user] call AE3_filesystem_fn
 private _targetCurrent = _targetDir select 1;
 private _targetNew = _targetDir select 2;
 
+// If the target is a directory which already exists, put source into that dir
+if (_targetNew in (_targetCurrent select 0)) then
+{
+	if (((_targetCurrent select 0) get _targetNew) select 0 isEqualType (createHashMap)) then 
+	{
+		_target = _target + "/";
+	};
+};
+
 _sourceCurrent = _sourceCurrent select 0;
 if(!(_sourceFile in _sourceCurrent)) throw (format [localize "STR_AE3_Filesystem_Exception_NotFound", _sourceFile]);
 
