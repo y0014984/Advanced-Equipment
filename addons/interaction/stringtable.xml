@@ -9,6 +9,7 @@
                 <Chinesesimp>打开</Chinesesimp>
                 <Russian>Открыть</Russian>
                 <French>Ouvrir</French>
+                <Italian>Open</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_General_Close">
                 <Original>Close</Original>
@@ -17,6 +18,7 @@
                 <Chinesesimp>关闭</Chinesesimp>
                 <Russian>Закрыть</Russian>
                 <French>Fermer</French>
+                <Italian>Close</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_General_Exit">
                 <Original>Exit interaction</Original>
@@ -25,6 +27,7 @@
                 <Chinesesimp>退出交互</Chinesesimp>
                 <Russian>Завершить взаимодействие</Russian>
                 <French>Quitter l'interaction</French>
+                <Italian>Exit interaction</Italian>
             </Key>
         </Container>
         <Container name="Config">
@@ -35,6 +38,7 @@
                 <Chinesesimp>灯</Chinesesimp>
                 <Russian>Лампа</Russian>
                 <French>Lampe</French>
+                <Italian>Lamp</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp1">
                 <Original>lamp 1</Original>
@@ -43,6 +47,7 @@
                 <Chinesesimp>灯1</Chinesesimp>
                 <Russian>Лампа 1</Russian>
                 <French>lampe 1</French>
+                <Italian>lamp 1</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp1">
                 <Original>extend lamp 1</Original>
@@ -51,6 +56,7 @@
                 <Chinesesimp>展开灯1</Chinesesimp>
                 <Russian>Выдвинуть лампу 1</Russian>
                 <French>déployer lampe 1</French>
+                <Italian>extend lamp 1</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp1">
                 <Original>pitch lamp 1</Original>
@@ -59,6 +65,7 @@
                 <Chinesesimp>倾斜灯1</Chinesesimp>
                 <Russian>Наклонить лампу 1</Russian>
                 <French>Basculer lampe 1</French>
+                <Italian>pitch lamp 1</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp1">
                 <Original>yaw lamp 1</Original>
@@ -67,6 +74,7 @@
                 <Chinesesimp>偏转灯1</Chinesesimp>
                 <Russian> Повернуть лампу 1</Russian>
                 <French>Tourner lampe 1</French>
+                <Italian>yaw lamp 1</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp2">
                 <Original>lamp 2</Original>
@@ -75,6 +83,7 @@
                 <Chinesesimp>灯2</Chinesesimp>
                 <Russian>Лампа 2</Russian>
                 <French>lampe 2</French>
+                <Italian>lamp 2</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp2">
                 <Original>extend lamp 2</Original>
@@ -83,6 +92,7 @@
                 <Chinesesimp>展开灯2</Chinesesimp>
                 <Russian>Выдвинуть лампу 2</Russian>
                 <French>déployer lampe 2</French>
+                <Italian>extend lamp 2</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp2">
                 <Original>pitch lamp 2</Original>
@@ -91,6 +101,7 @@
                 <Chinesesimp>倾斜灯2</Chinesesimp>
                 <Russian>Наклонить лампу 2</Russian>
                 <French>Basculer lampe 2</French>
+                <Italian>pitch lamp 2</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp2">
                 <Original>yaw lamp 2</Original>
@@ -99,6 +110,7 @@
                 <Chinesesimp>偏转灯2</Chinesesimp>
                 <Russian>Повернуть лампу 2</Russian>
                 <French>Tourner lampe 2</French>
+                <Italian>yaw lamp 2</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp3">
                 <Original>lamp 3</Original>
@@ -107,6 +119,7 @@
                 <Chinesesimp>灯3</Chinesesimp>
                 <Russian>Лампа 3</Russian>
                 <French>lampe 3</French>
+                <Italian>lamp 3</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp3">
                 <Original>extend lamp 3</Original>
@@ -115,6 +128,7 @@
                 <Chinesesimp>展开灯3</Chinesesimp>
                 <Russian>Выдвинуть лампу 3</Russian>
                 <French>Déployer lampe 3</French>
+                <Italian>extend lamp 3</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp3">
                 <Original>pitch lamp 3</Original>
@@ -123,6 +137,7 @@
                 <Chinesesimp>倾斜灯3</Chinesesimp>
                 <Russian>Наклонить лампу 3</Russian>
                 <French>Basculer lampe 3</French>
+                <Italian>pitch lamp 3</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp3">
                 <Original>yaw lamp 3</Original>
@@ -131,6 +146,7 @@
                 <Chinesesimp>偏转灯3</Chinesesimp>
                 <Russian>Повернуть лампу 3</Russian>
                 <French>Tourner lampe 3</French>
+                <Italian>yaw lamp 3</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_Lamp4">
                 <Original>lamp 4</Original>
@@ -139,6 +155,7 @@
                 <Chinesesimp>灯4</Chinesesimp>
                 <Russian>Лампа 4</Russian>
                 <French>lampe 4</French>
+                <Italian>lamp 4</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp4">
                 <Original>extend lamp 4</Original>
@@ -147,6 +164,7 @@
                 <Chinesesimp>展开灯4</Chinesesimp>
                 <Russian>Выдвинуть лампу 4</Russian>
                 <French>Déployer lampe 4</French>
+                <Italian>extend lamp 4</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp4">
                 <Original>pitch lamp 4</Original>
@@ -155,6 +173,7 @@
                 <Chinesesimp>倾斜灯4</Chinesesimp>
                 <Russian>Наклонить лампу 4</Russian>
                 <French>Basculer lampe 4</French>
+                <Italian>pitch lamp 4</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp4">
                 <Original>yaw lamp 4</Original>
@@ -163,6 +182,7 @@
                 <Chinesesimp>偏转灯4</Chinesesimp>
                 <Russian>Повернуть лампу 4</Russian>
                 <French>Tourner lampe 4</French>
+                <Italian>yaw lamp 4</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_DeskDisplayName">
                 <Original>desk</Original>
@@ -171,6 +191,7 @@
                 <Chinesesimp>桌子</Chinesesimp>
                 <Russian>Стол</Russian>
                 <French>bureau</French>
+                <Italian>desk</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureBlack">
                 <Original>Black</Original>
@@ -179,6 +200,7 @@
                 <Chinesesimp>黑色</Chinesesimp>
                 <Russian>Black</Russian>
                 <French>Noir</French>
+                <Italian>Black</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureOlive">
                 <Original>Olive</Original>
@@ -187,6 +209,7 @@
                 <Chinesesimp>橄榄色</Chinesesimp>
                 <Russian>Olive</Russian>
                 <French>Olive</French>
+                <Italian>Olive</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureYellow">
                 <Original>Yellow</Original>
@@ -195,6 +218,7 @@
                 <Chinesesimp>黄色</Chinesesimp>
                 <Russian>Yellow</Russian>
                 <French>Jaune</French>
+                <Italian>Yellow</Italian>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_TextureSand">
                 <Original>Sand</Original>
@@ -203,6 +227,7 @@
                 <Chinesesimp>沙色</Chinesesimp>
                 <Russian>Sand</Russian>
                 <French>Sable</French>
+                <Italian>Sand</Italian>
             </Key>
         </Container>
     </Package>
