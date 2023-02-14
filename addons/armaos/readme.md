@@ -10,7 +10,7 @@ filesystem             | hashmap     | [name, [content, owner, [[ownerX, ownerR,
 filepointer            | array       | Pointer to the current directory                                              | server
 Links                  | hashmap     | Storing available system commands (name -> [path, desc, man])                 | public
 Userlist               | hashmap     | Storing user -> pwd pairs                                                     | public                                    
-terminalKeyboardLayout | string      | Defining keyboard layout ("DE" or "US")                                       | public
+terminalKeyboardLayout | string      | Defining keyboard layout ("DE", "US", "FR, "IT")                              | public
 
 ### terminal
 
