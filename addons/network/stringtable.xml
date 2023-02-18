@@ -9,7 +9,7 @@
                 <Chinesesimp>连接路由器.</Chinesesimp>
                 <Russian>Подключить к роутеру</Russian>
                 <French>Connecter au router</French>
-                <Italian>Connect to router</Italian>
+                <Italian>Connetti al router</Italian>
             </Key>
             <Key ID="STR_AE3_Network_Interaction_DisconnectFromRouter">
                 <Original>Disconnect from router</Original>
@@ -18,7 +18,7 @@
                 <Chinesesimp>断开路由器.</Chinesesimp>
                 <Russian>Отключить от роутера</Russian>
                 <French>Déconnecter du routeur</French>
-                <Italian>Disconnect from router</Italian>
+                <Italian>Disconnetti dal router</Italian>
             </Key>
         </Container>
         <Container name="Config">

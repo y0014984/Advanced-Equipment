@@ -9,7 +9,7 @@
                 <Chinesesimp>连接闪盘驱动器</Chinesesimp>
                 <Russian>Подключить флэш накопитель</Russian>
                 <French>Connecter la clé USB</French>
-                <Italian>Connect Flash Drive</Italian>
+                <Italian>Connetti la chiavetta USB</Italian>
             </Key>
             <Key ID="STR_AE3_Flashdrive_Interaction_Take">
                 <Original>Take</Original>
@@ -18,7 +18,7 @@
                 <Chinesesimp>拿取</Chinesesimp>
                 <Russian>Взять</Russian>
                 <French>Prendre</French>
-                <Italian>Take</Italian>
+                <Italian>Prendi</Italian>
             </Key>
         </Container>
         <Container name="Exceptions">
@@ -29,7 +29,7 @@
                 <Chinesesimp>接口未推出!</Chinesesimp>
                 <Russian>Интерфейс не существует</Russian>
                 <French>L'interface n'existe pas!</French>
-                <Italian>Interface does not exit!</Italian>
+                <Italian>L'interfaccia non esiste!</Italian>
             </Key>
             <Key ID="STR_AE3_Flashdrive_Exception_InterfaceEmpty">
                 <Original>Interface is empty!</Original>
@@ -38,7 +38,7 @@
                 <Chinesesimp>接口为空!</Chinesesimp>
                 <Russian>Интерфейс пуст</Russian>
                 <French>L'interface est vide !</French>
-                <Italian>Interface is empty!</Italian>
+                <Italian>L'interfaccia è vuota!</Italian>
             </Key>
         </Container>
         <Container name="Config">
@@ -49,7 +49,7 @@
                 <Chinesesimp>闪盘驱动器</Chinesesimp>
                 <Russian>Флэш накопитель</Russian>
                 <French>Clé usb</French>
-                <Italian>Flash drive</Italian>
+                <Italian>Chiavetta USB</Italian>
             </Key>
             <Key ID="STR_AE3_Flashdrive_DescrShort">
                 <Original>Flash drive</Original>
@@ -58,7 +58,7 @@
                 <Chinesesimp>闪盘驱动器</Chinesesimp>
                 <Russian>Флэш накопитель</Russian>
                 <French>Clé usb</French>
-                <Italian>Flash drive</Italian>
+                <Italian>Chiavetta USB</Italian>
             </Key>
             <Key ID="STR_AE3_Flashdrive_UseActionTitle">
                 <Original>AE3: Pick up flash drive</Original>
@@ -67,7 +67,7 @@
                 <Chinesesimp>AE3: 拾取闪盘驱动器</Chinesesimp>
                 <Russian>AE3: Подобрать лэш накопитель</Russian>
                 <French>AE3: Prendre une clé USB</French>
-                <Italian>AE3: Pick up flash drive</Italian>
+                <Italian>AE3: prendi la Chiavetta USB</Italian>
             </Key>
         </Container>
     </Package>
