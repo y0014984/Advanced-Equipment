@@ -206,6 +206,14 @@
                 <Russian>Diesel Ground Power Unit</Russian>
                 <French>Diesel Ground Power Unit</French>
             </Key>
+            <Key ID="STR_AE3_Power_Config_PowerGeneratorDisplayName">
+                <Original>Power Generator</Original>
+                <English>Power Generator</English>
+                <German>Stromgenerator</German>
+                <Chinesesimp>Power Generator</Chinesesimp>
+                <Russian>Power Generator</Russian>
+                <French>Power Generator</French>
+            </Key>
             <Key ID="STR_AE3_Power_Config_TextureBlack">
                 <Original>Black</Original>
                 <English>Black</English>
