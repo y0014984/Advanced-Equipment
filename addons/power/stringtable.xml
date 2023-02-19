@@ -198,6 +198,14 @@
                 <Russian>Radar Generator</Russian>
                 <French>Radar Generator</French>
             </Key>
+            <Key ID="STR_AE3_Power_Config_AirportGeneratorDisplayName">
+                <Original>Diesel Ground Power Unit</Original>
+                <English>Diesel Ground Power Unit</English>
+                <German>Bodenstromaggregat</German>
+                <Chinesesimp>Diesel Ground Power Unit</Chinesesimp>
+                <Russian>Diesel Ground Power Unit</Russian>
+                <French>Diesel Ground Power Unit</French>
+            </Key>
             <Key ID="STR_AE3_Power_Config_TextureBlack">
                 <Original>Black</Original>
                 <English>Black</English>
