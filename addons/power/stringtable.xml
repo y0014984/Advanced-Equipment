@@ -174,13 +174,29 @@
             </Key>
         </Container>
         <Container name="Config">
-            <Key ID="STR_AE3_Power_Config_GeneratorDisplayName">
+            <Key ID="STR_AE3_Power_Config_PortableGeneratorDisplayName">
                 <Original>Portable Generator</Original>
                 <English>Portable Generator</English>
                 <German>Tragbarer Generator</German>
                 <Chinesesimp>便携式发电机</Chinesesimp>
                 <Russian>Портативный генератор</Russian>
                 <French>Générateur portatif</French>
+            </Key>
+            <Key ID="STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName">
+                <Original>Rugged Portable Generator</Original>
+                <English>Rugged Portable Generator</English>
+                <German>Gehärteter Tragbarer Generator</German>
+                <Chinesesimp>Rugged Portable Generator</Chinesesimp>
+                <Russian>Rugged Portable Generator</Russian>
+                <French>Rugged Portable Generator</French>
+            </Key>
+            <Key ID="STR_AE3_Power_Config_RadarGeneratorDisplayName">
+                <Original>Radar Generator</Original>
+                <English>Radar Generator</English>
+                <German>Radar Generator</German>
+                <Chinesesimp>Radar Generator</Chinesesimp>
+                <Russian>Radar Generator</Russian>
+                <French>Radar Generator</French>
             </Key>
             <Key ID="STR_AE3_Power_Config_TextureBlack">
                 <Original>Black</Original>
