@@ -102,6 +102,7 @@ PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);
 PREP(terminal_getAllowedKeysDE);
 PREP(terminal_getAllowedKeysFR);
+PREP(terminal_getAllowedKeysIT);
 PREP(terminal_getAllowedKeysUS);
 PREP(terminal_getHeaderText);
 PREP(terminal_updateBufferVisable);
