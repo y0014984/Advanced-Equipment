@@ -19,12 +19,12 @@
                 <French>Niveau de carburant: %1 l (%2%3 de %4 l)</French>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerOutputHint">
-                <Original>Current power output: %1 W</Original>
-                <English>Current power output: %1 W</English>
-                <German>Aktuelle Ausgangsleistung: %1 W</German>
+                <Original>Current power output: %1 %2W</Original>
+                <English>Current power output: %1 %2W</English>
+                <German>Aktuelle Ausgangsleistung: %1 %2W</German>
                 <Chinesesimp>当前输出功率: %1 W</Chinesesimp>
-                <Russian>Текущая выходная мощность: %1 W</Russian>
-                <French>Puissance de sortie actuelle: %1 W</French>
+                <Russian>Текущая выходная мощность: %1 %2W</Russian>
+                <French>Puissance de sortie actuelle: %1 %2W</French>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateHint">
                 <Original>Device Power State is: %1</Original>
