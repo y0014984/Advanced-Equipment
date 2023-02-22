@@ -9,6 +9,7 @@
                 <Chinesesimp>是</Chinesesimp>
                 <Russian>Да</Russian>
                 <French>oui</French>
+                <Italian>Si</Italian>
             </Key>
             <Key ID="STR_AE3_Main_General_No">
                 <Original>no</Original>
@@ -17,6 +18,7 @@
                 <Chinesesimp>否</Chinesesimp>
                 <Russian>Нет</Russian>
                 <French>non</French>
+                <Italian>No</Italian>
             </Key>
         </Container>
         <Container name="Debug Mode">
@@ -27,6 +29,7 @@
                 <Chinesesimp>AE3调试模式已启用</Chinesesimp>
                 <Russian>АЕ3 РЕЖИМ ОТЛАДКИ ВКЛЮЧЕН</Russian>
                 <French>AE3 MODE DEBUG ACTIVE</French>
+                <Italian>AE3 DEBUG MODE ABILITATO</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_disabled">
                 <Original>AE3 DEBUG MODE DISABLED</Original>
@@ -35,6 +38,7 @@
                 <Chinesesimp>AE3调试模式已禁用</Chinesesimp>
                 <Russian>АЕ3 РЕЖИМ ОТЛАДКИ ВЫКЛЮЧЕН</Russian>
                 <French>AE3 MODE DEBUG DESACTIVE</French>
+                <Italian>AE3 DEBUG MODE DISABILITATO</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_ACE3CargoName">
                 <Original>ACE3 Cargo Name: %1</Original>
@@ -43,6 +47,7 @@
                 <Chinesesimp>ACE3 货物名称: %1</Chinesesimp>
                 <Russian>ACE3 Cargo Name: %1</Russian>
                 <French>ACE3 Nom de la cargaison: %1</French>
+                <Italian>Nome ACE3 Cargo: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_DeviceClass">
                 <Original>Device Class: %1</Original>
@@ -51,6 +56,7 @@
                 <Chinesesimp>设备类: %1</Chinesesimp>
                 <Russian>Device Class: %1</Russian>
                 <French>Classe de l'appareil: %1</French>
+                <Italian>Classe Dispositivo: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_PowerState">
                 <Original>Power State: %1</Original>
@@ -59,6 +65,7 @@
                 <Chinesesimp>电力状态: %1</Chinesesimp>
                 <Russian>Состояние питания: %1</Russian>
                 <French>État d'alimentation: %1</French>
+                <Italian>Stato Accensione: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_FuelLevel">
                 <Original>Fuel Level: %1 l (%2%3 of %4 l)</Original>
@@ -67,6 +74,7 @@
                 <Chinesesimp>燃料: %1 l (%2%3 of %4 l)</Chinesesimp>
                 <Russian>Уровень топлива: %1 l (%2%3 of %4 l)</Russian>
                 <French>Niveau de carburant: %1 l (%2%3 de %4 l)</French>
+                <Italian>Livello carburante: %1 l (%2%3 di %4 l)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_ConnectedPowerDevices">
                 <Original>Connected Power Devices: %1</Original>
@@ -75,6 +83,7 @@
                 <Chinesesimp>已连接的电力设备: %1</Chinesesimp>
                 <Russian>Подключенные устройства (Питание): %1</Russian>
                 <French>Dispositifs d'alimentation connectés: %1</French>
+                <Italian>Dispositivi elettrici collegati: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_BatteryLevel">
                 <Original>Battery Level: %1 Wh (%2%3 of %4 Wh)</Original>
@@ -83,6 +92,7 @@
                 <Chinesesimp>电量: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
                 <Russian>Уровень заряда батареи: %1 Wh (%2%3 of %4 Wh)</Russian>
                 <French>Niveau de batterie: %1 Wh (%2%3 de %4 Wh)</French>
+                <Italian>Livello batteria: %1 Wh (%2%3 di %4 Wh)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_PowerOutput">
                 <Original>Power Output: %1 W)</Original>
@@ -91,6 +101,7 @@
                 <Chinesesimp>输出: %1 W</Chinesesimp>
                 <Russian>Power Output: %1 W</Russian>
                 <French>Puissance de sortie: %1 W</French>
+                <Italian>Potenza elettrica in uscita: %1 W)</Italian>
             </Key>
         </Container>
         <Container name="Eden Attributes">
@@ -101,6 +112,7 @@
                 <Chinesesimp>AE3属性</Chinesesimp>
                 <Russian>Атрибуты AE3</Russian>
                 <French>AE3 Attributs</French>
+                <Italian>Attributi AE3</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelDisplayName">
                 <Original>Power Level</Original>
@@ -109,6 +121,7 @@
                 <Chinesesimp>功率等级</Chinesesimp>
                 <Russian>Уровень мощности</Russian>
                 <French>Niveau d'énergie</French>
+                <Italian>Livello potenza elettrica</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
                 <Original>Power Level set at the beginning of the mission</Original>
@@ -117,6 +130,7 @@
                 <Chinesesimp>任务开始时设定的功率等级</Chinesesimp>
                 <Russian>Уровень мощности, установленный в начале миссии</Russian>
                 <French>Niveau de puissance défini au début de la mission</French>
+                <Italian>Livello potenza elettrica impostata all'inizio della missione</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
                 <Original>Fuel Level</Original>
@@ -125,6 +139,7 @@
                 <Chinesesimp>燃料</Chinesesimp>
                 <Russian>Уровень топлива</Russian>
                 <French>Niveau de carburant</French>
+                <Italian>Livello carburante</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelTooltip">
                 <Original>Fuel Level set at the beginning of the mission</Original>
@@ -133,6 +148,7 @@
                 <Chinesesimp>任务开始时设定的燃料</Chinesesimp>
                 <Russian>Уровень топлива установленный в начале миссии</Russian>
                 <French>Niveau de carburant défini au début de la mission</French>
+                <Italian>Livello carburante impostato all'inizio della missione</Italian>
             </Key>
         </Container>
         <Container name="Eden Connections">
@@ -143,6 +159,7 @@
                 <Chinesesimp>已移除非法连接: 此来源不适用于连接类型: %1</Chinesesimp>
                 <Russian>Удалено недопустимое соединение: для этого устройства вывода соединения такого типа недопустимы: %1</Russian>
                 <French>Connexion interdite supprimée : cet élément source n'est pas autorisé pour le type de connexion: %1</French>
+                <Italian>Rimosse connessioni proibita:Questa fonte non è permessa per questo tipo di connessione: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Forbidden2">
                 <Original>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Original>
@@ -151,6 +168,7 @@
                 <Chinesesimp>已移除非法连接: 此目标不适用于连接类型: %1</Chinesesimp>
                 <Russian>Удалено запрещенное подключение: этот целевой ресурс не разрешен для типа подключения: %1</Russian>
                 <French>Connexion interdite supprimée : cet élément de destination n'est pas autorisé pour le type de connexion: %1</French>
+                <Italian>Rimossa connessione proibita: Questa destinazione non è permessa per questo tipo di connessione: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Forbidden3">
                 <Original>Forbidden connection removed: source and destination are identical</Original>
@@ -159,6 +177,7 @@
                 <Chinesesimp>已移除非法连接: 来源和目标重复</Chinesesimp>
                 <Russian>Удалено недопустимое соединение: выход и пункт назначения идентичны</Russian>
                 <French>Connexion interdite supprimée : la source et la destination sont identiques</French>
+                <Italian>Rimossa connessione proibita: fonte e destinazione sono identiche</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenConnections_Warning">
                 <Original>Connection warning: this asset already has a connection of type: %1</Original>
@@ -167,6 +186,7 @@
                 <Chinesesimp>连接警告: 此资产已有一个类型为 %1 的连接</Chinesesimp>
                 <Russian>Предупреждение о подключении: у этого устройства уже есть подключение такого типа: %1</Russian>
                 <French>Avertissement de connexion : cet actif a déjà une connexion de type: %1</French>
+                <Italian>Avviso connessione: Questo asset hanno già una connessione del tipo: %1</Italian>
             </Key>
         </Container>
         <Container name="CBA Settings">
@@ -177,6 +197,7 @@
                 <Chinesesimp>AE3 主体</Chinesesimp>
                 <Russian>AE3 Общие</Russian>
                 <French>AE3 principal</French>
+                <Italian>AE3 main</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_DebugModeName">
                 <Original>Debug Mode</Original>
@@ -185,6 +206,7 @@
                 <Chinesesimp>调试模式</Chinesesimp>
                 <Russian>Режим отладки</Russian>
                 <French>Mode Debug</French>
+                <Italian>Modalità DEBUG</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_DebugModeTooltip">
                 <Original>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</Original>
@@ -193,6 +215,7 @@
                 <Chinesesimp>你可以通过AE3调试模式获得更多有关AE3内部结构的信息.</Chinesesimp>
                 <Russian>Включив режим отладки AE3, вы получите дополнительную информацию о внутренней структуре AE3.</Russian>
                 <French>En activant le mode de débogage AE3, vous obtiendrez des informations supplémentaires sur la structure interne d'AE3.</French>
+                <Italian>Abilitando la modalità DEBUG AE3 riceverai informazioni addizionali riguardo la struttura interna di AE3.</Italian>
             </Key>
         </Container>
     </Package>

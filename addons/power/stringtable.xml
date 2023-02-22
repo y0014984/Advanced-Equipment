@@ -9,6 +9,7 @@
                 <Chinesesimp>电量: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
                 <Russian>Уровень заряда батареи: %1 Wh (%2%3 of %4 Wh)</Russian>
                 <French>Niveau de batterie: %1 Wh (%2%3 de %4 Wh)</French>
+                <Italian>Livello batteria: %1 Wh (%2%3 di %4 Wh)</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_FuelLevelHint">
                 <Original>Fuel Level: %1 l (%2%3 of %4 l)</Original>
@@ -17,14 +18,16 @@
                 <Chinesesimp>燃料: %1 l (%2%3 of %4 l)</Chinesesimp>
                 <Russian>Уровень топлива: %1 l (%2%3 of %4 l)</Russian>
                 <French>Niveau de carburant: %1 l (%2%3 de %4 l)</French>
+                <Italian>Livello carburante: %1 l (%2%3 di %4 l)</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerOutputHint">
                 <Original>Current power output: %1 %2W</Original>
                 <English>Current power output: %1 %2W</English>
                 <German>Aktuelle Ausgangsleistung: %1 %2W</German>
-                <Chinesesimp>当前输出功率: %1 W</Chinesesimp>
+                <Chinesesimp>当前输出功率: %1 %2W</Chinesesimp>
                 <Russian>Текущая выходная мощность: %1 %2W</Russian>
                 <French>Puissance de sortie actuelle: %1 %2W</French>
+                <Italian>energia elettrica in uscita attuale: %1 %2W</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateHint">
                 <Original>Device Power State is: %1</Original>
@@ -33,6 +36,7 @@
                 <Chinesesimp>&gt;设备电源状态: %1</Chinesesimp>
                 <Russian>Состояние питания устройства: %1</Russian>
                 <French>L'état d'alimentation de l'appareil est: %1</French>
+                <Italian>Stato accensione dispositivo: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_CheckBatteryCharge">
                 <Original>Check Battery Charge</Original>
@@ -41,6 +45,7 @@
                 <Chinesesimp>检查电量</Chinesesimp>
                 <Russian>Проверить заряд батареи</Russian>
                 <French>Vérifier la charge de la batterie</French>
+                <Italian>Controlla carica della batteria</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_CheckPowerState">
                 <Original>Check Power State</Original>
@@ -49,6 +54,7 @@
                 <Chinesesimp>检查电源状态</Chinesesimp>
                 <Russian>Проверить состояние питания</Russian>
                 <French>Vérifier l'état de l'alimentation</French>
+                <Italian>Controlla stato accensione</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_CheckFuelLevel">
                 <Original>Check Fuel Level</Original>
@@ -57,6 +63,7 @@
                 <Chinesesimp>检查燃料</Chinesesimp>
                 <Russian>Проверить уровень топлива</Russian>
                 <French>Vérifier le niveau de carburant</French>
+                <Italian>Controlla livello carburante</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_CheckPowerOutput">
                 <Original>Check Power Generation</Original>
@@ -65,6 +72,7 @@
                 <Chinesesimp>检查发电量</Chinesesimp>
                 <Russian>Проверить выработку электроэнергии</Russian>
                 <French>Vérifiez la production d'énergie</French>
+                <Italian>Controlla generazione energia elettrica</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_ConnectToPowerSource">
                 <Original>Connect to power source</Original>
@@ -73,6 +81,7 @@
                 <Chinesesimp>连接电源</Chinesesimp>
                 <Russian>Подключить к источнику питания</Russian>
                 <French>Connecter à la source d'alimentation</French>
+                <Italian>Collega a fonte di energia</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_DisconnectFromPowerSource">
                 <Original>Disconnect from power source</Original>
@@ -81,6 +90,7 @@
                 <Chinesesimp>断开电源</Chinesesimp>
                 <Russian>Отключить от источника питания</Russian>
                 <French>Déconnecter à la source d'alimentation</French>
+                <Italian>Disconnetti da fonte di engergia</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_TurnOn">
                 <Original>Turn on</Original>
@@ -89,6 +99,7 @@
                 <Chinesesimp>打开</Chinesesimp>
                 <Russian>Включить</Russian>
                 <French>Allumer</French>
+                <Italian>Accendi</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_TurnOff">
                 <Original>Turn off</Original>
@@ -97,6 +108,7 @@
                 <Chinesesimp>关闭</Chinesesimp>
                 <Russian>Выключить</Russian>
                 <French>Éteindre</French>
+                <Italian>Spegni</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_Standby">
                 <Original>Standby</Original>
@@ -105,6 +117,7 @@
                 <Chinesesimp>待机</Chinesesimp>
                 <Russian>Ожидание (Standby)</Russian>
                 <French>Veille</French>
+                <Italian>Attesa</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateOn">
                 <Original>On</Original>
@@ -113,6 +126,7 @@
                 <Chinesesimp>开</Chinesesimp>
                 <Russian>Вкл</Russian>
                 <French>On</French>
+                <Italian>Acceso</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateOff">
                 <Original>Off</Original>
@@ -121,6 +135,7 @@
                 <Chinesesimp>关</Chinesesimp>
                 <Russian>Выкл</Russian>
                 <French>Off</French>
+                <Italian>Spento</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateStandby">
                 <Original>Standby</Original>
@@ -129,6 +144,7 @@
                 <Chinesesimp>待机</Chinesesimp>
                 <Russian>Ожидание (Standby)</Russian>
                 <French>Veille</French>
+                <Italian>Attesa</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateUnknown">
                 <Original>Unknown</Original>
@@ -137,6 +153,7 @@
                 <Chinesesimp>未知</Chinesesimp>
                 <Russian>Неизвестный</Russian>
                 <French>Inconu</French>
+                <Italian>Sconosciuto</Italian>
             </Key>
         </Container>
         <Container name="Terminal">
@@ -147,6 +164,7 @@
                 <Chinesesimp>电池模式</Chinesesimp>
                 <Russian>Режим батареи</Russian>
                 <French>Mode batterie</French>
+                <Italian>Modalita' batteria</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Terminal_PowerConsumptionModePowerAdapter">
                 <Original>Power Adapter Mode</Original>
@@ -155,6 +173,7 @@
                 <Chinesesimp>电源模式</Chinesesimp>
                 <Russian>Работа от сети</Russian>
                 <French>Mode adaptateur secteur</French>
+                <Italian>Modalità adattatore di potenza</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Terminal_PowerConsumptionModeUnknown">
                 <Original>Unknown Mode</Original>
@@ -163,6 +182,7 @@
                 <Chinesesimp>未知模式</Chinesesimp>
                 <Russian>Неизвестный режим работы</Russian>
                 <French>Mode inconnu</French>
+                <Italian>Modalità sconosciuta</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Terminal_TerminalTitle">
                 <Original>TERMINAL - %1%2 (%3)</Original>
@@ -171,6 +191,7 @@
                 <Chinesesimp>终端 - %1%2 (%3)</Chinesesimp>
                 <Russian>TERMINAL - %1%2 (%3)</Russian>
                 <French>TERMINAL - %1%2 (%3)</French>
+                <Italian>TERMINALE - %1%2 (%3)</Italian>
             </Key>
         </Container>
         <Container name="Config">
@@ -181,6 +202,7 @@
                 <Chinesesimp>便携式发电机</Chinesesimp>
                 <Russian>Портативный генератор</Russian>
                 <French>Générateur portatif</French>
+                <Italian>Generatore portatile</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName">
                 <Original>Rugged Portable Generator</Original>
@@ -221,6 +243,7 @@
                 <Chinesesimp>黑色</Chinesesimp>
                 <Russian>Black</Russian>
                 <French>Noir</French>
+                <Italian>Nero</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_TextureOlive">
                 <Original>Olive</Original>
@@ -229,6 +252,7 @@
                 <Chinesesimp>橄榄绿</Chinesesimp>
                 <Russian>Olive</Russian>
                 <French>Olive</French>
+                <Italian>Oliva</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_TextureYellow">
                 <Original>Yellow</Original>
@@ -237,6 +261,7 @@
                 <Chinesesimp>黄色</Chinesesimp>
                 <Russian>Yellow</Russian>
                 <French>Jaune</French>
+                <Italian>Giallo</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_TextureSand">
                 <Original>Sand</Original>
@@ -245,6 +270,7 @@
                 <Chinesesimp>沙色</Chinesesimp>
                 <Russian>Sand</Russian>
                 <French>Sable</French>
+                <Italian>Sabbia</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_BatteryDisplayName">
                 <Original>Battery</Original>
@@ -253,6 +279,7 @@
                 <Chinesesimp>电池</Chinesesimp>
                 <Russian>Батарея</Russian>
                 <French>Batterie</French>
+                <Italian>Batteria</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_SolarPanelDisplayName">
                 <Original>Solar Panel</Original>
@@ -261,6 +288,7 @@
                 <Chinesesimp>太阳能电池板</Chinesesimp>
                 <Russian>Солнечная панель</Russian>
                 <French>Panneau solaire</French>
+                <Italian>Pannello solare</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_SolarPanel1">
                 <Original>solar panel 1</Original>
@@ -269,6 +297,7 @@
                 <Chinesesimp>太阳能电池板1</Chinesesimp>
                 <Russian>Солнечная панель 1</Russian>
                 <French>Panneau solaire 1</French>
+                <Italian>Pannello solare 1</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_PitchSolarPanel1">
                 <Original>pitch solar panel 1</Original>
@@ -277,6 +306,7 @@
                 <Chinesesimp>倾斜太阳能电池板1</Chinesesimp>
                 <Russian>Наклонить солнечную панель 1</Russian>
                 <French>basculer Panneau solaire 1</French>
+                <Italian>Inclina il pannello solare 1</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_SolarPanel2">
                 <Original>solar panel 2</Original>
@@ -285,6 +315,7 @@
                 <Chinesesimp>太阳能电池板2</Chinesesimp>
                 <Russian>Солнечная панель 2</Russian>
                 <French>Panneau solaire 2</French>
+                <Italian>Pannello solare 2</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_PitchSolarPanel2">
                 <Original>pitch solar panel 2</Original>
@@ -293,6 +324,7 @@
                 <Chinesesimp>倾斜太阳能电池板2</Chinesesimp>
                 <Russian>Наклонить солнечную панель 2</Russian>
                 <French>basculer Panneau solaire 2</French>
+                <Italian>Inclina pannello solare 2</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_SolarPanelsDisplayName">
                 <Original>solar panels</Original>
@@ -301,6 +333,7 @@
                 <Chinesesimp>太阳能电池板</Chinesesimp>
                 <Russian>Солнечные панели</Russian>
                 <French>Panneaux solaires</French>
+                <Italian>Pannelli solari</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_YawSolarPanels">
                 <Original>yaw solar panels</Original>
@@ -309,6 +342,7 @@
                 <Chinesesimp>偏转太阳能电池板</Chinesesimp>
                 <Russian>Повернуть солнечную панель</Russian>
                 <French>basculer Panneaux solaires</French>
+                <Italian>Ruota pannello solari</Italian>
             </Key>
         </Container>
     </Package>
