@@ -21,13 +21,13 @@
                 <Italian>Livello carburante: %1 l (%2%3 di %4 l)</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerOutputHint">
-                <Original>Current power output: %1 W</Original>
-                <English>Current power output: %1 W</English>
-                <German>Aktuelle Ausgangsleistung: %1 W</German>
-                <Chinesesimp>当前输出功率: %1 W</Chinesesimp>
-                <Russian>Текущая выходная мощность: %1 W</Russian>
-                <French>Puissance de sortie actuelle: %1 W</French>
-                <Italian>energia elettrica in uscita attuale: %1 W</Italian>
+                <Original>Current power output: %1 %2W</Original>
+                <English>Current power output: %1 %2W</English>
+                <German>Aktuelle Ausgangsleistung: %1 %2W</German>
+                <Chinesesimp>当前输出功率: %1 %2W</Chinesesimp>
+                <Russian>Текущая выходная мощность: %1 %2W</Russian>
+                <French>Puissance de sortie actuelle: %1 %2W</French>
+                <Italian>energia elettrica in uscita attuale: %1 %2W</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateHint">
                 <Original>Device Power State is: %1</Original>
@@ -195,7 +195,7 @@
             </Key>
         </Container>
         <Container name="Config">
-            <Key ID="STR_AE3_Power_Config_GeneratorDisplayName">
+            <Key ID="STR_AE3_Power_Config_PortableGeneratorDisplayName">
                 <Original>Portable Generator</Original>
                 <English>Portable Generator</English>
                 <German>Tragbarer Generator</German>
@@ -203,6 +203,38 @@
                 <Russian>Портативный генератор</Russian>
                 <French>Générateur portatif</French>
                 <Italian>Generatore portatile</Italian>
+            </Key>
+            <Key ID="STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName">
+                <Original>Rugged Portable Generator</Original>
+                <English>Rugged Portable Generator</English>
+                <German>Gehärteter Tragbarer Generator</German>
+                <Chinesesimp>Rugged Portable Generator</Chinesesimp>
+                <Russian>Rugged Portable Generator</Russian>
+                <French>Rugged Portable Generator</French>
+            </Key>
+            <Key ID="STR_AE3_Power_Config_RadarGeneratorDisplayName">
+                <Original>Radar Generator</Original>
+                <English>Radar Generator</English>
+                <German>Radar Generator</German>
+                <Chinesesimp>Radar Generator</Chinesesimp>
+                <Russian>Radar Generator</Russian>
+                <French>Radar Generator</French>
+            </Key>
+            <Key ID="STR_AE3_Power_Config_AirportGeneratorDisplayName">
+                <Original>Diesel Ground Power Unit</Original>
+                <English>Diesel Ground Power Unit</English>
+                <German>Bodenstromaggregat</German>
+                <Chinesesimp>Diesel Ground Power Unit</Chinesesimp>
+                <Russian>Diesel Ground Power Unit</Russian>
+                <French>Diesel Ground Power Unit</French>
+            </Key>
+            <Key ID="STR_AE3_Power_Config_PowerGeneratorDisplayName">
+                <Original>Power Generator</Original>
+                <English>Power Generator</English>
+                <German>Stromgenerator</German>
+                <Chinesesimp>Power Generator</Chinesesimp>
+                <Russian>Power Generator</Russian>
+                <French>Power Generator</French>
             </Key>
             <Key ID="STR_AE3_Power_Config_TextureBlack">
                 <Original>Black</Original>

@@ -28,7 +28,7 @@ This project is entirely **open-source** and all contributions are welcome. Feel
 - Network Management (only basics implemented yet)
 - Logistics (Fold and unfold objects, move them around, put them into vehicles)
 - 3DEN Modules (Easy Mission Making)
-- Localization (English, German, Russian, Simplified Chinese)
+- Localization (English, German, French, Russian, Simplified Chinese)
 
 ## Wiki
 See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional information on how to use Advanced Equipment. 
@@ -41,6 +41,7 @@ Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@AE3`. You can also get this mod on
 ## Known Issues
 
 * This mod is still under development and isn't recommended for productive use right now.
+* No Zeus support at the moment.
 
 ## Contact and Contribution
 
