@@ -23,6 +23,16 @@ private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
 private _designButton = _consoleDialog displayCtrl 1320;
 
+/* ------------- UI on Texture ------------ */
+
+private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
+
+{
+   [_computer] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_init", _x];
+} forEach _playersInRange;
+
+/* ---------------------------------------- */
+
 /*
 private _handle = [_computer] spawn AE3_power_fnc_showBatteryLevel;
 

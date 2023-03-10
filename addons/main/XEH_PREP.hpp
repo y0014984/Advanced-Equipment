@@ -16,3 +16,6 @@ PREP(3den_checkConnection);
 PREP(3den_doNetworkConnection);
 PREP(3den_doPowerConnection);
 PREP(killDebugOverlay);
+
+// Misc
+PREP(getPlayersInRange);
