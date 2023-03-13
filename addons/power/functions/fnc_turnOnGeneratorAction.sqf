@@ -31,11 +31,10 @@ private _result = false;
 if (_fuelLevel > 0) then
 {
 	private _turnOnTime = 5;
+	private _startSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
+
 
 	if (!_silent) then {
-
-		private _startSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
-
 		[
 		_turnOnTime,
 		[_entity, _startSoundHandle, _turnOnFnc], 
