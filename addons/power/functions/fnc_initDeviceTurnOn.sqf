@@ -19,7 +19,7 @@ params ["_device"];
 
     private _edenAttributePowerState = _device getVariable "AE3_EdenAttribute_PowerState";
 
-	if (!_edenAttributePowerState) exitWith {diag_log "AE3: Not set";};
+	if (!_edenAttributePowerState) exitWith {};
 
     // wait until all "init" processes are done, see: https://community.bistudio.com/wiki/Initialization_Order
     waitUntil { !isNil "BIS_fnc_init" };
@@ -42,8 +42,8 @@ params ["_device"];
 						!(_device getVariable ['AE3_power_mutex', false]) and 
 						(_device getVariable ['AE3_interaction_closeState', 0] == 0)));
 
-	if (!_condition) exitWith {diag_log "AE3: Condition not met";};
+	if (!_condition) exitWith {};
 
-	[_device, [true]] call (_device getVariable "AE3_power_fnc_turnOnWrapper");
+	[_device, [true]] spawn (_device getVariable "AE3_power_fnc_turnOnWrapper");
 	_device setVariable ['AE3_power_mutex', false, true];
 };
