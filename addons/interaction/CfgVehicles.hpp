@@ -5,6 +5,25 @@ class CfgVehicles
 	class Land_PortableLight_single_F;
 	class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Device
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
@@ -57,6 +76,25 @@ class CfgVehicles
  	class Land_PortableLight_double_F;
 	class Land_PortableLight_double_F_AE3: Land_PortableLight_double_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Device
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
@@ -111,6 +149,25 @@ class CfgVehicles
  	class Land_PortableLight_02_single_yellow_F;
 	class Land_PortableLight_02_single_yellow_F_AE3: Land_PortableLight_02_single_yellow_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -201,6 +258,25 @@ class CfgVehicles
  	class Land_PortableLight_02_single_olive_F;
 	class Land_PortableLight_02_single_olive_F_AE3: Land_PortableLight_02_single_olive_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -291,6 +367,25 @@ class CfgVehicles
  	class Land_PortableLight_02_single_black_F;
 	class Land_PortableLight_02_single_black_F_AE3: Land_PortableLight_02_single_black_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -381,6 +476,25 @@ class CfgVehicles
  	class Land_PortableLight_02_single_sand_F;
 	class Land_PortableLight_02_single_sand_F_AE3: Land_PortableLight_02_single_sand_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -471,6 +585,25 @@ class CfgVehicles
 	class Land_PortableLight_02_double_yellow_F;
 	class Land_PortableLight_02_double_yellow_F_AE3: Land_PortableLight_02_double_yellow_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -594,6 +727,25 @@ class CfgVehicles
 	class Land_PortableLight_02_double_olive_F;
 	class Land_PortableLight_02_double_olive_F_AE3: Land_PortableLight_02_double_olive_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -717,6 +869,25 @@ class CfgVehicles
 	class Land_PortableLight_02_double_black_F;
 	class Land_PortableLight_02_double_black_F_AE3: Land_PortableLight_02_double_black_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -840,6 +1011,25 @@ class CfgVehicles
 	class Land_PortableLight_02_double_sand_F;
 	class Land_PortableLight_02_double_sand_F_AE3: Land_PortableLight_02_double_sand_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -963,6 +1153,25 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_yellow_F;
 	class Land_PortableLight_02_quad_yellow_F_AE3: Land_PortableLight_02_quad_yellow_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1152,6 +1361,25 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_olive_F;
 	class Land_PortableLight_02_quad_olive_F_AE3: Land_PortableLight_02_quad_olive_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1341,6 +1569,25 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_black_F;
 	class Land_PortableLight_02_quad_black_F_AE3: Land_PortableLight_02_quad_black_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1530,6 +1777,25 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_sand_F;
 	class Land_PortableLight_02_quad_sand_F_AE3: Land_PortableLight_02_quad_sand_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1719,6 +1985,25 @@ class CfgVehicles
 	class Land_PortableDesk_01_olive_F;
 	class Land_PortableDesk_01_olive_F_AE3: Land_PortableDesk_01_olive_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_DeskDisplayName";

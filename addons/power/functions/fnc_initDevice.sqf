@@ -146,3 +146,8 @@ _entity setVariable ["AE3_power_fnc_standbyCondition", _standbyCondition];
 _entity setVariable ["AE3_power_fnc_standbyWrapper", _standbyWrapper];
 
 [_entity] call _initFnc;
+
+if(isServer) then
+{
+	[_entity] call AE3_power_fnc_initDeviceTurnOn;
+};

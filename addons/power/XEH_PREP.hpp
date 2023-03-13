@@ -29,6 +29,7 @@ PREP(initGenerator);
 PREP(initFuelLevelWithEdenAttribute);
 PREP(initConsumer);
 PREP(initSolarPanel);
+PREP(initDeviceTurnOn);
 
 /* Sys */
 PREP(batteryCalculation);

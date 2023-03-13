@@ -6,6 +6,25 @@ class CfgVehicles
 	class Land_Router_01_olive_F;
 	class Land_Router_01_olive_F_AE3: Land_Router_01_olive_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
@@ -53,6 +72,25 @@ class CfgVehicles
 	class Land_Router_01_black_F;
 	class Land_Router_01_black_F_AE3: Land_Router_01_black_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
@@ -100,6 +138,25 @@ class CfgVehicles
 	class Land_Router_01_sand_F;
 	class Land_Router_01_sand_F_AE3: Land_Router_01_sand_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
