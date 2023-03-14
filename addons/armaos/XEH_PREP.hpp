@@ -121,3 +121,4 @@ PREP(terminal_uiOnTex_updateOutput);
 PREP(terminal_uiOnTex_updateBatteryStatus);
 PREP(terminal_uiOnTex_setTerminalDesign);
 PREP(terminal_uiOnTex_setKeyboardLayout);
+PREP(terminal_uiOnTex_addUpdateAllEventHandler);
