@@ -218,7 +218,7 @@ private _result = _consoleDialog displayAddEventHandler
 		/* ------------- UI on Texture ------------ */
 
 		_handleUpdateUiOnTexture = _display getVariable "AE3_handleUpdateUiOnTexture";
-		[_handleUpdateBatteryStatus] call CBA_fnc_removePerFrameHandler;
+		[_handleUpdateUiOnTexture] call CBA_fnc_removePerFrameHandler;
 
 		/* ---------------------------------------- */
 

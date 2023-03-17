@@ -1,15 +1,6 @@
-/**
- * Updates the Battery Symbol in the upper right corner of the terminal application according to the battery status every 15 seconds.
- *
- * Arguments:
- * 1: Computer <OBJECT>
- * 2: Console Dialog <OBJECT>
- *
- * Results:
- * 1: Per Frame Handler <HANDLE>
- */
-
 params ["_computer", "_consoleDialog"];
+
+private _updateInterval = 5;
 
 _handle = 
     [
@@ -18,18 +9,26 @@ _handle =
 
             private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 
-            // get values
-            _outputControl ctrlSetStructuredText (composeText _output);
-
-            private _consoleCtrl = _consoleDialog displayCtrl 1100;
             private _languageButtonCtrl = _consoleDialog displayCtrl 1310;
             private _batteryButtonCtrl = _consoleDialog displayCtrl 1050;
+            private _headerBackgroundCtrl = _consoleDialog displayCtrl 900;
+            private _consoleBackgroundCtrl = _consoleDialog displayCtrl 910;
+            private _headerCtrl = _consoleDialog displayCtrl 1000;
+            private _consoleCtrl = _consoleDialog displayCtrl 1100;
+
+            private _output = ctrlText _consoleCtrl;
+            private _terminalKeyboardLayout = ctrlText _languageButtonCtrl;
+            private _value = ctrlText _batteryButtonCtrl;
+            private _bgColorHeader = ctrlBackgroundColor _headerBackgroundCtrl;
+            private _bgColorConsole = ctrlBackgroundColor _consoleBackgroundCtrl;
+            private _fontColorHeader = ctrlTextColor _headerCtrl;
+            private _fontColorConsole = ctrlTextColor _consoleCtrl;
 
             {
-                [_computer, _output] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _x];
+                [_computer, _output, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _x];
             } forEach _playersInRange;
         }, 
-        5, 
+        _updateInterval, 
         [_computer, _consoleDialog]
     ] call CBA_fnc_addPerFrameHandler;
 

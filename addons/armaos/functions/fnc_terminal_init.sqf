@@ -143,6 +143,13 @@ private _currentDesign = _designs select _currentDesignIndex;
 private _handleUpdateBatteryStatus = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_updateBatteryStatus;
 _consoleDialog setVariable ["AE3_handleUpdateBatteryStatus", _handleUpdateBatteryStatus];
 
+/* ------------- UI on Texture ------------ */
+
+private _handleUpdateUiOnTexture = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_uiOnTex_addUpdateAllEventHandler;
+_consoleDialog setVariable ["AE3_handleUpdateUiOnTexture", _handleUpdateUiOnTexture];
+
+/* ---------------------------------------- */
+
 [_consoleDialog, _consoleOutput, _languageButton, _designButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
 _terminalBuffer = _terminal get "AE3_terminalBuffer";
