@@ -7,26 +7,29 @@ _handle =
         {
             (_this select 0) params ["_computer", "_consoleDialog"];
 
-            private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
-
-            private _languageButtonCtrl = _consoleDialog displayCtrl 1310;
-            private _batteryButtonCtrl = _consoleDialog displayCtrl 1050;
-            private _headerBackgroundCtrl = _consoleDialog displayCtrl 900;
-            private _consoleBackgroundCtrl = _consoleDialog displayCtrl 910;
-            private _headerCtrl = _consoleDialog displayCtrl 1000;
-            private _consoleCtrl = _consoleDialog displayCtrl 1100;
-
-            private _output = ctrlText _consoleCtrl;
-            private _terminalKeyboardLayout = ctrlText _languageButtonCtrl;
-            private _value = ctrlText _batteryButtonCtrl;
-            private _bgColorHeader = ctrlBackgroundColor _headerBackgroundCtrl;
-            private _bgColorConsole = ctrlBackgroundColor _consoleBackgroundCtrl;
-            private _fontColorHeader = ctrlTextColor _headerCtrl;
-            private _fontColorConsole = ctrlTextColor _consoleCtrl;
-
+            if (AE3_UiOnTexture) then
             {
-                [_computer, _output, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _x];
-            } forEach _playersInRange;
+                private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
+
+                private _languageButtonCtrl = _consoleDialog displayCtrl 1310;
+                private _batteryButtonCtrl = _consoleDialog displayCtrl 1050;
+                private _headerBackgroundCtrl = _consoleDialog displayCtrl 900;
+                private _consoleBackgroundCtrl = _consoleDialog displayCtrl 910;
+                private _headerCtrl = _consoleDialog displayCtrl 1000;
+                private _consoleCtrl = _consoleDialog displayCtrl 1100;
+
+                private _output = ctrlText _consoleCtrl;
+                private _terminalKeyboardLayout = ctrlText _languageButtonCtrl;
+                private _value = ctrlText _batteryButtonCtrl;
+                private _bgColorHeader = ctrlBackgroundColor _headerBackgroundCtrl;
+                private _bgColorConsole = ctrlBackgroundColor _consoleBackgroundCtrl;
+                private _fontColorHeader = ctrlTextColor _headerCtrl;
+                private _fontColorConsole = ctrlTextColor _consoleCtrl;
+
+                {
+                    [_computer, _output, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _x];
+                } forEach _playersInRange;
+            };
         }, 
         _updateInterval, 
         [_computer, _consoleDialog]

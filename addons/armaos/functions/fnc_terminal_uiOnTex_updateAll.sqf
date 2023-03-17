@@ -40,4 +40,16 @@ _uiOnTextureBatteryCtrl ctrlSetText _value;
 
 /* ---------------------------------------- */
 
+private _uiOnTextureOutputCtrl = _uiOnTextureDisplay displayCtrl 1100; // Console Output Control
+
+_uiOnTextureOutputCtrl ctrlSetStructuredText _output;
+
+/* ---------------------------------------- */
+
+private _uiOnTextureLanguageCtrl = _uiOnTextureDisplay displayCtrl 1310; // Language Control
+
+_uiOnTextureLanguageCtrl ctrlSetText _terminalKeyboardLayout;
+
+/* ---------------------------------------- */
+
 displayUpdate _uiOnTextureDisplay;
