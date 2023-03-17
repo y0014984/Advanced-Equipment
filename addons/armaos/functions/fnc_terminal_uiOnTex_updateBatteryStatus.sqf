@@ -1,3 +1,14 @@
+/**
+ * Updates the battery symbol of the terminal for the "UI on texture" feature. 
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Battery Symbol Path <STRING>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_value"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient

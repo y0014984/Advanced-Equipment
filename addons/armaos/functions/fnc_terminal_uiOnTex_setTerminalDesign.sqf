@@ -1,3 +1,17 @@
+/**
+ * Updates the design of the terminal for the "UI on texture" feature. 
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Background Color Header <COLOR>
+ * 3: Background Color Console <COLOR>
+ * 4: Font Color Header <COLOR>
+ * 5: Font Color Console <COLOR>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_bgColorHeader", "_bgColorConsole", "_fontColorHeader", "_fontColorConsole"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient

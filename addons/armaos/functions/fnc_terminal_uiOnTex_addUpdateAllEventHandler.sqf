@@ -1,3 +1,14 @@
+/**
+ * Adds an 5 Sec Per-Frame-Event-Handler for the "UI on texture" feature. This will update all contents regularly.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Console <DIALOG>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_consoleDialog"];
 
 private _updateInterval = 5;

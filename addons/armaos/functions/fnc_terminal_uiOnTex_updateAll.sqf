@@ -1,3 +1,21 @@
+/**
+ * Updates all content of the terminal for the "UI on texture" feature. 
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Output <STRUCTURED TEXT>
+ * 3: Keyboard Layout <STRING>
+ * 4: Background Color Header <COLOR>
+ * 5: Background Color Console <COLOR>
+ * 6: Font Color Header <COLOR>
+ * 7: Font Color Console <COLOR>
+ * 8: Battery Symbol Path <STRING>
+ *
+ * Results:
+ * None
+ */
+
+
 params ["_computer", "_output", "_terminalKeyboardLayout", "_bgColorHeader", "_bgColorConsole", "_fontColorHeader", "_fontColorConsole", "_value"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient

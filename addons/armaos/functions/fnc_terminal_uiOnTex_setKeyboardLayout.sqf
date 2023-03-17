@@ -1,3 +1,14 @@
+/**
+ * Updates the keyboard layout of the terminal for the "UI on texture" feature. 
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Keyboard Layout <STRING>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_terminalKeyboardLayout"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient

@@ -1,3 +1,14 @@
+/**
+ * Updates terminal output for the "UI on texture" feature. 
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Output <STRUCTURED TEXT>
+ *
+ * Results:
+ * None
+ */
+
 params ["_computer", "_output"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
