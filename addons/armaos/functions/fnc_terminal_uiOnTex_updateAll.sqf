@@ -60,7 +60,24 @@ _uiOnTextureBatteryCtrl ctrlSetText _value;
 
 private _uiOnTextureOutputCtrl = _uiOnTextureDisplay displayCtrl 1100; // Console Output Control
 
-_uiOnTextureOutputCtrl ctrlSetStructuredText _output;
+// We need to compose the text again because we can't read the structuredText from the existing control,
+// like we do on the other controls. StructuredText is set-only.
+
+private _terminal = _computer getVariable "AE3_terminal";
+
+private _terminalBuffer = _terminal get "AE3_terminalBuffer";
+private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
+private _size = _terminal get "AE3_terminalSize";
+
+private _output = [];
+{
+	_buffer = composeText [_x, lineBreak];
+	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+	_output pushBack _buffer;
+} forEach _terminalBufferVisable;
+
+_uiOnTextureOutputCtrl ctrlSetStructuredText (composeText _output);
+
 
 /* ---------------------------------------- */
 
