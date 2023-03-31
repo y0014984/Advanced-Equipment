@@ -3,20 +3,21 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: Output <STRUCTURED TEXT>
- * 3: Keyboard Layout <STRING>
- * 4: Background Color Header <COLOR>
- * 5: Background Color Console <COLOR>
- * 6: Font Color Header <COLOR>
- * 7: Font Color Console <COLOR>
- * 8: Battery Symbol Path <STRING>
+ * 2: Terminal Buffer Visable <ARRAY>
+ * 3: Size <NUMBER>
+ * 4: Keyboard Layout <STRING>
+ * 5: Background Color Header <COLOR>
+ * 6: Background Color Console <COLOR>
+ * 7: Font Color Header <COLOR>
+ * 8: Font Color Console <COLOR>
+ * 9: Battery Symbol Path <STRING>
  *
  * Results:
  * None
  */
 
 
-params ["_computer", "_output", "_terminalKeyboardLayout", "_bgColorHeader", "_bgColorConsole", "_fontColorHeader", "_fontColorConsole", "_value"];
+params ["_computer", "_terminalBufferVisable", "_size", "_terminalKeyboardLayout", "_bgColorHeader", "_bgColorConsole", "_fontColorHeader", "_fontColorConsole", "_value"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
@@ -63,15 +64,9 @@ private _uiOnTextureOutputCtrl = _uiOnTextureDisplay displayCtrl 1100; // Consol
 // We need to compose the text again because we can't read the structuredText from the existing control,
 // like we do on the other controls. StructuredText is set-only.
 
-private _terminal = _computer getVariable "AE3_terminal";
-
-private _terminalBuffer = _terminal get "AE3_terminalBuffer";
-private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
-private _size = _terminal get "AE3_terminalSize";
-
 private _output = [];
 {
-	_buffer = composeText [_x, lineBreak];
+	private _buffer = composeText [_x, lineBreak];
 	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
 	_output pushBack _buffer;
 } forEach _terminalBufferVisable;

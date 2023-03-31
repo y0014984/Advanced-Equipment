@@ -37,8 +37,13 @@ _handle =
                 private _fontColorHeader = ctrlTextColor _headerCtrl;
                 private _fontColorConsole = ctrlTextColor _consoleCtrl;
 
+                private _terminal = _computer getVariable "AE3_terminal";
+
+                private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
+                private _size = _terminal get "AE3_terminalSize";
+
                 {
-                    [_computer, _output, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _x];
+                    [_computer, _terminalBufferVisable, _size, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _x];
                 } forEach _playersInRange;
             };
         }, 
