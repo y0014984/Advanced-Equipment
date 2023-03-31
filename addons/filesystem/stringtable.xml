@@ -121,6 +121,60 @@
                 <French>Si le contenu du fichier est une fonction ou un code exécutable depuis le terminal</French>
                 <Italian>Se il contenuto del file è una funzione o codice che può essere eseguito dal terminale</Italian>
             </Key>
+            <Key ID="STR_AE3_Filesystem_Config_IsEncryptedDisplayName">
+                <Original>Is encrypted?</Original>
+                <English>Is encrypted?</English>
+                <German>Ist verschlüsselt?</German>
+                <Chinesesimp>Is encrypted?</Chinesesimp>
+                <Russian>Is encrypted?</Russian>
+                <French>Is encrypted?</French>
+                <Italian>Is encrypted?</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_IsEncryptedTooltip">
+                <Original>File content will be encrypted on mission start</Original>
+                <English>File content will be encrypted on mission start</English>
+                <German>Dateiinhalt wird beim Missionsstart verschlüsselt</German>
+                <Chinesesimp>File content will be encrypted on mission start</Chinesesimp>
+                <Russian>File content will be encrypted on mission start</Russian>
+                <French>File content will be encrypted on mission start</French>
+                <Italian>File content will be encrypted on mission start</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmDisplayName">
+                <Original>Encryption Algorithm</Original>
+                <English>Encryption Algorithm</English>
+                <German>Verschlüsselungsalorithmus</German>
+                <Chinesesimp>Encryption Algorithm</Chinesesimp>
+                <Russian>Encryption Algorithm</Russian>
+                <French>Encryption Algorithm</French>
+                <Italian>Encryption Algorithm</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmTooltip">
+                <Original>At the moment the caesar algorithm is the only available algorithm</Original>
+                <English>At the moment the caesar algorithm is the only available algorithm</English>
+                <German>Aktuell ist der Caesar Algorithmus der einzig verfügbare Algorithmus</German>
+                <Chinesesimp>At the moment the caesar algorithm is the only available algorithm</Chinesesimp>
+                <Russian>At the moment the caesar algorithm is the only available algorithm</Russian>
+                <French>At the moment the caesar algorithm is the only available algorithm</French>
+                <Italian>At the moment the caesar algorithm is the only available algorithm</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyDisplayName">
+                <Original>Encryption Key</Original>
+                <English>Encryption Key</English>
+                <German>Verschlüsselungsschlüssel</German>
+                <Chinesesimp>Encryption Key</Chinesesimp>
+                <Russian>Encryption Key</Russian>
+                <French>Encryption Key</French>
+                <Italian>Encryption Key</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyTooltip">
+                <Original>Only use numeric keys between 1 and 25</Original>
+                <English>Only use numeric keys between 1 and 25</English>
+                <German>Verwende ausschließlich numerische Schlüssel zwischen 1 und 25</German>
+                <Chinesesimp>Only use numeric keys between 1 and 25</Chinesesimp>
+                <Russian>Only use numeric keys between 1 and 25</Russian>
+                <French>Only use numeric keys between 1 and 25</French>
+                <Italian>Only use numeric keys between 1 and 25</Italian>
+            </Key>
             <Key ID="STR_AE3_Filesystem_Config_FileOwnerDisplayName">
                 <Original>File owner</Original>
                 <English>File owner</English>

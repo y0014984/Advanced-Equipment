@@ -11,6 +11,7 @@ class CfgVehicles
 			class Default;
 			class Edit;					// Default edit box (i.e., text input field)
 			class Checkbox;
+			class Combo;
 			class ModuleDescription;	// Module description
 		};
 		// Description base classes, for more information see below
@@ -159,6 +160,45 @@ class CfgVehicles
 				defaultValue = true;
 			};
 
+			class AE3_Module_AddFile_IsEncrypted: Checkbox
+			{
+				property = "AE3_Module_AddFile_IsEncrypted";
+				displayName = "$STR_AE3_Filesystem_Config_IsEncryptedDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_IsEncryptedTooltip";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = false;
+			};
+			class AE3_Module_AddFile_EncryptionAlgorithm: Combo
+			{
+				property = "AE3_Module_AddFile_EncryptionAlgorithm";
+				displayName = "$STR_AE3_Filesystem_Config_EncryptionAlgorithmDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_EncryptionAlgorithmTooltip";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """caesar""";
+
+				// Listbox items:
+				class Values
+				{
+					class caesar	{ name = "caesar";	value = "caesar"; };
+					//class test1		{ name = "test1";	value = "test1"; };
+					//class test2		{ name = "test2";	value = "test2"; };
+					//class test3		{ name = "test3";	value = "test3"; };
+				};
+			};
+			class AE3_Module_AddFile_EncryptionKey: Edit
+			{
+				property = "AE3_Module_AddFile_EncryptionKey";
+				displayName = "$STR_AE3_Filesystem_Config_EncryptionKeyDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_EncryptionKeyTooltip";
+				typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = 13;
+			};
 			
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};

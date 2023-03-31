@@ -11,15 +11,16 @@
 
 params ["_module", "_syncedUnits"];
 
-if(!isServer) exitWith {};
+if (!isServer) exitWith {};
 
 private _syncedObjects = synchronizedObjects _module;
 
-private _path = _module getVariable ["AE3_Module_AddFile_Path", ""];
-private _content = _module getVariable ["AE3_Module_AddFile_Content", ""];
-private _isFunction = _module getVariable ["AE3_Module_AddFile_IsFunction", ""];
-private _owner = _module getVariable ["AE3_Module_AddFile_Owner", ""];
-private _permissions = [
+private _path = _module getVariable "AE3_Module_AddFile_Path";
+private _content = _module getVariable "AE3_Module_AddFile_Content";
+private _isFunction = _module getVariable "AE3_Module_AddFile_IsFunction";
+private _owner = _module getVariable "AE3_Module_AddFile_Owner";
+private _permissions =
+[
 	[
 		_module getVariable "AE3_Module_AddFile_OwnerExecute",
 		_module getVariable "AE3_Module_AddFile_OwnerRead",
@@ -32,11 +33,25 @@ private _permissions = [
 	]
 ];
 
-if(_path isEqualTo "") exitWith {};
+private _isEncrypted = _module getVariable "AE3_Module_AddFile_IsEncrypted";
+private _encryptionAlgorithm = _module getVariable "AE3_Module_AddFile_EncryptionAlgorithm";
+private _encryptionKey = _module getVariable "AE3_Module_AddFile_EncryptionKey";
 
-if(_isFunction) then
+if (_path isEqualTo "") exitWith {};
+
+if (_isFunction) then
 {
 	_content = compile _content;
+};
+
+if (_isEncrypted) then 
+{
+	private _mode = "encrypt";
+
+	if (_encryptionAlgorithm isEqualTo "caesar") then 
+	{
+		_content = [_encryptionKey, _mode, _content] call AE3_armaos_fnc_encryption_caesar;
+	};
 };
 
 [_syncedObjects, _path, _content, _owner, _permissions] spawn 
