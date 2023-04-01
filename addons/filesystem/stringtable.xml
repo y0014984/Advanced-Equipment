@@ -122,13 +122,13 @@
                 <Italian>Se il contenuto del file è una funzione o codice che può essere eseguito dal terminale</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_IsEncryptedDisplayName">
-                <Original>Is encrypted?</Original>
-                <English>Is encrypted?</English>
-                <German>Ist verschlüsselt?</German>
-                <Chinesesimp>Is encrypted?</Chinesesimp>
-                <Russian>Is encrypted?</Russian>
-                <French>Is encrypted?</French>
-                <Italian>Is encrypted?</Italian>
+                <Original>Enable Encryption</Original>
+                <English>Enable Encryption</English>
+                <German>Aktiviere Verschlüsselung</German>
+                <Chinesesimp>Enable Encryption</Chinesesimp>
+                <Russian>Enable Encryption</Russian>
+                <French>Enable Encryption</French>
+                <Italian>Enable Encryption</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_IsEncryptedTooltip">
                 <Original>File content will be encrypted on mission start</Original>
