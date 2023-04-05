@@ -43,20 +43,35 @@ private _encryptedMessage = "";
 if ((_mode isEqualTo "encrypt") || (_mode isEqualTo "decrypt")) then
 {
     // select algorythm
-    if (_algorithm == "caesar") then
+    switch (_algorithm) do
     {
-        // no float
-        _key = floor (parseNumber _key);
+        case "caesar": {
+            // no float
+            _key = floor (parseNumber _key);
 
-        if (_key > 0) then
-        { 
-            private _processedMessage = [_key, _mode, _message] call AE3_armaos_fnc_encryption_caesar;
+            if (_key > 0) then
+            { 
+                private _processedMessage = [_key, _mode, _message] call AE3_armaos_fnc_encryption_caesar;
 
-            [_computer, _processedMessage] call AE3_armaos_fnc_shell_stdout;
-        }
-        else
-        {
-            [_computer, localize "STR_AE3_ArmaOS_Exception_CaesarCypherNeedsIntegerGreaterNullAsKey"] call AE3_armaos_fnc_shell_stdout;
+                [_computer, _processedMessage] call AE3_armaos_fnc_shell_stdout;
+            }
+            else
+            {
+                [_computer, localize "STR_AE3_ArmaOS_Exception_CaesarCypherNeedsIntegerGreaterNullAsKey"] call AE3_armaos_fnc_shell_stdout;
+            };
+        };
+
+        case "columnar": {
+            if ((count _key) > 1) then
+            {
+                private _processedMessage = [_key, _mode, _message] call AE3_armaos_fnc_encryption_columnar;
+                
+                [_computer, _processedMessage] call AE3_armaos_fnc_shell_stdout;
+            }
+            else
+            {
+                [_computer, localize "STR_AE3_ArmaOS_Exception_ColumnarCipherNeedsStringLengthGreaterOneAsKey"] call AE3_armaos_fnc_shell_stdout;
+            };
         };
     };
 };

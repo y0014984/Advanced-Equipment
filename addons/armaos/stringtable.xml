@@ -66,6 +66,11 @@
                 <Russian>Шифр Цезаря требует в качестве ключа целое число больше 0.</Russian>
                 <French>Le chiffrement de César a besoin d'un chiffre supérieur à 0 comme clé.</French>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherNeedsStringLengthGreaterOneAsKey">
+                <Original>Columnar Transposition Cypher needs a string with at least 2 characters as key</Original>
+                <English>Columnar Transposition Cypher needs a string with at least 2 characters as key</English>
+                <German>Die Spaltentranspositions Chiffre benötigt eine Zeichenkette mit mindestens 2 Zeichen als Schlüssel.</German>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_TooManyOptions">
                 <Original>Too many options</Original>
                 <English>Too many options</English>
