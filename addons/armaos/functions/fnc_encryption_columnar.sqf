@@ -75,6 +75,10 @@ switch (_mode) do {
 	};
 
 	case "decrypt": {
+		// the message can't be decoded, if the key and message-lengths
+		// don't fit a complete transposition
+		if ((_msgLen mod _numCol) != 0) exitWith {};
+
 		private _plainText = "";
 
 		// extract the segments from the encrypted message

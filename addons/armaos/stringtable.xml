@@ -67,10 +67,15 @@
                 <French>Le chiffrement de César a besoin d'un chiffre supérieur à 0 comme clé.</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherNeedsStringLengthGreaterOneAsKey">
-                <Original>Columnar Transposition Cypher needs a string with at least 2 characters as key</Original>
-                <English>Columnar Transposition Cypher needs a string with at least 2 characters as key</English>
-                <German>Die Spaltentranspositions Chiffre benötigt eine Zeichenkette mit mindestens 2 Zeichen als Schlüssel.</German>
+                <Original>The Columnar Transposition Cipher needs a key with at least 2 characters</Original>
+                <English>The Columnar Transposition Cipher needs a key with at least 2 characters</English>
+                <German>Die Spaltentranspositions Chiffre benötigt einen Schlüssel der mindestens 2 Zeichen enthält</German>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherLengthOfKeyAndMessageDoNotMatch">
+                <Original>The lengths of key and message do not match a complete transposition</Original>
+                <English>The lengths of key and message do not match a complete transposition</English>
+                <German>Die Längen von Schlüssel und Nachricht stimmen nicht mit einer vollständigen Transposition überein</German>
+            </Key>            
             <Key ID="STR_AE3_ArmaOS_Exception_TooManyOptions">
                 <Original>Too many options</Original>
                 <English>Too many options</English>
