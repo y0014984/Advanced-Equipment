@@ -43,12 +43,9 @@ switch (_mode) do {
 		// amount of empty cells in the matrix
 		private _fillNull = floor((_numRow * _numCol) - _msgLen);
 
-		// add the padding characters for empty cells
+		// adding underscores as padding for empty cells
 		for "_i" from 1 to _fillNull do {
-			// generate a random number from the unicode-table,
-			// convert it into a string and add it to the array
-			private _char = toString[[32, 126] call BIS_fnc_randomInt];
-			_msgArr pushBack _char;
+			_msgArr pushBack "_";
 		};
 
 		// create Matrix, insert message and
