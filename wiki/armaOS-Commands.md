@@ -186,7 +186,7 @@ Test 26: WKLV LV PB VHFUHW PHVVDJH
 Check the lines one by one. You will recognize immediately the correct decrypted message. So we found the correct message in Test 3. That means that the correct key is 3.
 
 ### Columnar
-Bruteforcing the `columnar` cipher as not as simple, as the `caesar` cipher. Though in a complete transposition, it is possible to first take all possible key-lengths (just like the [key mode](#columnar)) and then list the according columns. Keep in mind that there is no way of knowing the column order. So instead of printing all column-permutation, you have to form the words from the columns yourself.
+Bruteforcing the `columnar` cipher as not as simple, as the `caesar` cipher. Though in a complete transposition, it is possible to first take all possible key-lengths (just like the [key mode](#columnar)) and then list the according columns. Keep in mind that there is no way of knowing the column order. So instead of printing all column-permutations, you have to form the words from the columns yourself.
 Here's an example using the same key and encrypted message from the [columnar transposition algorithm example](#example-1).
 
 ```
