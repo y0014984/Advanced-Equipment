@@ -74,6 +74,46 @@
                 <French>Le chiffrement de César a besoin d'un chiffre supérieur à 0 comme clé.</French>
                 <Italian>Caesar Cypeher ha bisogno di un numero intero superiore di 0 come chiave.</Italian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_CaesarCipherKeyCrackNotAvailable">
+                <Original>The key-method can not be used with the caesar cipher</Original>
+                <English>The key-method can not be used with the caesar cipher</English>
+                <German>Die Schlüssel-Methode ist für die Cäsar Chiffre nicht verfügbar</German>
+                <Chinesesimp>The key-method can not be used with the caesar cipher</Chinesesimp>
+                <Russian>The key-method can not be used with the caesar cipher</Russian>
+                <French>The key-method can not be used with the caesar cipher</French>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherNeedsStringLengthGreaterOneAsKey">
+                <Original>The Columnar Transposition Cipher needs a key with at least 2 characters</Original>
+                <English>The Columnar Transposition Cipher needs a key with at least 2 characters</English>
+                <German>Die Spaltentranspositions Chiffre benötigt einen Schlüssel der mindestens 2 Zeichen enthält</German>
+                <Chinesesimp>The Columnar Transposition Cipher needs a key with at least 2 characters</Chinesesimp>
+                <Russian>The Columnar Transposition Cipher needs a key with at least 2 characters</Russian>
+                <French>The Columnar Transposition Cipher needs a key with at least 2 characters</French>                
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherLengthOfKeyAndMessageDoNotMatch">
+                <Original>The lengths of key and message do not match a complete transposition</Original>
+                <English>The lengths of key and message do not match a complete transposition</English>
+                <German>Die Längen von Schlüssel und Nachricht stimmen nicht mit einer vollständigen Transposition überein</German>
+                <Chinesesimp>The lengths of key and message do not match a complete transposition</Chinesesimp>
+                <Russian>The lengths of key and message do not match a complete transposition</Russian>
+                <French>The lengths of key and message do not match a complete transposition</French>                 
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherStatisticsCrackNotAvailable">
+                <Original>The statistics-method can not be used with the columnar cipher</Original>
+                <English>The statistics-method can not be used with the columnar cipher</English>
+                <German>Die Statistik-Methode ist für die Spaltentransposition nicht verfügbar</German>
+                <Chinesesimp>The statistics-method can not be used with the columnar cipher</Chinesesimp>
+                <Russian>The statistics-method can not be used with the columnar cipher</Russian>
+                <French>The statistics-method can not be used with the columnar cipher</French>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherMessageLengthIsPrime">
+                <Original>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Original>
+                <English>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</English>
+                <German>Die Nachricht is %1 Zeichen lang. Da %1 eine Primzahl ist, kann die Nachricht nicht durch eine komplette Spaltentransposition verschlüsselt worden sein</German>
+                <Chinesesimp>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Chinesesimp>
+                <Russian>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Russian>
+                <French>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</French>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_TooManyOptions">
                 <Original>Too many options</Original>
                 <English>Too many options</English>
@@ -354,6 +394,22 @@
                 <Russian>Character '%1' found %2 times (Possible key, if this is an 'E': %3)</Russian>
                 <French>Caractère '%1' trouvé %2 fois (Clé possible, s'il s'agit d'un 'E' : %3)</French>
                 <Italian>Carattere '%1' trovato %2 volte (Possibile chiave,se questa è una 'E': %3)</Italian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_ColumnarColRow">
+                <Original>Columns: %1, Rows: %2</Original>
+                <English>Columns: %1, Rows: %2</English>
+                <German>Spalten: %1, Zeilen: %2</German>
+                <Chinesesimp>Columns: %1, Rows: %2</Chinesesimp>
+                <Russian>Columns: %1, Rows: %2</Russian>
+                <French>Columns: %1, Rows: %2</French>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Result_ColumnarKeyLengths">
+                <Original>Possible Key-Lengths are:</Original>
+                <English>Possible Key-Lengths are:</English>
+                <German>Mögliche Schlüssellängen sind:</German>
+                <Chinesesimp>Possible Key-Lengths are:</Chinesesimp>
+                <Russian>Possible Key-Lengths are:</Russian>
+                <French>Possible Key-Lengths are:</French>
             </Key>
         </Container>
         <Container name="Header">
