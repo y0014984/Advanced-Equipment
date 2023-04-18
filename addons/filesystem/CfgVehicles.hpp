@@ -184,9 +184,7 @@ class CfgVehicles
 				class Values
 				{
 					class caesar	{ name = "caesar";	value = "caesar"; };
-					//class test1		{ name = "test1";	value = "test1"; };
-					//class test2		{ name = "test2";	value = "test2"; };
-					//class test3		{ name = "test3";	value = "test3"; };
+					class columnar	{ name = "columnar";	value = "columnar"; };
 				};
 			};
 			class AE3_Module_AddFile_EncryptionKey: Edit
@@ -194,10 +192,10 @@ class CfgVehicles
 				property = "AE3_Module_AddFile_EncryptionKey";
 				displayName = "$STR_AE3_Filesystem_Config_EncryptionKeyDisplayName";
 				tooltip = "$STR_AE3_Filesystem_Config_EncryptionKeyTooltip";
-				typeName = "NUMBER"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = 13;
+				defaultValue = """13""";
 			};
 			
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last

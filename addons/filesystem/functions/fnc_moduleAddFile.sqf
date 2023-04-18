@@ -48,9 +48,27 @@ if (_isEncrypted) then
 {
 	private _mode = "encrypt";
 
-	if (_encryptionAlgorithm isEqualTo "caesar") then 
+	switch (_encryptionAlgorithm) do
 	{
-		_content = [_encryptionKey, _mode, _content] call AE3_armaos_fnc_encryption_caesar;
+		case "caesar":
+			{
+				_encryptionKey = parseNumber _encryptionKey; // needs a number
+				_encryptionKey = round _encryptionKey; // needs an integer
+				if (_encryptionKey < 1) then { _encryptionKey = 1; }; // needs to be >= 1
+				if (_encryptionKey > 25) then { _encryptionKey = 25; }; // needs to be <= 25
+
+				_content = [_encryptionKey, _mode, _content] call AE3_armaos_fnc_encryption_caesar;
+			};
+		case "columnar":
+			{
+				while {(count _encryptionKey) < 2 } do 
+				{
+					// min. length 2
+					_encryptionKey = _encryptionKey + "_";
+				}; 
+
+				_content = [_encryptionKey, _mode, _content] call AE3_armaos_fnc_encryption_columnar;
+			};
 	};
 };
 

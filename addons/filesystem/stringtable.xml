@@ -149,13 +149,13 @@
                 <Italian>Encryption Algorithm</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmTooltip">
-                <Original>At the moment the caesar algorithm is the only available algorithm</Original>
-                <English>At the moment the caesar algorithm is the only available algorithm</English>
-                <German>Aktuell ist der Caesar Algorithmus der einzig verfügbare Algorithmus</German>
-                <Chinesesimp>At the moment the caesar algorithm is the only available algorithm</Chinesesimp>
-                <Russian>At the moment the caesar algorithm is the only available algorithm</Russian>
-                <French>At the moment the caesar algorithm is the only available algorithm</French>
-                <Italian>At the moment the caesar algorithm is the only available algorithm</Italian>
+                <Original>The available characters for your message depend on the choosen encryption algorithm.</Original>
+                <English>The available characters for your message depend on the choosen encryption algorithm.</English>
+                <German>Die verfügbaren Zeichen für deine Nachricht hängen vom gewählten Verschlüsselungsalogithmus ab.</German>
+                <Chinesesimp>The available characters for your message depend on the choosen encryption algorithm.</Chinesesimp>
+                <Russian>The available characters for your message depend on the choosen encryption algorithm.</Russian>
+                <French>The available characters for your message depend on the choosen encryption algorithm.</French>
+                <Italian>The available characters for your message depend on the choosen encryption algorithm.</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyDisplayName">
                 <Original>Encryption Key</Original>
@@ -167,13 +167,13 @@
                 <Italian>Encryption Key</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyTooltip">
-                <Original>Only use numeric keys between 1 and 25</Original>
-                <English>Only use numeric keys between 1 and 25</English>
-                <German>Verwende ausschließlich numerische Schlüssel zwischen 1 und 25</German>
-                <Chinesesimp>Only use numeric keys between 1 and 25</Chinesesimp>
-                <Russian>Only use numeric keys between 1 and 25</Russian>
-                <French>Only use numeric keys between 1 and 25</French>
-                <Italian>Only use numeric keys between 1 and 25</Italian>
+                <Original>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Original>
+                <English>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</English>
+                <German>caesar: nur numerische Schlüssel zwischen 1 und 25 || columnar: minimale Schlüssellänge 2 </German>
+                <Chinesesimp>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Chinesesimp>
+                <Russian>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Russian>
+                <French>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</French>
+                <Italian>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_FileOwnerDisplayName">
                 <Original>File owner</Original>
