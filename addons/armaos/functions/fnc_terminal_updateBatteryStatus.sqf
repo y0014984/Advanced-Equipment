@@ -47,11 +47,14 @@ _handle =
                     _value = (floor (_batteryLevelPercent / 25)) * 25;
                 };
 
-                _batteryCtrl ctrlSetText format ["\z\ae3\addons\armaos\images\AE3_battery_%1_percent.paa", _value];
+                private _oldValue = ctrlText _batteryCtrl;
+    	        private _newValue = format ["\z\ae3\addons\armaos\images\AE3_battery_%1_percent.paa", _value];
+
+                _batteryCtrl ctrlSetText _newValue;
 
                 /* ------------- UI on Texture ------------ */
 
-                if (AE3_UiOnTexture) then
+                if ((AE3_UiOnTexture) && !(_oldValue isEqualTo _newValue)) then
                 {
                     private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 
