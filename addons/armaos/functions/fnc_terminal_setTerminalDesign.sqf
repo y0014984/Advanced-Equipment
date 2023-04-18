@@ -51,9 +51,7 @@ if (AE3_UiOnTexture) then
 
    private _computer = _consoleOutput getVariable "AE3_computer";
 
-   {
-      [_computer, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_setTerminalDesign", _x];
-   } forEach _playersInRange;
+   [_computer, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_setTerminalDesign", _playersInRange];
 };
 
 /* ---------------------------------------- */

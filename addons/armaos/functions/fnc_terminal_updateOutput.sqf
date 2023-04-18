@@ -37,9 +37,7 @@ if (AE3_UiOnTexture) then
 {
 	private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 
-	{
-		[_computer, _output] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _x];
-	} forEach _playersInRange;
+	[_computer, _output] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
 };
 
 /* ---------------------------------------- */
