@@ -64,6 +64,8 @@ if ((_mode isEqualTo "encrypt") || (_mode isEqualTo "decrypt")) then
         case "columnar": {
             if ((count _key) > 1) then
             {
+                _message = _message regexReplace [" ", "_"];
+                
                 private _processedMessage = [_key, _mode, _message] call AE3_armaos_fnc_encryption_columnar;
 
                 if (_processedMessage isEqualTo "") exitWith {
