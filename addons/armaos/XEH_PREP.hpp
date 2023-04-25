@@ -116,3 +116,11 @@ PREP(terminal_switchTerminalDesign);
 PREP(terminal_setCommandLineByHistory);
 PREP(terminal_setInputMode);
 PREP(terminal_updateBatteryStatus);
+
+PREP(terminal_uiOnTex_init);
+PREP(terminal_uiOnTex_updateAll);
+PREP(terminal_uiOnTex_updateOutput);
+PREP(terminal_uiOnTex_updateBatteryStatus);
+PREP(terminal_uiOnTex_setTerminalDesign);
+PREP(terminal_uiOnTex_setKeyboardLayout);
+PREP(terminal_uiOnTex_addUpdateAllEventHandler);

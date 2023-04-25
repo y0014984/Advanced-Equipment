@@ -29,3 +29,9 @@ _computer setVariable ["AE3_computer_mutex", objNull, true];
 closeDialog 1;
 
 private _handle = [_computer] spawn (_computer getVariable "AE3_power_fnc_standbyWrapper");
+
+/* ------------- UI on Texture ------------ */
+
+_computer setVariable ["AE3_UiOnTexActive", false, true]; // reset var for all clients
+
+/* ---------------------------------------- */

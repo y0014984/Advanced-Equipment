@@ -66,3 +66,18 @@
 ] call CBA_fnc_addSetting;
 
 /* ================================================================================ */
+
+[
+	"AE3_UiOnTexture",
+	"CHECKBOX",
+	["STR_AE3_Main_CbaSettings_UiOnTextureName", "STR_AE3_Main_CbaSettings_UiOnTextureTooltip"],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	false,
+    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {  
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
