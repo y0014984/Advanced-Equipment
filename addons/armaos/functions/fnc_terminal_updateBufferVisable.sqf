@@ -1,6 +1,6 @@
 /**
- * Updates/sets the visable buffer variable in the terminal settings of a given computer by cropping
- * the full terminal buffer to the visable size with respect of eventually scrolling position changes.
+ * Updates/sets the visible buffer variable in the terminal settings of a given computer by cropping
+ * the full terminal buffer to the visible size with respect of eventually scrolling position changes.
  *
  * Arguments:
  * 1: Computer <OBJECT>

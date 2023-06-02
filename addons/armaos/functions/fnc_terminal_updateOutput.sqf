@@ -1,5 +1,5 @@
 /**
- * Updates/sets the text for the terminal text field, stored in the visable buffer setting in terminal settings of a given computer.
+ * Updates/sets the text for the terminal text field, stored in the visible buffer setting in terminal settings of a given computer.
  *
  * Arguments:
  * 1: Computer <OBJECT>
