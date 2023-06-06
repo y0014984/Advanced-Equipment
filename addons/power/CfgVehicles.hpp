@@ -9,6 +9,9 @@ class CfgVehicles
 		scope = 0; // Dummy Class
 		scopeCurator = 0; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
+		curatorInfoType = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+
 		// Eden Editor Attributes
 		class Attributes
 		{
