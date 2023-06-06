@@ -9,6 +9,8 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+
 		class AE3_Device
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
@@ -64,6 +66,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Device
 		{
@@ -122,6 +126,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -216,6 +222,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -310,6 +318,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -404,6 +414,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -498,6 +510,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -625,6 +639,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -752,6 +768,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -879,6 +897,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -1006,6 +1026,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -1199,6 +1221,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -1392,6 +1416,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -1585,6 +1611,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -1778,6 +1806,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -1911,6 +1941,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{
@@ -2044,6 +2076,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 		
 		class AE3_Equipment
 		{

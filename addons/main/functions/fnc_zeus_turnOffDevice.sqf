@@ -9,18 +9,18 @@ if (isNull _entity) exitWith {};
     (
         (_entity call (_entity getVariable ["AE3_power_fnc_turnOffCondition", {true}]) and
 		(alive _entity) and 
-		(_entity getVariable 'AE3_power_powerState' != 0) and 
-		!(_entity getVariable ['AE3_power_mutex', false]) and 
-        (_entity getVariable ['AE3_interaction_closeState', 0] == 0))
+		(_entity getVariable ["AE3_power_powerState", -1] != 0) and 
+		!(_entity getVariable ["AE3_power_mutex", false]) and 
+        (_entity getVariable ["AE3_interaction_closeState", 0] == 0))
     );
 
-    if (_turnOnCondition) then
+    if (_turnOnCondition && !((_entity getVariable ["AE3_power_fnc_turnOff", {}]) isEqualTo {})) then
     {
-        _entity setVariable ['AE3_power_mutex', true, true];
+        _entity setVariable ["AE3_power_mutex", true, true];
 
         [_entity] call (_entity getVariable "AE3_power_fnc_turnOffWrapper");
 
-        _entity setVariable ['AE3_power_mutex', false, true];
+        _entity setVariable ["AE3_power_mutex", false, true];
 
         hint "Device turned off.";
     }

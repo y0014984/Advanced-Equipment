@@ -9,8 +9,8 @@ class CfgVehicles
 		scope = 0; // Dummy Class
 		scopeCurator = 0; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
-		curatorInfoType = "AE3_UserInterface_Zeus";
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoType = "AE3_UserInterface_Zeus"; // when placing with AI
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus"; // when placing without AI
 
 		// Eden Editor Attributes
 		class Attributes
@@ -1051,6 +1051,8 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
@@ -1096,6 +1098,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
 
 		class AE3_Device
 		{

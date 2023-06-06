@@ -9,21 +9,21 @@ if (isNull _entity) exitWith {};
     (
         (_entity call (_entity getVariable ["AE3_interaction_fnc_closeActionCondition", {true}])) and 
         (alive _entity) and 
-        (_entity getVariable "AE3_interaction_closeState" == 0)
+        (_entity getVariable ["AE3_interaction_closeState", -1] == 0)
     );
 
-    if (_closeCondition) then
+    if (_closeCondition && !((_entity getVariable ["AE3_interaction_fnc_close", {}]) isEqualTo {})) then
     {
-        _entity setVariable ['AE3_power_mutex', true, true];
+        _entity setVariable ["AE3_power_mutex", true, true];
         
         [_entity] call (_entity getVariable "AE3_interaction_fnc_closeWrapper");
 
-        if (_entity getVariable 'AE3_power_powerState' == 1) then
+        if (_entity getVariable "AE3_power_powerState" == 1) then
         {
             [_entity] call (_entity getVariable "AE3_power_fnc_standbyWrapper");
         };
 
-        _entity setVariable ['AE3_power_mutex', false, true];
+        _entity setVariable ["AE3_power_mutex", false, true];
 
         hint "Device closed.";
     }
