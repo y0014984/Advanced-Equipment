@@ -13,10 +13,14 @@ PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
 
 /* Getter */
+PREP(getBatteryLevel);
 PREP(getFuelLevel);
 PREP(getPowerState);
 PREP(getPowerOutput);
-PREP(getBatteryLevel);
+
+/* Setter */
+PREP(setBatteryLevel);
+PREP(setFuelLevel);
 
 /* Init */
 PREP(compileConfig);

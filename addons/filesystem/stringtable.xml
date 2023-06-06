@@ -310,15 +310,6 @@
                 <French>Ce module ajoute un répertoire à un objet qui prend en charge les systèmes de fichiers, comme les ordinateurs. Synchronisez simplement un ou plusieurs de ces modules avec un objet pris en charge.</French>
                 <Italian>Questo modulo aggiunge una directory ad un oggetto che supporta i filesystems, come i computer. Semplicemente sincronizzare uno o più di questi moduli ad un oggetto supportato.</Italian>
             </Key>
-            <Key ID="STR_AE3_Filesystem_Config_ArmaOSModulesCategoryDisplayName">
-                <Original>AE3 armaOS Modules</Original>
-                <English>AE3 armaOS Modules</English>
-                <German>AE3 armaOS Module</German>
-                <Chinesesimp>AE3 armaOS 模块</Chinesesimp>
-                <Russian>AE3 armaOS Modules</Russian>
-                <French>AE3 armaOS Modules</French>
-                <Italian>AE3 Modulo ArmaOS</Italian>
-            </Key>
         </Container>
     </Package>
 </Project>

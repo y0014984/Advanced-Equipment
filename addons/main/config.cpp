@@ -15,5 +15,13 @@ class CfgPatches
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgFactionClasses.hpp"
+#include "cfgEditorCategories.hpp"
 #include "CfgVehicles.hpp"
 #include "Cfg3DEN.hpp"
+
+// Grid Macros and Styles
+#include "defines.inc"
+
+// Advanced Equipment Zeus User Interface
+#include "CfgUserInterfaceZeus.hpp"

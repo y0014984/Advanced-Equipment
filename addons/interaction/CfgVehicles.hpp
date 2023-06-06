@@ -5,6 +5,10 @@ class CfgVehicles
 	class Land_PortableLight_single_F;
 	class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
 		class AE3_Device
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
@@ -57,6 +61,10 @@ class CfgVehicles
  	class Land_PortableLight_double_F;
 	class Land_PortableLight_double_F_AE3: Land_PortableLight_double_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Device
 		{
 			init = "params['_entity']; [_entity] call AE3_interaction_fnc_initLamp;";
@@ -111,6 +119,10 @@ class CfgVehicles
  	class Land_PortableLight_02_single_yellow_F;
 	class Land_PortableLight_02_single_yellow_F_AE3: Land_PortableLight_02_single_yellow_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -201,6 +213,10 @@ class CfgVehicles
  	class Land_PortableLight_02_single_olive_F;
 	class Land_PortableLight_02_single_olive_F_AE3: Land_PortableLight_02_single_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -291,6 +307,10 @@ class CfgVehicles
  	class Land_PortableLight_02_single_black_F;
 	class Land_PortableLight_02_single_black_F_AE3: Land_PortableLight_02_single_black_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -381,6 +401,10 @@ class CfgVehicles
  	class Land_PortableLight_02_single_sand_F;
 	class Land_PortableLight_02_single_sand_F_AE3: Land_PortableLight_02_single_sand_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -471,6 +495,10 @@ class CfgVehicles
 	class Land_PortableLight_02_double_yellow_F;
 	class Land_PortableLight_02_double_yellow_F_AE3: Land_PortableLight_02_double_yellow_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -594,6 +622,10 @@ class CfgVehicles
 	class Land_PortableLight_02_double_olive_F;
 	class Land_PortableLight_02_double_olive_F_AE3: Land_PortableLight_02_double_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -717,6 +749,10 @@ class CfgVehicles
 	class Land_PortableLight_02_double_black_F;
 	class Land_PortableLight_02_double_black_F_AE3: Land_PortableLight_02_double_black_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -840,6 +876,10 @@ class CfgVehicles
 	class Land_PortableLight_02_double_sand_F;
 	class Land_PortableLight_02_double_sand_F_AE3: Land_PortableLight_02_double_sand_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -963,6 +1003,10 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_yellow_F;
 	class Land_PortableLight_02_quad_yellow_F_AE3: Land_PortableLight_02_quad_yellow_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1152,6 +1196,10 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_olive_F;
 	class Land_PortableLight_02_quad_olive_F_AE3: Land_PortableLight_02_quad_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1341,6 +1389,10 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_black_F;
 	class Land_PortableLight_02_quad_black_F_AE3: Land_PortableLight_02_quad_black_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1530,6 +1582,10 @@ class CfgVehicles
 	class Land_PortableLight_02_quad_sand_F;
 	class Land_PortableLight_02_quad_sand_F_AE3: Land_PortableLight_02_quad_sand_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
@@ -1719,6 +1775,10 @@ class CfgVehicles
 	class Land_PortableDesk_01_olive_F;
 	class Land_PortableDesk_01_olive_F_AE3: Land_PortableDesk_01_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_DeskDisplayName";
@@ -1848,6 +1908,10 @@ class CfgVehicles
 	class Land_PortableDesk_01_black_F;
 	class Land_PortableDesk_01_black_F_AE3: Land_PortableDesk_01_black_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_DeskDisplayName";
@@ -1977,6 +2041,10 @@ class CfgVehicles
 	class Land_PortableDesk_01_sand_F;
 	class Land_PortableDesk_01_sand_F_AE3: Land_PortableDesk_01_sand_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_Interaction_Config_DeskDisplayName";
@@ -2105,6 +2173,10 @@ class CfgVehicles
 	class Land_DeskChair_01_olive_F;
 	class Land_DeskChair_01_olive_F_AE3: Land_DeskChair_01_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		//Sitting
 		acex_sitting_canSit = 1;  // Enable sitting
 		acex_sitting_interactPosition[] = {0, 0, 0.3}; 
@@ -2137,6 +2209,10 @@ class CfgVehicles
 	class Land_DeskChair_01_black_F;
 	class Land_DeskChair_01_black_F_AE3: Land_DeskChair_01_black_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		//Sitting
 		acex_sitting_canSit = 1;  // Enable sitting
 		acex_sitting_interactPosition[] = {0, 0, 0.3}; 
@@ -2169,6 +2245,10 @@ class CfgVehicles
 	class Land_DeskChair_01_sand_F;
 	class Land_DeskChair_01_sand_F_AE3: Land_DeskChair_01_sand_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+		
 		//Sitting
 		acex_sitting_canSit = 1;  // Enable sitting
 		acex_sitting_interactPosition[] = {0, 0, 0.3}; 

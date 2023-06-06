@@ -20,6 +20,24 @@
                 <French>non</French>
                 <Italian>No</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_AdvancedEquipmentAssetsCategoryDisplayName">
+                <Original>Advanced Equipment Assets (AE3)</Original>
+                <English>Advanced Equipment Assets (AE3)</English>
+                <German>Advanced Equipment Assets (AE3)</German>
+                <Chinesesimp>Advanced Equipment Assets (AE3)</Chinesesimp>
+                <Russian>Advanced Equipment Assets (AE3)</Russian>
+                <French>Advanced Equipment Assets (AE3)</French>
+                <Italian>Advanced Equipment Assets (AE3)</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_ArmaOSModulesCategoryDisplayName">
+                <Original>AE3 armaOS Modules</Original>
+                <English>AE3 armaOS Modules</English>
+                <German>AE3 armaOS Module</German>
+                <Chinesesimp>AE3 armaOS 模块</Chinesesimp>
+                <Russian>AE3 armaOS Modules</Russian>
+                <French>AE3 armaOS Modules</French>
+                <Italian>AE3 Modulo ArmaOS</Italian>
+            </Key>
         </Container>
         <Container name="Debug Mode">
             <Key ID="STR_AE3_Main_DebugMode_enabled">

@@ -25,11 +25,12 @@ class CfgVehicles
 	class AE3_AddFile: Module_F
 	{
 		// Standard object definitions
+
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_Filesystem_Config_AddFileDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
-
 		// Name of function triggered once conditions are met
 		function = "AE3_filesystem_fnc_moduleAddFile";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
@@ -189,6 +190,7 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_Filesystem_Config_AddDirDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addDir.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
