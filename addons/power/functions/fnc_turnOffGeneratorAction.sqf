@@ -13,17 +13,14 @@ params ["_entity", ["_silent", false]];
 
 private _result = false;
 
-private _turnOffTime = 3;
-
-private _stopSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
-
 private _turnOffGenFunc =
 {
 	params ["_entity"];
 
 	[_entity, "turnedOn", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
-
 	[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
+
+	private _stopSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
 
 	// TODO: Wrapper?
 	{
@@ -31,8 +28,16 @@ private _turnOffGenFunc =
 	}forEach (_entity getVariable ["AE3_power_connectedDevices", []]);
 };
 
-if (!_silent) then 
+if ((!isNull curatorCamera) || (_silent)) then
 {
+	[_entity] call _turnOffGenFunc;
+
+	_result = true;
+}
+else
+{
+	private _turnOffTime = 3;
+
 	[
 		_turnOffTime,
 		[_entity, _stopSoundHandle, _turnOffGenFunc], 
@@ -62,12 +67,6 @@ if (!_silent) then
 		},
 		(localize "STR_AE3_Power_Interaction_TurnOff" + "...")
 	] call ace_common_fnc_progressBar;
-}
-else
-{
-	[_entity] call _turnOffGenFunc;
-
-	_result = true;
 };
 
 // function immediately returns false, because progress bar runs unscheduled
