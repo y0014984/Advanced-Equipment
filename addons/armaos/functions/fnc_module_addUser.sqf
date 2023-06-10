@@ -1,6 +1,9 @@
 params['_logic', '_units', '_activated'];
 
-if(!isServer) exitWith {};
+// if triggered in zeus/curator mode, don't run; Could happen in hosted multiplayer
+if (!isNull curatorCamera) exitWith {};
+
+if (!isServer) exitWith {};
 
 [_logic, _units] spawn {
 	params['_logic', '_units'];

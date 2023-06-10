@@ -10,7 +10,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 
 		// Eden Editor Attributes
 		class Attributes
@@ -144,7 +144,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 
   		// Eden Editor Attributes
 		class Attributes
@@ -278,7 +278,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
   	
 		// Eden Editor Attributes
 		class Attributes
@@ -447,7 +447,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleUserlist";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddUser";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase

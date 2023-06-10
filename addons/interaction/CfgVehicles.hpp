@@ -9,7 +9,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 
 		class AE3_Device
 		{
@@ -67,7 +67,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Device
 		{
@@ -127,7 +127,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -223,7 +223,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -319,7 +319,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -415,7 +415,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -511,7 +511,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -640,7 +640,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -769,7 +769,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -898,7 +898,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -1027,7 +1027,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -1222,7 +1222,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -1417,7 +1417,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -1612,7 +1612,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -1807,7 +1807,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -1942,7 +1942,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{
@@ -2077,7 +2077,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus";
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Equipment
 		{

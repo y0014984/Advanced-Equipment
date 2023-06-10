@@ -25,3 +25,4 @@ PREP(zeus_turnOffDevice);
 PREP(zeus_standbyDevice);
 PREP(zeus_openDevice);
 PREP(zeus_closeDevice);
+PREP(zeus_module_addUser);
