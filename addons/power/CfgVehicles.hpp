@@ -73,7 +73,7 @@ class CfgVehicles
 		editorPreview = "\A3\EditorPreviews_F_Exp\Data\CfgVehicles\Land_PortableGenerator_01_F.jpg"; // modified for texture variants
 		hiddenSelections[] = {"Camo_1"};
 		hiddenSelectionsTextures[] = {"a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa"}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName"; // modified for texture variants
+		displayName = "$STR_A3_CfgVehicles_Land_PortableGenerator_01_F0"; // modified for texture variants
 
 		fuelCapacity = "5";
 		ace_refuel_fuelCapacity = 5; // Fuel tank volume
@@ -138,7 +138,7 @@ class CfgVehicles
 	{
 		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_black_F.jpg"; // modified for texture variants
 		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName"; // modified for texture variants
+		displayName = "$STR_A3_C_CfgVehicles_Land_PortableGenerator_01_black_F0"; // modified for texture variants
 	};
 
 	/* ================================================================================ */
@@ -147,7 +147,7 @@ class CfgVehicles
 	{
 		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_sand_F.jpg"; // modified for texture variants
 		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName"; // modified for texture variants
+		displayName = "$STR_A3_C_CfgVehicles_Land_PortableGenerator_01_sand_F0"; // modified for texture variants
 	};
 
 	/* ================================================================================ */
@@ -161,7 +161,7 @@ class CfgVehicles
 		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_MobileRadar_01_generator_F.jpg"; // modified for texture variants
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_RadarGeneratorDisplayName"; // modified for texture variants
+		displayName = "$STR_A3_C_CfgVehicles_Land_MobileRadar_01_generator_F0"; // modified for texture variants
 
 		fuelCapacity = "470";
 		ace_refuel_fuelCapacity = 470; // Fuel tank volume
@@ -259,7 +259,7 @@ class CfgVehicles
 		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_PowerGenerator_F.jpg"; // modified for texture variants
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_PowerGeneratorDisplayName"; // modified for texture variants
+		displayName = "$STR_A3_CfgVehicles_Land_PowerGenerator_F0"; // modified for texture variants
 
 		fuelCapacity = "300";
 		ace_refuel_fuelCapacity = 300; // Fuel tank volume
@@ -308,7 +308,7 @@ class CfgVehicles
 		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_Portable_generator_F.jpg"; // modified for texture variants
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_PortableGeneratorDisplayName"; // modified for texture variants
+		displayName = "$STR_A3_cfgVehicles_Land_Portable_generator_F0"; // modified for texture variants
 
 		fuelCapacity = "5";
 		ace_refuel_fuelCapacity = 5; // Fuel tank volume
