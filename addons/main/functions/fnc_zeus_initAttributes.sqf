@@ -16,6 +16,16 @@ if (isNull _entity) exitWith {};
     // weit for asset init to finish
     waitUntil { !isNil { _entity getVariable "AE3_power_hasInternal" }; };
 
+    /* ======================================== */
+
+    private _headlineCtrl = _display displayCtrl 1000;
+	private _class = (typeOf _entity);
+	private _config = configFile >> "CfgVehicles" >> _class;
+	private _displayName = getText (_config >> "displayName");
+	_headlineCtrl ctrlSetText format ["AE3 Asset: %1 - Class name: %2", _displayName, _class];
+
+    /* ======================================== */
+
     private _batteryLevelSliderCtrl = _display displayCtrl 1900;
     private _batteryLevelCtrl = _display displayCtrl 1401;
     private _fuelLevelSliderCtrl = _display displayCtrl 1901;

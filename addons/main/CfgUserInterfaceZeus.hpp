@@ -19,12 +19,27 @@ class AE3_UserInterface_Zeus
     onUnload = "params ['_display', '_exitCode']; if (_exitCode == 1) then { [_display] call AE3_main_fnc_zeus_updateAttributes; };";
     // ok = 1, cancel = 2
 
+	class controlsBackground
+	{
+		// size 40x25
+		class RscText_900: RscText
+		{
+			// Background
+			idc = 900;
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 21 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,1}; // light grey
+		};
+	};
+
 	class controls
 	{
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Settings"; //--- ToDo: Localize;
+            text = "Headline"; //--- ToDo: Localize;
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -32,16 +47,17 @@ class AE3_UserInterface_Zeus
             colorBackground[] = {-1,-1,-1,1};
         };
 
-        class RscEdit_1400: RscEdit
+        class RscText_1400: RscText
         {
             idc = 1400;
-
-            text = "test test test"; //--- ToDo: Localize;
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
-            y = 2 * GUI_GRID_H + GUI_GRID_Y;
-            w = 40 * GUI_GRID_W;
+            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 39 * GUI_GRID_W;
             h = 6 * GUI_GRID_H;
             colorBackground[] = {-1,-1,-1,0.5};
+			style = ST_MULTI + ST_NO_RECT;
+			lineSpacing = 1;
         };
 
         class RscText_1001: RscText
@@ -49,9 +65,9 @@ class AE3_UserInterface_Zeus
             idc = 1001;
 
             text = "Battery Level"; //--- ToDo: Localize;
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
-            w = 7.5 * GUI_GRID_W;
+            w = 7 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
             style = ST_RIGHT;
@@ -62,9 +78,9 @@ class AE3_UserInterface_Zeus
             idc = 1002;
 
             text = "Fuel Level"; //--- ToDo: Localize;
-            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
-            w = 7.5 * GUI_GRID_W;
+            w = 7 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
 
             style = ST_RIGHT;
@@ -110,7 +126,7 @@ class AE3_UserInterface_Zeus
             text = "0%"; //--- ToDo: Localize;
             x = 36.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
-            w = 3.5 * GUI_GRID_W;
+            w = 3 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
             colorBackground[] = {-1,-1,-1,0.5};
 
@@ -125,7 +141,7 @@ class AE3_UserInterface_Zeus
             text = "0%"; //--- ToDo: Localize;
             x = 36.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
-            w = 3.5 * GUI_GRID_W;
+            w = 3 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
             colorBackground[] = {-1,-1,-1,0.5};
 
@@ -136,8 +152,8 @@ class AE3_UserInterface_Zeus
 
         class RscButton_2100: RscButton
         {
-            x = 1 * GUI_GRID_W + GUI_GRID_X;
-            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
@@ -148,8 +164,8 @@ class AE3_UserInterface_Zeus
 
         class RscButton_2200: RscButton
         {
-            x = 7 * GUI_GRID_W + GUI_GRID_X;
-            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            x = 4 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
@@ -160,9 +176,9 @@ class AE3_UserInterface_Zeus
 
         class RscButton_2300: RscButton
         {
-            x = 13 * GUI_GRID_W + GUI_GRID_X;
-            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
-            w = 3 * GUI_GRID_W;
+            x = 7.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
             text = "STANDBY";
@@ -172,9 +188,9 @@ class AE3_UserInterface_Zeus
 
         class RscButton_2400: RscButton
         {
-            x = 19 * GUI_GRID_W + GUI_GRID_X;
-            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
-            w = 3 * GUI_GRID_W;
+            x = 12 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
             text = "TURN OFF";
@@ -184,9 +200,9 @@ class AE3_UserInterface_Zeus
 
         class RscButton_2500: RscButton
         {
-            x = 25 * GUI_GRID_W + GUI_GRID_X;
-            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
-            w = 3 * GUI_GRID_W;
+            x = 16.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
             text = "TURN ON";
