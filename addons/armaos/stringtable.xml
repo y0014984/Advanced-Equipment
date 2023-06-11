@@ -1243,6 +1243,15 @@
                 <French>La commande 'crack' vous permet de cracker des messages cryptés.</French>
                 <Italian>Il comando 'crack' permettte di craccare messaggi cryptati.</Italian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddGamesSnakeTooltip">
+                <Original>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Original>
+                <English>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</English>
+                <German>Das 'snake' Spiel. Iss Früchte während du immer länger wirst. Vermeide mit der Wand oder dir selbst zu kollidieren.</German>
+                <Chinesesimp>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Chinesesimp>
+                <Russian>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Russian>
+                <French>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</French>
+                <Italian>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Italian>
+            </Key>
         </Container>
         <Container name="CBA Settings">
             <Key ID="STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName">

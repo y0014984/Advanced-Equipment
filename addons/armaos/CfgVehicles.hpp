@@ -604,11 +604,24 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleAddGames";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddGames";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
 		{
+
+			// Arguments shared by specific module type (have to be mentioned in order to be present)
+			class AE3_ModuleAddGames_IsSnake: Checkbox
+			{
+				property = "AE3_Module_AddGames_Snake";
+				displayName = "snake";
+				tooltip = "$STR_AE3_ArmaOS_Config_ModuleAddGamesSnakeTooltip";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = true;
+			};
+
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};
 
