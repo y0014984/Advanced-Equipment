@@ -22,6 +22,8 @@ if (_event isEqualTo "onLoad") then
     };
 
     // check if filesystem exists, which means that _mouseOverUnit is a computer
+    // ??? Is this also true for a USB Stick?
+    // TODO: Add a simple identifier to distinguish between device classes
     private _computer = _mouseOverUnit;
     private _filesystem = _computer getVariable ["AE3_filesystem", []];
     if (_filesystem isEqualTo []) exitWith
@@ -61,37 +63,8 @@ if (_event isEqualTo "onUnload") then
     if(_username isEqualTo "") exitWith { hint "Username missing"; };
     if(_password isEqualTo "") exitWith { hint "Password missing"; };
 
-    // Get userlist and filesystem from computer
-    private _userlist = _computer getVariable ["AE3_Userlist", createHashMap];
-    private _filesystem = _computer getVariable ["AE3_filesystem", []];
-
-    // Add user to userlist
-    _userlist set [_username, _password];
-
-    // Add user directory in /home/
-    if(!(_username isEqualTo "root")) then
-    {
-        try
-        {
-            [[], _filesystem, "/home/" + _username, "root", _username] call AE3_filesystem_fnc_createDir;
-        } 
-        catch
-        {
-            private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
-            if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
-            {
-                diag_log format ["AE3 exception: %1", _exception];
-            }
-            else
-            {
-                throw _exception;
-            };
-        };
-    };
-
-    // resync userlist and filesystem
-    _computer setVariable ["AE3_filesystem", _filesystem];
-    _computer setVariable ["AE3_Userlist", _userlist, true];
+    // add user to computer
+    [_computer, _username, _password] call AE3_armaos_fnc_computer_addUser;
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _logic;
