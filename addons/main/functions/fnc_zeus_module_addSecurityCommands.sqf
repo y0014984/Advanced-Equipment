@@ -51,22 +51,16 @@ if (_event isEqualTo "onUnload") then
         deleteVehicle _logic;
     };
 
-    // get username and password from UI
-    private _usernameCtrl = _display displayCtrl 1401;
-    private _passwordCtrl = _display displayCtrl 1402;
-    private _username = ctrlText _usernameCtrl;
-    private _password = ctrlText _passwordCtrl;
+    // get isCrack and isCrypto from UI
+    private _isCryptoCtrl = _display displayCtrl 1401;
+    private _isCrackCtrl = _display displayCtrl 1402;
+    private _isCrypto = cbChecked _isCryptoCtrl;
+    private _isCrack = cbChecked _isCrackCtrl;
 
-    // check for empty but mandatory input fields
-    // module is still there an could be opened and filled in with valid input
-    // but currently, this case will be catched by UI logic, defined directly in config
-    if(_username isEqualTo "") exitWith { hint "Username missing"; };
-    if(_password isEqualTo "") exitWith { hint "Password missing"; };
+    // add security commands to computer
+    [_computer, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
 
-    // add user to computer
-    [_computer, _username, _password] call AE3_armaos_fnc_computer_addUser;
-
-    hint format ["User added: \n username: %1 \n password: %2", _username, _password];
+    hint format ["Security command added? \n crypto: %1 \n crack: %2", _isCrypto, _isCrack];
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _logic;

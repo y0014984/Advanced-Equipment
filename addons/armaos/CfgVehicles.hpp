@@ -508,6 +508,8 @@ class CfgVehicles
 		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icon_addSecurityCommands_v2.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
 
+		portrait = "\z\ae3\addons\armaos\ui\AE3_Module_Icon_addSecurityCommands_v2.paa"; // seems to be used by Zeus as icon
+
 		// Name of function triggered once conditions are met
 		function = "AE3_armaos_fnc_module_addSecurityCommands";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
@@ -522,7 +524,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleAddSecurityCommands";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddSecurityCommands";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase

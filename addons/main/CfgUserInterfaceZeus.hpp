@@ -2,8 +2,9 @@
 
 class RscText;
 class RscEdit;
-class RscXSliderH;
+class RscCheckbox;
 class RscButton;
+class RscXSliderH;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 
@@ -346,6 +347,126 @@ class AE3_UserInterface_Zeus_Module_AddUser
             h = 1.5 * GUI_GRID_H;
 
             onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control];";
+        };
+
+        class RscButtonMenuCancel_2700: RscButtonMenuCancel
+        {
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+	};
+};
+
+/* ================================================================================ */
+
+class AE3_UserInterface_Zeus_Module_AddSecurityCommands
+{
+	idd = 16986;
+	movingEnable = true;
+	enableSimulation = true;
+
+    onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] call AE3_main_fnc_zeus_module_addSecurityCommands;";
+    onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addSecurityCommands;";
+
+	class controlsBackground
+	{
+		// size 40x25
+		class RscText_900: RscText
+		{
+			// Background
+			idc = 900;
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 21 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,1}; // light grey
+		};
+	};
+
+	class controls
+	{
+        class RscText_1000: RscText
+        {
+            idc = 1000;
+            text = "Module: Add Security Commands"; //--- ToDo: Localize;
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,1};
+        };
+
+        class RscText_1400: RscText
+        {
+            idc = 1400;
+            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 39 * GUI_GRID_W;
+            h = 6 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+			style = ST_MULTI + ST_NO_RECT;
+			lineSpacing = 1;
+        };
+
+        class RscText_1001: RscText
+        {
+            idc = 1001;
+
+            text = "crypto";
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 9 * GUI_GRID_H + GUI_GRID_Y;
+            w = 7 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscText_1002: RscText
+        {
+            idc = 1002;
+
+            text = "crack";
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 7 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscCheckbox_1401: RscCheckbox
+        {
+            idc = 1401;
+            x = 8 * GUI_GRID_W + GUI_GRID_X;
+            y = 9 * GUI_GRID_H + GUI_GRID_Y;
+            w = 1 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+
+            checked = 1;
+        };
+
+        class RscCheckbox_1402: RscCheckbox
+        {
+            idc = 1402;
+            x = 8 * GUI_GRID_W + GUI_GRID_X;
+            y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 1 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+
+            checked = 1;
+        };
+
+         class RscButtonMenuOK_2600: RscButtonMenuOK
+        {
+            x = 37 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
         };
 
         class RscButtonMenuCancel_2700: RscButtonMenuCancel

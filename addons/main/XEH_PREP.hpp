@@ -15,14 +15,19 @@ PREP(3denEventHandlers_onConnectionEnd);
 PREP(3den_checkConnection);
 PREP(3den_doNetworkConnection);
 PREP(3den_doPowerConnection);
+
 PREP(killDebugOverlay);
 
 /* Zeus/Curator Functions */
 PREP(zeus_initAttributes);
 PREP(zeus_updateAttributes);
+
 PREP(zeus_turnOnDevice);
 PREP(zeus_turnOffDevice);
 PREP(zeus_standbyDevice);
+
 PREP(zeus_openDevice);
 PREP(zeus_closeDevice);
+
 PREP(zeus_module_addUser);
+PREP(zeus_module_addSecurityCommands);
