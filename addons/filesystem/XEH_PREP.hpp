@@ -1,6 +1,10 @@
+/* Device Functions */
+PREP(device_addFile);
+PREP(device_addDir);
+
 /* Module Functions */
-PREP(moduleAddFile);
-PREP(moduleAddDir);
+PREP(module_addFile);
+PREP(module_addDir);
 
 /* Base Functions */
 PREP(initFilesystem);

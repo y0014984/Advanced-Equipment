@@ -32,7 +32,7 @@ class CfgVehicles
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
 		// Name of function triggered once conditions are met
-		function = "AE3_filesystem_fnc_moduleAddFile";
+		function = "AE3_filesystem_fnc_module_addFile";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
@@ -45,7 +45,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleFilesystem";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddFile";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
@@ -74,9 +74,9 @@ class CfgVehicles
 				validate = "none";
 				expression = "_this setVariable [""AE3_Module_AddFile_Content"", _value]";
 			};
-			class AE3_Module_AddFile_IsFunction: Checkbox
+			class AE3_Module_AddFile_IsCode: Checkbox
 			{
-				property = "AE3_Module_AddFile_IsFunction";
+				property = "AE3_Module_AddFile_IsCode";
 				displayName = "$STR_AE3_Filesystem_Config_IsCodeDisplayName";
 				tooltip = "$STR_AE3_Filesystem_Config_IsCodeTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
@@ -196,7 +196,7 @@ class CfgVehicles
 		category = "AE3_armaosModules";
 
 		// Name of function triggered once conditions are met
-		function = "AE3_filesystem_fnc_moduleAddDir";
+		function = "AE3_filesystem_fnc_module_addDir";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
 		functionPriority = 1;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
