@@ -48,38 +48,46 @@ if (_isEncrypted) then
 {
 	private _mode = "encrypt";
 
+	private _crypto_fnc = {};
+
+	switch (_encryptionAlgorithm) do
+	{
+		case "caesar":
+		{
+			_crypto_fnc = 
+			{
+				params ["_encryptionKey", "_mode", "_row"];
+
+				_encryptionKey = _encryptionKey call BIS_fnc_parseNumber; // needs a number
+				_encryptionKey = round _encryptionKey; // needs an integer
+				if (_encryptionKey < 1) then { _encryptionKey = 1; }; // needs to be >= 1
+				if (_encryptionKey > 25) then { _encryptionKey = 25; }; // needs to be <= 25
+
+				[_encryptionKey, _mode, _row] call AE3_armaos_fnc_encryption_caesar;
+			};
+		};
+		case "columnar":
+		{
+			_crypto_fnc =
+			{
+				params ["_encryptionKey", "_mode", "_row"];
+
+				_row = _row regexReplace [" ", "_"];
+
+				while {(count _encryptionKey) < 2 } do 
+				{
+					_encryptionKey = _encryptionKey + "_"; // min. length 2
+				};
+
+				[_encryptionKey, _mode, _row] call AE3_armaos_fnc_encryption_columnar;
+			};
+		};
+	};
+
 	_content = _content splitString endl;
 
-	private _row = "";
-
 	{
-		_row = _x;
-
-		switch (_encryptionAlgorithm) do
-		{
-			case "caesar":
-				{
-					_encryptionKey = _encryptionKey call BIS_fnc_parseNumber; // needs a number
-					_encryptionKey = round _encryptionKey; // needs an integer
-					if (_encryptionKey < 1) then { _encryptionKey = 1; }; // needs to be >= 1
-					if (_encryptionKey > 25) then { _encryptionKey = 25; }; // needs to be <= 25
-
-					_row = [_encryptionKey, _mode, _row] call AE3_armaos_fnc_encryption_caesar;
-				};
-			case "columnar":
-				{
-					_row = _row regexReplace [" ", "_"];
-
-					while {(count _encryptionKey) < 2 } do 
-					{
-						// min. length 2
-						_encryptionKey = _encryptionKey + "_";
-					}; 
-
-					_row = [_encryptionKey, _mode, _row] call AE3_armaos_fnc_encryption_columnar;
-				};
-		};
-
+		private _row = [_encryptionKey, _mode, _x] call _crypto_fnc;
 		_content set [_forEachIndex, _row];
 	} forEach _content;
 
