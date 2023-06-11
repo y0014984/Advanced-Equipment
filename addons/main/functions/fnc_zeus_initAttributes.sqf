@@ -26,6 +26,61 @@ if (isNull _entity) exitWith {};
 
     /* ======================================== */
 
+    private _statusUpdateHandle = [_display, _entity] spawn
+    {
+        params ["_display", "_entity"];
+
+        while { true; } do
+        {
+            private _statusCtrl = _display displayCtrl 1400;
+            private _status = [];
+
+            _status pushBack "Asset Status";
+            _status pushBack "------------";
+
+            // Power State
+            private _powerState = [_entity] call AE3_power_fnc_getPowerState;
+            _status pushBack (format [localize "STR_AE3_Power_Interaction_PowerStateHint", _powerState]);
+
+            // Power Output
+            private _powerOutput = [_entity] call AE3_power_fnc_getPowerOutput;
+            private _powerCap = _entity getVariable ['AE3_power_powerCapacity', 0];
+            private _prefix = "k"; // kWatts
+            _powerCap = _powerCap * 3600;
+            if (_powerCap < 1.0) then
+            {
+                _powerCap = _powerCap * 1000;
+                _prefix = "";
+            };
+            _status pushBack (format [localize "STR_AE3_Power_Interaction_PowerOutputHint", _powerCap, _prefix]);
+
+            // Power Required
+            private _powerReq = _entity getVariable ["AE3_power_powerReq", 0];
+            private _prefix = "k"; // kWatts
+            _powerReq = _powerReq * 3600;
+            if (_powerReq < 1.0) then
+            {
+                _powerReq = _powerReq * 1000;
+                _prefix = "";
+            };
+            _status pushBack (format [localize "STR_AE3_Power_Interaction_PowerReqHint", _powerReq, _prefix]);
+
+            // IP Address
+            private _ip = _entity getVariable ["AE3_network_address", []];
+            private _ipString = [_ip] call AE3_network_fnc_ip2str;
+            _status pushBack (format ["%1: %2", localize "STR_AE3_Network_General_IpAddress", _ipString]);
+
+            private _statusString = _status joinString endl;
+            _statusCtrl ctrlSetText _statusString;
+
+            sleep 1;
+        };
+    };
+
+    _display setVariable ["AE3_statusUpdateHandle", _statusUpdateHandle];
+
+    /* ======================================== */
+
     private _batteryLevelSliderCtrl = _display displayCtrl 1900;
     private _batteryLevelCtrl = _display displayCtrl 1401;
     private _fuelLevelSliderCtrl = _display displayCtrl 1901;

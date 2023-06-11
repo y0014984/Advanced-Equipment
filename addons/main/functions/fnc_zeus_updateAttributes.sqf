@@ -36,3 +36,8 @@ if (!isNil { _generator getVariable "AE3_power_fuelCapacity" }) then
 };
 
 /* ======================================== */
+
+private _statusUpdateHandle = _display getVariable ["AE3_statusUpdateHandle", scriptNull];
+if (!isNull _statusUpdateHandle) then { terminate _statusUpdateHandle; };
+
+/* ======================================== */

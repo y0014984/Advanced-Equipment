@@ -40,7 +40,7 @@ class AE3_UserInterface_Zeus_Asset_Details
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Headline"; //--- ToDo: Localize;
+            text = "AE3 Asset Details"; //--- ToDo: Localize;
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -51,7 +51,7 @@ class AE3_UserInterface_Zeus_Asset_Details
         class RscText_1400: RscText
         {
             idc = 1400;
-            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            text = "";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;

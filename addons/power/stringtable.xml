@@ -29,6 +29,15 @@
                 <French>Puissance de sortie actuelle: %1 %2W</French>
                 <Italian>energia elettrica in uscita attuale: %1 %2W</Italian>
             </Key>
+            <Key ID="STR_AE3_Power_Interaction_PowerReqHint">
+                <Original>Current power required: %1 %2W</Original>
+                <English>Current power required: %1 %2W</English>
+                <German>Benötigte Ausgangsleistung: %1 %2W</German>
+                <Chinesesimp>Current power required: %1 %2W</Chinesesimp>
+                <Russian>Current power required: %1 %2W</Russian>
+                <French>Current power required: %1 %2W</French>
+                <Italian>Current power required: %1 %2W</Italian>
+            </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateHint">
                 <Original>Device Power State is: %1</Original>
                 <English>Device Power State is: %1</English>
