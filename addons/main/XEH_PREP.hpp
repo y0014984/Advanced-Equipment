@@ -33,3 +33,4 @@ PREP(zeus_module_addUser);
 PREP(zeus_module_addSecurityCommands);
 PREP(zeus_module_addGames);
 PREP(zeus_module_addFile);
+PREP(zeus_module_addDir);

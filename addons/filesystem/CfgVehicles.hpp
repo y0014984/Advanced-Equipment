@@ -209,7 +209,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleFilesystem";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddDir";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
