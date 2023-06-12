@@ -11,15 +11,16 @@
 
 params ["_module", "_syncedUnits"];
 
-if(!isServer) exitWith {};
+if (!isServer) exitWith {};
 
 private _syncedObjects = synchronizedObjects _module;
 
-private _path = _module getVariable ["AE3_Module_AddFile_Path", ""];
-private _content = _module getVariable ["AE3_Module_AddFile_Content", ""];
-private _isFunction = _module getVariable ["AE3_Module_AddFile_IsFunction", ""];
-private _owner = _module getVariable ["AE3_Module_AddFile_Owner", ""];
-private _permissions = [
+private _path = _module getVariable "AE3_Module_AddFile_Path";
+private _content = _module getVariable "AE3_Module_AddFile_Content";
+private _isFunction = _module getVariable "AE3_Module_AddFile_IsFunction";
+private _owner = _module getVariable "AE3_Module_AddFile_Owner";
+private _permissions =
+[
 	[
 		_module getVariable "AE3_Module_AddFile_OwnerExecute",
 		_module getVariable "AE3_Module_AddFile_OwnerRead",
@@ -32,11 +33,65 @@ private _permissions = [
 	]
 ];
 
-if(_path isEqualTo "") exitWith {};
+private _isEncrypted = _module getVariable "AE3_Module_AddFile_IsEncrypted";
+private _encryptionAlgorithm = _module getVariable "AE3_Module_AddFile_EncryptionAlgorithm";
+private _encryptionKey = _module getVariable "AE3_Module_AddFile_EncryptionKey";
 
-if(_isFunction) then
+if (_path isEqualTo "") exitWith {};
+
+if (_isFunction) then
 {
 	_content = compile _content;
+};
+
+if (_isEncrypted) then 
+{
+	private _mode = "encrypt";
+
+	private _crypto_fnc = {};
+
+	switch (_encryptionAlgorithm) do
+	{
+		case "caesar":
+		{
+			_crypto_fnc = 
+			{
+				params ["_encryptionKey", "_mode", "_row"];
+
+				_encryptionKey = _encryptionKey call BIS_fnc_parseNumber; // needs a number
+				_encryptionKey = round _encryptionKey; // needs an integer
+				if (_encryptionKey < 1) then { _encryptionKey = 1; }; // needs to be >= 1
+				if (_encryptionKey > 25) then { _encryptionKey = 25; }; // needs to be <= 25
+
+				[_encryptionKey, _mode, _row] call AE3_armaos_fnc_encryption_caesar;
+			};
+		};
+		case "columnar":
+		{
+			_crypto_fnc =
+			{
+				params ["_encryptionKey", "_mode", "_row"];
+
+				_row = _row regexReplace [" ", "_"];
+
+				while {(count _encryptionKey) < 2 } do 
+				{
+					_encryptionKey = _encryptionKey + "_"; // min. length 2
+				};
+
+				[_encryptionKey, _mode, _row] call AE3_armaos_fnc_encryption_columnar;
+			};
+		};
+	};
+
+	_content = _content splitString endl;
+
+	{
+		private _row = [_encryptionKey, _mode, _x] call _crypto_fnc;
+		_content set [_forEachIndex, _row];
+	} forEach _content;
+
+	_content = _content joinString endl;
 };
 
 [_syncedObjects, _path, _content, _owner, _permissions] spawn 
