@@ -2,8 +2,9 @@
 
 class RscText;
 class RscEdit;
-class RscCheckbox;
+class RscCheckBox;
 class RscButton;
+class RscCombo;
 class RscXSliderH;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
@@ -436,7 +437,7 @@ class AE3_UserInterface_Zeus_Module_AddSecurityCommands
             style = ST_RIGHT;
         };
 
-        class RscCheckbox_1401: RscCheckbox
+        class RscCheckBox_1401: RscCheckBox
         {
             idc = 1401;
             x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -448,7 +449,7 @@ class AE3_UserInterface_Zeus_Module_AddSecurityCommands
             checked = 1;
         };
 
-        class RscCheckbox_1402: RscCheckbox
+        class RscCheckBox_1402: RscCheckBox
         {
             idc = 1402;
             x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -543,7 +544,7 @@ class AE3_UserInterface_Zeus_Module_AddGames
             style = ST_RIGHT;
         };
 
-        class RscCheckbox_1401: RscCheckbox
+        class RscCheckBox_1401: RscCheckBox
         {
             idc = 1401;
             x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -694,7 +695,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             style = ST_RIGHT;
         };
 
-        class RscCheckbox_1301: RscCheckbox
+        class RscCheckBox_1301: RscCheckBox
         {
             idc = 1301;
             x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -852,7 +853,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             style = ST_CENTER;
         };
 
-        class RscCheckbox_1302: RscCheckbox
+        class RscCheckBox_1302: RscCheckBox
         {
             idc = 1302;
             x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -864,7 +865,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             checked = 1;
         };
 
-        class RscCheckbox_1303: RscCheckbox
+        class RscCheckBox_1303: RscCheckBox
         {
             idc = 1303;
             x = 10 * GUI_GRID_W + GUI_GRID_X;
@@ -876,7 +877,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             checked = 1;
         };
 
-        class RscCheckbox_1304: RscCheckbox
+        class RscCheckBox_1304: RscCheckBox
         {
             idc = 1304;
             x = 12 * GUI_GRID_W + GUI_GRID_X;
@@ -888,7 +889,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             checked = 0;
         };
 
-        class RscCheckbox_1305: RscCheckbox
+        class RscCheckBox_1305: RscCheckBox
         {
             idc = 1305;
             x = 14 * GUI_GRID_W + GUI_GRID_X;
@@ -900,7 +901,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             checked = 1;
         };
 
-        class RscCheckbox_1306: RscCheckbox
+        class RscCheckBox_1306: RscCheckBox
         {
             idc = 1306;
             x = 16 * GUI_GRID_W + GUI_GRID_X;
@@ -912,7 +913,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             checked = 1;
         };
 
-        class RscCheckbox_1307: RscCheckbox
+        class RscCheckBox_1307: RscCheckBox
         {
             idc = 1307;
             x = 18 * GUI_GRID_W + GUI_GRID_X;
@@ -1171,7 +1172,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
             style = ST_CENTER;
         };
 
-        class RscCheckbox_1302: RscCheckbox
+        class RscCheckBox_1302: RscCheckBox
         {
             idc = 1302;
             x = 8 * GUI_GRID_W + GUI_GRID_X;
@@ -1183,7 +1184,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
             checked = 1;
         };
 
-        class RscCheckbox_1303: RscCheckbox
+        class RscCheckBox_1303: RscCheckBox
         {
             idc = 1303;
             x = 10 * GUI_GRID_W + GUI_GRID_X;
@@ -1195,7 +1196,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
             checked = 1;
         };
 
-        class RscCheckbox_1304: RscCheckbox
+        class RscCheckBox_1304: RscCheckBox
         {
             idc = 1304;
             x = 12 * GUI_GRID_W + GUI_GRID_X;
@@ -1207,7 +1208,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
             checked = 1;
         };
 
-        class RscCheckbox_1305: RscCheckbox
+        class RscCheckBox_1305: RscCheckBox
         {
             idc = 1305;
             x = 14 * GUI_GRID_W + GUI_GRID_X;
@@ -1219,7 +1220,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
             checked = 1;
         };
 
-        class RscCheckbox_1306: RscCheckbox
+        class RscCheckBox_1306: RscCheckBox
         {
             idc = 1306;
             x = 16 * GUI_GRID_W + GUI_GRID_X;
@@ -1231,7 +1232,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
             checked = 1;
         };
 
-        class RscCheckbox_1307: RscCheckbox
+        class RscCheckBox_1307: RscCheckBox
         {
             idc = 1307;
             x = 18 * GUI_GRID_W + GUI_GRID_X;
@@ -1244,6 +1245,172 @@ class AE3_UserInterface_Zeus_Module_AddDir
         };
 
          class RscButtonMenuOK_2600: RscButtonMenuOK
+        {
+            x = 37 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control];";
+        };
+
+        class RscButtonMenuCancel_2700: RscButtonMenuCancel
+        {
+            x = 31 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+        };
+	};
+};
+
+/* ================================================================================ */
+
+class AE3_UserInterface_Zeus_Module_AddConnection
+{
+	idd = 16986;
+	movingEnable = true;
+	enableSimulation = true;
+
+    onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] call AE3_main_fnc_zeus_module_addConnection;";
+    onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addConnection;";
+
+	class controlsBackground
+	{
+		// size 40x25
+		class RscText_900: RscText
+		{
+			// Background
+			idc = 900;
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 21 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,1}; // light grey
+		};
+	};
+
+	class controls
+	{
+        class RscText_1000: RscText
+        {
+            idc = 1000;
+            text = "Module: Add Connection"; //--- ToDo: Localize;
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 0 * GUI_GRID_H + GUI_GRID_Y;
+            w = 40 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,1};
+        };
+
+        class RscText_1400: RscText
+        {
+            idc = 1400;
+            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 39 * GUI_GRID_W;
+            h = 6 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+			style = ST_MULTI;
+			lineSpacing = 1;
+        };
+
+        class RscText_1001: RscText
+        {
+            idc = 1001;
+
+            text = "From (Consumer)"; //--- ToDo: Localize;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 9 * GUI_GRID_H + GUI_GRID_Y;
+            w = 7 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscText_1401: RscText
+        {
+            idc = 1401;
+            x = 8 * GUI_GRID_W + GUI_GRID_X;
+            y = 9 * GUI_GRID_H + GUI_GRID_Y;
+            w = 31.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+        };
+
+        class RscText_1004: RscText
+        {
+            idc = 1004;
+
+            text = "To (Provider)"; //--- ToDo: Localize;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 7 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscText_1402: RscText
+        {
+            idc = 1402;
+            x = 8 * GUI_GRID_W + GUI_GRID_X;
+            y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 31.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+        };
+
+        class RscText_1005: RscText
+        {
+            idc = 1005;
+
+            text = "Connection Type"; //--- ToDo: Localize;
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 12 * GUI_GRID_H + GUI_GRID_Y;
+            w = 7 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscCombo_1501: RscCombo
+        {
+            idc = 1501;
+            x = 8 * GUI_GRID_W + GUI_GRID_X;
+            y = 12 * GUI_GRID_H + GUI_GRID_Y;
+            w = 31.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+
+            class Items
+            {
+                class ItemPower
+                {
+                    text = "Power";
+                    default = 1;
+                };
+                class ItemNetwork
+                {
+                    text = "Network";
+                };
+            };
+        };
+
+        class RscButton_2100: RscButton
+        {
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            w = 3 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            text = "SWITCH";
+
+            onButtonClick = "params ['_control']; private _display = ctrlParent _control; private _switch = _display getVariable ['switch', false]; if (_switch) then { _switch = false; } else { _switch = true; }; _display setVariable ['switch', _switch]; private _fromCtrl = _display displayCtrl 1401; private _toCtrl = _display displayCtrl 1402; private _fromText = ctrlText _fromCtrl; private _toText = ctrlText _toCtrl; _fromCtrl ctrlSetText _toText; _toCtrl ctrlSetText _fromText;";
+        };
+
+          class RscButtonMenuOK_2600: RscButtonMenuOK
         {
             x = 37 * GUI_GRID_W + GUI_GRID_X;
             y = 23.5 * GUI_GRID_H + GUI_GRID_Y;

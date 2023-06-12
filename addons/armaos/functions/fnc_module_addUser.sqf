@@ -26,4 +26,4 @@ if (!isServer) exitWith {};
 
 deleteVehicle _module;
 
-true
+true;

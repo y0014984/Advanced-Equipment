@@ -38,6 +38,24 @@
                 <French>AE3 armaOS Modules</French>
                 <Italian>AE3 Modulo ArmaOS</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_MainModulesCategoryDisplayName">
+                <Original>AE3 main Modules</Original>
+                <English>AE3 main Modules</English>
+                <German>AE3 allgemeine Module</German>
+                <Chinesesimp>AE3 main Modules</Chinesesimp>
+                <Russian>AE3 main Modules</Russian>
+                <French>AE3 main Modules</French>
+                <Italian>AE3 main Modules</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_FilesystemModulesCategoryDisplayName">
+                <Original>AE3 filesystem Modules</Original>
+                <English>AE3 filesystem Modules</English>
+                <German>AE3 allgemeine Module</German>
+                <Chinesesimp>AE3 filesystem Modules</Chinesesimp>
+                <Russian>AE3 filesystem Modules</Russian>
+                <French>AE3 filesystem Modules</French>
+                <Italian>AE3 filesystem Modules</Italian>
+            </Key>
         </Container>
         <Container name="Debug Mode">
             <Key ID="STR_AE3_Main_DebugMode_enabled">
@@ -234,6 +252,26 @@
                 <Russian>Включив режим отладки AE3, вы получите дополнительную информацию о внутренней структуре AE3.</Russian>
                 <French>En activant le mode de débogage AE3, vous obtiendrez des informations supplémentaires sur la structure interne d'AE3.</French>
                 <Italian>Abilitando la modalità DEBUG AE3 riceverai informazioni addizionali riguardo la struttura interna di AE3.</Italian>
+            </Key>
+        </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_Main_Config_ModuleAddConnectionDisplayName">
+                <Original>AE3 Add Connection</Original>
+                <English>AE3 Add Connection</English>
+                <German>AE3 Verbindung hinzufügen</German>
+                <Chinesesimp>AE3 Add Connection</Chinesesimp>
+                <Russian>AE3 Add Connection</Russian>
+                <French>AE3 Add Connection</French>
+                <Italian>AE3 Add Connection</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Config_ModuleAddConnectionDescription">
+                <Original>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Original>
+                <English>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</English>
+                <German>Dieses Modul ermöglicht dir eine Strom- oder Netzwerkverbindung zwischen zwei Geräten herzustellen. Synchronisiere zwei Geräte mit diesem Modul, stelle Richtung und Verbindungstyp ein und drücke 'OK'.</German>
+                <Chinesesimp>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Chinesesimp>
+                <Russian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Russian>
+                <French>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</French>
+                <Italian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Italian>
             </Key>
         </Container>
     </Package>

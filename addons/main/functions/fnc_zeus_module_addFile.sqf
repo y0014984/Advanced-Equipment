@@ -74,7 +74,6 @@ if (_event isEqualTo "onUnload") then
     private _everyoneExecute = cbChecked _everyoneExecuteCtrl;
     private _permissions = [[_ownerExecute, _ownerRead, _ownerWrite], [_everyoneExecute, _everyoneRead, _everyoneWrite]];
 
-
     // check for empty but mandatory input fields
     // module is still there an could be opened and filled in with valid input
     // but currently, this case will be catched by UI logic, defined directly in config

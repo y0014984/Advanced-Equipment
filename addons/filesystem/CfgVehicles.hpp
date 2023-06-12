@@ -30,7 +30,7 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_Filesystem_Config_AddFileDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa"; // Map icon. Delete this entry to use the default icon
-		category = "AE3_armaosModules";
+		category = "AE3_filesystemModules";
 		// Name of function triggered once conditions are met
 		function = "AE3_filesystem_fnc_module_addFile";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
@@ -193,7 +193,7 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_Filesystem_Config_AddDirDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addDir.paa"; // Map icon. Delete this entry to use the default icon
-		category = "AE3_armaosModules";
+		category = "AE3_filesystemModules";
 
 		// Name of function triggered once conditions are met
 		function = "AE3_filesystem_fnc_module_addDir";
