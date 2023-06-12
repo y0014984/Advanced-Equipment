@@ -5,23 +5,10 @@ if (isNull _entity) exitWith {};
 {
     params ["_entity"];
 
-    private _turnOnCondition =
-    (
-        (_entity call (_entity getVariable ["AE3_power_fnc_standbyCondition", {true}]) and
-		(alive _entity) and 
-		(_entity getVariable ["AE3_power_powerState", -1] == 1) and 
-		!(_entity getVariable ["AE3_power_mutex", false]) and 
-        (_entity getVariable ["AE3_interaction_closeState", 0] == 0))
-    );
+    private _success = [_entity] call AE3_power_fnc_standbyDevice;
 
-    if (_turnOnCondition && !((_entity getVariable ["AE3_power_fnc_standby", {}]) isEqualTo {})) then
+    if (_success) then
     {
-        _entity setVariable ["AE3_power_mutex", true, true];
-
-        [_entity] call (_entity getVariable "AE3_power_fnc_standbyWrapper");
-
-        _entity setVariable ["AE3_power_mutex", false, true];
-
         hint "Device standby.";
     }
     else

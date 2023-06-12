@@ -34,6 +34,14 @@ PREP(initFuelLevelWithEdenAttribute);
 PREP(initConsumer);
 PREP(initSolarPanel);
 
+/* Terminate */
+PREP(terminateDevice);
+
+/* Controller */
+PREP(turnOffDevice);
+PREP(turnOnDevice);
+PREP(standbyDevice);
+
 /* Sys */
 PREP(batteryCalculation);
 PREP(addProviderHandler);
