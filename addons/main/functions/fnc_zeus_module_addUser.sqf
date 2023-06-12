@@ -1,7 +1,7 @@
 params ["_display", "_exitCode", "_event"];
 
-private _logic = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
-if (isNull _logic) exitWith {};
+private _module = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
+if (isNull _module) exitWith {};
 
 /* ---------------------------------------- */
 
@@ -48,7 +48,7 @@ if (_event isEqualTo "onUnload") then
     if ((isNull _computer) || (_exitCode == 2)) exitWith
     {
         // delete module if dialog cancelled or computer not linked to module
-        deleteVehicle _logic;
+        deleteVehicle _module;
     };
 
     // get username and password from UI
@@ -69,7 +69,7 @@ if (_event isEqualTo "onUnload") then
     hint format ["User added: \n username: %1 \n password: %2", _username, _password];
 
     // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _logic;
+    deleteVehicle _module;
 };
 
 /* ---------------------------------------- */

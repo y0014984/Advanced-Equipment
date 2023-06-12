@@ -1,7 +1,7 @@
 params ["_display", "_exitCode", "_event"];
 
-private _logic = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
-if (isNull _logic) exitWith {};
+private _module = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
+if (isNull _module) exitWith {};
 
 /* ---------------------------------------- */
 
@@ -48,7 +48,7 @@ if (_event isEqualTo "onUnload") then
     if ((isNull _computer) || (_exitCode == 2)) exitWith
     {
         // delete module if dialog cancelled or computer not linked to module
-        deleteVehicle _logic;
+        deleteVehicle _module;
     };
 
     // get values from UI
@@ -87,7 +87,7 @@ if (_event isEqualTo "onUnload") then
     hint format ["File added \n ---------- \n\n path: %1 \n content: %2 \n isCode: %3 \n owner: %4 \n permissions: %5", _path, _content, _isCode, _owner, _permissions];
 
     // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _logic;
+    deleteVehicle _module;
 };
 
 /* ---------------------------------------- */

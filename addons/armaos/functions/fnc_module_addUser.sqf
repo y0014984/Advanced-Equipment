@@ -24,4 +24,6 @@ if (!isServer) exitWith {};
 	} foreach _syncedUnits;
 };
 
+deleteVehicle _module;
+
 true

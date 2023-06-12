@@ -32,7 +32,7 @@ private _permissions = [
 	]
 ];
 
-if(_path isEqualTo "") exitWith {};
+if(_path isEqualTo "") exitWith { deleteVehicle _module; };
 
 [_syncedObjects, _path, _content, _isCode, _owner, _permissions] spawn 
 {
@@ -44,3 +44,5 @@ if(_path isEqualTo "") exitWith {};
 		[_x, _path, _content, _isCode, _owner, _permissions] call AE3_filesystem_fnc_device_addFile;
 	} forEach _syncedObjects;
 };
+
+deleteVehicle _module;
