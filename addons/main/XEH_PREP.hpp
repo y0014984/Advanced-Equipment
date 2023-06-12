@@ -18,6 +18,9 @@ PREP(3den_doPowerConnection);
 
 PREP(killDebugOverlay);
 
+// Misc
+PREP(getPlayersInRange);
+
 /* Zeus/Curator Functions */
 PREP(zeus_initAttributes);
 PREP(zeus_updateAttributes);

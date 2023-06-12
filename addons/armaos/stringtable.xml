@@ -1389,6 +1389,24 @@
                 <French>Détermine la vitesse en lignes de la fonction de défilement de la molette de la souris pour le terminal.</French>
                 <Italian>Determina la velocità in linee per la funzionalità di scroll della rotellina del mouse.</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_UiOnTextureName">
+                <Original>UI on texture</Original>
+                <English>UI on texture</English>
+                <German>UI auf Textur</German>
+                <Chinesesimp>UI on texture</Chinesesimp>
+                <Russian>UI on texture</Russian>
+                <French>UI on texture</French>
+                <Italian>UI on texture</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_UiOnTextureTooltip">
+                <Original>If enabled, surrounding players can see the armaOS interface on the computers texture.</Original>
+                <English>If enabled, surrounding players can see the armaOS interface on the computers texture.</English>
+                <German>Wenn aktiviert, können Spieler in der Nähe das armaOS Interface auf der Textur des Computers sehen.</German>
+                <Chinesesimp>If enabled, surrounding players can see the armaOS interface on the computers texture.</Chinesesimp>
+                <Russian>If enabled, surrounding players can see the armaOS interface on the computers texture.</Russian>
+                <French>If enabled, surrounding players can see the armaOS interface on the computers texture.</French>
+                <Italian>If enabled, surrounding players can see the armaOS interface on the computers texture.</Italian>
+            </Key>
             <Key ID="STR_AE3_Main_CbaSettings_1line">
                 <Original>1 line</Original>
                 <English>1 line</English>
