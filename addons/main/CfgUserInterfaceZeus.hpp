@@ -17,8 +17,7 @@ class AE3_UserInterface_Zeus_Asset_Details
 	enableSimulation = true;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display] call AE3_main_fnc_zeus_initAttributes;";
-    onUnload = "params ['_display', '_exitCode']; if (_exitCode == 1) then { [_display] call AE3_main_fnc_zeus_updateAttributes; };";
-    // ok = 1, cancel = 2
+    onUnload = "params ['_display', '_exitCode']; [_display, _exitCode] call AE3_main_fnc_zeus_updateAttributes;";
 
 	class controlsBackground
 	{
