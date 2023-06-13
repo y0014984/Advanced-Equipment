@@ -35,7 +35,6 @@ PREP(initConsumer);
 PREP(initSolarPanel);
 
 /* Terminate */
-PREP(terminateDevice);
 PREP(removePowerConnection);
 
 /* Controller */

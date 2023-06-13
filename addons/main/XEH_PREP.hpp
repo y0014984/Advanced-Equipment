@@ -1,25 +1,26 @@
-// Object exchange
+/* Object Exchange */
 PREP(replace);
 
-// Remote Server Var Functions
+/* Remote Server Var Functions */
 PREP(getRemoteVar);
 PREP(sendVarToRemote);
 
-// Debug Mobe and Overlay
+/* Debug Mode and Overlay */
 PREP(manageDebugMode);
 PREP(initDebugOverlay);
 PREP(killDebugOverlay);
 
-// Eden Editor Connections
+/* Eden Editor Connections */
 PREP(3denEventHandlers_onConnectionEnd);
 PREP(3den_checkConnection);
 PREP(3den_doNetworkConnection);
 PREP(3den_doPowerConnection);
 
-PREP(killDebugOverlay);
-
-// Misc
+/* Misc */
 PREP(getPlayersInRange);
+
+/* Terminate */
+PREP(terminateDevice);
 
 /* Zeus/Curator Functions */
 PREP(zeus_initAttributes);

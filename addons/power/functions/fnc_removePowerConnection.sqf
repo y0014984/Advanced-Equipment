@@ -6,8 +6,7 @@ if (!(isNull _powerProvider)) then
 {
     // remove power consumer from power providers list of connected devices
 	private _connectedDevices = _powerProvider getVariable ["AE3_power_connectedDevices", []];
-	private _index = _connectedDevices findIf {_x isEqualTo _powerConsumer};
-    _connectedDevices deleteAt _index;
+    _connectedDevices = _connectedDevices - [_powerConsumer];
     _powerProvider setVariable ["AE3_power_connectedDevices", _connectedDevices, true];
 
 	if (count _connectedDevices == 0) then
