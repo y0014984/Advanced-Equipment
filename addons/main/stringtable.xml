@@ -132,6 +132,24 @@
                 <French>Niveau de puissance défini au début de la mission</French>
                 <Italian>Livello potenza elettrica impostata all'inizio della missione</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_PowerStateDisplayName">
+                <Original>Power State</Original>
+                <English>Power State</English>
+                <German>Betriebszustand</German>
+                <Chinesesimp>Power State</Chinesesimp>
+                <Russian>Power State</Russian>
+                <French>Power State</French>
+                <Italian>Power State</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_EdenAttributes_PowerStateTooltip">
+                <Original>Is the device turned on at the beginning of the mission?</Original>
+                <English>Is the device turned on at the beginning of the mission?</English>
+                <German>Ist das Gerät zum Beginn der Mission angeschaltet?</German>
+                <Chinesesimp>Is the device turned on at the beginning of the mission?</Chinesesimp>
+                <Russian>Is the device turned on at the beginning of the mission?</Russian>
+                <French>Is the device turned on at the beginning of the mission?</French>
+                <Italian>Is the device turned on at the beginning of the mission?</Italian>
+            </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
                 <Original>Fuel Level</Original>
                 <English>Fuel Level</English>

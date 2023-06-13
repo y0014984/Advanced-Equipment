@@ -25,6 +25,22 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
 		};
 
 		// scope = 1; //Hide class in 3DEN asset browser
@@ -153,6 +169,22 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
 		};
 		
 		// Refuel
@@ -263,6 +295,22 @@ class CfgVehicles
 				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
 			};
 		};
 		
@@ -375,6 +423,22 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
 		};
 		
 		// Refuel
@@ -485,6 +549,22 @@ class CfgVehicles
 				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
 			};
 		};
 		
@@ -601,6 +681,22 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
 		};
 
 		class AE3_Device
@@ -671,6 +767,22 @@ class CfgVehicles
 				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
 			};
 		};
     
@@ -743,6 +855,22 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
 		};
     
 		class AE3_Device
@@ -813,6 +941,22 @@ class CfgVehicles
 				validate = "number"; // Validate the value before saving. If the value is not of given type e.g. "number", the default value will be set. Can be "none", "expression", "condition", "number" or "variable"
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
+			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
 			};
 		};
 
@@ -957,6 +1101,22 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
 		};
     
 		// Cargo
@@ -1100,6 +1260,22 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
 		};
     
 		class AE3_Equipment
@@ -1218,6 +1394,25 @@ class CfgVehicles
 	class Land_PortableSolarPanel_01_olive_F;
 	class Land_PortableSolarPanel_01_olive_F_AE3 : Land_PortableSolarPanel_01_olive_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
@@ -1260,6 +1455,25 @@ class CfgVehicles
 	class Land_PortableSolarPanel_01_sand_F;
 	class Land_PortableSolarPanel_01_sand_F_AE3 : Land_PortableSolarPanel_01_sand_F
 	{
+		class Attributes
+		{
+			class AE3_EdenAttribute_PowerState
+			{
+				//--- Mandatory properties
+				displayName = "$STR_AE3_Main_EdenAttributes_PowerStateDisplayName"; // Name assigned to UI control class Title
+				tooltip = "$STR_AE3_Main_EdenAttributes_PowerStateTooltip"; // Tooltip assigned to UI control class Title
+				property = "AE3_EdenAttribute_PowerState"; // Unique config property name saved in SQM
+				control = "CheckBox"; // UI control base class displayed in Edit Attributes window, points to Cfg3DEN >> Attributes
+
+				expression = "_this setVariable ['%s', _value, true];";
+
+				defaultValue = "false";
+
+				//--- Optional properties
+				unique = 0; // When 1, only one entity of the type can have the value in the mission (used for example for variable names or player control)
+			};
+		};
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
