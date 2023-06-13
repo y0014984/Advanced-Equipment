@@ -9,6 +9,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Device
 		{
@@ -60,6 +62,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Device
 		{
@@ -111,6 +115,8 @@ class CfgVehicles
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 		
 		class AE3_Device
 		{
