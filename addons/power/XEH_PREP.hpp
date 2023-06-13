@@ -36,6 +36,7 @@ PREP(initSolarPanel);
 
 /* Terminate */
 PREP(terminateDevice);
+PREP(removePowerConnection);
 
 /* Controller */
 PREP(turnOffDevice);
