@@ -29,7 +29,7 @@ if (!(isNull _networkProvider)) then
 _networkConsumer setVariable ["AE3_network_parent", nil, true];
 
 // set network consumer to "network disconnected" if it has no connected children
-if (count {_networkConsumer getVariable ["AE3_network_children", []]} == 0) then
+if (count call {_networkConsumer getVariable ["AE3_network_children", []]} == 0) then
 {
     [_networkConsumer, "networkConnected", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 };
