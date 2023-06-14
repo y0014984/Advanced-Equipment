@@ -233,7 +233,7 @@ class AE3_UserInterface_Zeus_Asset_Details
 
 class AE3_UserInterface_Zeus_Module_AddUser
 {
-	idd = 16986;
+	idd = 16987;
 	movingEnable = true;
 	enableSimulation = true;
 
@@ -363,7 +363,7 @@ class AE3_UserInterface_Zeus_Module_AddUser
 
 class AE3_UserInterface_Zeus_Module_AddSecurityCommands
 {
-	idd = 16986;
+	idd = 16988;
 	movingEnable = true;
 	enableSimulation = true;
 
@@ -483,7 +483,7 @@ class AE3_UserInterface_Zeus_Module_AddSecurityCommands
 
 class AE3_UserInterface_Zeus_Module_AddGames
 {
-	idd = 16986;
+	idd = 16989;
 	movingEnable = true;
 	enableSimulation = true;
 
@@ -578,7 +578,7 @@ class AE3_UserInterface_Zeus_Module_AddGames
 
 class AE3_UserInterface_Zeus_Module_AddFile
 {
-	idd = 16986;
+	idd = 16990;
 	movingEnable = true;
 	enableSimulation = true;
 
@@ -949,7 +949,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
 
 class AE3_UserInterface_Zeus_Module_AddDir
 {
-	idd = 16986;
+	idd = 16991;
 	movingEnable = true;
 	enableSimulation = true;
 
@@ -1268,7 +1268,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
 
 class AE3_UserInterface_Zeus_Module_AddConnection
 {
-	idd = 16986;
+	idd = 16992;
 	movingEnable = true;
 	enableSimulation = true;
 
