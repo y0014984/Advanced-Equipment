@@ -50,4 +50,7 @@ if (count call {_networkConsumer getVariable ["AE3_network_children", []]} == 0)
     [_networkConsumer, "networkConnected", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 };
 
+// reset ip address of network consumer
+_networkConsumer setVariable ["AE3_network_address", [127, 0, 0, 1], true];
+
 true;
