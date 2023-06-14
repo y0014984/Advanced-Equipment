@@ -1,3 +1,19 @@
+/**
+ * PUBLIC
+ *
+ * Removes the power connection (Uplink) for a given device and updates the available interactions.
+ *
+ * Arguments:
+ * 0: Power Consumer <OBJECT>
+ * 
+ * Returns:
+ * None
+ *
+ * Example:
+ * [_entity] call AE3_power_fnc_removePowerConnection;
+ *
+ */
+
 params ["_powerConsumer"];
 
 private _powerProvider = _powerConsumer getVariable ["AE3_power_powerCableDevice", objNull];

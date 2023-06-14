@@ -1,3 +1,19 @@
+/**
+ * PRIVATE
+ *
+ * This function is assigned to the 'onLoad' Event of the default AE3 Asset Attributes Zeus Interface, called AE3_UserInterface_Zeus_Asset_Details
+ * This function runs local on the computer of the curator/zeus because it is UI triggered.
+ * This function will gather information about the current placed/opened asset in Zeus if it's an AE3 asset.
+ * The provided Information contains Power Status, Power Output, Power Req, IP Address, Fuel Level and Bettery Level
+ *
+ * Arguments:
+ * None
+ *
+ * Results:
+ * Visual Feedback in Zeus UI Window
+ *
+ */
+
 params ["_display"];
 
 private _entity = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];

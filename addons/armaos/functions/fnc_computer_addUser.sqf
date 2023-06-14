@@ -1,3 +1,21 @@
+/**
+ * PUBLIC
+ *
+ * Adds a user to a given computer by providing username and password. Also a user directory will be created.
+ *
+ * Arguments:
+ * 1: Computer <OBJECT>
+ * 2: Username <STRING>
+ * 3: Password <STRING>
+ *
+ * Results:
+ * None
+ *
+ * Example:
+ * [_computer, "admin", "admin123"] call AE3_armaos_fnc_computer_addUser;
+ *
+ */
+
 params ["_computer", "_username", "_password"];
 
 // Get userlist and filesystem from computer

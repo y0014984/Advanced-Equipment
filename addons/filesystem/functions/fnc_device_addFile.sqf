@@ -1,4 +1,32 @@
-params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", "_isEncrypted", "_encryptionAlgorithm", "_encryptionKey"];
+/**
+ * PUBLIC
+ *
+ * Adds a file to a given Device. Device could be a comupter or a flash drive.
+ *
+ * Arguments:
+ * 1: Device <OBJECT>
+ * 2: Path <STRING>
+ * 3: Content <STRING>
+ * 4: isCode <BOOL>
+ * 5: Owner <STRING>
+ * 6: Permissions <[ARRAY]>
+ * 7: isEncrypted <BOOL> Optional
+ * 8: encryptionAlgorithm <STRING> Optional
+ * 9: encryptionKey <STRING> Optional
+ *
+ * Results:
+ * Logs if file already exists; On other errors it throws an exception
+ *
+ * Examples:
+ * [_device, "/tmp/new/example.txt", "Lorem ipsum dolor sit amet", false, "root", [[false, true, true], [false, true, true]]] call AE3_filesystem_fnc_device_addFile;
+ * [_device, "/test.prg", "hint 'hello world';", true, "root", [[true, false, false], [true, false, false]]] call AE3_filesystem_fnc_device_addFile;
+ * [_device, "/tmp/password.txt", "secret", false, "root", [[false, true, true], [false, true, true]], true, "caesar", "13"] call AE3_filesystem_fnc_device_addFile;
+ *
+ * Permissions:
+ * [[owner execute, owner read, owner write], [everyone execute, everyone read, everyone write]]
+ */
+
+params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", ["_isEncrypted", false], ["_encryptionAlgorithm", nil], ["_encryptionKey", nil]];
 
 private _filesystem = _computer getVariable "AE3_filesystem";
 

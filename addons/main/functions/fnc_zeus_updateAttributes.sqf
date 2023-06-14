@@ -1,3 +1,18 @@
+/**
+ * PRIVATE
+ *
+ * This function is assigned to the 'onUnload' Event of the default AE3 Asset Attributes Zeus Interface, called AE3_UserInterface_Zeus_Asset_Details
+ * This function runs local on the computer of the curator/zeus because it is UI triggered.
+ * This function will update Battery Level and/or Fuel Level for the given device.
+ *
+ * Arguments:
+ * None
+ *
+ * Results:
+ * Visual Feedback in Zeus
+ *
+ */
+
 params ["_display", "_exitCode"];
 // _exitCode: ok = 1, cancel = 2
 

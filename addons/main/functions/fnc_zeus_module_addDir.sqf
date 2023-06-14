@@ -1,3 +1,22 @@
+/**
+ * PRIVATE
+ *
+ * This function is assigned to the 'onLoad' and 'onUnload' Events of the Zeus Module Interface: addDir
+ * This function runs local on the computer of the curator/zeus because it is UI triggered.
+ * The function makes changes to the asset according the the user input.
+ * This module needs to be placed onto a asset with an filesystem.
+ * After processing the module will be deleted.
+ *
+ * Arguments:
+ * 1: Display <OBJECT>
+ * 2: Exit Code <NUMBER>
+ * 3: Event <STRING>
+ *
+ * Results:
+ * Visual Feedback in Zeus
+ *
+ */
+
 params ["_display", "_exitCode", "_event"];
 
 private _module = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];

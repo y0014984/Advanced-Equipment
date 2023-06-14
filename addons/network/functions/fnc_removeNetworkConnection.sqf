@@ -1,3 +1,19 @@
+/**
+ * PUBLIC
+ *
+ * Removes the network connection (Uplink) for a given device and updates the available interactions.
+ *
+ * Arguments:
+ * 0: Network Consumer <OBJECT>
+ * 
+ * Returns:
+ * None
+ *
+ * Example:
+ * [_entity] call AE3_network_fnc_removeNetworkConnection;
+ *
+ */
+
 params ["_networkConsumer"];
 
 private _networkProvider = _networkConsumer getVariable ["AE3_network_parent", objNull];

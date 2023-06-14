@@ -1,5 +1,7 @@
 /**
- * Disconnects a device from a power source.
+ * PRIVATE
+ *
+ * Disconnects a device from it's power source. This function is triggered by a ACE3 interaction.
  *
  * Arguments:
  * 0: Device <OBJECT>

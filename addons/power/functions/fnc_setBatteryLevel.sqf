@@ -1,13 +1,20 @@
 /**
+ * PUBLIC
+ * 
  * Sets the battery level of a given battery.
  *
  * Arguments:
  * 0: Battery <OBJECT>
- * 0: Battery Level Percent <NUMBER>
+ * 1: Battery Level Percent <NUMBER>
  * 
+ * Example:
+ * [battery, 100] call AE3_power_fnc_setBatteryLevel;
+ *
  */
 
 params ["_battery", "_batteryLevelPercent"];
+
+_batteryLevelPercent = ((_batteryLevelPercent min 100) max 0); // normalize; max = 100 and min = 0
 
 private _batteryCapacity = _battery getVariable "AE3_power_batteryCapacity";
 private _batteryLevel = _batteryCapacity * (_batteryLevelPercent / 100);
