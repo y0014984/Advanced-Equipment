@@ -116,6 +116,8 @@ if (isNull _entity) exitWith {};
         private _result = [_battery] call AE3_power_fnc_getBatteryLevel;
         _result params ["_batteryLevel", "_batteryLevelPercent", "_batteryCapacity"];
         
+        _batteryLevelPercent = round _batteryLevelPercent;
+
         _batteryLevelSliderCtrl sliderSetPosition _batteryLevelPercent;
         _batteryLevelCtrl ctrlSetText format ['%1%2', _batteryLevelPercent, '%'];
     }
@@ -133,6 +135,8 @@ if (isNull _entity) exitWith {};
     {
         private _result = [_generator] call AE3_power_fnc_getFuelLevel;
         _result params ["_fuelLevel", "_fuelLevelPercent", "_fuelCapacity"];
+
+        _fuelLevelPercent = round _fuelLevelPercent;
 
         _fuelLevelSliderCtrl sliderSetPosition _fuelLevelPercent;
         _fuelLevelCtrl ctrlSetText format ['%1%2', _fuelLevelPercent, '%'];
