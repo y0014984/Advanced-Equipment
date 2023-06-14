@@ -11,6 +11,9 @@
 
 params ["_module", "_syncedUnits", "_activated"];
 
+// if triggered in zeus/curator mode, don't run; Could happen in hosted multiplayer
+if (!isNull curatorCamera) exitWith {};
+
 if(!isServer) exitWith {};
 
 private _syncedObjects = synchronizedObjects _module;
