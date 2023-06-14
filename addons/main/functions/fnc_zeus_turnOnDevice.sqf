@@ -9,10 +9,10 @@ if (isNull _entity) exitWith {};
 
     if (_success) then
     {
-        hint "Device turned on.";
+        ["Advanced Equipment", "Device turned on.", 5] call BIS_fnc_curatorHint;
     }
     else
     {
-        hint "Can't turn on device.";
+        [objNull, "Can't turn on device."] call BIS_fnc_showCuratorFeedbackMessage;
     };
 };

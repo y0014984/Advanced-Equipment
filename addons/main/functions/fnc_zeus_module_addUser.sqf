@@ -15,7 +15,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        hint "No computer. Place module on computer.";
+        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -30,7 +30,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        hint "No computer. Place module on computer.";
+        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -60,13 +60,14 @@ if (_event isEqualTo "onUnload") then
     // check for empty but mandatory input fields
     // module is still there an could be opened and filled in with valid input
     // but currently, this case will be catched by UI logic, defined directly in config
-    if(_username isEqualTo "") exitWith { hint "Username missing"; };
-    if(_password isEqualTo "") exitWith { hint "Password missing"; };
+    if(_username isEqualTo "") exitWith { [objNull, "Username missing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_password isEqualTo "") exitWith { [objNull, "Password missing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add user to computer
     [_computer, _username, _password] call AE3_armaos_fnc_computer_addUser;
 
-    hint format ["User added: \n username: %1 \n password: %2", _username, _password];
+    private _message = format ["username: %1 password: %2", _username, _password];
+    ["AE3 User added", _message, 5] call BIS_fnc_curatorHint;
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _module;

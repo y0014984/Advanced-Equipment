@@ -25,10 +25,10 @@ if (isNull _entity) exitWith {};
 
         _entity setVariable ["AE3_power_mutex", false, true];
 
-        hint "Device closed.";
+        ["Advanced Equipment", "Device closed.", 5] call BIS_fnc_curatorHint;
     }
     else
     {
-        hint "Can't close device.";
+        [objNull, "Can't close device."] call BIS_fnc_showCuratorFeedbackMessage;
     };
 };

@@ -15,7 +15,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        hint "No computer. Place module on computer.";
+        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -30,7 +30,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        hint "No computer. Place module on computer.";
+        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -77,13 +77,14 @@ if (_event isEqualTo "onUnload") then
     // check for empty but mandatory input fields
     // module is still there an could be opened and filled in with valid input
     // but currently, this case will be catched by UI logic, defined directly in config
-    if(_path isEqualTo "") exitWith { hint "Path missing"; };
-    if(_owner isEqualTo "") exitWith { hint "Owner missing"; };
+    if(_path isEqualTo "") exitWith { [objNull, "Path missing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_owner isEqualTo "") exitWith { [objNull, "Owner missing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add file to computer
     [_computer, _path, _content, _isCode, _owner, _permissions] call AE3_filesystem_fnc_device_addFile;
 
-    hint format ["File added \n ---------- \n\n path: %1 \n content: %2 \n isCode: %3 \n owner: %4 \n permissions: %5", _path, _content, _isCode, _owner, _permissions];
+    private _message = format ["path: %1", _path];
+    ["AE3 File added", _message, 5] call BIS_fnc_curatorHint;
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _module;

@@ -1,7 +1,5 @@
 params ["_device"];
 
-systemchat format ["Deleted entity (General): %1", _device];
-
 /* ================================================================================ */
 
 // turn off device
@@ -44,27 +42,3 @@ if(!(isNull _networkProvider)) then
 };
 
 /* ================================================================================ */
-
-/*
-private _class = typeOf _device;
-if (_class isEqualTo "ModuleCurator_F") then
-{
-    _device addEventHandler ["CuratorObjectDeleted", {
-        params ["_curator", "_device"];
-
-        systemchat format ["Deleted entity (Curator): %1", _device];
-    }];
-
-    _device addEventHandler ["CuratorObjectEdited", {
-        params ["_curator", "_device"];
-
-        systemchat format ["Edited entity (Curator): %1", _device];
-    }];
-
-    _device addEventHandler ["CuratorObjectPlaced", {
-        params ["_curator", "_device"];
-
-        systemchat format ["Placed entity (Curator): %1", _device];
-    }];
-};
-*/

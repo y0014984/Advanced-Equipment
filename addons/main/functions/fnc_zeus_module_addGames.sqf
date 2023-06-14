@@ -15,7 +15,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        hint "No computer. Place module on computer.";
+        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -30,7 +30,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        hint "No computer. Place module on computer.";
+        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -58,7 +58,8 @@ if (_event isEqualTo "onUnload") then
     // add security commands to computer
     [_computer, _isSnake] call AE3_armaos_fnc_computer_addGames;
 
-    hint format ["Games added? \n snake: %1", _isSnake];
+    private _message = format ["snake: %1 ", _isSnake];
+    ["AE3 Games added", _message, 5] call BIS_fnc_curatorHint;
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _module;

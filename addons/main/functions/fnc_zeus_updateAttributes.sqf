@@ -4,7 +4,7 @@ params ["_display", "_exitCode"];
 /* ======================================== */
 
 private _statusUpdateHandle = _display getVariable ["AE3_statusUpdateHandle", scriptNull];
-if (!isNull _statusUpdateHandle) then { terminate _statusUpdateHandle; hint "Status Update Script stopped"; };
+if (!isNull _statusUpdateHandle) then { terminate _statusUpdateHandle; };
 
 if (_exitCode == 1) then
 {
@@ -21,13 +21,17 @@ if (_exitCode == 1) then
 
     /* ======================================== */
 
+    private _message = "";
+
+    /* ======================================== */
+
     // if asset has battery, update battery level
     if (!isNil { _battery getVariable "AE3_power_batteryCapacity" }) then
     {
         private _batteryLevelCtrl = _display displayCtrl 1900;
         private _batteryLevelPercent = sliderPosition _batteryLevelCtrl;
 
-        hint format ["New Battery Level (%1): %2", "%", _batteryLevelPercent];
+        _message = _message + format ["New Battery Level: %1%2 ", _batteryLevelPercent, "%"];
 
         [_battery, _batteryLevelPercent] call AE3_power_fnc_setBatteryLevel;
     };
@@ -40,10 +44,14 @@ if (_exitCode == 1) then
         private _fuelLevelCtrl = _display displayCtrl 1901;
         private _fuelLevelPercent = sliderPosition _fuelLevelCtrl;
 
-        hint format ["New Fuel Level (%1): %2", "%", _fuelLevelPercent];
+        _message = _message + format ["New Fuel Level: %1%2 ", _fuelLevelPercent, "%"];
 
         [_generator, _fuelLevelPercent] call AE3_power_fnc_setFuelLevel;
     };
+
+    /* ======================================== */
+
+    ["AE3 Asset Attributes changed", _message, 5] call BIS_fnc_curatorHint;
 
     /* ======================================== */
 };
