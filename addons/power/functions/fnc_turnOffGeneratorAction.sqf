@@ -13,14 +13,16 @@ params ["_entity", ["_silent", false]];
 
 private _result = false;
 
+private _stopSoundHandle = scriptNull;
+
 private _turnOffGenFunc =
 {
-	params ["_entity"];
+	params ["_entity", "_stopSoundHandle"];
 
 	[_entity, "turnedOn", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 	[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
 
-	private _stopSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
+	_stopSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
 
 	// TODO: Wrapper?
 	{
@@ -47,7 +49,7 @@ else
 			
 			_args params ["_entity", "_stopSoundHandle", "_turnOffGenFunc"];
 
-			[_entity] call _turnOffGenFunc;
+			[_entity, _stopSoundHandle] call _turnOffGenFunc;
 
 			// we need to set power state here because function already returned false
 			// and therefore the turn on wrapper doesn't set the state to turned on
@@ -63,7 +65,7 @@ else
 			terminate _stopSoundHandle;
 
 			// start sound will be played
-			private _stopSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;			
+			private _startSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;			
 		},
 		(localize "STR_AE3_Power_Interaction_TurnOff" + "...")
 	] call ace_common_fnc_progressBar;

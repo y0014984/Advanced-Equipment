@@ -13,14 +13,16 @@ params ["_entity", ["_silent", false]];
 
 private _result = false;
 
+private _startSoundHandle = scriptNull;
+
 private _turnOnGenFunc =
 {
-	params ["_entity"];
+	params ["_entity", "_startSoundHandle"];
 
 	[_entity, AE3_power_fnc_fuelConsumption] remoteExecCall ["AE3_power_fnc_addProviderHandler", 2];
 	[_entity, "turnedOn", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
-	private _startSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
+	_startSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
 };
 
 if ((!isNull curatorCamera) || (_silent)) then
@@ -48,7 +50,7 @@ else
 				
 				_args params ["_entity", "_startSoundHandle", "_turnOnGenFunc"];
 
-				[_entity] call _turnOnGenFunc;
+				[_entity, _startSoundHandle] call _turnOnGenFunc;
 
 				// we need to set power state here because function already returned false
 				// and therefore the turn on wrapper doesn't set the state to turned on
