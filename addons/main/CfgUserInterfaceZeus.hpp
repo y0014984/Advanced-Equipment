@@ -40,7 +40,7 @@ class AE3_UserInterface_Zeus_Asset_Details
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "AE3 Asset Details"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_AssetDetails";
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -65,7 +65,7 @@ class AE3_UserInterface_Zeus_Asset_Details
         {
             idc = 1001;
 
-            text = "Battery Level"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_BatteryLevel";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -78,7 +78,7 @@ class AE3_UserInterface_Zeus_Asset_Details
         {
             idc = 1002;
 
-            text = "Fuel Level"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_FuelLevel";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -124,7 +124,7 @@ class AE3_UserInterface_Zeus_Asset_Details
         class RscEdit_1401: RscEdit
         {
             idc = 1401;
-            text = "0%"; //--- ToDo: Localize;
+            text = "0%";
             x = 36.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
@@ -139,7 +139,7 @@ class AE3_UserInterface_Zeus_Asset_Details
         class RscEdit_1402: RscEdit
         {
             idc = 1402;
-            text = "0%"; //--- ToDo: Localize;
+            text = "0%";
             x = 36.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
@@ -158,9 +158,9 @@ class AE3_UserInterface_Zeus_Asset_Details
             w = 3 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
-            text = "CLOSE";
+            text = "$STR_AE3_Main_Zeus_Close";
 
-            onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_closeDevice;";
+            onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_closeObject;";
         };
 
         class RscButton_2200: RscButton
@@ -170,9 +170,9 @@ class AE3_UserInterface_Zeus_Asset_Details
             w = 3 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
-            text = "OPEN";
+            text = "$STR_AE3_Main_Zeus_Open";
 
-            onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_openDevice;";
+            onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_openObject;";
         };
 
         class RscButton_2300: RscButton
@@ -182,7 +182,7 @@ class AE3_UserInterface_Zeus_Asset_Details
             w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
-            text = "STANDBY";
+            text = "$STR_AE3_Main_Zeus_Standby";
 
             onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_standbyDevice;";
         };
@@ -194,7 +194,7 @@ class AE3_UserInterface_Zeus_Asset_Details
             w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
-            text = "TURN OFF";
+            text = "$STR_AE3_Main_Zeus_TurnOff";
 
             onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_turnOffDevice;";
         };
@@ -206,7 +206,7 @@ class AE3_UserInterface_Zeus_Asset_Details
             w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
-            text = "TURN ON";
+            text = "$STR_AE3_Main_Zeus_TurnOn";
 
             onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_turnOnDevice;";
         };
@@ -260,7 +260,7 @@ class AE3_UserInterface_Zeus_Module_AddUser
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Module: Add User"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddUser";
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -271,7 +271,7 @@ class AE3_UserInterface_Zeus_Module_AddUser
         class RscText_1400: RscText
         {
             idc = 1400;
-            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddUser_Description";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;
@@ -285,7 +285,7 @@ class AE3_UserInterface_Zeus_Module_AddUser
         {
             idc = 1001;
 
-            text = "Username"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Username";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -298,7 +298,7 @@ class AE3_UserInterface_Zeus_Module_AddUser
         {
             idc = 1002;
 
-            text = "Password"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Password";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -390,7 +390,7 @@ class AE3_UserInterface_Zeus_Module_AddSecurityCommands
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Module: Add Security Commands"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddSecurityCommands";
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -401,7 +401,7 @@ class AE3_UserInterface_Zeus_Module_AddSecurityCommands
         class RscText_1400: RscText
         {
             idc = 1400;
-            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddSecurityCommands_Description";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;
@@ -510,7 +510,7 @@ class AE3_UserInterface_Zeus_Module_AddGames
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Module: Add Games"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddGames";
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -521,7 +521,7 @@ class AE3_UserInterface_Zeus_Module_AddGames
         class RscText_1400: RscText
         {
             idc = 1400;
-            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddGames_Description";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;
@@ -605,7 +605,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Module: Add File"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddFile";
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -616,7 +616,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         class RscText_1400: RscText
         {
             idc = 1400;
-            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddFile_Description";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;
@@ -630,7 +630,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1001;
 
-            text = "Path"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Path";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -659,7 +659,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1002;
 
-            text = "File content"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_FileContent";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -686,7 +686,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1003;
 
-            text = "Is code?"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_IsCode";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 15 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -711,7 +711,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1004;
 
-            text = "File owner"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_FileOwner";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -740,7 +740,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1005;
 
-            text = "Permissions"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Permissions";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 21 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -753,7 +753,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1006;
 
-            text = "R"; //--- ToDo: Localize;
+            text = "R";
             x = 8 * GUI_GRID_W + GUI_GRID_X;
             y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -766,7 +766,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1007;
 
-            text = "W"; //--- ToDo: Localize;
+            text = "W";
             x = 10 * GUI_GRID_W + GUI_GRID_X;
             y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -779,7 +779,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1008;
 
-            text = "X"; //--- ToDo: Localize;
+            text = "X";
             x = 12 * GUI_GRID_W + GUI_GRID_X;
             y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -792,7 +792,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1009;
 
-            text = "R"; //--- ToDo: Localize;
+            text = "R";
             x = 14 * GUI_GRID_W + GUI_GRID_X;
             y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -805,7 +805,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1010;
 
-            text = "W"; //--- ToDo: Localize;
+            text = "W";
             x = 16 * GUI_GRID_W + GUI_GRID_X;
             y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -818,7 +818,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1011;
 
-            text = "X"; //--- ToDo: Localize;
+            text = "X";
             x = 18 * GUI_GRID_W + GUI_GRID_X;
             y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -831,7 +831,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1012;
 
-            text = "Owner"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Owner";
             x = 8 * GUI_GRID_W + GUI_GRID_X;
             y = 18 * GUI_GRID_H + GUI_GRID_Y;
             w = 5 * GUI_GRID_W;
@@ -844,7 +844,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
         {
             idc = 1013;
 
-            text = "Everyone"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Everyone";
             x = 14 * GUI_GRID_W + GUI_GRID_X;
             y = 18 * GUI_GRID_H + GUI_GRID_Y;
             w = 5 * GUI_GRID_W;
@@ -976,7 +976,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Module: Add Directory"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddDir";
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -987,7 +987,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         class RscText_1400: RscText
         {
             idc = 1400;
-            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddDir_Description";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;
@@ -1001,7 +1001,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1001;
 
-            text = "Path"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Path";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -1030,7 +1030,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1004;
 
-            text = "Directory owner"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_DirOwner";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -1059,7 +1059,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1005;
 
-            text = "Permissions"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Permissions";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 15 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -1072,7 +1072,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1006;
 
-            text = "R"; //--- ToDo: Localize;
+            text = "R";
             x = 8 * GUI_GRID_W + GUI_GRID_X;
             y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -1085,7 +1085,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1007;
 
-            text = "W"; //--- ToDo: Localize;
+            text = "W";
             x = 10 * GUI_GRID_W + GUI_GRID_X;
             y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -1098,7 +1098,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1008;
 
-            text = "X"; //--- ToDo: Localize;
+            text = "X";
             x = 12 * GUI_GRID_W + GUI_GRID_X;
             y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -1111,7 +1111,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1009;
 
-            text = "R"; //--- ToDo: Localize;
+            text = "R";
             x = 14 * GUI_GRID_W + GUI_GRID_X;
             y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -1124,7 +1124,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1010;
 
-            text = "W"; //--- ToDo: Localize;
+            text = "W";
             x = 16 * GUI_GRID_W + GUI_GRID_X;
             y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -1137,7 +1137,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1011;
 
-            text = "X"; //--- ToDo: Localize;
+            text = "X";
             x = 18 * GUI_GRID_W + GUI_GRID_X;
             y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 1 * GUI_GRID_W;
@@ -1150,7 +1150,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1012;
 
-            text = "Owner"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Owner";
             x = 8 * GUI_GRID_W + GUI_GRID_X;
             y = 12 * GUI_GRID_H + GUI_GRID_Y;
             w = 5 * GUI_GRID_W;
@@ -1163,7 +1163,7 @@ class AE3_UserInterface_Zeus_Module_AddDir
         {
             idc = 1013;
 
-            text = "Everyone"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Everyone";
             x = 14 * GUI_GRID_W + GUI_GRID_X;
             y = 12 * GUI_GRID_H + GUI_GRID_Y;
             w = 5 * GUI_GRID_W;
@@ -1295,7 +1295,7 @@ class AE3_UserInterface_Zeus_Module_AddConnection
         class RscText_1000: RscText
         {
             idc = 1000;
-            text = "Module: Add Connection"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddConnection";
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
@@ -1306,7 +1306,7 @@ class AE3_UserInterface_Zeus_Module_AddConnection
         class RscText_1400: RscText
         {
             idc = 1400;
-            text = "Details\nline2\nline3"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_Module_AddConnection_Description";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;
@@ -1320,7 +1320,7 @@ class AE3_UserInterface_Zeus_Module_AddConnection
         {
             idc = 1001;
 
-            text = "From (Consumer)"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_FromConsumer";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -1343,7 +1343,7 @@ class AE3_UserInterface_Zeus_Module_AddConnection
         {
             idc = 1004;
 
-            text = "To (Provider)"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_ToProvider";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -1366,7 +1366,7 @@ class AE3_UserInterface_Zeus_Module_AddConnection
         {
             idc = 1005;
 
-            text = "Connection Type"; //--- ToDo: Localize;
+            text = "$STR_AE3_Main_Zeus_ConnectionType";
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 12 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -1388,12 +1388,12 @@ class AE3_UserInterface_Zeus_Module_AddConnection
             {
                 class ItemPower
                 {
-                    text = "Power";
+                    text = "$STR_AE3_Main_Zeus_Power";
                     default = 1;
                 };
                 class ItemNetwork
                 {
-                    text = "Network";
+                    text = "$STR_AE3_Main_Zeus_Network";
                 };
             };
         };
@@ -1405,7 +1405,7 @@ class AE3_UserInterface_Zeus_Module_AddConnection
             w = 3 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
-            text = "SWITCH";
+            text = "$STR_AE3_Main_Zeus_Switch";
 
             onButtonClick = "params ['_control']; private _display = ctrlParent _control; private _switch = _display getVariable ['switch', false]; if (_switch) then { _switch = false; } else { _switch = true; }; _display setVariable ['switch', _switch]; private _fromCtrl = _display displayCtrl 1401; private _toCtrl = _display displayCtrl 1402; private _fromText = ctrlText _fromCtrl; private _toText = ctrlText _toCtrl; _fromCtrl ctrlSetText _toText; _toCtrl ctrlSetText _fromText;";
         };

@@ -80,8 +80,8 @@ if (_event isEqualTo "onUnload") then
     // check for empty but mandatory input fields
     // module is still there an could be opened and filled in with valid input
     // but currently, this case will be catched by UI logic, defined directly in config
-    if(isNull _from) exitWith { [objNull, "From missing"] call BIS_fnc_showCuratorFeedbackMessage; };
-    if(isNull _to) exitWith { [objNull, "To missing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(isNull _from) exitWith { [objNull, localize "STR_AE3_Main_Zeus_FromMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(isNull _to) exitWith { [objNull, localize "STR_AE3_Main_Zeus_ToMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     if (_switch) then
     {
@@ -94,18 +94,18 @@ if (_event isEqualTo "onUnload") then
     private _fromNameWithAceCargoName = [_from, true] call ace_cargo_fnc_getNameItem;
     private _toNameWithAceCargoName = [_to, true] call ace_cargo_fnc_getNameItem;
 
-    private _message = format ["from: %1 to: %2", _fromNameWithAceCargoName, _toNameWithAceCargoName];
+    private _message = format ["'%1': %2 '%3': %4", localize "STR_AE3_Main_Zeus_From", _fromNameWithAceCargoName, localize "STR_AE3_Main_Zeus_To", _toNameWithAceCargoName];
 
     // add connection
     if (_type == 0) then
     {
         [_type, _from, _to] call AE3_main_fnc_3den_doPowerConnection;
-        ["AE3 Power Connection added", _message, 5] call BIS_fnc_curatorHint;
+        [localize "STR_AE3_Main_Zeus_PowerConnectionAdded", _message, 5] call BIS_fnc_curatorHint;
     };
     if (_type == 1) then
     {
         [_type, _from, _to] call AE3_main_fnc_3den_doNetworkConnection;
-        ["AE3 Network Connection added", _message, 5] call BIS_fnc_curatorHint;
+        [localize "STR_AE3_Main_Zeus_NetworkConnectionAdded", _message, 5] call BIS_fnc_curatorHint;
     };
 
     // delete module if dialog cancelled or computer not linked to module

@@ -11,7 +11,7 @@
  * Visual Feedback in Zeus Interface
  *
  * Example:
- * [] call AE3_main_fnc_zeus_openDevice;
+ * [] call AE3_main_fnc_zeus_openObject;
  *
  */
 
@@ -42,10 +42,10 @@ if (isNull _entity) exitWith {};
 
         _entity setVariable ["AE3_power_mutex", false, true];
 
-        ["Advanced Equipment", "Device opened.", 5] call BIS_fnc_curatorHint;
+        ["Advanced Equipment", localize "STR_AE3_Main_Zeus_ObjectOpened", 5] call BIS_fnc_curatorHint;
     }
     else
     {
-        [objNull, "Can't open device."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_CantOpenObject"] call BIS_fnc_showCuratorFeedbackMessage;
     };
 };

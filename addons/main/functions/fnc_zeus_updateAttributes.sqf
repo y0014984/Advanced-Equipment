@@ -46,7 +46,7 @@ if (_exitCode == 1) then
         private _batteryLevelCtrl = _display displayCtrl 1900;
         private _batteryLevelPercent = sliderPosition _batteryLevelCtrl;
 
-        _message = _message + format ["New Battery Level: %1%2 ", _batteryLevelPercent, "%"];
+        _message = _message + format [localize "STR_AE3_Main_Zeus_NewBatteryLevel", _batteryLevelPercent, "%"];
 
         [_battery, _batteryLevelPercent] call AE3_power_fnc_setBatteryLevel;
     };
@@ -59,7 +59,7 @@ if (_exitCode == 1) then
         private _fuelLevelCtrl = _display displayCtrl 1901;
         private _fuelLevelPercent = sliderPosition _fuelLevelCtrl;
 
-        _message = _message + format ["New Fuel Level: %1%2 ", _fuelLevelPercent, "%"];
+        _message = _message + format [localize "STR_AE3_Main_Zeus_NewFuelLevel", _fuelLevelPercent, "%"];
 
         [_generator, _fuelLevelPercent] call AE3_power_fnc_setFuelLevel;
     };

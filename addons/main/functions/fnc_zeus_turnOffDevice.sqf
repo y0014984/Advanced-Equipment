@@ -26,10 +26,10 @@ if (isNull _entity) exitWith {};
 
     if (_success) then
     {
-        ["Advanced Equipment", "Device turned off.", 5] call BIS_fnc_curatorHint;
+        ["Advanced Equipment", localize "STR_AE3_Main_Zeus_TurnedOffDevice", 5] call BIS_fnc_curatorHint;
     }
     else
     {
-        [objNull, "Can't turn off device."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_CantTurnOffDevice"] call BIS_fnc_showCuratorFeedbackMessage;
     };
 };

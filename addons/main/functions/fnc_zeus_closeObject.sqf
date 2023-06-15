@@ -11,7 +11,7 @@
  * Visual Feedback in Zeus Interface
  *
  * Example:
- * [] call AE3_main_fnc_zeus_closeDevice;
+ * [] call AE3_main_fnc_zeus_closeObject;
  *
  */
 
@@ -42,10 +42,10 @@ if (isNull _entity) exitWith {};
 
         _entity setVariable ["AE3_power_mutex", false, true];
 
-        ["Advanced Equipment", "Device closed.", 5] call BIS_fnc_curatorHint;
+        ["Advanced Equipment", localize "STR_AE3_Main_Zeus_ObjectClosed", 5] call BIS_fnc_curatorHint;
     }
     else
     {
-        [objNull, "Can't close device."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_CantCloseObject"] call BIS_fnc_showCuratorFeedbackMessage;
     };
 };

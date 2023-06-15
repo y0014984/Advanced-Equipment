@@ -34,7 +34,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -49,7 +49,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -85,8 +85,8 @@ if (_event isEqualTo "onUnload") then
     // add user to computer
     [_computer, _username, _password] call AE3_armaos_fnc_computer_addUser;
 
-    private _message = format ["username: %1 password: %2", _username, _password];
-    ["AE3 User added", _message, 5] call BIS_fnc_curatorHint;
+    private _message = format ["'%1': %2 '%3': %2", localize "STR_AE3_Main_Zeus_Username", _username, localize "STR_AE3_Main_Zeus_Password", _password];
+    [localize "STR_AE3_Main_Zeus_UserAdded", _message, 5] call BIS_fnc_curatorHint;
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _module;

@@ -30,8 +30,8 @@ PREP(zeus_turnOnDevice);
 PREP(zeus_turnOffDevice);
 PREP(zeus_standbyDevice);
 
-PREP(zeus_openDevice);
-PREP(zeus_closeDevice);
+PREP(zeus_openObject);
+PREP(zeus_closeObject);
 
 PREP(zeus_module_addUser);
 PREP(zeus_module_addSecurityCommands);

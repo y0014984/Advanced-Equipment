@@ -34,7 +34,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -49,7 +49,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -80,7 +80,7 @@ if (_event isEqualTo "onUnload") then
     [_computer, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
 
     private _message = format ["crypto: %1 crack: %2", _isCrypto, _isCrack];
-    ["AE3 Security Commands added", _message, 5] call BIS_fnc_curatorHint;
+    [localize "STR_AE3_Main_Zeus_SecurityCommandsAdded", _message, 5] call BIS_fnc_curatorHint;
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _module;

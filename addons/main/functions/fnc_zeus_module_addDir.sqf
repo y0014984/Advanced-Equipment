@@ -34,7 +34,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -49,7 +49,7 @@ if (_event isEqualTo "onLoad") then
     {
         _display setVariable ["AE3_linkedComputer", objNull];
 
-        [objNull, "No computer. Place module on computer."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
 
         // close display
         _display closeDisplay 2; // 2 = cancel
@@ -92,14 +92,14 @@ if (_event isEqualTo "onUnload") then
     // check for empty but mandatory input fields
     // module is still there an could be opened and filled in with valid input
     // but currently, this case will be catched by UI logic, defined directly in config
-    if(_path isEqualTo "") exitWith { [objNull, "Path missing"] call BIS_fnc_showCuratorFeedbackMessage; };
-    if(_owner isEqualTo "") exitWith { [objNull, "Owner missing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_path isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_PathMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_owner isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add directory to computer
     [_computer, _path, _owner, _permissions] call AE3_filesystem_fnc_device_addDir;
 
-    private _message = format ["path: %1", _path];
-    ["AE3 Directory added", _message, 5] call BIS_fnc_curatorHint;
+    private _message = format ["%1: %2", localize "STR_AE3_Main_Zeus_Path", _path];
+    [localize "STR_AE3_Main_Zeus_DirectoryAdded", _message, 5] call BIS_fnc_curatorHint;
 
     // delete module if dialog cancelled or computer not linked to module
     deleteVehicle _module;

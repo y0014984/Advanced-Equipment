@@ -26,10 +26,10 @@ if (isNull _entity) exitWith {};
 
     if (_success) then
     {
-        ["Advanced Equipment", "Device set to standby.", 5] call BIS_fnc_curatorHint;
+        ["Advanced Equipment", localize "STR_AE3_Main_Zeus_StandbyDevice", 5] call BIS_fnc_curatorHint;
     }
     else
     {
-        [objNull, "Can't set device to standby."] call BIS_fnc_showCuratorFeedbackMessage;
+        [objNull, localize "STR_AE3_Main_Zeus_CantStandbyDevice"] call BIS_fnc_showCuratorFeedbackMessage;
     };
 };
