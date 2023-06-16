@@ -29,6 +29,16 @@ if (_event isEqualTo "onLoad") then
 {
     private _syncedObjects = synchronizedObjects _module;
 
+    // remove connection to itself
+    _module synchronizeObjectsRemove [_module];
+
+    // remove all unnecessary connections
+    if ((count _syncedObjects) > 2) then
+    {
+        private _connectionsToDelete = _syncedObjects deleteRange [2, (count _syncedObjects) - 1];
+        _module synchronizeObjectsRemove _connectionsToDelete;
+    };
+
     // set ok button state
     private _okCtrl = _display getVariable ["okCtrl", objNull];
     if ((count _syncedObjects) > 1) then
@@ -70,7 +80,8 @@ if (_event isEqualTo "onUnload") then
 
     // get Settings from UI
     private _typeCtrl = _display displayCtrl 1501;
-    private _type = lbCurSel _typeCtrl;
+    private _type = lbCurSel _typeCtrl; // 0 = Power Connection; 1 = Network Connection
+    if (_type == 0) then { _type = "AE3_PowerConnection"; } else { _type = "AE3_NetworkConnection"; };
 
     // get Data from Display namespace
     private _from = _display getVariable ["entity1", objNull];
@@ -96,20 +107,90 @@ if (_event isEqualTo "onUnload") then
 
     private _message = format ["'%1': %2 '%3': %4", localize "STR_AE3_Main_Zeus_From", _fromNameWithAceCargoName, localize "STR_AE3_Main_Zeus_To", _toNameWithAceCargoName];
 
-    // add connection
-    if (_type == 0) then
+    // add connection: type == 0 is power connection and type == 1 is network connection
+    if (_type isEqualTo "AE3_PowerConnection") then
     {
-        [_type, _from, _to] call AE3_main_fnc_3den_doPowerConnection;
-        [localize "STR_AE3_Main_Zeus_PowerConnectionAdded", _message, 5] call BIS_fnc_curatorHint;
-    };
-    if (_type == 1) then
-    {
-        [_type, _from, _to] call AE3_main_fnc_3den_doNetworkConnection;
-        [localize "STR_AE3_Main_Zeus_NetworkConnectionAdded", _message, 5] call BIS_fnc_curatorHint;
+        // get all classes defined in CfgVehicles
+        private _config = configFile >> "CfgVehicles";
+
+        // filter classes to those, that contain AE3_Device and AE3_Consumer or AE_Battery config
+        private _powerConsumers =
+        "
+            isClass (_x >> 'AE3_Device' >> 'AE3_Consumer') ||
+            isClass (_x >> 'AE3_Device' >> 'AE3_Battery')
+        " configClasses _config;
+
+        // convert configs to class names
+        {
+            _powerConsumers set [_forEachIndex, configName _x];
+        } forEach _powerConsumers;
+
+        // filter classes to those, that contain AE3_Device and AE3_Generator or AE3_SolarGenerator or AE3_Battery config
+        private _powerProducers = 
+        "
+            isClass (_x >> 'AE3_Device' >> 'AE3_Generator') || 
+            isClass (_x >> 'AE3_Device' >> 'AE3_SolarGenerator') ||
+            isClass (_x >> 'AE3_Device' >> 'AE3_Battery')
+            
+        " configClasses _config;
+
+        // convert configs to class names
+        {
+            _powerProducers set [_forEachIndex, configName _x];
+        } forEach _powerProducers;
+
+        // unnecessary assignment but easier to read
+        private _allowedPowerFromClasses = _powerConsumers;
+        private _allowedPowerToClasses = _powerProducers;
+
+        if ([_type, _from, _to, _allowedPowerFromClasses, _allowedPowerToClasses] call AE3_main_fnc_zeus_isConnectionAllowed) then
+        {
+            [_from, _to] call AE3_power_fnc_createPowerConnection;
+            [localize "STR_AE3_Main_Zeus_PowerConnectionAdded", _message, 5] call BIS_fnc_curatorHint;
+
+            // delete module if dialog cancelled or computer not linked to module
+            deleteVehicle _module;
+        }
+        else
+        {
+            // remove connections
+            _module synchronizeObjectsRemove [_from, _to];
+        };
     };
 
-    // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _module;
+    if (_type isEqualTo "AE3_NetworkConnection") then
+    {
+        private _allowedNetworkFromClasses =
+        [
+            "Land_Laptop_03_sand_F_AE3",
+            "Land_Laptop_03_black_F_AE3",
+            "Land_Laptop_03_olive_F_AE3",
+            "Land_Router_01_sand_F_AE3",
+            "Land_Router_01_black_F_AE3",
+            "Land_Router_01_olive_F_AE3"
+        ];
+
+        private _allowedNetworkToClasses =
+        [
+            "Land_Router_01_sand_F_AE3",
+            "Land_Router_01_black_F_AE3",
+            "Land_Router_01_olive_F_AE3"
+        ];
+
+        if ([_type, _from, _to, _allowedNetworkFromClasses, _allowedNetworkToClasses] call AE3_main_fnc_zeus_isConnectionAllowed) then
+        {
+            [_from, _to] call AE3_network_fnc_createNetworkConnection;
+            [localize "STR_AE3_Main_Zeus_NetworkConnectionAdded", _message, 5] call BIS_fnc_curatorHint;
+
+            // delete module if dialog cancelled or computer not linked to module
+            deleteVehicle _module;
+        }
+        else
+        {
+            // remove connections
+            _module synchronizeObjectsRemove [_from, _to];
+        };
+    };
 };
 
 /* ---------------------------------------- */

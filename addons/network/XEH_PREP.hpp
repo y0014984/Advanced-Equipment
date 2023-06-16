@@ -5,9 +5,6 @@
 PREP(initNetworkDevice);
 PREP(initRouter);
 
-/* Terminate */
-PREP(removeNetworkConnection);
-
 /* Backend */
 PREP(connect_router2router);
 PREP(connect_device2router);
@@ -22,3 +19,7 @@ PREP(dhcp_onTurnOn);
 
 /* Generic */
 PREP(ip2str);
+
+/* Connections */
+PREP(createNetworkConnection);
+PREP(removeNetworkConnection);

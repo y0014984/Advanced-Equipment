@@ -30,7 +30,7 @@ class Cfg3DEN
 			data = "AE3_PowerConnection"; // _type parameter in "OnConnectionStart/End" Event Handlers
 			color[] = {0.835,0.345,0.345,1}; // Color of connection line
 			cursor = "3DENConnectSync"; // cursor type; don't know what is available
-			expression = "[_type, _entity0, _entity1] call AE3_main_fnc_3den_doPowerConnection;"; // seems to be executed on mission start
+			expression = "[_entity0, _entity1] call AE3_power_fnc_createPowerConnection;"; // seems to be executed on mission start
 		};
 
 		class AE3_NetworkConnection
@@ -42,7 +42,7 @@ class Cfg3DEN
 			data = "AE3_NetworkConnection"; // _type parameter in "OnConnectionStart/End" Event Handlers
 			color[] = {0.357,0.666,0.671,1}; // Color of connection line
 			cursor = "3DENConnectSync"; // cursor type; don't know what is available
-			expression = "[_type, _entity0, _entity1] call AE3_main_fnc_3den_doNetworkConnection;"; // seems to be executed on mission start
+			expression = "[_entity0, _entity1] call AE3_network_fnc_createNetworkConnection;"; // seems to be executed on mission start
 		};
 	};
 

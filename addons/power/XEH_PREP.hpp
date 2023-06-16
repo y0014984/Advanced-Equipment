@@ -34,9 +34,6 @@ PREP(initFuelLevelWithEdenAttribute);
 PREP(initConsumer);
 PREP(initSolarPanel);
 
-/* Terminate */
-PREP(removePowerConnection);
-
 /* Controller */
 PREP(turnOffDevice);
 PREP(turnOnDevice);
@@ -61,3 +58,7 @@ PREP(showBatteryLevel);
 PREP(getSolarPosition);
 PREP(solarCalculation);
 PREP(multSolarPanelOrientation);
+
+/* Connections */
+PREP(createPowerConnection);
+PREP(removePowerConnection);

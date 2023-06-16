@@ -10,11 +10,9 @@ PREP(manageDebugMode);
 PREP(initDebugOverlay);
 PREP(killDebugOverlay);
 
-/* Eden Editor Connections */
+/* Eden Editor Functions */
 PREP(3denEventHandlers_onConnectionEnd);
 PREP(3den_checkConnection);
-PREP(3den_doNetworkConnection);
-PREP(3den_doPowerConnection);
 
 /* Misc */
 PREP(getPlayersInRange);
@@ -39,3 +37,5 @@ PREP(zeus_module_addGames);
 PREP(zeus_module_addFile);
 PREP(zeus_module_addDir);
 PREP(zeus_module_addConnection);
+
+PREP(zeus_isConnectionAllowed);

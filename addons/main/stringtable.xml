@@ -20,7 +20,7 @@
                 <French>non</French>
                 <Italian>No</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_AdvancedEquipmentObjects CategoryDisplayName">
+            <Key ID="STR_AE3_Main_AdvancedEquipmentObjectsCategoryDisplayName">
                 <Original>Advanced Equipment Objects (AE3)</Original>
                 <English>Advanced Equipment Objects (AE3)</English>
                 <German>Advanced Equipment Gegenstände (AE3)</German>
@@ -188,7 +188,7 @@
             </Key>
         </Container>
         <Container name="Eden Connections">
-            <Key ID="STR_AE3_Main_EdenConnections_Forbidden1">
+            <Key ID="STR_AE3_Main_Connections_Forbidden1">
                 <Original>Forbidden connection removed: this source asset is not allowed for connection type: %1</Original>
                 <English>Forbidden connection removed: this source asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Ausgangsgerät sind Verbindungen diesen Typs unzulässig: %1</German>
@@ -197,7 +197,7 @@
                 <French>Connexion interdite supprimée : cet élément source n'est pas autorisé pour le type de connexion: %1</French>
                 <Italian>Rimosse connessioni proibita:Questa fonte non è permessa per questo tipo di connessione: %1</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_EdenConnections_Forbidden2">
+            <Key ID="STR_AE3_Main_Connections_Forbidden2">
                 <Original>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Original>
                 <English>Forbidden connection removed: this destination asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Zielgerät sind Verbindungen diesen Typs unzulässig: %1</German>
@@ -206,7 +206,7 @@
                 <French>Connexion interdite supprimée : cet élément de destination n'est pas autorisé pour le type de connexion: %1</French>
                 <Italian>Rimossa connessione proibita: Questa destinazione non è permessa per questo tipo di connessione: %1</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_EdenConnections_Forbidden3">
+            <Key ID="STR_AE3_Main_Connections_Forbidden3">
                 <Original>Forbidden connection removed: source and destination are identical</Original>
                 <English>Forbidden connection removed: source and destination are identical</English>
                 <German>Unzulässige Verbindung entfernt: Ausgang und Ziel sind identisch</German>
@@ -215,7 +215,7 @@
                 <French>Connexion interdite supprimée : la source et la destination sont identiques</French>
                 <Italian>Rimossa connessione proibita: fonte e destinazione sono identiche</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_EdenConnections_Warning">
+            <Key ID="STR_AE3_Main_Connections_Warning">
                 <Original>Connection warning: this asset already has a connection of type: %1</Original>
                 <English>Connection warning: this asset already has a connection of type: %1</English>
                 <German>Verbindungswarnung: dieses Gerät hat bereits eine Verbindung vom Typ: %1</German>
