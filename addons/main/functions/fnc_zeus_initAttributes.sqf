@@ -51,7 +51,7 @@ if (isNull _entity) exitWith {};
             private _statusCtrl = _display displayCtrl 1400;
             private _status = [];
 
-            _status pushBack localize "$STR_AE3_Main_Zeus_ObjectStatus";
+            _status pushBack localize "STR_AE3_Main_Zeus_ObjectStatus";
             _status pushBack "------------";
 
             // Power State
