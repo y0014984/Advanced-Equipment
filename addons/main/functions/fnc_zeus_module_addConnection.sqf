@@ -69,6 +69,12 @@ if (_event isEqualTo "onLoad") then
         _toCtrl ctrlSetText _toNameWithAceCargoName;
         _display setVariable ["entity2", _to];
     };
+
+    // close display on first start because there are no connections set up and configuring makes no sense without connections
+    private _firstStart = _module getVariable ["firstStart", nil];
+    if ( isNil "_firstStart") then { _firstStart = true; } else { _firstStart = false; };
+    _module setVariable ["firstStart", _firstStart];
+    if (_firstStart) exitWith { _display closeDisplay 2; }; // 2 = cancel
 };
 
 /* ---------------------------------------- */
