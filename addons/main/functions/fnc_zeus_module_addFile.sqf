@@ -81,6 +81,9 @@ if (_event isEqualTo "onUnload") then
     private _everyoneReadCtrl = _display displayCtrl 1305;
     private _everyoneWriteCtrl = _display displayCtrl 1306;
     private _everyoneExecuteCtrl = _display displayCtrl 1307;
+    private _enableEncryptionCtrl = _display displayCtrl 1308;
+    private _encryptionAlgorithmCtrl = _display displayCtrl 1501;
+    private _encryptionKeyCtrl = _display displayCtrl 1405;
     private _path = ctrlText _pathCtrl;
     private _content = ctrlText _contentCtrl;
     private _isCode = cbChecked _isCodeCtrl;
@@ -92,15 +95,21 @@ if (_event isEqualTo "onUnload") then
     private _everyoneWrite = cbChecked _everyoneWriteCtrl;
     private _everyoneExecute = cbChecked _everyoneExecuteCtrl;
     private _permissions = [[_ownerExecute, _ownerRead, _ownerWrite], [_everyoneExecute, _everyoneRead, _everyoneWrite]];
+    private _enableEncryption = cbChecked _enableEncryptionCtrl;
+    private _encryptionAlgorithm = lbCurSel _encryptionAlgorithmCtrl; // 0 = Caesar; 1 = Columnar
+    private _encryptionKey = ctrlText _encryptionKeyCtrl;
+
+    if (_encryptionAlgorithm == 0) then { _encryptionAlgorithm = "caesar"; } else { _encryptionAlgorithm = "columnar"; };
 
     // check for empty but mandatory input fields
     // module is still there an could be opened and filled in with valid input
     // but currently, this case will be catched by UI logic, defined directly in config
     if(_path isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_PathMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
     if(_owner isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_owner isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_KeyMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add file to computer
-    [_computer, _path, _content, _isCode, _owner, _permissions] call AE3_filesystem_fnc_device_addFile;
+    [_computer, _path, _content, _isCode, _owner, _permissions, _enableEncryption, _encryptionAlgorithm, _encryptionKey] call AE3_filesystem_fnc_device_addFile;
 
     private _message = format ["%1: %2", localize "STR_AE3_Main_Zeus_Path", _path];
     [localize "STR_AE3_Main_Zeus_FileAdded", _message, 5] call BIS_fnc_curatorHint;

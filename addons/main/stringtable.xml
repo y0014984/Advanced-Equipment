@@ -626,6 +626,51 @@
                 <French>Object Status</French>
                 <Italian>Object Status</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_EnableEncryption">
+                <Original>Enable Encryption</Original>
+                <English>Enable Encryption</English>
+                <German>Aktiviere Verschlüsselung</German>
+                <Chinesesimp>Enable Encryption</Chinesesimp>
+                <Russian>Enable Encryption</Russian>
+                <French>Enable Encryption</French>
+                <Italian>Enable Encryption</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_EncryptionAlgorithm">
+                <Original>Encryption Algorithm</Original>
+                <English>Encryption Algorithm</English>
+                <German>Verschlüsselungsalorithmus</German>
+                <Chinesesimp>Encryption Algorithm</Chinesesimp>
+                <Russian>Encryption Algorithm</Russian>
+                <French>Encryption Algorithm</French>
+                <Italian>Encryption Algorithm</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_EncryptionKey">
+                <Original>Encryption Key</Original>
+                <English>Encryption Key</English>
+                <German>Verschlüsselungsschlüssel</German>
+                <Chinesesimp>Encryption Key</Chinesesimp>
+                <Russian>Encryption Key</Russian>
+                <French>Encryption Key</French>
+                <Italian>Encryption Key</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Caesar">
+                <Original>Caesar</Original>
+                <English>Caesar</English>
+                <German>Caesar</German>
+                <Chinesesimp>Caesar</Chinesesimp>
+                <Russian>Caesar</Russian>
+                <French>Caesar</French>
+                <Italian>Caesar</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Columnar">
+                <Original>Columnar</Original>
+                <English>Columnar</English>
+                <German>Columnar</German>
+                <Chinesesimp>Columnar</Chinesesimp>
+                <Russian>Columnar</Russian>
+                <French>Columnar</French>
+                <Italian>Columnar</Italian>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_ObjectClosed">
                 <Original>Object closed.</Original>
                 <English>Object closed.</English>
@@ -751,6 +796,15 @@
                 <Russian>'Owner' missing</Russian>
                 <French>'Owner' missing</French>
                 <Italian>'Owner' missing</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_KeyMissing">
+                <Original>'Key' missing</Original>
+                <English>'Key' missing</English>
+                <German>'Schlüssel' fehlt</German>
+                <Chinesesimp>'Key' missing</Chinesesimp>
+                <Russian>'Key' missing</Russian>
+                <French>'Key' missing</French>
+                <Italian>'Key' missing</Italian>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_PowerConnectionAdded">
                 <Original>AE3 Power Connection added</Original>

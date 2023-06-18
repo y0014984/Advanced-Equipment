@@ -650,7 +650,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
             colorBackground[] = {-1,-1,-1,0.5};
 
             onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['path', _newText];";
-            onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['path', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _username = _display getVariable ['username', '']; if ((_newText isEqualTo '') || (_username isEqualTo '')) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+            onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['path', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _username = _display getVariable ['username', '']; private _key = _display getVariable ['key', '']; if ((_newText isEqualTo '') || (_username isEqualTo '') || (_key isEqualTo '')) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
             // With release of Arma 3 2.14, the onEditChanged event handler is available
             //onEditChanged = "params ['_control', '_newText'];";
         };
@@ -726,12 +726,12 @@ class AE3_UserInterface_Zeus_Module_AddFile
             text = "root";
             x = 8 * GUI_GRID_W + GUI_GRID_X;
             y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
-            w = 31.5 * GUI_GRID_W;
+            w = 11 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
             colorBackground[] = {-1,-1,-1,0.5};
 
             onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['username', _newText];";
-            onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['username', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _path = _display getVariable ['path', '']; if ((_newText isEqualTo '') || (_path isEqualTo '')) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+            onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['username', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _path = _display getVariable ['path', '']; private _key = _display getVariable ['key', '']; if ((_newText isEqualTo '') || (_path isEqualTo '') || (_key isEqualTo '')) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
             // With release of Arma 3 2.14, the onEditChanged event handler is available
             //onEditChanged = "params ['_control', '_newText'];";
         };
@@ -923,6 +923,100 @@ class AE3_UserInterface_Zeus_Module_AddFile
             colorBackground[] = {-1,-1,-1,0.5};
 
             checked = 0;
+        };
+
+        class RscText_1014: RscText
+        {
+            idc = 1014;
+
+            text = "$STR_AE3_Main_Zeus_EnableEncryption";
+            x = 21 * GUI_GRID_W + GUI_GRID_X;
+            y = 15 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscCheckBox_1308: RscCheckBox
+        {
+            idc = 1308;
+            x = 29.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 15 * GUI_GRID_H + GUI_GRID_Y;
+            w = 1 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+
+            checked = 0;
+
+            onCheckedChanged = "params ['_control', '_checked']; private _display = ctrlParent _control; private _algorithmCtrl = _display getVariable ['algorithmCtrl', objNull]; private _keyCtrl = _display getVariable ['keyCtrl', objNull]; if (_checked == 1) then { _checked = true; } else { _checked = false; }; _algorithmCtrl ctrlEnable _checked; _keyCtrl ctrlEnable _checked;";
+        };
+
+        class RscText_1015: RscText
+        {
+            idc = 1015;
+
+            text = "$STR_AE3_Main_Zeus_EncryptionAlgorithm";
+            x = 21 * GUI_GRID_W + GUI_GRID_X;
+            y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscCombo_1501: RscCombo
+        {
+            idc = 1501;
+            x = 29.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 10 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+
+            class Items
+            {
+                class ItemPower
+                {
+                    text = "$STR_AE3_Main_Zeus_Caesar";
+                    default = 1;
+                };
+                class ItemNetwork
+                {
+                    text = "$STR_AE3_Main_Zeus_Columnar";
+                };
+            };
+
+            onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['algorithmCtrl', _control]; _control ctrlEnable false;";
+        };
+
+        class RscText_1016: RscText
+        {
+            idc = 1016;
+
+            text = "$STR_AE3_Main_Zeus_EncryptionKey";
+            x = 21 * GUI_GRID_W + GUI_GRID_X;
+            y = 18 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+        };
+
+        class RscEdit_1405: RscEdit
+        {
+            idc = 1405;
+            text = "13";
+            x = 29.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 18 * GUI_GRID_H + GUI_GRID_Y;
+            w = 10 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+
+            onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['keyCtrl', _control]; _control ctrlEnable false; private _key = ctrlText _control; _display setVariable ['key', _key];";
+            onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _key = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['key', _key]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _username = _display getVariable ['username', '']; private _path = _display getVariable ['path', '']; if ((_key isEqualTo '') || (_username isEqualTo '') || (_path isEqualTo '')) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+            // With release of Arma 3 2.14, the onEditChanged event handler is available
+            //onEditChanged = "params ['_control', '_newText'];";
         };
 
          class RscButtonMenuOK_2600: RscButtonMenuOK
