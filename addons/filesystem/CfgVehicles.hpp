@@ -35,7 +35,7 @@ class CfgVehicles
 		// Name of function triggered once conditions are met
 		function = "AE3_filesystem_fnc_module_addFile";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-		functionPriority = 1;
+		functionPriority = 3;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
 		isGlobal = 1;
 		// 1 for module waiting until all synced triggers are activated
@@ -236,7 +236,7 @@ class CfgVehicles
 		// Name of function triggered once conditions are met
 		function = "AE3_filesystem_fnc_module_addDir";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-		functionPriority = 1;
+		functionPriority = 2;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
 		isGlobal = 1;
 		// 1 for module waiting until all synced triggers are activated
