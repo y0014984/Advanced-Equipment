@@ -38,6 +38,7 @@ if(!(_username isEqualTo "root")) then
         if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
         {
             diag_log format ["AE3 exception: %1", _exception];
+            ["AE3 exception: %1", _exception] call BIS_fnc_error;
         }
         else
         {

@@ -2,6 +2,7 @@
  * PUBLIC
  *
  * Adds a file to a given Device. Device could be a comupter or a flash drive.
+ * Logs and displays an error message if file already exists; On other errors it throws an exception
  *
  * Arguments:
  * 1: Device <OBJECT>
@@ -15,7 +16,7 @@
  * 9: encryptionKey <STRING> Optional
  *
  * Results:
- * Logs if file already exists; On other errors it throws an exception
+ * none
  *
  * Examples:
  * [_device, "/tmp/new/example.txt", "Lorem ipsum dolor sit amet", false, "root", [[false, true, true], [false, true, true]]] call AE3_filesystem_fnc_device_addFile;
@@ -104,6 +105,7 @@ catch
     if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
     {
         diag_log format ["AE3 exception: %1", _exception];
+		["AE3 exception: %1", _exception] call BIS_fnc_error;
     }
     else
     {
