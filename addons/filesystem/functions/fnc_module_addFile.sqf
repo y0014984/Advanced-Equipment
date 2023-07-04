@@ -56,6 +56,6 @@ private _encryptionKey = _module getVariable "AE3_Module_AddFile_EncryptionKey";
 	{
 		[_x, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey] call AE3_filesystem_fnc_device_addFile;
 	} forEach _syncedObjects;
-};
 
-deleteVehicle _module;
+	deleteVehicle _module;
+};

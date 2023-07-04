@@ -35,8 +35,8 @@ if(!isServer) exitWith {};
 	{
 		[_x, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
 	} foreach _syncedUnits;
-};
 
-deleteVehicle _module;
+	deleteVehicle _module;
+};
 
 true;

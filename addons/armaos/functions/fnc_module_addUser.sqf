@@ -39,8 +39,8 @@ if (!isServer) exitWith {};
 		//--- Add user to every synced computer
 		[_x, _username, _password] call AE3_armaos_fnc_computer_addUser;
 	} foreach _syncedUnits;
-};
 
-deleteVehicle _module;
+	deleteVehicle _module;
+};
 
 true;

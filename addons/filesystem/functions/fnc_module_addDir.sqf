@@ -50,6 +50,6 @@ if(_path isEqualTo "") exitWith { deleteVehicle _module; };
 	{
 		[_x, _path, _owner, _permissions] call AE3_filesystem_fnc_device_addDir;
 	} forEach _syncedObjects;
-};
 
-deleteVehicle _module;
+	deleteVehicle _module;
+};

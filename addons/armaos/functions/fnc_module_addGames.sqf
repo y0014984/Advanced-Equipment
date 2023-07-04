@@ -34,8 +34,8 @@ if(!isServer) exitWith {};
 	{
 		[_x, _isSnake] call AE3_armaos_fnc_computer_addGames;
 	} foreach _syncedUnits;
-};
 
-deleteVehicle _module;
+	deleteVehicle _module;
+};
 
 true;
