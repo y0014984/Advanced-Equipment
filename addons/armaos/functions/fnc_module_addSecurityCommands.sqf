@@ -17,26 +17,29 @@
 
 params["_module", "_syncedUnits", "_activated"];
 
-// if triggered in zeus/curator mode, don't run; Could happen in hosted multiplayer
-if (!isNull curatorCamera) exitWith {};
+// ignore this function if module is placed by curator/zeus
+if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
 
 if(!isServer) exitWith {};
 
-[_module, _syncedUnits] spawn
+if (_activated) then 
 {
-	params["_module", "_syncedUnits"];
-
-	waitUntil { !isNil "BIS_fnc_init" };
-	
-	//--- Extract the user defined module arguments
-	private _isCrypto = _module getVariable ["AE3_ModuleAddSecurityCommands_IsCrypto", ""];
-	private _isCrack = _module getVariable ["AE3_ModuleAddSecurityCommands_IsCrack", ""];
-
+	[_module, _syncedUnits] spawn
 	{
-		[_x, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
-	} foreach _syncedUnits;
+		params["_module", "_syncedUnits"];
 
-	deleteVehicle _module;
+		waitUntil { !isNil "BIS_fnc_init" };
+		
+		//--- Extract the user defined module arguments
+		private _isCrypto = _module getVariable ["AE3_ModuleAddSecurityCommands_IsCrypto", ""];
+		private _isCrack = _module getVariable ["AE3_ModuleAddSecurityCommands_IsCrack", ""];
+
+		{
+			[_x, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
+		} foreach _syncedUnits;
+
+		deleteVehicle _module;
+	};
 };
 
 true;

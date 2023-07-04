@@ -20,11 +20,11 @@
 params ["_display", "_exitCode", "_event"];
 
 private _module = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];
-if (isNull _module) exitWith { hint "isNull"; };
+if (isNull _module) exitWith {};
 
 /* ---------------------------------------- */
 
-if (_event isEqualTo "onLoad") then
+if (_event isEqualTo "onLoad") exitWith
 {
     private _mouseOver = missionNamespace getVariable ["BIS_fnc_curatorObjectPlaced_mouseOver", [""]];
     _mouseOver params ["_mouseOverType", "_mouseOverUnit"];
@@ -61,7 +61,7 @@ if (_event isEqualTo "onLoad") then
 
 /* ---------------------------------------- */
 
-if (_event isEqualTo "onUnload") then
+if (_event isEqualTo "onUnload") exitWith
 {
     private _computer = _display getVariable ["AE3_linkedComputer", objNull];
     if ((isNull _computer) || (_exitCode == 2)) exitWith

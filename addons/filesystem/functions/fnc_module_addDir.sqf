@@ -17,39 +17,44 @@
 
 params ["_module", "_syncedUnits", "_activated"];
 
-// if triggered in zeus/curator mode, don't run; Could happen in hosted multiplayer
-if (!isNull curatorCamera) exitWith {};
+// ignore this function if module is placed by curator/zeus
+if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
 
 if(!isServer) exitWith {};
 
-private _syncedObjects = synchronizedObjects _module;
-
-private _path = _module getVariable ["AE3_Module_AddDir_Path", ""];
-private _owner = _module getVariable ["AE3_Module_AddDir_Owner", ""];
-private _permissions = [
-	[
-		_module getVariable "AE3_Module_AddDir_OwnerExecute",
-		_module getVariable "AE3_Module_AddDir_OwnerRead",
-		_module getVariable "AE3_Module_AddDir_OwnerWrite"
-	],
-	[
-		_module getVariable "AE3_Module_AddDir_EveryoneExecute",
-		_module getVariable "AE3_Module_AddDir_EveryoneRead",
-		_module getVariable "AE3_Module_AddDir_EveryoneWrite"
-	]
-];
-
-if(_path isEqualTo "") exitWith { deleteVehicle _module; };
-
-[_syncedObjects, _path, _owner, _permissions] spawn 
+if (_activated) then 
 {
-	params ["_syncedObjects", "_path", "_owner", "_permissions"];
+	private _syncedObjects = synchronizedObjects _module;
 
-	waitUntil { !isNil "BIS_fnc_init" };
+	private _path = _module getVariable ["AE3_Module_AddDir_Path", ""];
+	private _owner = _module getVariable ["AE3_Module_AddDir_Owner", ""];
+	private _permissions = [
+		[
+			_module getVariable "AE3_Module_AddDir_OwnerExecute",
+			_module getVariable "AE3_Module_AddDir_OwnerRead",
+			_module getVariable "AE3_Module_AddDir_OwnerWrite"
+		],
+		[
+			_module getVariable "AE3_Module_AddDir_EveryoneExecute",
+			_module getVariable "AE3_Module_AddDir_EveryoneRead",
+			_module getVariable "AE3_Module_AddDir_EveryoneWrite"
+		]
+	];
 
+	if(_path isEqualTo "") exitWith { deleteVehicle _module; };
+
+	[_module, _syncedObjects, _path, _owner, _permissions] spawn 
 	{
-		[_x, _path, _owner, _permissions] call AE3_filesystem_fnc_device_addDir;
-	} forEach _syncedObjects;
+		params ["_module", "_syncedObjects", "_path", "_owner", "_permissions"];
 
-	deleteVehicle _module;
+		waitUntil { !isNil "BIS_fnc_init" };
+
+		{
+			[_x, _path, _owner, _permissions] call AE3_filesystem_fnc_device_addDir;
+		} forEach _syncedObjects;
+
+		deleteVehicle _module;
+	};
 };
+
+true;
