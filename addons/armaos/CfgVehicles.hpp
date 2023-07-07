@@ -35,12 +35,6 @@ class CfgVehicles
 			};
 		};
 
-		// Event Handlers
-		class EventHandlers
-		{
-			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
-		};
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
@@ -169,12 +163,6 @@ class CfgVehicles
 			};
 		};
 
-		// Event Handlers
-		class EventHandlers
-		{
-			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
-		};
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
@@ -301,12 +289,6 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
-		};
-
-		// Event Handlers
-		class EventHandlers
-		{
-			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
 		};
 
 		class AE3_Equipment
