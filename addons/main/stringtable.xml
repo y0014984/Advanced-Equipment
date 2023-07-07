@@ -878,6 +878,15 @@
                 <French>No computer. Place module on computer.</French>
                 <Italian>No computer. Place module on computer.</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_ComputerInUse">
+                <Original>Computer currently in use.</Original>
+                <English>Computer currently in use.</English>
+                <German>Computer wird gerade verwendet.</German>
+                <Chinesesimp>Computer currently in use.</Chinesesimp>
+                <Russian>Computer currently in use.</Russian>
+                <French>Computer currently in use.</French>
+                <Italian>Computer currently in use.</Italian>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_NewBatteryLevel">
                 <Original>New Battery Level: %1%2</Original>
                 <English>New Battery Level: %1%2</English>

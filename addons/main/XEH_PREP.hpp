@@ -38,4 +38,6 @@ PREP(zeus_module_addFile);
 PREP(zeus_module_addDir);
 PREP(zeus_module_addConnection);
 
+PREP(zeus_checkForComputer);
+
 PREP(zeus_isConnectionAllowed);

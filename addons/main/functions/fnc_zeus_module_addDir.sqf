@@ -13,7 +13,7 @@
  * 3: Event <STRING>
  *
  * Results:
- * Visual Feedback in Zeus
+ * None
  *
  */
 
@@ -26,37 +26,19 @@ if (isNull _module) exitWith {};
 
 if (_event isEqualTo "onLoad") exitWith
 {
-    private _mouseOver = missionNamespace getVariable ["BIS_fnc_curatorObjectPlaced_mouseOver", [""]];
-    _mouseOver params ["_mouseOverType", "_mouseOverUnit"];
+    private _result = [_display] call AE3_main_fnc_zeus_checkForComputer;
+    _result params ["_status", "_computer"];
 
-    // check if module was placed on top of another object
-    if (_mouseOverType != "OBJECT") exitWith
+    if (_status isEqualTo "SUCCESS") then
     {
-        _display setVariable ["AE3_linkedComputer", objNull];
-
-        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
-
+        // add computer variable to display namespace
+        _display setVariable ["AE3_linkedComputer", _computer];
+    }
+    else
+    {
         // close display
         _display closeDisplay 2; // 2 = cancel
     };
-
-    // check if filesystem exists, which means that _mouseOverUnit is a computer
-    // ??? Is this also true for a USB Stick?
-    // TODO: Add a simple identifier to distinguish between device classes
-    private _computer = _mouseOverUnit;
-    private _filesystem = _computer getVariable ["AE3_filesystem", []];
-    if (_filesystem isEqualTo []) exitWith
-    {
-        _display setVariable ["AE3_linkedComputer", objNull];
-
-        [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
-
-        // close display
-        _display closeDisplay 2; // 2 = cancel
-    };
-
-    // add computer variable to display namespace
-    _display setVariable ["AE3_linkedComputer", _mouseOverUnit];
 };
 
 /* ---------------------------------------- */
@@ -96,7 +78,7 @@ if (_event isEqualTo "onUnload") exitWith
     if(_owner isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add directory to computer
-    [_computer, _path, _owner, _permissions] call AE3_filesystem_fnc_device_addDir;
+    [_computer, _path, _owner, _permissions] remoteExecCall ["AE3_filesystem_fnc_device_addDir", 2];
 
     private _message = format ["%1: %2", localize "STR_AE3_Main_Zeus_Path", _path];
     [localize "STR_AE3_Main_Zeus_DirectoryAdded", _message, 5] call BIS_fnc_curatorHint;
