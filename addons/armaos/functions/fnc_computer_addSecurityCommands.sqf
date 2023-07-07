@@ -2,6 +2,7 @@
  * PUBLIC
  *
  * Adds selected security commands to a given computer.
+ * Needs to run on server.
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -17,6 +18,8 @@
  */
 
 params ["_computer", "_isCrypto", "_isCrack"];
+
+if (!isServer) exitWith {};
 
 if (_isCrypto) then
 {

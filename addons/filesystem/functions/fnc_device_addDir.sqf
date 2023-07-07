@@ -3,6 +3,7 @@
  *
  * Adds a directory to a given Device. Device could be a comupter or a flash drive.
  * Logs and displays an error message if dir already exists; On other errors it throws an exception.
+ * Needs to run on server.
  *
  * Arguments:
  * 1: Device <OBJECT>
@@ -22,6 +23,8 @@
  */
 
 params ["_device", "_path", "_owner", "_permissions"];
+
+if (!isServer) exitWith {};
 
 private _filesystem = _device getVariable "AE3_filesystem";
 

@@ -2,6 +2,7 @@
  * PUBLIC
  *
  * Adds a user to a given computer by providing username and password. Also a user directory will be created.
+ * Needs to run on server.
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -17,6 +18,8 @@
  */
 
 params ["_computer", "_username", "_password"];
+
+if (!isServer) exitWith {};
 
 // Get userlist and filesystem from computer
 private _userlist = _computer getVariable ["AE3_Userlist", createHashMap];

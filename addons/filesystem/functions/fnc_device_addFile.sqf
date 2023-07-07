@@ -2,7 +2,8 @@
  * PUBLIC
  *
  * Adds a file to a given Device. Device could be a comupter or a flash drive.
- * Logs and displays an error message if file already exists; On other errors it throws an exception
+ * Logs and displays an error message if file already exists; On other errors it throws an exception.
+ * Needs to run on server.
  *
  * Arguments:
  * 1: Device <OBJECT>
@@ -28,6 +29,8 @@
  */
 
 params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", ["_isEncrypted", false], ["_encryptionAlgorithm", nil], ["_encryptionKey", nil]];
+
+if (!isServer) exitWith {};
 
 private _filesystem = _computer getVariable "AE3_filesystem";
 

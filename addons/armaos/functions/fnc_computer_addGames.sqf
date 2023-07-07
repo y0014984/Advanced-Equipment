@@ -2,6 +2,7 @@
  * PUBLIC
  *
  * Adds selected games to a given computer. Currently only Snake supported.
+ * Needs to run on server.
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -16,6 +17,8 @@
  */
 
 params ["_computer", "_isSnake"];
+
+if (!isServer) exitWith {};
 
 if (_isSnake) then
 {
