@@ -11,14 +11,14 @@
  * 3: Activated <BOOL> currently unused in this function
  *
  * Results:
- * None
+ * 1: Success <BOOL> true = success and false = error
  *
  */
 
 params["_module", "_syncedUnits", "_activated"];
 
 // ignore this function if module is placed by curator/zeus
-if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
+if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith { false; };
 
 if (!isServer) exitWith {};
 
@@ -34,8 +34,12 @@ if (_activated) then
 		private _username = _module getVariable ["AE3_ModuleUserlist_User", ""];
 		private _password = _module getVariable ["AE3_ModuleUserlist_Password", ""];
 
-		if ("_username" isEqualTo "") exitWith {};
-		if ("_password" isEqualTo "") exitWith {};
+		// check for empty username or password
+		if (_username isEqualTo "") exitWith { deleteVehicle _module; false; };
+		if (_password isEqualTo "") exitWith { deleteVehicle _module; false; };
+
+		// check for not allowed spaces in username
+		if((_username find " ") != -1) exitWith { deleteVehicle _module; false; };
 
 		{
 			//--- Add user to every synced computer

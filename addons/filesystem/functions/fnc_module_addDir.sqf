@@ -41,7 +41,13 @@ if (_activated) then
 		]
 	];
 
-	if(_path isEqualTo "") exitWith { deleteVehicle _module; };
+	// check for empty path, owner and encryption key
+	if (_path isEqualTo "") exitWith { deleteVehicle _module; false; };
+	if (_owner isEqualTo "") exitWith { deleteVehicle _module; false; };
+
+	// check for not allowed spaces in path and owner
+	if((_path find " ") != -1) exitWith { deleteVehicle _module; false; };
+	if((_owner find " ") != -1) exitWith { deleteVehicle _module; false; };
 
 	[_module, _syncedObjects, _path, _owner, _permissions] spawn 
 	{

@@ -64,6 +64,9 @@ if (_event isEqualTo "onUnload") exitWith
     if(_username isEqualTo "") exitWith { [objNull, "Username missing"] call BIS_fnc_showCuratorFeedbackMessage; };
     if(_password isEqualTo "") exitWith { [objNull, "Password missing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
+    // check for not allowed spaces in username
+    if((_username find " ") != -1) exitWith { [objNull, "Username contains forbidden spaces"] call BIS_fnc_showCuratorFeedbackMessage; };
+
     // add user to computer
     [_computer, _username, _password] remoteExecCall ["AE3_armaos_fnc_computer_addUser", 2];
 

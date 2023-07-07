@@ -42,12 +42,18 @@ if (_activated) then
 			_module getVariable "AE3_Module_AddFile_EveryoneWrite"
 		]
 	];
-
-	if(_path isEqualTo "") exitWith { deleteVehicle _module; };
-
 	private _isEncrypted = _module getVariable "AE3_Module_AddFile_IsEncrypted";
 	private _encryptionAlgorithm = _module getVariable "AE3_Module_AddFile_EncryptionAlgorithm";
 	private _encryptionKey = _module getVariable "AE3_Module_AddFile_EncryptionKey";
+
+	// check for empty path, owner and encryption key
+	if (_path isEqualTo "") exitWith { deleteVehicle _module; false; };
+	if (_owner isEqualTo "") exitWith { deleteVehicle _module; false; };
+	if (_encryptionKey isEqualTo "") exitWith { deleteVehicle _module; false; };
+
+	// check for not allowed spaces in path and owner
+	if((_path find " ") != -1) exitWith { deleteVehicle _module; false; };
+	if((_owner find " ") != -1) exitWith { deleteVehicle _module; false; };
 
 	[_module, _syncedObjects, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey] spawn 
 	{

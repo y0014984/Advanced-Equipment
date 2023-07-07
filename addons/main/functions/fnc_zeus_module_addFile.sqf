@@ -88,7 +88,11 @@ if (_event isEqualTo "onUnload") exitWith
     // but currently, this case will be catched by UI logic, defined directly in config
     if(_path isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_PathMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
     if(_owner isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
-    if(_owner isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_KeyMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_encryptionKey isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_KeyMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
+
+    // check for not allowed spaces in path and owner
+    if((_path find " ") != -1) exitWith { [objNull, "Path contains forbidden spaces"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if((_owner find " ") != -1) exitWith { [objNull, "Owner contains forbidden spaces"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add file to computer
     [_computer, _path, _content, _isCode, _owner, _permissions, _enableEncryption, _encryptionAlgorithm, _encryptionKey] remoteExecCall ["AE3_filesystem_fnc_device_addFile", 2];
