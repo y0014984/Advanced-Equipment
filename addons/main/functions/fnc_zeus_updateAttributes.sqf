@@ -48,7 +48,7 @@ if (_exitCode == 1) then
 
         _message = _message + format [localize "STR_AE3_Main_Zeus_NewBatteryLevel", _batteryLevelPercent, "%"];
 
-        [_battery, _batteryLevelPercent] call AE3_power_fnc_setBatteryLevel;
+        [_battery, _batteryLevelPercent] remoteExecCall ["AE3_power_fnc_setBatteryLevel", 2];
     };
 
     /* ======================================== */
