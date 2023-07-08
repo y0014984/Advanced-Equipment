@@ -78,8 +78,8 @@ if (_event isEqualTo "onUnload") exitWith
     if(_owner isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // check for not allowed spaces in path and owner
-    if((_path find " ") != -1) exitWith { [objNull, "Path contains forbidden spaces"] call BIS_fnc_showCuratorFeedbackMessage; };
-    if((_owner find " ") != -1) exitWith { [objNull, "Owner contains forbidden spaces"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if((_path find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_PathContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if((_owner find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add directory to computer
     [_computer, _path, _owner, _permissions] remoteExecCall ["AE3_filesystem_fnc_device_addDir", 2];

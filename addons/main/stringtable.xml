@@ -806,6 +806,51 @@
                 <French>'Key' missing</French>
                 <Italian>'Key' missing</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_UsernameMissing">
+                <Original>'Username' missing</Original>
+                <English>'Username' missing</English>
+                <German>'Benutzname' fehlt</German>
+                <Chinesesimp>'Username' missing</Chinesesimp>
+                <Russian>'Username' missing</Russian>
+                <French>'Username' missing</French>
+                <Italian>'Username' missing</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_PasswordMissing">
+                <Original>'Password' missing</Original>
+                <English>'Password' missing</English>
+                <German>'Passwort' fehlt</German>
+                <Chinesesimp>'Password' missing</Chinesesimp>
+                <Russian>'Password' missing</Russian>
+                <French>'Password' missing</French>
+                <Italian>'Password' missing</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_PathContainsSpaces">
+                <Original>'Path' contains forbidden spaces</Original>
+                <English>'Path' contains forbidden spaces</English>
+                <German>'Pfad' enthält verbotene Leerzeichen</German>
+                <Chinesesimp>'Path' contains forbidden spaces</Chinesesimp>
+                <Russian>'Path' contains forbidden spaces</Russian>
+                <French>'Path' contains forbidden spaces</French>
+                <Italian>'Path' contains forbidden spaces</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_UsernameContainsSpaces">
+                <Original>'Username' contains forbidden spaces</Original>
+                <English>'Username' contains forbidden spaces</English>
+                <German>'Benutzername' enthält verbotene Leerzeichen</German>
+                <Chinesesimp>'Username' contains forbidden spaces</Chinesesimp>
+                <Russian>'Username' contains forbidden spaces</Russian>
+                <French>'Username' contains forbidden spaces</French>
+                <Italian>'Username' contains forbidden spaces</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_OwnerContainsSpaces">
+                <Original>'Owner' contains forbidden spaces</Original>
+                <English>'Owner' contains forbidden spaces</English>
+                <German>'Besitzer' enthält verbotene Leerzeichen</German>
+                <Chinesesimp>'Owner' contains forbidden spaces</Chinesesimp>
+                <Russian>'Owner' contains forbidden spaces</Russian>
+                <French>'Owner' contains forbidden spaces</French>
+                <Italian>'Owner' contains forbidden spaces</Italian>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_PowerConnectionAdded">
                 <Original>AE3 Power Connection added</Original>
                 <English>AE3 Power Connection added</English>

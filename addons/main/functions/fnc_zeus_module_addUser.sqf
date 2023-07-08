@@ -61,11 +61,11 @@ if (_event isEqualTo "onUnload") exitWith
     // check for empty but mandatory input fields
     // module is still there an could be opened and filled in with valid input
     // but currently, this case will be catched by UI logic, defined directly in config
-    if(_username isEqualTo "") exitWith { [objNull, "Username missing"] call BIS_fnc_showCuratorFeedbackMessage; };
-    if(_password isEqualTo "") exitWith { [objNull, "Password missing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_username isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_UsernameMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if(_password isEqualTo "") exitWith { [objNull, localize "STR_AE3_Main_Zeus_PasswordMissing"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // check for not allowed spaces in username
-    if((_username find " ") != -1) exitWith { [objNull, "Username contains forbidden spaces"] call BIS_fnc_showCuratorFeedbackMessage; };
+    if((_username find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_UsernameContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
 
     // add user to computer
     [_computer, _username, _password] remoteExecCall ["AE3_armaos_fnc_computer_addUser", 2];
