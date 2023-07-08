@@ -30,7 +30,7 @@ if (isNull _entity) exitWith {};
     private _counter = 0;
 
     // weit for asset init to finish
-    waitUntil { !isNil { _entity getVariable "AE3_power_hasInternal" }; };
+    waitUntil { !isNil { _entity getVariable "AE3_power_initDone" }; };
 
     /* ======================================== */
 
@@ -113,6 +113,10 @@ if (isNull _entity) exitWith {};
     // if asset has battery, init battery level controls
     if (!isNil { _battery getVariable "AE3_power_batteryCapacity" }) then
     {
+        // enable controls
+        _batteryLevelSliderCtrl ctrlEnable true;
+        _batteryLevelCtrl ctrlEnable true;
+
         private _result = [_battery] call AE3_power_fnc_getBatteryLevel;
         _result params ["_batteryLevel", "_batteryLevelPercent", "_batteryCapacity"];
         
@@ -120,12 +124,6 @@ if (isNull _entity) exitWith {};
 
         _batteryLevelSliderCtrl sliderSetPosition _batteryLevelPercent;
         _batteryLevelCtrl ctrlSetText format ['%1%2', _batteryLevelPercent, '%'];
-    }
-    else
-    {
-        // disable controls
-        _batteryLevelSliderCtrl ctrlEnable false;
-        _batteryLevelCtrl ctrlEnable false;
     };
 
     /* ======================================== */
@@ -133,6 +131,10 @@ if (isNull _entity) exitWith {};
     // if asset has fuel, init fuel level controls
     if (!isNil { _generator getVariable "AE3_power_fuelCapacity" }) then
     {
+        // enable controls
+        _fuelLevelSliderCtrl ctrlEnable true;
+        _fuelLevelCtrl ctrlEnable true;
+
         private _result = [_generator] call AE3_power_fnc_getFuelLevel;
         _result params ["_fuelLevel", "_fuelLevelPercent", "_fuelCapacity"];
 
@@ -140,12 +142,6 @@ if (isNull _entity) exitWith {};
 
         _fuelLevelSliderCtrl sliderSetPosition _fuelLevelPercent;
         _fuelLevelCtrl ctrlSetText format ['%1%2', _fuelLevelPercent, '%'];
-    }
-    else
-    {
-        // disable controls
-        _fuelLevelSliderCtrl ctrlEnable false;
-        _fuelLevelCtrl ctrlEnable false;
     };
 
     /* ======================================== */
