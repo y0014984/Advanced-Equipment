@@ -31,7 +31,7 @@ if (_activated) then
 		waitUntil { !isNil "BIS_fnc_init" };
 
 		//--- Extract the user defined module arguments
-		private _isSnake = _module getVariable ["AE3_ModuleAddSecurityCommands_IsSnake", ""];
+		private _isSnake = _module getVariable ["AE3_ModuleAddGames_IsSnake", ""];
 
 		{
 			[_x, _isSnake] call AE3_armaos_fnc_computer_addGames;
