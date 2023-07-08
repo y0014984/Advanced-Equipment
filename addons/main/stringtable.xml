@@ -618,13 +618,13 @@
                 <Italian>Switch</Italian>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_ObjectStatus">
-                <Original>Object Status</Original>
-                <English>Object Status</English>
-                <German>Status Gegenstand</German>
-                <Chinesesimp>Object Status</Chinesesimp>
-                <Russian>Object Status</Russian>
-                <French>Object Status</French>
-                <Italian>Object Status</Italian>
+                <Original>Object Status (Click on text and use up/down arrow keys to scroll)</Original>
+                <English>Object Status (Click on text and use up/down arrow keys to scroll)</English>
+                <German>Status Gegenstand (Klicke auf den text und benutze die hoch/runter Pfeiltasten zum scrollen)</German>
+                <Chinesesimp>Object Status (Click on text and use up/down arrow keys to scroll)</Chinesesimp>
+                <Russian>Object Status (Click on text and use up/down arrow keys to scroll)</Russian>
+                <French>Object Status (Click on text and use up/down arrow keys to scroll)</French>
+                <Italian>Object Status (Click on text and use up/down arrow keys to scroll)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_EnableEncryption">
                 <Original>Enable Encryption</Original>
@@ -951,13 +951,22 @@
                 <Italian>New Fuel Level: %1%2</Italian>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_ObjectHeader">
-                <Original>AE3 Object: %1 - Class name: %2</Original>
-                <English>AE3 Object: %1 - Class name: %2</English>
-                <German>AE3 Gegenstand: %1 - Klassenname: %2</German>
-                <Chinesesimp>AE3 Object: %1 - Class name: %2</Chinesesimp>
-                <Russian>AE3 Object: %1 - Class name: %2</Russian>
-                <French>AE3 Object: %1 - Class name: %2</French>
-                <Italian>AE3 Object: %1 - Class name: %2</Italian>
+                <Original>AE3 Object: %1</Original>
+                <English>AE3 Object: %1</English>
+                <German>AE3 Gegenstand: %1</German>
+                <Chinesesimp>AE3 Object: %1</Chinesesimp>
+                <Russian>AE3 Object: %1</Russian>
+                <French>AE3 Object: %1</French>
+                <Italian>AE3 Object: %1</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ClassName">
+                <Original>Class name: %1</Original>
+                <English>Class name: %1</English>
+                <German>Klassenname: %1</German>
+                <Chinesesimp>Class name: %1</Chinesesimp>
+                <Russian>Class name: %1</Russian>
+                <French>Class name: %1</French>
+                <Italian>Class name: %1</Italian>
             </Key>
         </Container>        
     </Package>

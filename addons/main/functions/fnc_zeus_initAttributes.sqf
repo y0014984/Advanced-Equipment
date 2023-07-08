@@ -29,16 +29,17 @@ if (isNull _entity) exitWith {};
 
     private _counter = 0;
 
-    // weit for asset init to finish
+    // wait for asset init to finish
     waitUntil { !isNil { _entity getVariable "AE3_power_initDone" }; };
 
     /* ======================================== */
 
     private _headlineCtrl = _display displayCtrl 1000;
-	private _class = (typeOf _entity);
-	private _config = configFile >> "CfgVehicles" >> _class;
-	private _displayName = getText (_config >> "displayName");
-	_headlineCtrl ctrlSetText format [localize "STR_AE3_Main_Zeus_ObjectHeader", _displayName, _class];
+
+	//private _config = configFile >> "CfgVehicles" >> (typeOf _entity);
+    //private _displayName = getText (_config >> "displayName");
+    private _displayName = [_entity, true] call ace_cargo_fnc_getNameItem;
+	_headlineCtrl ctrlSetText format [localize "STR_AE3_Main_Zeus_ObjectHeader", _displayName];
 
     /* ======================================== */
 
@@ -53,6 +54,10 @@ if (isNull _entity) exitWith {};
 
             _status pushBack localize "STR_AE3_Main_Zeus_ObjectStatus";
             _status pushBack "------------";
+
+            // Class Name
+            private _className = typeOf _entity;
+            _status pushBack (format [localize "STR_AE3_Main_Zeus_ClassName", _className]);
 
             // Power State
             private _powerState = [_entity] call AE3_power_fnc_getPowerState;
