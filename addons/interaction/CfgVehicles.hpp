@@ -206,6 +206,12 @@ class CfgVehicles
 				powerConsumption = 0.025/3600; // 25 Watts (1x 25 Watts)
 			};
 		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+		};
 	};
 
 	/* ================================================================================ */
@@ -296,6 +302,12 @@ class CfgVehicles
 			{
 				powerConsumption = 0.025/3600; // 25 Watts (1x 25 Watts)
 			};
+		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -388,6 +400,12 @@ class CfgVehicles
 				powerConsumption = 0.025/3600; // 25 Watts (1x 25 Watts)
 			};
 		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+		};
 	};
 
 	/* ================================================================================ */
@@ -478,6 +496,12 @@ class CfgVehicles
 			{
 				powerConsumption = 0.025/3600; // 25 Watts (1x 25 Watts)
 			};
+		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -603,6 +627,12 @@ class CfgVehicles
 				powerConsumption = 0.05/3600; // 50 Watts (2x 25 Watts)
 			};
 		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+		};
 	};
 
 	/* ================================================================================ */
@@ -726,6 +756,12 @@ class CfgVehicles
 			{
 				powerConsumption = 0.05/3600; // 50 Watts (2x 25 Watts)
 			};
+		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -851,6 +887,12 @@ class CfgVehicles
 				powerConsumption = 0.05/3600; // 50 Watts (2x 25 Watts)
 			};
 		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+		};
 	};
 
 	/* ================================================================================ */
@@ -974,6 +1016,12 @@ class CfgVehicles
 			{
 				powerConsumption = 0.05/3600; // 50 Watts (2x 25 Watts)
 			};
+		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1165,6 +1213,12 @@ class CfgVehicles
 				powerConsumption = 0.1/3600; // 100 Watts (4x 25 Watts)
 			};
 		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+		};
 	};
 
 	/* ================================================================================ */
@@ -1354,6 +1408,12 @@ class CfgVehicles
 			{
 				powerConsumption = 0.1/3600; // 100 Watts (4x 25 Watts)
 			};
+		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1545,6 +1605,12 @@ class CfgVehicles
 				powerConsumption = 0.1/3600; // 100 Watts (4x 25 Watts)
 			};
 		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+		};
 	};
 
 	/* ================================================================================ */
@@ -1734,6 +1800,12 @@ class CfgVehicles
 			{
 				powerConsumption = 0.1/3600; // 100 Watts (4x 25 Watts)
 			};
+		};
+
+		// Workaround: The CBA XEH Class Event Handler does not work for this class
+		class EventHandlers
+		{
+			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
 		};
 	};
 
