@@ -89,6 +89,7 @@ Adds generator functionality to the device
 
 Name                 | Type        | Desciption                                                 | Location
 ----                 | -----       | -----------                                                | -------
+isDevice             | bool        | if the device has a power config                           | public
 initDone             | bool        | is set when device is completely initialized               | public
 mutex                | bool        | if the device is currently changes its power state         | public
 powerState           | int         | `1` if turned on, `0` if turned off `2` if on standby      | public

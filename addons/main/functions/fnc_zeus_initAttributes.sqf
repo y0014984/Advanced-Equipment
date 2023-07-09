@@ -29,9 +29,6 @@ if (isNull _entity) exitWith {};
 
     private _counter = 0;
 
-    // wait for asset init to finish
-    waitUntil { !isNil { _entity getVariable "AE3_power_initDone" }; };
-
     /* ======================================== */
 
     private _headlineCtrl = _display displayCtrl 1000;
@@ -40,6 +37,15 @@ if (isNull _entity) exitWith {};
     //private _displayName = getText (_config >> "displayName");
     private _displayName = [_entity, true] call ace_cargo_fnc_getNameItem;
 	_headlineCtrl ctrlSetText format [localize "STR_AE3_Main_Zeus_ObjectHeader", _displayName];
+
+    waitUntil { !isNil { _entity getVariable "AE3_power_isDevice" }; };
+    private _isPowerDevice = _entity getVariable ["AE3_power_isDevice", false];
+
+    // This could be the case for the desk
+    if (!_isPowerDevice) exitWith {};
+
+    // wait for asset init to finish
+    waitUntil { !isNil { _entity getVariable "AE3_power_initDone" }; };
 
     /* ======================================== */
 

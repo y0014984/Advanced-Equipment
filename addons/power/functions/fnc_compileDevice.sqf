@@ -41,7 +41,11 @@ if(isNil {missionNamespace getVariable _class_name}) then
 
 private _config = missionNamespace getVariable _class_name;
 
-if(_config isEqualType "") exitWith {};
+// if no power/device config found then exit and set status accordingly
+if(_config isEqualType "") exitWith { if (isServer) then { _entity setVariable ["AE3_power_isDevice", false, true]; }; };
+
+// it seems that there is a AE3_Device config, therefore this is a power device
+if (isServer) then { _entity setVariable ["AE3_power_isDevice", true, true]; };
 
 // ================================================================================
 // Save all objects in an array, so debug mode can access them
