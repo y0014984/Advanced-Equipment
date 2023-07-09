@@ -14,6 +14,6 @@
  *
  */
 
-params['_entity'];
+params ["_entity"];
 
 [_entity] call AE3_network_fnc_removeNetworkConnection;
