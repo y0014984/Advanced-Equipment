@@ -1,5 +1,7 @@
 /**
  * Returns the battery level of the given device. Optional displays hint.
+ * This function will check if it's executed in scheduled or unscheduled mode.
+ * if executed in unscheduled mode, the result could be outdated.
  *
  * Arguments:
  * 0: Device <OBJECT>
@@ -13,37 +15,76 @@
 
 params ["_entity", ["_hint", false]];
 
-// Update local copy of server var
-[_entity, _hint] spawn
+/* ================================================================================ */
+
+private _calcFnc =
 {
-    params ["_entity", "_hint"];
+    params ["_entity"];
+
+    private _batteryLevel = _entity getVariable "AE3_power_batteryLevel";
+    private _batteryCapacity = _entity getVariable "AE3_power_batteryCapacity";
+    private _batteryLevelPercent = (_batteryLevel / _batteryCapacity) * 100;
+
+    // Wh
+    _batteryLevel = _batteryLevel * 1000;
+    _batteryCapacity = _batteryCapacity * 1000;
+
+    [_batteryLevel, _batteryLevelPercent, _batteryCapacity]
+};
+
+/* ================================================================================ */
+
+private _hintFnc =
+{
+    params ["_batteryLevel", "_batteryLevelPercent", "_batteryCapacity"];
+
+    _batteryLevel = [_batteryLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+    _batteryLevelPercent = [_batteryLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
+    _batteryCapacity = [_batteryCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234 and 123
+
+    hint format [localize "STR_AE3_Power_Interaction_BatteryLevelHint", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];
+};
+
+/* ================================================================================ */
+
+if (canSuspend && !_hint) exitWith
+{
+    [_entity, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar;
+
+    [_entity] call _calcFnc;
+};
+
+/* ================================================================================ */
+
+if (canSuspend && _hint) exitWith
+{
+    [_entity, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar;
     
-    [_entity, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar; 
+    private _result = [_entity] call _calcFnc;
 
-    if (_hint) then
+    _result call _hintFnc;
+};
+/* ================================================================================ */
+
+if (!canSuspend && _hint) exitWith
+{
+    // Update local copy of server var
+    [_entity, _hint, _calcFnc, _hintFnc] spawn
     {
-        private _batteryLevel = _entity getVariable "AE3_power_batteryLevel";
-        private _batteryCapacity = _entity getVariable "AE3_power_batteryCapacity";
-        private _batteryLevelPercent = (_batteryLevel / _batteryCapacity) * 100;
+        params ["_entity", "_hint", "_calcFnc", "_hintFnc"];
+        
+        [_entity, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar; 
 
-        // Wh
-        _batteryLevel = _batteryLevel * 1000;
-        _batteryCapacity = _batteryCapacity * 1000;
+        private _result = [_entity] call _calcFnc;
 
-        _batteryLevel = [_batteryLevel, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
-        _batteryLevelPercent = [_batteryLevelPercent, 1, 1, true] call CBA_fnc_formatNumber; // 1,234.5 and 123.4
-        _batteryCapacity = [_batteryCapacity, 1, 0, true] call CBA_fnc_formatNumber; // 1,234 and 123
-
-        hint format [localize "STR_AE3_Power_Interaction_BatteryLevelHint", _batteryLevel, _batteryLevelPercent, "%", _batteryCapacity];
+        _result call _hintFnc;
     };
 };
 
-private _batteryLevel = _entity getVariable "AE3_power_batteryLevel";
-private _batteryCapacity = _entity getVariable "AE3_power_batteryCapacity";
-private _batteryLevelPercent = (_batteryLevel / _batteryCapacity) * 100;
+/* ================================================================================ */
 
-// Wh
-_batteryLevel = _batteryLevel * 1000;
-_batteryCapacity = _batteryCapacity * 1000;
+[_entity] call _calcFnc;
 
-[_batteryLevel, _batteryLevelPercent, _batteryCapacity]
+/* ================================================================================ */
+
+
