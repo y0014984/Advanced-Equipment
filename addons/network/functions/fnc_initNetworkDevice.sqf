@@ -38,7 +38,7 @@ private _connect = ["AE3_Network_ConnectAction", localize "STR_AE3_Network_Inter
 			{
 				params ["_target", "_player", "_params"]; 
 				_params params ["_device"]; 
-				(alive _target) and (isNull (_device getVariable "AE3_network_parent"))
+				(alive _target) and (isNull (_device getVariable ["AE3_network_parent", objNull]))
 			},
 			_childs,
 			[_entity]
@@ -53,7 +53,7 @@ private _disconnect = ["AE3_Network_DisconnectAction", localize "STR_AE3_Network
 				{
 					params ["_target", "_player", "_params"]; 
 					_params params ["_device"];
-					(alive _target) and (!isNull (_device getVariable "AE3_network_parent"))
+					(alive _target) and (!isNull (_device getVariable ["AE3_network_parent", objNull]))
 				},
 				{},
 				[_entity]
