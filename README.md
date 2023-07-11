@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://github.com/y0014984/Advanced-Equipment/releases/latest">
-        <img src="https://img.shields.io/badge/Version-0.5.2-blue.svg?style=flat-square" alt="Advanced Equipment Version">
+        <img src="https://img.shields.io/badge/Version-0.5.3-blue.svg?style=flat-square" alt="Advanced Equipment Version">
     </a>
     <a href="https://www.bistudio.com/community/licenses/arma-public-license-share-alike">
         <img src="https://img.shields.io/badge/License-APL%20SA-red.svg?style=flat-square" alt="Advanced Equipment License">
@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-    <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA A3</a> and <a href="https://github.com/acemod/ACE3/releases">ACE3</a> for server and client.<br/></strong></sup>
+    <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA_A3</a> and <a href="https://github.com/acemod/ACE3/releases">ACE3</a> for server and client.<br/></strong></sup>
 </p>
 
 **Advanced Equipment** is a mod for Arma 3, that is still under development. I wanted to create a mod, that allows you to really use a lot of the vanilla equipment like laptops and lamps.
@@ -21,35 +21,37 @@ This project is entirely **open-source** and all contributions are welcome. Feel
 
 ## Features
 
-- Power Management (Power Consumption, Batteries, Sun Collectors, Generators)
+- Power Management (Power Consumption, Batteries, Sun Collectors, Generators, Connections)
 - Interaction (Turn On/Off/Standby/Adjust/Use things like Laptops and Lamps, Put in Inventory)
-- armaOS (Unique Terminal-like interface for computers; multiple designs)
-- Filesystem Managment (Files, Folders and Programs on Computers and USB-Sticks)
+- armaOS (Unique Terminal-like interface for computers; multiple designs, User Management)
+- Filesystem Managment (Files, Folders and Programs on Computers and USB-Sticks, incl. Permissions)
 - Network Management (only basics implemented yet)
 - Logistics (Fold and unfold objects, move them around, put them into vehicles)
-- 3DEN Modules (Easy Mission Making)
-- Localization (English, German, French, Russian, Simplified Chinese)
+- 3DEN Modules (Easy Mission Making by adding Connections, Files, Directories, Users, Commands and Games)
+- Zeus Support (Modules, Connections, Settings, Functions)
+- "UI on texture" for armaOS computers (every player sees the live screen)
+- Localization (English, German, French, Italian, Russian, Simplified Chinese)
 
 ## Wiki
-See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional information on how to use Advanced Equipment. 
+
+See <a href="https://github.com/y0014984/Advanced-Equipment/wiki">Wiki pages</a> for additional information on how to use Advanced Equipment.
 
 ## Installation
 
-Download the latest versions of Advanced Equipment, CBA_A3 and ACE. Unpack these mods in your Arma 3 and Arma 3 server installation folders.
+Download the latest versions of Advanced Equipment, CBA_A3 and ACE3. Unpack these mods in your Arma 3 and Arma 3 server installation folders.
 Simply launch Arma 3 with `-mod=@CBA_A3;@ace;@AE3`. You can also get this mod on <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=2888888564">Steam Workshop</a>.
 
 ## Known Issues
 
-* This mod is still under development and isn't recommended for productive use right now.
-* No Zeus support at the moment.
+- This mod is still under development and isn't recommended for productive use right now.
 
 ## Contact and Contribution
 
-If you want to contribute or have any questions, simply join my [Discord](https://discord.com/invite/JMmxXEx) We are always searching for contributors that help us on translations.
+If you want to contribute or have any questions, simply join my [Discord](https://discord.com/invite/JMmxXEx) We are always searching for contributors that help us with modelling, coding and translations.
 
 ## AE3 Developer Report
 
-See our <a href="https://www.youtube.com/watch?v=pfM_eAQinmY&list=PLbrLObIILp9NzNUi-QtDtAwV5UEnYMfO_">AE3-DEVREP</a> Developer Video Blog for letest changes, bugfixes and new features.
+See our <a href="https://www.youtube.com/watch?v=pfM_eAQinmY&list=PLbrLObIILp9NzNUi-QtDtAwV5UEnYMfO_">AE3-DEVREP</a> Developer Video Blog for latest changes, bugfixes and new features.
 
 ## License
 

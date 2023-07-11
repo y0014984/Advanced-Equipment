@@ -6,4 +6,5 @@
 #define VERSION MAJOR.MINOR.PATCH.BUILD
 #define VERSION_AR MAJOR,MINOR,PATCH,BUILD
 
-#define REQUIRED_VERSION 1.88
+// UI on Texture feature comes with Arma 3 v2.12
+#define REQUIRED_VERSION 2.12
