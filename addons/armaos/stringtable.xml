@@ -78,7 +78,7 @@
                 <Original>The key-method can not be used with the caesar cipher</Original>
                 <English>The key-method can not be used with the caesar cipher</English>
                 <German>Die Schlüssel-Methode ist für die Cäsar Chiffre nicht verfügbar</German>
-                <Chinesesimp>The key-method can not be used with the caesar cipher</Chinesesimp>
+                <Chinesesimp>密钥方法不能与凯撒密码一起使用</Chinesesimp>
                 <Russian>The key-method can not be used with the caesar cipher</Russian>
                 <French>The key-method can not be used with the caesar cipher</French>
             </Key>
@@ -86,23 +86,23 @@
                 <Original>The Columnar Transposition Cipher needs a key with at least 2 characters</Original>
                 <English>The Columnar Transposition Cipher needs a key with at least 2 characters</English>
                 <German>Die Spaltentranspositions Chiffre benötigt einen Schlüssel der mindestens 2 Zeichen enthält</German>
-                <Chinesesimp>The Columnar Transposition Cipher needs a key with at least 2 characters</Chinesesimp>
+                <Chinesesimp>列移位密码的密钥需要包含至少2个字符</Chinesesimp>
                 <Russian>The Columnar Transposition Cipher needs a key with at least 2 characters</Russian>
-                <French>The Columnar Transposition Cipher needs a key with at least 2 characters</French>                
+                <French>The Columnar Transposition Cipher needs a key with at least 2 characters</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherLengthOfKeyAndMessageDoNotMatch">
                 <Original>The lengths of key and message do not match a complete transposition</Original>
                 <English>The lengths of key and message do not match a complete transposition</English>
                 <German>Die Längen von Schlüssel und Nachricht stimmen nicht mit einer vollständigen Transposition überein</German>
-                <Chinesesimp>The lengths of key and message do not match a complete transposition</Chinesesimp>
+                <Chinesesimp>秘钥和信息的长度不匹配完全变位</Chinesesimp>
                 <Russian>The lengths of key and message do not match a complete transposition</Russian>
-                <French>The lengths of key and message do not match a complete transposition</French>                 
+                <French>The lengths of key and message do not match a complete transposition</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherStatisticsCrackNotAvailable">
                 <Original>The statistics-method can not be used with the columnar cipher</Original>
                 <English>The statistics-method can not be used with the columnar cipher</English>
                 <German>Die Statistik-Methode ist für die Spaltentransposition nicht verfügbar</German>
-                <Chinesesimp>The statistics-method can not be used with the columnar cipher</Chinesesimp>
+                <Chinesesimp>统计法不能与列移位密码一起使用</Chinesesimp>
                 <Russian>The statistics-method can not be used with the columnar cipher</Russian>
                 <French>The statistics-method can not be used with the columnar cipher</French>
             </Key>
@@ -110,7 +110,7 @@
                 <Original>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Original>
                 <English>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</English>
                 <German>Die Nachricht is %1 Zeichen lang. Da %1 eine Primzahl ist, kann die Nachricht nicht durch eine komplette Spaltentransposition verschlüsselt worden sein</German>
-                <Chinesesimp>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Chinesesimp>
+                <Chinesesimp>信息的长度是 %1 个字符.且由于 %1 是素数,所以消息没有通过完全列移位进行加密</Chinesesimp>
                 <Russian>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Russian>
                 <French>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</French>
             </Key>
@@ -577,7 +577,8 @@
                 <Chinesesimp>贪吃蛇 - 使用参数 --big 使区块大小翻倍</Chinesesimp>
                 <Russian>Retro Snake Game - use option --big for doubled block size</Russian>
                 <French>Jeu Rétro Snake - utilisez l'option --big pour doubler la taille des blocs</French>
-                <Italian>Retro Snake Game - usa opzione --grande per dimensione blocco doppia  </Key>
+                <Italian>Retro Snake Game - usa opzione --grande per dimensione blocco doppia</Italian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandManDescr">
                 <Original>Prints usage information about a command.</Original>
                 <English>Prints usage information about a command.</English>
@@ -1394,7 +1395,7 @@
                 <Original>UI on texture</Original>
                 <English>UI on texture</English>
                 <German>UI auf Textur</German>
-                <Chinesesimp>UI on texture</Chinesesimp>
+                <Chinesesimp>贴图UI</Chinesesimp>
                 <Russian>UI on texture</Russian>
                 <French>UI on texture</French>
                 <Italian>UI on texture</Italian>
@@ -1403,7 +1404,7 @@
                 <Original>If enabled, surrounding players can see the armaOS interface on the computers texture.</Original>
                 <English>If enabled, surrounding players can see the armaOS interface on the computers texture.</English>
                 <German>Wenn aktiviert, können Spieler in der Nähe das armaOS Interface auf der Textur des Computers sehen.</German>
-                <Chinesesimp>If enabled, surrounding players can see the armaOS interface on the computers texture.</Chinesesimp>
+                <Chinesesimp>启用后周围玩家可以在电脑贴图上看到armaOS的界面.</Chinesesimp>
                 <Russian>If enabled, surrounding players can see the armaOS interface on the computers texture.</Russian>
                 <French>If enabled, surrounding players can see the armaOS interface on the computers texture.</French>
                 <Italian>If enabled, surrounding players can see the armaOS interface on the computers texture.</Italian>
