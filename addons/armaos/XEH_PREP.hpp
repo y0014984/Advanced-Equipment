@@ -110,7 +110,7 @@ PREP(terminal_getAllowedKeysFR);
 PREP(terminal_getAllowedKeysIT);
 PREP(terminal_getAllowedKeysUS);
 PREP(terminal_getHeaderText);
-PREP(terminal_updateBufferVisable);
+PREP(terminal_updateBufferVisible);
 PREP(terminal_updatePromptPointer);
 PREP(terminal_addToHistory);
 PREP(terminal_setKeyboardLayout);

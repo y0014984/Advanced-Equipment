@@ -22,7 +22,7 @@ terminalApplication          | string            | Terminal mode ("LOGIN" | "PAS
 terminalPrompt               | string            | contains the current terminal prompt
 terminalInputBuffer          | string            |
 terminalBuffer               | array             |
-terminalBufferVisable        | array             |
+terminalBufferVisible        | array             |
 terminalCursorLine           | int               |
 terminalCursorPosition       | int               |
 terminalScrollPosition       | int               |

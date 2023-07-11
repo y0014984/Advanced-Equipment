@@ -39,10 +39,10 @@ _handle =
 
                 private _terminal = _computer getVariable "AE3_terminal";
 
-                private _terminalBufferVisable = _terminal get "AE3_terminalBufferVisable";
+                private _terminalBufferVisible = _terminal get "AE3_terminalBufferVisible";
                 private _size = _terminal get "AE3_terminalSize";
 
-                [_computer, _terminalBufferVisable, _size, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
+                [_computer, _terminalBufferVisible, _size, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
             };
         }, 
         _updateInterval, 

@@ -1,6 +1,6 @@
 /**
- * Updates/sets the visable buffer variable in the terminal settings of a given computer by cropping
- * the full terminal buffer to the visable size with respect of eventually scrolling position changes.
+ * Updates/sets the visible buffer variable in the terminal settings of a given computer by cropping
+ * the full terminal buffer to the visible size with respect of eventually scrolling position changes.
  *
  * Arguments:
  * 1: Computer <OBJECT>
@@ -32,26 +32,26 @@ private _terminalScrollPosition = _terminal get "AE3_terminalScrollPosition";
 
 
 // + to preserve reference and force copy
-private _terminalRenderedBufferVisable = +_terminalRenderedBuffer;
+private _terminalRenderedBufferVisible = +_terminalRenderedBuffer;
 private _buffer = +_terminalBuffer;
 
-// ENHANCEMENT: add block sign (needs new or modified font) instead of ¶ sign to the end of the _terminalRenderedBufferVisable
-private _lastBufferVisableLineIndex = (count _buffer) - 1;
-private _lastBufferVisableLine = _buffer # (_lastBufferVisableLineIndex);
+// ENHANCEMENT: add block sign (needs new or modified font) instead of ¶ sign to the end of the _terminalRenderedBufferVisible
+private _lastBufferVisibleLineIndex = (count _buffer) - 1;
+private _lastBufferVisibleLine = _buffer # (_lastBufferVisibleLineIndex);
 
 if (_terminalApplication isEqualTo "PASSWORD") then
 {
-	_lastBufferVisableLine pushBack ((_terminalInputBuffer select 0) regexReplace [".", "*"]) + "¶" + ((_terminalInputBuffer select 1) regexReplace [".", "*"]);
+	_lastBufferVisibleLine pushBack ((_terminalInputBuffer select 0) regexReplace [".", "*"]) + "¶" + ((_terminalInputBuffer select 1) regexReplace [".", "*"]);
 }else
 {
-	_lastBufferVisableLine pushBack (_terminalInputBuffer select 0) + "¶" + (_terminalInputBuffer select 1);
+	_lastBufferVisibleLine pushBack (_terminalInputBuffer select 0) + "¶" + (_terminalInputBuffer select 1);
 };
 
-_terminalRenderedBufferVisable set [_lastBufferVisableLineIndex, [_computer, _lastBufferVisableLine] call AE3_armaos_fnc_terminal_renderLine];
+_terminalRenderedBufferVisible set [_lastBufferVisibleLineIndex, [_computer, _lastBufferVisibleLine] call AE3_armaos_fnc_terminal_renderLine];
 
 // Flatten rendered buffer
-private _terminalBufferVisable = flatten _terminalRenderedBufferVisable;
-private _terminalRenderedBufferLength = count _terminalBufferVisable;
+private _terminalBufferVisible = flatten _terminalRenderedBufferVisible;
+private _terminalRenderedBufferLength = count _terminalBufferVisible;
 
 if (_terminalScrollPosition > (_terminalRenderedBufferLength - _terminalMaxRows)) then
 {
@@ -68,9 +68,9 @@ if (_terminalScrollPosition < 0) then
 
 if (_terminalRenderedBufferLength > _terminalMaxRows) then
 {
-	_terminalBufferVisable = _terminalBufferVisable select [(_terminalRenderedBufferLength - _terminalMaxRows) - _terminalScrollPosition, _terminalMaxRows];
+	_terminalBufferVisible = _terminalBufferVisible select [(_terminalRenderedBufferLength - _terminalMaxRows) - _terminalScrollPosition, _terminalMaxRows];
 };
 
-_terminal set ["AE3_terminalBufferVisable", _terminalBufferVisable];
+_terminal set ["AE3_terminalBufferVisible", _terminalBufferVisible];
 
 _computer setVariable ["AE3_terminal", _terminal];

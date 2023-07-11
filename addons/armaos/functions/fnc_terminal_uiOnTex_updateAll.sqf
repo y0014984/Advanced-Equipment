@@ -3,7 +3,7 @@
  *
  * Arguments:
  * 1: Computer <OBJECT>
- * 2: Terminal Buffer Visable <ARRAY>
+ * 2: Terminal Buffer Visible <ARRAY>
  * 3: Size <NUMBER>
  * 4: Keyboard Layout <STRING>
  * 5: Background Color Header <COLOR>
@@ -17,7 +17,7 @@
  */
 
 
-params ["_computer", "_terminalBufferVisable", "_size", "_terminalKeyboardLayout", "_bgColorHeader", "_bgColorConsole", "_fontColorHeader", "_fontColorConsole", "_value"];
+params ["_computer", "_terminalBufferVisible", "_size", "_terminalKeyboardLayout", "_bgColorHeader", "_bgColorConsole", "_fontColorHeader", "_fontColorConsole", "_value"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
@@ -69,7 +69,7 @@ private _output = [];
 	private _buffer = composeText [_x, lineBreak];
 	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
 	_output pushBack _buffer;
-} forEach _terminalBufferVisable;
+} forEach _terminalBufferVisible;
 
 _uiOnTextureOutputCtrl ctrlSetStructuredText (composeText _output);
 
