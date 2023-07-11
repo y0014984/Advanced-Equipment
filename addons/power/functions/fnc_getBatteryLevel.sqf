@@ -2,6 +2,9 @@
  * Returns the battery level of the given device. Optional displays hint.
  * This function will check if it's executed in scheduled or unscheduled mode.
  * if executed in unscheduled mode, the result could be outdated.
+ * The given entity must be a battery. If you want to check an entity with an internal
+ * battery, like the laptop, you need to pass the object of the internal battery
+ * to this function instead of laptop itself.
  *
  * Arguments:
  * 0: Device <OBJECT>
@@ -47,23 +50,15 @@ private _hintFnc =
 
 /* ================================================================================ */
 
-if (canSuspend && !_hint) exitWith
+if (canSuspend) exitWith
 {
     [_entity, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar;
 
-    [_entity] call _calcFnc;
-};
-
-/* ================================================================================ */
-
-if (canSuspend && _hint) exitWith
-{
-    [_entity, "AE3_power_batteryLevel"] call AE3_main_fnc_getRemoteVar;
-    
     private _result = [_entity] call _calcFnc;
 
-    _result call _hintFnc;
+    if (_hint) then { _result call _hintFnc; } else { _result; };
 };
+
 /* ================================================================================ */
 
 if (!canSuspend && _hint) exitWith
