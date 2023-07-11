@@ -24,7 +24,7 @@
                 <Original>Advanced Equipment Objects (AE3)</Original>
                 <English>Advanced Equipment Objects (AE3)</English>
                 <German>Advanced Equipment Gegenstände (AE3)</German>
-                <Chinesesimp>Advanced Equipment Objects (AE3)</Chinesesimp>
+                <Chinesesimp>Advanced Equipment 对象 (AE3)</Chinesesimp>
                 <Russian>Advanced Equipment Objects (AE3)</Russian>
                 <French>Advanced Equipment Objects (AE3)</French>
                 <Italian>Advanced Equipment Objects (AE3)</Italian>
@@ -42,7 +42,7 @@
                 <Original>AE3 main Modules</Original>
                 <English>AE3 main Modules</English>
                 <German>AE3 allgemeine Module</German>
-                <Chinesesimp>AE3 main Modules</Chinesesimp>
+                <Chinesesimp>AE3 主模块</Chinesesimp>
                 <Russian>AE3 main Modules</Russian>
                 <French>AE3 main Modules</French>
                 <Italian>AE3 main Modules</Italian>
@@ -51,7 +51,7 @@
                 <Original>AE3 filesystem Modules</Original>
                 <English>AE3 filesystem Modules</English>
                 <German>AE3 allgemeine Module</German>
-                <Chinesesimp>AE3 filesystem Modules</Chinesesimp>
+                <Chinesesimp>AE3 文件系统模块</Chinesesimp>
                 <Russian>AE3 filesystem Modules</Russian>
                 <French>AE3 filesystem Modules</French>
                 <Italian>AE3 filesystem Modules</Italian>
@@ -259,7 +259,7 @@
                 <Original>AE3 Add Connection</Original>
                 <English>AE3 Add Connection</English>
                 <German>AE3 Verbindung hinzufügen</German>
-                <Chinesesimp>AE3 Add Connection</Chinesesimp>
+                <Chinesesimp>AE3 添加连接</Chinesesimp>
                 <Russian>AE3 Add Connection</Russian>
                 <French>AE3 Add Connection</French>
                 <Italian>AE3 Add Connection</Italian>
@@ -268,7 +268,7 @@
                 <Original>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Original>
                 <English>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</English>
                 <German>Dieses Modul ermöglicht dir eine Strom- oder Netzwerkverbindung zwischen zwei Geräten herzustellen. Synchronisiere zwei Geräte mit diesem Modul, stelle Richtung und Verbindungstyp ein und drücke 'OK'.</German>
-                <Chinesesimp>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Chinesesimp>
+                <Chinesesimp>此模块允许您在两个设备之间添加电源或网络连接,将两个设备同步到此模块，设置方向和连接类型,然后按"确定".</Chinesesimp>
                 <Russian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Russian>
                 <French>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</French>
                 <Italian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Italian>
@@ -279,7 +279,7 @@
                 <Original>AE3 Object Details</Original>
                 <English>AE3 Object Details</English>
                 <German>AE3 Gegenstandsdetails</German>
-                <Chinesesimp>AE3 Object Details</Chinesesimp>
+                <Chinesesimp>AE3 对象细节</Chinesesimp>
                 <Russian>AE3 Object Details</Russian>
                 <French>AE3 Object Details</French>
                 <Italian>AE3 Object Details</Italian>
@@ -396,7 +396,7 @@
                 <Original>AE3 Add Connection</Original>
                 <English>AE3 Add Connection</English>
                 <German>AE3 Verbindung hinzufügen</German>
-                <Chinesesimp>AE3 Add Connection</Chinesesimp>
+                <Chinesesimp>AE3 添加连接</Chinesesimp>
                 <Russian>AE3 Add Connection</Russian>
                 <French>AE3 Add Connection</French>
                 <Italian>AE3 Add Connection</Italian>
@@ -450,7 +450,7 @@
                 <Original>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Original>
                 <English>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</English>
                 <German>Dieses Modul ermöglicht dir eine Strom- oder Netzwerkverbindung zwischen zwei Geräten herzustellen. Synchronisiere zwei Geräte mit diesem Modul, stelle Richtung und Verbindungstyp ein und drücke 'OK'.</German>
-                <Chinesesimp>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Chinesesimp>
+                <Chinesesimp>此模块允许您在两个设备之间添加电源或网络连接,将两个设备同步到此模块，设置方向和连接类型,然后按"确定".</Chinesesimp>
                 <Russian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Russian>
                 <French>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</French>
                 <Italian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Italian>
@@ -522,7 +522,7 @@
                 <Original>Permissions</Original>
                 <English>Permissions</English>
                 <German>Zugriffsrechte</German>
-                <Chinesesimp>Permissions</Chinesesimp>
+                <Chinesesimp>权限</Chinesesimp>
                 <Russian>Permissions</Russian>
                 <French>Permissions</French>
                 <Italian>Permissions</Italian>
@@ -531,7 +531,7 @@
                 <Original>Owner</Original>
                 <English>Owner</English>
                 <German>Besitzer</German>
-                <Chinesesimp>Owner</Chinesesimp>
+                <Chinesesimp>所有者</Chinesesimp>
                 <Russian>Owner</Russian>
                 <French>Owner</French>
                 <Italian>Owner</Italian>
@@ -540,7 +540,7 @@
                 <Original>Everyone</Original>
                 <English>Everyone</English>
                 <German>Jeder</German>
-                <Chinesesimp>Everyone</Chinesesimp>
+                <Chinesesimp>所有人</Chinesesimp>
                 <Russian>Everyone</Russian>
                 <French>Everyone</French>
                 <Italian>Everyone</Italian>
@@ -585,7 +585,7 @@
                 <Original>Connection Type</Original>
                 <English>Connection Type</English>
                 <German>Verbindungstyp</German>
-                <Chinesesimp>Connection Type</Chinesesimp>
+                <Chinesesimp>连接类型</Chinesesimp>
                 <Russian>Connection Type</Russian>
                 <French>Connection Type</French>
                 <Italian>Connection Type</Italian>
@@ -594,7 +594,7 @@
                 <Original>Power</Original>
                 <English>Power</English>
                 <German>Strom</German>
-                <Chinesesimp>Power</Chinesesimp>
+                <Chinesesimp>电源</Chinesesimp>
                 <Russian>Power</Russian>
                 <French>Power</French>
                 <Italian>Power</Italian>
@@ -603,7 +603,7 @@
                 <Original>Network</Original>
                 <English>Network</English>
                 <German>Netzwerk</German>
-                <Chinesesimp>Network</Chinesesimp>
+                <Chinesesimp>网络</Chinesesimp>
                 <Russian>Network</Russian>
                 <French>Network</French>
                 <Italian>Network</Italian>
@@ -612,7 +612,7 @@
                 <Original>Switch</Original>
                 <English>Switch</English>
                 <German>Tauschen</German>
-                <Chinesesimp>Switch</Chinesesimp>
+                <Chinesesimp>开关</Chinesesimp>
                 <Russian>Switch</Russian>
                 <French>Switch</French>
                 <Italian>Switch</Italian>
@@ -621,7 +621,7 @@
                 <Original>Object Status (Click on text and use up/down arrow keys to scroll)</Original>
                 <English>Object Status (Click on text and use up/down arrow keys to scroll)</English>
                 <German>Status Gegenstand (Klicke auf den text und benutze die hoch/runter Pfeiltasten zum scrollen)</German>
-                <Chinesesimp>Object Status (Click on text and use up/down arrow keys to scroll)</Chinesesimp>
+                <Chinesesimp>对象状态 (单击文本并使用上/下箭头键滚动)</Chinesesimp>
                 <Russian>Object Status (Click on text and use up/down arrow keys to scroll)</Russian>
                 <French>Object Status (Click on text and use up/down arrow keys to scroll)</French>
                 <Italian>Object Status (Click on text and use up/down arrow keys to scroll)</Italian>
@@ -630,7 +630,7 @@
                 <Original>Enable Encryption</Original>
                 <English>Enable Encryption</English>
                 <German>Aktiviere Verschlüsselung</German>
-                <Chinesesimp>Enable Encryption</Chinesesimp>
+                <Chinesesimp>启用加密</Chinesesimp>
                 <Russian>Enable Encryption</Russian>
                 <French>Enable Encryption</French>
                 <Italian>Enable Encryption</Italian>
@@ -639,7 +639,7 @@
                 <Original>Encryption Algorithm</Original>
                 <English>Encryption Algorithm</English>
                 <German>Verschlüsselungsalorithmus</German>
-                <Chinesesimp>Encryption Algorithm</Chinesesimp>
+                <Chinesesimp>加密算法</Chinesesimp>
                 <Russian>Encryption Algorithm</Russian>
                 <French>Encryption Algorithm</French>
                 <Italian>Encryption Algorithm</Italian>
@@ -648,7 +648,7 @@
                 <Original>Encryption Key</Original>
                 <English>Encryption Key</English>
                 <German>Verschlüsselungsschlüssel</German>
-                <Chinesesimp>Encryption Key</Chinesesimp>
+                <Chinesesimp>密钥</Chinesesimp>
                 <Russian>Encryption Key</Russian>
                 <French>Encryption Key</French>
                 <Italian>Encryption Key</Italian>
@@ -657,7 +657,7 @@
                 <Original>Caesar</Original>
                 <English>Caesar</English>
                 <German>Caesar</German>
-                <Chinesesimp>Caesar</Chinesesimp>
+                <Chinesesimp>凯撒</Chinesesimp>
                 <Russian>Caesar</Russian>
                 <French>Caesar</French>
                 <Italian>Caesar</Italian>
@@ -666,7 +666,7 @@
                 <Original>Columnar</Original>
                 <English>Columnar</English>
                 <German>Columnar</German>
-                <Chinesesimp>Columnar</Chinesesimp>
+                <Chinesesimp>列移位</Chinesesimp>
                 <Russian>Columnar</Russian>
                 <French>Columnar</French>
                 <Italian>Columnar</Italian>
@@ -675,7 +675,7 @@
                 <Original>Object closed.</Original>
                 <English>Object closed.</English>
                 <German>Gegenstand geschlossen.</German>
-                <Chinesesimp>Object closed.</Chinesesimp>
+                <Chinesesimp>对象已关闭.</Chinesesimp>
                 <Russian>Object closed.</Russian>
                 <French>Object closed.</French>
                 <Italian>Object closed.</Italian>
@@ -684,7 +684,7 @@
                 <Original>Object opened.</Original>
                 <English>Object opened.</English>
                 <German>Gegenstand geöffnet.</German>
-                <Chinesesimp>Object opened.</Chinesesimp>
+                <Chinesesimp>对象已开启.</Chinesesimp>
                 <Russian>Object opened.</Russian>
                 <French>Object opened.</French>
                 <Italian>Object opened.</Italian>
@@ -693,7 +693,7 @@
                 <Original>Can't close object.</Original>
                 <English>Can't close object.</English>
                 <German>Kann Gegenstand nicht schließen.</German>
-                <Chinesesimp>Can't close object.</Chinesesimp>
+                <Chinesesimp>不能关闭对象.</Chinesesimp>
                 <Russian>Can't close object.</Russian>
                 <French>Can't close object.</French>
                 <Italian>Can't close object.</Italian>
@@ -702,7 +702,7 @@
                 <Original>Can't open object.</Original>
                 <English>Can't open object.</English>
                 <German>Kann Gegenstand nicht öffnen.</German>
-                <Chinesesimp>Can't open object.</Chinesesimp>
+                <Chinesesimp>不能打开对象.</Chinesesimp>
                 <Russian>Can't open object.</Russian>
                 <French>Can't open object.</French>
                 <Italian>Can't open object.</Italian>
@@ -711,7 +711,7 @@
                 <Original>Device put into standby mode.</Original>
                 <English>Device put into standby mode.</English>
                 <German>Gerät in den Ruhezustand versetzt.</German>
-                <Chinesesimp>Device put into standby mode.</Chinesesimp>
+                <Chinesesimp>设备进入待机模式.</Chinesesimp>
                 <Russian>Device put into standby mode.</Russian>
                 <French>Device put into standby mode.</French>
                 <Italian>Device put into standby mode.</Italian>
@@ -720,7 +720,7 @@
                 <Original>Device turned off.</Original>
                 <English>Device turned off.</English>
                 <German>Gerät ausgeschaltet.</German>
-                <Chinesesimp>Device turned off.</Chinesesimp>
+                <Chinesesimp>关闭设备.</Chinesesimp>
                 <Russian>Device turned off.</Russian>
                 <French>Device turned off.</French>
                 <Italian>Device turned off.</Italian>
@@ -729,7 +729,7 @@
                 <Original>Device turned on.</Original>
                 <English>Device turned on.</English>
                 <German>Gerät eingeschaltet.</German>
-                <Chinesesimp>Device turned on.</Chinesesimp>
+                <Chinesesimp>打开设备.</Chinesesimp>
                 <Russian>Device turned on.</Russian>
                 <French>Device turned on.</French>
                 <Italian>Device turned on.</Italian>
@@ -738,7 +738,7 @@
                 <Original>Device cannot be put into standby mode.</Original>
                 <English>Device cannot be put into standby mode.</English>
                 <German>Gerät kann nicht in den Ruhezustand versetzt werden.</German>
-                <Chinesesimp>Device cannot be put into standby mode.</Chinesesimp>
+                <Chinesesimp>设备不能进入待机模式.</Chinesesimp>
                 <Russian>Device cannot be put into standby mode.</Russian>
                 <French>Device cannot be put into standby mode.</French>
                 <Italian>Device cannot be put into standby mode.</Italian>
@@ -747,7 +747,7 @@
                 <Original>Can't turn off device.</Original>
                 <English>Can't turn off device.</English>
                 <German>Gerät kann nicht ausgeschaltet werden.</German>
-                <Chinesesimp>Can't turn off device.</Chinesesimp>
+                <Chinesesimp>不能关闭设备.</Chinesesimp>
                 <Russian>Can't turn off device.</Russian>
                 <French>Can't turn off device.</French>
                 <Italian>Can't turn off device.</Italian>
@@ -756,7 +756,7 @@
                 <Original>Can't turn on device.</Original>
                 <English>Can't turn on device.</English>
                 <German>Gerät kann nicht eingeschaltet werden.</German>
-                <Chinesesimp>Can't turn on device.</Chinesesimp>
+                <Chinesesimp>不能打开设备.</Chinesesimp>
                 <Russian>Can't turn on device.</Russian>
                 <French>Can't turn on device.</French>
                 <Italian>Can't turn on device.</Italian>
@@ -765,7 +765,7 @@
                 <Original>'From' missing</Original>
                 <English>'From' missing</English>
                 <German>'Von' fehlt</German>
-                <Chinesesimp>'From' missing</Chinesesimp>
+                <Chinesesimp>缺少 'From'</Chinesesimp>
                 <Russian>'From' missing</Russian>
                 <French>'From' missing</French>
                 <Italian>'From' missing</Italian>
@@ -774,7 +774,7 @@
                 <Original>'To' missing</Original>
                 <English>'To' missing</English>
                 <German>'Nach' fehlt</German>
-                <Chinesesimp>'To' missing</Chinesesimp>
+                <Chinesesimp>缺少 'To' </Chinesesimp>
                 <Russian>'To' missing</Russian>
                 <French>'To' missing</French>
                 <Italian>'To' missing</Italian>
@@ -783,7 +783,7 @@
                 <Original>'Path' missing</Original>
                 <English>'Path' missing</English>
                 <German>'Pfad' fehlt</German>
-                <Chinesesimp>'Path' missing</Chinesesimp>
+                <Chinesesimp>缺少 'Path' </Chinesesimp>
                 <Russian>'Path' missing</Russian>
                 <French>'Path' missing</French>
                 <Italian>'Path' missing</Italian>
@@ -792,7 +792,7 @@
                 <Original>'Owner' missing</Original>
                 <English>'Owner' missing</English>
                 <German>'Besitzer' fehlt</German>
-                <Chinesesimp>'Owner' missing</Chinesesimp>
+                <Chinesesimp>缺少 'Owner'</Chinesesimp>
                 <Russian>'Owner' missing</Russian>
                 <French>'Owner' missing</French>
                 <Italian>'Owner' missing</Italian>
@@ -801,7 +801,7 @@
                 <Original>'Key' missing</Original>
                 <English>'Key' missing</English>
                 <German>'Schlüssel' fehlt</German>
-                <Chinesesimp>'Key' missing</Chinesesimp>
+                <Chinesesimp>缺少 'Key'</Chinesesimp>
                 <Russian>'Key' missing</Russian>
                 <French>'Key' missing</French>
                 <Italian>'Key' missing</Italian>
@@ -810,7 +810,7 @@
                 <Original>'Username' missing</Original>
                 <English>'Username' missing</English>
                 <German>'Benutzname' fehlt</German>
-                <Chinesesimp>'Username' missing</Chinesesimp>
+                <Chinesesimp>缺少 'Username' </Chinesesimp>
                 <Russian>'Username' missing</Russian>
                 <French>'Username' missing</French>
                 <Italian>'Username' missing</Italian>
@@ -819,7 +819,7 @@
                 <Original>'Password' missing</Original>
                 <English>'Password' missing</English>
                 <German>'Passwort' fehlt</German>
-                <Chinesesimp>'Password' missing</Chinesesimp>
+                <Chinesesimp>缺少 'Password'</Chinesesimp>
                 <Russian>'Password' missing</Russian>
                 <French>'Password' missing</French>
                 <Italian>'Password' missing</Italian>
@@ -828,7 +828,7 @@
                 <Original>'Path' contains forbidden spaces</Original>
                 <English>'Path' contains forbidden spaces</English>
                 <German>'Pfad' enthält verbotene Leerzeichen</German>
-                <Chinesesimp>'Path' contains forbidden spaces</Chinesesimp>
+                <Chinesesimp>'Path' 包含非法的空格</Chinesesimp>
                 <Russian>'Path' contains forbidden spaces</Russian>
                 <French>'Path' contains forbidden spaces</French>
                 <Italian>'Path' contains forbidden spaces</Italian>
@@ -837,7 +837,7 @@
                 <Original>'Username' contains forbidden spaces</Original>
                 <English>'Username' contains forbidden spaces</English>
                 <German>'Benutzername' enthält verbotene Leerzeichen</German>
-                <Chinesesimp>'Username' contains forbidden spaces</Chinesesimp>
+                <Chinesesimp>'Username' 包含非法的空格</Chinesesimp>
                 <Russian>'Username' contains forbidden spaces</Russian>
                 <French>'Username' contains forbidden spaces</French>
                 <Italian>'Username' contains forbidden spaces</Italian>
@@ -846,7 +846,7 @@
                 <Original>'Owner' contains forbidden spaces</Original>
                 <English>'Owner' contains forbidden spaces</English>
                 <German>'Besitzer' enthält verbotene Leerzeichen</German>
-                <Chinesesimp>'Owner' contains forbidden spaces</Chinesesimp>
+                <Chinesesimp>'Owner' 包含非法的空格</Chinesesimp>
                 <Russian>'Owner' contains forbidden spaces</Russian>
                 <French>'Owner' contains forbidden spaces</French>
                 <Italian>'Owner' contains forbidden spaces</Italian>
@@ -855,7 +855,7 @@
                 <Original>AE3 Power Connection added</Original>
                 <English>AE3 Power Connection added</English>
                 <German>AE3 Stromverbindung hinzugefügt</German>
-                <Chinesesimp>AE3 Power Connection added</Chinesesimp>
+                <Chinesesimp>AE3 电力连接已添加</Chinesesimp>
                 <Russian>AE3 Power Connection added</Russian>
                 <French>AE3 Power Connection added</French>
                 <Italian>AE3 Power Connection added</Italian>
@@ -864,7 +864,7 @@
                 <Original>AE3 Network Connection added</Original>
                 <English>AE3 Network Connection added</English>
                 <German>AE3 Netzwerkverbindung hinzugefügt</German>
-                <Chinesesimp>AE3 Network Connection added</Chinesesimp>
+                <Chinesesimp>AE3 网络连接已添加</Chinesesimp>
                 <Russian>AE3 Network Connection added</Russian>
                 <French>AE3 Network Connection added</French>
                 <Italian>AE3 Network Connection added</Italian>
@@ -873,7 +873,7 @@
                 <Original>AE3 Directory added</Original>
                 <English>AE3 Directory added</English>
                 <German>AE3 Verzeichnis hinzugefügt</German>
-                <Chinesesimp>AE3 Directory added</Chinesesimp>
+                <Chinesesimp>AE3 目录已添加</Chinesesimp>
                 <Russian>AE3 Directory added</Russian>
                 <French>AE3 Directory added</French>
                 <Italian>AE3 Directory added</Italian>
@@ -882,7 +882,7 @@
                 <Original>AE3 File added</Original>
                 <English>AE3 File added</English>
                 <German>AE3 Datei hinzugefügt</German>
-                <Chinesesimp>AE3 File added</Chinesesimp>
+                <Chinesesimp>AE3 文件已添加</Chinesesimp>
                 <Russian>AE3 File added</Russian>
                 <French>AE3 File added</French>
                 <Italian>AE3 File added</Italian>
@@ -891,7 +891,7 @@
                 <Original>AE3 Games added</Original>
                 <English>AE3 Games added</English>
                 <German>AE3 Spiele hinzugefügt</German>
-                <Chinesesimp>AE3 Games added</Chinesesimp>
+                <Chinesesimp>AE3 游戏已添加</Chinesesimp>
                 <Russian>AE3 Games added</Russian>
                 <French>AE3 Games added</French>
                 <Italian>AE3 Games added</Italian>
@@ -900,7 +900,7 @@
                 <Original>AE3 Security Commands added</Original>
                 <English>AE3 Security Commands added</English>
                 <German>AE3 Spiele hinzugefügt</German>
-                <Chinesesimp>AE3 Security Commands added</Chinesesimp>
+                <Chinesesimp>AE3 安全命令已添加</Chinesesimp>
                 <Russian>AE3 Security Commands added</Russian>
                 <French>AE3 Security Commands added</French>
                 <Italian>AE3 Security Commands added</Italian>
@@ -909,7 +909,7 @@
                 <Original>AE3 User added</Original>
                 <English>AE3 User added</English>
                 <German>AE3 Benutzer hinzugefügt</German>
-                <Chinesesimp>AE3 User added</Chinesesimp>
+                <Chinesesimp>AE3 用户已添加</Chinesesimp>
                 <Russian>AE3 User added</Russian>
                 <French>AE3 User added</French>
                 <Italian>AE3 User added</Italian>
@@ -918,7 +918,7 @@
                 <Original>No computer. Place module on computer.</Original>
                 <English>No computer. Place module on computer.</English>
                 <German>Kein Computer. Setze das Mobul auf einen Computer.</German>
-                <Chinesesimp>No computer. Place module on computer.</Chinesesimp>
+                <Chinesesimp>没有电脑.请将模块放置在电脑上.</Chinesesimp>
                 <Russian>No computer. Place module on computer.</Russian>
                 <French>No computer. Place module on computer.</French>
                 <Italian>No computer. Place module on computer.</Italian>
@@ -927,7 +927,7 @@
                 <Original>Computer currently in use.</Original>
                 <English>Computer currently in use.</English>
                 <German>Computer wird gerade verwendet.</German>
-                <Chinesesimp>Computer currently in use.</Chinesesimp>
+                <Chinesesimp>当前正在使用计算机.</Chinesesimp>
                 <Russian>Computer currently in use.</Russian>
                 <French>Computer currently in use.</French>
                 <Italian>Computer currently in use.</Italian>
@@ -936,7 +936,7 @@
                 <Original>New Battery Level: %1%2</Original>
                 <English>New Battery Level: %1%2</English>
                 <German>Neuer Batterieladestand: %1%2</German>
-                <Chinesesimp>New Battery Level: %1%2</Chinesesimp>
+                <Chinesesimp>新电量: %1%2</Chinesesimp>
                 <Russian>New Battery Level: %1%2</Russian>
                 <French>New Battery Level: %1%2</French>
                 <Italian>New Battery Level: %1%2</Italian>
@@ -945,7 +945,7 @@
                 <Original>New Fuel Level: %1%2</Original>
                 <English>New Fuel Level: %1%2</English>
                 <German>Neuer Treibstofffüllstand: %1%2</German>
-                <Chinesesimp>New Fuel Level: %1%2</Chinesesimp>
+                <Chinesesimp>新油量: %1%2</Chinesesimp>
                 <Russian>New Fuel Level: %1%2</Russian>
                 <French>New Fuel Level: %1%2</French>
                 <Italian>New Fuel Level: %1%2</Italian>
@@ -954,7 +954,7 @@
                 <Original>AE3 Object: %1</Original>
                 <English>AE3 Object: %1</English>
                 <German>AE3 Gegenstand: %1</German>
-                <Chinesesimp>AE3 Object: %1</Chinesesimp>
+                <Chinesesimp>AE3 独享: %1</Chinesesimp>
                 <Russian>AE3 Object: %1</Russian>
                 <French>AE3 Object: %1</French>
                 <Italian>AE3 Object: %1</Italian>
@@ -963,11 +963,11 @@
                 <Original>Class name: %1</Original>
                 <English>Class name: %1</English>
                 <German>Klassenname: %1</German>
-                <Chinesesimp>Class name: %1</Chinesesimp>
+                <Chinesesimp>类名: %1</Chinesesimp>
                 <Russian>Class name: %1</Russian>
                 <French>Class name: %1</French>
                 <Italian>Class name: %1</Italian>
             </Key>
-        </Container>        
+        </Container>
     </Package>
 </Project>
