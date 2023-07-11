@@ -10,15 +10,15 @@
  *
  */
 
- params['_entity'];
+ params ["_entity"];
 
 {
 
-	_x setVariable ['AE3_network_address', [_entity] call AE3_network_fnc_dhcp_get, true];
+	_x setVariable ["AE3_network_address", [_entity] call AE3_network_fnc_dhcp_get, true];
 
-	if(!isNil {_x getVariable 'AE3_network_childern'}) then
+	if(!isNil {_x getVariable "AE3_network_children"}) then
 	{
 		[_x] call AE3_network_fnc_dhcp_refresh;
 	};
 
-} forEach (_entity getVariable 'AE3_network_children');
+} forEach (_entity getVariable ["AE3_network_children", []]);

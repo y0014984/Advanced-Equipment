@@ -5,7 +5,12 @@ class CfgPatches
     class ADDON
 	{
         name = QUOTE(COMPONENT);
-        units[] = {};
+        units[] = 
+        {
+            "Land_Router_01_olive_F_AE3",
+            "Land_Router_01_black_F_AE3",
+            "Land_Router_01_sand_F_AE3"
+        };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main", "ae3_main"};

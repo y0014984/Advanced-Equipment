@@ -9,29 +9,29 @@
  * None
  */
 
-params['_router', '_parent'];
+params ["_router", "_parent"];
 
-if (!isNull (_router getVariable 'AE3_network_parent')) then
+if (!isNull (_router getVariable ["AE3_network_parent", objNull])) then
 {
 	[_router] call AE3_network_fnc_disconnect;
 };
 
-_router setVariable ['AE3_network_parent', _parent, true];
+_router setVariable ["AE3_network_parent", _parent, true];
 
-private _children = _parent getVariable 'AE3_network_children';
-_parent setVariable ['AE3_network_children', _children + [_router], true];
+private _children = _parent getVariable ["AE3_network_children", []];
+_parent setVariable ["AE3_network_children", _children + [_router], true];
 
-if([_parent, _parent] call AE3_network_fnc_connect_isCyclic) exitWith
+if ([_parent, _parent] call AE3_network_fnc_connect_isCyclic) exitWith
 {
-	_router setVariable ['AE3_network_parent', objNull, true];
+	_router setVariable ["AE3_network_parent", objNull, true];
 
-	_children = _parent getVariable 'AE3_network_children';
-	_parent setVariable ['AE3_network_children', _children - [_router], true];
+	_children = _parent getVariable ["AE3_network_children", []];
+	_parent setVariable ["AE3_network_children", _children - [_router], true];
 };
 
-_router setVariable ['AE3_network_address', [_router] call AE3_network_fnc_dhcp_get, true];
+_router setVariable ["AE3_network_address", [_router] call AE3_network_fnc_dhcp_get, true];
 
-if(count (_router getVariable 'AE3_network_children') != 0) then
+if (count (_router getVariable ["AE3_network_children", []]) != 0) then
 {
 	[_router] call AE3_network_fnc_dhcp_refresh;
 };

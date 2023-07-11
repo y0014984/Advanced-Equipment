@@ -43,6 +43,10 @@ PREP(computer_standby);
 PREP(computer_turnOn);
 PREP(computer_turnOff);
 
+PREP(computer_addUser);
+PREP(computer_addSecurityCommands);
+PREP(computer_addGames);
+
 PREP(computer_getLocality);
 
 /* OS Link Functions */

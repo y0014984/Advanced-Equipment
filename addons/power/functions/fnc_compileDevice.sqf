@@ -41,7 +41,11 @@ if(isNil {missionNamespace getVariable _class_name}) then
 
 private _config = missionNamespace getVariable _class_name;
 
-if(_config isEqualType "") exitWith {};
+// if no power/device config found then exit and set status accordingly
+if(_config isEqualType "") exitWith { if (isServer) then { _entity setVariable ["AE3_power_isDevice", false, true]; }; };
+
+// it seems that there is a AE3_Device config, therefore this is a power device
+if (isServer) then { _entity setVariable ["AE3_power_isDevice", true, true]; };
 
 // ================================================================================
 // Save all objects in an array, so debug mode can access them
@@ -82,44 +86,53 @@ if('solar' in _config) then
 	[_entity] + (_config get 'solar') call AE3_power_fnc_initSolarPanel;
 };
 
-// "AE3_power_hasInternal" is my only indicator to check, if a device (with or without internal) is completely initialized
-if(!("internal" in _config)) exitWith { _entity setVariable ['AE3_power_hasInternal', false, true]; };
-
-[_entity, _config] spawn {
-	params ['_entity', '_config'];
-
-	private _internalConfig = _config get "internal";
-	private _internal = _entity getVariable 'AE3_power_internal';
-
-	/* Init internal namespace serverside to prevent race conditions */
-	if(isServer) then
+if ("internal" in _config) then
+{
+	[_entity, _config] spawn
 	{
-		_internal = true call CBA_fnc_createNamespace;
+		params ['_entity', '_config'];
 
-		// "AE3_power_hasInternal" is my only indicator to check, if a device (with or without internal) is completely initialized
-		_entity setVariable ['AE3_power_hasInternal', true, true];
-		_entity setVariable ['AE3_power_internal', _internal, true];
-		_internal setVariable ['AE3_power_parent', _entity, true];
-	}else
-	{
-		waitUntil {!isNil {_entity getVariable 'AE3_power_internal';}};
-		_internal = _entity getVariable 'AE3_power_internal';
+		private _internalConfig = _config get "internal";
+		private _internal = _entity getVariable 'AE3_power_internal';
+
+		/* Init internal namespace serverside to prevent race conditions */
+		if(isServer) then
+		{
+			_internal = true call CBA_fnc_createNamespace;
+
+			// "AE3_power_hasInternal" is my only indicator to check, if a device (with or without internal) is completely initialized
+			_entity setVariable ['AE3_power_hasInternal', true, true];
+			_entity setVariable ['AE3_power_internal', _internal, true];
+			_internal setVariable ['AE3_power_parent', _entity, true];
+		}else
+		{
+			waitUntil {!isNil {_entity getVariable 'AE3_power_internal';}};
+			_internal = _entity getVariable 'AE3_power_internal';
+		};
+
+		[_internal] + (_internalConfig get 'device') call AE3_power_fnc_initDevice;
+
+		if('powerInterface' in _internalConfig) then 
+		{
+			[_internal] + (_internalConfig get 'powerInterface') call AE3_power_fnc_initPowerInterface;
+		};
+
+		if('battery' in _internalConfig) then 
+		{
+			[_internal] + (_internalConfig get 'battery') call AE3_power_fnc_initBattery;
+		};
+
+		if('generator' in _internalConfig) then 
+		{
+			[_internal] + (_internalConfig get 'generator') call AE3_power_fnc_initGenerator;
+		};
+
+		if (isServer) then { _entity setVariable ["AE3_power_initDone", true, true]; };
 	};
+}
+else
+{
+	if (isServer) then { _entity setVariable ["AE3_power_hasInternal", false, true]; };
 
-	[_internal] + (_internalConfig get 'device') call AE3_power_fnc_initDevice;
-
-	if('powerInterface' in _internalConfig) then 
-	{
-		[_internal] + (_internalConfig get 'powerInterface') call AE3_power_fnc_initPowerInterface;
-	};
-
-	if('battery' in _internalConfig) then 
-	{
-		[_internal] + (_internalConfig get 'battery') call AE3_power_fnc_initBattery;
-	};
-
-	if('generator' in _internalConfig) then 
-	{
-		[_internal] + (_internalConfig get 'generator') call AE3_power_fnc_initGenerator;
-	};
+	if (isServer) then { _entity setVariable ["AE3_power_initDone", true, true]; };
 };

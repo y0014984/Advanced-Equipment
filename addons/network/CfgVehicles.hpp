@@ -6,6 +6,12 @@ class CfgVehicles
 	class Land_Router_01_olive_F;
 	class Land_Router_01_olive_F_AE3: Land_Router_01_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+		
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
@@ -53,6 +59,12 @@ class CfgVehicles
 	class Land_Router_01_black_F;
 	class Land_Router_01_black_F_AE3: Land_Router_01_black_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+		
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
@@ -100,6 +112,12 @@ class CfgVehicles
 	class Land_Router_01_sand_F;
 	class Land_Router_01_sand_F_AE3: Land_Router_01_sand_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+		
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";

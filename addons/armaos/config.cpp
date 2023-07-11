@@ -5,7 +5,15 @@ class CfgPatches
     class ADDON
 	{
         name = QUOTE(COMPONENT);
-        units[] = {"AE3_Filesystem"};
+        units[] =
+            {
+                "Land_Laptop_03_black_F_AE3",
+                "Land_Laptop_03_olive_F_AE3",
+                "Land_Laptop_03_sand_F_AE3",
+                "AE3_AddUser",
+                "AE3_AddSecurityCommands",
+                "AE3_AddGames"
+            };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main", "ae3_main", "ae3_network", "ae3_filesystem", "ae3_interaction"};
@@ -15,7 +23,6 @@ class CfgPatches
 };
 
 #include "CfgEventHandlers.hpp"
-#include "CfgFactionClasses.hpp"
 #include "CfgVehicles.hpp"
 #include "Cfg3DEN.hpp"
 
@@ -29,5 +36,5 @@ class CfgPatches
 // Grid Macros and Styles
 #include "defines.inc"
 
-// Advanced Equipment 3 Dialog Definitions
+// Advanced Equipment Dialog Definitions
 #include "dialog.hpp"

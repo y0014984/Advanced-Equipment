@@ -8,11 +8,8 @@
  * 0: IP String <STRING>
  */
 
-params['_ip'];
+params ["_ip"];
 
-if(count _ip != 4) exitWith
-{
-	"0.0.0.0";
-};
+if(count _ip != 4) exitWith { "0.0.0.0"; };
 
- _ip joinString ".";
+_ip joinString ".";

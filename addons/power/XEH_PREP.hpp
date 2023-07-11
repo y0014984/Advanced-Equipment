@@ -13,10 +13,14 @@ PREP(connectToGeneratorAction);
 PREP(disconnectFromGeneratorAction);
 
 /* Getter */
+PREP(getBatteryLevel);
 PREP(getFuelLevel);
 PREP(getPowerState);
 PREP(getPowerOutput);
-PREP(getBatteryLevel);
+
+/* Setter */
+PREP(setBatteryLevel);
+PREP(setFuelLevel);
 
 /* Init */
 PREP(compileConfig);
@@ -29,6 +33,11 @@ PREP(initGenerator);
 PREP(initFuelLevelWithEdenAttribute);
 PREP(initConsumer);
 PREP(initSolarPanel);
+
+/* Controller */
+PREP(turnOffDevice);
+PREP(turnOnDevice);
+PREP(standbyDevice);
 
 /* Sys */
 PREP(batteryCalculation);
@@ -49,3 +58,7 @@ PREP(showBatteryLevel);
 PREP(getSolarPosition);
 PREP(solarCalculation);
 PREP(multSolarPanelOrientation);
+
+/* Connections */
+PREP(createPowerConnection);
+PREP(removePowerConnection);

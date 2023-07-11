@@ -1,8 +1,9 @@
 # Power framework
- 
+
 ## Adding a device via config
- 
+
 Example: </br>
+
 ```cpp
 class Land_PortableLight_single_F;
  
@@ -30,11 +31,12 @@ class Land_PortableLight_single_F_AE3: Land_PortableLight_single_F
         };
 };
 ```
- 
+
 ### Base (AE3_Device)
+
 Base device class.
-<br>
-| Config | Type | Description | 
+</br>
+| Config | Type | Description |
 | ------ | ------ | ------ |
 | displayName | String | Device name (Optional) |
 | defaultPowerState | Number | Powerstate (0 = off, 1 = on, 2= standby)(Optional) |
@@ -42,36 +44,40 @@ Base device class.
 | turnOnAction | String (Code) | Turn on function (Optional) |
 | turnOffAction | String (Code) | Turn off function (Optional) |
 | standbyAction | String (Code) | Standby function (Optional) |
- 
+
 ### Consumer (AE3_Consumer)
+
 Adds power requirement to the on and standby actions.
-<br>
+</br>
 | Config | Type | Description |
 | ------ | ------ | ------ |
 | powerConsumption | Number | Power consumption when on in [kW] |
 | standbyConsumption | Number | Power consumption on standby in [kW] (Optional)|
- 
+
 ### Power interface (AE3_PowerInterface)
+
 Adds the possibility to connect the device to a power source.
-<br>
+</br>
 | Config | Type | Description |
 | ------ | ------ | ------ |
 | connected | [Object] | Default connected devices (Optional) |
 | internal | Bool | If the connection action should be unavailable |
- 
+
 ### Battery (AE3_Battery)
+
 Adds battery functionality to the device
-<br>
+</br>
 | Config | Type | Description |
 | ------ | ------ | ------ |
 | capacity | Number | Battery capacity in [kWh] |
 | recharging | Number | Recharging rate in [kW] |
 | level | Number | Default charge in [kWh] (Optional)|
 | internal | Bool | If the battery is only internal (Optional) |
- 
+
 ### Generator (AE3_Generator)
+
 Adds generator functionality to the device
-<br>
+</br>
 | Config | Type | Description |
 | ------ | ------ | ------ |
 | fuelCapacity | Number | Fuel capacity in [l] |
@@ -83,6 +89,8 @@ Adds generator functionality to the device
 
 Name                 | Type        | Desciption                                                 | Location
 ----                 | -----       | -----------                                                | -------
+isDevice             | bool        | if the device has a power config                           | public
+initDone             | bool        | is set when device is completely initialized               | public
 mutex                | bool        | if the device is currently changes its power state         | public
 powerState           | int         | `1` if turned on, `0` if turned off `2` if on standby      | public
 fnc_turnOnWrapper    | code        | function, which defines the turn on behavior               | everwhere
@@ -104,6 +112,7 @@ standbyConsumption | number      | Power consumption in [kW] when in standby    
 powerDraw          | number      | Current power consumption in [kW]                          | server
 
 ### Power Interface
+
 Name               | Type        | Desciption                                                 | Location
 ----               | -----       | -----------                                                | -------
 powerCableDevice   | object      | Power suppling device                                      | public
@@ -122,16 +131,18 @@ generatorHandle    | int         | Handler for the generator loop               
 
 Name               | Type        | Desciption                                                 | Location
 ----               | -----       | -----------                                                | -------
-fuelCapacity       | number      | Fuel capacity in [l]                                       | public 
-fuelConsumption    | number      | Fuel consumption in [l/h]                                  | public 
+fuelCapacity       | number      | Fuel capacity in [l]                                       | public
+fuelConsumption    | number      | Fuel consumption in [l/h]                                  | public
 
 #### Solar Generator
+
 Name               | Type        | Desciption                                                 | Location
 ----               | -----       | -----------                                                | -------
 height             | number      | Height of the solar panels relative to the object coords.  | server
 orientationFnc     | code        | returns a list of normal vectors for each solar panel      | server
 
 #### Battery
+
 Name                  | Type        | Desciption                                                 | Location
 ----                  | -----       | -----------                                                | -------
 batteryCapacity       | number      | Battery capacity in [kWh]                                  | public

@@ -1,3 +1,22 @@
+/**
+ * PRIVATE
+ *
+ * This function checks wether or not a network or power connection in Eden Editor is valid or not. 
+ * If connection is not valid, it will be removed. Gives visual feeedback in Eden Editor.
+ * This function is private because it only makes sense in context of Eden Editor Event Handlers.
+ *
+ * Arguments:
+ * 1: Type <STRING>
+ * 2: From <OBJECT>
+ * 3: To <OBJECT>
+ * 4: Allowed From Classes <[STRING]>
+ * 5: Allowed To Classes <[STRING]>
+ *
+ * Results:
+ * Visual Feedback in Eden Editor; Potentially removed connection
+ *
+ */
+
 params ["_type", "_from", "_to", "_allowedFromClasses", "_allowedToClasses"];
 
 private _removeConnection = false;
@@ -9,19 +28,19 @@ private _messageAnimate = true;
 if (!((typeOf _from) in _allowedFromClasses)) then
 {
     _removeConnection = true;
-    [(format [localize "STR_AE3_Main_EdenConnections_Forbidden1", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [(format [localize "STR_AE3_Main_Connections_Forbidden1", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };
 
 if (!((typeOf _to) in _allowedToClasses)) then
 {
     _removeConnection = true;
-    [(format [localize "STR_AE3_Main_EdenConnections_Forbidden2", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [(format [localize "STR_AE3_Main_Connections_Forbidden2", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };
 
 if (_from isEqualTo _to) then
 {
     _removeConnection = true;
-    [localize "STR_AE3_Main_EdenConnections_Forbidden3", _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [localize "STR_AE3_Main_Connections_Forbidden3", _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };
 
 // get all 3DEN connections for asset '_from', including the new connection
@@ -50,5 +69,5 @@ if (_removeConnection) exitWith
 if (_typeCounter > 1) then
 {
     _messageType = 0;
-    [(format [localize "STR_AE3_Main_EdenConnections_Warning", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
+    [(format [localize "STR_AE3_Main_Connections_Warning", _type]), _messageType, _messageDuration, _messageAnimate] call BIS_fnc_3DENNotification;
 };
