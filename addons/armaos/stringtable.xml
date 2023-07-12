@@ -578,7 +578,7 @@
                 <Russian>Retro Snake Game - use option --big for doubled block size</Russian>
                 <French>Jeu Rétro Snake - utilisez l'option --big pour doubler la taille des blocs</French>
                 <Italian>Retro Snake Game - usa opzione --grande per dimensione blocco doppia</Italian>
-            </Key>
+                </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandManDescr">
                 <Original>Prints usage information about a command.</Original>
                 <English>Prints usage information about a command.</English>
@@ -1252,7 +1252,7 @@
                 <Chinesesimp>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Chinesesimp>
                 <Russian>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Russian>
                 <French>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</French>
-                <Italian>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Italian>
+                <Italian>Il gioco 'snake'. mangia i frutti mentre diventa sempre più lungo. non scontrarti con te stesso o con i muri.</Italian>
             </Key>
         </Container>
         <Container name="CBA Settings">
@@ -1290,7 +1290,7 @@
                 <Chinesesimp>终端风格</Chinesesimp>
                 <Russian>Terminal Design</Russian>
                 <French>Design du Terminal</French>
-                <Italian>Design Terminal</Italian>
+                <Italian>Design Terminale</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignTooltip">
                 <Original>Terminal Design for armaOS. You can also change this in armaOS terminal.</Original>
@@ -1317,7 +1317,7 @@
                 <Chinesesimp>armaOS默认风格 (dark theme)</Chinesesimp>
                 <Russian>armaOS default design (dark theme)</Russian>
                 <French>armaOS design par défaut (dark theme)</French>
-                <Italian>Design default di armaOS (dark theme)</Italian>
+                <Italian>Design default di armaOS (Tema scuro)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameC64">
                 <Original>C64</Original>
@@ -1335,7 +1335,7 @@
                 <Chinesesimp>C64 风格 (blue on blue theme)</Chinesesimp>
                 <Russian>C64 design (blue on blue theme)</Russian>
                 <French>C64 design (thème bleu sur bleu)</French>
-                <Italian>C64 design (blue on blue theme)</Italian>
+                <Italian>C64 design (Blu su tema Blu)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameAppleII">
                 <Original>Apple II</Original>
@@ -1353,7 +1353,7 @@
                 <Chinesesimp>Apple II 单色设计 (green on black)</Chinesesimp>
                 <Russian>Apple II monochrome design (green on black)</Russian>
                 <French>Apple II monochrome design (vert sur noir)</French>
-                <Italian>Apple II monochrome design (green on black)</Italian>
+                <Italian>Apple II monochrome design (Verde su Nero)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignNameAmber">
                 <Original>Amber</Original>
@@ -1371,7 +1371,7 @@
                 <Chinesesimp>Amber 单色设计 (amber on black)</Chinesesimp>
                 <Russian>Amber monochrome design (amber on black)</Russian>
                 <French>Ambre monochrome (ambre sur noir)</French>
-                <Italian>Amber monochrome design (amber on black)</Italian>
+                <Italian>Amber monochrome design (Ambra su Nero)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedName">
                 <Original>Terminal Scroll Speed</Original>
@@ -1380,7 +1380,7 @@
                 <Chinesesimp>终端滚动速度</Chinesesimp>
                 <Russian>Скорость прокрутки терминала</Russian>
                 <French>Vitesse de défilement du terminal</French>
-                <Italian>Velocità di scroll del Terminal</Italian>
+                <Italian>Velocità di scroll del Terminale</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalScrollSpeedTooltip">
                 <Original>Determines the speed in lines for the mouse wheel scroll feature for the terminal.</Original>
@@ -1398,7 +1398,7 @@
                 <Chinesesimp>贴图UI</Chinesesimp>
                 <Russian>UI on texture</Russian>
                 <French>UI on texture</French>
-                <Italian>UI on texture</Italian>
+                <Italian>UI nella texture</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_UiOnTextureTooltip">
                 <Original>If enabled, surrounding players can see the armaOS interface on the computers texture.</Original>
@@ -1407,7 +1407,7 @@
                 <Chinesesimp>启用后周围玩家可以在电脑贴图上看到armaOS的界面.</Chinesesimp>
                 <Russian>If enabled, surrounding players can see the armaOS interface on the computers texture.</Russian>
                 <French>If enabled, surrounding players can see the armaOS interface on the computers texture.</French>
-                <Italian>If enabled, surrounding players can see the armaOS interface on the computers texture.</Italian>
+                <Italian>Se abilitato, i giocatori vicini possono vedere l'interfaccia di armaOS nella texture del computer.</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_1line">
                 <Original>1 line</Original>

@@ -27,7 +27,7 @@
                 <Chinesesimp>当前输出功率: %1 %2W</Chinesesimp>
                 <Russian>Текущая выходная мощность: %1 %2W</Russian>
                 <French>Puissance de sortie actuelle: %1 %2W</French>
-                <Italian>energia elettrica in uscita attuale: %1 %2W</Italian>
+                <Italian>Energia elettrica in uscita attuale: %1 %2W</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerReqHint">
                 <Original>Current power required: %1 %2W</Original>
@@ -36,7 +36,7 @@
                 <Chinesesimp>Current power required: %1 %2W</Chinesesimp>
                 <Russian>Current power required: %1 %2W</Russian>
                 <French>Current power required: %1 %2W</French>
-                <Italian>Current power required: %1 %2W</Italian>
+                <Italian>Energia attualmente richiesta: %1 %2W</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateHint">
                 <Original>Device Power State is: %1</Original>
@@ -228,6 +228,7 @@
                 <Chinesesimp>雷达信号发射器</Chinesesimp>
                 <Russian>Radar Generator</Russian>
                 <French>Radar Generator</French>
+                <Italian>Generatore Radar</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_AirportGeneratorDisplayName">
                 <Original>Diesel Ground Power Unit</Original>
@@ -236,6 +237,7 @@
                 <Chinesesimp>大型发电机</Chinesesimp>
                 <Russian>Diesel Ground Power Unit</Russian>
                 <French>Diesel Ground Power Unit</French>
+                <Italian>Unità energetica diesel da terra</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_PowerGeneratorDisplayName">
                 <Original>Power Generator</Original>
@@ -244,6 +246,7 @@
                 <Chinesesimp>发电机</Chinesesimp>
                 <Russian>Power Generator</Russian>
                 <French>Power Generator</French>
+                <Italian>Generatore portatile</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_TextureBlack">
                 <Original>Black</Original>

@@ -128,7 +128,7 @@
                 <Chinesesimp>启用加密</Chinesesimp>
                 <Russian>Enable Encryption</Russian>
                 <French>Enable Encryption</French>
-                <Italian>Enable Encryption</Italian>
+                <Italian>Ebilitare Criptazione</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_IsEncryptedTooltip">
                 <Original>File content will be encrypted on mission start</Original>
@@ -137,7 +137,7 @@
                 <Chinesesimp>文件内容将在任务开始时加密</Chinesesimp>
                 <Russian>File content will be encrypted on mission start</Russian>
                 <French>File content will be encrypted on mission start</French>
-                <Italian>File content will be encrypted on mission start</Italian>
+                <Italian>Il contenuto del file verrà cryptato quando la missione si avvvia</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmDisplayName">
                 <Original>Encryption Algorithm</Original>
@@ -146,7 +146,7 @@
                 <Chinesesimp>加密算法</Chinesesimp>
                 <Russian>Encryption Algorithm</Russian>
                 <French>Encryption Algorithm</French>
-                <Italian>Encryption Algorithm</Italian>
+                <Italian>Alògoritmo di Criptazione</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmTooltip">
                 <Original>The available characters for your message depend on the chosen encryption algorithm.</Original>
@@ -155,7 +155,7 @@
                 <Chinesesimp>信息的可见字符取决于你所选择的加密算法.</Chinesesimp>
                 <Russian>The available characters for your message depend on the chosen encryption algorithm.</Russian>
                 <French>The available characters for your message depend on the chosen encryption algorithm.</French>
-                <Italian>The available characters for your message depend on the chosen encryption algorithm.</Italian>
+                <Italian>I caratteri disponibili per il tuo messaggio dipendono dal tipo di criptazione avete scelto.</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyDisplayName">
                 <Original>Encryption Key</Original>
@@ -164,7 +164,7 @@
                 <Chinesesimp>密钥</Chinesesimp>
                 <Russian>Encryption Key</Russian>
                 <French>Encryption Key</French>
-                <Italian>Encryption Key</Italian>
+                <Italian>Chiave criptazione</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyTooltip">
                 <Original>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Original>
@@ -173,7 +173,7 @@
                 <Chinesesimp>凯撒密码: 只能使用1到25之间的数字密钥 || 列移位密码: 密钥的最小长度为2</Chinesesimp>
                 <Russian>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Russian>
                 <French>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</French>
-                <Italian>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Italian>
+                <Italian>caesar: Usa solo numeri tra 1 e 25 || columnar: lunghezza minima 2 only use numeric keys between 1 and 25 || columnar: minimal key length 2</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_FileOwnerDisplayName">
                 <Original>File owner</Original>
