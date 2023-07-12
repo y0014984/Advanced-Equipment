@@ -125,7 +125,7 @@
                 <Original>Enable Encryption</Original>
                 <English>Enable Encryption</English>
                 <German>Aktiviere Verschlüsselung</German>
-                <Chinesesimp>Enable Encryption</Chinesesimp>
+                <Chinesesimp>启用加密</Chinesesimp>
                 <Russian>Enable Encryption</Russian>
                 <French>Enable Encryption</French>
                 <Italian>Enable Encryption</Italian>
@@ -134,7 +134,7 @@
                 <Original>File content will be encrypted on mission start</Original>
                 <English>File content will be encrypted on mission start</English>
                 <German>Dateiinhalt wird beim Missionsstart verschlüsselt</German>
-                <Chinesesimp>File content will be encrypted on mission start</Chinesesimp>
+                <Chinesesimp>文件内容将在任务开始时加密</Chinesesimp>
                 <Russian>File content will be encrypted on mission start</Russian>
                 <French>File content will be encrypted on mission start</French>
                 <Italian>File content will be encrypted on mission start</Italian>
@@ -143,25 +143,25 @@
                 <Original>Encryption Algorithm</Original>
                 <English>Encryption Algorithm</English>
                 <German>Verschlüsselungsalorithmus</German>
-                <Chinesesimp>Encryption Algorithm</Chinesesimp>
+                <Chinesesimp>加密算法</Chinesesimp>
                 <Russian>Encryption Algorithm</Russian>
                 <French>Encryption Algorithm</French>
                 <Italian>Encryption Algorithm</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmTooltip">
-                <Original>The available characters for your message depend on the choosen encryption algorithm.</Original>
-                <English>The available characters for your message depend on the choosen encryption algorithm.</English>
+                <Original>The available characters for your message depend on the chosen encryption algorithm.</Original>
+                <English>The available characters for your message depend on the chosen encryption algorithm.</English>
                 <German>Die verfügbaren Zeichen für deine Nachricht hängen vom gewählten Verschlüsselungsalogithmus ab.</German>
-                <Chinesesimp>The available characters for your message depend on the choosen encryption algorithm.</Chinesesimp>
-                <Russian>The available characters for your message depend on the choosen encryption algorithm.</Russian>
-                <French>The available characters for your message depend on the choosen encryption algorithm.</French>
-                <Italian>The available characters for your message depend on the choosen encryption algorithm.</Italian>
+                <Chinesesimp>信息的可见字符取决于你所选择的加密算法.</Chinesesimp>
+                <Russian>The available characters for your message depend on the chosen encryption algorithm.</Russian>
+                <French>The available characters for your message depend on the chosen encryption algorithm.</French>
+                <Italian>The available characters for your message depend on the chosen encryption algorithm.</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyDisplayName">
                 <Original>Encryption Key</Original>
                 <English>Encryption Key</English>
                 <German>Verschlüsselungsschlüssel</German>
-                <Chinesesimp>Encryption Key</Chinesesimp>
+                <Chinesesimp>密钥</Chinesesimp>
                 <Russian>Encryption Key</Russian>
                 <French>Encryption Key</French>
                 <Italian>Encryption Key</Italian>
@@ -170,7 +170,7 @@
                 <Original>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Original>
                 <English>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</English>
                 <German>caesar: nur numerische Schlüssel zwischen 1 und 25 || columnar: minimale Schlüssellänge 2 </German>
-                <Chinesesimp>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Chinesesimp>
+                <Chinesesimp>凯撒密码: 只能使用1到25之间的数字密钥 || 列移位密码: 密钥的最小长度为2</Chinesesimp>
                 <Russian>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Russian>
                 <French>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</French>
                 <Italian>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Italian>
