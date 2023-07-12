@@ -35,7 +35,7 @@
                 <German>Benötigte Ausgangsleistung: %1 %2W</German>
                 <Chinesesimp>Current power required: %1 %2W</Chinesesimp>
                 <Russian>Current power required: %1 %2W</Russian>
-                <French>Current power required: %1 %2W</French>
+                <French>Puissance actuelle requise: %1 %2W</French>
                 <Italian>Energia attualmente richiesta: %1 %2W</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Interaction_PowerStateHint">
@@ -219,7 +219,7 @@
                 <German>Gehärteter Tragbarer Generator</German>
                 <Chinesesimp>坚固便携式发电机</Chinesesimp>
                 <Russian>Rugged Portable Generator</Russian>
-                <French>Rugged Portable Generator</French>
+                <French>Générateur portable robuste</French>
             </Key>
             <Key ID="STR_AE3_Power_Config_RadarGeneratorDisplayName">
                 <Original>Radar Generator</Original>
@@ -227,7 +227,7 @@
                 <German>Radar Generator</German>
                 <Chinesesimp>雷达信号发射器</Chinesesimp>
                 <Russian>Radar Generator</Russian>
-                <French>Radar Generator</French>
+                <French>Générateur Radar</French>
                 <Italian>Generatore Radar</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_AirportGeneratorDisplayName">
@@ -236,7 +236,7 @@
                 <German>Bodenstromaggregat</German>
                 <Chinesesimp>大型发电机</Chinesesimp>
                 <Russian>Diesel Ground Power Unit</Russian>
-                <French>Diesel Ground Power Unit</French>
+                <French>Unité d'alimentation diesel</French>
                 <Italian>Unità energetica diesel da terra</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_PowerGeneratorDisplayName">
@@ -245,7 +245,7 @@
                 <German>Stromgenerator</German>
                 <Chinesesimp>发电机</Chinesesimp>
                 <Russian>Power Generator</Russian>
-                <French>Power Generator</French>
+                <French>Générateur de courant</French>
                 <Italian>Generatore portatile</Italian>
             </Key>
             <Key ID="STR_AE3_Power_Config_TextureBlack">

@@ -80,7 +80,7 @@
                 <German>Die Schlüssel-Methode ist für die Cäsar Chiffre nicht verfügbar</German>
                 <Chinesesimp>密钥方法不能与凯撒密码一起使用</Chinesesimp>
                 <Russian>The key-method can not be used with the caesar cipher</Russian>
-                <French>The key-method can not be used with the caesar cipher</French>
+                <French>La méthode clé ne peut pas être utilisée avec le chiffrement César</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherNeedsStringLengthGreaterOneAsKey">
                 <Original>The Columnar Transposition Cipher needs a key with at least 2 characters</Original>
@@ -88,7 +88,7 @@
                 <German>Die Spaltentranspositions Chiffre benötigt einen Schlüssel der mindestens 2 Zeichen enthält</German>
                 <Chinesesimp>列移位密码的密钥需要包含至少2个字符</Chinesesimp>
                 <Russian>The Columnar Transposition Cipher needs a key with at least 2 characters</Russian>
-                <French>The Columnar Transposition Cipher needs a key with at least 2 characters</French>
+                <French>Le chiffrement à transposition en colonne nécessite une clé d'au moins 2 caractères</French>                
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherLengthOfKeyAndMessageDoNotMatch">
                 <Original>The lengths of key and message do not match a complete transposition</Original>
@@ -96,7 +96,7 @@
                 <German>Die Längen von Schlüssel und Nachricht stimmen nicht mit einer vollständigen Transposition überein</German>
                 <Chinesesimp>秘钥和信息的长度不匹配完全变位</Chinesesimp>
                 <Russian>The lengths of key and message do not match a complete transposition</Russian>
-                <French>The lengths of key and message do not match a complete transposition</French>
+                <French>Les longueurs de clé et de message ne correspondent pas à une transposition complète</French>                 
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherStatisticsCrackNotAvailable">
                 <Original>The statistics-method can not be used with the columnar cipher</Original>
@@ -104,7 +104,7 @@
                 <German>Die Statistik-Methode ist für die Spaltentransposition nicht verfügbar</German>
                 <Chinesesimp>统计法不能与列移位密码一起使用</Chinesesimp>
                 <Russian>The statistics-method can not be used with the columnar cipher</Russian>
-                <French>The statistics-method can not be used with the columnar cipher</French>
+                <French>La méthode statistique ne peut pas être utilisée avec le chiffrement en colonnes</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_ColumnarCipherMessageLengthIsPrime">
                 <Original>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Original>
@@ -112,7 +112,7 @@
                 <German>Die Nachricht is %1 Zeichen lang. Da %1 eine Primzahl ist, kann die Nachricht nicht durch eine komplette Spaltentransposition verschlüsselt worden sein</German>
                 <Chinesesimp>信息的长度是 %1 个字符.且由于 %1 是素数,所以消息没有通过完全列移位进行加密</Chinesesimp>
                 <Russian>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</Russian>
-                <French>The message is %1 characters long. Since %1 is a prime number, the message was not encrypted by a complete columnar transposition</French>
+                <French>Le message contient %1 caractères. Étant donné que %1 est un nombre premier, le message n'a pas été chiffré par une transposition en colonne complète</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Exception_TooManyOptions">
                 <Original>Too many options</Original>
@@ -401,7 +401,7 @@
                 <German>Spalten: %1, Zeilen: %2</German>
                 <Chinesesimp>Columns: %1, Rows: %2</Chinesesimp>
                 <Russian>Columns: %1, Rows: %2</Russian>
-                <French>Columns: %1, Rows: %2</French>
+                <French>Colonnes: %1, Lignes: %2</French>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Result_ColumnarKeyLengths">
                 <Original>Possible Key-Lengths are:</Original>
@@ -409,7 +409,7 @@
                 <German>Mögliche Schlüssellängen sind:</German>
                 <Chinesesimp>Possible Key-Lengths are:</Chinesesimp>
                 <Russian>Possible Key-Lengths are:</Russian>
-                <French>Possible Key-Lengths are:</French>
+                <French>Les longueurs de clé possibles sont :</French>
             </Key>
         </Container>
         <Container name="Header">
@@ -666,7 +666,7 @@
                 <German>Verwendung cat: 'cat [Datei]' zeigt den Inhalt einer Datei.</German>
                 <Chinesesimp>cat说明:'cat[file]'显示文件内容.</Chinesesimp>
                 <Russian>Использование cat: 'cat [file] Показывает содержимое файла</Russian>
-                <French>Utilisation cat: 'cat [file]' Affiche le cxontenu d'un fichier.</French>
+                <French>Utilisation cat: 'cat [file]' Affiche le contenu d'un fichier.</French>
                 <Italian>Utilizzo cat: 'cat [file]' mostra il contenuto di un file.</Italian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandDateDescr">
@@ -873,7 +873,7 @@
                 <German>Fährt den Computer herunter.</German>
                 <Chinesesimp>关闭计算机.</Chinesesimp>
                 <Russian>Выключает компьютер</Russian>
-                <French>Arrête l'ordinateur.</French>
+                <French>Arrêter l'ordinateur.</French>
                 <Italian>Spegne il computer.</Italian>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandShutdownMan">
@@ -1251,7 +1251,7 @@
                 <German>Das 'snake' Spiel. Iss Früchte während du immer länger wirst. Vermeide mit der Wand oder dir selbst zu kollidieren.</German>
                 <Chinesesimp>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Chinesesimp>
                 <Russian>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Russian>
-                <French>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</French>
+                <French>Le jeu du "serpent". Mangez des fruits en devenant de plus en plus long. N'entrez pas en collision avec vous-même ou les murs.</French>
                 <Italian>Il gioco 'snake'. mangia i frutti mentre diventa sempre più lungo. non scontrarti con te stesso o con i muri.</Italian>
             </Key>
         </Container>
@@ -1406,7 +1406,7 @@
                 <German>Wenn aktiviert, können Spieler in der Nähe das armaOS Interface auf der Textur des Computers sehen.</German>
                 <Chinesesimp>启用后周围玩家可以在电脑贴图上看到armaOS的界面.</Chinesesimp>
                 <Russian>If enabled, surrounding players can see the armaOS interface on the computers texture.</Russian>
-                <French>If enabled, surrounding players can see the armaOS interface on the computers texture.</French>
+                <French>Si activé, les joueurs environnants peuvent voir l'interface armaOS sur la texture de l'ordinateur.</French>
                 <Italian>Se abilitato, i giocatori vicini possono vedere l'interfaccia di armaOS nella texture del computer.</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_1line">
