@@ -9,7 +9,11 @@
 y0014984
 Wasserstoff
 
-# CONTRIBUTORS
-Bilibagga (Russian translation)
+# CODE CONTRIBUTORS
+JulesVerner
+
+# TRANSLATION CONTRIBUTORS
+Bilibagga (Russian Translation)
 PowerBOXx (Simplified Chinese Translation)
-alexisdu7589 (French translation)
+alexisdu7589 (French Translation)
+Seraf (Italian Translation)

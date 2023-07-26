@@ -6,6 +6,12 @@ class CfgVehicles
 	class Land_Laptop_03_black_F;
 	class Land_Laptop_03_black_F_AE3: Land_Laptop_03_black_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
 		// Eden Editor Attributes
 		class Attributes
 		{
@@ -29,12 +35,6 @@ class CfgVehicles
 			};
 		};
 
-		// Event Handlers
-		class EventHandlers
-		{
-			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
-		};
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
@@ -48,20 +48,20 @@ class CfgVehicles
 			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
 			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
       
-      class AE3_ace3Interactions
+			class AE3_ace3Interactions
 			{
-				class AE3_aceCarrying
-				{
-					// Carrying
-					ae3_dragging_canCarry = 1;  // Can be dragged (0-no, 1-yes)
-					ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
-					ae3_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
-				};
-				class AE3_aceCargo
-				{
-					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
-					ae3_cargo_size = 1;  // Cargo space the object takes
-				};
+					class AE3_aceCarrying
+					{
+						// Carrying
+						ae3_dragging_canCarry = 1;  // Can be dragged (0-no, 1-yes)
+						ae3_dragging_carryPosition[] = {0, 1, 1};  // Offset of the model from the body while dragging (same as attachTo)
+						ae3_dragging_carryDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+					};
+					class AE3_aceCargo
+					{
+						ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+						ae3_cargo_size = 1;  // Cargo space the object takes
+					};
 			};
 		};
 
@@ -134,7 +134,13 @@ class CfgVehicles
 	class Land_Laptop_03_olive_F;
 	class Land_Laptop_03_olive_F_AE3: Land_Laptop_03_olive_F
 	{
-  	// Eden Editor Attributes
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
+  		// Eden Editor Attributes
 		class Attributes
 		{
 			class AE3_EdenAttribute_PowerLevel
@@ -157,12 +163,6 @@ class CfgVehicles
 			};
 		};
 
-		// Event Handlers
-		class EventHandlers
-		{
-			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
-		};
-
 		class AE3_Equipment
 		{
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
@@ -176,7 +176,7 @@ class CfgVehicles
 			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
 			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
       
-      class AE3_ace3Interactions
+      		class AE3_ace3Interactions
 			{
 				class AE3_aceCarrying
 				{
@@ -262,7 +262,13 @@ class CfgVehicles
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
-  	// Eden Editor Attributes
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+  	
+		// Eden Editor Attributes
 		class Attributes
 		{
 			class AE3_EdenAttribute_PowerLevel
@@ -283,12 +289,6 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
-		};
-
-		// Event Handlers
-		class EventHandlers
-		{
-			//init = "params ['_entity']; call compile preprocessFileLineNumbers '\z\ae3\addons\main\init\initLaptop.sqf';";
 		};
 
 		class AE3_Equipment
@@ -410,6 +410,7 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_ArmaOS_Config_AddUserDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icons_addUser.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
@@ -428,7 +429,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleUserlist";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddUser";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
@@ -484,9 +485,12 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_ArmaOS_Config_AddSecurityCommandsDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icon_addSecurityCommands_v2.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
+
+		portrait = "\z\ae3\addons\armaos\ui\AE3_Module_Icon_addSecurityCommands_v2.paa"; // seems to be used by Zeus as icon
 
 		// Name of function triggered once conditions are met
 		function = "AE3_armaos_fnc_module_addSecurityCommands";
@@ -502,7 +506,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleAddSecurityCommands";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddSecurityCommands";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
@@ -563,6 +567,7 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_ArmaOS_Config_AddGamesDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icons_addGames.paa"; // Map icon. Delete this entry to use the default icon
 		category = "AE3_armaosModules";
@@ -581,11 +586,24 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleAddGames";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddGames";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
 		{
+
+			// Arguments shared by specific module type (have to be mentioned in order to be present)
+			class AE3_ModuleAddGames_IsSnake: Checkbox
+			{
+				property = "AE3_Module_AddGames_Snake";
+				displayName = "snake";
+				tooltip = "$STR_AE3_ArmaOS_Config_ModuleAddGamesSnakeTooltip";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = true;
+			};
+
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};
 

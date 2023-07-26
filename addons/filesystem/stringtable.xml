@@ -9,6 +9,7 @@
                 <Chinesesimp>'%1' 不是目录!</Chinesesimp>
                 <Russian>'%1' не является директорией!</Russian>
                 <French>'%1' n'est pas un répertoire!</French>
+                <Italian>'%1' non è una directory!</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Exception_NotFoundInDir">
                 <Original>'%1' not found in '%2'!</Original>
@@ -17,6 +18,7 @@
                 <Chinesesimp>在 '%2'中找不到 '%1' !</Chinesesimp>
                 <Russian>'%1' не найден в '%2'!</Russian>
                 <French>'%1' introuvable dans '%2'!</French>
+                <Italian>'%1' non trovato in '%2'!</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Exception_AlreadyExists">
                 <Original>'%1' already exists!</Original>
@@ -25,6 +27,7 @@
                 <Chinesesimp>'%1' 已存在!</Chinesesimp>
                 <Russian>'%1' уже существует!</Russian>
                 <French>'%1' existe déjà!</French>
+                <Italian>'%1' esiste già!</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Exception_NotFound">
                 <Original>'%1' not found!</Original>
@@ -33,6 +36,7 @@
                 <Chinesesimp>找不到 %1' !</Chinesesimp>
                 <Russian>'%1' не найден!</Russian>
                 <French>'%1' introuvable!</French>
+                <Italian>'%1' non trovato!</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Exception_MissingPermissions">
                 <Original>Missing permissions</Original>
@@ -41,6 +45,7 @@
                 <Chinesesimp>缺少权限</Chinesesimp>
                 <Russian>недостаточно прав</Russian>
                 <French>Permissions manquantes</French>
+                <Italian>Permessi mancanti</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Exception_InvalidDirectory">
                 <Original>Invalid directory</Original>
@@ -49,6 +54,7 @@
                 <Chinesesimp>无效目录</Chinesesimp>
                 <Russian>Invalid directory</Russian>
                 <French>Répertoire invalide</French>
+                <Italian>directory non valida</Italian>
             </Key>
         </Container>
         <Container name="Config">
@@ -59,6 +65,7 @@
                 <Chinesesimp>AE3添加文件</Chinesesimp>
                 <Russian>AE3 Add File</Russian>
                 <French>AE3 Ajouter un fichier</French>
+                <Italian>AE3 Aggiungi files</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_PathFileDisplayName">
                 <Original>Path</Original>
@@ -67,6 +74,7 @@
                 <Chinesesimp>路径</Chinesesimp>
                 <Russian>Путь</Russian>
                 <French>Chemin d'accès</French>
+                <Italian>Percorso</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_PathFileTooltip">
                 <Original>Path and Name of Filesystem Object (File), for example /tmp/new/example.txt</Original>
@@ -75,6 +83,7 @@
                 <Chinesesimp>文件系统对象（文件）的路径和名称,例如</Chinesesimp>
                 <Russian>Путь и имя объекта файловой системы (файла), например /tmp/new/example.txt</Russian>
                 <French>Chemin d'accès et nom de l'objet du système de fichiers (fichier), par exemple /tmp/new/example.txt</French>
+                <Italian>Percorso e nome del Filesystem Object (File), per esempio /tmp/new/example.txt</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_FileContentDisplayName">
                 <Original>File content</Original>
@@ -83,6 +92,7 @@
                 <Chinesesimp>文件内容</Chinesesimp>
                 <Russian>Содержимое файла</Russian>
                 <French>Contenu du fichier</French>
+                <Italian>Contenuto del file</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_FileContentTooltip">
                 <Original>Content of Filesystem Object, like text note oder path to image</Original>
@@ -91,6 +101,7 @@
                 <Chinesesimp>文件系统对象内容,如文本注释或图像路径</Chinesesimp>
                 <Russian>Содержимое объекта файловой системы, например текстовое примечание или путь к изображению.</Russian>
                 <French>Contenu de l'objet du système de fichiers, comme une note textuelle ou un chemin d'accès vers l'image</French>
+                <Italian>Contenuto del Filesystem Object, come test note ordine percorso all'immagine</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_IsCodeDisplayName">
                 <Original>Is code?</Original>
@@ -99,6 +110,7 @@
                 <Chinesesimp>是否为代码?</Chinesesimp>
                 <Russian>Это код?</Russian>
                 <French>Est du code?</French>
+                <Italian>E' code?</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_IsCodeTooltip">
                 <Original>If the file content is a function or code which can be executed from terminal</Original>
@@ -107,6 +119,61 @@
                 <Chinesesimp>如果文件内容是可以从终端执行的函数或代码</Chinesesimp>
                 <Russian>Если содержимое файла представляет собой функцию или код, который можно выполнить с терминала</Russian>
                 <French>Si le contenu du fichier est une fonction ou un code exécutable depuis le terminal</French>
+                <Italian>Se il contenuto del file è una funzione o codice che può essere eseguito dal terminale</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_IsEncryptedDisplayName">
+                <Original>Enable Encryption</Original>
+                <English>Enable Encryption</English>
+                <German>Aktiviere Verschlüsselung</German>
+                <Chinesesimp>启用加密</Chinesesimp>
+                <Russian>Enable Encryption</Russian>
+                <French>Activer le chiffrement</French>
+                <Italian>Ebilitare Criptazione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_IsEncryptedTooltip">
+                <Original>File content will be encrypted on mission start</Original>
+                <English>File content will be encrypted on mission start</English>
+                <German>Dateiinhalt wird beim Missionsstart verschlüsselt</German>
+                <Chinesesimp>文件内容将在任务开始时加密</Chinesesimp>
+                <Russian>File content will be encrypted on mission start</Russian>
+                <French>Le contenu du fichier sera crypté au début de la mission</French>
+                <Italian>Il contenuto del file verrà cryptato quando la missione si avvvia</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmDisplayName">
+                <Original>Encryption Algorithm</Original>
+                <English>Encryption Algorithm</English>
+                <German>Verschlüsselungsalorithmus</German>
+                <Chinesesimp>加密算法</Chinesesimp>
+                <Russian>Encryption Algorithm</Russian>
+                <French>Algorithme de chiffrement</French>
+                <Italian>Alògoritmo di Criptazione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionAlgorithmTooltip">
+                <Original>The available characters for your message depend on the chosen encryption algorithm.</Original>
+                <English>The available characters for your message depend on the chosen encryption algorithm.</English>
+                <German>Die verfügbaren Zeichen für deine Nachricht hängen vom gewählten Verschlüsselungsalogithmus ab.</German>
+                <Chinesesimp>信息的可见字符取决于你所选择的加密算法.</Chinesesimp>
+                <Russian>The available characters for your message depend on the chosen encryption algorithm.</Russian>
+                <French>Les caractères disponibles pour votre message dépendent de l'algorithme de chiffrement choisi.</French>
+                <Italian>I caratteri disponibili per il tuo messaggio dipendono dal tipo di criptazione avete scelto.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyDisplayName">
+                <Original>Encryption Key</Original>
+                <English>Encryption Key</English>
+                <German>Verschlüsselungsschlüssel</German>
+                <Chinesesimp>密钥</Chinesesimp>
+                <Russian>Encryption Key</Russian>
+                <French>Clé de chiffrement</French>
+                <Italian>Chiave criptazione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_EncryptionKeyTooltip">
+                <Original>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Original>
+                <English>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</English>
+                <German>caesar: nur numerische Schlüssel zwischen 1 und 25 || columnar: minimale Schlüssellänge 2 </German>
+                <Chinesesimp>凯撒密码: 只能使用1到25之间的数字密钥 || 列移位密码: 密钥的最小长度为2</Chinesesimp>
+                <Russian>caesar: only use numeric keys between 1 and 25 || columnar: minimal key length 2</Russian>
+                <French>césar : utilisez uniquement les touches numériques comprises entre 1 et 25 || colonnaire : longueur de clé minimale 2</French>
+                <Italian>caesar: Usa solo numeri tra 1 e 25 || columnar: lunghezza minima 2</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_FileOwnerDisplayName">
                 <Original>File owner</Original>
@@ -115,6 +182,7 @@
                 <Chinesesimp>文件所有者</Chinesesimp>
                 <Russian>Владелец файла</Russian>
                 <French>Propriétaire du fichier</French>
+                <Italian>Proprietario file</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_FileOwnerTooltip">
                 <Original>Owner of the file</Original>
@@ -123,6 +191,7 @@
                 <Chinesesimp>文件所有者</Chinesesimp>
                 <Russian>Владелец файла</Russian>
                 <French>Propriétaire du fichier</French>
+                <Italian>Proprietario del file</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ExeByOwnerDisplayName">
                 <Original>Can be executed by the owner</Original>
@@ -131,6 +200,7 @@
                 <Chinesesimp>所有者可运行</Chinesesimp>
                 <Russian>Может быть выполнен владельцем</Russian>
                 <French>Peut être exécuté par le propriétaire</French>
+                <Italian>Può essere eseguito dal proprietario</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ExeByOwnerTooltip">
                 <Original>Can be executed by the owner</Original>
@@ -139,6 +209,7 @@
                 <Chinesesimp>所有者可运行</Chinesesimp>
                 <Russian>Может быть выполнен владельцем</Russian>
                 <French>Peut être exécuté par le propriétaire</French>
+                <Italian>Può essere eseguito dal proprietario</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ReadByOwnerDisplayName">
                 <Original>Can be read by the owner</Original>
@@ -147,6 +218,7 @@
                 <Chinesesimp>所有者可读取</Chinesesimp>
                 <Russian>Может просматриваться только владельцем</Russian>
                 <French>Peut être lu par le propriétaire</French>
+                <Italian>Può essere letto dal proprietario</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ReadByOwnerTooltip">
                 <Original>Can be read by the owner</Original>
@@ -155,6 +227,7 @@
                 <Chinesesimp>所有者可读取</Chinesesimp>
                 <Russian>Может просматриваться только владельцем</Russian>
                 <French>Peut être lu par le propriétaire</French>
+                <Italian>Può essere letto dal proprietario</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_WriteByOwnerDisplayName">
                 <Original>Can be modified by the owner</Original>
@@ -163,6 +236,7 @@
                 <Chinesesimp>所有者可修改</Chinesesimp>
                 <Russian>Может изменяться владельцем</Russian>
                 <French>Peut être modifié par le propriétaire</French>
+                <Italian>Può essere modificato dal proprietario</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_WriteByOwnerTooltip">
                 <Original>Can be modified by the owner</Original>
@@ -171,6 +245,7 @@
                 <Chinesesimp>所有者可修改</Chinesesimp>
                 <Russian>Может изменяться владельцем</Russian>
                 <French>Peut être modifié par le propriétaire</French>
+                <Italian>Può essere modificato dal proprietario</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ExeByOtherDisplayName">
                 <Original>Can be executed by everyone</Original>
@@ -179,6 +254,7 @@
                 <Chinesesimp>任何人可运行</Chinesesimp>
                 <Russian>Может быть выполнен всеми</Russian>
                 <French>Peut être exécuté par tout le monde</French>
+                <Italian>Può essere eseguito da chiunque</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ExeByOtherTooltip">
                 <Original>Can be executed by everyone</Original>
@@ -187,6 +263,7 @@
                 <Chinesesimp>任何人可运行</Chinesesimp>
                 <Russian>Может быть выполнен всеми</Russian>
                 <French>Peut être exécuté par tout le monde</French>
+                <Italian>Può essere eseguito da chiunque</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ReadByOtherDisplayName">
                 <Original>Can be read by everyone</Original>
@@ -195,6 +272,7 @@
                 <Chinesesimp>任何人可读取</Chinesesimp>
                 <Russian>Может просматриваться всеми</Russian>
                 <French>Peut être lu par tout le monde</French>
+                <Italian>Può essere letto da chiunque</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ReadByOtherTooltip">
                 <Original>Can be read by everyone</Original>
@@ -203,6 +281,7 @@
                 <Chinesesimp>任何人可读取</Chinesesimp>
                 <Russian>Может просматриваться всеми</Russian>
                 <French>Peut être lu par tout le monde</French>
+                <Italian>Può essere letto da chiunque</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_WriteByOtherDisplayName">
                 <Original>Can be modified by everyone</Original>
@@ -211,6 +290,7 @@
                 <Chinesesimp>任何人可修改</Chinesesimp>
                 <Russian>Может модифицироваться всеми</Russian>
                 <French>Peut être modifié par tout le monde</French>
+                <Italian>Può essere modificato da chiuqnue</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_WriteByOtherTooltip">
                 <Original>Can be modified by everyone</Original>
@@ -219,6 +299,7 @@
                 <Chinesesimp>任何人可修改</Chinesesimp>
                 <Russian>Может модифицироваться всеми</Russian>
                 <French>Peut être modifié par tout le monde</French>
+                <Italian>Può essere modificato da chiunque</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ModuleAddFileDescription">
                 <Original>This module adds a file to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object.</Original>
@@ -227,6 +308,7 @@
                 <Chinesesimp>此模块将文件添加到支持文件系统的对象(如计算机). 只需一个或多个此模块同步到支持的对象.</Chinesesimp>
                 <Russian>Этот модуль добавляет файл к объекту, который поддерживает файловую систему (например компьютер). Просто синхронизируйте один или несколько этих модулей с поддерживаем объектом</Russian>
                 <French>Ce module ajoute un fichier à un objet qui prend en charge les systèmes de fichiers, comme les ordinateurs. Synchronisez simplement un ou plusieurs de ces modules avec un objet pris en charge.</French>
+                <Italian>Questo modulo aggiunge un file o un oggetto che supporta filesystem, come computers. Semplicemente sincronizza uno o più di questi moduli a un oggetto supportato.</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_AddDirDisplayName">
                 <Original>AE3 Add Directory</Original>
@@ -235,6 +317,7 @@
                 <Chinesesimp>AE3添加目录</Chinesesimp>
                 <Russian>AE3 Add Directory</Russian>
                 <French>AE3 Ajouter un répertoire</French>
+                <Italian>AE3 Aggiungi Directory</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_PathDirDisplayName">
                 <Original>Path</Original>
@@ -243,6 +326,7 @@
                 <Chinesesimp>路径</Chinesesimp>
                 <Russian>Путь</Russian>
                 <French>Chemin d'accès</French>
+                <Italian>Percorso</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_PathDirTooltip">
                 <Original>Path of Filesystem Object (Directory), for example /tmp/new</Original>
@@ -251,6 +335,7 @@
                 <Chinesesimp>文件系统对象(目录)的路径, 例如/tmp/new</Chinesesimp>
                 <Russian>Путь к объекту файловой системы (директории), например /tmp/new</Russian>
                 <French>Chemin de l'objet du système de fichiers (répertoire), par exemple /tmp/new</French>
+                <Italian>Percorso del Filesystem(Directory), per esempio /tmp/new</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_DirOwnerDisplayName">
                 <Original>Directory owner</Original>
@@ -259,6 +344,7 @@
                 <Chinesesimp>目录所有者</Chinesesimp>
                 <Russian>Владелец директории</Russian>
                 <French>Propriétaire du répertoire</French>
+                <Italian>proprietario directory</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_DirOwnerTooltip">
                 <Original>Owner of the directory</Original>
@@ -267,6 +353,7 @@
                 <Chinesesimp>目录所有者</Chinesesimp>
                 <Russian>Владелец директории</Russian>
                 <French>Propriétaire du répertoire</French>
+                <Italian>Proprietario della directory</Italian>
             </Key>
             <Key ID="STR_AE3_Filesystem_Config_ModuleAddDirDescription">
                 <Original>This module adds a directory to a object which supports filesystems, like computers. Simply sync one or more of these modules to a supported object.</Original>
@@ -275,14 +362,7 @@
                 <Chinesesimp>此模块将目录添加到支持文件系统的对象(如计算机). 只需一个或多个此模块同步到支持的对象.</Chinesesimp>
                 <Russian>Этот модуль добавляет директорию к объекту, который поддерживает файловую систему (например компьютер). Просто синхронизируйте один или несколько этих модулей с поддерживаем объектом</Russian>
                 <French>Ce module ajoute un répertoire à un objet qui prend en charge les systèmes de fichiers, comme les ordinateurs. Synchronisez simplement un ou plusieurs de ces modules avec un objet pris en charge.</French>
-            </Key>
-            <Key ID="STR_AE3_Filesystem_Config_ArmaOSModulesKategoryDisplayName">
-                <Original>AE3 armaOS Modules</Original>
-                <English>AE3 armaOS Modules</English>
-                <German>AE3 armaOS Module</German>
-                <Chinesesimp>AE3 armaOS 模块</Chinesesimp>
-                <Russian>AE3 armaOS Modules</Russian>
-                <French>AE3 armaOS Modules</French>
+                <Italian>Questo modulo aggiunge una directory ad un oggetto che supporta i filesystems, come i computer. Semplicemente sincronizzare uno o più di questi moduli ad un oggetto supportato.</Italian>
             </Key>
         </Container>
     </Package>

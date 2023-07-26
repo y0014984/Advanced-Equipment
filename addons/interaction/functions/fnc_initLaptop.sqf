@@ -30,7 +30,7 @@ if(!isDedicated) then
     private _useAction =
     [
         "AE3_UseAction", // internal name
-        localize "STR_AE3_ArmaOS_Config_UseDisplayName", // visable name
+        localize "STR_AE3_ArmaOS_Config_UseDisplayName", // visible name
         "", // icon
         {
             // statement

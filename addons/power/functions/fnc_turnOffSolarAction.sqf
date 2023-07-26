@@ -13,26 +13,29 @@ params ["_entity", ["_silent", false]];
 
 private _result = false;
 
-private _turnOffTime = 3;
-
 private _turnOffSolPanFunc =
 {
 	params ["_entity"];
 
 	[_entity, "turnedOn", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
-
 	[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
 
 	// TODO: Wrapper?
 	{
 			[_x] call (_x getVariable "AE3_power_fnc_turnOffWrapper");
 	}forEach (_entity getVariable ["AE3_power_connectedDevices", []]);
-
-	_entity setVariable ["AE3_power_powerCapacity", 0, 2];
 };
 
-if (!_silent) then 
+if ((!isNull curatorCamera) || (_silent)) then
 {
+	[_entity] call _turnOffSolPanFunc;
+
+	_result = true;
+}
+else
+{
+	private _turnOffTime = 3;
+
 	[
 		_turnOffTime,
 		[_entity, _turnOffSolPanFunc], 
@@ -53,13 +56,6 @@ if (!_silent) then
 		},
 		(localize "STR_AE3_Power_Interaction_TurnOff" + "...")
 	] call ace_common_fnc_progressBar;
-}
-else
-{
-	[_entity] call _turnOffSolPanFunc;
-
-	_result = true;
 };
 
-// function immediately returns false, because progress bar runs unscheduled
 _result;

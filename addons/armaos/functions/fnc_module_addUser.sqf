@@ -1,49 +1,53 @@
-params['_logic', '_units', '_activated'];
+/**
+ * PRIVATE
+ *
+ * This function is assigned in module config and will be triggered after mission start and if the module is placed by zeus on every computer.
+ * The function will only run on server and only if placed in eden editor. The module will be deleted after processing.
+ * The effect of this module applies to all syncted entities.
+ *
+ * Arguments:
+ * 1: Module <OBJECT>
+ * 2: Synced Units <[OBJECT]>
+ * 3: Activated <BOOL> currently unused in this function
+ *
+ * Results:
+ * 1: Success <BOOL> true = success and false = error
+ *
+ */
 
-if(!isServer) exitWith {};
+params["_module", "_syncedUnits", "_activated"];
 
-[_logic, _units] spawn {
-	params['_logic', '_units'];
+// ignore this function if module is placed by curator/zeus
+if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith { false; };
 
-	waitUntil { !isNil "BIS_fnc_init" };
+if (!isServer) exitWith {};
 
-	//--- Extract the user defined module arguments
-	_user = _logic getVariable "AE3_ModuleUserlist_User";
-	if(isNil "_user") exitWith {};
-
-	_pwd = _logic getVariable ["AE3_ModuleUserlist_Password", ""];
-
-	//--- Add Users to Computer
+if (_activated) then 
+{
+	[_module, _syncedUnits] spawn
 	{
-		_userlist = _x getVariable ["AE3_Userlist", createHashMap];
-		_filesystem = _x getVariable "AE3_filesystem";
+		params["_module", "_syncedUnits"];
 
-		_userlist set [_user, _pwd];
+		waitUntil { !isNil "BIS_fnc_init" };
 
-		// Add user directory in /home/
-		if(!(_user isEqualTo 'root')) then
+		//--- Extract the user defined module arguments
+		private _username = _module getVariable ["AE3_ModuleUserlist_User", ""];
+		private _password = _module getVariable ["AE3_ModuleUserlist_Password", ""];
+
+		// check for empty username or password
+		if (_username isEqualTo "") exitWith { deleteVehicle _module; false; };
+		if (_password isEqualTo "") exitWith { deleteVehicle _module; false; };
+
+		// check for not allowed spaces in username
+		if((_username find " ") != -1) exitWith { deleteVehicle _module; false; };
+
 		{
-			try
-			{
-				[[], _filesystem, "/home/" + _user, 'root', _user] call AE3_filesystem_fnc_createDir;
-			} 
-			catch
-			{
-				private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
-				if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
-				{
-					diag_log format ["AE3 exception: %1", _exception];
-				}
-				else
-				{
-					throw _exception;
-				};
-			};
-		};
+			//--- Add user to every synced computer
+			[_x, _username, _password] call AE3_armaos_fnc_computer_addUser;
+		} foreach _syncedUnits;
 
-		_x setVariable ["AE3_filesystem", _filesystem];
-		_x setVariable ["AE3_Userlist", _userlist, true];
-	} foreach _units;
+		deleteVehicle _module;
+	};
 };
 
-true
+true;

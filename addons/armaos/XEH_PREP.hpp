@@ -43,6 +43,10 @@ PREP(computer_standby);
 PREP(computer_turnOn);
 PREP(computer_turnOff);
 
+PREP(computer_addUser);
+PREP(computer_addSecurityCommands);
+PREP(computer_addGames);
+
 PREP(computer_getLocality);
 
 /* OS Link Functions */
@@ -80,6 +84,7 @@ PREP(os_lsusb);
 
 /* Encryption Functions */
 PREP(encryption_caesar);
+PREP(encryption_columnar);
 
 /* Terminal Functions */
 PREP(terminal_init);
@@ -102,9 +107,10 @@ PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);
 PREP(terminal_getAllowedKeysDE);
 PREP(terminal_getAllowedKeysFR);
+PREP(terminal_getAllowedKeysIT);
 PREP(terminal_getAllowedKeysUS);
 PREP(terminal_getHeaderText);
-PREP(terminal_updateBufferVisable);
+PREP(terminal_updateBufferVisible);
 PREP(terminal_updatePromptPointer);
 PREP(terminal_addToHistory);
 PREP(terminal_setKeyboardLayout);
@@ -114,3 +120,11 @@ PREP(terminal_switchTerminalDesign);
 PREP(terminal_setCommandLineByHistory);
 PREP(terminal_setInputMode);
 PREP(terminal_updateBatteryStatus);
+
+PREP(terminal_uiOnTex_init);
+PREP(terminal_uiOnTex_updateAll);
+PREP(terminal_uiOnTex_updateOutput);
+PREP(terminal_uiOnTex_updateBatteryStatus);
+PREP(terminal_uiOnTex_setTerminalDesign);
+PREP(terminal_uiOnTex_setKeyboardLayout);
+PREP(terminal_uiOnTex_addUpdateAllEventHandler);

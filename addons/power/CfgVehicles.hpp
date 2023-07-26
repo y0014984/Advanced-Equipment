@@ -2,42 +2,16 @@ class CfgVehicles
 {
 	/* ================================================================================ */
 
-	// Generator Dummy
-	//class Land_PortableGenerator_01_F;
-	//class Land_PortableGenerator_01_black_F;
-	//class Land_PortableGenerator_01_sand_F;
-
-	//class Land_PortableGenerator_01_F_AE3_Dummy: Land_PortableGenerator_01_F
-	//{
-	//	class EventHandlers
-	//	{
-	//		init = "params ['_entity']; [_entity, 'Land_PortableGenerator_01_F_AE3'] call AE3_main_fnc_replace;";
-	//	};
-	//};
-
-	//class Land_PortableGenerator_01_black_F_AE3_Dummy: Land_PortableGenerator_01_black_F
-	//{
-	//	class EventHandlers
-	//	{
-	//		init = "params ['_entity']; [_entity, 'Land_PortableGenerator_01_black_F_AE3'] call AE3_main_fnc_replace;";
-	//	};
-	//};
-
-	//class Land_PortableGenerator_01_sand_F_AE3_Dummy: Land_PortableGenerator_01_sand_F
-	//{
-	//	class EventHandlers
-	//	{
-	//		init = "params ['_entity']; [_entity, 'Land_PortableGenerator_01_sand_F_AE3'] call AE3_main_fnc_replace;";
-	//	};
-	//};
-
-	/* ================================================================================ */
-
 	// Generator
 	class B_Radar_System_01_F;
-
-	class Land_PortableGenerator_01_F_AE3: B_Radar_System_01_F
+	class GeneratorMaster_01_F_AE3: B_Radar_System_01_F
 	{
+		scope = 0; // Dummy Class
+		scopeCurator = 0; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		curatorInfoType = "AE3_UserInterface_Zeus_Asset_Details"; // when placing with AI
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details"; // when placing without AI
+
 		// Eden Editor Attributes
 		class Attributes
 		{
@@ -65,12 +39,62 @@ class CfgVehicles
 
 		// Refuel
 		ace_refuel_canReceive = 1; // For vehicles which can't be refueled
-		ace_refuel_fuelCapacity = 5; // Fuel tank volume
 		ace_refuel_flowRate = 1; // Speed?
+
+		/* -------------------- */
+
+		// Override
+		faction = "Default";
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "EdSubcat_Electronics";
+		icon = "iconObject_1x1"; // Object gets invisible, except the shadow
+		picture = "pictureThing";
+		hasDriver = 0;
+		getInAction = "";
+		maximumLoad = 0;
+
+		cargoCompartments[] = {};
+		cargoAction[] = {};
+		driverAction = "";
+		typicalCargo[] = {};
+		weapons[] = {};
+
+		fuelConsumptionRate = 0.0;
+	};
+
+	/* ================================================================================ */
+
+	class Land_PortableGenerator_01_F_AE3: GeneratorMaster_01_F_AE3
+	{
+		scope = 2; // Dummy Class
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		model = "\A3\Props_F_Exp\Military\Camps\PortableGenerator_01_F.p3d";
+		editorPreview = "\A3\EditorPreviews_F_Exp\Data\CfgVehicles\Land_PortableGenerator_01_F.jpg"; // modified for texture variants
+		hiddenSelections[] = {"Camo_1"};
+		hiddenSelectionsTextures[] = {"a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa"}; // modified for texture variants
+		displayName = "$STR_A3_CfgVehicles_Land_PortableGenerator_01_F0"; // modified for texture variants
+
+		fuelCapacity = "5";
+		ace_refuel_fuelCapacity = 5; // Fuel tank volume
+
+		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorStartSound.ogg", 5, 1};
+		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorStopSound.ogg", 5, 1};
+
+		// https://www.realitymod.com/forum/showthread.php?t=100826
+		class Sounds
+		{
+			class Engine 
+			{
+				frequency = "( randomizer*0.05 + 0.95 )";
+				volume = "engineOn * camPos";
+				sound[] = {"z\ae3\addons\power\sounds\GeneratorRunningSound.ogg", 2, 1, 100};
+			};
+		};
 
 		class AE3_Device
 		{
-			displayName = "$STR_AE3_Power_Config_GeneratorDisplayName";
+			displayName = "$STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName";
 			defaultPowerLevel = 0;
 
 			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
@@ -88,7 +112,7 @@ class CfgVehicles
 
 		class AE3_Equipment
 		{
-			displayName = "$STR_AE3_Power_Config_GeneratorDisplayName";
+			displayName = "$STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName";
 
 			class AE3_ace3Interactions
 			{
@@ -106,32 +130,188 @@ class CfgVehicles
 				};
 			};
 		};
+	};
 
-		/* -------------------- */
+	/* ================================================================================ */
 
-		// Override
-		faction = "Default";
-		editorCategory = "EdCat_Things";
-		editorSubcategory = "EdSubcat_Electronics";
-		editorPreview = "\A3\EditorPreviews_F_Exp\Data\CfgVehicles\Land_PortableGenerator_01_F.jpg"; // modified for texture variants
-		model = "\A3\Props_F_Exp\Military\Camps\PortableGenerator_01_F.p3d";
-		hiddenSelections[] = {"Camo_1"};
-		hiddenSelectionsTextures[] = {"a3\props_f_exp\military\camps\data\portablegenerator_01_co.paa"}; // modified for texture variants
-		icon = "iconObject_1x1"; // Object gets invisible, except the shadow
-		picture = "pictureThing";
-		displayName = "$STR_AE3_Power_Config_GeneratorDisplayName"; // modified for texture variants
-		hasDriver = 0;
-		getInAction = "";
-		maximumLoad = 0;
+	class Land_PortableGenerator_01_black_F_AE3: Land_PortableGenerator_01_F_AE3
+	{
+		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_black_F.jpg"; // modified for texture variants
+		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"}; // modified for texture variants
+		displayName = "$STR_A3_C_CfgVehicles_Land_PortableGenerator_01_black_F0"; // modified for texture variants
+	};
 
-		cargoCompartments[] = {};
-		cargoAction[] = {};
-		driverAction = "";
-		typicalCargo[] = {};
-		weapons[] = {};
+	/* ================================================================================ */
+
+	class Land_PortableGenerator_01_sand_F_AE3: Land_PortableGenerator_01_F_AE3
+	{
+		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_sand_F.jpg"; // modified for texture variants
+		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"}; // modified for texture variants
+		displayName = "$STR_A3_C_CfgVehicles_Land_PortableGenerator_01_sand_F0"; // modified for texture variants
+	};
+
+	/* ================================================================================ */
+
+	class Land_MobileRadar_01_generator_F_AE3: GeneratorMaster_01_F_AE3
+	{
+		scope = 2; // Dummy Class
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		model = "\A3\Structures_F_Enoch\Military\Radar\MobileRadar_01_generator_F.p3d";
+		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_MobileRadar_01_generator_F.jpg"; // modified for texture variants
+		hiddenSelections[] = {};
+		hiddenSelectionsTextures[] = {}; // modified for texture variants
+		displayName = "$STR_A3_C_CfgVehicles_Land_MobileRadar_01_generator_F0"; // modified for texture variants
+
+		fuelCapacity = "470";
+		ace_refuel_fuelCapacity = 470; // Fuel tank volume
+		
+		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorLargeStartSound.ogg", 5, 1};
+		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorLargeStopSound.ogg", 5, 1};
+		
+		// https://www.realitymod.com/forum/showthread.php?t=100826
+		class Sounds
+		{
+			class Engine 
+			{
+				frequency = "( randomizer*0.05 + 0.95 )";
+				volume = "engineOn * camPos";
+				sound[] = {"z\ae3\addons\power\sounds\GeneratorLargeRunningSound.ogg", 2, 1, 100};
+			};
+		};
+
+		class AE3_Device
+		{
+			displayName = "$STR_AE3_Power_Config_RadarGeneratorDisplayName";
+			defaultPowerLevel = 0;
+
+			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+
+			class AE3_Generator
+			{
+				fuelConsumption = 48.0; // 48 litres per hour consumption
+				fuelCapacity = 470; // 400 litres max. tank volume
+				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+
+				power = 400/3600; // provides max. 400kW
+			};
+		};
+	};
+
+	/* ================================================================================ */
+
+	class Land_DieselGroundPowerUnit_01_F_AE3: GeneratorMaster_01_F_AE3
+	{
+		scope = 2; // Dummy Class
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		model = "\A3\Structures_F_Heli\Ind\Machines\DieselGroundPowerUnit_01_F.p3d";
+		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_DieselGroundPowerUnit_01_F.jpg"; // modified for texture variants
+		hiddenSelections[] = {};
+		hiddenSelectionsTextures[] = {}; // modified for texture variants
+		displayName = "$STR_AE3_Power_Config_AirportGeneratorDisplayName"; // modified for texture variants
+
+		fuelCapacity = "300";
+		ace_refuel_fuelCapacity = 300; // Fuel tank volume
+		
+		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStartSound.ogg", 5, 1};
+		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStopSound.ogg", 5, 1};
+		
+		// https://www.realitymod.com/forum/showthread.php?t=100826
+		class Sounds
+		{
+			class Engine 
+			{
+				frequency = "( randomizer*0.05 + 0.95 )";
+				volume = "engineOn * camPos";
+				sound[] = {"z\ae3\addons\power\sounds\GeneratorAirportRunningSound.ogg", 2, 1, 100};
+			};
+		};
+
+		class AE3_Device
+		{
+			displayName = "$STR_AE3_Power_Config_AirportGeneratorDisplayName";
+			defaultPowerLevel = 0;
+
+			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+
+			class AE3_Generator
+			{
+				fuelConsumption = 30; // 48 litres per hour consumption
+				fuelCapacity = 300; // 400 litres max. tank volume
+				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+
+				power = 100/3600; // provides max. 100 kW
+			};
+		};
+	};
+
+	/* ================================================================================ */
+
+	class Land_PowerGenerator_F_AE3: GeneratorMaster_01_F_AE3
+	{
+		scope = 2; // Dummy Class
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		model = "\A3\Structures_F\Ind\WindPowerPlant\PowerGenerator_F.p3d";
+		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_PowerGenerator_F.jpg"; // modified for texture variants
+		hiddenSelections[] = {};
+		hiddenSelectionsTextures[] = {}; // modified for texture variants
+		displayName = "$STR_A3_CfgVehicles_Land_PowerGenerator_F0"; // modified for texture variants
+
+		fuelCapacity = "300";
+		ace_refuel_fuelCapacity = 300; // Fuel tank volume
+		
+		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStartSound.ogg", 5, 1};
+		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStopSound.ogg", 5, 1};
+		
+		// https://www.realitymod.com/forum/showthread.php?t=100826
+		class Sounds
+		{
+			class Engine 
+			{
+				frequency = "( randomizer*0.05 + 0.95 )";
+				volume = "engineOn * camPos";
+				sound[] = {"z\ae3\addons\power\sounds\GeneratorAirportRunningSound.ogg", 2, 1, 100};
+			};
+		};
+
+		class AE3_Device
+		{
+			displayName = "$STR_AE3_Power_Config_PowerGeneratorDisplayName";
+			defaultPowerLevel = 0;
+
+			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+
+			class AE3_Generator
+			{
+				fuelConsumption = 30; // 48 litres per hour consumption
+				fuelCapacity = 300; // 400 litres max. tank volume
+				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+
+				power = 100/3600; // provides max. 100 kW
+			};
+		};
+	};
+
+	/* ================================================================================ */
+
+	class Land_Portable_generator_F_AE3: GeneratorMaster_01_F_AE3
+	{
+		scope = 2; // Dummy Class
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+		
+		model = "\A3\Structures_F\Items\Electronics\Portable_generator_F.p3d";
+		editorPreview = "\A3\EditorPreviews_F\Data\CfgVehicles\Land_Portable_generator_F.jpg"; // modified for texture variants
+		hiddenSelections[] = {};
+		hiddenSelectionsTextures[] = {}; // modified for texture variants
+		displayName = "$STR_A3_cfgVehicles_Land_Portable_generator_F0"; // modified for texture variants
 
 		fuelCapacity = "5";
-		fuelConsumptionRate = 0.0;
+		ace_refuel_fuelCapacity = 5; // Fuel tank volume
 		
 		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorStartSound.ogg", 5, 1};
 		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorStopSound.ogg", 5, 1};
@@ -146,22 +326,45 @@ class CfgVehicles
 				sound[] = {"z\ae3\addons\power\sounds\GeneratorRunningSound.ogg", 2, 1, 100};
 			};
 		};
-	};
 
-	/* ================================================================================ */
+		class AE3_Device
+		{
+			displayName = "$STR_AE3_Power_Config_PortableGeneratorDisplayName";
+			defaultPowerLevel = 0;
 
-	class Land_PortableGenerator_01_black_F_AE3: Land_PortableGenerator_01_F_AE3
-	{
-		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_black_F.jpg"; // modified for texture variants
-		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_GeneratorDisplayName"; // modified for texture variants
-	};
+			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
 
-	class Land_PortableGenerator_01_sand_F_AE3: Land_PortableGenerator_01_F_AE3
-	{
-		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_sand_F.jpg"; // modified for texture variants
-		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"}; // modified for texture variants
-		displayName = "$STR_AE3_Power_Config_GeneratorDisplayName"; // modified for texture variants
+			class AE3_Generator
+			{
+				fuelConsumption = 1.5; // 48 litres per hour consumption
+				fuelCapacity = 5; // 400 litres max. tank volume
+				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+
+				power = 5/3600; // provides max. 5 kW
+			};
+		};
+
+		class AE3_Equipment
+		{
+			displayName = "$STR_AE3_Power_Config_PortableGeneratorDisplayName";
+
+			class AE3_ace3Interactions
+			{
+				class AE3_aceDragging
+				{
+					// Dragging
+					ae3_dragging_canDrag = 1;  // Can be dragged (0-no, 1-yes)
+					ae3_dragging_dragPosition[] = {0, 1, 0};  // Offset of the model from the body while dragging (same as attachTo)
+					ae3_dragging_dragDirection = 0;  // Model direction while dragging (same as setDir after attachTo)
+				};
+				class AE3_aceCargo
+				{
+					ae3_cargo_canLoad = 1;  // Enables the object to be loaded (1-yes, 0-no)
+					ae3_cargo_size = 4;  // Cargo space the object takes
+				};
+			};
+		};
 	};
 
 	/* ================================================================================ */
@@ -170,6 +373,12 @@ class CfgVehicles
 	class Land_BatteryPack_01_open_olive_F;
 	class Land_BatteryPack_01_open_olive_F_AE3 : Land_BatteryPack_01_open_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
 		// Eden Editor Attributes
 		class Attributes
 		{
@@ -241,7 +450,13 @@ class CfgVehicles
 	class Land_BatteryPack_01_open_black_F;
 	class Land_BatteryPack_01_open_black_F_AE3 : Land_BatteryPack_01_open_black_F
 	{
-  	// Eden Editor Attributes
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
+  		// Eden Editor Attributes
 		class Attributes
 		{
 			class AE3_EdenAttribute_PowerLevel
@@ -312,7 +527,13 @@ class CfgVehicles
 	class Land_BatteryPack_01_open_sand_F;
 	class Land_BatteryPack_01_open_sand_F_AE3 : Land_BatteryPack_01_open_sand_F
 	{
-    // Eden Editor Attributes
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
+    	// Eden Editor Attributes
 		class Attributes
 		{
 			class AE3_EdenAttribute_PowerLevel
@@ -383,6 +604,12 @@ class CfgVehicles
 	class Land_SolarPanel_04_olive_F;
 	class Land_SolarPanel_04_olive_F_AE3 : Land_SolarPanel_04_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
 		// Eden Editor Attributes
 		class Attributes
 		{
@@ -526,7 +753,13 @@ class CfgVehicles
 	class Land_SolarPanel_04_black_F;
 	class Land_SolarPanel_04_black_F_AE3 : Land_SolarPanel_04_black_F
 	{
-  	// Eden Editor Attributes
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
+  		// Eden Editor Attributes
 		class Attributes
 		{
 			class AE3_EdenAttribute_PowerLevel
@@ -669,7 +902,13 @@ class CfgVehicles
 	class Land_SolarPanel_04_sand_F;
 	class Land_SolarPanel_04_sand_F_AE3 : Land_SolarPanel_04_sand_F
 	{
-  	// Eden Editor Attributes
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
+  		// Eden Editor Attributes
 		class Attributes
 		{
 			class AE3_EdenAttribute_PowerLevel
@@ -808,6 +1047,12 @@ class CfgVehicles
 	class Land_PortableSolarPanel_01_olive_F;
 	class Land_PortableSolarPanel_01_olive_F_AE3 : Land_PortableSolarPanel_01_olive_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
@@ -850,6 +1095,12 @@ class CfgVehicles
 	class Land_PortableSolarPanel_01_sand_F;
 	class Land_PortableSolarPanel_01_sand_F_AE3 : Land_PortableSolarPanel_01_sand_F
 	{
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";

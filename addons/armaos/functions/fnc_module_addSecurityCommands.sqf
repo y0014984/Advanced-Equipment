@@ -1,30 +1,44 @@
-params["_logic", "_units", "_activated"];
+/**
+ * PRIVATE
+ *
+ * This function is assigned in module config and will be triggered after mission start and if the module is placed by zeus on every computer.
+ * The function will only run on server and only if placed in eden editor. The module will be deleted after processing.
+ * The effect of this module applies to all syncted entities.
+ *
+ * Arguments:
+ * 1: Module <OBJECT>
+ * 2: Synced Units <[OBJECT]>
+ * 3: Activated <BOOL> currently unused in this function
+ *
+ * Results:
+ * None
+ *
+ */
+
+params["_module", "_syncedUnits", "_activated"];
+
+// ignore this function if module is placed by curator/zeus
+if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
 
 if(!isServer) exitWith {};
 
-private _isCrypto = _logic getVariable ["AE3_ModuleAddSecurityCommands_IsCrypto", ""];
-private _isCrack = _logic getVariable ["AE3_ModuleAddSecurityCommands_IsCrack", ""];
-
-[_logic, _units, _isCrypto, _isCrack] spawn
+if (_activated) then 
 {
-	params["_logic", "_units", "_isCrypto", "_isCrack"];
-
-	waitUntil { !isNil "BIS_fnc_init" };
-
-	if (_isCrypto) then
+	[_module, _syncedUnits] spawn
 	{
-		//--- add 'crypto' command to all synced computers
-		{
-			[_x, "CfgSecurityCommands", ["crypto"]] call AE3_armaos_fnc_link_init;
-		} foreach _units;
-	};
+		params["_module", "_syncedUnits"];
 
-	if (_isCrack) then
-	{
-		//--- add 'crack' command to all synced computers
+		waitUntil { !isNil "BIS_fnc_init" };
+		
+		//--- Extract the user defined module arguments
+		private _isCrypto = _module getVariable ["AE3_ModuleAddSecurityCommands_IsCrypto", ""];
+		private _isCrack = _module getVariable ["AE3_ModuleAddSecurityCommands_IsCrack", ""];
+
 		{
-			[_x, "CfgSecurityCommands", ["crack"]] call AE3_armaos_fnc_link_init;
-		} foreach _units;
+			[_x, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
+		} foreach _syncedUnits;
+
+		deleteVehicle _module;
 	};
 };
 

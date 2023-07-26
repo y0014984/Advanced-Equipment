@@ -5,7 +5,12 @@ class CfgVehicles
 	class Land_USB_Dongle_01_F;
 	class Land_USB_Dongle_01_F_AE3: Land_USB_Dongle_01_F
 	{
-		scope=2;
+		scope = 2;
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
+		scopeArsenal = 2; // Virtual Arsenal visability; 2 will show it in the menu, 0 will hide it.
+
+		editorCategory = "AE3_Assets";
+
 		ae3_item = Item_FlashDisk_AE3;
 
 		class EventHandlers

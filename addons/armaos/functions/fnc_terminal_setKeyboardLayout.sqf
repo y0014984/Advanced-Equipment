@@ -7,6 +7,7 @@ _computer setVariable ["AE3_terminalKeyboardLayout", _terminalKeyboardLayout];
 private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
 if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
 if (_terminalKeyboardLayout == "FR") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysFR; };
+if (_terminalKeyboardLayout == "IT") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysIT; };
 if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
 _terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 
@@ -26,3 +27,14 @@ else
 };
 
 _computer setVariable ["AE3_terminal", _terminal];
+
+/* ------------- UI on Texture ------------ */
+
+if (AE3_UiOnTexture) then
+{
+	private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
+
+	[_computer, _terminalKeyboardLayout] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_setKeyboardLayout", _playersInRange];
+};
+
+/* ---------------------------------------- */

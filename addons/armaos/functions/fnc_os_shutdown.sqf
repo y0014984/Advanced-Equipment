@@ -29,3 +29,9 @@ _computer setVariable ["AE3_computer_mutex", objNull, true];
 closeDialog 1;
 
 private _handle = [_computer, [false]] call (_computer getVariable "AE3_power_fnc_turnOffWrapper");
+
+/* ------------- UI on Texture ------------ */
+
+_computer setVariable ["AE3_UiOnTexActive", false, true]; // reset var for all clients
+
+/* ---------------------------------------- */

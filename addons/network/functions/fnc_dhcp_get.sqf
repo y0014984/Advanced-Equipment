@@ -9,20 +9,20 @@
  *
  */
 
-params['_entity'];
+params ["_entity"];
 
-private _parent = _entity getVariable 'AE3_network_parent';
+private _parent = _entity getVariable ["AE3_network_parent", objNull];
 
-if(!alive _entity || _entity getVariable 'AE3_power_powerState' == 0) exitWith {[127, 0, 0, 1]};
+if (!alive _entity || _entity getVariable "AE3_power_powerState" == 0) exitWith { [127, 0, 0, 1] };
 
-if(isNull _parent) then
+if (isNull _parent) then
 {
 
-	_counter = _entity getVariable 'AE3_network_addressCounter';
+	_counter = _entity getVariable "AE3_network_addressCounter";
 	_counter = _counter + 1;
-	_entity setVariable ['AE3_network_addressCounter', _counter, true];
+	_entity setVariable ["AE3_network_addressCounter", _counter, true];
 
-	_address = _entity getVariable 'AE3_network_address';
+	_address = _entity getVariable "AE3_network_address";
 	_return = [0, 0, 0, 0];
 
 	_return set [0, _address select 0];

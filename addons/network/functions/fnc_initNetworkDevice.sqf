@@ -30,7 +30,9 @@ private _childs =
 
 		private _action = [_aceCargoName, _aceCargoName, "", _childStatement, {true}, {}, _x] call ace_interact_menu_fnc_createAction; 
 		_actions pushBack [_action, [], _target]; 
-	} forEach (_routers); _actions
+	} forEach (_routers);
+	
+	_actions
 };
 
 private _connect = ["AE3_Network_ConnectAction", localize "STR_AE3_Network_Interaction_ConnectToRouter", "",
@@ -38,7 +40,7 @@ private _connect = ["AE3_Network_ConnectAction", localize "STR_AE3_Network_Inter
 			{
 				params ["_target", "_player", "_params"]; 
 				_params params ["_device"]; 
-				(alive _target) and (isNull (_device getVariable "AE3_network_parent"))
+				(alive _target) and (isNull (_device getVariable ["AE3_network_parent", objNull]))
 			},
 			_childs,
 			[_entity]
@@ -53,25 +55,25 @@ private _disconnect = ["AE3_Network_DisconnectAction", localize "STR_AE3_Network
 				{
 					params ["_target", "_player", "_params"]; 
 					_params params ["_device"];
-					(alive _target) and (!isNull (_device getVariable "AE3_network_parent"))
+					(alive _target) and (!isNull (_device getVariable ["AE3_network_parent", objNull]))
 				},
 				{},
 				[_entity]
 				] call ace_interact_menu_fnc_createAction;
 
-if(!isDedicated) then
+if (!isDedicated) then
 {
 	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
 	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
 };
 
 
- if(isServer) then 
+ if (isServer) then 
  {
 	 _entity setVariable ["AE3_network_address", _address, true];
 	 _entity setVariable ["AE3_network_parent", _parent, true];
 
-	if(!isNull _parent) then
+	if (!isNull _parent) then
 	{
 		[_entity, _parent] call AE3_network_fnc_connect_device2router;
 	};

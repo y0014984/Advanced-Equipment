@@ -23,14 +23,6 @@ private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
 private _designButton = _consoleDialog displayCtrl 1320;
 
-/*
-private _handle = [_computer] spawn AE3_power_fnc_showBatteryLevel;
-
-private _ip = _computer getVariable ["AE3_ipAddress", "127.0.0.1"];
-
-_consoleInput setVariable ["ip", _ip];
-*/
-
 [_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
 [_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
 
@@ -45,7 +37,7 @@ private _terminal = createHashMapFromArray
 	[
 		["AE3_terminalBuffer", []],
 		["AE3_terminalRenderedBuffer", []],
-		["AE3_terminalBufferVisable", []],
+		["AE3_terminalBufferVisible", []],
 		["AE3_terminalScrollPosition", 0],
 		["AE3_terminalCursorLine", 0],
 		["AE3_terminalCursorPosition", 0],
@@ -132,6 +124,13 @@ private _currentDesign = _designs select _currentDesignIndex;
 
 private _handleUpdateBatteryStatus = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_updateBatteryStatus;
 _consoleDialog setVariable ["AE3_handleUpdateBatteryStatus", _handleUpdateBatteryStatus];
+
+/* ------------- UI on Texture ------------ */
+
+private _handleUpdateUiOnTexture = [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_uiOnTex_addUpdateAllEventHandler;
+_consoleDialog setVariable ["AE3_handleUpdateUiOnTexture", _handleUpdateUiOnTexture];
+
+/* ---------------------------------------- */
 
 [_consoleDialog, _consoleOutput, _languageButton, _designButton] call AE3_armaos_fnc_terminal_addEventHandler;
 

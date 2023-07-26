@@ -1,6 +1,8 @@
 #include "script_component.hpp"
 #include "XEH_PREP.hpp"
 
+["All", "deleted", {_this call AE3_main_fnc_terminateDevice}] call CBA_fnc_addClassEventHandler;
+
 [
 	"AE3_DebugMode", // Settings internal name
 	"CHECKBOX", // Settings type

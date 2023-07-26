@@ -19,3 +19,7 @@ PREP(dhcp_onTurnOn);
 
 /* Generic */
 PREP(ip2str);
+
+/* Connections */
+PREP(createNetworkConnection);
+PREP(removeNetworkConnection);

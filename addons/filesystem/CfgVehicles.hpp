@@ -11,6 +11,7 @@ class CfgVehicles
 			class Default;
 			class Edit;					// Default edit box (i.e., text input field)
 			class Checkbox;
+			class Combo;
 			class ModuleDescription;	// Module description
 		};
 		// Description base classes, for more information see below
@@ -25,15 +26,16 @@ class CfgVehicles
 	class AE3_AddFile: Module_F
 	{
 		// Standard object definitions
+
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_Filesystem_Config_AddFileDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addFile.paa"; // Map icon. Delete this entry to use the default icon
-		category = "AE3_armaosModules";
-
+		category = "AE3_filesystemModules";
 		// Name of function triggered once conditions are met
-		function = "AE3_filesystem_fnc_moduleAddFile";
+		function = "AE3_filesystem_fnc_module_addFile";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-		functionPriority = 1;
+		functionPriority = 3;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
 		isGlobal = 1;
 		// 1 for module waiting until all synced triggers are activated
@@ -44,7 +46,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleFilesystem";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddFile";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase
@@ -73,9 +75,9 @@ class CfgVehicles
 				validate = "none";
 				expression = "_this setVariable [""AE3_Module_AddFile_Content"", _value]";
 			};
-			class AE3_Module_AddFile_IsFunction: Checkbox
+			class AE3_Module_AddFile_IsCode: Checkbox
 			{
-				property = "AE3_Module_AddFile_IsFunction";
+				property = "AE3_Module_AddFile_IsCode";
 				displayName = "$STR_AE3_Filesystem_Config_IsCodeDisplayName";
 				tooltip = "$STR_AE3_Filesystem_Config_IsCodeTooltip";
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
@@ -159,6 +161,43 @@ class CfgVehicles
 				defaultValue = true;
 			};
 
+			class AE3_Module_AddFile_IsEncrypted: Checkbox
+			{
+				property = "AE3_Module_AddFile_IsEncrypted";
+				displayName = "$STR_AE3_Filesystem_Config_IsEncryptedDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_IsEncryptedTooltip";
+				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = false;
+			};
+			class AE3_Module_AddFile_EncryptionAlgorithm: Combo
+			{
+				property = "AE3_Module_AddFile_EncryptionAlgorithm";
+				displayName = "$STR_AE3_Filesystem_Config_EncryptionAlgorithmDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_EncryptionAlgorithmTooltip";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """caesar""";
+
+				// Listbox items:
+				class Values
+				{
+					class caesar	{ name = "caesar";	value = "caesar"; };
+					class columnar	{ name = "columnar";	value = "columnar"; };
+				};
+			};
+			class AE3_Module_AddFile_EncryptionKey: Edit
+			{
+				property = "AE3_Module_AddFile_EncryptionKey";
+				displayName = "$STR_AE3_Filesystem_Config_EncryptionKeyDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_EncryptionKeyTooltip";
+				typeName = "STRING"; // Value type, can be "NUMBER", "STRING" or "BOOL"
+				// Default text filled in the input box
+				// Because it is an expression, to return a String one must have a string within a string
+				defaultValue = """13""";
+			};
 			
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};
@@ -189,14 +228,15 @@ class CfgVehicles
 	{
 		// Standard object definitions
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
+		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		displayName = "$STR_AE3_Filesystem_Config_AddDirDisplayName"; // Name displayed in the menu
 		icon = "\z\ae3\addons\filesystem\ui\AE3_Module_Icons_addDir.paa"; // Map icon. Delete this entry to use the default icon
-		category = "AE3_armaosModules";
+		category = "AE3_filesystemModules";
 
 		// Name of function triggered once conditions are met
-		function = "AE3_filesystem_fnc_moduleAddDir";
+		function = "AE3_filesystem_fnc_module_addDir";
 		// Execution priority, modules with lower number are executed first. 0 is used when the attribute is undefined
-		functionPriority = 1;
+		functionPriority = 2;
 		// 0 for server only execution, 1 for global execution, 2 for persistent global execution
 		isGlobal = 1;
 		// 1 for module waiting until all synced triggers are activated
@@ -207,7 +247,7 @@ class CfgVehicles
 		is3DEN = 0;
 
 		// Menu displayed when the module is placed or double-clicked on by Zeus
-		curatorInfoType = "RscDisplayAttributeModuleFilesystem";
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddDir";
 
 		// Module attributes, uses https://community.bistudio.com/wiki/Eden_Editor:_Configuring_Attributes#Entity_Specific
 		class Attributes: AttributesBase

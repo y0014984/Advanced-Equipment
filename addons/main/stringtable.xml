@@ -9,6 +9,7 @@
                 <Chinesesimp>是</Chinesesimp>
                 <Russian>Да</Russian>
                 <French>oui</French>
+                <Italian>Si</Italian>
             </Key>
             <Key ID="STR_AE3_Main_General_No">
                 <Original>no</Original>
@@ -17,6 +18,43 @@
                 <Chinesesimp>否</Chinesesimp>
                 <Russian>Нет</Russian>
                 <French>non</French>
+                <Italian>No</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_AdvancedEquipmentObjectsCategoryDisplayName">
+                <Original>Advanced Equipment Objects (AE3)</Original>
+                <English>Advanced Equipment Objects (AE3)</English>
+                <German>Advanced Equipment Gegenstände (AE3)</German>
+                <Chinesesimp>Advanced Equipment 对象 (AE3)</Chinesesimp>
+                <Russian>Advanced Equipment Objects (AE3)</Russian>
+                <French>Advanced Equipment Objects (AE3)</French>
+                <Italian>Advanced Equipment Objects (AE3)</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_ArmaOSModulesCategoryDisplayName">
+                <Original>AE3 armaOS Modules</Original>
+                <English>AE3 armaOS Modules</English>
+                <German>AE3 armaOS Module</German>
+                <Chinesesimp>AE3 armaOS 模块</Chinesesimp>
+                <Russian>AE3 armaOS Modules</Russian>
+                <French>AE3 armaOS Modules</French>
+                <Italian>AE3 Modulo ArmaOS</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_MainModulesCategoryDisplayName">
+                <Original>AE3 main Modules</Original>
+                <English>AE3 main Modules</English>
+                <German>AE3 allgemeine Module</German>
+                <Chinesesimp>AE3 主模块</Chinesesimp>
+                <Russian>AE3 main Modules</Russian>
+                <French>AE3 modules principaux</French>
+                <Italian>AE3 main Modules</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_FilesystemModulesCategoryDisplayName">
+                <Original>AE3 filesystem Modules</Original>
+                <English>AE3 filesystem Modules</English>
+                <German>AE3 allgemeine Module</German>
+                <Chinesesimp>AE3 文件系统模块</Chinesesimp>
+                <Russian>AE3 filesystem Modules</Russian>
+                <French>AE3 Modules de système de fichiers</French>
+                <Italian>AE3 filesystem Modules</Italian>
             </Key>
         </Container>
         <Container name="Debug Mode">
@@ -26,7 +64,8 @@
                 <German>AE3 DEBUG MODUS AKTIVIERT</German>
                 <Chinesesimp>AE3调试模式已启用</Chinesesimp>
                 <Russian>АЕ3 РЕЖИМ ОТЛАДКИ ВКЛЮЧЕН</Russian>
-                <French>AE3 MODE DEBUG ACTIVE</French>
+                <French>AE3 MODE DEBUG ACTIF</French>
+                <Italian>AE3 DEBUG MODE ABILITATO</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_disabled">
                 <Original>AE3 DEBUG MODE DISABLED</Original>
@@ -35,6 +74,7 @@
                 <Chinesesimp>AE3调试模式已禁用</Chinesesimp>
                 <Russian>АЕ3 РЕЖИМ ОТЛАДКИ ВЫКЛЮЧЕН</Russian>
                 <French>AE3 MODE DEBUG DESACTIVE</French>
+                <Italian>AE3 DEBUG MODE DISABILITATO</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_ACE3CargoName">
                 <Original>ACE3 Cargo Name: %1</Original>
@@ -43,6 +83,7 @@
                 <Chinesesimp>ACE3 货物名称: %1</Chinesesimp>
                 <Russian>ACE3 Cargo Name: %1</Russian>
                 <French>ACE3 Nom de la cargaison: %1</French>
+                <Italian>Nome ACE3 Cargo: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_DeviceClass">
                 <Original>Device Class: %1</Original>
@@ -51,6 +92,7 @@
                 <Chinesesimp>设备类: %1</Chinesesimp>
                 <Russian>Device Class: %1</Russian>
                 <French>Classe de l'appareil: %1</French>
+                <Italian>Classe Dispositivo: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_PowerState">
                 <Original>Power State: %1</Original>
@@ -59,6 +101,7 @@
                 <Chinesesimp>电力状态: %1</Chinesesimp>
                 <Russian>Состояние питания: %1</Russian>
                 <French>État d'alimentation: %1</French>
+                <Italian>Stato Accensione: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_FuelLevel">
                 <Original>Fuel Level: %1 l (%2%3 of %4 l)</Original>
@@ -67,6 +110,7 @@
                 <Chinesesimp>燃料: %1 l (%2%3 of %4 l)</Chinesesimp>
                 <Russian>Уровень топлива: %1 l (%2%3 of %4 l)</Russian>
                 <French>Niveau de carburant: %1 l (%2%3 de %4 l)</French>
+                <Italian>Livello carburante: %1 l (%2%3 di %4 l)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_ConnectedPowerDevices">
                 <Original>Connected Power Devices: %1</Original>
@@ -75,6 +119,7 @@
                 <Chinesesimp>已连接的电力设备: %1</Chinesesimp>
                 <Russian>Подключенные устройства (Питание): %1</Russian>
                 <French>Dispositifs d'alimentation connectés: %1</French>
+                <Italian>Dispositivi elettrici collegati: %1</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_BatteryLevel">
                 <Original>Battery Level: %1 Wh (%2%3 of %4 Wh)</Original>
@@ -83,6 +128,7 @@
                 <Chinesesimp>电量: %1 Wh (%2%3 of %4 Wh)</Chinesesimp>
                 <Russian>Уровень заряда батареи: %1 Wh (%2%3 of %4 Wh)</Russian>
                 <French>Niveau de batterie: %1 Wh (%2%3 de %4 Wh)</French>
+                <Italian>Livello batteria: %1 Wh (%2%3 di %4 Wh)</Italian>
             </Key>
             <Key ID="STR_AE3_Main_DebugMode_PowerOutput">
                 <Original>Power Output: %1 W)</Original>
@@ -91,6 +137,7 @@
                 <Chinesesimp>输出: %1 W</Chinesesimp>
                 <Russian>Power Output: %1 W</Russian>
                 <French>Puissance de sortie: %1 W</French>
+                <Italian>Potenza elettrica in uscita: %1 W)</Italian>
             </Key>
         </Container>
         <Container name="Eden Attributes">
@@ -101,6 +148,7 @@
                 <Chinesesimp>AE3属性</Chinesesimp>
                 <Russian>Атрибуты AE3</Russian>
                 <French>AE3 Attributs</French>
+                <Italian>Attributi AE3</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelDisplayName">
                 <Original>Power Level</Original>
@@ -109,6 +157,7 @@
                 <Chinesesimp>功率等级</Chinesesimp>
                 <Russian>Уровень мощности</Russian>
                 <French>Niveau d'énergie</French>
+                <Italian>Livello potenza elettrica</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_PowerLevelTooltip">
                 <Original>Power Level set at the beginning of the mission</Original>
@@ -117,6 +166,7 @@
                 <Chinesesimp>任务开始时设定的功率等级</Chinesesimp>
                 <Russian>Уровень мощности, установленный в начале миссии</Russian>
                 <French>Niveau de puissance défini au début de la mission</French>
+                <Italian>Livello potenza elettrica impostata all'inizio della missione</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
                 <Original>Fuel Level</Original>
@@ -125,6 +175,7 @@
                 <Chinesesimp>燃料</Chinesesimp>
                 <Russian>Уровень топлива</Russian>
                 <French>Niveau de carburant</French>
+                <Italian>Livello carburante</Italian>
             </Key>
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelTooltip">
                 <Original>Fuel Level set at the beginning of the mission</Original>
@@ -133,40 +184,45 @@
                 <Chinesesimp>任务开始时设定的燃料</Chinesesimp>
                 <Russian>Уровень топлива установленный в начале миссии</Russian>
                 <French>Niveau de carburant défini au début de la mission</French>
+                <Italian>Livello carburante impostato all'inizio della missione</Italian>
             </Key>
         </Container>
         <Container name="Eden Connections">
-            <Key ID="STR_AE3_Main_EdenConnections_Forbidden1">
+            <Key ID="STR_AE3_Main_Connections_Forbidden1">
                 <Original>Forbidden connection removed: this source asset is not allowed for connection type: %1</Original>
                 <English>Forbidden connection removed: this source asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Ausgangsgerät sind Verbindungen diesen Typs unzulässig: %1</German>
                 <Chinesesimp>已移除非法连接: 此来源不适用于连接类型: %1</Chinesesimp>
                 <Russian>Удалено недопустимое соединение: для этого устройства вывода соединения такого типа недопустимы: %1</Russian>
                 <French>Connexion interdite supprimée : cet élément source n'est pas autorisé pour le type de connexion: %1</French>
+                <Italian>Rimosse connessioni proibita:Questa fonte non è permessa per questo tipo di connessione: %1</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_EdenConnections_Forbidden2">
+            <Key ID="STR_AE3_Main_Connections_Forbidden2">
                 <Original>Forbidden connection removed: this destination asset is not allowed for connection type: %1</Original>
                 <English>Forbidden connection removed: this destination asset is not allowed for connection type: %1</English>
                 <German>Unzulässige Verbindung entfernt: für dieses Zielgerät sind Verbindungen diesen Typs unzulässig: %1</German>
                 <Chinesesimp>已移除非法连接: 此目标不适用于连接类型: %1</Chinesesimp>
                 <Russian>Удалено запрещенное подключение: этот целевой ресурс не разрешен для типа подключения: %1</Russian>
                 <French>Connexion interdite supprimée : cet élément de destination n'est pas autorisé pour le type de connexion: %1</French>
+                <Italian>Rimossa connessione proibita: Questa destinazione non è permessa per questo tipo di connessione: %1</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_EdenConnections_Forbidden3">
+            <Key ID="STR_AE3_Main_Connections_Forbidden3">
                 <Original>Forbidden connection removed: source and destination are identical</Original>
                 <English>Forbidden connection removed: source and destination are identical</English>
                 <German>Unzulässige Verbindung entfernt: Ausgang und Ziel sind identisch</German>
                 <Chinesesimp>已移除非法连接: 来源和目标重复</Chinesesimp>
                 <Russian>Удалено недопустимое соединение: выход и пункт назначения идентичны</Russian>
                 <French>Connexion interdite supprimée : la source et la destination sont identiques</French>
+                <Italian>Rimossa connessione proibita: fonte e destinazione sono identiche</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_EdenConnections_Warning">
+            <Key ID="STR_AE3_Main_Connections_Warning">
                 <Original>Connection warning: this asset already has a connection of type: %1</Original>
                 <English>Connection warning: this asset already has a connection of type: %1</English>
                 <German>Verbindungswarnung: dieses Gerät hat bereits eine Verbindung vom Typ: %1</German>
                 <Chinesesimp>连接警告: 此资产已有一个类型为 %1 的连接</Chinesesimp>
                 <Russian>Предупреждение о подключении: у этого устройства уже есть подключение такого типа: %1</Russian>
                 <French>Avertissement de connexion : cet actif a déjà une connexion de type: %1</French>
+                <Italian>Avviso connessione: Questo asset hanno già una connessione del tipo: %1</Italian>
             </Key>
         </Container>
         <Container name="CBA Settings">
@@ -177,6 +233,7 @@
                 <Chinesesimp>AE3 主体</Chinesesimp>
                 <Russian>AE3 Общие</Russian>
                 <French>AE3 principal</French>
+                <Italian>AE3 main</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_DebugModeName">
                 <Original>Debug Mode</Original>
@@ -185,6 +242,7 @@
                 <Chinesesimp>调试模式</Chinesesimp>
                 <Russian>Режим отладки</Russian>
                 <French>Mode Debug</French>
+                <Italian>Modalità DEBUG</Italian>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_DebugModeTooltip">
                 <Original>By enabling the AE3 Debug Mode you will get additional information about the internal structure of AE3.</Original>
@@ -193,7 +251,723 @@
                 <Chinesesimp>你可以通过AE3调试模式获得更多有关AE3内部结构的信息.</Chinesesimp>
                 <Russian>Включив режим отладки AE3, вы получите дополнительную информацию о внутренней структуре AE3.</Russian>
                 <French>En activant le mode de débogage AE3, vous obtiendrez des informations supplémentaires sur la structure interne d'AE3.</French>
+                <Italian>Abilitando la modalità DEBUG AE3 riceverai informazioni addizionali riguardo la struttura interna di AE3.</Italian>
             </Key>
         </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_Main_Config_ModuleAddConnectionDisplayName">
+                <Original>AE3 Add Connection</Original>
+                <English>AE3 Add Connection</English>
+                <German>AE3 Verbindung hinzufügen</German>
+                <Chinesesimp>AE3 添加连接</Chinesesimp>
+                <Russian>AE3 Add Connection</Russian>
+                <French>AE3 Ajouter une connexion</French>
+                <Italian>AE3 Aggiungi Connessione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Config_ModuleAddConnectionDescription">
+                <Original>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Original>
+                <English>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</English>
+                <German>Dieses Modul ermöglicht dir eine Strom- oder Netzwerkverbindung zwischen zwei Geräten herzustellen. Synchronisiere zwei Geräte mit diesem Modul, stelle Richtung und Verbindungstyp ein und drücke 'OK'.</German>
+                <Chinesesimp>此模块允许您在两个设备之间添加电源或网络连接,将两个设备同步到此模块，设置方向和连接类型,然后按"确定".</Chinesesimp>
+                <Russian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Russian>
+                <French>Ce module permet d'ajouter une alimentation ou une connexion réseau entre deux appareils. Synchronisez deux appareils avec ce module, configurez la direction et le type de connexion et appuyez sur « OK ».</French>
+                <Italian>Questo modulo permette di aggiungere una connessione elettrica o di rete tra 2 dispositivi. Sincronizza due dispositivi con questo modulo,imposta il tipo di connessione e direzione e premi 'OK'.</Italian>
+            </Key>
+        </Container>
+        <Container name="Zeus">
+            <Key ID="STR_AE3_Main_Zeus_ObjectDetails">
+                <Original>AE3 Object Details</Original>
+                <English>AE3 Object Details</English>
+                <German>AE3 Gegenstandsdetails</German>
+                <Chinesesimp>AE3 对象细节</Chinesesimp>
+                <Russian>AE3 Object Details</Russian>
+                <French>AE3 Détails de l'objet</French>
+                <Italian>AE3 Dettagli Oggetti</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_BatteryLevel">
+                <Original>Battery Level</Original>
+                <English>Battery Level</English>
+                <German>Batterieladestand</German>
+                <Chinesesimp>电量</Chinesesimp>
+                <Russian>Уровень заряда батареи</Russian>
+                <French>Niveau de batterie</French>
+                <Italian>Livello batteria</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FuelLevel">
+                <Original>Fuel Level</Original>
+                <English>Fuel Level</English>
+                <German>Treibstofffüllstand</German>
+                <Chinesesimp>燃料</Chinesesimp>
+                <Russian>Уровень топлива</Russian>
+                <French>Niveau de carburant</French>
+                <Italian>Livello carburante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Close">
+                <Original>Close</Original>
+                <English>Close</English>
+                <German>Schließen</German>
+                <Chinesesimp>关闭</Chinesesimp>
+                <Russian>Закрыть</Russian>
+                <French>Fermer</French>
+                <Italian>Chiudi</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Open">
+                <Original>Open</Original>
+                <English>Open</English>
+                <German>Öffnen</German>
+                <Chinesesimp>打开</Chinesesimp>
+                <Russian>Открыть</Russian>
+                <French>Ouvrir</French>
+                <Italian>Apri</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Standby">
+                <Original>Standby</Original>
+                <English>Standby</English>
+                <German>Ruhezustand</German>
+                <Chinesesimp>待机</Chinesesimp>
+                <Russian>Ожидание (Standby)</Russian>
+                <French>Veille</French>
+                <Italian>Attesa</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_TurnOff">
+                <Original>Turn off</Original>
+                <English>Turn off</English>
+                <German>Ausschalten</German>
+                <Chinesesimp>关闭</Chinesesimp>
+                <Russian>Выключить</Russian>
+                <French>Éteindre</French>
+                <Italian>Spegni</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_TurnOn">
+                <Original>Turn on</Original>
+                <English>Turn on</English>
+                <German>Einschalten</German>
+                <Chinesesimp>打开</Chinesesimp>
+                <Russian>Включить</Russian>
+                <French>Allumer</French>
+                <Italian>Accendi</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddUser">
+                <Original>AE3 Add User</Original>
+                <English>AE3 Add User</English>
+                <German>AE3 Benutzer hinzufügen</German>
+                <Chinesesimp>AE3添加用户</Chinesesimp>
+                <Russian>AE3 Add User</Russian>
+                <French>AE3 Ajouter un utilisateur</French>
+                <Italian>AE3 Aggiungi utente</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddSecurityCommands">
+                <Original>AE3 Add Security Commands</Original>
+                <English>AE3 Add Security Commands</English>
+                <German>AE3 Security-Befehle hinzufügen</German>
+                <Chinesesimp>AE3添加安全命令</Chinesesimp>
+                <Russian>AE3 Add Security Commands</Russian>
+                <French>AE3 Ajouter des commandes de sécurité</French>
+                <Italian>AE3 Aggiungi comandi di sicurezza</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddGames">
+                <Original>AE3 Add Games</Original>
+                <English>AE3 Add Games</English>
+                <German>AE3 Spiele hinzufügen</German>
+                <Chinesesimp>AE3添加游戏</Chinesesimp>
+                <Russian>AE3 Add Games</Russian>
+                <French>AE3 Ajouter des jeux</French>
+                <Italian>AE3 Aggiungi giochi</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddFile">
+                <Original>AE3 Add File</Original>
+                <English>AE3 Add File</English>
+                <German>AE3 Datei hinzufügen</German>
+                <Chinesesimp>AE3添加文件</Chinesesimp>
+                <Russian>AE3 Add File</Russian>
+                <French>AE3 Ajouter un fichier</French>
+                <Italian>AE3 Aggiungi files</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddDir">
+                <Original>AE3 Add Directory</Original>
+                <English>AE3 Add Directory</English>
+                <German>AE3 Verzeichnis hinzufügen</German>
+                <Chinesesimp>AE3添加目录</Chinesesimp>
+                <Russian>AE3 Add Directory</Russian>
+                <French>AE3 Ajouter un répertoire</French>
+                <Italian>AE3 Aggiungi Directory</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddConnection">
+                <Original>AE3 Add Connection</Original>
+                <English>AE3 Add Connection</English>
+                <German>AE3 Verbindung hinzufügen</German>
+                <Chinesesimp>AE3 添加连接</Chinesesimp>
+                <Russian>AE3 Add Connection</Russian>
+                <French>AE3 Ajouter une connexion</French>
+                <Italian>AE3 Aggiungi Connessione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddUser_Description">
+                <Original>This module defines users for an armaOS computer.</Original>
+                <English>This module defines users for an armaOS computer.</English>
+                <German>Dieses Modul definiert Benutzer für einen armaOS Computer.</German>
+                <Chinesesimp>此模块定义armaOS计算机的用户.</Chinesesimp>
+                <Russian>Этот модуль определяет пользователей для компьютера с armaOS.</Russian>
+                <French>Ce module définit les utilisateurs pour un ordinateur armaOS.</French>
+                <Italian>Questo definisce gli utenti per i computer armaOS.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddSecurityCommands_Description">
+                <Original>This module adds security commands to an armaOS computer.</Original>
+                <English>This module adds security commands to an armaOS computer.</English>
+                <German>Dieses Modul fügt Security-Befehle zu einem armaOS Computer hinzu.</German>
+                <Chinesesimp>这个模块将安全指令添加到armaOS电脑中.</Chinesesimp>
+                <Russian>Этот модуль добавляет команды безопасности к компьютеру armaOS.</Russian>
+                <French>Ce module ajoute des commandes de sécurité à un ordinateur armaOS.</French>
+                <Italian>Questo modulo aggiunge comandi di security ad un computer armaOS.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddGames_Description">
+                <Original>This module adds games to an armaOS computer.</Original>
+                <English>This module adds games to an armaOS computer.</English>
+                <German>Dieses Modul fügt einem armaOS Computer Spiele hinzu.</German>
+                <Chinesesimp>这个模块将游戏添加到armaOS电脑中.</Chinesesimp>
+                <Russian>Этот модуль добавляет компьютерные игры в armaOS.</Russian>
+                <French>Ce module ajoute des jeux à un ordinateur armaOS.</French>
+                <Italian>Questo modulo aggiunge giochi ad un computer armaOS.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddFile_Description">
+                <Original>This module adds a file to a object which supports filesystems, like computers.</Original>
+                <English>This module adds a file to a object which supports filesystems, like computers.</English>
+                <German>Dieses Modul fügt eine Datei zu einem Objekt hinzu, das Dateisysteme unterstützt, wie Computer.</German>
+                <Chinesesimp>此模块将文件添加到支持文件系统的对象(如计算机).</Chinesesimp>
+                <Russian>Этот модуль добавляет файл к объекту, который поддерживает файловую систему (например компьютер).</Russian>
+                <French>Ce module ajoute un fichier à un objet qui prend en charge les systèmes de fichiers, comme les ordinateurs.</French>
+                <Italian>Questo modulo aggiunge un file o un oggetto che supporta filesystem, come computers.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddDir_Description">
+                <Original>This module adds a directory to a object which supports filesystems, like computers.</Original>
+                <English>This module adds a directory to a object which supports filesystems, like computers.</English>
+                <German>Dieses Modul fügt ein Verzeichnis zu einem Objekt hinzu, das Dateisysteme unterstützt, wie Computer.</German>
+                <Chinesesimp>此模块将目录添加到支持文件系统的对象(如计算机).</Chinesesimp>
+                <Russian>Этот модуль добавляет директорию к объекту, который поддерживает файловую систему (например компьютер).</Russian>
+                <French>Ce module ajoute un répertoire à un objet qui prend en charge les systèmes de fichiers, comme les ordinateurs.</French>
+                <Italian>Questo modulo aggiunge una directory ad un oggetto che supporta i filesystems, come i computer.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddConnection_Description">
+                <Original>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Original>
+                <English>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</English>
+                <German>Dieses Modul ermöglicht dir eine Strom- oder Netzwerkverbindung zwischen zwei Geräten herzustellen. Synchronisiere zwei Geräte mit diesem Modul, stelle Richtung und Verbindungstyp ein und drücke 'OK'.</German>
+                <Chinesesimp>此模块允许您在两个设备之间添加电源或网络连接,将两个设备同步到此模块，设置方向和连接类型,然后按"确定".</Chinesesimp>
+                <Russian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Russian>
+                <French>Ce module permet d'ajouter une alimentation ou une connexion réseau entre deux appareils. Synchronisez deux appareils avec ce module, configurez la direction et le type de connexion et appuyez sur « OK ».</French>
+                <Italian>Questo modulo permette di aggiungere una connessione elettrica o di rete tra 2 dispositivi. Sincronizza due dispositivi con questo modulo,imposta il tipo di connessione e direzione e premi 'OK'.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Username">
+                <Original>Username</Original>
+                <English>Username</English>
+                <German>Benutzername</German>
+                <Chinesesimp>用户名</Chinesesimp>
+                <Russian>Username</Russian>
+                <French>Nom d'utilisateur</French>
+                <Italian>Username</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Password">
+                <Original>Password</Original>
+                <English>Password</English>
+                <German>Kennwort</German>
+                <Chinesesimp>密码</Chinesesimp>
+                <Russian>Password</Russian>
+                <French>Mot de passe</French>
+                <Italian>Password</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Path">
+                <Original>Path</Original>
+                <English>Path</English>
+                <German>Pfad</German>
+                <Chinesesimp>路径</Chinesesimp>
+                <Russian>Путь</Russian>
+                <French>Chemin d'accès</French>
+                <Italian>Percorso</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileContent">
+                <Original>File content</Original>
+                <English>File content</English>
+                <German>Dateiinhalt</German>
+                <Chinesesimp>文件内容</Chinesesimp>
+                <Russian>Содержимое файла</Russian>
+                <French>Contenu du fichier</French>
+                <Italian>Contenuto del file</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_IsCode">
+                <Original>Is code?</Original>
+                <English>Is code?</English>
+                <German>Ist Code?</German>
+                <Chinesesimp>是否为代码?</Chinesesimp>
+                <Russian>Это код?</Russian>
+                <French>Est du code?</French>
+                <Italian>E' code?</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileOwner">
+                <Original>File owner</Original>
+                <English>File owner</English>
+                <German>Dateibesitzer</German>
+                <Chinesesimp>文件所有者</Chinesesimp>
+                <Russian>Владелец файла</Russian>
+                <French>Propriétaire du fichier</French>
+                <Italian>Proprietario file</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_DirOwner">
+                <Original>Directory owner</Original>
+                <English>Directory owner</English>
+                <German>Verzeichnisbesitzer</German>
+                <Chinesesimp>目录所有者</Chinesesimp>
+                <Russian>Владелец директории</Russian>
+                <French>Propriétaire du répertoire</French>
+                <Italian>proprietario directory</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Permissions">
+                <Original>Permissions</Original>
+                <English>Permissions</English>
+                <German>Zugriffsrechte</German>
+                <Chinesesimp>权限</Chinesesimp>
+                <Russian>Permissions</Russian>
+                <French>Permissions</French>
+                <Italian>Permessi</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Owner">
+                <Original>Owner</Original>
+                <English>Owner</English>
+                <German>Besitzer</German>
+                <Chinesesimp>所有者</Chinesesimp>
+                <Russian>Owner</Russian>
+                <French>propriétaire</French>
+                <Italian>Proprietario</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Everyone">
+                <Original>Everyone</Original>
+                <English>Everyone</English>
+                <German>Jeder</German>
+                <Chinesesimp>所有人</Chinesesimp>
+                <Russian>Everyone</Russian>
+                <French>tout le monde</French>
+                <Italian>Chiunque</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FromConsumer">
+                <Original>From (Consumer)</Original>
+                <English>From (Consumer)</English>
+                <German>Von (Verbraucher)</German>
+                <Chinesesimp>From (Consumer)</Chinesesimp>
+                <Russian>From (Consumer)</Russian>
+                <French>De (Consommateur)</French>
+                <Italian>DA (utilizzatore)</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_From">
+                <Original>From</Original>
+                <English>From</English>
+                <German>Von</German>
+                <Chinesesimp>From</Chinesesimp>
+                <Russian>From</Russian>
+                <French>De</French>
+                <Italian>Da</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ToProvider">
+                <Original>To (Provider)</Original>
+                <English>To (Provider)</English>
+                <German>Nach (Lieferant)</German>
+                <Chinesesimp>To (Provider)</Chinesesimp>
+                <Russian>To (Provider)</Russian>
+                <French>A (Provider)</French>
+                <Italian>A (Fornitore)</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_To">
+                <Original>To</Original>
+                <English>To</English>
+                <German>Nach</German>
+                <Chinesesimp>To</Chinesesimp>
+                <Russian>To</Russian>
+                <French>A</French>
+                <Italian>A</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ConnectionType">
+                <Original>Connection Type</Original>
+                <English>Connection Type</English>
+                <German>Verbindungstyp</German>
+                <Chinesesimp>连接类型</Chinesesimp>
+                <Russian>Connection Type</Russian>
+                <French>Type de connexion</French>
+                <Italian>Tipo di connessione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Power">
+                <Original>Power</Original>
+                <English>Power</English>
+                <German>Strom</German>
+                <Chinesesimp>电源</Chinesesimp>
+                <Russian>Power</Russian>
+                <French>Allimentation</French>
+                <Italian>Energia</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Network">
+                <Original>Network</Original>
+                <English>Network</English>
+                <German>Netzwerk</German>
+                <Chinesesimp>网络</Chinesesimp>
+                <Russian>Network</Russian>
+                <French>Réseau</French>
+                <Italian>Rete</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Switch">
+                <Original>Switch</Original>
+                <English>Switch</English>
+                <German>Tauschen</German>
+                <Chinesesimp>开关</Chinesesimp>
+                <Russian>Switch</Russian>
+                <French>changer</French>
+                <Italian>Switch</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ObjectStatus">
+                <Original>Object Status (Click on text and use up/down arrow keys to scroll)</Original>
+                <English>Object Status (Click on text and use up/down arrow keys to scroll)</English>
+                <German>Status Gegenstand (Klicke auf den text und benutze die hoch/runter Pfeiltasten zum scrollen)</German>
+                <Chinesesimp>对象状态 (单击文本并使用上/下箭头键滚动)</Chinesesimp>
+                <Russian>Object Status (Click on text and use up/down arrow keys to scroll)</Russian>
+                <French>Statut de l'objet (Cliquez sur le texte et utilisez les touches fléchées haut/bas pour faire défiler)</French>
+                <Italian>Stato oggetto (Clicca sul testo e usa le frecce su/giù per scorrere)</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_EnableEncryption">
+                <Original>Enable Encryption</Original>
+                <English>Enable Encryption</English>
+                <German>Aktiviere Verschlüsselung</German>
+                <Chinesesimp>启用加密</Chinesesimp>
+                <Russian>Enable Encryption</Russian>
+                <French>Activer le chiffrement</French>
+                <Italian>Abilita Criptazione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_EncryptionAlgorithm">
+                <Original>Encryption Algorithm</Original>
+                <English>Encryption Algorithm</English>
+                <German>Verschlüsselungsalorithmus</German>
+                <Chinesesimp>加密算法</Chinesesimp>
+                <Russian>Encryption Algorithm</Russian>
+                <French>Algorithme de chiffrement</French>
+                <Italian>Algoritmo di Criptazione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_EncryptionKey">
+                <Original>Encryption Key</Original>
+                <English>Encryption Key</English>
+                <German>Verschlüsselungsschlüssel</German>
+                <Chinesesimp>密钥</Chinesesimp>
+                <Russian>Encryption Key</Russian>
+                <French>Clé de chiffrement</French>
+                <Italian>Chiavi di Criptazione</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Caesar">
+                <Original>Caesar</Original>
+                <English>Caesar</English>
+                <German>Caesar</German>
+                <Chinesesimp>凯撒</Chinesesimp>
+                <Russian>Caesar</Russian>
+                <French>César</French>
+                <Italian>Caesar</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Columnar">
+                <Original>Columnar</Original>
+                <English>Columnar</English>
+                <German>Columnar</German>
+                <Chinesesimp>列移位</Chinesesimp>
+                <Russian>Columnar</Russian>
+                <French>Colonnaire</French>
+                <Italian>Columnar</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ObjectClosed">
+                <Original>Object closed.</Original>
+                <English>Object closed.</English>
+                <German>Gegenstand geschlossen.</German>
+                <Chinesesimp>对象已关闭.</Chinesesimp>
+                <Russian>Object closed.</Russian>
+                <French>Objet fermé.</French>
+                <Italian>Oggetto chiuso.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ObjectOpened">
+                <Original>Object opened.</Original>
+                <English>Object opened.</English>
+                <German>Gegenstand geöffnet.</German>
+                <Chinesesimp>对象已开启.</Chinesesimp>
+                <Russian>Object opened.</Russian>
+                <French>Objet ouvert.</French>
+                <Italian>Oggetto aperto.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CantCloseObject">
+                <Original>Can't close object.</Original>
+                <English>Can't close object.</English>
+                <German>Kann Gegenstand nicht schließen.</German>
+                <Chinesesimp>不能关闭对象.</Chinesesimp>
+                <Russian>Can't close object.</Russian>
+                <French>Impossible de fermer l'objet.</French>
+                <Italian>Non puoi chiudere l'oggetto.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CantOpenObject">
+                <Original>Can't open object.</Original>
+                <English>Can't open object.</English>
+                <German>Kann Gegenstand nicht öffnen.</German>
+                <Chinesesimp>不能打开对象.</Chinesesimp>
+                <Russian>Can't open object.</Russian>
+                <French>Impossible d'ouvrir l'objet.</French>
+                <Italian>Non puoi aprire l'oggetto.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_StandbyDevice">
+                <Original>Device put into standby mode.</Original>
+                <English>Device put into standby mode.</English>
+                <German>Gerät in den Ruhezustand versetzt.</German>
+                <Chinesesimp>设备进入待机模式.</Chinesesimp>
+                <Russian>Device put into standby mode.</Russian>
+                <French>Appareil mis en mode veille.</French>
+                <Italian>Dispositivo in modalità standby.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_TurnedOffDevice">
+                <Original>Device turned off.</Original>
+                <English>Device turned off.</English>
+                <German>Gerät ausgeschaltet.</German>
+                <Chinesesimp>关闭设备.</Chinesesimp>
+                <Russian>Device turned off.</Russian>
+                <French>Appareil éteint.</French>
+                <Italian>Dispositivo spento..</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_TurnedOnDevice">
+                <Original>Device turned on.</Original>
+                <English>Device turned on.</English>
+                <German>Gerät eingeschaltet.</German>
+                <Chinesesimp>打开设备.</Chinesesimp>
+                <Russian>Device turned on.</Russian>
+                <French>Appareil allumé.</French>
+                <Italian>Dispositivo acceso.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CantStandbyDevice">
+                <Original>Device cannot be put into standby mode.</Original>
+                <English>Device cannot be put into standby mode.</English>
+                <German>Gerät kann nicht in den Ruhezustand versetzt werden.</German>
+                <Chinesesimp>设备不能进入待机模式.</Chinesesimp>
+                <Russian>Device cannot be put into standby mode.</Russian>
+                <French>L'appareil ne peut pas être mis en mode veille.</French>
+                <Italian>Dispositivo non può essere messo in modalità standby</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CantTurnOffDevice">
+                <Original>Can't turn off device.</Original>
+                <English>Can't turn off device.</English>
+                <German>Gerät kann nicht ausgeschaltet werden.</German>
+                <Chinesesimp>不能关闭设备.</Chinesesimp>
+                <Russian>Can't turn off device.</Russian>
+                <French>Impossible d'éteindre l'appareil.</French>
+                <Italian>Non posso spegnere il dispositivo.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CantTurnOnDevice">
+                <Original>Can't turn on device.</Original>
+                <English>Can't turn on device.</English>
+                <German>Gerät kann nicht eingeschaltet werden.</German>
+                <Chinesesimp>不能打开设备.</Chinesesimp>
+                <Russian>Can't turn on device.</Russian>
+                <French>Impossible d'allumer l'appareil.</French>
+                <Italian>Non posso accendere il dispositivo.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FromMissing">
+                <Original>'From' missing</Original>
+                <English>'From' missing</English>
+                <German>'Von' fehlt</German>
+                <Chinesesimp>缺少 'From'</Chinesesimp>
+                <Russian>'From' missing</Russian>
+                <French>'De' manquant</French>
+                <Italian>'Da' mancante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ToMissing">
+                <Original>'To' missing</Original>
+                <English>'To' missing</English>
+                <German>'Nach' fehlt</German>
+                <Chinesesimp>缺少 'To' </Chinesesimp>
+                <Russian>'To' missing</Russian>
+                <French>'A' manquant</French>
+                <Italian>'A' mancante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_PathMissing">
+                <Original>'Path' missing</Original>
+                <English>'Path' missing</English>
+                <German>'Pfad' fehlt</German>
+                <Chinesesimp>缺少 'Path' </Chinesesimp>
+                <Russian>'Path' missing</Russian>
+                <French>'Chemin' manquant</French>
+                <Italian>'Percorso' mancante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_OwnerMissing">
+                <Original>'Owner' missing</Original>
+                <English>'Owner' missing</English>
+                <German>'Besitzer' fehlt</German>
+                <Chinesesimp>缺少 'Owner'</Chinesesimp>
+                <Russian>'Owner' missing</Russian>
+                <French>'Propriétaire' manquant</French>
+                <Italian>'Proprietario' mancante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_KeyMissing">
+                <Original>'Key' missing</Original>
+                <English>'Key' missing</English>
+                <German>'Schlüssel' fehlt</German>
+                <Chinesesimp>缺少 'Key'</Chinesesimp>
+                <Russian>'Key' missing</Russian>
+                <French>'Clé' manquante</French>
+                <Italian>'Key' mancante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_UsernameMissing">
+                <Original>'Username' missing</Original>
+                <English>'Username' missing</English>
+                <German>'Benutzname' fehlt</German>
+                <Chinesesimp>缺少 'Username' </Chinesesimp>
+                <Russian>'Username' missing</Russian>
+                <French>'Nom d'utilisateur' manquant</French>
+                <Italian>'Username' mancante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_PasswordMissing">
+                <Original>'Password' missing</Original>
+                <English>'Password' missing</English>
+                <German>'Passwort' fehlt</German>
+                <Chinesesimp>缺少 'Password'</Chinesesimp>
+                <Russian>'Password' missing</Russian>
+                <French>'Mot de passe' manquant</French>
+                <Italian>'Password' mancante</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_PathContainsSpaces">
+                <Original>'Path' contains forbidden spaces</Original>
+                <English>'Path' contains forbidden spaces</English>
+                <German>'Pfad' enthält verbotene Leerzeichen</German>
+                <Chinesesimp>'Path' 包含非法的空格</Chinesesimp>
+                <Russian>'Path' contains forbidden spaces</Russian>
+                <French>'Chemin' contient des espaces interdits</French>
+                <Italian>'Percorso' contiene caratteri proibiti</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_UsernameContainsSpaces">
+                <Original>'Username' contains forbidden spaces</Original>
+                <English>'Username' contains forbidden spaces</English>
+                <German>'Benutzername' enthält verbotene Leerzeichen</German>
+                <Chinesesimp>'Username' 包含非法的空格</Chinesesimp>
+                <Russian>'Username' contains forbidden spaces</Russian>
+                <French>'Nom d'utilisateur' contient des espaces interdits</French>
+                <Italian>'Username' contiene caratteri proibiti</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_OwnerContainsSpaces">
+                <Original>'Owner' contains forbidden spaces</Original>
+                <English>'Owner' contains forbidden spaces</English>
+                <German>'Besitzer' enthält verbotene Leerzeichen</German>
+                <Chinesesimp>'Owner' 包含非法的空格</Chinesesimp>
+                <Russian>'Owner' contains forbidden spaces</Russian>
+                <French>'Propriétaire' contient des espaces interdits</French>
+                <Italian>'proprietario' contiene caratteri proibiti</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_PowerConnectionAdded">
+                <Original>AE3 Power Connection added</Original>
+                <English>AE3 Power Connection added</English>
+                <German>AE3 Stromverbindung hinzugefügt</German>
+                <Chinesesimp>AE3 电力连接已添加</Chinesesimp>
+                <Russian>AE3 Power Connection added</Russian>
+                <French>AE3 Connexion électrique ajoutée</French>
+                <Italian>AE3 Connessione elettrica aggiunta</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NetworkConnectionAdded">
+                <Original>AE3 Network Connection added</Original>
+                <English>AE3 Network Connection added</English>
+                <German>AE3 Netzwerkverbindung hinzugefügt</German>
+                <Chinesesimp>AE3 网络连接已添加</Chinesesimp>
+                <Russian>AE3 Network Connection added</Russian>
+                <French>AE3 Connexion réseau ajoutée</French>
+                <Italian>AE3 Connessione di rete aggiunta</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_DirectoryAdded">
+                <Original>AE3 Directory added</Original>
+                <English>AE3 Directory added</English>
+                <German>AE3 Verzeichnis hinzugefügt</German>
+                <Chinesesimp>AE3 目录已添加</Chinesesimp>
+                <Russian>AE3 Directory added</Russian>
+                <French>AE3 Annuaire ajouté</French>
+                <Italian>AE3 Cartella aggiunta</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileAdded">
+                <Original>AE3 File added</Original>
+                <English>AE3 File added</English>
+                <German>AE3 Datei hinzugefügt</German>
+                <Chinesesimp>AE3 文件已添加</Chinesesimp>
+                <Russian>AE3 File added</Russian>
+                <French>AE3 Fichier ajouté</French>
+                <Italian>AE3 File aggiunto</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_GamesAdded">
+                <Original>AE3 Games added</Original>
+                <English>AE3 Games added</English>
+                <German>AE3 Spiele hinzugefügt</German>
+                <Chinesesimp>AE3 游戏已添加</Chinesesimp>
+                <Russian>AE3 Games added</Russian>
+                <French>AE3 Jeux ajoutés</French>
+                <Italian>AE3 Giochi aggiunti</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_SecurityCommandsAdded">
+                <Original>AE3 Security Commands added</Original>
+                <English>AE3 Security Commands added</English>
+                <German>AE3 Spiele hinzugefügt</German>
+                <Chinesesimp>AE3 安全命令已添加</Chinesesimp>
+                <Russian>AE3 Security Commands added</Russian>
+                <French>AE3 Commandes de sécurité ajoutées</French>
+                <Italian>AE3 Comandi di sicurezza aggiunti</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_UserAdded">
+                <Original>AE3 User added</Original>
+                <English>AE3 User added</English>
+                <German>AE3 Benutzer hinzugefügt</German>
+                <Chinesesimp>AE3 用户已添加</Chinesesimp>
+                <Russian>AE3 User added</Russian>
+                <French>AE3 Utilisateur ajouté</French>
+                <Italian>AE3 Utente aggiunto</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NoComputer">
+                <Original>No computer. Place module on computer.</Original>
+                <English>No computer. Place module on computer.</English>
+                <German>Kein Computer. Setze das Mobul auf einen Computer.</German>
+                <Chinesesimp>没有电脑.请将模块放置在电脑上.</Chinesesimp>
+                <Russian>No computer. Place module on computer.</Russian>
+                <French>Pas d'ordinateur. Placez le module sur l'ordinateur.</French>
+                <Italian>No computer, piazza il modulo su un computer</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ComputerInUse">
+                <Original>Computer currently in use.</Original>
+                <English>Computer currently in use.</English>
+                <German>Computer wird gerade verwendet.</German>
+                <Chinesesimp>当前正在使用计算机.</Chinesesimp>
+                <Russian>Computer currently in use.</Russian>
+                <French>Ordinateur en cours d'utilisation.</French>
+                <Italian>Computer attualmente in uso.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NewBatteryLevel">
+                <Original>New Battery Level: %1%2</Original>
+                <English>New Battery Level: %1%2</English>
+                <German>Neuer Batterieladestand: %1%2</German>
+                <Chinesesimp>新电量: %1%2</Chinesesimp>
+                <Russian>New Battery Level: %1%2</Russian>
+                <French>Nouveau niveau de batterie : %1%2</French>
+                <Italian>Nuovo livello batteria: %1%2</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NewFuelLevel">
+                <Original>New Fuel Level: %1%2</Original>
+                <English>New Fuel Level: %1%2</English>
+                <German>Neuer Treibstofffüllstand: %1%2</German>
+                <Chinesesimp>新油量: %1%2</Chinesesimp>
+                <Russian>New Fuel Level: %1%2</Russian>
+                <French>Nouveau niveau de carburant: %1%2</French>
+                <Italian>Nuovo livello benzina: %1%2</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ObjectHeader">
+                <Original>AE3 Object: %1</Original>
+                <English>AE3 Object: %1</English>
+                <German>AE3 Gegenstand: %1</German>
+                <Chinesesimp>AE3 独享: %1</Chinesesimp>
+                <Russian>AE3 Object: %1</Russian>
+                <French>AE3 Objet: %1</French>
+                <Italian>AE3 Oggetto: %1</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ClassName">
+                <Original>Class name: %1</Original>
+                <English>Class name: %1</English>
+                <German>Klassenname: %1</German>
+                <Chinesesimp>类名: %1</Chinesesimp>
+                <Russian>Class name: %1</Russian>
+                <French>Nom de la classe: %1</French>
+                <Italian>Nome Classe: %1</Italian>
+            </Key>
+        </Container>        
     </Package>
 </Project>
