@@ -52,7 +52,7 @@
                 <English>Invalid directory</English>
                 <German>Ungültiger Ordner</German>
                 <Chinesesimp>无效目录</Chinesesimp>
-                <Russian>Invalid directory</Russian>
+                <Russian>Недопустимая директория</Russian>
                 <French>Répertoire invalide</French>
                 <Italian>directory non valida</Italian>
             </Key>
@@ -126,7 +126,7 @@
                 <English>Enable Encryption</English>
                 <German>Aktiviere Verschlüsselung</German>
                 <Chinesesimp>启用加密</Chinesesimp>
-                <Russian>Enable Encryption</Russian>
+                <Russian>Включить шифрование</Russian>
                 <French>Activer le chiffrement</French>
                 <Italian>Ebilitare Criptazione</Italian>
             </Key>
@@ -135,7 +135,7 @@
                 <English>File content will be encrypted on mission start</English>
                 <German>Dateiinhalt wird beim Missionsstart verschlüsselt</German>
                 <Chinesesimp>文件内容将在任务开始时加密</Chinesesimp>
-                <Russian>File content will be encrypted on mission start</Russian>
+                <Russian>Содержимое файла будет зашифровано при запуске миссии</Russian>
                 <French>Le contenu du fichier sera crypté au début de la mission</French>
                 <Italian>Il contenuto del file verrà cryptato quando la missione si avvvia</Italian>
             </Key>
@@ -144,7 +144,7 @@
                 <English>Encryption Algorithm</English>
                 <German>Verschlüsselungsalorithmus</German>
                 <Chinesesimp>加密算法</Chinesesimp>
-                <Russian>Encryption Algorithm</Russian>
+                <Russian>Алгоритм шифрования</Russian>
                 <French>Algorithme de chiffrement</French>
                 <Italian>Alògoritmo di Criptazione</Italian>
             </Key>
@@ -153,7 +153,7 @@
                 <English>The available characters for your message depend on the chosen encryption algorithm.</English>
                 <German>Die verfügbaren Zeichen für deine Nachricht hängen vom gewählten Verschlüsselungsalogithmus ab.</German>
                 <Chinesesimp>信息的可见字符取决于你所选择的加密算法.</Chinesesimp>
-                <Russian>The available characters for your message depend on the chosen encryption algorithm.</Russian>
+                <Russian>Доступные символы для вашего сообщения зависят от выбранного алгоритма шифрования.</Russian>
                 <French>Les caractères disponibles pour votre message dépendent de l'algorithme de chiffrement choisi.</French>
                 <Italian>I caratteri disponibili per il tuo messaggio dipendono dal tipo di criptazione avete scelto.</Italian>
             </Key>
@@ -162,7 +162,7 @@
                 <English>Encryption Key</English>
                 <German>Verschlüsselungsschlüssel</German>
                 <Chinesesimp>密钥</Chinesesimp>
-                <Russian>Encryption Key</Russian>
+                <Russian>Ключ шифрования</Russian>
                 <French>Clé de chiffrement</French>
                 <Italian>Chiave criptazione</Italian>
             </Key>

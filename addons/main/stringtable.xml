@@ -259,17 +259,17 @@
                 <Original>AE3 Add Connection</Original>
                 <English>AE3 Add Connection</English>
                 <German>AE3 Verbindung hinzufügen</German>
-                <Chinesesimp>AE3 添加连接</Chinesesimp>
+                <Chinesesimp>AE3 Add Connection</Chinesesimp>
                 <Russian>AE3 Add Connection</Russian>
-                <French>AE3 Ajouter une connexion</French>
-                <Italian>AE3 Aggiungi Connessione</Italian>
+                <French>AE3 Add Connection</French>
+                <Italian>AE3 Add Connection</Italian>
             </Key>
             <Key ID="STR_AE3_Main_Config_ModuleAddConnectionDescription">
                 <Original>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Original>
                 <English>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</English>
                 <German>Dieses Modul ermöglicht dir eine Strom- oder Netzwerkverbindung zwischen zwei Geräten herzustellen. Synchronisiere zwei Geräte mit diesem Modul, stelle Richtung und Verbindungstyp ein und drücke 'OK'.</German>
                 <Chinesesimp>此模块允许您在两个设备之间添加电源或网络连接,将两个设备同步到此模块，设置方向和连接类型,然后按"确定".</Chinesesimp>
-                <Russian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Russian>
+                <Russian>Этот модуль позволяет добавить питание или сетевое соединение между двумя устройствами.Синхронизируйте два устройства с этим модулем, настройте направление и тип соединения и нажмите «ОК».</Russian>
                 <French>Ce module permet d'ajouter une alimentation ou une connexion réseau entre deux appareils. Synchronisez deux appareils avec ce module, configurez la direction et le type de connexion et appuyez sur « OK ».</French>
                 <Italian>Questo modulo permette di aggiungere una connessione elettrica o di rete tra 2 dispositivi. Sincronizza due dispositivi con questo modulo,imposta il tipo di connessione e direzione e premi 'OK'.</Italian>
             </Key>
@@ -451,7 +451,7 @@
                 <English>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</English>
                 <German>Dieses Modul ermöglicht dir eine Strom- oder Netzwerkverbindung zwischen zwei Geräten herzustellen. Synchronisiere zwei Geräte mit diesem Modul, stelle Richtung und Verbindungstyp ein und drücke 'OK'.</German>
                 <Chinesesimp>此模块允许您在两个设备之间添加电源或网络连接,将两个设备同步到此模块，设置方向和连接类型,然后按"确定".</Chinesesimp>
-                <Russian>This module allows you to add a power or network connection between two devices. Sync two devices to this module, setup direction and connection type and press 'OK'.</Russian>
+                <Russian>Этот модуль позволяет добавить питание или сетевое соединение между двумя устройствами. Синхронизируйте два устройства с этим модулем, настройте направление и тип подключения и нажмите «ОК».</Russian>
                 <French>Ce module permet d'ajouter une alimentation ou une connexion réseau entre deux appareils. Synchronisez deux appareils avec ce module, configurez la direction et le type de connexion et appuyez sur « OK ».</French>
                 <Italian>Questo modulo permette di aggiungere una connessione elettrica o di rete tra 2 dispositivi. Sincronizza due dispositivi con questo modulo,imposta il tipo di connessione e direzione e premi 'OK'.</Italian>
             </Key>
@@ -622,7 +622,7 @@
                 <English>Object Status (Click on text and use up/down arrow keys to scroll)</English>
                 <German>Status Gegenstand (Klicke auf den text und benutze die hoch/runter Pfeiltasten zum scrollen)</German>
                 <Chinesesimp>对象状态 (单击文本并使用上/下箭头键滚动)</Chinesesimp>
-                <Russian>Object Status (Click on text and use up/down arrow keys to scroll)</Russian>
+                <Russian>Статус объекта (нажмите на текст и используйте клавиши со стрелками вверх/вниз для прокрутки)</Russian>
                 <French>Statut de l'objet (Cliquez sur le texte et utilisez les touches fléchées haut/bas pour faire défiler)</French>
                 <Italian>Stato oggetto (Clicca sul testo e usa le frecce su/giù per scorrere)</Italian>
             </Key>
@@ -739,7 +739,7 @@
                 <English>Device cannot be put into standby mode.</English>
                 <German>Gerät kann nicht in den Ruhezustand versetzt werden.</German>
                 <Chinesesimp>设备不能进入待机模式.</Chinesesimp>
-                <Russian>Device cannot be put into standby mode.</Russian>
+                <Russian>Устройство не может быть переведено в режим ожидания.</Russian>
                 <French>L'appareil ne peut pas être mis en mode veille.</French>
                 <Italian>Dispositivo non può essere messo in modalità standby</Italian>
             </Key>
@@ -748,7 +748,7 @@
                 <English>Can't turn off device.</English>
                 <German>Gerät kann nicht ausgeschaltet werden.</German>
                 <Chinesesimp>不能关闭设备.</Chinesesimp>
-                <Russian>Can't turn off device.</Russian>
+                <Russian>Невозможно выключить устройство</Russian>
                 <French>Impossible d'éteindre l'appareil.</French>
                 <Italian>Non posso spegnere il dispositivo.</Italian>
             </Key>
@@ -757,7 +757,7 @@
                 <English>Can't turn on device.</English>
                 <German>Gerät kann nicht eingeschaltet werden.</German>
                 <Chinesesimp>不能打开设备.</Chinesesimp>
-                <Russian>Can't turn on device.</Russian>
+                <Russian>Невозможно включить устройство</Russian>
                 <French>Impossible d'allumer l'appareil.</French>
                 <Italian>Non posso accendere il dispositivo.</Italian>
             </Key>

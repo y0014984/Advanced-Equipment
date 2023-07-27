@@ -218,7 +218,7 @@
                 <English>Rugged Portable Generator</English>
                 <German>Gehärteter Tragbarer Generator</German>
                 <Chinesesimp>坚固便携式发电机</Chinesesimp>
-                <Russian>Rugged Portable Generator</Russian>
+                <Russian>Прочный портативный генератор</Russian>
                 <French>Générateur portable robuste</French>
             </Key>
             <Key ID="STR_AE3_Power_Config_RadarGeneratorDisplayName">
@@ -235,7 +235,7 @@
                 <English>Diesel Ground Power Unit</English>
                 <German>Bodenstromaggregat</German>
                 <Chinesesimp>大型发电机</Chinesesimp>
-                <Russian>Diesel Ground Power Unit</Russian>
+                <Russian>Дизельная наземная силовая установка</Russian>
                 <French>Unité d'alimentation diesel</French>
                 <Italian>Unità energetica diesel da terra</Italian>
             </Key>
