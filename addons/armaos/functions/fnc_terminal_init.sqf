@@ -12,16 +12,14 @@
 
 params ["_computer"];
 
-if (!dialog) then
-{
-	private _ok = createDialog "AE3_ArmaOS_Main_Dialog";
-	if (!_ok) then {hint localize "STR_AE3_ArmaOS_Exception_DialogFailed"};
-};
+// Bugfix: All getRemoteVar calls should be done before the dialog is created
+// otherwise the dialog is open, not showing anything (depending on how long the server needs for an answer)
+// if, in this case, the user closes the dialog, then the laptop becomes inaccessable,
+// because the mutex variable is not removed in this case, because the event handler to remove it
+// on closing the dialog can't be created because of missing dialog variables
 
-private _consoleDialog = findDisplay 15984;	
-private _consoleOutput = _consoleDialog displayCtrl 1100;
-private _languageButton = _consoleDialog displayCtrl 1310;
-private _designButton = _consoleDialog displayCtrl 1320;
+hint "Please be patient while the computer initializes ...";
+
 
 [_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
 [_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
@@ -51,16 +49,31 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalMaxColumns", 80]
 	];
 
-// Only nessecary to allow Event Handlers the access to _computer
-_consoleOutput setVariable ["AE3_computer", _computer];
-_consoleDialog setVariable ["AE3_computer", _computer];
-
 [_computer, "AE3_terminal"] call AE3_main_fnc_getRemoteVar;
 if (isNil { _computer getVariable "AE3_terminal" }) then 
 {
 	_computer setVariable ["AE3_terminal", _terminal, [clientOwner, 2]];
 };
 _terminal = _computer getVariable "AE3_terminal";
+
+/* ---------------------------------------- */
+
+if (!dialog) then
+{
+	private _ok = createDialog "AE3_ArmaOS_Main_Dialog";
+	if (!_ok) then {hint localize "STR_AE3_ArmaOS_Exception_DialogFailed"};
+};
+
+private _consoleDialog = findDisplay 15984;	
+private _consoleOutput = _consoleDialog displayCtrl 1100;
+private _languageButton = _consoleDialog displayCtrl 1310;
+private _designButton = _consoleDialog displayCtrl 1320;
+
+// Only nessecary to allow Event Handlers the access to _computer
+_consoleOutput setVariable ["AE3_computer", _computer];
+_consoleDialog setVariable ["AE3_computer", _computer];
+
+[_consoleDialog, _consoleOutput, _languageButton, _designButton] call AE3_armaos_fnc_terminal_addEventHandler;
 
 _terminal set ["AE3_terminalOutput", _consoleOutput];
 
@@ -132,8 +145,6 @@ _consoleDialog setVariable ["AE3_handleUpdateUiOnTexture", _handleUpdateUiOnText
 
 /* ---------------------------------------- */
 
-[_consoleDialog, _consoleOutput, _languageButton, _designButton] call AE3_armaos_fnc_terminal_addEventHandler;
-
 _terminalBuffer = _terminal get "AE3_terminalBuffer";
 if (_terminalBuffer isEqualTo []) then
 {
@@ -157,3 +168,6 @@ if (_terminalBuffer isEqualTo []) then
 _computer setVariable ["AE3_terminal", _terminal];
 
 [_computer, "inUse", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
+
+// clear the previously set "be patient" message
+hint "";
