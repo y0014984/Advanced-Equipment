@@ -47,9 +47,9 @@ ctrlSetFocus _consoleOutput;
 
 if (AE3_UiOnTexture) then
 {
-   private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
-
    private _computer = _consoleOutput getVariable "AE3_computer";
+
+   private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 
    [_computer, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_setTerminalDesign", _playersInRange];
 };
