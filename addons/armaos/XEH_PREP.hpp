@@ -49,6 +49,8 @@ PREP(computer_addGames);
 
 PREP(computer_getLocality);
 
+PREP(computer_clone);
+
 /* OS Link Functions */
 PREP(link_add);
 PREP(link_init);
