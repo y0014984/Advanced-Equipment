@@ -243,6 +243,8 @@ private _result = _consoleDialog displayAddEventHandler
 		_terminal set ["AE3_terminalBufferVisible", []];
 		_terminal set ["AE3_terminalRenderedBuffer", []];
 		_terminal set ["AE3_terminalDesigns", []];
+		_terminal set ["AE3_terminalOutput", nil];
+		_terminal set ["AE3_terminalProcess", nil];
 
 		// Updates variables on server
 		_computer setVariable ["AE3_terminal", _terminal, 2];
