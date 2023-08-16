@@ -208,7 +208,7 @@ private _result = _consoleDialog displayAddEventHandler
 	{
 		params ["_display", "_exitCode"];
 
-		_computer = _display getVariable "AE3_computer";
+		private _computer = _display getVariable "AE3_computer";
 		_computer setVariable ["AE3_computer_mutex", objNull, true];
 
 		_handleUpdateBatteryStatus = _display getVariable "AE3_handleUpdateBatteryStatus";
@@ -222,10 +222,30 @@ private _result = _consoleDialog displayAddEventHandler
 
 		/* ---------------------------------------- */
 
-		// Updates terminal variable for all
-		_terminal = _computer getVariable "AE3_terminal";
+		// load variables
+		private _terminal = _computer getVariable "AE3_terminal";
+		private _filepointer = _computer getVariable "AE3_filepointer";
+
+		// crop terminal buffer to max lines
+		private _maxLines = 100;
+		private _terminalBuffer = _terminal get "AE3_terminalBuffer";
+		private _terminalBufferCount = count _terminalBuffer;
+		if (_terminalBufferCount <= _maxLines) then { _maxLines = _terminalBufferCount; };
+		_terminalBuffer = _terminalBuffer select [(count _terminalBuffer) - _maxLines, _maxLines];
+		_terminal set ["AE3_terminalBuffer", _terminalBuffer];
+
+		// adjust cursor line and position
+		_terminal set ["AE3_terminalCursorLine", (count _terminalBuffer) - 1];
+		_terminal set ["AE3_terminalCursorPosition", 0];
+
+		// clear/reset variables, that are automatically recreated in next terminal init
+		_terminal set ["AE3_terminalAllowedKeys", createHashMap];
+		_terminal set ["AE3_terminalBufferVisible", []];
+		_terminal set ["AE3_terminalRenderedBuffer", []];
+		_terminal set ["AE3_terminalDesigns", []];
+
+		// Updates variables on server
 		_computer setVariable ["AE3_terminal", _terminal, 2];
-		_filepointer = _computer getVariable "AE3_filepointer";
 		_computer setVariable ["AE3_filepointer", _filepointer, 2];
 
 		[_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
