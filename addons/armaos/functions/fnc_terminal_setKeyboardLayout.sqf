@@ -34,7 +34,10 @@ if (AE3_UiOnTexture) then
 {
 	private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 
-	[_computer, _terminalKeyboardLayout] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_setKeyboardLayout", _playersInRange];
+	if ((count _playersInRange) > 0) then
+	{
+		[_computer, _terminalKeyboardLayout] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_setKeyboardLayout", _playersInRange];
+	};
 };
 
 /* ---------------------------------------- */
