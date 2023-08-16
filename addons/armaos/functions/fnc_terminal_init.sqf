@@ -68,13 +68,8 @@ _terminal = _computer getVariable "AE3_terminal";
 
 /* ---------------------------------------- */
 
-if (!dialog) then
-{
-	private _ok = createDialog "AE3_ArmaOS_Main_Dialog";
-	if (!_ok) then {hint localize "STR_AE3_ArmaOS_Exception_DialogFailed"};
-};
+private _consoleDialog = createDialog ["AE3_ArmaOS_Main_Dialog", true];
 
-private _consoleDialog = findDisplay 15984;	
 private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
 private _designButton = _consoleDialog displayCtrl 1320;
