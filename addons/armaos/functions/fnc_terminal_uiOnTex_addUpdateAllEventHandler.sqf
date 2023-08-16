@@ -53,6 +53,19 @@ _handle =
 
                     [_computer, _terminalBufferVisible, _size, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
                 };
+            }
+            else
+            {
+                // if UiOnTexture is disabled apply the default texture, 
+                // but only if it isn't already set
+                private _textures = getObjectTextures _computer;
+                private _imagePath = "z\ae3\addons\armaos\textures\laptop_4_to_3_on.paa";
+                private _textureIndex = 1;
+                if (!((_textures select _textureIndex) isEqualTo _imagePath)) then
+                {
+                    _computer setVariable ["AE3_UiOnTexActive", false, true]; // reset var for all clients
+                    _computer setObjectTextureGlobal [_textureIndex, _imagePath];
+                };
             };
         }, 
         _updateInterval, 
