@@ -21,7 +21,7 @@ class Extended_PostInit_EventHandlers
         init = "";
 		
         // This code will be executed once and only on the server
-        serverInit = "";
+        serverInit = call compile preprocessFileLineNumbers "\z\ae3\addons\power\XEH_postInit.sqf";
 
         // This snippet runs once and only on client machines
         clientInit = "";
