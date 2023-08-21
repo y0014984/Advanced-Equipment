@@ -12,6 +12,9 @@
 
 params['_entity'];
 
+// Protection against double init.
+if (_entity getVariable ["AE3_power_initDone", false]) exitWith {};
+
 private _class = (typeOf _entity);
 private _class_name = _class + "_power";
 
@@ -133,6 +136,6 @@ if ("internal" in _config) then
 else
 {
 	if (isServer) then { _entity setVariable ["AE3_power_hasInternal", false, true]; };
-
-	if (isServer) then { _entity setVariable ["AE3_power_initDone", true, true]; };
 };
+
+if (isServer) then { _entity setVariable ["AE3_power_initDone", true, true]; };
