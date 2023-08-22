@@ -226,13 +226,16 @@ private _result = _consoleDialog displayAddEventHandler
 		private _terminal = _computer getVariable "AE3_terminal";
 		private _filepointer = _computer getVariable "AE3_filepointer";
 
-		// crop terminal buffer to max lines
-		private _maxLines = 100;
-		private _terminalBuffer = _terminal get "AE3_terminalBuffer";
-		private _terminalBufferCount = count _terminalBuffer;
-		if (_terminalBufferCount <= _maxLines) then { _maxLines = _terminalBufferCount; };
-		_terminalBuffer = _terminalBuffer select [(count _terminalBuffer) - _maxLines, _maxLines];
-		_terminal set ["AE3_terminalBuffer", _terminalBuffer];
+		// crop terminal buffer to max lines; -1 means 'no limit'
+		if (!(AE3_MaxTerminalBufferLines isEqualTo "-1")) then
+		{
+			private _maxLines = parseNumber AE3_MaxTerminalBufferLines;
+			private _terminalBuffer = _terminal get "AE3_terminalBuffer";
+			private _terminalBufferCount = count _terminalBuffer;
+			if (_terminalBufferCount <= _maxLines) then { _maxLines = _terminalBufferCount; };
+			_terminalBuffer = _terminalBuffer select [(count _terminalBuffer) - _maxLines, _maxLines];
+			_terminal set ["AE3_terminalBuffer", _terminalBuffer];
+		};
 
 		// adjust cursor line and position
 		_terminal set ["AE3_terminalCursorLine", (count _terminalBuffer) - 1];

@@ -1409,6 +1409,24 @@
                 <French>Si activé, les joueurs environnants peuvent voir l'interface armaOS sur la texture de l'ordinateur.</French>
                 <Italian>Se abilitato, i giocatori vicini possono vedere l'interfaccia di armaOS nella texture del computer.</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_MaxTerminalBufferLinesName">
+                <Original>Max Terminal Buffer Lines</Original>
+                <English>Max Terminal Buffer Lines</English>
+                <German>Maximale Terminal-Buffer-Zeilen</German>
+                <Chinesesimp>Max Terminal Buffer Lines</Chinesesimp>
+                <Russian>Max Terminal Buffer Lines</Russian>
+                <French>Max Terminal Buffer Lines</French>
+                <Italian>Max Terminal Buffer Lines</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_MaxTerminalBufferLinesTooltip">
+                <Original>Determines the amount of terminal output buffer lines that is stored when leaving the computer. While using it the amount is not restricted. A value of -1 means 'no storing limit'.</Original>
+                <English>Determines the amount of terminal output buffer lines that is stored when leaving the computer. While using it the amount is not restricted. A value of -1 means 'no storing limit'.</English>
+                <German>Legt die Anzahl der Terminal-Output-Buffer-Zeilen fest, die nach verlassen des Computers gespeichert werden. Während der Nutzung ist die Anzahl nicht begrenzt. Ein Wert von -1 bedeutet, 'keine Speicherbegrenzung'.</German>
+                <Chinesesimp>Determines the amount of terminal output buffer lines that is stored when leaving the computer. While using it the amount is not restricted. A value of -1 means 'no storing limit'.</Chinesesimp>
+                <Russian>Determines the amount of terminal output buffer lines that is stored when leaving the computer. While using it the amount is not restricted. A value of -1 means 'no storing limit'.</Russian>
+                <French>Determines the amount of terminal output buffer lines that is stored when leaving the computer. While using it the amount is not restricted. A value of -1 means 'no storing limit'.</French>
+                <Italian>Determines the amount of terminal output buffer lines that is stored when leaving the computer. While using it the amount is not restricted. A value of -1 means 'no storing limit'.</Italian>
+            </Key>
             <Key ID="STR_AE3_Main_CbaSettings_1line">
                 <Original>1 line</Original>
                 <English>1 line</English>
