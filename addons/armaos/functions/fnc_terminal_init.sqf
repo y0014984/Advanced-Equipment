@@ -22,7 +22,7 @@ params ["_computer"];
 // because the mutex variable is not removed in this case, because the event handler to remove it
 // on closing the dialog can't be created because of missing dialog variables
 
-hint "Please be patient while the computer initializes ...";
+hintSilent "Please be patient while the computer initializes ...";
 
 /* ---------------------------------------- */
 
@@ -184,4 +184,4 @@ _consoleDialog setVariable ["AE3_handleUpdateUiOnTexture", _handleUpdateUiOnText
 /* ---------------------------------------- */
 
 // clear the previously set "be patient" message
-hint "";
+hintSilent "";
