@@ -21,11 +21,11 @@ if ((count _playersInRange) == 0) exitWith {};
 // use remoteExec if _fnc is type "string"
 if ((typeName _fnc) isEqualTo "STRING") then
 {
-    _args remoteExec [_fnc, _playersInRange];
+    _args remoteExecCall [_fnc, _playersInRange];
 };
 
 // use a remote executed "call" if _fnc is type "code"
 if ((typeName _fnc) isEqualTo "CODE") then
 {
-    [_args, _fnc] remoteExec ["call", _playersInRange];
+    [_args, _fnc] remoteExecCall ["call", _playersInRange];
 };
