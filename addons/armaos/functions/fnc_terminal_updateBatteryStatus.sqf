@@ -56,9 +56,7 @@ _handle =
 
                 if ((AE3_UiOnTexture) && !(_oldValue isEqualTo _newValue)) then
                 {
-                    private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
-
-                    [_computer, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateBatteryStatus", _playersInRange];
+                    [3, _computer, "AE3_armaos_fnc_terminal_uiOnTex_updateBatteryStatus", [_computer, _value]] call AE3_main_fnc_executeForPlayersInRange;
                 };
 
                 /* ---------------------------------------- */
