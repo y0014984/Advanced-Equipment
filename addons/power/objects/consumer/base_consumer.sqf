@@ -24,7 +24,7 @@ AE3_power_base_consumer = [
 
 			
 			if (_power_state == 2) then {
-				_power * (_self get "_standby_power_fraction")
+				_power = _power * (_self get "_standby_power_fraction")
 			};
 
 			_power;
