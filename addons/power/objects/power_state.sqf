@@ -35,7 +35,7 @@ AE3_power_power_state = [
 	[
 		"get_state",
 		{
-			_sef get "_state";
+			_self get "_state";
 		}
 	],
 
