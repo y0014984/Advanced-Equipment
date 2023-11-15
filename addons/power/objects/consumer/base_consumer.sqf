@@ -16,7 +16,7 @@ AE3_power_base_consumer = [
 	[	
 		"_calcPower",
 		{
-			_power_state = _self get "_power_state";
+			_power_state = (_self get "_power_state") call ["get_state"];
 
 			if (_power_state == 0) exitWith {0};
 

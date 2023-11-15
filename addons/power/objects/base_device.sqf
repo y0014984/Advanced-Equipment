@@ -17,7 +17,7 @@ AE3_power_base_device = [
 			_storage call ["add_device", [_self]];
 			
 			_power_state = createHashMapObject [AE3_power_power_state];
-			_self set ["_power_state", AE3_power_power_state];
+			_self set ["_power_state", _power_state];
 		}
 	],
 	[

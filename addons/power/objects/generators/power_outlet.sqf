@@ -12,7 +12,7 @@ AE3_power_outlet = [
 	[	
 		"_calcPower",
 		{
-			_power_state = _self get "_power_state";
+			_power_state = (_self get "_power_state") call ["get_state"];
 
 			if (_power_state == 0 || _power_state == 2) exitWith {0};
 			if (_power_state == 1) exitWith {_self get "_output_base_power"};

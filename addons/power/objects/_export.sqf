@@ -1,6 +1,9 @@
 
 #include "network\_export.sqf";
-#inculde "data\_export.sqf";
+//#inculde "data\_export.sqf";
+
+#include "battery_state.sqf";
+#include "power_state.sqf"
 
 #include "global_device_storage.sqf";
 
