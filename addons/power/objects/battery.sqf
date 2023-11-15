@@ -37,7 +37,7 @@ AE3_power_battery = [
 				_power = -_effective_discharge_rate max _input_power;
 			};
 
-			_battery_state = _self get _battery_state;
+			_battery_state = _self get "_battery_state";
 			_new_charge = (_battery_state get "charge" + _power);
 			_battery_state set ["charge", _new_charge];
 
@@ -56,15 +56,17 @@ AE3_power_battery = [
 	[
 		"get_effective_max_recharge_rate",
 		{
-			_battery_state = _self get _battery_state;
-			_self call ["_rate_clipped_input_power", _battery_state get "_charge"];
+			_battery_state = _self get "_battery_state";
+			_charge = _battery_state get "_charge";
+			_self call ["_rate_clipped_input_power", [_charge]];
 		}
 	],
 	[
 		"get_effective_max_discharge_rate",
 		{
-			_battery_state = _self get _battery_state;
-			_self call ["_rate_clipped_input_power", _battery_state call ["get_capacity_left"]];
+			_battery_state = _self get "_battery_state";
+			_capacity_left = _battery_state call ["get_capacity_left"];
+			_self call ["_rate_clipped_input_power", [_capacity_left]];
 		}
 	]
 ];

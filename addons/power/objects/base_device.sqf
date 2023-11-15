@@ -50,5 +50,5 @@ AE3_power_base_device = [
 		{
 			_self get "_power"
 		}
-	],
+	]
 ];
