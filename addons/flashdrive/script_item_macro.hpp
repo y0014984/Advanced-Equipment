@@ -525,8 +525,8 @@
 #define ITEM_ID_UNIQUEENTRY(CLASSNAME,DESC,IDN) \
     class TRIPLES(CLASSNAME,ID,IDN): CLASSNAME { \
 		ae3_id = IDN; \
-        displayName = DESC IDN; \
-        descriptionShort = DESC IDN; \
+        displayName = QUOTE(DESC IDN); \
+        descriptionShort = QUOTE(DESC IDN); \
         scope = 1; \
         scopeCurator = 0; \
         class Armory { disabled = 1; }; \

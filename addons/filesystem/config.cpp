@@ -10,7 +10,7 @@ class CfgPatches
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main", "ae3_main"};
         author = "y0014984|Wasserstoff";
-        VERSION_CONFIG;
+        //VERSION_CONFIG;
     };
 };
 
