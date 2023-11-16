@@ -1,0 +1,31 @@
+name = "Advanced Equipment"
+prefix = "ae3"
+mainprefix = "z"
+
+[properties]
+author = "y0014984|Wasserstoff"
+template = "cba"
+
+#folder_optionals = true
+#sig_version = 3
+
+[lint.sqf]
+enabled = true
+
+[version]
+git_hash = 0
+
+[files]
+include = [
+    "mod.cpp",
+    "README.md",
+    "AUTHORS.txt",
+    "LICENSE.md",
+    "logo_ae3_ca.paa",
+    "logo_ae3_ca_hover.paa",
+    "logo_ae3_ca_font.paa",
+    "meta.cpp"
+]
+
+[hemtt.config]
+preset = "Hemtt"
