@@ -949,7 +949,7 @@ class AE3_UserInterface_Zeus_Module_AddFile
 
             checked = 0;
 
-            onCheckedChanged = "params ['_control', '_checked']; private _display = ctrlParent _control; private _algorithmCtrl = _display getVariable ['algorithmCtrl', objNull]; private _keyCtrl = _display getVariable ['keyCtrl', objNull]; if (_checked == 1) then { _checked = 'true'; } else { _checked = false; }; _algorithmCtrl ctrlEnable _checked; _keyCtrl ctrlEnable _checked;";
+            onCheckedChanged = "params ['_control', '_checked']; private _display = ctrlParent _control; private _algorithmCtrl = _display getVariable ['algorithmCtrl', objNull]; private _keyCtrl = _display getVariable ['keyCtrl', objNull]; if (_checked == 1) then { _checked = true; } else { _checked = false; }; _algorithmCtrl ctrlEnable _checked; _keyCtrl ctrlEnable _checked;";
         };
 
         class RscText_1015: RscText
@@ -1501,7 +1501,7 @@ class AE3_UserInterface_Zeus_Module_AddConnection
 
             text = "$STR_AE3_Main_Zeus_Switch";
 
-            onButtonClick = "params ['_control']; private _display = ctrlParent _control; private _switch = _display getVariable ['switch', false]; if (_switch) then { _switch = false; } else { _switch = 'true'; }; _display setVariable ['switch', _switch]; private _fromCtrl = _display displayCtrl 1401; private _toCtrl = _display displayCtrl 1402; private _fromText = ctrlText _fromCtrl; private _toText = ctrlText _toCtrl; _fromCtrl ctrlSetText _toText; _toCtrl ctrlSetText _fromText;";
+            onButtonClick = "params ['_control']; private _display = ctrlParent _control; private _switch = _display getVariable ['switch', false]; if (_switch) then { _switch = false; } else { _switch = true; }; _display setVariable ['switch', _switch]; private _fromCtrl = _display displayCtrl 1401; private _toCtrl = _display displayCtrl 1402; private _fromText = ctrlText _fromCtrl; private _toText = ctrlText _toCtrl; _fromCtrl ctrlSetText _toText; _toCtrl ctrlSetText _fromText;";
         };
 
           class RscButtonMenuOK_2600: RscButtonMenuOK
