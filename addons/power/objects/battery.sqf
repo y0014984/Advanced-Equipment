@@ -13,6 +13,10 @@ AE3_power_battery = [
 
 			_self set ["_battery_state", _battery_state];
 			_self set ["_max_charge_rate", _max_charge_rate];
+
+
+			_connector = createHashMapObject [AE3_power_connection_node];
+			_self set ["_connector", _connector];
 		}
 	],
 	[
