@@ -521,7 +521,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = "true";
 			};
 
 			// Arguments shared by specific module type (have to be mentioned in order to be present)
@@ -533,7 +533,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = "true";
 			};
 
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
@@ -601,7 +601,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = "true";
 			};
 
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last

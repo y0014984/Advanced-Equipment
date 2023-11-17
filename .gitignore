@@ -8,3 +8,5 @@ keys/*
 .hemtt/template/
 *.pbo
 .vscode/
+hemtt.exe
+.hemttout/

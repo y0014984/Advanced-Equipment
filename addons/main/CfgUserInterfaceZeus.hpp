@@ -14,8 +14,8 @@ class RscButtonMenuCancel;
 class AE3_UserInterface_Zeus_Asset_Details
 {
 	idd = 16986;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = "true";
+	enableSimulation = "true";
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display] call AE3_main_fnc_zeus_initAttributes;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode] call AE3_main_fnc_zeus_updateAttributes;";
@@ -234,8 +234,8 @@ class AE3_UserInterface_Zeus_Asset_Details
 class AE3_UserInterface_Zeus_Module_AddUser
 {
 	idd = 16987;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = "true";
+	enableSimulation = "true";
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addUser;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addUser;";
@@ -364,8 +364,8 @@ class AE3_UserInterface_Zeus_Module_AddUser
 class AE3_UserInterface_Zeus_Module_AddSecurityCommands
 {
 	idd = 16988;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = "true";
+	enableSimulation = "true";
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addSecurityCommands;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addSecurityCommands;";
@@ -484,8 +484,8 @@ class AE3_UserInterface_Zeus_Module_AddSecurityCommands
 class AE3_UserInterface_Zeus_Module_AddGames
 {
 	idd = 16989;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = "true";
+	enableSimulation = "true";
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addGames;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addGames;";
@@ -579,8 +579,8 @@ class AE3_UserInterface_Zeus_Module_AddGames
 class AE3_UserInterface_Zeus_Module_AddFile
 {
 	idd = 16990;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = "true";
+	enableSimulation = "true";
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addFile;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addFile;";
@@ -1044,8 +1044,8 @@ class AE3_UserInterface_Zeus_Module_AddFile
 class AE3_UserInterface_Zeus_Module_AddDir
 {
 	idd = 16991;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = "true";
+	enableSimulation = "true";
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addDir;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addDir;";
@@ -1363,8 +1363,8 @@ class AE3_UserInterface_Zeus_Module_AddDir
 class AE3_UserInterface_Zeus_Module_AddConnection
 {
 	idd = 16992;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = "true";
+	enableSimulation = "true";
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] call AE3_main_fnc_zeus_module_addConnection;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addConnection;";
