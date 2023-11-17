@@ -1,1 +1,1 @@
-#include "base_consumer.sqf";
+#include "base_consumer.sqf"

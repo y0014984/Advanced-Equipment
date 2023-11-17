@@ -45,4 +45,4 @@ AE3_power_connection_leaf = [
 			[_self get "_connection"];
 		}
 	]
-]
+];

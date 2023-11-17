@@ -6,6 +6,6 @@ AE3_power_diesel_generator = [
 		{
 			params ["_device_object"];
 		}
-	],
+	]
 
 ];
