@@ -1,19 +1,27 @@
 AE3_power_network = [
 	["#flags", ["sealed"]],
 
-	["members", objNull],
+	["devices", objNull],
+	["batteries", objNull],
 
 	[
 		"#create", 
 	{
-		_self set ["members", []];
+		_self set ["devices", []];
+		_self set ["batteries", []];
 	}
 	],
 	[
 		"add_member",
 	{
 		params["_object"];
-		(_self get "members") pushBackUnique _object;
+
+		if ("Battery" in (_object get "#type")) exitWith
+		{
+			(_self get "batteries") pushBackUnique _object;
+		};
+
+		(_self get "devices") pushBackUnique _object;
 	}
 	]
 ];
@@ -108,6 +116,12 @@ AE3_power_network_builder = [
 			}
 		} forEach _objects;
 	}
+	],
+	[
+		"get_networks",
+		{
+			_self get "_networks";
+		}
 	]
   
 ];
