@@ -13,7 +13,7 @@ class CfgWeapons {
         model = "\A3\Props_F_Oldman\Items\USB_Dongle_01_F.p3d";
         picture = "\z\ae3\addons\flashdrive\ui\AE3_flashdrive_ca.paa";
 
-		ae3_vehicle = Land_USB_Dongle_01_F_AE3;
+		ae3_vehicle = "Land_USB_Dongle_01_F_AE3";
 
 		class ItemInfo: CBA_MiscItem_ItemInfo {
             mass = 1;
@@ -21,5 +21,5 @@ class CfgWeapons {
         };
 	};
 
-	ITEM_ID_LIST(Item_FlashDisk_AE3, Flash drive )
+	ITEM_ID_LIST(Item_FlashDisk_AE3,Flash drive)
 };

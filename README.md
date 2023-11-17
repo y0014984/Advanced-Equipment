@@ -15,6 +15,8 @@
     <sup><strong>Requires the latest version of <a href="https://github.com/CBATeam/CBA_A3/releases">CBA_A3</a> and <a href="https://github.com/acemod/ACE3/releases">ACE3</a> for server and client.<br/></strong></sup>
 </p>
 
+# Advanced Equipment for Arma 3
+
 **Advanced Equipment** is a mod for Arma 3, that is still under development. I wanted to create a mod, that allows you to really use a lot of the vanilla equipment like laptops and lamps.
 
 This project is entirely **open-source** and all contributions are welcome. Feel free to maintain your own custom version, as long as the changes you make are open to the public in accordance with the ([APL-SA](https://www.bistudio.com/community/licenses/arma-public-license-share-alike)).
@@ -22,11 +24,11 @@ This project is entirely **open-source** and all contributions are welcome. Feel
 ## Features
 
 - Power Management (Power Consumption, Batteries, Sun Collectors, Generators, Connections)
-- Interaction (Turn On/Off/Standby/Adjust/Use things like Laptops and Lamps, Put in Inventory)
-- armaOS (Unique Terminal-like interface for computers; multiple designs, User Management)
+- Interaction Management (Turn On/Off/Standby/Adjust/Use things like Laptops and Lamps, Put in Inventory)
+- armaOS Terminal (Unique Terminal-like interface for computers; multiple designs, User Management)
 - Filesystem Managment (Files, Folders and Programs on Computers and USB-Sticks, incl. Permissions)
 - Network Management (only basics implemented yet)
-- Logistics (Fold and unfold objects, move them around, put them into vehicles)
+- Logistics Management (Fold and unfold objects, move them around, put them into vehicles)
 - 3DEN Modules (Easy Mission Making by adding Connections, Files, Directories, Users, Commands and Games)
 - Zeus Support (Modules, Connections, Settings, Functions)
 - "UI on texture" for armaOS computers (every player sees the live screen)
