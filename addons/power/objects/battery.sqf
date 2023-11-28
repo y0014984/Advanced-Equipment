@@ -23,7 +23,7 @@ AE3_power_battery = [
 		"standby", {throw "NotSupportedError"}
 	],
 	[	
-		"_calcPower",
+		"_calc_power",
 		{
 			params["_input_power"];
 
@@ -31,6 +31,7 @@ AE3_power_battery = [
 
 			if (_power_state == 0) exitWith {0};
 
+			_power = 0;
 			if (_input_power >= 0) then
 			{
 				_effective_charge_rate = _self call ["get_effective_max_recharge_rate"];
@@ -42,7 +43,7 @@ AE3_power_battery = [
 			};
 
 			_battery_state = _self get "_battery_state";
-			_new_charge = (_battery_state get "charge" + _power);
+			_new_charge = ((_battery_state get "charge") + _power);
 			_battery_state set ["charge", _new_charge];
 
 			_power;
@@ -52,6 +53,9 @@ AE3_power_battery = [
 		"_rate_clip_power",
 		{
 			params ["_power"];
+
+			if (_power == 0) exitWith {0};
+
 			_input_power_sign = (abs _power)/_power;
 			
 			_input_power_sign * ((abs _power) min (_self get "_max_charge_rate"));

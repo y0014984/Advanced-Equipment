@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-//#include "XEH_PREP.hpp"
+#include "XEH_PREP.hpp"
 
 #include "objects\_export.sqf"
 

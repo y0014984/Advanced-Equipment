@@ -40,17 +40,19 @@ AE3_power_base_device = [
 		"standby", {(_self get "_power_state") call ["standby"]}
 	],
 	[
-		"updatePower", 
+		"update_power", 
 		{
 			_power = _self call ["_calc_power", _this];
 			_self set ["_power", _power];
+
+			_power;
 		}
 	],
 	[
-		"_calcPower", {throw "NotImplementedError"}
+		"_calc_power", {throw "NotImplementedError"}
 	],
 	[
-		"getPower", 
+		"get_power", 
 		{
 			_self get "_power"
 		}

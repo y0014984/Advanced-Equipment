@@ -62,3 +62,6 @@ PREP(multSolarPanelOrientation);
 /* Connections */
 PREP(createPowerConnection);
 PREP(removePowerConnection);
+
+PREP(simulateNetwork);
+PREP(simulationLoop);
