@@ -2,12 +2,22 @@ AE3_power_connection_node = [
 	["#type", "ConnectionNode"],
 
 	["_connections", objNull],
+	["_device", objNull],
 
 	[
 		"#create", 
-	{
-		_self set ["_connections", []];
-	}
+		{
+			params['_device'];
+
+			_self set ["_connections", []];
+			_self set ["_device", _device];
+		}
+	],
+	[
+		"get_device",
+		{
+			_self get "_device";
+		}
 	],
 	[
 		"connect",

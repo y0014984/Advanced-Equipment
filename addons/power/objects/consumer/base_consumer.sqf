@@ -12,7 +12,7 @@ AE3_power_base_consumer = [
 			_self set ["_base_power", _base_power];
 			_self set ["_standby_power_fraction", _standby_power_fraction];
 
-			_connector = createHashMapObject [AE3_power_connection_node];
+			_connector = createHashMapObject [AE3_power_connection_node, [_self]];
 			_self set ["_connector", _connector];
 		}
 	],

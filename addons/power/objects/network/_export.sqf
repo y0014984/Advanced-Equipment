@@ -1,3 +1,2 @@
-#include "connection_node.sqf"
-#include "connection_leaf.sqf"
+#include "connection_list.sqf"
 #include "network.sqf"

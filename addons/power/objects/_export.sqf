@@ -1,14 +1,14 @@
 
-#include "network\_export.sqf";
+#include "network\_export.sqf"
 //#inculde "data\_export.sqf";
 
-#include "battery_state.sqf";
+#include "battery_state.sqf"
 #include "power_state.sqf"
 
-#include "global_device_storage.sqf";
+#include "global_device_storage.sqf"
 
-#include "base_device.sqf";
+#include "base_device.sqf"
 
-#include "consumer\_export.sqf";
-#include "generators\_export.sqf";
-#include "battery.sqf";
+#include "consumer\_export.sqf"
+#include "generators\_export.sqf"
+#include "battery.sqf"

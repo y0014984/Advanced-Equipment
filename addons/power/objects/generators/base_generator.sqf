@@ -6,7 +6,7 @@ AE3_power_base_generator = [
 		{
 			params ["_device_object"];
 
-			_connector = createHashMapObject [AE3_power_connection_leaf];
+			_connector = createHashMapObject [AE3_power_connection_leaf, [_self]];
 			_self set ["_connector", _connector];
 		}
 	],

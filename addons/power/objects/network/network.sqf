@@ -14,14 +14,14 @@ AE3_power_network = [
 	[
 		"add_member",
 	{
-		params["_object"];
+		params["_device"];
 
-		if ("Battery" in (_object get "#type")) exitWith
+		if ("Battery" in (_device get "#type")) exitWith
 		{
-			(_self get "batteries") pushBackUnique _object;
+			(_self get "batteries") pushBackUnique _device;
 		};
 
-		(_self get "devices") pushBackUnique _object;
+		(_self get "devices") pushBackUnique _device;
 	}
 	]
 ];
@@ -31,42 +31,43 @@ AE3_power_network_builder = [
 
 	["_networks", objNull],
 	["_visited", objNull],
+	["_connection_list", objNull],
 	
 	[
 		"#create",
 	{
 		_self set ["_networks", []];
 		_self set ["_visited", []];
+		_self set ["_connection_list", createHashMapObject [AE3_power_connection_list]];
 	}
 	],
 	[
 		"_add_visited",
 	{
-		params ["_object"];
-		(_self get "_visited") pushBackUnique _object;
+		params ["_device"];
+		(_self get "_visited") pushBackUnique _device;
 	}
 	],
 	[
 		"_was_visited",
 	{
-		params ["_object"];
-		_object in (_self get "_visited");
+		params ["_device"];
+		_device in (_self get "_visited");
 	}
 
 	],
 	[
 		"_add_to_last_network",
 	{
-		params ["_object"];
+		params ["_device"];
 		_networks = (_self get "_networks");
 		
-		(_networks select -1) call ["add_member", [_object]];
+		(_networks select -1) call ["add_member", [_device]];
 	}
 	],
 	[
 		"_add_network",
 	{
-		params ["_object"];
 		_networks = (_self get "_networks");
 		
 		_new_network = createHashMapObject [AE3_power_network];
@@ -76,45 +77,36 @@ AE3_power_network_builder = [
 	[
 		"_visit_object",
 	{
-		params ["_object"];
-		_self call ["_add_visited", [_object]];
-		_self call ["_add_to_last_network", [_object]];
+		params ["_device"];
+		_self call ["_add_visited", [_device]];
+		_self call ["_add_to_last_network", [_device]];
 
-			
-		if ("powerCableDevice" in _object) then
+		_connection_list = _self get "_connection_list";
+		_connected_devices = _connection_list call ["get_connections", [_device]];
+
 		{
-			_powerCableDevice = _object get "powerCableDevice";
-			if (_self call ["_was_visited", [_object]]) then
+			if (!(_self call ["_was_visited", [_x]])) then
 			{
-				_self call ["_visit_object", [_powerCableDevice]];
-			};
+				_self call ["_visit_object", [_x]];
+			}
+		} forEach _connected_devices;
 
-		};
-
-		if ("connectedDevices" in _object) then
-		{
-			_connectedDevices = _object get "connectedDevices";
-			if (_self call ["_was_visited", [_object]]) then
-			{
-				{
-					_self call ["_visit_object", [_x]];
-				} forEach _connectedDevices;
-			};
-		};
 	}
 	],
 	[
 		"build",
 	{
-		params ["_objects"];
+		params ["_devices"];
 
 		{
-			if (not (_self call ["_was_visted", [_x]])) then
+			_device = _x;
+
+			if (!(_self call ["_was_visited", [_device]])) then
 			{
 				_self call ["_add_network"];
-				_self call ["_visit_object", [_x]];
+				_self call ["_visit_object", [_device]];
 			}
-		} forEach _objects;
+		} forEach _devices;
 	}
 	],
 	[

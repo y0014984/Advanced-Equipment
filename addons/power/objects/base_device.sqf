@@ -1,15 +1,22 @@
 AE3_power_base_device = [
 	["#type", "BaseDevice"],
-
+	["id_counter", 0],
+	
+	["_id", -1],
 	["_device_arma_object", objNull],
 	["_power_state", objNull],
-	["_connector", objNull],
 	["_power", 0],
 	
 	[
 		"#create", 
 		{
 			params ["_device_object"];
+			
+			_id_counter = AE3_power_base_device select 1;
+			_id = _id_counter select 1;
+
+			_self set ["_id", _id];
+			_id_counter set [1, _id + 1];
 
 			_self set ["_device_arma_object", _device_object];
 
@@ -21,6 +28,9 @@ AE3_power_base_device = [
 		}
 	],
 	[
+		"get_id", {_self get "_id"}
+	],
+	[
 		"turnOn", {(_self get "_power_state") call ["turnOn"]}
 	],
 	[
@@ -28,12 +38,6 @@ AE3_power_base_device = [
 	],
 	[
 		"standby", {(_self get "_power_state") call ["standby"]}
-	],
-	[
-		"connect", {(_self get "_connector") call ["connect", _this]}
-	],
-	[
-		"disconnect", {(_self get "_connector") call ["disconnect", _this]}
 	],
 	[
 		"updatePower", 
