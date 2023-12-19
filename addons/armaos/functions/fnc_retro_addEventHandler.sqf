@@ -2,8 +2,7 @@
  * Adds event handler to a given control.
  *
  * Arguments:
- * 1: UI Text Field <CONTROL>
- * 2: Keyboard Layout UI Button <CONTROL>
+ * 0: Dialog <DIALOG>
  *
  * Results:
  * None

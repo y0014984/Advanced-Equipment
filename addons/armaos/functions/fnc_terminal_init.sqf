@@ -71,40 +71,22 @@ _terminal = _computer getVariable "AE3_terminal";
 private _consoleDialog = createDialog ["AE3_ArmaOS_Main_Dialog", true];
 
 private _consoleOutput = _consoleDialog displayCtrl 1100;
-private _languageButton = _consoleDialog displayCtrl 1310;
+private _consoleInput = _consoleDialog displayCtrl 1150;
+private _batteryButton = _consoleDialog displayCtrl 1050;
 private _designButton = _consoleDialog displayCtrl 1320;
 
 // Only nessecary to allow Event Handlers the access to _computer
 _consoleOutput setVariable ["AE3_computer", _computer];
+_consoleInput setVariable ["AE3_computer", _computer];
+_consoleInput setVariable ["AE3_consoleOutput", _consoleOutput];
+_consoleOutput setVariable ["AE3_consoleOutput", _consoleInput];
 _consoleDialog setVariable ["AE3_computer", _computer];
 
-[_consoleDialog, _consoleOutput, _languageButton, _designButton] call AE3_armaos_fnc_terminal_addEventHandler;
+[_consoleDialog, _consoleInput, _batteryButton, _designButton] call AE3_armaos_fnc_terminal_addEventHandler;
+
+ctrlSetFocus _consoleInput;
 
 _terminal set ["AE3_terminalOutput", _consoleOutput];
-
-private _localGameLanguage = language;
-// we can determine the language of arma 3 but not the language of the keyboard layout
-// if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
-// perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
-
-/* ---------------------------------------- */
-
-private _terminalKeyboardLayout = "";
-
-//AE3_KeyboardLayout is a CBA setting
-if (!isMultiplayer || (isServer && hasInterface)) then
-{
-	// In singeplayer or as host in a multiplayer session
-	_terminalKeyboardLayout = ["AE3_KeyboardLayout", "server"] call CBA_settings_fnc_get;
-}
-else
-{
-	// As client in a multiplayer session
-	_terminalKeyboardLayout = ["AE3_KeyboardLayout", "client"] call CBA_settings_fnc_get;
-};
-
-// set the keyboard layout on terminal init with layout saved as a CBA setting
-[_computer, _languageButton, _consoleOutput, _terminalKeyboardLayout] call AE3_armaos_fnc_terminal_setKeyboardLayout;
 
 /* ---------------------------------------- */
 

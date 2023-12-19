@@ -2,8 +2,10 @@
  * Adds event handler to the user interface elements of a terminal.
  *
  * Arguments:
- * 1: UI Text Field <CONTROL>
- * 2: Keyboard Layout UI Button <CONTROL>
+ * 0: Console Dialog <DIALOG>
+ * 1: Invisible Input Control <CONTROL>
+ * 2: Check Battery Button <CONTROL>
+ * 3: Change Design Button <CONTROL>
  *
  * Results:
  * None
@@ -11,28 +13,66 @@
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
-params ["_consoleDialog", "_terminalCtrl", "_languageButtonCtrl", "_designButtonCtrl"];
+params ["_consoleDialog", "_inputCtrl", "_batteryButtonCtrl", "_designButtonCtrl"];
 
 /* ================================================================================ */
 
-private _result = _terminalCtrl ctrlAddEventHandler
+private _result = _inputCtrl ctrlAddEventHandler
 [
-	"KeyDown", 
+	"Char",
 	{
-		params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];
+		params ["_control", "_charCode"];
 
-		private _computer = _displayorcontrol getVariable "AE3_computer";
+		private _computer = _control getVariable "AE3_computer";
+		private _consoleOutput = _control getVariable "AE3_consoleOutput";
 		private _terminal = _computer getVariable "AE3_terminal";
-		private _terminalApplication = _terminal get "AE3_terminalApplication";
-		private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
-		private _terminalBuffer = _terminal get "AE3_terminalBuffer";
-		private _terminalPrompt = _terminal get "AE3_terminalPrompt";
-
-		private _lastBufferLineIndex = (count _terminalBuffer) - 1;
 
 		_terminal set ["AE3_terminalScrollPosition", 0];
 
-		private _keyCombination = format ["%1-%2-%3-%4", _key, _shift, _ctrl, _alt];
+		private _char = toString [_charCode];
+
+		// remove debug output
+		systemchat format ["Char code: %1 - Char: %2", _charCode, _char];
+
+		[_computer, _char] call AE3_armaos_fnc_terminal_addCharToInput;
+
+		[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
+
+		// can't delete the input while running in this event handler
+		// spawn moves the execution into the next frame or so
+		[_control] spawn { params["_control"]; _control ctrlSetText ""; };
+	}
+];
+
+/* ================================================================================ */
+
+private _result = _inputCtrl ctrlAddEventHandler
+[
+	"Char",
+	{
+		params ["_control", "_charCode"];
+
+		private _char = toString [_charCode];
+
+		// remove debug output
+		systemchat format ["IME Char code: %1 - Char: %2", _charCode, _char];
+	}
+];
+
+/* ================================================================================ */
+
+private _result = _inputCtrl ctrlAddEventHandler
+[
+	"KeyDown", 
+	{
+		params ["_control", "_key", "_shift", "_ctrl", "_alt"];
+
+		private _computer = _control getVariable "AE3_computer";
+		private _consoleOutput = _control getVariable "AE3_consoleOutput";
+		private _terminal = _computer getVariable "AE3_terminal";
+		private _terminalApplication = _terminal get "AE3_terminalApplication";
+
+		_terminal set ["AE3_terminalScrollPosition", 0];
 
 		/* ---------------------------------------- */
 
@@ -48,13 +88,6 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				}
 			}
 		};
-		
-		if (_keyCombination in _terminalAllowedKeys) then
-		{
-			private _keyChar = _terminalAllowedKeys get _keyCombination;
-
-			[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
-		};
 
 		/* ---------------------------------------- */
 
@@ -69,9 +102,9 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		{
 			private _input = [_computer] call AE3_armaos_fnc_terminal_getInput;
 
-			[_terminal, _terminalApplication, _computer, _displayorcontrol, _input] call
+			[_terminal, _terminalApplication, _computer, _consoleOutput, _input] call
 			{
-				params ['_terminal', '_terminalApplication', '_computer', '_displayorcontrol', '_input'];
+				params ['_terminal', '_terminalApplication', '_computer', '_consoleOutput', '_input'];
 
 				if (_terminalApplication isEqualTo "LOGIN") exitWith
 				{
@@ -96,7 +129,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 				{
 					_terminal deleteAt "AE3_terminalInputBuffer";
 					[_computer, _input] call AE3_armaos_fnc_terminal_appendLine;
-					[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
+					[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
 					[_computer, _input] spawn AE3_armaos_fnc_shell_process;
 				};
@@ -114,11 +147,17 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};
 
+		/* ---------------------------------------- */
+
 		if (_key isEqualTo DIK_RIGHTARROW) then {[_computer, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
 		if (_key isEqualTo DIK_LEFTARROW) then {[_computer, false] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
-		
+
+		/* ---------------------------------------- */
+
 		if (_key isEqualTo DIK_END) then {[_computer, true, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
 		if (_key isEqualTo DIK_HOME) then {[_computer, false, true] call AE3_armaos_fnc_terminal_shiftInputBuffer;};
+
+		/* ---------------------------------------- */
 
 		if (_ctrl && _key isEqualTo DIK_ADD) then
 		{
@@ -142,7 +181,7 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		/* ---------------------------------------- */
 
-		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
+		[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 
 		true // Intercepts the default action, eg. pressing escape won't close the dialog.
 	}
@@ -150,13 +189,14 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 /* ================================================================================ */
 
-private _result = _terminalCtrl ctrlAddEventHandler
+private _result = _inputCtrl ctrlAddEventHandler
 [
 	"MouseZChanged", 
 	{
-		params ["_displayOrControl", "_scroll"];
+		params ["_control", "_scroll"];
 
-		private _computer = _displayorcontrol getVariable "AE3_computer";
+		private _computer = _control getVariable "AE3_computer";
+		private _consoleOutput = _control getVariable "AE3_consoleOutput";
 		private _terminal = _computer getVariable "AE3_terminal";
 		private _terminalScrollPosition = _terminal get "AE3_terminalScrollPosition";
 		private _terminalApplication = _terminal get "AE3_terminalApplication";
@@ -173,22 +213,9 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			};
 		};
 
-		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
+		[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
 	}
 ];
-
-/* ================================================================================ */
-
-_languageButtonCtrl buttonSetAction
-	"
-		private _consoleDialog = findDisplay 15984;
-		private _consoleOutput = _consoleDialog displayCtrl 1100;
-		private _languageButton = _consoleDialog displayCtrl 1310;
-
-		private _computer = _consoleOutput getVariable 'AE3_computer';
-
-		[_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
-	";
 
 /* ================================================================================ */
 
@@ -197,6 +224,14 @@ _designButtonCtrl buttonSetAction
 		private _consoleDialog = findDisplay 15984;
 
 		[_consoleDialog] call AE3_armaos_fnc_terminal_switchTerminalDesign;
+	";
+
+/* ================================================================================ */
+
+_batteryButtonCtrl buttonSetAction
+	"
+		[(uiNamespace getVariable 'AE3_Battery'), true] call AE3_power_fnc_getBatteryLevel;
+		ctrlSetFocus (uiNamespace getVariable 'AE3_ConsoleInput');
 	";
 
 /* ================================================================================ */
@@ -242,7 +277,6 @@ private _result = _consoleDialog displayAddEventHandler
 		_terminal set ["AE3_terminalCursorPosition", 0];
 
 		// clear/reset variables, that are automatically recreated in next terminal init
-		_terminal set ["AE3_terminalAllowedKeys", createHashMap];
 		_terminal set ["AE3_terminalBufferVisible", []];
 		_terminal set ["AE3_terminalRenderedBuffer", []];
 		_terminal set ["AE3_terminalDesigns", []];

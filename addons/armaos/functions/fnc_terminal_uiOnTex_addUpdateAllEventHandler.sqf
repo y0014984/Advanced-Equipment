@@ -27,7 +27,6 @@ _handle =
 
             if (AE3_UiOnTexture) then
             {
-                private _languageButtonCtrl = _consoleDialog displayCtrl 1310;
                 private _batteryButtonCtrl = _consoleDialog displayCtrl 1050;
                 private _headerBackgroundCtrl = _consoleDialog displayCtrl 900;
                 private _consoleBackgroundCtrl = _consoleDialog displayCtrl 910;
@@ -35,7 +34,6 @@ _handle =
                 private _consoleCtrl = _consoleDialog displayCtrl 1100;
 
                 private _output = ctrlText _consoleCtrl;
-                private _terminalKeyboardLayout = ctrlText _languageButtonCtrl;
                 private _value = ctrlText _batteryButtonCtrl;
                 private _bgColorHeader = ctrlBackgroundColor _headerBackgroundCtrl;
                 private _bgColorConsole = ctrlBackgroundColor _consoleBackgroundCtrl;
@@ -47,7 +45,7 @@ _handle =
                 private _terminalBufferVisible = _terminal get "AE3_terminalBufferVisible";
                 private _size = _terminal get "AE3_terminalSize";
 
-                private _args = [_computer, _terminalBufferVisible, _size, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value];
+                private _args = [_computer, _terminalBufferVisible, _size, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value];
 
                 [3, _computer, "AE3_armaos_fnc_terminal_uiOnTex_updateAll", _args] call AE3_main_fnc_executeForPlayersInRange;
             }
