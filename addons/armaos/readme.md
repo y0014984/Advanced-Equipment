@@ -10,7 +10,6 @@ filesystem             | hashmap     | [name, [content, owner, [[ownerX, ownerR,
 filepointer            | array       | Pointer to the current directory                                              | server
 Links                  | hashmap     | Storing available system commands (name -> [path, desc, man])                 | public
 Userlist               | hashmap     | Storing user -> pwd pairs                                                     | public
-terminalKeyboardLayout | string      | Defining keyboard layout ("DE", "US", "FR, "IT")                              | public
 
 ### terminal
 
@@ -28,7 +27,6 @@ terminalCursorPosition       | int               |
 terminalScrollPosition       | int               |
 terminalMaxRows              | int               |
 terminalMaxColumns           | int               |
-terminalAllowedKeys          | hashmap           | format ["%1-%2-%3-%4", _key, _shift, _ctrl, _alt]
 terminalProcess              | int               | Handler of the currently running programm
 terminalCommandHistory       | array             | List of last commands
 terminalCommandHistoryIndex  | int               |

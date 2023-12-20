@@ -9,7 +9,7 @@
  * None
  */
 
- params ["_computer", "_outputControl"];
+ params ["_computer", "_consoleOutput"];
 
 [_computer] call AE3_armaos_fnc_terminal_updateBufferVisible;
 
@@ -26,8 +26,10 @@ private _output = [];
 	_output pushBack _buffer;
 } forEach _terminalBufferVisible;
 
-_outputControl ctrlSetStructuredText (composeText _output);
-ctrlSetFocus _outputControl;
+_consoleOutput ctrlSetStructuredText (composeText _output);
+
+private _consoleInput = _consoleOutput getVariable ["AE3_consoleInput", controlNull];
+ctrlSetFocus _consoleInput;
 
 _computer setVariable ["AE3_terminal", _terminal];
 

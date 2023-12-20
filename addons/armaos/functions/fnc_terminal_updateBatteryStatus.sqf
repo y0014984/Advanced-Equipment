@@ -14,11 +14,11 @@ params ["_computer", "_consoleDialog"];
 private _battery = _computer getVariable ["AE3_power_internal", false];
 
 private _batteryCtrl = _consoleDialog displayCtrl 1050;
-private _outputCtrl = _consoleDialog displayCtrl 1100;
+private _inputCtrl = _consoleDialog displayCtrl 1150;
 
 // add variables to uiNamespace so they are accessable from control based action (battery symbol button)
 uiNamespace setVariable ["AE3_Battery", _battery];
-uiNamespace setVariable ["AE3_ConsoleOutput", _outputCtrl];
+uiNamespace setVariable ["AE3_ConsoleInput", _inputCtrl];
 
 _handle = 
     [

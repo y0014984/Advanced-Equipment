@@ -1265,24 +1265,6 @@
                 <French>AE3 armaOS</French>
                 <Italian>AE3 armaOS</Italian>
             </Key>
-            <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutName">
-                <Original>Keyboard Layout</Original>
-                <English>Keyboard Layout</English>
-                <German>Tastaturbelegung</German>
-                <Chinesesimp>键盘布局</Chinesesimp>
-                <Russian>Раскладка клавиатуры</Russian>
-                <French>Disposition clavier</French>
-                <Italian>Layout Tastiera</Italian>
-            </Key>
-            <Key ID="STR_AE3_Main_CbaSettings_KeyboardLayoutTooltip">
-                <Original>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</Original>
-                <English>Keyboard Layout for armaOS. You can also change this in armaOS terminal.</English>
-                <German>Tastaturbelegung für armaOS. Du kannst dies auch im armaOS Terminal umstellen.</German>
-                <Chinesesimp>armaOS键盘布局.您也可以在armaOS终端中更改此设置.</Chinesesimp>
-                <Russian>Раскладка клавиатуры для ArmaOS (Можно изменить в терминале ArmaOS)</Russian>
-                <French>Disposition du clavier pour armaOS. Vous pouvez également modifier cela dans le terminal armaOS.</French>
-                <Italian>Layout tastiera per armaOS. Puoi modificare questa impostazione in armaOS terminal.</Italian>
-            </Key>
             <Key ID="STR_AE3_Main_CbaSettings_TerminalDesignName">
                 <Original>Terminal Design</Original>
                 <English>Terminal Design</English>
