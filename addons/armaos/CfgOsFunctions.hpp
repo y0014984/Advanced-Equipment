@@ -169,6 +169,15 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
 		code = "_this call AE3_armaos_fnc_os_find";
 	};
+
+	class tree : OsFunction
+	{
+		path = "/bin/tree";
+		description = "$STR_AE3_ArmaOS_Config_CommandTreeDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandTreeMan";
+		code = "_this call AE3_armaos_fnc_os_tree";
+	};
+
 	class mount : OsFunction
 	{
 		path = "/bin/mount";
@@ -176,6 +185,7 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandMountMan";
 		code = "_this call AE3_armaos_fnc_os_mount";
 	};
+
 	class umount : OsFunction
 	{
 		path = "/bin/umount";
@@ -183,6 +193,7 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandUmountMan";
 		code = "_this call AE3_armaos_fnc_os_unmount";
 	};
+
 	class lsusb : OsFunction
 	{
 		path = "/bin/lsusb";
@@ -190,6 +201,7 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandLsusbMan";
 		code = "_this call AE3_armaos_fnc_os_lsusb";
 	};
+
 	class chown : OsFunction
 	{
 		path = "/bin/chown";
