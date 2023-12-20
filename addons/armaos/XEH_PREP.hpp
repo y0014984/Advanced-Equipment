@@ -103,7 +103,7 @@ PREP(terminal_reRenderBuffer);
 PREP(terminal_addChar);
 PREP(terminal_addLines);
 PREP(terminal_appendLine);
-PREP(terminal_removeChar);
+PREP(terminal_removeChar); // unused
 PREP(terminal_addHeader);
 PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);
