@@ -22,7 +22,7 @@ private _size = _terminal get "AE3_terminalSize";
 private _output = [];
 {
 	_buffer = composeText [_x, lineBreak];
-	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+	_buffer setAttributes ["size", str _size, "font", "UbuntuMono"];
 	_output pushBack _buffer;
 } forEach _terminalBufferVisible;
 

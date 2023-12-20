@@ -74,7 +74,7 @@ class AE3_ArmaOS_Main_Dialog
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0}; // transparent
 			colorText[] = {1,1,1,1}; // white
-			font = "EtelkaMonospaceProBold";
+			font = "UbuntuMono";
 			shadow = 0;
 			moving = "true"; // drag title bar to move window
 		};
@@ -89,7 +89,7 @@ class AE3_ArmaOS_Main_Dialog
 			h = 22 * GUI_GRID_H;
 			colorBackground[] = {0,0,0,0}; // transparent
 			colorText[] = {1,1,1,1}; // white
-			font = "EtelkaMonospacePro";
+			font = "UbuntuMono";
 			shadow = 0;
 			style = ST_MULTI;
 			lineSpacing = 1;
@@ -122,7 +122,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorBackground[] = {0,0,0,0}; // transparent
 			colorBackgroundActive[] = {0,0,0,0.2}; // darken
 			colorText[] = {1,1,1,1}; // white
-			font = "EtelkaMonospaceProBold";
+			font = "UbuntuMono";
 			shadow = 0;
 			tooltip = "change keyboard layout";
 		};
@@ -178,7 +178,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			w = 20 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0.5,0,0.5};
-			font = "EtelkaMonospaceProBold";
+			font = "UbuntuMono";
 		};
 		class RscText_1100: RscText
 		{
@@ -193,7 +193,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			
 			style = ST_MULTI;
 			lineSpacing = 1;
-			font = "EtelkaMonospacePro";
+			font = "UbuntuMono";
 		};
 		class RscButton_1300: RscButton
 		{
@@ -206,7 +206,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			colorBackground[] = {0,0.5,0,0.5};
 			
 			action = "closeDialog 1;";
-			font = "EtelkaMonospaceProBold";
+			font = "UbuntuMono";
 		};
 	};
 };
