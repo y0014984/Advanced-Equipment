@@ -31,9 +31,6 @@ private _result = _inputCtrl ctrlAddEventHandler
 
 		private _char = toString [_charCode];
 
-		// remove debug output
-		systemchat format ["Char code: %1 - Char: %2", _charCode, _char];
-
 		[_computer, _char] call AE3_armaos_fnc_terminal_addCharToInput;
 
 		[_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
@@ -41,21 +38,6 @@ private _result = _inputCtrl ctrlAddEventHandler
 		// can't delete the input while running in this event handler
 		// spawn moves the execution into the next frame or so
 		[_control] spawn { params["_control"]; _control ctrlSetText ""; };
-	}
-];
-
-/* ================================================================================ */
-
-private _result = _inputCtrl ctrlAddEventHandler
-[
-	"Char",
-	{
-		params ["_control", "_charCode"];
-
-		private _char = toString [_charCode];
-
-		// remove debug output
-		systemchat format ["IME Char code: %1 - Char: %2", _charCode, _char];
 	}
 ];
 
