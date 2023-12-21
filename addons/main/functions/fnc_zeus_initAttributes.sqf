@@ -119,6 +119,11 @@ if (isNull _entity) exitWith {};
 
     private _generator = _entity;
 
+    private _filesystemTreeCtrl = _display displayCtrl 1500;
+    private _filesystemDetailsCtrl = _display displayCtrl 1501;
+
+    private _fsEntity = _entity;
+
     /* ======================================== */
 
     // if asset has battery, init battery level controls
@@ -153,6 +158,51 @@ if (isNull _entity) exitWith {};
 
         _fuelLevelSliderCtrl sliderSetPosition _fuelLevelPercent;
         _fuelLevelCtrl ctrlSetText format ['%1%2', _fuelLevelPercent, '%'];
+    };
+
+    /* ======================================== */
+
+    // if asset has filesystem, init filesystem tree view
+    if (!isNil {_fsEntity getVariable "AE3_filesystem"}) then
+    {
+        private _pointer = _fsEntity getVariable ["AE3_filepointer", []];
+        private _filesystem = _fsEntity getVariable ["AE3_filesystem", []];
+
+        private _current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+
+        private _treePath = []; // path for the RscTree item controls
+
+        private _fnc_tree_recursive =
+        {
+            params ["_pointer", "_filesystem", "_treePath"];
+
+            private _content = _filesystem select 0; // HASHMAP
+
+            {
+                // Hashmap forEach variables: KEY = _x && VALUE = _y
+
+                private _treePathIndex = _filesystemTreeCtrl tvAdd [_treePath,_x];
+
+                private _newTreePath = +_treePath;
+                _newTreePath append [_treePathIndex];
+
+                if ((typeName (_y select 0)) isEqualTo "HASHMAP") then
+                {
+                    private _currentPointer = +_pointer;
+                    _currentPointer pushBack _x;
+
+                    _filesystemTreeCtrl tvSetData [_newTreePath, ""];
+
+                    [_currentPointer, _y, _newTreePath] call _fnc_tree_recursive;
+                }
+                else
+                {
+                    _filesystemTreeCtrl tvSetData [_newTreePath, format ["%1", (_y select 0)]];
+                };
+            } forEach _content;
+        };
+
+        [_pointer, _current, _treePath] call _fnc_tree_recursive;
     };
 
     /* ======================================== */
