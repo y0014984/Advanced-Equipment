@@ -50,28 +50,6 @@ private _childs =
 	} forEach (_generators); _actions
 };
 
-private _connect = ["AE3_ConnectAction", localize "STR_AE3_Power_Interaction_ConnectToPowerSource", "",
-			{},
-			{
-				params ["_target", "_player", "_params"]; 
-				_params params ["_device"]; 
-				(alive _target) and (isNil {_device getVariable "AE3_power_powerCableDevice"})
-			},
-			_childs,
-			[_generator]
-			] call ace_interact_menu_fnc_createAction;
-
-private _disconnect = ["AE3_DisconnectAction", localize "STR_AE3_Power_Interaction_DisconnectFromPowerSource", "",
-				{params ["_target", "_player", "_params"]; _params params ["_device"]; _handle = [_device] spawn AE3_power_fnc_disconnectFromGeneratorAction;},
-				{
-					params ["_target", "_player", "_params"]; 
-					_params params ["_device"];
-					(alive _target) and (!isNil {_device getVariable "AE3_power_powerCableDevice"})
-				},
-				{},
-				[_generator]
-				] call ace_interact_menu_fnc_createAction;
-
 private _device = _generator;
 
 if(_internal) then
@@ -81,8 +59,32 @@ if(_internal) then
 
 if(!isDedicated) then
 {
-	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
-	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	private _connect = ["AE3_ConnectAction", localize "STR_AE3_Power_Interaction_ConnectToPowerSource", "",
+				{},
+				{
+					params ["_target", "_player", "_params"]; 
+					_params params ["_device"]; 
+					(alive _target) and (isNil {_device getVariable "AE3_power_powerCableDevice"})
+				},
+				_childs,
+				[_generator]
+				] call ace_interact_menu_fnc_createAction;
+
+	private _disconnect = ["AE3_DisconnectAction", localize "STR_AE3_Power_Interaction_DisconnectFromPowerSource", "",
+					{params ["_target", "_player", "_params"]; _params params ["_device"]; _handle = [_device] spawn AE3_power_fnc_disconnectFromGeneratorAction;},
+					{
+						params ["_target", "_player", "_params"]; 
+						_params params ["_device"];
+						(alive _target) and (!isNil {_device getVariable "AE3_power_powerCableDevice"})
+					},
+					{},
+					[_generator]
+					] call ace_interact_menu_fnc_createAction;
+
+	private _parentActionPath = _device getVariable ["AE3_parentActionPath", ""];
+
+	[_device, 0, _parentActionPath, _connect] call ace_interact_menu_fnc_addActionToObject;
+	[_device, 0, _parentActionPath, _disconnect] call ace_interact_menu_fnc_addActionToObject;
 };
 
 if(isServer) then

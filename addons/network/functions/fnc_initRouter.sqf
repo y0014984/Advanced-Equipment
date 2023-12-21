@@ -37,53 +37,54 @@ private _childs =
 	_actions
 };
 
-private _connect = ["AE3_Network_ConnectAction", localize "STR_AE3_Network_Interaction_ConnectToRouter", "",
-			{},
-			{
-				params ["_target", "_player", "_params"]; 
-				_params params ["_device"]; 
-				(alive _target) and (isNull (_device getVariable ["AE3_network_parent", objNull]))
-			},
-			_childs,
-			[_entity]
-			] call ace_interact_menu_fnc_createAction;
-
-private _disconnect = ["AE3_Network_DisconnectAction", localize "STR_AE3_Network_Interaction_DisconnectFromRouter", "",
+if (!isDedicated && !_internal) then
+{
+	private _connect = ["AE3_Network_ConnectAction", localize "STR_AE3_Network_Interaction_ConnectToRouter", "",
+				{},
 				{
 					params ["_target", "_player", "_params"]; 
 					_params params ["_device"]; 
-					[_device] call AE3_network_fnc_disconnect;
+					(alive _target) and (isNull (_device getVariable ["AE3_network_parent", objNull]))
 				},
-				{
-					params ["_target", "_player", "_params"]; 
-					_params params ["_device"];
-					(alive _target) and (!isNull (_device getVariable ["AE3_network_parent", objNull]))
-				},
-				{},
+				_childs,
 				[_entity]
 				] call ace_interact_menu_fnc_createAction;
 
+	private _disconnect = ["AE3_Network_DisconnectAction", localize "STR_AE3_Network_Interaction_DisconnectFromRouter", "",
+					{
+						params ["_target", "_player", "_params"]; 
+						_params params ["_device"]; 
+						[_device] call AE3_network_fnc_disconnect;
+					},
+					{
+						params ["_target", "_player", "_params"]; 
+						_params params ["_device"];
+						(alive _target) and (!isNull (_device getVariable ["AE3_network_parent", objNull]))
+					},
+					{},
+					[_entity]
+					] call ace_interact_menu_fnc_createAction;
 
-if (!isDedicated && !_internal) then
-{
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	private _parentActionPath = _entity getVariable ["AE3_parentActionPath", ""];
+
+	[_entity, 0, _parentActionPath, _connect] call ace_interact_menu_fnc_addActionToObject;
+	[_entity, 0, _parentActionPath, _disconnect] call ace_interact_menu_fnc_addActionToObject;
 };
 
 
- if (isServer) then 
- {
-	 _entity setVariable ["AE3_network_address", _address, true];
+if (isServer) then 
+{
+	_entity setVariable ["AE3_network_address", _address, true];
 
-	 _entity setVariable ["AE3_network_parent", _parent, true];
+	_entity setVariable ["AE3_network_parent", _parent, true];
 
-	 _entity setVariable ["AE3_network_children", [], true];
-	 _entity setVariable ["AE3_network_addressCatch", createHashMap, true];
-	 _entity setVariable ["AE3_network_addressCounter", 0, true];
+	_entity setVariable ["AE3_network_children", [], true];
+	_entity setVariable ["AE3_network_addressCatch", createHashMap, true];
+	_entity setVariable ["AE3_network_addressCounter", 0, true];
 
 
 	if (!isNull _parent) then
 	{
 		[_entity, _parent] call AE3_network_fnc_connect_router2router;
 	};
- };
+};

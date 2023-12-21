@@ -11,21 +11,23 @@
  * None
  */
 
-params ['_entity', '_powerMax', '_orientationFnc', '_height'];
+params ["_entity", "_powerMax", "_orientationFnc", "_height"];
 
 if(!isDedicated) then
 {
 	private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerOutput", "", 
-				{params ['_target', '_player', '_params']; _handle = [_target] spawn AE3_power_fnc_checkPowerOutputAction;}, 
+				{params ["_target", "_player", "_params"]; _handle = [_target] spawn AE3_power_fnc_checkPowerOutputAction;}, 
 				{alive _target}] call ace_interact_menu_fnc_createAction;
 
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _power] call ace_interact_menu_fnc_addActionToObject;
+	private _parentActionPath = _entity getVariable ["AE3_parentActionPath", ""];
+
+	[_entity, 0, _parentActionPath, _power] call ace_interact_menu_fnc_addActionToObject;
 };
 
 if(isServer) then
 {
 	_entity setVariable ["AE3_power_powerMax", _powerMax, true];
-	_entity setVariable ['AE3_power_connectedDevices', [], true];
+	_entity setVariable ["AE3_power_connectedDevices", [], true];
 	
 	_entity setVariable ["AE3_power_orientationFnc", _orientationFnc];
 	_entity setVariable ["AE3_power_height", _height];
