@@ -347,6 +347,33 @@
                 <French>Allumer</French>
                 <Italian>Accendi</Italian>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_Update">
+                <Original>Update</Original>
+                <English>Update</English>
+                <German>Aktualisieren</German>
+                <Chinesesimp>Update</Chinesesimp>
+                <Russian>Update</Russian>
+                <French>Update</French>
+                <Italian>Update</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileExplorer">
+                <Original>File Explorer</Original>
+                <English>File Explorer</English>
+                <German>Dateiexplorer</German>
+                <Chinesesimp>File Explorer</Chinesesimp>
+                <Russian>File Explorer</Russian>
+                <French>File Explorer</French>
+                <Italian>File Explorer</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileContent">
+                <Original>File Content</Original>
+                <English>File Content</English>
+                <German>Dateiinhalt</German>
+                <Chinesesimp>File Content</Chinesesimp>
+                <Russian>File Content</Russian>
+                <French>File Content</French>
+                <Italian>File Content</Italian>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_Module_AddUser">
                 <Original>AE3 Add User</Original>
                 <English>AE3 Add User</English>
@@ -733,6 +760,15 @@
                 <Russian>Device turned on.</Russian>
                 <French>Appareil allumé.</French>
                 <Italian>Dispositivo acceso.</Italian>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileContentChanged">
+                <Original>File content changed.</Original>
+                <English>File content changed.</English>
+                <German>Dateiinhalt geändert.</German>
+                <Chinesesimp>File content changed.</Chinesesimp>
+                <Russian>File content changed.</Russian>
+                <French>File content changed.</French>
+                <Italian>File content changed.</Italian>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_CantStandbyDevice">
                 <Original>Device cannot be put into standby mode.</Original>

@@ -42,3 +42,5 @@ PREP(zeus_module_addConnection);
 PREP(zeus_checkForComputer);
 
 PREP(zeus_isConnectionAllowed);
+
+PREP(zeus_updateFileContent);
