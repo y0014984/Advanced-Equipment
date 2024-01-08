@@ -12,28 +12,7 @@
 
 params ["_computer", "_options", "_commandName"];
 
-private _commandOpts = [];
-private _commandSyntax =
-[
-	[
-			["command", _commandName, true, false]
-	]
-];
-private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
-
-[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
-
-if (!_ae3OptsSuccess) exitWith {};
-
-private _pointer = _computer getVariable "AE3_filepointer";
-private _filesystem = _computer getVariable "AE3_filesystem";
-
-private _current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
-
-private _terminal = _computer getVariable "AE3_terminal";
-private _user = _terminal get "AE3_terminalLoginUser";
-
-private _level = 0;
+/* ================================================================================ */
 
 private _fnc_tree_recursive =
 {
@@ -56,17 +35,13 @@ private _fnc_tree_recursive =
             // Hashmap forEach variables: KEY = _x && VALUE = _y
 
             private _treeString = "";
-            for "_i" from 0 to _level do
-            {
-                if (_i == _level) then
-                {
-                    _treeString = _treeString + "|--";
-                }
-                else
-                {
-                    _treeString = _treeString + "|  ";
-                };
-            };
+            
+            for "_i" from 0 to (_level - 1) do  
+            {  
+                _treeString = _treeString + "|  ";  
+            };  
+            _treeString = _treeString + "|--";
+
             _totalResults pushBack (_treeString + _x);
             
             if ((typeName (_y select 0)) isEqualTo "HASHMAP") then
@@ -87,6 +62,31 @@ private _fnc_tree_recursive =
 
     [_totalResults, _missingPermissions];
 };
+
+/* ================================================================================ */
+
+private _commandOpts = [];
+private _commandSyntax =
+[
+	[
+			["command", _commandName, true, false]
+	]
+];
+private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
+
+[] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
+
+if (!_ae3OptsSuccess) exitWith {};
+
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
+
+private _current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+
+private _terminal = _computer getVariable "AE3_terminal";
+private _user = _terminal get "AE3_terminalLoginUser";
+
+private _level = 0;
 
 private _result = [_pointer, _current, _user, _level] call _fnc_tree_recursive;
 
