@@ -91,8 +91,6 @@ if (!isDedicated) then
 
 	private _parentActionPath = [_equipment, _name] call AE3_main_fnc_interaction_addParentAction;
 
-	diag_log ["parentActionPath", _parentActionPath];
-
 	// Add open/close action
 	if (!((_openFnc isEqualTo {}) || (_closeFnc isEqualTo {}))) then
 	{

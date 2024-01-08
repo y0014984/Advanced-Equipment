@@ -61,8 +61,6 @@ if(!isDedicated) then
 {
 	private _parentActionPath = [_entity, _name] call AE3_main_fnc_interaction_addParentAction;
 
-	diag_log ["parentActionPath", _parentActionPath];
-
 	// Add check power state action
 	private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
 	[_entity, 0, _parentActionPath, _power] call ace_interact_menu_fnc_addActionToObject;

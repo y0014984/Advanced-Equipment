@@ -4,23 +4,17 @@
  * Arguments:
  * 0: Device <OBJECT>
  * 1: Interface config <ARRAY>
+ * 2: Parent Action Name <STRING>
  *
  * Results:
  * None
 */
 
-params ["_device", "_config"];
+params ["_device", "_config", "_parentActionName"];
 
 if(!isDedicated) then
 {
-	// get or add parent action
-	private _parentActionPath = _device getVariable ["AE3_parentActionPath", []];
-	if (_parentActionPath isEqualTo []) then
-	{
-		private _parentAction = ["AE3_ParentAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
-		_parentActionPath = [_device, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
-		_device setVariable ["AE3_parentActionPath", _parentActionPath];
-	};
+	private _parentActionPath = [_device, _parentActionName] call AE3_main_fnc_interaction_addParentAction;
 	
 	private _flash_drives =
 	{
