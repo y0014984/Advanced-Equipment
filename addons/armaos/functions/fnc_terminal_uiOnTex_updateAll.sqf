@@ -67,7 +67,7 @@ private _uiOnTextureOutputCtrl = _uiOnTextureDisplay displayCtrl 1100; // Consol
 private _output = [];
 {
 	private _buffer = composeText [_x, lineBreak];
-	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+	_buffer setAttributes ["size", str _size, "font", "UbuntuMono"];
 	_output pushBack _buffer;
 } forEach _terminalBufferVisible;
 
