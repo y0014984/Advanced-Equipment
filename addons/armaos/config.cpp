@@ -48,16 +48,7 @@ class CfgFontFamilies
                 "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono23",
                 "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono24",
                 "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono25",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono26",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono27",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono28",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono29",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono30",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono31",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono34",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono35",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono37",
-                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono46"
+                "\z\ae3\addons\armaos\fonts\UbuntuMono\UbuntuMono26"
             };
         spaceWidth = 0.7;
         spacing = 0.13;
