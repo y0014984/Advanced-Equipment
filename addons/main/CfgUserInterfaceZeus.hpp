@@ -6,6 +6,7 @@ class RscCheckBox;
 class RscButton;
 class RscCombo;
 class RscXSliderH;
+class RscTree;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 
@@ -41,10 +42,12 @@ class AE3_UserInterface_Zeus_Asset_Details
         {
             idc = 1000;
             text = "$STR_AE3_Main_Zeus_AssetDetails";
+
             x = 0 * GUI_GRID_W + GUI_GRID_X;
             y = 0 * GUI_GRID_H + GUI_GRID_Y;
             w = 40 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
+
             colorBackground[] = {-1,-1,-1,1};
         };
 
@@ -52,10 +55,12 @@ class AE3_UserInterface_Zeus_Asset_Details
         {
             idc = 1400;
             text = "";
+
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 39 * GUI_GRID_W;
             h = 6 * GUI_GRID_H;
+
             colorBackground[] = {-1,-1,-1,0.5};
 			style = ST_MULTI;
 			lineSpacing = 1;
@@ -64,8 +69,8 @@ class AE3_UserInterface_Zeus_Asset_Details
         class RscText_1001: RscText
         {
             idc = 1001;
-
             text = "$STR_AE3_Main_Zeus_BatteryLevel";
+
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -77,8 +82,8 @@ class AE3_UserInterface_Zeus_Asset_Details
         class RscText_1002: RscText
         {
             idc = 1002;
-
             text = "$STR_AE3_Main_Zeus_FuelLevel";
+
             x = 0.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 7 * GUI_GRID_W;
@@ -98,6 +103,7 @@ class AE3_UserInterface_Zeus_Asset_Details
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 28 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
+
             colorBackground[] = {-1,-1,-1,0.5};
 
             onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['batterySliderCtrl', _control]; _control ctrlEnable false;";
@@ -115,6 +121,7 @@ class AE3_UserInterface_Zeus_Asset_Details
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 28 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
+
             colorBackground[] = {-1,-1,-1,0.5};
 
             onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['fuelSliderCtrl', _control]; _control ctrlEnable false;";
@@ -125,10 +132,12 @@ class AE3_UserInterface_Zeus_Asset_Details
         {
             idc = 1401;
             text = "0%";
+
             x = 36.5 * GUI_GRID_W + GUI_GRID_X;
             y = 9 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
+
             colorBackground[] = {-1,-1,-1,0.5};
 
             onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['batteryTextCtrl', _control]; _control ctrlEnable false;"; 
@@ -140,10 +149,12 @@ class AE3_UserInterface_Zeus_Asset_Details
         {
             idc = 1402;
             text = "0%";
+
             x = 36.5 * GUI_GRID_W + GUI_GRID_X;
             y = 10.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
             h = 1 * GUI_GRID_H;
+
             colorBackground[] = {-1,-1,-1,0.5};
 
             onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['fuelTextCtrl', _control]; _control ctrlEnable false;"; 
@@ -151,10 +162,65 @@ class AE3_UserInterface_Zeus_Asset_Details
             onKillFocus = "params ['_control']; private _newText = ctrlText _control; _newText = [_newText, '0123456789.,'] call BIS_fnc_filterString; private _display = ctrlParent _control; private _slider = _display getVariable 'fuelSliderCtrl'; private _newValue = ((round (_newText call BIS_fnc_parseNumber)) min 100); _slider sliderSetPosition _newValue; _control ctrlSetText format ['%1%2', _newValue, '%'];";
         };
 
+        class RscText_1600: RscText
+        {
+            idc = 1600;
+            text = "$STR_AE3_Main_Zeus_FileExplorer";
+
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 12 * GUI_GRID_H + GUI_GRID_Y;
+            w = 19.5 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+        };
+
+        class RscTree_1500: RscTree
+        {
+            idc = 1500;
+
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 19.5 * GUI_GRID_W;
+            h = 8.5 * GUI_GRID_H;
+
+            colorBackground[] = {-1,-1,-1,0.5};
+
+            onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['fileExplorerCtrl', _control];"; 
+
+            onTreeSelChanged = "params ['_control', '_selectionPath']; _control setVariable ['selectionPath', _selectionPath]; private _display = ctrlParent _control; private _fileContentCtrl = _display getVariable ['fileContentCtrl', controlNull]; private _updateButtonCtrl = _display getVariable ['updateButtonCtrl', controlNull]; private _fileContent = _control tvData _selectionPath; _fileContentCtrl ctrlSetText _fileContent; if (_fileContent isEqualTo '') then {_fileContentCtrl ctrlEnable false; _updateButtonCtrl ctrlEnable false;} else {_fileContentCtrl ctrlEnable true; _updateButtonCtrl ctrlEnable true;};";
+        };
+
+        class RscText_1601: RscText
+        {
+            idc = 1601;
+            text = "$STR_AE3_Main_Zeus_FileContent";
+
+            x = 20.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 12 * GUI_GRID_H + GUI_GRID_Y;
+            w = 19 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+        };
+
+        class RscEdit_1501: RscEdit
+        {
+            idc = 1501;
+            text = "";
+
+            x = 20.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 19 * GUI_GRID_W;
+            h = 7 * GUI_GRID_H;
+
+            colorBackground[] = {-1,-1,-1,0.5};
+			style = ST_MULTI;
+			lineSpacing = 1;
+
+            onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['fileContentCtrl', _control];";
+        };
+
         class RscButton_2100: RscButton
         {
-            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            x = 0 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
@@ -165,8 +231,8 @@ class AE3_UserInterface_Zeus_Asset_Details
 
         class RscButton_2200: RscButton
         {
-            x = 4 * GUI_GRID_W + GUI_GRID_X;
-            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            x = 3.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 3 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
@@ -177,8 +243,8 @@ class AE3_UserInterface_Zeus_Asset_Details
 
         class RscButton_2300: RscButton
         {
-            x = 7.5 * GUI_GRID_W + GUI_GRID_X;
-            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            x = 7 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
@@ -189,8 +255,8 @@ class AE3_UserInterface_Zeus_Asset_Details
 
         class RscButton_2400: RscButton
         {
-            x = 12 * GUI_GRID_W + GUI_GRID_X;
-            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            x = 11.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
@@ -201,14 +267,28 @@ class AE3_UserInterface_Zeus_Asset_Details
 
         class RscButton_2500: RscButton
         {
-            x = 16.5 * GUI_GRID_W + GUI_GRID_X;
-            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            x = 16 * GUI_GRID_W + GUI_GRID_X;
+            y = 23.5 * GUI_GRID_H + GUI_GRID_Y;
             w = 4 * GUI_GRID_W;
             h = 1.5 * GUI_GRID_H;
 
             text = "$STR_AE3_Main_Zeus_TurnOn";
 
             onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_turnOnDevice;";
+        };
+
+        class RscButton_2600: RscButton
+        {
+            x = 35.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            w = 4 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            text = "$STR_AE3_Main_Zeus_Update";
+
+            onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['updateButtonCtrl', _control];";
+
+            onButtonClick = "params ['_control']; [_control] call AE3_main_fnc_zeus_updateFileContent;";
         };
 
         class RscButtonMenuOK_2600: RscButtonMenuOK

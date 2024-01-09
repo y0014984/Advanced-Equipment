@@ -119,6 +119,11 @@ if (isNull _entity) exitWith {};
 
     private _generator = _entity;
 
+    private _fileExplorerCtrl = _display displayCtrl 1500;
+    private _fileContentCtrl = _display displayCtrl 1501;
+
+    private _fsEntity = _entity;
+
     /* ======================================== */
 
     // if asset has battery, init battery level controls
@@ -153,6 +158,76 @@ if (isNull _entity) exitWith {};
 
         _fuelLevelSliderCtrl sliderSetPosition _fuelLevelPercent;
         _fuelLevelCtrl ctrlSetText format ['%1%2', _fuelLevelPercent, '%'];
+    };
+
+    /* ======================================== */
+
+    // if asset has filesystem, init filesystem tree view
+    if (!isNil {_fsEntity getVariable "AE3_filesystem"}) then
+    {
+        private _pointer = [];
+        private _filesystem = _fsEntity getVariable ["AE3_filesystem", []];
+
+        private _current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+
+        private _treePath = []; // path for the RscTree item controls
+
+        private _fnc_tree_recursive =
+        {
+            params ["_pointer", "_filesystem", "_treePath", "_pointerLUT", ["_itemId", 0]];
+
+            private _content = _filesystem select 0; // HASHMAP
+
+            {
+                // Hashmap forEach variables: KEY = _x && VALUE = _y
+
+                private _treePathIndex = _fileExplorerCtrl tvAdd [_treePath, _x];
+
+                private _newTreePath = +_treePath;
+                _newTreePath append [_treePathIndex];
+
+                _pointerLUT set [_itemId, [_pointer, _x]];
+                _fileExplorerCtrl tvSetValue [_newTreePath, _itemId];
+                _itemId = _itemId + 1;
+
+                private _contentType = typeName (_y select 0);
+
+                switch _contentType do
+                {
+                    case "HASHMAP":
+                        {
+                            private _currentPointer = +_pointer;
+                            _currentPointer pushBack _x;
+
+                            _fileExplorerCtrl tvSetData [_newTreePath, ""];
+
+                            _itemId = [_currentPointer, _y, _newTreePath, _pointerLUT, _itemId] call _fnc_tree_recursive;
+                        };
+                    case "CODE":
+                        {
+                            _fileExplorerCtrl tvSetData [_newTreePath, ""];
+                        };
+                    case "STRING":
+                        {
+                            _fileExplorerCtrl tvSetData [_newTreePath, _y select 0];
+                        };
+                    default
+                        {
+                            _fileExplorerCtrl tvSetData [_newTreePath, format ["%1", (_y select 0)]];
+                        };
+                };
+            } forEach _content;
+
+            _itemId;
+        };
+
+        private _pointerLUT = createHashMap;
+
+        [_pointer, _current, _treePath, _pointerLUT] call _fnc_tree_recursive;
+
+        _fileExplorerCtrl setVariable ["pointerLUT", _pointerLUT];
+
+        _fileExplorerCtrl tvSortAll [[], false];
     };
 
     /* ======================================== */

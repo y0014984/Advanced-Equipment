@@ -24,3 +24,4 @@ PREP(fsObjExists);
 PREP(chown);
 PREP(mount);
 PREP(unmount);
+PREP(setFileContent);
