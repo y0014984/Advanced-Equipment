@@ -975,6 +975,24 @@
                 <French>Utilisation find: 'find [Nom]' affiche le résultas sur stdout.</French>
                 <Italian>Utilizzo find: 'find [Name]' mostra il risultato a console.</Italian>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandTreeDescr">
+                <Original>Outputs the filesystem tree with current working ditrectory as root.</Original>
+                <English>Outputs the filesystem tree with current working ditrectory as root.</English>
+                <German>Gibt den Dateisystembaum aus mit dem aktuellen Verzeichnis as Wurzel.</German>
+                <Chinesesimp>Outputs the filesystem tree with current working ditrectory as root.</Chinesesimp>
+                <Russian>Outputs the filesystem tree with current working ditrectory as root.</Russian>
+                <French>Outputs the filesystem tree with current working ditrectory as root.</French>
+                <Italian>Outputs the filesystem tree with current working ditrectory as root.</Italian>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandTreeMan">
+                <Original>Usage tree: 'tree' prints the filesystem tree.</Original>
+                <English>Usage tree: 'tree' prints the filesystem tree.</English>
+                <German>Verwendung tree: 'tree' gibt den Dateisystembaum aus.</German>
+                <Chinesesimp>Usage tree: 'tree' prints the filesystem tree.</Chinesesimp>
+                <Russian>Usage tree: 'tree' prints the filesystem tree.</Russian>
+                <French>Usage tree: 'tree' prints the filesystem tree.</French>
+                <Italian>Usage tree: 'tree' prints the filesystem tree.</Italian>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandMountDescr">
                 <Original>Mounts a flash drive in the specified usb port.</Original>
                 <English>Mounts a flash drive in the specified usb port.</English>
