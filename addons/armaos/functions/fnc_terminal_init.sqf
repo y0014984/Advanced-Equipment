@@ -70,6 +70,20 @@ _terminal = _computer getVariable "AE3_terminal";
 
 private _consoleDialog = createDialog ["AE3_ArmaOS_Main_Dialog", true];
 
+/* ---------------------------------------- */
+
+// computer brand can be changed for every computer individually
+private _headerCtrl = _consoleDialog displayCtrl 1000;
+private _computerBrand = _computer getVariable ["AE3_computerBrand", nil];
+if (isNil "_computerBrand") then
+{
+	_computerBrand = ctrlText _headerCtrl;
+	_computer setVariable ["AE3_computerBrand", _computerBrand, true];
+};
+_headerCtrl ctrlSetText _computerBrand;
+
+/* ---------------------------------------- */
+
 private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
 private _designButton = _consoleDialog displayCtrl 1320;
