@@ -24,8 +24,10 @@ if(!isDedicated) then
 				{params ["_target", "_player", "_params"]; _handle = [_target] spawn AE3_power_fnc_checkPowerOutputAction;}, 
 				{alive _target}] call ace_interact_menu_fnc_createAction;
 
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _check] call ace_interact_menu_fnc_addActionToObject;
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _power] call ace_interact_menu_fnc_addActionToObject;
+	private _parentActionPath = _entity getVariable ["AE3_parentActionPath", ""];
+
+	[_entity, 0, _parentActionPath, _check] call ace_interact_menu_fnc_addActionToObject;
+	[_entity, 0, _parentActionPath, _power] call ace_interact_menu_fnc_addActionToObject;
 };
 
 if(isServer) then

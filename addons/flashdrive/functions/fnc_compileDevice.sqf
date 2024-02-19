@@ -33,4 +33,9 @@ private _config = missionNamespace getVariable _class_name;
 
 if(_config isEqualType "") exitWith {};
 
-[_entity,  _config] call AE3_flashdrive_fnc_initInterface;
+
+// Workaround, because the compiled config for USB interfaces does not contain a device name
+private _tmpDeviceCfg = configFile >> "CfgVehicles" >> _class >> "AE3_Device";
+private _parentActionName = getText (_tmpDeviceCfg >> "displayName");
+
+[_entity,  _config, _parentActionName] call AE3_flashdrive_fnc_initInterface;

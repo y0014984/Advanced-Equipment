@@ -22,15 +22,13 @@ else
 
 if(!isDedicated) then
 {
-    // add the armaOS Menu to ACE3 Interaction Menu
-    private _armaOSAction = ["AE3_ArmaOSAction", localize "STR_AE3_ArmaOS_Config_ArmaOSDisplayName", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-    [_laptop, 0, ["ACE_MainActions"], _armaOSAction] call ace_interact_menu_fnc_addActionToObject;
+    private _parentActionPath = _equipment getVariable ["AE3_parentActionPath", []];
 
-    // add the 'use' interaction to the armaOS Menu
+    // add the "use" interaction to the armaOS Menu
     private _useAction =
     [
         "AE3_UseAction", // internal name
-        localize "STR_AE3_ArmaOS_Config_UseDisplayName", // visible name
+        localize "STR_AE3_ArmaOS_Config_UseDisplayName" + " " + localize "STR_AE3_ArmaOS_Config_ArmaOSDisplayName", // visible name
         "", // icon
         {
             // statement
@@ -47,5 +45,5 @@ if(!isDedicated) then
             (isNull (_target getVariable ["AE3_computer_mutex", objNull]))
         }
     ] call ace_interact_menu_fnc_createAction;
-    [_laptop, 0, ["ACE_MainActions", "AE3_ArmaOSAction"], _useAction] call ace_interact_menu_fnc_addActionToObject; // 0 = action; 1 = self-action
+    [_laptop, 0, _parentActionPath, _useAction] call ace_interact_menu_fnc_addActionToObject; // 0 = action; 1 = self-action
 };
