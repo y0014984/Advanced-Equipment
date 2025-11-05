@@ -20,7 +20,7 @@ try
 
     private _fsObj = _dir select 2;
 
-    if(_fsObj in _current) then { true; } else { false; };
+    [false, true] select (_fsObj in _current);
 } catch
 {
     false;

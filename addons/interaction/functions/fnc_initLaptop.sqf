@@ -22,7 +22,7 @@ else
 
 if(!isDedicated) then
 {
-    // add the armaOS Menu to ACE3 Interaction Menu
+    // add the armaOS Menu nested under Laptop parent (created by fnc_initInteraction)
     private _armaOSAction = ["AE3_ArmaOSAction", localize "STR_AE3_ArmaOS_Config_ArmaOSDisplayName", "", {}, {true}] call ace_interact_menu_fnc_createAction;
     [_laptop, 0, ["ACE_MainActions"], _armaOSAction] call ace_interact_menu_fnc_addActionToObject;
 

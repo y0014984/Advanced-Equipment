@@ -95,3 +95,6 @@ if (!isNil "_config") then
 
 _entity setVariable ["AE3_filesystem", _filesystem];
 _entity setVariable ["AE3_filepointer", []];
+
+// Set readiness flag for Zeus modules to check
+_entity setVariable ["AE3_filesystemReady", true, true];

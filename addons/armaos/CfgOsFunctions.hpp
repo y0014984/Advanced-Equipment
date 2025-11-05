@@ -15,7 +15,7 @@ class CfgOsFunctions
 		path = "/bin/man";
 		description = "$STR_AE3_ArmaOS_Config_CommandManDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandManMan";
-		code = "_this call AE3_armaos_fnc_os_man";
+		code = "call AE3_armaos_fnc_os_man";
 	};
 
 	class help : OsFunction
@@ -23,7 +23,7 @@ class CfgOsFunctions
 		path = "/bin/help";
 		description = "$STR_AE3_ArmaOS_Config_CommandHelpDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandHelpMan";
-		code = "_this call AE3_armaos_fnc_os_help";
+		code = "call AE3_armaos_fnc_os_help";
 	};
 
 	class ls : OsFunction
@@ -31,7 +31,7 @@ class CfgOsFunctions
 		path = "/bin/ls";
 		description = "$STR_AE3_ArmaOS_Config_CommandLsDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandLsMan";
-		code = "_this call AE3_armaos_fnc_os_ls";
+		code = "call AE3_armaos_fnc_os_ls";
 	};
 
 	class cd : OsFunction
@@ -39,7 +39,7 @@ class CfgOsFunctions
 		path = "/bin/cd";
 		description = "$STR_AE3_ArmaOS_Config_CommandCdDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandCdMan";
-		code = "_this call AE3_armaos_fnc_os_cd";
+		code = "call AE3_armaos_fnc_os_cd";
 	};
 
 	class cat : OsFunction
@@ -47,7 +47,7 @@ class CfgOsFunctions
 		path = "/bin/cat";
 		description = "$STR_AE3_ArmaOS_Config_CommandCatDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandCatMan";
-		code = "_this call AE3_armaos_fnc_os_cat";
+		code = "call AE3_armaos_fnc_os_cat";
 	};
 
 	class date : OsFunction
@@ -55,7 +55,7 @@ class CfgOsFunctions
 		path = "/bin/date";
 		description = "$STR_AE3_ArmaOS_Config_CommandDateDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandDateMan";
-		code = "_this call AE3_armaos_fnc_os_date";
+		code = "call AE3_armaos_fnc_os_date";
 	};
 
 	class history : OsFunction
@@ -63,7 +63,7 @@ class CfgOsFunctions
 		path = "/bin/history";
 		description = "$STR_AE3_ArmaOS_Config_CommandHistoryDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandHistoryMan";
-		code = "_this call AE3_armaos_fnc_os_history";
+		code = "call AE3_armaos_fnc_os_history";
 	};
 
 	class clear : OsFunction
@@ -71,7 +71,7 @@ class CfgOsFunctions
 		path = "/bin/clear";
 		description = "$STR_AE3_ArmaOS_Config_CommandClearDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandClearMan";
-		code = "_this call AE3_armaos_fnc_os_clear";
+		code = "call AE3_armaos_fnc_os_clear";
 	};
 
 	class rm : OsFunction
@@ -79,7 +79,7 @@ class CfgOsFunctions
 		path = "/bin/rm";
 		description = "$STR_AE3_ArmaOS_Config_CommandRmDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandRmMan";
-		code = "_this call AE3_armaos_fnc_os_rm";
+		code = "call AE3_armaos_fnc_os_rm";
 	};
 
 	class mv : OsFunction
@@ -87,7 +87,7 @@ class CfgOsFunctions
 		path = "/bin/mv";
 		description = "$STR_AE3_ArmaOS_Config_CommandMvDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandMvMan";
-		code = "_this call AE3_armaos_fnc_os_mv";
+		code = "call AE3_armaos_fnc_os_mv";
 	};
 
 	class cp : OsFunction
@@ -95,7 +95,7 @@ class CfgOsFunctions
 		path = "/bin/cp";
 		description = "$STR_AE3_ArmaOS_Config_CommandCpDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandCpMan";
-		code = "_this call AE3_armaos_fnc_os_cp";
+		code = "call AE3_armaos_fnc_os_cp";
 	};
 
 	class whoami : OsFunction
@@ -103,7 +103,7 @@ class CfgOsFunctions
 		path = "/bin/whoami";
 		description = "$STR_AE3_ArmaOS_Config_CommandWhoamiDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandWhoamiMan";
-		code = "_this call AE3_armaos_fnc_os_whoami";
+		code = "call AE3_armaos_fnc_os_whoami";
 	};
 
 	class mkdir : OsFunction
@@ -111,7 +111,7 @@ class CfgOsFunctions
 		path = "/bin/mkdir";
 		description = "$STR_AE3_ArmaOS_Config_CommandMkdirDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandMkdirMan";
-		code = "_this call AE3_armaos_fnc_os_mkdir";
+		code = "call AE3_armaos_fnc_os_mkdir";
 	};
 
 	class ping : OsFunction
@@ -119,7 +119,7 @@ class CfgOsFunctions
 		path = "/sbin/ping";
 		description = "$STR_AE3_ArmaOS_Config_CommandPingDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandPingMan";
-		code = "_this call AE3_armaos_fnc_os_ping";
+		code = "call AE3_armaos_fnc_os_ping";
 	};
 
 	class ipconfig : OsFunction
@@ -127,7 +127,7 @@ class CfgOsFunctions
 		path = "/sbin/ipconfig";
 		description = "$STR_AE3_ArmaOS_Config_CommandIpconfigDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandIpconfigMan";
-		code = "_this call AE3_armaos_fnc_os_ipconfig";
+		code = "call AE3_armaos_fnc_os_ipconfig";
 	};
 
 	class exit : OsFunction
@@ -135,7 +135,7 @@ class CfgOsFunctions
 		path = "/sbin/exit";
 		description = "$STR_AE3_ArmaOS_Config_CommandExitDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandExitMan";
-		code = "_this call AE3_armaos_fnc_os_exit";
+		code = "call AE3_armaos_fnc_os_exit";
 	};
 
 	class shutdown : OsFunction
@@ -143,7 +143,7 @@ class CfgOsFunctions
 		path = "/sbin/shutdown";
 		description = "$STR_AE3_ArmaOS_Config_CommandShutdownDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandShutdownMan";
-		code = "_this call AE3_armaos_fnc_os_shutdown";
+		code = "call AE3_armaos_fnc_os_shutdown";
 	};
 
 	class standby : OsFunction
@@ -151,7 +151,7 @@ class CfgOsFunctions
 		path = "/sbin/standby";
 		description = "$STR_AE3_ArmaOS_Config_CommandStandbyDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandStandbyMan";
-		code = "_this call AE3_armaos_fnc_os_standby";
+		code = "call AE3_armaos_fnc_os_standby";
 	};
 
 	class echo : OsFunction
@@ -159,7 +159,7 @@ class CfgOsFunctions
 		path = "/bin/echo";
 		description = "$STR_AE3_ArmaOS_Config_CommandEchoDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandEchoMan";
-		code = "_this call AE3_armaos_fnc_os_echo";
+		code = "call AE3_armaos_fnc_os_echo";
 	};
 
 	class find : OsFunction
@@ -167,34 +167,34 @@ class CfgOsFunctions
 		path = "/bin/find";
 		description = "$STR_AE3_ArmaOS_Config_CommandFindDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandFindMan";
-		code = "_this call AE3_armaos_fnc_os_find";
+		code = "call AE3_armaos_fnc_os_find";
 	};
 	class mount : OsFunction
 	{
 		path = "/bin/mount";
 		description = "$STR_AE3_ArmaOS_Config_CommandMountDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandMountMan";
-		code = "_this call AE3_armaos_fnc_os_mount";
+		code = "call AE3_armaos_fnc_os_mount";
 	};
 	class umount : OsFunction
 	{
 		path = "/bin/umount";
 		description = "$STR_AE3_ArmaOS_Config_CommandUmountDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandUmountMan";
-		code = "_this call AE3_armaos_fnc_os_unmount";
+		code = "call AE3_armaos_fnc_os_unmount";
 	};
 	class lsusb : OsFunction
 	{
 		path = "/bin/lsusb";
 		description = "$STR_AE3_ArmaOS_Config_CommandLsusbDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandLsusbMan";
-		code = "_this call AE3_armaos_fnc_os_lsusb";
+		code = "call AE3_armaos_fnc_os_lsusb";
 	};
 	class chown : OsFunction
 	{
 		path = "/bin/chown";
 		description = "$STR_AE3_ArmaOS_Config_CommandChownDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandChownMan";
-		code = "_this call AE3_armaos_fnc_os_chown";
+		code = "call AE3_armaos_fnc_os_chown";
 	};
 };

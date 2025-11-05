@@ -27,7 +27,7 @@ private _commandSyntax = _commandSettings select 2;
 		private _isRequired = _x select 2;
 		private _isUnlimited = _x select 3;
 		
-		if (!(_commandSyntaxType isEqualTo "command")) then
+		if (_commandSyntaxType isNotEqualTo "command") then
 		{
 			// if syntax element is set to 'unlimited' ... is appended
 			if (_isUnlimited) then { _commandSyntaxElement = _commandSyntaxElement + "..."; };

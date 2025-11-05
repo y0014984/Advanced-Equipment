@@ -14,12 +14,12 @@ params ["_computer", ["_commandString", ""]];
 private _terminal = _computer getVariable "AE3_terminal";
 private _commandElements = _commandString splitString " ";
 
-if (!(_commandElements isEqualTo [])) then
+if (_commandElements isNotEqualTo []) then
 {
 	private _command = _commandElements select 0;
 	private _options = _commandElements select [1, (count _commandElements) - 1];
 
-	if(!(_command isEqualTo "")) then 
+	if(_command isNotEqualTo "") then 
 	{
 		_availableCommands = _computer getVariable ['AE3_Links', createHashMap];
 		_pointer = _computer getVariable ["AE3_filepointer", []];

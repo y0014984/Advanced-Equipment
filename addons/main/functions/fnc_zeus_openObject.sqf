@@ -29,7 +29,7 @@ if (isNull _entity) exitWith {};
         (_entity getVariable ["AE3_interaction_closeState", -1] == 1)
     );
 
-    if (_openCondition && !((_entity getVariable ["AE3_interaction_fnc_open", {}]) isEqualTo {})) then
+    if (_openCondition && ((_entity getVariable ["AE3_interaction_fnc_open", {}]) isNotEqualTo {})) then
     {
         _entity setVariable ["AE3_power_mutex", true, true];
         

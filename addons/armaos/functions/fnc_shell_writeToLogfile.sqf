@@ -34,8 +34,8 @@ private _dateString = format
     [
         "%1-%2-%3",
         _curDate select 0,
-        (if (_curDate select 1 < 10) then { "0" } else { "" }) + str (_curDate select 1),
-        (if (_curDate select 2 < 10) then { "0" } else { "" }) + str (_curDate select 2)
+        (["", "0"] select ((_curDate select 1) < 10)) + str (_curDate select 1),
+        (["", "0"] select ((_curDate select 2) < 10)) + str (_curDate select 2)
     ];
 
 private _dayTimeString = [dayTime, "HH:MM:SS"] call BIS_fnc_timeToString;

@@ -27,6 +27,8 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _ae3OptsThings = [];
+private _mode = ""; private _algorithm = "caesar";
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
@@ -63,7 +65,7 @@ switch (_algorithm) do {
             private _statistics = createHashMap;
 
             {
-                if (!(_x isEqualTo " ")) then
+                if (_x isNotEqualTo " ") then
                 {
                     private _count = 0;
                     if (_x in _statistics) then { _count = _statistics get _x; };

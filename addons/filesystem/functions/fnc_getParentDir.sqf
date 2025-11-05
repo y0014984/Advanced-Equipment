@@ -19,7 +19,7 @@
 params['_pntr', '_filesystem', '_target', ['_user', ''], ['_create', false], ['_owner', nil], ['_permissions', [[true, true, true], [false, false, false]]]];
 
 private _path = _target splitString "/";
-private _new = _path select (count _path - 1);
+private _new = _path select -1;
 
 if (_new isEqualTo "~") exitWith
 {
@@ -34,7 +34,7 @@ if (_new isEqualTo "~") exitWith
 		_current = (_filesystem select 0) get 'home';
 		_pointer = ["home"];
 		_new = "";
-		if(!(_user isEqualTo '')) then
+		if (_user isNotEqualTo '') then
 		{
 			_new = _user;
 		};
@@ -63,13 +63,13 @@ if (isNil "_owner") then
 
 if (_new isEqualTo ".") then 
 {
-	_new = _pntr select (count _pntr - 1);
+	_new = _pntr select -1;
 	_path = ".."
 };
 
 if (_new isEqualTo "..") then 
 {
-	_new = _pntr select (count _pntr - 2);
+	_new = _pntr select -2;
 	_path = "../.."
 };
 

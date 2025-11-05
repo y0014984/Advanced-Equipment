@@ -222,11 +222,20 @@ private _result = _consoleDialog displayAddEventHandler
 
 		/* ---------------------------------------- */
 
-		// Updates terminal variable for all
+		// Sync only essential terminal data to avoid serialization warnings
 		_terminal = _computer getVariable "AE3_terminal";
-		_computer setVariable ["AE3_terminal", _terminal, 2];
+
+		// Extract only essential data for network sync (avoid HashMap serialization)
+		private _terminalSyncData = [
+			_terminal get "AE3_terminalBuffer",
+			_terminal get "AE3_terminalApplication",
+			_terminal get "AE3_terminalPrompt",
+			_terminal get "AE3_terminalScrollPosition"
+		];
+		_computer setVariable ["AE3_terminal_sync", _terminalSyncData, [clientOwner, 2]];
+
 		_filepointer = _computer getVariable "AE3_filepointer";
-		_computer setVariable ["AE3_filepointer", _filepointer, 2];
+		_computer setVariable ["AE3_filepointer", _filepointer, [clientOwner, 2]];
 
 		[_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 	}

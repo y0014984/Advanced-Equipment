@@ -16,6 +16,7 @@ PREP(3den_checkConnection);
 
 /* Misc */
 PREP(getPlayersInRange);
+PREP(waitForFilesystem);
 
 /* Terminate */
 PREP(terminateDevice);

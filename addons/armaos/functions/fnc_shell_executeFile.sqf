@@ -26,7 +26,7 @@ try
 
 	if(_content isEqualType {}) then
 	{
-		private _commandName = (_path splitString "/") select ((count (_path splitString "/")) - 1);
+		private _commandName = _path splitString "/" select -1;
 		private _handler = [_computer, _options, _commandName] spawn _content;
 		_terminal set ["AE3_terminalProcess", _handler];
 		_computer setVariable ["AE3_terminal", _terminal];

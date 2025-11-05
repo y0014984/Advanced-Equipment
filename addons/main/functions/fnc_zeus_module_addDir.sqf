@@ -81,14 +81,27 @@ if (_event isEqualTo "onUnload") exitWith
     if((_path find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_PathContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
     if((_owner find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
 
-    // add directory to computer
-    [_computer, _path, _owner, _permissions] remoteExecCall ["AE3_filesystem_fnc_device_addDir", 2];
+    // Wait for filesystem to be ready before adding directory
+    [_computer, _path, _owner, _permissions, _module] spawn {
+        params ["_computer", "_path", "_owner", "_permissions", "_module"];
 
-    private _message = format ["%1: %2", localize "STR_AE3_Main_Zeus_Path", _path];
-    [localize "STR_AE3_Main_Zeus_DirectoryAdded", _message, 5] call BIS_fnc_curatorHint;
+        // Wait for filesystem initialization (10 second timeout)
+        private _filesystemReady = [_computer, 10] call AE3_main_fnc_waitForFilesystem;
 
-    // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _module;
+        if (!_filesystemReady) exitWith {
+            [objNull, "Filesystem not ready. Please wait and try again."] call BIS_fnc_showCuratorFeedbackMessage;
+            deleteVehicle _module;
+        };
+
+        // Add directory to computer
+        [_computer, _path, _owner, _permissions] remoteExecCall ["AE3_filesystem_fnc_device_addDir", 2];
+
+        private _message = format ["%1: %2", localize "STR_AE3_Main_Zeus_Path", _path];
+        [localize "STR_AE3_Main_Zeus_DirectoryAdded", _message, 5] call BIS_fnc_curatorHint;
+
+        // Delete module
+        deleteVehicle _module;
+    };
 };
 
 /* ---------------------------------------- */

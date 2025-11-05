@@ -18,7 +18,7 @@
 params["_module", "_syncedUnits", "_activated"];
 
 // ignore this function if module is placed by curator/zeus
-if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith { false; };
+if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith { false; };
 
 if (!isServer) exitWith {};
 
@@ -44,7 +44,7 @@ if (_activated) then
 		{
 			//--- Add user to every synced computer
 			[_x, _username, _password] call AE3_armaos_fnc_computer_addUser;
-		} foreach _syncedUnits;
+		} forEach _syncedUnits;
 
 		deleteVehicle _module;
 	};

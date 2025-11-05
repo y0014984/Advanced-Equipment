@@ -46,7 +46,7 @@ if (_target find "/" == 0) then
 	
 };
 
-if (count _path == 0) exitWith {[_pointer, _current]};
+if (_path isEqualTo []) exitWith {[_pointer, _current]};
 {
 	_iteration = [_pointer, _current, _filesystem, _create, _user, _owner, _permissions, _path] call
 	{
@@ -88,7 +88,7 @@ if (count _path == 0) exitWith {[_pointer, _current]};
 				_current = (_filesystem select 0) get 'home';
 				_pointer = ["home"];
 
-				if(!(_user isEqualTo '')) then
+				if(_user isNotEqualTo '') then
 				{
 					_current = (_current select 0) get _user;
 					_pointer pushBack _user;

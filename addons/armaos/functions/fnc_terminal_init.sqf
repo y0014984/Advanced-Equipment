@@ -55,12 +55,18 @@ private _terminal = createHashMapFromArray
 _consoleOutput setVariable ["AE3_computer", _computer];
 _consoleDialog setVariable ["AE3_computer", _computer];
 
-[_computer, "AE3_terminal"] call AE3_main_fnc_getRemoteVar;
-if (isNil { _computer getVariable "AE3_terminal" }) then 
-{
-	_computer setVariable ["AE3_terminal", _terminal, [clientOwner, 2]];
+// Restore terminal state from sync data if available (from previous session)
+[_computer, "AE3_terminal_sync"] call AE3_main_fnc_getRemoteVar;
+private _terminalSyncData = _computer getVariable ["AE3_terminal_sync", nil];
+if (!isNil "_terminalSyncData") then {
+	_terminal set ["AE3_terminalBuffer", _terminalSyncData select 0];
+	_terminal set ["AE3_terminalApplication", _terminalSyncData select 1];
+	_terminal set ["AE3_terminalPrompt", _terminalSyncData select 2];
+	_terminal set ["AE3_terminalScrollPosition", _terminalSyncData select 3];
 };
-_terminal = _computer getVariable "AE3_terminal";
+
+// Keep terminal local to client (no network sync of HashMap)
+_computer setVariable ["AE3_terminal", _terminal];
 
 _terminal set ["AE3_terminalOutput", _consoleOutput];
 

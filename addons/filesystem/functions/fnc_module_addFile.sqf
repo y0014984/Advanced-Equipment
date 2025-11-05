@@ -18,7 +18,7 @@
 params ["_module", "_syncedUnits", "_activated"];
 
 // ignore this function if module is placed by curator/zeus
-if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
+if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
 
 if (!isServer) exitWith {};
 

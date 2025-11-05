@@ -27,7 +27,7 @@ private _turnOffCondition =
     (_device getVariable ["AE3_interaction_closeState", 0] == 0))
 );
 
-if (_turnOffCondition && !((_device getVariable ["AE3_power_fnc_turnOff", {}]) isEqualTo {})) then
+if (_turnOffCondition && ((_device getVariable ["AE3_power_fnc_turnOff", {}]) isNotEqualTo {})) then
 {
     _device setVariable ["AE3_power_mutex", true, true];
 

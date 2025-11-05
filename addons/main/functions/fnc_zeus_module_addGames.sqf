@@ -56,14 +56,27 @@ if (_event isEqualTo "onUnload") exitWith
     private _isSnakeCtrl = _display displayCtrl 1401;
     private _isSnake = cbChecked _isSnakeCtrl;
 
-    // add security commands to computer
-    [_computer, _isSnake] remoteExecCall ["AE3_armaos_fnc_computer_addGames", 2];
+    // Wait for filesystem to be ready before adding games
+    [_computer, _isSnake, _module] spawn {
+        params ["_computer", "_isSnake", "_module"];
 
-    private _message = format ["snake: %1 ", _isSnake];
-    [localize "STR_AE3_Main_Zeus_GamesAdded", _message, 5] call BIS_fnc_curatorHint;
+        // Wait for filesystem initialization (10 second timeout)
+        private _filesystemReady = [_computer, 10] call AE3_main_fnc_waitForFilesystem;
 
-    // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _module;
+        if (!_filesystemReady) exitWith {
+            [objNull, "Filesystem not ready. Please wait and try again."] call BIS_fnc_showCuratorFeedbackMessage;
+            deleteVehicle _module;
+        };
+
+        // Add games to computer
+        [_computer, _isSnake] remoteExecCall ["AE3_armaos_fnc_computer_addGames", 2];
+
+        private _message = format ["snake: %1 ", _isSnake];
+        [localize "STR_AE3_Main_Zeus_GamesAdded", _message, 5] call BIS_fnc_curatorHint;
+
+        // Delete module
+        deleteVehicle _module;
+    };
 };
 
 /* ---------------------------------------- */

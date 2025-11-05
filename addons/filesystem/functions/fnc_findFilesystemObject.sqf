@@ -59,7 +59,7 @@ try
 		{
 			private _path = "/" + (_pointer joinString "/");
 			// to prevent double /-sign if we are in root folder
-			if (!(_path isEqualTo "/")) then { _path = _path + "/"; };
+			if (_path isNotEqualTo "/") then { _path = _path + "/"; };
 			_path = _path + _filesystemObjectName;
 			_totalResults pushBack _path;
 		};

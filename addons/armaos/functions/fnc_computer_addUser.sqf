@@ -29,7 +29,7 @@ private _filesystem = _computer getVariable ["AE3_filesystem", []];
 _userlist set [_username, _password];
 
 // Add user directory in /home/
-if(!(_username isEqualTo "root")) then
+if (_username isNotEqualTo "root") then
 {
     try
     {

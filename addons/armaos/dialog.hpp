@@ -1,19 +1,13 @@
-class RscListbox;
 class RscText;
 class RscStructuredText;
-class RscEdit;
 class RscButton;
-class RscSlider;
-class RscPicture;
-class RscPictureKeepAspect;
-
 /* ================================================================================ */
 
 class AE3_ArmaOS_Retro_Dialog
 {
 	idd = 15985;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
 	class ControlsBackground
 	{
@@ -24,8 +18,8 @@ class AE3_ArmaOS_Retro_Dialog
 			colorBackground[] = {0,0,0,0};
 			x = 0;
 			y = 0;
-			w = pixelW * pixelGrid * 1;
-			h = pixelH * pixelGrid * 1;
+			w = "pixelW * pixelGrid * 1";
+			h = "pixelH * pixelGrid * 1";
 		};
 	};
 };
@@ -35,8 +29,8 @@ class AE3_ArmaOS_Retro_Dialog
 class AE3_ArmaOS_Main_Dialog
 {
 	idd = 15984;
-	movingEnable = true; // allow moving window by dragging the element with: moving = true
-	enableSimulation = true;
+	movingEnable = 1; // allow moving window by dragging the element with: moving = true
+	enableSimulation = 1;
 	class controlsBackground
 	{
 		// size 40x25
@@ -76,7 +70,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white
 			font = "EtelkaMonospaceProBold";
 			shadow = 0;
-			moving = true; // drag title bar to move window
+			moving = 1; // drag title bar to move window
 		};
 		class RscText_1100: RscStructuredText
 		{
@@ -165,8 +159,8 @@ class AE3_ArmaOS_Main_Dialog
 class AE3_ArmaOS_Waiting_Dialog
 {
 	idd = 16983;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 	class controls
 	{
 		class RscText_1000: RscText

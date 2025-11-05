@@ -17,9 +17,9 @@ params ["_equipment", "_animationMain", "_animationModifiedShift", "_animationMo
 
 private _modifier = [];
 
-if (!(_animationModifiedShift isEqualTo [])) then { _modifier pushBack ["shift", _animationModifiedShift select 0] };
-if (!(_animationModifiedCtrl isEqualTo [])) then { _modifier pushBack ["control", _animationModifiedCtrl select 0] };
-if (!(_animationModifiedAlt isEqualTo [])) then { _modifier pushBack ["alt", _animationModifiedAlt select 0] };
+if ((_animationModifiedShift isNotEqualTo [])) then { _modifier pushBack ["shift", _animationModifiedShift select 0] };
+if ((_animationModifiedCtrl isNotEqualTo [])) then { _modifier pushBack ["control", _animationModifiedCtrl select 0] };
+if ((_animationModifiedAlt isNotEqualTo [])) then { _modifier pushBack ["alt", _animationModifiedAlt select 0] };
 
 ["", localize "STR_AE3_Interaction_General_Exit", _animationMain select 0, _modifier] call ace_interaction_fnc_showMouseHint;
 
@@ -51,7 +51,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 		private _ctrlKeyDown = uiNamespace getVariable ["AE3_ctrlKeyDown", false];
 		private _altKeyDown = uiNamespace getVariable ["AE3_altKeyDown", false];
 
-		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == false) && (_altKeyDown == false) ) then
+		if ( !(_shiftKeyDown) && !(_ctrlKeyDown) && !(_altKeyDown) ) then
 		{
 			[
 				_equipment,
@@ -63,7 +63,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 			] call AE3_interaction_fnc_animateAction;			
 		};
 
-		if ( (_shiftKeyDown == true) && (_ctrlKeyDown == false) && (_altKeyDown == false) && (!(_animationModifiedShift isEqualTo [])) ) then
+		if ( (_shiftKeyDown) && !(_ctrlKeyDown) && !(_altKeyDown) && ((_animationModifiedShift isNotEqualTo [])) ) then
 		{
 			[
 				_equipment,
@@ -75,7 +75,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 			] call AE3_interaction_fnc_animateAction;			
 		};
 
-		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == true) && (_altKeyDown == false) && (!(_animationModifiedCtrl isEqualTo [])) ) then
+		if ( !(_shiftKeyDown) && (_ctrlKeyDown) && (_altKeyDown) && ((_animationModifiedCtrl isNotEqualTo [])) ) then
 		{
 			[
 				_equipment,
@@ -87,7 +87,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 			] call AE3_interaction_fnc_animateAction;			
 		};
 
-		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == false) && (_altKeyDown == true) && (!(_animationModifiedAlt isEqualTo [])) ) then
+		if ( !(_shiftKeyDown) && !(_ctrlKeyDown) && (_altKeyDown) && ((_animationModifiedAlt isNotEqualTo [])) ) then
 		{
 			
 			[

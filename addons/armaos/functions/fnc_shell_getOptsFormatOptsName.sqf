@@ -14,8 +14,8 @@
 
 params ["_shortOpt", "_longOpt", "_optType", "_optSelect"];
 
-if (!(_shortOpt isEqualTo "")) then { _shortOpt = "-" + _shortOpt; };
-if (!(_longOpt isEqualTo "")) then { _longOpt = "--" + _longOpt; };
+if ((_shortOpt isNotEqualTo "")) then { _shortOpt = "-" + _shortOpt; };
+if ((_longOpt isNotEqualTo "")) then { _longOpt = "--" + _longOpt; };
 
 private _optName = format ["%1/%2", _shortOpt, _longOpt];
 

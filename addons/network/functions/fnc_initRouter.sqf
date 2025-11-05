@@ -66,8 +66,26 @@ private _disconnect = ["AE3_Network_DisconnectAction", localize "STR_AE3_Network
 
 if (!isDedicated && !_internal) then
 {
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	// Check if equipment action exists (set by fnc_initInteraction for laptops)
+	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
+	private _networkPath = [];
+
+	if (_hasEquipmentAction) then {
+		// Nest under existing equipment action with Network submenu
+		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+
+		// Create Network submenu
+		private _networkSubmenu = ["AE3_NetworkSubmenu", "Network", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+		[_entity, 0, _parentPath, _networkSubmenu] call ace_interact_menu_fnc_addActionToObject;
+
+		_networkPath = _parentPath + ["AE3_NetworkSubmenu"];
+	} else {
+		// For non-laptop devices, use existing DeviceAction path
+		_networkPath = ["ACE_MainActions", "AE3_DeviceAction"];
+	};
+
+	[_entity, 0, _networkPath, _connect] call ace_interact_menu_fnc_addActionToObject;
+	[_entity, 0, _networkPath, _disconnect] call ace_interact_menu_fnc_addActionToObject;
 };
 
 

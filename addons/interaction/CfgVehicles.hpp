@@ -18,8 +18,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -76,8 +76,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -193,8 +193,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -210,7 +210,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -290,8 +290,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -307,7 +307,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -387,8 +387,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -404,7 +404,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -484,8 +484,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -501,7 +501,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -614,8 +614,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -631,7 +631,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -744,8 +744,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -761,7 +761,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -874,8 +874,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -891,7 +891,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1004,8 +1004,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -1021,7 +1021,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1200,8 +1200,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -1217,7 +1217,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1396,8 +1396,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -1413,7 +1413,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1592,8 +1592,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -1609,7 +1609,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1788,8 +1788,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Interaction_Config_LampDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_interaction_fnc_lamp_turnOn";
-			turnOffAction = "_this call AE3_interaction_fnc_lamp_turnOff";
+			turnOnAction = "call AE3_interaction_fnc_lamp_turnOn";
+			turnOffAction = "call AE3_interaction_fnc_lamp_turnOff";
 
 			class AE3_PowerInterface
 			{
@@ -1805,7 +1805,7 @@ class CfgVehicles
 		// Workaround: The CBA XEH Class Event Handler does not work for this class
 		class EventHandlers
 		{
-			postInit = "_this call AE3_interaction_fnc_compileEquipment; _this call AE3_power_fnc_compileDevice;";
+			postInit = "call AE3_interaction_fnc_compileEquipment; call AE3_power_fnc_compileDevice;";
 		};
 	};
 
@@ -1827,10 +1827,10 @@ class CfgVehicles
 
 			closeState = 0;
 
-			init = "_this call AE3_interaction_fnc_initDesk;";
+			init = "call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_open;";
-			closeAction = "_this call AE3_interaction_fnc_desk_close;";
+			openAction = "call AE3_interaction_fnc_desk_open;";
+			closeAction = "call AE3_interaction_fnc_desk_close;";
 
 			class AE3_Animations
 			{
@@ -1962,10 +1962,10 @@ class CfgVehicles
 
 			closeState = 0;
 
-			init = "_this call AE3_interaction_fnc_initDesk;";
+			init = "call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_open;";
-			closeAction = "_this call AE3_interaction_fnc_desk_close;";
+			openAction = "call AE3_interaction_fnc_desk_open;";
+			closeAction = "call AE3_interaction_fnc_desk_close;";
 
 			class AE3_Animations
 			{
@@ -2097,10 +2097,10 @@ class CfgVehicles
 
 			closeState = 0;
 
-			init = "_this call AE3_interaction_fnc_initDesk;";
+			init = "call AE3_interaction_fnc_initDesk;";
 
-			openAction = "_this call AE3_interaction_fnc_desk_open;";
-			closeAction = "_this call AE3_interaction_fnc_desk_close;";
+			openAction = "call AE3_interaction_fnc_desk_open;";
+			closeAction = "call AE3_interaction_fnc_desk_close;";
 
 			class AE3_Animations
 			{

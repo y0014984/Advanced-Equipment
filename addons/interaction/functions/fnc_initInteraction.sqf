@@ -93,12 +93,19 @@ if (!isDedicated) then
 
 	[_equipment, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
 
-	// Add open/close action
+	// Set flag for other systems to detect equipment action exists
+	_equipment setVariable ["AE3_interaction_hasEquipmentAction", true];
+
+	// Add open/close action under "Interaction" submenu
 	if (!((_openFnc isEqualTo {}) || (_closeFnc isEqualTo {}))) then
 	{
-		_open = ["AE3_openAction", localize "STR_AE3_Interaction_General_Open", "", 
+		// Create Interaction submenu
+		private _interactionSubmenu = ["AE3_InteractionSubmenu", "Interaction", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _interactionSubmenu] call ace_interact_menu_fnc_addActionToObject;
+
+		_open = ["AE3_openAction", localize "STR_AE3_Interaction_General_Open", "",
 					{
-						params ["_target", "_player", "_params"]; 
+						params ["_target", "_player", "_params"];
 
 						[_target] spawn {
 							params["_target"];
@@ -109,15 +116,15 @@ if (!isDedicated) then
 								[_target] call (_target getVariable "AE3_power_fnc_turnOnWrapper");
 							};
 						};
-						
-					}, 
+
+					},
 					{(_target call (_target getVariable ["AE3_interaction_fnc_openActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 1)},
 					{}] call ace_interact_menu_fnc_createAction;
 
-		_close = ["AE3_closeAction", localize "STR_AE3_Interaction_General_Close", "", 
+		_close = ["AE3_closeAction", localize "STR_AE3_Interaction_General_Close", "",
 					{
-						params ["_target", "_player", "_params"]; 
-						
+						params ["_target", "_player", "_params"];
+
 						[_target] spawn {
 							params ["_target"];
 							[_target] call (_target getVariable "AE3_interaction_fnc_closeWrapper");
@@ -127,12 +134,12 @@ if (!isDedicated) then
 								[_target] call (_target getVariable "AE3_power_fnc_standbyWrapper");
 							};
 						};
-					}, 
+					},
 					{(_target call (_target getVariable ["AE3_interaction_fnc_closeActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 0) },
 					{}] call ace_interact_menu_fnc_createAction;
 
-		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _open] call ace_interact_menu_fnc_addActionToObject;
-		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _close] call ace_interact_menu_fnc_addActionToObject;
+		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_InteractionSubmenu"], _open] call ace_interact_menu_fnc_addActionToObject;
+		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_InteractionSubmenu"], _close] call ace_interact_menu_fnc_addActionToObject;
 	};
 };
 

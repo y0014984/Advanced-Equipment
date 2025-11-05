@@ -24,7 +24,7 @@ _shortOpt = _shortOpt select [1, (count _shortOpt) - 1];
 private _searchArray = [_commandOpts, "short"] call AE3_armaos_fnc_shell_getOptsCreateSearchArray;
 
 // if only one short option and the arg is set
-if (((count _shortOptWithoutArg) == 1) && !(_arg isEqualTo "")) then
+if (((count _shortOptWithoutArg) == 1) && (_arg isNotEqualTo "")) then
 {
     // if single short opt with arg
     

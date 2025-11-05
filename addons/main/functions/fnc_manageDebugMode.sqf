@@ -39,7 +39,7 @@ if (hasInterface) then
             [] spawn 
             {
                 // enable debug overlay
-                waitUntil { !((findDisplay 46) isEqualto displayNull) };
+                waitUntil { ((findDisplay 46) isNotEqualTo displayNull) };
                 private _objects = missionNamespace getVariable "AE3_DebugOverlay";
                 if(!isNil "_objects") then { [_objects] call AE3_main_fnc_initDebugOverlay; };
             };
@@ -50,14 +50,14 @@ if (hasInterface) then
         _debugModeLoopHandle = localNamespace getVariable "AE3_DebugModeLoopHandle";
         [_debugModeLoopHandle] call CBA_fnc_removePerFrameHandler;
 
-        if (!(time < 5)) then { systemChat localize "STR_AE3_Main_DebugMode_disabled"; };
+        if ((time >= 5)) then { systemChat localize "STR_AE3_Main_DebugMode_disabled"; };
 
         if (_debugOverlayProductiveUse) then
         {
             [] spawn 
             {
             //disable debug overlay
-            waitUntil { !((findDisplay 46) isEqualto displayNull) };
+            waitUntil { ((findDisplay 46) isNotEqualTo displayNull) };
             private _objects = missionNamespace getVariable "AE3_DebugOverlay";
             if(!isNil "_objects") then { [_objects] call AE3_main_fnc_killDebugOverlay; };
             };

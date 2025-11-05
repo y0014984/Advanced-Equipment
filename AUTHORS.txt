@@ -1,10 +1,6 @@
-# Advanced Equipment CONTRIBUTOR LIST
-# If you contributed, but are not listed here, contact me:
-# y0014984@gmail.com
-#
-# Feel free to add yourself to this list when creating a pull
-# request, preferably including an email address.
+MODIFIED BY ROOT
 
+ORIGINAL
 # CORE TEAM
 y0014984
 Wasserstoff

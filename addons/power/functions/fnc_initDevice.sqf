@@ -59,12 +59,31 @@ private _standbyWrapper = {
 
 if(!isDedicated) then
 {
-	// Add check power state action
-	private _parentAction = ["AE3_DeviceAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
-	private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
+	// Check if equipment action exists (set by fnc_initInteraction for laptops)
+	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
+	private _parentPath = [];
+	private _powerSubmenuPath = [];
 
-	[_entity, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _power] call ace_interact_menu_fnc_addActionToObject;
+	if (_hasEquipmentAction) then {
+		// Nest under existing equipment action with Power submenu
+		_parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+
+		// Create Power submenu
+		private _powerSubmenu = ["AE3_PowerSubmenu", "Power", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+		[_entity, 0, _parentPath, _powerSubmenu] call ace_interact_menu_fnc_addActionToObject;
+
+		_powerSubmenuPath = _parentPath + ["AE3_PowerSubmenu"];
+	} else {
+		// Create standalone device parent for non-laptop devices
+		private _parentAction = ["AE3_DeviceAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
+		[_entity, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
+
+		_powerSubmenuPath = ["ACE_MainActions", "AE3_DeviceAction"];
+	};
+
+	// Add check power state action
+	private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
+	[_entity, 0, _powerSubmenuPath, _power] call ace_interact_menu_fnc_addActionToObject;
 
 	// Add turn on/off action
 	if (!((_turnOnFnc isEqualTo {}) || (_turnOffFnc isEqualTo {}))) then
@@ -104,11 +123,11 @@ if(!isDedicated) then
 						{((_target call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])) and (alive _target) and  (_target getVariable 'AE3_power_powerState' != 0) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])))
 						{}] call ace_interact_menu_fnc_createAction;
 
-		[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _turnOn] call ace_interact_menu_fnc_addActionToObject;
-		[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _turnOff] call ace_interact_menu_fnc_addActionToObject;
+		[_entity, 0, _powerSubmenuPath, _turnOn] call ace_interact_menu_fnc_addActionToObject;
+		[_entity, 0, _powerSubmenuPath, _turnOff] call ace_interact_menu_fnc_addActionToObject;
 
 		// Standby action
-		if(!(_standbyFnc isEqualTo {})) then
+		if((_standbyFnc isNotEqualTo {})) then
 		{
 			_standby = ["AE3_StandbyAction", localize "STR_AE3_Power_Interaction_Standby", "", 
 						{
@@ -123,8 +142,8 @@ if(!isDedicated) then
 						}, 
 						{((_target call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}])) and (alive _target) and (_target getVariable 'AE3_power_powerState' == 1) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}]))
 						{}] call ace_interact_menu_fnc_createAction;
-			
-			[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _standby] call ace_interact_menu_fnc_addActionToObject;
+
+			[_entity, 0, _powerSubmenuPath, _standby] call ace_interact_menu_fnc_addActionToObject;
 		};
 
 	};

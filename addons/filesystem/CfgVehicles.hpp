@@ -8,17 +8,13 @@ class CfgVehicles
 	{
 		class AttributesBase
 		{
-			class Default;
 			class Edit;					// Default edit box (i.e., text input field)
 			class Checkbox;
 			class Combo;
 			class ModuleDescription;	// Module description
 		};
 		// Description base classes, for more information see below
-		class ModuleDescription
-		{
-			class AnyBrain;
-		};
+		class ModuleDescription {};
 	};
 	
 	/* ---------------------------------------- */
@@ -83,7 +79,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = false;
+				defaultValue = 0;
 			};
 			class AE3_Module_AddFile_Owner: Edit
 			{
@@ -106,7 +102,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = false;
+				defaultValue = 0;
 			};
 			class AE3_Module_AddFile_OwnerRead: Checkbox
 			{
@@ -116,7 +112,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 			class AE3_Module_AddFile_OwnerWrite: Checkbox
 			{
@@ -126,7 +122,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 
 
@@ -138,7 +134,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = false;
+				defaultValue = 0;
 			};
 			class AE3_Module_AddFile_EveryoneRead: Checkbox
 			{
@@ -148,7 +144,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 			class AE3_Module_AddFile_EveryoneWrite: Checkbox
 			{
@@ -158,7 +154,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 
 			class AE3_Module_AddFile_IsEncrypted: Checkbox
@@ -169,7 +165,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = false;
+				defaultValue = 0;
 			};
 			class AE3_Module_AddFile_EncryptionAlgorithm: Combo
 			{
@@ -284,7 +280,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 			class AE3_Module_AddDir_OwnerRead: Checkbox
 			{
@@ -294,7 +290,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 			class AE3_Module_AddDir_OwnerWrite: Checkbox
 			{
@@ -304,7 +300,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 
 
@@ -316,7 +312,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 			class AE3_Module_AddDir_EveryoneRead: Checkbox
 			{
@@ -326,7 +322,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 			class AE3_Module_AddDir_EveryoneWrite: Checkbox
 			{
@@ -336,7 +332,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 
 			

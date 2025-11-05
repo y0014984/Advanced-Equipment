@@ -52,8 +52,8 @@ class Cfg3DEN
     {
         class AE3_EventHandlers
         {
-            OnConnectionStart = "_this call AE3_main_fnc_3denEventHandlers_onConnectionStart;";
-            OnConnectingEnd = "_this call AE3_main_fnc_3denEventHandlers_onConnectionEnd;";
+            OnConnectionStart = "call AE3_main_fnc_3denEventHandlers_onConnectionStart;";
+            OnConnectingEnd = "call AE3_main_fnc_3denEventHandlers_onConnectionEnd;";
         };
     };
 

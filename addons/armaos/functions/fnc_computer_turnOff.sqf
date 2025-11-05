@@ -45,7 +45,9 @@ params ["_computer", ["_silent", false]];
 
 	private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
 
-	_computer setVariable ["AE3_terminal", nil, [clientOwner, 2]];
+	// Clear terminal and sync data
+	_computer setVariable ["AE3_terminal", nil];
+	_computer setVariable ["AE3_terminal_sync", nil, [clientOwner, 2]];
 };
 
 true;

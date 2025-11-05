@@ -24,7 +24,7 @@ if (isNil "_settingsAce3") exitWith {};
 
 private _isBlocked = _settingsAce3 getOrDefault ["isBlocked", false, true];
 
-if (!(_condition isEqualTo "init")) then
+if (_condition isNotEqualTo "init") then
 {
     _settingsAce3 set [_condition, _status];
 } 

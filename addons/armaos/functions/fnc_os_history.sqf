@@ -26,6 +26,8 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _unused_ae3OptsThings = [];
+private _clear = false; private _deleteAtOffset = -1;
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
@@ -47,7 +49,7 @@ if (_clear) exitWith
 	[_computer, localize "STR_AE3_ArmaOS_Result_HistoryCleared"] call AE3_armaos_fnc_shell_stdout;
 };
 
-if ((_deleteAtOffset != -1) && (_deleteAtOffset != 0) && !(_deleteAtOffset > (count _terminalCommandHistoryUser))) exitWith
+if ((_deleteAtOffset != -1) && (_deleteAtOffset != 0) && (_deleteAtOffset <= (count _terminalCommandHistoryUser))) exitWith
 {
 	_terminalCommandHistoryUser deleteAt (_deleteAtOffset - 1);
   _terminalCommandHistory set [_username, _terminalCommandHistoryUser];

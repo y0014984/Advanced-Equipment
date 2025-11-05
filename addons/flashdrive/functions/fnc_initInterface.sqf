@@ -76,7 +76,23 @@ private _connect = ["AE3_USBInterfaceConnectAction", (localize "STR_AE3_Flashdri
 
 if(!isDedicated) then
 {
-	[_device, 0, ["ACE_MainActions"], _connect] call ace_interact_menu_fnc_addActionToObject;
+	// Check if equipment action exists (set by fnc_initInteraction for laptops)
+	private _hasEquipmentAction = _device getVariable ["AE3_interaction_hasEquipmentAction", false];
+
+	if (_hasEquipmentAction) then {
+		// Nest under existing equipment action with Storage submenu
+		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+
+		// Create Storage submenu
+		private _storageSubmenu = ["AE3_StorageSubmenu", "Storage", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+		[_device, 0, _parentPath, _storageSubmenu] call ace_interact_menu_fnc_addActionToObject;
+
+		// Add connect action under Storage submenu
+		[_device, 0, _parentPath + ["AE3_StorageSubmenu"], _connect] call ace_interact_menu_fnc_addActionToObject;
+	} else {
+		// For non-laptop devices, add directly to MainActions
+		[_device, 0, ["ACE_MainActions"], _connect] call ace_interact_menu_fnc_addActionToObject;
+	};
 };
 
 if (isServer) then

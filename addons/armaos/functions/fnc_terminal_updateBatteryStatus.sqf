@@ -54,7 +54,7 @@ _handle =
 
                 /* ------------- UI on Texture ------------ */
 
-                if ((AE3_UiOnTexture) && !(_oldValue isEqualTo _newValue)) then
+                if ((AE3_UiOnTexture) && (_oldValue isNotEqualTo _newValue)) then
                 {
                     private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 

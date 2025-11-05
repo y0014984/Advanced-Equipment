@@ -29,6 +29,8 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _ae3OptsThings = [];
+private _mode = ""; private _algorithm = "caesar"; private _key = "";
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};

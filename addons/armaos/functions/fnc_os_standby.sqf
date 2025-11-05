@@ -21,6 +21,7 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _unused_ae3OptsThings = [];
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
@@ -28,7 +29,7 @@ if (!_ae3OptsSuccess) exitWith {};
 _computer setVariable ["AE3_computer_mutex", objNull, true];
 closeDialog 1;
 
-private _handle = [_computer] spawn (_computer getVariable "AE3_power_fnc_standbyWrapper");
+[_computer] spawn (_computer getVariable "AE3_power_fnc_standbyWrapper");
 
 /* ------------- UI on Texture ------------ */
 

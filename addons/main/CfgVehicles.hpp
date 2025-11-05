@@ -5,18 +5,9 @@ class CfgVehicles
 	class Logic;
 	class Module_F: Logic
 	{
-		class AttributesBase
-		{
-			class Default;
-			class Edit;					// Default edit box (i.e., text input field)
-			class Checkbox;
-			class ModuleDescription;	// Module description
-		};
+		class AttributesBase {};
 		// Description base classes, for more information see below
-		class ModuleDescription
-		{
-			class AnyBrain;
-		};
+		class ModuleDescription {};
 	};
 
     /* ================================================================================ */

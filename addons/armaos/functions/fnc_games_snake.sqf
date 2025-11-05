@@ -27,6 +27,8 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _unused_ae3OptsThings = [];
+private _size = false;
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
@@ -57,7 +59,7 @@ private _addDirToSnakeFunc =
 {
     params ["_snake", "_dir"];
 
-    private _head = _snake select ((count _snake) - 1);
+    private _head = _snake select -1;
 
     _head params ["_x", "_y"];
 
@@ -151,7 +153,7 @@ while { _dialog getVariable "AE3_Retro_Snake_Running" } do
     // grow snake in current dir
     _snake = [_snake, _dir] call _addDirToSnakeFunc;
     
-    private _head = _snake select ((count _snake) - 1);
+    private _head = _snake select -1;
     _head params ["_x", "_y"];
 
     // if snake is out of canvas bounds then game over

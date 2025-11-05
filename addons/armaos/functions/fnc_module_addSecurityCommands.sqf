@@ -18,7 +18,7 @@
 params["_module", "_syncedUnits", "_activated"];
 
 // ignore this function if module is placed by curator/zeus
-if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
+if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
 
 if(!isServer) exitWith {};
 
@@ -36,7 +36,7 @@ if (_activated) then
 
 		{
 			[_x, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
-		} foreach _syncedUnits;
+		} forEach _syncedUnits;
 
 		deleteVehicle _module;
 	};

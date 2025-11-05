@@ -19,7 +19,7 @@ if(isServer) then
 {
 	private _settingsAce3 = createHashMap;
 
-	if (!(_aceDragging isEqualTo [])) then
+	if (_aceDragging isNotEqualTo []) then
 	{
 		private _ae3_dragging_canDrag = _aceDragging select 0;
 		private _ae3_dragging_dragPosition = _aceDragging select 1;
@@ -32,7 +32,7 @@ if(isServer) then
 		_settingsAce3 set ["ae3_dragging_dragDirection", _ae3_dragging_dragDirection];
 	};
 
-	if (!(_aceCarrying isEqualTo [])) then
+	if (_aceCarrying isNotEqualTo []) then
 	{
 		private _ae3_dragging_canCarry = _aceCarrying select 0;
 		private _ae3_dragging_carryPosition = _aceCarrying select 1;
@@ -45,7 +45,7 @@ if(isServer) then
 		_settingsAce3 set ["ae3_dragging_carryDirection", _ae3_dragging_carryDirection];
 	};
 
-	if (!(_aceCargo isEqualTo [])) then
+	if (_aceCargo isNotEqualTo []) then
 	{
 		private _ae3_cargo_canLoad = _aceCargo select 0;
 		private _ae3_cargo_size = _aceCargo select 1;
@@ -56,7 +56,7 @@ if(isServer) then
 		_settingsAce3 set ["ae3_cargo_size", _ae3_cargo_size];
 	};
 
-	if (!(_interactionConditions isEqualTo [])) then
+	if (_interactionConditions isNotEqualTo []) then
 	{
 		private _ae3_unwrapped = _interactionConditions select 0;
 

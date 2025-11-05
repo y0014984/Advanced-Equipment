@@ -62,7 +62,7 @@ if (!isNil "_powerState") then
     private _networkProvider = _device getVariable ["AE3_network_parent", objNull];
     if(!(isNull _networkProvider)) then
     {
-        [_device] call AE3_power_fnc_removeNetworkConnection;
+        [_device] call AE3_network_fnc_removeNetworkConnection;
     };
 
     /* ================================================================================ */

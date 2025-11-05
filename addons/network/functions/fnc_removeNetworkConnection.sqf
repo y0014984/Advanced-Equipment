@@ -25,7 +25,7 @@ if (!(isNull _networkProvider)) then
     _connectedDevices = _connectedDevices - [_networkConsumer];
     _networkProvider setVariable ["AE3_network_children", _connectedDevices, true];
 
-    if(!(_connectedDevices isEqualTo [])) then
+    if((_connectedDevices isNotEqualTo [])) then
     {
         [_networkProvider] call AE3_network_fnc_dhcp_refresh;
     };

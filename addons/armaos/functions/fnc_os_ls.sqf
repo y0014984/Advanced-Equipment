@@ -27,13 +27,14 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _ae3OptsThings = [];
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
 
 private _path = _ae3OptsThings;
 
-if (count _path == 0) then
+if (_path isEqualTo []) then
 {
 	_path = [""];
 };
@@ -49,7 +50,7 @@ private _output = [];
 try
 {
 	{
-		_dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
+		private _dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
 		_output append _dir;
 	}forEach _path;
 }catch

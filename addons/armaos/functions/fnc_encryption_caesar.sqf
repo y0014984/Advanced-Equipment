@@ -39,7 +39,7 @@ _message = _message splitString "";
     private _encryptionIndex = _allowedAlphabet find _x;
 
     // ignore spaces for conversion
-    if (!(_x isEqualTo " ")) then
+    if (_x isNotEqualTo " ") then
     {
         private _countAlphabet = count _allowedAlphabet;
 

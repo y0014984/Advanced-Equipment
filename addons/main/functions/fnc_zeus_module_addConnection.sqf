@@ -35,7 +35,8 @@ if (_event isEqualTo "onLoad") then
     // remove all unnecessary connections
     if ((count _syncedObjects) > 2) then
     {
-        private _connectionsToDelete = _syncedObjects deleteRange [2, (count _syncedObjects) - 1];
+        private _connectionsToDelete = [];
+        _connectionsToDelete = _syncedObjects deleteRange [2, (count _syncedObjects) - 1];
         _module synchronizeObjectsRemove _connectionsToDelete;
     };
 
@@ -51,7 +52,7 @@ if (_event isEqualTo "onLoad") then
     };
 
     // fill 'From' field
-    if ((count _syncedObjects) > 0) then
+    if (_syncedObjects isNotEqualTo []) then
     {
         private _from = _syncedObjects select 0;
         private _fromNameWithAceCargoName = [_from, true] call ace_cargo_fnc_getNameItem;

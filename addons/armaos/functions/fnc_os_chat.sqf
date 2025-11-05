@@ -2,17 +2,17 @@
 
 params ["_options", "_consoleInput"];
 
-_ip = _consoleInput getVariable "ip";
+private _ip = _consoleInput getVariable "ip";
 
-_optionsCount = count _options;
+private _optionsCount = count _options;
 
-_ipPing = "";
-if (_optionsCount > 0) then 
+private _ipPing = "";
+if (_optionsCount > 0) then
 {
 	_ipPing = _options select 0;
 };
 
-_result = [];
+private _result = [];
 
 scopeName "main";
 
@@ -67,14 +67,14 @@ switch (true) do
 								
 								_waitingTimer = 5;
 
-								while (dialog && _waitingTimer > 0) do 
+								while {dialog && _waitingTimer > 0} do 
 								{
 									_waitingTimer = _waitingTimer - 1;
 
 									sleep 1;
 								};
 
-								_result = [ format ["   Command: chat %1 - connection established", _ipPing, "%"] ];
+								_result = [ format ["   Command: chat %1 - connection established", _ipPing] ];
 								_result breakOut "main";
 							}
 							else 
@@ -85,7 +85,7 @@ switch (true) do
 						}
 						else 
 						{
-							_result = [ format ["   Command: chat - no route to host", _ipPing] ];
+							_result = [ format ["   Command: chat - no route to host"] ];
 							_result breakOut "main";
 						};
 					};

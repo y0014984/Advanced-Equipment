@@ -21,7 +21,7 @@ private _pixelCtrl = _bitmap get _key;
 
 if (isNil "_pixelCtrl") then
 {
-    if (!(_color isEqualTo _bgColor)) then
+    if (_color isNotEqualTo _bgColor) then
     {
         // if pixel control does not exist and color is not bg color, then create control
         _pixelCtrl = _dialog ctrlCreate ["RscText", -1];
