@@ -1,0 +1,171 @@
+1. ACE Interaction is not linear as planned earlier. The planned / intended ACE Interaction:
+
+Laptop
+├── ArmaOS
+│   └── Use Terminal
+├── Power
+│   ├── Check Power State
+│   ├── Check Battery Charge
+│   ├── Turn Off/On
+│   ├── Standby
+│   └── Connect/Disconnect Power Source
+├── Storage
+│   └── Connect/Disconnect Flash Drive
+├── Network
+│   └── Connect/Disconnect Router
+└── Close/Open
+
+
+
+
+2. Upon launching the game with the hemtt build
+```
+2:35:09 [CBA] (xeh) WARNING: Land_USB_Dongle_01_F_AE3 does not support Extended Event Handlers! Addon: build
+```
+
+
+
+3. Upon launching the game with the hemtt build
+```
+2:35:12 Warning: Cannot evaluate 'CM_none'
+ 2:35:12  ➥ Context: bin\config.bin/CfgVehicles/GeneratorMaster_01_F_AE3.GeneratorMaster_01_F_AE3
+->Last modified by: ae3_power
+ 2:35:12 Warning: Cannot evaluate 'CM_Missile'
+ 2:35:12  ➥ Context: bin\config.bin/CfgVehicles/GeneratorMaster_01_F_AE3.GeneratorMaster_01_F_AE3
+->Last modified by: ae3_power
+```
+
+
+
+
+
+4. When using the ArmaOS after exiting the terminal
+```
+ 2:40:03 Error in expression <_output = [];
+{
+	_buffer = composeText [_x, lineBreak];
+	_buffer setAttributes [>
+ 2:40:03   Error position: <_x, lineBreak];
+	_buffer setAttributes [>
+ 2:40:03   Error Undefined variable in expression: _x
+ 2:40:03 File /z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf..., line 24
+ 2:40:03  ➥ Context: 	[] L161 (/z/ae3/addons/armaos/functions/fnc_terminal_init.sqf)
+	[] L27 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+	[] L26 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+```
+
+
+
+
+
+
+5. When performing any operation in the terminal
+```
+2:41:24 Performance warning: SimpleSerialization::Write 'params' is using type of 'TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+ 2:41:24  ➥ Context: 	[] L145 (/z/ae3/addons/armaos/functions/fnc_terminal_addEventHandler.sqf)
+	[] L36 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+	[] L40 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+```
+
+
+
+6. When performing any operation in the terminal
+```
+ 2:41:24 Performance warning: SimpleSerialization::Read 'params' is using type of TEXT which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+ 2:41:24 Performance warning: SimpleSerialization::Read 'params' is using type of TEXT which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+ 2:41:24 Performance warning: SimpleSerialization::Read 'params' is using type of TEXT which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+ 2:41:24 Performance warning: SimpleSerialization::Read 'params' is using type of TEXT which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+```
+
+
+
+
+
+7. When trying to open the terminal after exiting it
+```
+2:41:18 Performance warning: SimpleSerialization::Write 'params' is using type of 'TEXT' which is not optimized by simple serialization, falling back to generic serialization, use generic type or ask for optimizations for these types
+ 2:41:18  ➥ Context: 	[] L161 (/z/ae3/addons/armaos/functions/fnc_terminal_init.sqf)
+	[] L36 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+	[] L40 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+```
+
+
+
+
+8. When uitexture on screen is enabled for others to see what I type while typing
+```
+2:41:18 Error in expression <= [];
+{
+	private _buffer = composeText [_x, lineBreak];
+	_buffer setAttributes [>
+ 2:41:18   Error position: <_x, lineBreak];
+	_buffer setAttributes [>
+ 2:41:18   Error Undefined variable in expression: _x
+ 2:41:18 File /z/ae3/addons/armaos/functions/fnc_terminal_uiOnTex_updateAll.sqf..., line 69
+ 2:41:18  ➥ Context: 	[] L72 (/z/ae3/addons/armaos/functions/fnc_terminal_uiOnTex_updateAll.sqf)
+	[] L71 (/z/ae3/addons/armaos/functions/fnc_terminal_uiOnTex_updateAll.sqf)
+```
+
+
+
+9. When trying to enter any command / operation after reentering the terminal
+```
+2:46:19 Error in expression <ndHistory = _terminalCommandHistory get _username;
+
+_terminalCommandHistory push>
+ 2:46:19   Error position: <_username;
+
+_terminalCommandHistory push>
+ 2:46:19   Error Undefined variable in expression: _username
+ 2:46:19 File /z/ae3/addons/armaos/functions/fnc_terminal_addToHistory.sqf..., line 20
+ 2:46:19  ➥ Context: 	[] L17 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L22 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L32 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L24 (/z/ae3/addons/armaos/functions/fnc_terminal_addToHistory.sqf)
+
+ 2:46:19 Error in expression <ct select 2;
+
+if(_owner isEqualTo '' || _user isEqualTo 'root') exitWith {};
+
+if>
+ 2:46:19   Error position: <_user isEqualTo 'root') exitWith {};
+
+if>
+ 2:46:19   Error Undefined variable in expression: _user
+ 2:46:19 File /z/ae3/addons/filesystem/functions/fnc_hasPermission.sqf..., line 19
+ 2:46:19  ➥ Context: 	[] L17 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L22 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L36 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L40 (/z/ae3/addons/armaos/functions/fnc_shell_executeFile.sqf)
+	[] L25 (/z/ae3/addons/armaos/functions/fnc_shell_executeFile.sqf)
+	[] L24 (/z/ae3/addons/filesystem/functions/fnc_getFile.sqf)
+	[] L21 (/z/ae3/addons/filesystem/functions/fnc_hasPermission.sqf)
+
+ 2:46:19 Error in expression <te _dir = [_pntr, _filesystem, _target, _user] call AE3_filesystem_fnc_getParent>
+ 2:46:19   Error position: <_user] call AE3_filesystem_fnc_getParent>
+ 2:46:19   Error Undefined variable in expression: _user
+ 2:46:19 File /z/ae3/addons/filesystem/functions/fnc_getFile.sqf..., line 16
+ 2:46:19  ➥ Context: 	[] L17 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L22 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L36 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L40 (/z/ae3/addons/armaos/functions/fnc_shell_executeFile.sqf)
+	[] L25 (/z/ae3/addons/armaos/functions/fnc_shell_executeFile.sqf)
+	[] L24 (/z/ae3/addons/filesystem/functions/fnc_getFile.sqf)
+	[] L21 (/z/ae3/addons/filesystem/functions/fnc_hasPermission.sqf)
+
+ 2:46:19 Error in expression <ontent = [_pointer, _filesystem, _path, _username, 0] call AE3_filesystem_fnc_ge>
+ 2:46:19   Error position: <_username, 0] call AE3_filesystem_fnc_ge>
+ 2:46:19   Error Undefined variable in expression: _username
+ 2:46:19 File /z/ae3/addons/armaos/functions/fnc_shell_executeFile.sqf..., line 25
+ 2:46:19  ➥ Context: 	[] L17 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L22 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L36 (/z/ae3/addons/armaos/functions/fnc_shell_process.sqf)
+	[] L40 (/z/ae3/addons/armaos/functions/fnc_shell_executeFile.sqf)
+	[] L25 (/z/ae3/addons/armaos/functions/fnc_shell_executeFile.sqf)
+	[] L24 (/z/ae3/addons/filesystem/functions/fnc_getFile.sqf)
+	[] L21 (/z/ae3/addons/filesystem/functions/fnc_hasPermission.sqf)
+```
+
+
+
+
