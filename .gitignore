@@ -1,10 +1,12 @@
-
-## Added by HEMTT
-releases/*
-*.biprivatekey
-keys/*
-.hemtt/local
-####
-.hemtt/template/
 *.pbo
-.vscode/
+.hemttout
+hemtt
+hemtt.exe
+*.biprivatekey
+*.md
+**/*.json
+!README*.md
+!releases/CHANGELOG.md
+!wiki/*
+*.exe
+*.txt
