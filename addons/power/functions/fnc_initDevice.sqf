@@ -59,13 +59,15 @@ private _standbyWrapper = {
 
 if(!isDedicated) then
 {
-	// Check if equipment action exists (set by fnc_initInteraction for laptops)
+	// Ensure equipment parent action exists (creates if needed)
+	[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
+
 	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
 	private _parentPath = [];
 	private _powerSubmenuPath = [];
 
 	if (_hasEquipmentAction) then {
-		// Nest under existing equipment action with Power submenu
+		// Nest under equipment action with Power submenu
 		_parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
 
 		// Create Power submenu

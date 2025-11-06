@@ -89,20 +89,12 @@ if (!isDedicated) then
 
 	/* ---------------------------------------- */
 
-	private _parentAction = ["AE3_EquipmentAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
+	// Use global helper to ensure parent action exists
+	[_equipment, _name] call AE3_interaction_fnc_ensureEquipmentParent;
 
-	[_equipment, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
-
-	// Set flag for other systems to detect equipment action exists
-	_equipment setVariable ["AE3_interaction_hasEquipmentAction", true];
-
-	// Add open/close action under "Interaction" submenu
+	// Add open/close action directly under Equipment action
 	if (!((_openFnc isEqualTo {}) || (_closeFnc isEqualTo {}))) then
 	{
-		// Create Interaction submenu
-		private _interactionSubmenu = ["AE3_InteractionSubmenu", "Interaction", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _interactionSubmenu] call ace_interact_menu_fnc_addActionToObject;
-
 		_open = ["AE3_openAction", localize "STR_AE3_Interaction_General_Open", "",
 					{
 						params ["_target", "_player", "_params"];
@@ -138,8 +130,8 @@ if (!isDedicated) then
 					{(_target call (_target getVariable ["AE3_interaction_fnc_closeActionCondition", {true}])) and (alive _target) and (_target getVariable "AE3_interaction_closeState" == 0) },
 					{}] call ace_interact_menu_fnc_createAction;
 
-		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_InteractionSubmenu"], _open] call ace_interact_menu_fnc_addActionToObject;
-		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_InteractionSubmenu"], _close] call ace_interact_menu_fnc_addActionToObject;
+		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _open] call ace_interact_menu_fnc_addActionToObject;
+		[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _close] call ace_interact_menu_fnc_addActionToObject;
 	};
 };
 

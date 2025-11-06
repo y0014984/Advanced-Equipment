@@ -67,9 +67,11 @@ private _uiOnTextureOutputCtrl = _uiOnTextureDisplay displayCtrl 1100; // Consol
 private _output = [];
 if (!isNil "_terminalBufferVisible" && {count _terminalBufferVisible > 0}) then {
 	{
-		private _buffer = composeText [_x, lineBreak];
-		_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
-		_output pushBack _buffer;
+		if (!isNil "_x") then {
+			private _buffer = composeText [_x, lineBreak];
+			_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+			_output pushBack _buffer;
+		};
 	} forEach _terminalBufferVisible;
 };
 

@@ -17,8 +17,13 @@ private _username = _terminal get "AE3_terminalLoginUser";
 
 private _terminalCommandHistory = _terminal get "AE3_terminalCommandHistory";
 
-_terminalCommandHistory = _terminalCommandHistory get _username;
+// Get the user's command history array
+private _userCommandHistory = _terminalCommandHistory getOrDefault [_username, []];
 
-_terminalCommandHistory pushBack _commandString;
+// Add the command to the user's history
+_userCommandHistory pushBack _commandString;
+
+// Set the modified array back into the hashmap
+_terminalCommandHistory set [_username, _userCommandHistory];
 
 _computer setVariable ["AE3_terminal", _terminal];

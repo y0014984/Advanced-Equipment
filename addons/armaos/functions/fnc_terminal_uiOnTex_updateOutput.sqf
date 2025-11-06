@@ -24,11 +24,15 @@ private _uiOnTextureOutputCtrl = _uiOnTextureDisplay displayCtrl 1100; // Consol
 
 // Compose text locally to avoid serialization warnings
 private _output = [];
-{
-	private _buffer = composeText [_x, lineBreak];
-	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
-	_output pushBack _buffer;
-} forEach _terminalBufferVisible;
+if (!isNil "_terminalBufferVisible" && {count _terminalBufferVisible > 0}) then {
+	{
+		if (!isNil "_x") then {
+			private _buffer = composeText [_x, lineBreak];
+			_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+			_output pushBack _buffer;
+		};
+	} forEach _terminalBufferVisible;
+};
 
 _uiOnTextureOutputCtrl ctrlSetStructuredText (composeText _output);
 

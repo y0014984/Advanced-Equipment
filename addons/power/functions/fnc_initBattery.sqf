@@ -23,18 +23,29 @@ if(_internal) then
 
 if(!isDedicated) then {
 
-	private _check = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckBatteryCharge", "", 
+	private _check = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckBatteryCharge", "",
 				{
-					params ['_target', '_player', '_params']; 
+					params ['_target', '_player', '_params'];
 					_params params ['_battery'];
 					_handle = [_battery] spawn AE3_power_fnc_checkBatteryLevelAction;
-				}, 
+				},
 				{alive _target},
 				{},
 				[_battery]
 				] call ace_interact_menu_fnc_createAction;
 
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _check] call ace_interact_menu_fnc_addActionToObject;
+	// Ensure equipment parent action exists (creates if needed)
+	[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
+
+	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
+
+	if (_hasEquipmentAction) then {
+		// Add to Power submenu for laptops
+		[_entity, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_PowerSubmenu"], _check] call ace_interact_menu_fnc_addActionToObject;
+	} else {
+		// Add to standalone device action
+		[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _check] call ace_interact_menu_fnc_addActionToObject;
+	};
 
 };
 

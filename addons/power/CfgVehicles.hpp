@@ -15,6 +15,17 @@ class CfgVehicles
 		// Override inherited countermeasure properties to prevent config warnings
 		incomingMissileDetectionSystem = 0;
 		weaponLockSystem = 0;
+		magazines[] = {};
+
+		// Explicitly disable countermeasure classes inherited from radar system
+		class EventHandlers {};
+		class Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components {};
+			};
+		};
 
 		// Eden Editor Attributes
 		class Attributes

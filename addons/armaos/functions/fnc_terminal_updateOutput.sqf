@@ -20,11 +20,15 @@ private _terminalBufferVisible = _terminal get "AE3_terminalBufferVisible";
 private _size = _terminal get "AE3_terminalSize";
 
 private _output = [];
-{
-	private _buffer = composeText [_x, lineBreak];
-	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
-	_output pushBack _buffer;
-} forEach _terminalBufferVisible;
+// Check if buffer is a valid array with content
+if (_terminalBufferVisible isEqualType [] && {count _terminalBufferVisible > 0}) then {
+	{
+		// Each element should be structured text
+		private _buffer = composeText [_x, lineBreak];
+		_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+		_output pushBack _buffer;
+	} forEach _terminalBufferVisible;
+};
 
 _outputControl ctrlSetStructuredText (composeText _output);
 ctrlSetFocus _outputControl;

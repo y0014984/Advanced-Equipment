@@ -81,8 +81,20 @@ if(_internal) then
 
 if(!isDedicated) then
 {
-	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
-	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	// Ensure equipment parent action exists (creates if needed)
+	[_device] call AE3_interaction_fnc_ensureEquipmentParent;
+
+	private _hasEquipmentAction = _device getVariable ["AE3_interaction_hasEquipmentAction", false];
+
+	if (_hasEquipmentAction) then {
+		// Add to Power submenu for laptops
+		[_device, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_PowerSubmenu"], _connect] call ace_interact_menu_fnc_addActionToObject;
+		[_device, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_PowerSubmenu"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	} else {
+		// Add to standalone device action
+		[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
+		[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	};
 };
 
 if(isServer) then

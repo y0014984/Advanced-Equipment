@@ -63,12 +63,14 @@ private _disconnect = ["AE3_Network_DisconnectAction", localize "STR_AE3_Network
 
 if (!isDedicated) then
 {
-	// Check if equipment action exists (set by fnc_initInteraction for laptops)
+	// Ensure equipment parent action exists (creates if needed)
+	[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
+
 	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
 	private _networkPath = [];
 
 	if (_hasEquipmentAction) then {
-		// Nest under existing equipment action with Network submenu
+		// Nest under equipment action with Network submenu
 		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
 
 		// Create Network submenu

@@ -76,11 +76,13 @@ private _connect = ["AE3_USBInterfaceConnectAction", (localize "STR_AE3_Flashdri
 
 if(!isDedicated) then
 {
-	// Check if equipment action exists (set by fnc_initInteraction for laptops)
+	// Ensure equipment parent action exists (creates if needed)
+	[_device] call AE3_interaction_fnc_ensureEquipmentParent;
+
 	private _hasEquipmentAction = _device getVariable ["AE3_interaction_hasEquipmentAction", false];
 
 	if (_hasEquipmentAction) then {
-		// Nest under existing equipment action with Storage submenu
+		// Nest under equipment action with Storage submenu
 		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
 
 		// Create Storage submenu
