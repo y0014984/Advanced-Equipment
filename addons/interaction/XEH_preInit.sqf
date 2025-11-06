@@ -10,13 +10,53 @@ AE3_interaction_fnc_ensureEquipmentParent = {
     private _hasParent = _object getVariable ["AE3_interaction_hasEquipmentAction", false];
 
     if (!_hasParent) then {
-        // If no display name provided, get it from the object's config
+        // If no display name provided, determine it based on object type
         if (_displayName isEqualTo "") then {
-            _displayName = getText (configOf _object >> "displayName");
+            private _typeOf = typeOf _object;
 
-            // Fallback if no display name in config
-            if (_displayName isEqualTo "") then {
-                _displayName = typeOf _object;
+            // Map specific object types to friendly names
+            switch (true) do {
+                // Laptops - all variants
+                case (_typeOf find "Laptop" >= 0): {
+                    _displayName = "Laptop";
+                };
+                // USB Flash Drives
+                case (_typeOf find "USB" >= 0 || _typeOf find "FlashDisk" >= 0): {
+                    _displayName = "USB Flash Drive";
+                };
+                // Generators
+                case (_typeOf find "Generator" >= 0 || _typeOf find "PowerGenerator" >= 0): {
+                    _displayName = "Generator";
+                };
+                // Routers
+                case (_typeOf find "Router" >= 0): {
+                    _displayName = "Router";
+                };
+                // Lamps/Lights
+                case (_typeOf find "Lamp" >= 0 || _typeOf find "Light" >= 0 || _typeOf find "Lantern" >= 0): {
+                    _displayName = "Lamp";
+                };
+                // Solar Panels
+                case (_typeOf find "Solar" >= 0): {
+                    _displayName = "Solar Panel";
+                };
+                // Batteries
+                case (_typeOf find "Battery" >= 0): {
+                    _displayName = "Battery";
+                };
+                // Desks
+                case (_typeOf find "Desk" >= 0 || _typeOf find "Table" >= 0): {
+                    _displayName = "Desk";
+                };
+                // Default: use config display name
+                default {
+                    _displayName = getText (configOf _object >> "displayName");
+
+                    // Final fallback
+                    if (_displayName isEqualTo "") then {
+                        _displayName = _typeOf;
+                    };
+                };
             };
         };
 

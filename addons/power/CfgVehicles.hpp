@@ -16,6 +16,10 @@ class CfgVehicles
 		incomingMissileDetectionSystem = 0;
 		weaponLockSystem = 0;
 		magazines[] = {};
+		weapons[] = {};
+
+		// Completely remove countermeasure flare/chaff launchers inherited from radar system
+		class Turrets {};
 
 		// Explicitly disable countermeasure classes inherited from radar system
 		class EventHandlers {};
@@ -72,7 +76,6 @@ class CfgVehicles
 		cargoAction[] = {};
 		driverAction = "";
 		typicalCargo[] = {};
-		weapons[] = {};
 
 		fuelConsumptionRate = 0.0;
 	};

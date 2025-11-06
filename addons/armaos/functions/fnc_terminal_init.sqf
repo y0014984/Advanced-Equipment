@@ -64,6 +64,14 @@ if (!isNil "_terminalSyncData") then {
 	_terminal set ["AE3_terminalPrompt", _terminalSyncData select 2];
 	_terminal set ["AE3_terminalScrollPosition", _terminalSyncData select 3];
 	_terminal set ["AE3_terminalLoginUser", _terminalSyncData select 4];
+
+	// Reconstruct rendered buffer from raw buffer to preserve terminal content
+	private _restoredBuffer = _terminalSyncData select 0;
+	private _renderedBuffer = [];
+	{
+		_renderedBuffer pushBack ([_computer, _x] call AE3_armaos_fnc_terminal_renderLine);
+	} forEach _restoredBuffer;
+	_terminal set ["AE3_terminalRenderedBuffer", _renderedBuffer];
 };
 
 // Keep terminal local to client (no network sync of HashMap)

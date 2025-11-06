@@ -53,9 +53,11 @@ _terminalRenderedBufferVisible set [_lastBufferVisibleLineIndex, [_computer, _la
 private _terminalBufferVisible = flatten _terminalRenderedBufferVisible;
 private _terminalRenderedBufferLength = count _terminalBufferVisible;
 
-if (_terminalScrollPosition > (_terminalRenderedBufferLength - _terminalMaxRows)) then
+// Clamp scroll position to valid range
+private _maxScrollPosition = (_terminalRenderedBufferLength - _terminalMaxRows) max 0;
+if (_terminalScrollPosition > _maxScrollPosition) then
 {
-	_terminalScrollPosition = _terminalRenderedBufferLength - _terminalMaxRows;
+	_terminalScrollPosition = _maxScrollPosition;
 	_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition];
 };
 
@@ -68,7 +70,14 @@ if (_terminalScrollPosition < 0) then
 
 if (_terminalRenderedBufferLength > _terminalMaxRows) then
 {
-	_terminalBufferVisible = _terminalBufferVisible select [(_terminalRenderedBufferLength - _terminalMaxRows) - _terminalScrollPosition, _terminalMaxRows];
+	// Calculate start index and clamp to valid range to prevent negative indices
+	private _startIndex = (_terminalRenderedBufferLength - _terminalMaxRows) - _terminalScrollPosition;
+	_startIndex = _startIndex max 0; // Ensure start index is never negative
+
+	// Calculate how many lines we can actually display from this position
+	private _availableLines = (_terminalRenderedBufferLength - _startIndex) min _terminalMaxRows;
+
+	_terminalBufferVisible = _terminalBufferVisible select [_startIndex, _availableLines];
 };
 
 _terminal set ["AE3_terminalBufferVisible", _terminalBufferVisible];

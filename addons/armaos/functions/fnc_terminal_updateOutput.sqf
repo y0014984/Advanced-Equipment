@@ -23,10 +23,13 @@ private _output = [];
 // Check if buffer is a valid array with content
 if (_terminalBufferVisible isEqualType [] && {count _terminalBufferVisible > 0}) then {
 	{
-		// Each element should be structured text
-		private _buffer = composeText [_x, lineBreak];
-		_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
-		_output pushBack _buffer;
+		// Skip nil entries - _x is structured text so we can't use isNull
+		if (!isNil "_x") then {
+			// Each element should be structured text
+			private _buffer = composeText [_x, lineBreak];
+			_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+			_output pushBack _buffer;
+		};
 	} forEach _terminalBufferVisible;
 };
 
