@@ -13,11 +13,6 @@ class CfgVehicles
 
 		ae3_item = "Item_FlashDisk_AE3";
 
-		class EventHandlers
-		{
-			init = "call AE3_filesystem_fnc_initFilesystem";
-		};
-
 		class ACE_Actions {
 			class Pickup {
 				displayName = "$STR_AE3_Flashdrive_Interaction_Take";

@@ -12,6 +12,10 @@ class CfgVehicles
 		curatorInfoType = "AE3_UserInterface_Zeus_Asset_Details"; // when placing with AI
 		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details"; // when placing without AI
 
+		// Override inherited countermeasure properties to prevent config warnings
+		incomingMissileDetectionSystem = 0;
+		weaponLockSystem = 0;
+
 		// Eden Editor Attributes
 		class Attributes
 		{

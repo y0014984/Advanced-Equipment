@@ -230,7 +230,8 @@ private _result = _consoleDialog displayAddEventHandler
 			_terminal get "AE3_terminalBuffer",
 			_terminal get "AE3_terminalApplication",
 			_terminal get "AE3_terminalPrompt",
-			_terminal get "AE3_terminalScrollPosition"
+			_terminal get "AE3_terminalScrollPosition",
+			_terminal get "AE3_terminalLoginUser"
 		];
 		_computer setVariable ["AE3_terminal_sync", _terminalSyncData, [clientOwner, 2]];
 

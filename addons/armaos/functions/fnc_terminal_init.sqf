@@ -63,6 +63,7 @@ if (!isNil "_terminalSyncData") then {
 	_terminal set ["AE3_terminalApplication", _terminalSyncData select 1];
 	_terminal set ["AE3_terminalPrompt", _terminalSyncData select 2];
 	_terminal set ["AE3_terminalScrollPosition", _terminalSyncData select 3];
+	_terminal set ["AE3_terminalLoginUser", _terminalSyncData select 4];
 };
 
 // Keep terminal local to client (no network sync of HashMap)

@@ -21,7 +21,7 @@ private _size = _terminal get "AE3_terminalSize";
 
 private _output = [];
 {
-	_buffer = composeText [_x, lineBreak];
+	private _buffer = composeText [_x, lineBreak];
 	_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
 	_output pushBack _buffer;
 } forEach _terminalBufferVisible;
@@ -37,7 +37,8 @@ if (AE3_UiOnTexture) then
 {
 	private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 
-	[_computer, _output] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
+	// Send raw text array instead of composed text to avoid serialization warnings
+	[_computer, _terminalBufferVisible, _size] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
 };
 
 /* ---------------------------------------- */
