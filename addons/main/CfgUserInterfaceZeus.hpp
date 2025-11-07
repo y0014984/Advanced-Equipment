@@ -225,18 +225,6 @@ class AE3_UserInterface_Zeus_Asset_Details
             onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_openFilesystemBrowser;";
         };
 
-        class RscButton_2900: RscButton
-        {
-            x = 26.5 * GUI_GRID_W + GUI_GRID_X;
-            y = 21 * GUI_GRID_H + GUI_GRID_Y;
-            w = 4 * GUI_GRID_W;
-            h = 1.5 * GUI_GRID_H;
-
-            text = "$STR_AE3_Main_Zeus_Reset";
-
-            onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_resetDevice;";
-        };
-
         class RscButtonMenuOK_2600: RscButtonMenuOK
         {
             x = 37 * GUI_GRID_W + GUI_GRID_X;
@@ -2637,8 +2625,8 @@ class AE3_UserInterface_Zeus_Browser_Move
 			text = "#(argb,8,8,3)color(1,1,1,1)";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 23 * GUI_GRID_W;
-			h = 7.5 * GUI_GRID_H;
+			w = 30 * GUI_GRID_W;
+			h = 20 * GUI_GRID_H;
 			colorText[] = {0.1,0.1,0.1,1};
 		};
 	};
@@ -2651,7 +2639,7 @@ class AE3_UserInterface_Zeus_Browser_Move
 			text = "$STR_AE3_Main_Zeus_MoveDialogTitle";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 23 * GUI_GRID_W;
+			w = 30 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			colorBackground[] = {-1,-1,-1,0.5};
 		};
@@ -2659,40 +2647,61 @@ class AE3_UserInterface_Zeus_Browser_Move
 		class RscText_1001: RscText
 		{
 			idc = 1001;
-			text = "$STR_AE3_Main_Zeus_DestinationPath";
+			text = "$STR_AE3_Main_Zeus_CurrentPath";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 8 * GUI_GRID_W;
+			w = 5 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			style = ST_RIGHT;
 		};
 
-		class RscEdit_1400: RscEdit
+		class RscText_1002: RscText
 		{
-			idc = 1400;
+			idc = 1002;
 			text = "/";
-			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			x = 6 * GUI_GRID_W + GUI_GRID_X;
 			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 14.5 * GUI_GRID_W;
+			w = 24 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			colorBackground[] = {-1,-1,-1,0.5};
-			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['destpath', _newText];";
-			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['destpath', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; if (_newText isEqualTo '') then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscListBox_1500: RscListBox
+		{
+			idc = 1500;
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
+			h = 13 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			onLBDblClick = "params ['_control', '_selectedIndex']; private _display = ctrlParent _control; [_display, _selectedIndex] call AE3_main_fnc_zeus_filesystemBrowser_moveNavigate;";
+		};
+
+		class RscButton_2500: RscButton
+		{
+			idc = 2500;
+			text = "$STR_AE3_Main_Zeus_GoBack";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			onButtonClick = "private _display = ctrlParent (_this select 0); [_display] call AE3_main_fnc_zeus_filesystemBrowser_moveGoBack;";
 		};
 
 		class RscButtonMenuOK_2600: RscButtonMenuOK
 		{
-			x = 17.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			x = 24.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_MoveHere";
 			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control];";
 		};
 
 		class RscButtonMenuCancel_2700: RscButtonMenuCancel
 		{
-			x = 11.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			x = 18.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;
 			w = 5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};

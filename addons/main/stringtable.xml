@@ -248,6 +248,15 @@
             </Key>
         </Container>
         <Container name="Zeus">
+            <Key ID="STR_AE3_Main_Zeus_AlreadyInThisDirectory">
+                <Original>File/Folder is already in this directory.</Original>
+                <English>File/Folder is already in this directory.</English>
+                <French>Le fichier/dossier est déjà dans ce répertoire.</French>
+                <Italian>Il file/cartella è già in questa directory.</Italian>
+                <Russian>Файл/Папка уже находится в этой директории.</Russian>
+                <German>Datei/Ordner ist bereits in diesem Verzeichnis.</German>
+                <Chinesesimp>文件/文件夹已在此目录中.</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_ApplyChanges">
                 <Original>Apply Changes</Original>
                 <English>Apply Changes</English>
@@ -468,24 +477,6 @@
                 <German>Löschen</German>
                 <Chinesesimp>删除</Chinesesimp>
             </Key>
-            <Key ID="STR_AE3_Main_Zeus_DestinationPath">
-                <Original>Destination Path:</Original>
-                <English>Destination Path:</English>
-                <French>Chemin de Destination:</French>
-                <Italian>Percorso di Destinazione:</Italian>
-                <Russian>Путь Назначения:</Russian>
-                <German>Zielpfad:</German>
-                <Chinesesimp>目标路径:</Chinesesimp>
-            </Key>
-            <Key ID="STR_AE3_Main_Zeus_DeviceReset">
-                <Original>Device has been reset to default settings.</Original>
-                <English>Device has been reset to default settings.</English>
-                <French>L'appareil a été réinitialisé aux paramètres par défaut.</French>
-                <Italian>Il dispositivo è stato ripristinato alle impostazioni predefinite.</Italian>
-                <Russian>Устройство было сброшено до настроек по умолчанию.</Russian>
-                <German>Das Gerät wurde auf die Standardeinstellungen zurückgesetzt.</German>
-                <Chinesesimp>设备已重置为默认设置.</Chinesesimp>
-            </Key>
             <Key ID="STR_AE3_Main_Zeus_DirOwner">
                 <Original>Directory owner</Original>
                 <English>Directory owner</English>
@@ -693,6 +684,15 @@
                 <German>AE3 Spiele hinzugefügt</German>
                 <Chinesesimp>AE3 游戏已添加</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_GoBack">
+                <Original>Go Back</Original>
+                <English>Go Back</English>
+                <French>Retour</French>
+                <Italian>Indietro</Italian>
+                <Russian>Назад</Russian>
+                <German>Zurück</German>
+                <Chinesesimp>返回</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_IsCode">
                 <Original>Is code?</Original>
                 <English>Is code?</English>
@@ -863,6 +863,15 @@
                 <Russian>Не удалось переместить: %1</Russian>
                 <German>Fehler beim Verschieben: %1</German>
                 <Chinesesimp>移动失败: %1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_MoveHere">
+                <Original>Move Here</Original>
+                <English>Move Here</English>
+                <French>Déplacer Ici</French>
+                <Italian>Sposta Qui</Italian>
+                <Russian>Переместить Сюда</Russian>
+                <German>Hierher Verschieben</German>
+                <Chinesesimp>移到此处</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_Moved">
                 <Original>'%1' moved to '%2' successfully.</Original>
@@ -1133,15 +1142,6 @@
                 <Russian>'%1' успешно переименован в '%2'.</Russian>
                 <German>'%1' erfolgreich in '%2' umbenannt.</German>
                 <Chinesesimp>'%1' 已成功重命名为 '%2'。</Chinesesimp>
-            </Key>
-            <Key ID="STR_AE3_Main_Zeus_Reset">
-                <Original>Reset</Original>
-                <English>Reset</English>
-                <French>Réinitialiser</French>
-                <Italian>Ripristina</Italian>
-                <Russian>Сброс</Russian>
-                <German>Zurücksetzen</German>
-                <Chinesesimp>重置</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_Save">
                 <Original>Save</Original>

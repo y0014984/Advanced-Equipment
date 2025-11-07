@@ -1,4 +1,0 @@
-1. Text position of Read / Write / Execute permissions checkbox is misaligned / cutoff behind the checkbox
-2. Likewise, 'Apply Changes' is behind the 'owner' text box
-3. 'Rename' option simply renames the file to 'true' without asking anything from zeus. There should be a text box display to type the new 'rename' function
-4. When clicking 'Move' its always reported as 'Invalid Path' even without asking where to move the file to. There should be a box asking where the new file/folder should be moved to. If the zeus is trying to move a folder, all the files inside the folder must move as well.

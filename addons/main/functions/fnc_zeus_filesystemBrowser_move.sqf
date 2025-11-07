@@ -23,6 +23,17 @@ if (_mode isEqualTo "onLoad") then
 		closeDialog 0;
 		hint localize "STR_AE3_Main_Zeus_NoFileSelected";
 	};
+
+	private _entity = _browserDisplay getVariable ["AE3_entity", objNull];
+	private _filesystem = _entity getVariable ["AE3_filesystem", createHashMap];
+
+	// Initialize the move dialog at root directory
+	_display setVariable ["AE3_move_pointer", []];
+	_display setVariable ["AE3_filesystem", _filesystem];
+	_display setVariable ["AE3_entity", _entity];
+
+	// Refresh the directory listing
+	[_display] call AE3_main_fnc_zeus_filesystemBrowser_moveRefresh;
 };
 
 if (_mode isEqualTo "onUnload") exitWith
@@ -50,21 +61,11 @@ if (_mode isEqualTo "onUnload") exitWith
 		hint localize "STR_AE3_Main_Zeus_CannotModifySystemFolder";
 	};
 
-	// Get destination path from dialog
-	private _destPath = _display getVariable ["destpath", "/"];
-
-	if (_destPath isEqualTo "") exitWith {};
+	// Get destination pointer from move dialog
+	private _destPointer = _display getVariable ["AE3_move_pointer", []];
 
 	try
 	{
-		// Parse destination path
-		private _destPointer = [];
-		if (_destPath != "/") then
-		{
-			_destPointer = _destPath splitString "/";
-			_destPointer = _destPointer select {_x != ""};
-		};
-
 		// Get source directory content
 		private _srcDirObj = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
 		private _srcDirContent = _srcDirObj select 0;
@@ -76,6 +77,11 @@ if (_mode isEqualTo "onUnload") exitWith
 		// Check if destination is a directory
 		if (typeName _destDirContent != "HASHMAP") throw "Destination is not a directory";
 
+		// Check if trying to move to the same directory
+		if (_pointer isEqualTo _destPointer) exitWith {
+			hint localize "STR_AE3_Main_Zeus_AlreadyInThisDirectory";
+		};
+
 		// Check if destination already has an item with this name
 		if (_currentFile in _destDirContent) throw format [localize "STR_AE3_Filesystem_Exception_AlreadyExists", _currentFile];
 
@@ -83,13 +89,14 @@ if (_mode isEqualTo "onUnload") exitWith
 		private _itemObj = _srcDirContent get _currentFile;
 		if (isNil "_itemObj") throw "File not found";
 
-		// Check if trying to move a directory into itself
+		// Check if trying to move a directory into itself or its subdirectory
 		private _isDir = (typeName (_itemObj select 0)) isEqualTo "HASHMAP";
 		if (_isDir) then
 		{
 			private _srcPath = _pointer joinString "/";
 			private _destPathStr = _destPointer joinString "/";
-			if (_destPathStr find _srcPath == 0) throw "Cannot move directory into itself";
+			// Check if destination path starts with source path
+			if ((_destPathStr + "/") find (_srcPath + "/") == 0) throw "Cannot move directory into itself or its subdirectory";
 		};
 
 		// Move (copy to destination and delete from source)
@@ -103,6 +110,7 @@ if (_mode isEqualTo "onUnload") exitWith
 		_browserDisplay setVariable ["AE3_currentFile", ""];
 		[_browserDisplay] call AE3_main_fnc_zeus_filesystemBrowser_refresh;
 
+		private _destPath = "/" + (_destPointer joinString "/");
 		hint format [localize "STR_AE3_Main_Zeus_Moved", _currentFile, _destPath];
 	}
 	catch

@@ -43,7 +43,6 @@ PREP(zeus_checkForComputer);
 
 PREP(zeus_isConnectionAllowed);
 
-PREP(zeus_resetDevice);
 PREP(zeus_openFilesystemBrowser);
 PREP(zeus_filesystemBrowser_init);
 PREP(zeus_filesystemBrowser_refresh);
@@ -57,5 +56,8 @@ PREP(zeus_filesystemBrowser_onUnload);
 PREP(zeus_filesystemBrowser_applyChanges);
 PREP(zeus_filesystemBrowser_rename);
 PREP(zeus_filesystemBrowser_move);
+PREP(zeus_filesystemBrowser_moveRefresh);
+PREP(zeus_filesystemBrowser_moveNavigate);
+PREP(zeus_filesystemBrowser_moveGoBack);
 PREP(zeus_browser_newFile);
 PREP(zeus_browser_newFolder);
