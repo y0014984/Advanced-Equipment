@@ -1,5 +1,0 @@
-1. Pressing 'Tab' for autocompletion overwrites the last character of the system command if it matches the first character of the file/program in question in rare cases. For example if there is a file called 'test.txt' and I type `cat t` with TAB to complete the rest of the filename, I expect `cat test.txt` as the output. But instead, it becomes, `catest.txt`
-
-2. Unable to move folder from the zeus file browser. Only files could be moved.
-
-3. MAke it easy to programatically add OS commands to the computer. For example, a specific computer can have the 'nano' command whereas another computer on the same mission, may not have this command.

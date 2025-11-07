@@ -27,7 +27,8 @@ if (_parts isNotEqualTo []) then
 	_lastPart = _parts select -1;
 
 	// Calculate prefix (everything before the last part)
-	private _lastPartStart = _input find _lastPart;
+	// Use length calculation instead of find to get the LAST occurrence position
+	private _lastPartStart = (count _input) - (count _lastPart);
 	if (_lastPartStart > 0) then
 	{
 		_prefix = _input select [0, _lastPartStart];

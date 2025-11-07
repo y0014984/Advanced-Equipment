@@ -314,6 +314,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			w = 28 * GUI_GRID_W;
 			h = 16 * GUI_GRID_H;
 			colorBackground[] = {-1,-1,-1,0.5};
+			onLBSelChanged = "params ['_control', '_selectedIndex']; [_control, _selectedIndex] call AE3_main_fnc_zeus_filesystemBrowser_onSelect;";
 			onLBDblClick = "params ['_control', '_selectedIndex']; [_control, _selectedIndex] call AE3_main_fnc_zeus_filesystemBrowser_onDblClick;";
 		};
 
