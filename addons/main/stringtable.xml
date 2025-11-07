@@ -248,6 +248,15 @@
             </Key>
         </Container>
         <Container name="Zeus">
+            <Key ID="STR_AE3_Main_Zeus_ApplyChanges">
+                <Original>Apply Changes</Original>
+                <English>Apply Changes</English>
+                <French>Appliquer les modifications</French>
+                <Italian>Applica modifiche</Italian>
+                <Russian>Применить изменения</Russian>
+                <German>Änderungen übernehmen</German>
+                <Chinesesimp>应用更改</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_AssetDetails">
                 <Original>Asset Details</Original>
                 <English>Asset Details</English>
@@ -359,6 +368,24 @@
                 <Russian>Невозможно включить устройство</Russian>
                 <German>Gerät kann nicht eingeschaltet werden.</German>
                 <Chinesesimp>不能打开设备.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ChangesApplied">
+                <Original>Changes applied successfully.</Original>
+                <English>Changes applied successfully.</English>
+                <French>Modifications appliquées avec succès.</French>
+                <Italian>Modifiche applicate con successo.</Italian>
+                <Russian>Изменения успешно применены.</Russian>
+                <German>Änderungen erfolgreich übernommen.</German>
+                <Chinesesimp>更改已成功应用。</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ChangesApplyFailed">
+                <Original>Failed to apply changes: %1</Original>
+                <English>Failed to apply changes: %1</English>
+                <French>Échec de l'application des modifications: %1</French>
+                <Italian>Impossibile applicare le modifiche: %1</Italian>
+                <Russian>Не удалось применить изменения: %1</Russian>
+                <German>Fehler beim Übernehmen der Änderungen: %1</German>
+                <Chinesesimp>应用更改失败: %1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_ClassName">
                 <Original>Class name: %1</Original>
@@ -540,6 +567,15 @@
                 <German>Fehler beim Erstellen der Datei: %1</German>
                 <Chinesesimp>创建文件失败: %1</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileName">
+                <Original>File name</Original>
+                <English>File name</English>
+                <French>Nom du fichier</French>
+                <Italian>Nome del file</Italian>
+                <Russian>Имя файла</Russian>
+                <German>Dateiname</German>
+                <Chinesesimp>文件名</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_FileOwner">
                 <Original>File owner</Original>
                 <English>File owner</English>
@@ -593,6 +629,15 @@
                 <Russian>Не удалось создать папку: %1</Russian>
                 <German>Fehler beim Erstellen des Ordners: %1</German>
                 <Chinesesimp>创建文件夹失败: %1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FolderName">
+                <Original>Folder name</Original>
+                <English>Folder name</English>
+                <French>Nom du dossier</French>
+                <Italian>Nome della cartella</Italian>
+                <Russian>Имя папки</Russian>
+                <German>Ordnername</German>
+                <Chinesesimp>文件夹名</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_From">
                 <Original>From</Original>
@@ -783,6 +828,33 @@
                 <German>Dieses Modul definiert Benutzer für einen armaOS Computer.</German>
                 <Chinesesimp>此模块定义armaOS计算机的用户.</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_Move">
+                <Original>Move</Original>
+                <English>Move</English>
+                <French>Déplacer</French>
+                <Italian>Sposta</Italian>
+                <Russian>Переместить</Russian>
+                <German>Verschieben</German>
+                <Chinesesimp>移动</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_MoveFailed">
+                <Original>Failed to move: %1</Original>
+                <English>Failed to move: %1</English>
+                <French>Échec du déplacement: %1</French>
+                <Italian>Impossibile spostare: %1</Italian>
+                <Russian>Не удалось переместить: %1</Russian>
+                <German>Fehler beim Verschieben: %1</German>
+                <Chinesesimp>移动失败: %1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Moved">
+                <Original>'%1' moved to '%2' successfully.</Original>
+                <English>'%1' moved to '%2' successfully.</English>
+                <French>'%1' déplacé vers '%2' avec succès.</French>
+                <Italian>'%1' spostato in '%2' con successo.</Italian>
+                <Russian>'%1' успешно перемещен в '%2'.</Russian>
+                <German>'%1' erfolgreich nach '%2' verschoben.</German>
+                <Chinesesimp>'%1' 已成功移动到 '%2'。</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_Network">
                 <Original>Network</Original>
                 <English>Network</English>
@@ -829,13 +901,13 @@
                 <Chinesesimp>没有电脑.请将模块放置在电脑上.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_NoFileSelected">
-                <Original>No file selected.</Original>
-                <English>No file selected.</English>
-                <French>Aucun fichier sélectionné.</French>
-                <Italian>Nessun file selezionato.</Italian>
-                <Russian>Файл не выбран.</Russian>
-                <German>Keine Datei ausgewählt.</German>
-                <Chinesesimp>未选择文件.</Chinesesimp>
+                <Original>No file or folder selected.</Original>
+                <English>No file or folder selected.</English>
+                <French>Aucun fichier ou dossier sélectionné.</French>
+                <Italian>Nessun file o cartella selezionato.</Italian>
+                <Russian>Файл или папка не выбраны.</Russian>
+                <German>Keine Datei oder Ordner ausgewählt.</German>
+                <Chinesesimp>未选择文件或文件夹。</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_NoFilesystem">
                 <Original>Selected entity does not have a filesystem.</Original>
@@ -998,6 +1070,33 @@
                 <Russian>AE3 Power Connection added</Russian>
                 <German>AE3 Stromverbindung hinzugefügt</German>
                 <Chinesesimp>AE3 电力连接已添加</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Rename">
+                <Original>Rename</Original>
+                <English>Rename</English>
+                <French>Renommer</French>
+                <Italian>Rinomina</Italian>
+                <Russian>Переименовать</Russian>
+                <German>Umbenennen</German>
+                <Chinesesimp>重命名</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_RenameFailed">
+                <Original>Failed to rename: %1</Original>
+                <English>Failed to rename: %1</English>
+                <French>Échec du renommage: %1</French>
+                <Italian>Impossibile rinominare: %1</Italian>
+                <Russian>Не удалось переименовать: %1</Russian>
+                <German>Fehler beim Umbenennen: %1</German>
+                <Chinesesimp>重命名失败: %1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Renamed">
+                <Original>'%1' renamed to '%2' successfully.</Original>
+                <English>'%1' renamed to '%2' successfully.</English>
+                <French>'%1' renommé en '%2' avec succès.</French>
+                <Italian>'%1' rinominato in '%2' con successo.</Italian>
+                <Russian>'%1' успешно переименован в '%2'.</Russian>
+                <German>'%1' erfolgreich in '%2' umbenannt.</German>
+                <Chinesesimp>'%1' 已成功重命名为 '%2'。</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_Reset">
                 <Original>Reset</Original>

@@ -54,3 +54,8 @@ PREP(zeus_filesystemBrowser_createFolder);
 PREP(zeus_filesystemBrowser_saveFile);
 PREP(zeus_filesystemBrowser_delete);
 PREP(zeus_filesystemBrowser_onUnload);
+PREP(zeus_filesystemBrowser_applyChanges);
+PREP(zeus_filesystemBrowser_rename);
+PREP(zeus_filesystemBrowser_move);
+PREP(zeus_browser_newFile);
+PREP(zeus_browser_newFolder);

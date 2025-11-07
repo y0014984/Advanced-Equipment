@@ -54,25 +54,26 @@ else
 	private _fileOwner = _itemObj select 1;
 	private _filePerms = _itemObj select 2;
 
-	// Format permissions string
-	private _permString = "";
-	{
-		_permString = _permString + (["-", "x"] select (_x select 0));
-		_permString = _permString + (["-", "r"] select (_x select 1));
-		_permString = _permString + (["-", "w"] select (_x select 2));
-		if (_forEachIndex == 0) then { _permString = _permString + " / " };
-	} forEach _filePerms;
-
 	// Update UI
 	private _contentCtrl = _display displayCtrl 1401;
-	_contentCtrl ctrlSetText _fileContent;
+	_contentCtrl ctrlSetText (str _fileContent);
 
 	private _ownerCtrl = _display displayCtrl 1402;
 	_ownerCtrl ctrlSetText _fileOwner;
 
-	private _permCtrl = _display displayCtrl 1403;
-	_permCtrl ctrlSetText _permString;
+	// Set permission checkboxes
+	private _ownerPerms = _filePerms select 0;
+	private _everyonePerms = _filePerms select 1;
+
+	(_display displayCtrl 1310) cbSetChecked (_ownerPerms select 1); // Owner Read
+	(_display displayCtrl 1311) cbSetChecked (_ownerPerms select 2); // Owner Write
+	(_display displayCtrl 1312) cbSetChecked (_ownerPerms select 0); // Owner Execute
+
+	(_display displayCtrl 1313) cbSetChecked (_everyonePerms select 1); // Everyone Read
+	(_display displayCtrl 1314) cbSetChecked (_everyonePerms select 2); // Everyone Write
+	(_display displayCtrl 1315) cbSetChecked (_everyonePerms select 0); // Everyone Execute
 
 	// Store current file for saving
 	_display setVariable ["AE3_currentFile", _itemName];
+	_display setVariable ["AE3_currentFilePerms", _filePerms];
 };
