@@ -65,7 +65,17 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		/* ---------------------------------------- */
 
-		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then	
+		if (_key isEqualTo DIK_TAB) then
+		{
+			if (_terminalApplication == "SHELL") then
+			{
+				[_computer] call AE3_armaos_fnc_terminal_autocomplete;
+			};
+		};
+
+		/* ---------------------------------------- */
+
+		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then
 		{
 			private _input = [_computer] call AE3_armaos_fnc_terminal_getInput;
 

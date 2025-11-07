@@ -42,3 +42,15 @@ PREP(zeus_module_addConnection);
 PREP(zeus_checkForComputer);
 
 PREP(zeus_isConnectionAllowed);
+
+PREP(zeus_resetDevice);
+PREP(zeus_openFilesystemBrowser);
+PREP(zeus_filesystemBrowser_init);
+PREP(zeus_filesystemBrowser_refresh);
+PREP(zeus_filesystemBrowser_onDblClick);
+PREP(zeus_filesystemBrowser_goBack);
+PREP(zeus_filesystemBrowser_createFile);
+PREP(zeus_filesystemBrowser_createFolder);
+PREP(zeus_filesystemBrowser_saveFile);
+PREP(zeus_filesystemBrowser_delete);
+PREP(zeus_filesystemBrowser_onUnload);

@@ -94,6 +94,7 @@ PREP(terminal_addCharToInput);
 PREP(terminal_removeCharFromInput);
 PREP(terminal_shiftInputBuffer);
 PREP(terminal_getInput);
+PREP(terminal_autocomplete);
 
 PREP(terminal_renderLine);
 PREP(terminal_reRenderBuffer);

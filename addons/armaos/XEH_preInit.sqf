@@ -52,14 +52,29 @@
 	[
 		[1, 2, 3],
 		[
-			["STR_AE3_Main_CbaSettings_1line", "STR_AE3_Main_CbaSettings_1line"], 
-			["STR_AE3_Main_CbaSettings_2lines", "STR_AE3_Main_CbaSettings_2lines"], 
+			["STR_AE3_Main_CbaSettings_1line", "STR_AE3_Main_CbaSettings_1line"],
+			["STR_AE3_Main_CbaSettings_2lines", "STR_AE3_Main_CbaSettings_2lines"],
 			["STR_AE3_Main_CbaSettings_3lines", "STR_AE3_Main_CbaSettings_3lines"]
-		], 
+		],
 		0
 	],
     nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
-    {  
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
+	"AE3_TerminalDefaultSize",
+	"SLIDER",
+	["Terminal Default Size", "The default font size for terminal displays (0.5 = 50%, 1.0 = 100%). You can also use Ctrl + Plus/Minus to adjust size in-game."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[0.5, 1.0, 0.75, 2],
+    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
     false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>

@@ -252,6 +252,15 @@
                 <Original>Asset Details</Original>
                 <English>Asset Details</English>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_Back">
+                <Original>Back</Original>
+                <English>Back</English>
+                <French>Retour</French>
+                <Italian>Indietro</Italian>
+                <Russian>Назад</Russian>
+                <German>Zurück</German>
+                <Chinesesimp>返回</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_BatteryLevel">
                 <Original>Battery Level</Original>
                 <English>Battery Level</English>
@@ -261,6 +270,15 @@
                 <German>Batterieladestand</German>
                 <Chinesesimp>电量</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_BrowseFiles">
+                <Original>Browse Files</Original>
+                <English>Browse Files</English>
+                <French>Parcourir les fichiers</French>
+                <Italian>Sfoglia i file</Italian>
+                <Russian>Просмотр файлов</Russian>
+                <German>Dateien durchsuchen</German>
+                <Chinesesimp>浏览文件</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_Caesar">
                 <Original>Caesar</Original>
                 <English>Caesar</English>
@@ -269,6 +287,33 @@
                 <Russian>Caesar</Russian>
                 <German>Caesar</German>
                 <Chinesesimp>凯撒</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CannotDeleteSystemItem">
+                <Original>Cannot delete system files or folders.</Original>
+                <English>Cannot delete system files or folders.</English>
+                <French>Impossible de supprimer les fichiers ou dossiers système.</French>
+                <Italian>Impossibile eliminare file o cartelle di sistema.</Italian>
+                <Russian>Невозможно удалить системные файлы или папки.</Russian>
+                <German>Systemdateien oder -ordner können nicht gelöscht werden.</German>
+                <Chinesesimp>无法删除系统文件或文件夹.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CannotModifySystemFile">
+                <Original>Cannot modify system files.</Original>
+                <English>Cannot modify system files.</English>
+                <French>Impossible de modifier les fichiers système.</French>
+                <Italian>Impossibile modificare i file di sistema.</Italian>
+                <Russian>Невозможно изменить системные файлы.</Russian>
+                <German>Systemdateien können nicht geändert werden.</German>
+                <Chinesesimp>无法修改系统文件.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CannotModifySystemFolder">
+                <Original>Cannot modify system folders (/bin, /sbin, /etc).</Original>
+                <English>Cannot modify system folders (/bin, /sbin, /etc).</English>
+                <French>Impossible de modifier les dossiers système (/bin, /sbin, /etc).</French>
+                <Italian>Impossibile modificare le cartelle di sistema (/bin, /sbin, /etc).</Italian>
+                <Russian>Невозможно изменить системные папки (/bin, /sbin, /etc).</Russian>
+                <German>Systemordner können nicht geändert werden (/bin, /sbin, /etc).</German>
+                <Chinesesimp>无法修改系统文件夹 (/bin, /sbin, /etc).</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_CantCloseObject">
                 <Original>Can't close object.</Original>
@@ -360,6 +405,51 @@
                 <German>Verbindungstyp</German>
                 <Chinesesimp>连接类型</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_CreateFile">
+                <Original>Create File</Original>
+                <English>Create File</English>
+                <French>Créer un fichier</French>
+                <Italian>Crea file</Italian>
+                <Russian>Создать файл</Russian>
+                <German>Datei erstellen</German>
+                <Chinesesimp>创建文件</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CreateFolder">
+                <Original>Create Folder</Original>
+                <English>Create Folder</English>
+                <French>Créer un dossier</French>
+                <Italian>Crea cartella</Italian>
+                <Russian>Создать папку</Russian>
+                <German>Ordner erstellen</German>
+                <Chinesesimp>创建文件夹</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_CurrentPath">
+                <Original>Current Path:</Original>
+                <English>Current Path:</English>
+                <French>Chemin actuel:</French>
+                <Italian>Percorso corrente:</Italian>
+                <Russian>Текущий путь:</Russian>
+                <German>Aktueller Pfad:</German>
+                <Chinesesimp>当前路径:</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Delete">
+                <Original>Delete</Original>
+                <English>Delete</English>
+                <French>Supprimer</French>
+                <Italian>Elimina</Italian>
+                <Russian>Удалить</Russian>
+                <German>Löschen</German>
+                <Chinesesimp>删除</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_DeviceReset">
+                <Original>Device has been reset to default settings.</Original>
+                <English>Device has been reset to default settings.</English>
+                <French>L'appareil a été réinitialisé aux paramètres par défaut.</French>
+                <Italian>Il dispositivo è stato ripristinato alle impostazioni predefinite.</Italian>
+                <Russian>Устройство было сброшено до настроек по умолчанию.</Russian>
+                <German>Das Gerät wurde auf die Standardeinstellungen zurückgesetzt.</German>
+                <Chinesesimp>设备已重置为默认设置.</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_DirOwner">
                 <Original>Directory owner</Original>
                 <English>Directory owner</English>
@@ -432,6 +522,24 @@
                 <German>Dateiinhalt</German>
                 <Chinesesimp>文件内容</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileCreated">
+                <Original>File '%1' created successfully.</Original>
+                <English>File '%1' created successfully.</English>
+                <French>Fichier '%1' créé avec succès.</French>
+                <Italian>File '%1' creato con successo.</Italian>
+                <Russian>Файл '%1' успешно создан.</Russian>
+                <German>Datei '%1' erfolgreich erstellt.</German>
+                <Chinesesimp>文件 '%1' 创建成功.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileCreationFailed">
+                <Original>Failed to create file: %1</Original>
+                <English>Failed to create file: %1</English>
+                <French>Échec de la création du fichier: %1</French>
+                <Italian>Impossibile creare il file: %1</Italian>
+                <Russian>Не удалось создать файл: %1</Russian>
+                <German>Fehler beim Erstellen der Datei: %1</German>
+                <Chinesesimp>创建文件失败: %1</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_FileOwner">
                 <Original>File owner</Original>
                 <English>File owner</English>
@@ -440,6 +548,51 @@
                 <Russian>Владелец файла</Russian>
                 <German>Dateibesitzer</German>
                 <Chinesesimp>文件所有者</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileSaveFailed">
+                <Original>Failed to save file: %1</Original>
+                <English>Failed to save file: %1</English>
+                <French>Échec de la sauvegarde du fichier: %1</French>
+                <Italian>Impossibile salvare il file: %1</Italian>
+                <Russian>Не удалось сохранить файл: %1</Russian>
+                <German>Fehler beim Speichern der Datei: %1</German>
+                <Chinesesimp>保存文件失败: %1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FileSaved">
+                <Original>File '%1' saved successfully.</Original>
+                <English>File '%1' saved successfully.</English>
+                <French>Fichier '%1' sauvegardé avec succès.</French>
+                <Italian>File '%1' salvato con successo.</Italian>
+                <Russian>Файл '%1' успешно сохранен.</Russian>
+                <German>Datei '%1' erfolgreich gespeichert.</German>
+                <Chinesesimp>文件 '%1' 保存成功.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FilesystemBrowser">
+                <Original>Filesystem Browser</Original>
+                <English>Filesystem Browser</English>
+                <French>Explorateur de système de fichiers</French>
+                <Italian>Browser del filesystem</Italian>
+                <Russian>Файловый браузер</Russian>
+                <German>Dateisystem-Browser</German>
+                <Chinesesimp>文件系统浏览器</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FolderCreated">
+                <Original>Folder '%1' created successfully.</Original>
+                <English>Folder '%1' created successfully.</English>
+                <French>Dossier '%1' créé avec succès.</French>
+                <Italian>Cartella '%1' creata con successo.</Italian>
+                <Russian>Папка '%1' успешно создана.</Russian>
+                <German>Ordner '%1' erfolgreich erstellt.</German>
+                <Chinesesimp>文件夹 '%1' 创建成功.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_FolderCreationFailed">
+                <Original>Failed to create folder: %1</Original>
+                <English>Failed to create folder: %1</English>
+                <French>Échec de la création du dossier: %1</French>
+                <Italian>Impossibile creare la cartella: %1</Italian>
+                <Russian>Не удалось создать папку: %1</Russian>
+                <German>Fehler beim Erstellen des Ordners: %1</German>
+                <Chinesesimp>创建文件夹失败: %1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_From">
                 <Original>From</Original>
@@ -494,6 +647,24 @@
                 <Russian>Это код?</Russian>
                 <German>Ist Code?</German>
                 <Chinesesimp>是否为代码?</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ItemDeleted">
+                <Original>Item '%1' deleted successfully.</Original>
+                <English>Item '%1' deleted successfully.</English>
+                <French>Élément '%1' supprimé avec succès.</French>
+                <Italian>Elemento '%1' eliminato con successo.</Italian>
+                <Russian>Элемент '%1' успешно удален.</Russian>
+                <German>Element '%1' erfolgreich gelöscht.</German>
+                <Chinesesimp>项目 '%1' 删除成功.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ItemDeletionFailed">
+                <Original>Failed to delete item: %1</Original>
+                <English>Failed to delete item: %1</English>
+                <French>Échec de la suppression de l'élément: %1</French>
+                <Italian>Impossibile eliminare l'elemento: %1</Italian>
+                <Russian>Не удалось удалить элемент: %1</Russian>
+                <German>Fehler beim Löschen des Elements: %1</German>
+                <Chinesesimp>删除项目失败: %1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_KeyMissing">
                 <Original>'Key' missing</Original>
@@ -657,6 +828,33 @@
                 <German>Kein Computer. Setze das Mobul auf einen Computer.</German>
                 <Chinesesimp>没有电脑.请将模块放置在电脑上.</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_NoFileSelected">
+                <Original>No file selected.</Original>
+                <English>No file selected.</English>
+                <French>Aucun fichier sélectionné.</French>
+                <Italian>Nessun file selezionato.</Italian>
+                <Russian>Файл не выбран.</Russian>
+                <German>Keine Datei ausgewählt.</German>
+                <Chinesesimp>未选择文件.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NoFilesystem">
+                <Original>Selected entity does not have a filesystem.</Original>
+                <English>Selected entity does not have a filesystem.</English>
+                <French>L'entité sélectionnée n'a pas de système de fichiers.</French>
+                <Italian>L'entità selezionata non ha un filesystem.</Italian>
+                <Russian>Выбранная сущность не имеет файловой системы.</Russian>
+                <German>Die ausgewählte Entität hat kein Dateisystem.</German>
+                <Chinesesimp>所选实体没有文件系统.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NoItemSelected">
+                <Original>No item selected.</Original>
+                <English>No item selected.</English>
+                <French>Aucun élément sélectionné.</French>
+                <Italian>Nessun elemento selezionato.</Italian>
+                <Russian>Элемент не выбран.</Russian>
+                <German>Kein Element ausgewählt.</German>
+                <Chinesesimp>未选择项目.</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_ObjectClosed">
                 <Original>Object closed.</Original>
                 <English>Object closed.</English>
@@ -800,6 +998,24 @@
                 <Russian>AE3 Power Connection added</Russian>
                 <German>AE3 Stromverbindung hinzugefügt</German>
                 <Chinesesimp>AE3 电力连接已添加</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Reset">
+                <Original>Reset</Original>
+                <English>Reset</English>
+                <French>Réinitialiser</French>
+                <Italian>Ripristina</Italian>
+                <Russian>Сброс</Russian>
+                <German>Zurücksetzen</German>
+                <Chinesesimp>重置</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Save">
+                <Original>Save</Original>
+                <English>Save</English>
+                <French>Sauvegarder</French>
+                <Italian>Salva</Italian>
+                <Russian>Сохранить</Russian>
+                <German>Speichern</German>
+                <Chinesesimp>保存</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_SecurityCommandsAdded">
                 <Original>AE3 Security Commands added</Original>
