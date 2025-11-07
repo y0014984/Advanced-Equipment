@@ -1,0 +1,5 @@
+1. Rework on the 'Move' option in the File explorer to be more user friendly by using tree view like the initial file browser
+2. Add more themes
+3. Add more battery icons
+4. Fix serialization
+5. Refactor and rebase
