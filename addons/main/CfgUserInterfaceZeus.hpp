@@ -2678,18 +2678,18 @@ class AE3_UserInterface_Zeus_Browser_Move
 
 		class RscButtonMenuOK_2600: RscButtonMenuOK
 		{
-			x = 24.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 18.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 3 * GUI_GRID_W;
+			w = 5.5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control]; _control ctrlEnable false;";
 		};
 
 		class RscButtonMenuCancel_2700: RscButtonMenuCancel
 		{
-			x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+			x = 24.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 3 * GUI_GRID_W;
+			w = 5.5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};
 	};
