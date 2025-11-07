@@ -9,6 +9,7 @@ class RscXSliderH;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class RscListBox;
+class RscPicture;
 
 /* ================================================================================ */
 
@@ -370,7 +371,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			text = "";
 			x = 26.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 17 * GUI_GRID_H + GUI_GRID_Y;
-			w = 23 * GUI_GRID_W;
+			w = 12 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			colorBackground[] = {-1,-1,-1,0.5};
 		};
@@ -414,7 +415,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			idc = 1022;
 			text = "R";
 			x = 26.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			style = ST_CENTER;
@@ -425,7 +426,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			idc = 1023;
 			text = "W";
 			x = 28.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			style = ST_CENTER;
@@ -436,7 +437,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			idc = 1024;
 			text = "X";
 			x = 30.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			style = ST_CENTER;
@@ -447,7 +448,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			idc = 1025;
 			text = "R";
 			x = 32.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			style = ST_CENTER;
@@ -458,7 +459,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			idc = 1026;
 			text = "W";
 			x = 34.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			style = ST_CENTER;
@@ -469,7 +470,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			idc = 1027;
 			text = "X";
 			x = 36.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 20 * GUI_GRID_H + GUI_GRID_Y;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 1 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			style = ST_CENTER;
@@ -557,7 +558,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			w = 5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			text = "$STR_AE3_Main_Zeus_Rename";
-			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_rename;";
+			onButtonClick = "createDialog 'AE3_UserInterface_Zeus_Browser_Rename';";
 		};
 
 		// Move button
@@ -569,7 +570,7 @@ class AE3_UserInterface_Zeus_FilesystemBrowser
 			w = 5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			text = "$STR_AE3_Main_Zeus_Move";
-			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_move;";
+			onButtonClick = "createDialog 'AE3_UserInterface_Zeus_Browser_Move';";
 		};
 
 		// Action buttons
@@ -2530,6 +2531,168 @@ class AE3_UserInterface_Zeus_Browser_NewFolder
 		{
 			x = 31 * GUI_GRID_W + GUI_GRID_X;
 			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+	};
+};
+
+/* ================================================================================ */
+
+class AE3_UserInterface_Zeus_Browser_Rename
+{
+	idd = 16996;
+	movingEnable = 1;
+	enableSimulation = 1;
+
+	onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_filesystemBrowser_rename;";
+	onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_filesystemBrowser_rename;";
+
+	class ControlsBackground
+	{
+		class RscPicture_1200: RscPicture
+		{
+			idc = 1200;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 23 * GUI_GRID_W;
+			h = 7.5 * GUI_GRID_H;
+			colorText[] = {0.1,0.1,0.1,1};
+		};
+	};
+
+	class Controls
+	{
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "$STR_AE3_Main_Zeus_RenameDialogTitle";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 23 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			text = "$STR_AE3_Main_Zeus_NewName";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1400: RscEdit
+		{
+			idc = 1400;
+			text = "";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 14.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['newname', _newText];";
+			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['newname', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; if ((_newText isEqualTo '') || ((_newText find ' ') != -1)) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscButtonMenuOK_2600: RscButtonMenuOK
+		{
+			x = 17.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control]; _control ctrlEnable false;";
+		};
+
+		class RscButtonMenuCancel_2700: RscButtonMenuCancel
+		{
+			x = 11.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+	};
+};
+
+/* ================================================================================ */
+
+class AE3_UserInterface_Zeus_Browser_Move
+{
+	idd = 16997;
+	movingEnable = 1;
+	enableSimulation = 1;
+
+	onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_filesystemBrowser_move;";
+	onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_filesystemBrowser_move;";
+
+	class ControlsBackground
+	{
+		class RscPicture_1200: RscPicture
+		{
+			idc = 1200;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 23 * GUI_GRID_W;
+			h = 7.5 * GUI_GRID_H;
+			colorText[] = {0.1,0.1,0.1,1};
+		};
+	};
+
+	class Controls
+	{
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "$STR_AE3_Main_Zeus_MoveDialogTitle";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 23 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			text = "$STR_AE3_Main_Zeus_DestinationPath";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1400: RscEdit
+		{
+			idc = 1400;
+			text = "/";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 14.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['destpath', _newText];";
+			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['destpath', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; if (_newText isEqualTo '') then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscButtonMenuOK_2600: RscButtonMenuOK
+		{
+			x = 17.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control];";
+		};
+
+		class RscButtonMenuCancel_2700: RscButtonMenuCancel
+		{
+			x = 11.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 5 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};

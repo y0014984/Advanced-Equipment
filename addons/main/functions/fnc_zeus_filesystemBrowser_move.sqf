@@ -1,23 +1,43 @@
 /**
- * Moves the currently selected file/folder to a different directory.
+ * Handles the Move dialog for the filesystem browser.
  *
  * Arguments:
- * None
+ * 0: Display <DISPLAY>
+ * 1: Exit Code <NUMBER>
+ * 2: Mode <STRING> - "onLoad" or "onUnload"
  *
  * Results:
  * None
  */
 
-[] spawn {
-	private _display = findDisplay 16993;
-	if (isNull _display) exitWith {};
+params ["_display", "_exitCode", "_mode"];
 
-	private _entity = _display getVariable ["AE3_entity", objNull];
+if (_mode isEqualTo "onLoad") then
+{
+	// Check if a file is selected
+	private _browserDisplay = findDisplay 16993;
+	if (isNull _browserDisplay) exitWith {};
+
+	private _currentFile = _browserDisplay getVariable ["AE3_currentFile", ""];
+	if (_currentFile isEqualTo "") exitWith {
+		closeDialog 0;
+		hint localize "STR_AE3_Main_Zeus_NoFileSelected";
+	};
+};
+
+if (_mode isEqualTo "onUnload") exitWith
+{
+	if (_exitCode != 1) exitWith {}; // User cancelled
+
+	private _browserDisplay = findDisplay 16993;
+	if (isNull _browserDisplay) exitWith {};
+
+	private _entity = _browserDisplay getVariable ["AE3_entity", objNull];
 	if (isNull _entity) exitWith {};
 
-	private _pointer = _display getVariable ["AE3_pointer", []];
+	private _pointer = _browserDisplay getVariable ["AE3_pointer", []];
 	private _filesystem = _entity getVariable ["AE3_filesystem", createHashMap];
-	private _currentFile = _display getVariable ["AE3_currentFile", ""];
+	private _currentFile = _browserDisplay getVariable ["AE3_currentFile", ""];
 
 	if (_currentFile isEqualTo "") exitWith {
 		hint localize "STR_AE3_Main_Zeus_NoFileSelected";
@@ -30,9 +50,8 @@
 		hint localize "STR_AE3_Main_Zeus_CannotModifySystemFolder";
 	};
 
-	// Prompt for destination path
-	private _destPath = "/";
-	_destPath = call compile (format ["'%1'", _destPath call BIS_fnc_guiMessage]);
+	// Get destination path from dialog
+	private _destPath = _display getVariable ["destpath", "/"];
 
 	if (_destPath isEqualTo "") exitWith {};
 
@@ -81,8 +100,8 @@
 		_entity setVariable ["AE3_filesystem", _filesystem, true];
 
 		// Clear current file and refresh
-		_display setVariable ["AE3_currentFile", ""];
-		[_display] call AE3_main_fnc_zeus_filesystemBrowser_refresh;
+		_browserDisplay setVariable ["AE3_currentFile", ""];
+		[_browserDisplay] call AE3_main_fnc_zeus_filesystemBrowser_refresh;
 
 		hint format [localize "STR_AE3_Main_Zeus_Moved", _currentFile, _destPath];
 	}

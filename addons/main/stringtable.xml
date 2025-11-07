@@ -468,6 +468,15 @@
                 <German>Löschen</German>
                 <Chinesesimp>删除</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_DestinationPath">
+                <Original>Destination Path:</Original>
+                <English>Destination Path:</English>
+                <French>Chemin de Destination:</French>
+                <Italian>Percorso di Destinazione:</Italian>
+                <Russian>Путь Назначения:</Russian>
+                <German>Zielpfad:</German>
+                <Chinesesimp>目标路径:</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_DeviceReset">
                 <Original>Device has been reset to default settings.</Original>
                 <English>Device has been reset to default settings.</English>
@@ -837,6 +846,15 @@
                 <German>Verschieben</German>
                 <Chinesesimp>移动</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_MoveDialogTitle">
+                <Original>Move File/Folder</Original>
+                <English>Move File/Folder</English>
+                <French>Déplacer Fichier/Dossier</French>
+                <Italian>Sposta File/Cartella</Italian>
+                <Russian>Переместить Файл/Папку</Russian>
+                <German>Datei/Ordner Verschieben</German>
+                <Chinesesimp>移动文件/文件夹</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_MoveFailed">
                 <Original>Failed to move: %1</Original>
                 <English>Failed to move: %1</English>
@@ -890,6 +908,15 @@
                 <Russian>New Fuel Level: %1%2</Russian>
                 <German>Neuer Treibstofffüllstand: %1%2</German>
                 <Chinesesimp>新油量: %1%2</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NewName">
+                <Original>New Name:</Original>
+                <English>New Name:</English>
+                <French>Nouveau Nom:</French>
+                <Italian>Nuovo Nome:</Italian>
+                <Russian>Новое Имя:</Russian>
+                <German>Neuer Name:</German>
+                <Chinesesimp>新名称:</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_NoComputer">
                 <Original>No computer. Place module on computer.</Original>
@@ -1079,6 +1106,15 @@
                 <Russian>Переименовать</Russian>
                 <German>Umbenennen</German>
                 <Chinesesimp>重命名</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_RenameDialogTitle">
+                <Original>Rename File/Folder</Original>
+                <English>Rename File/Folder</English>
+                <French>Renommer Fichier/Dossier</French>
+                <Italian>Rinomina File/Cartella</Italian>
+                <Russian>Переименовать Файл/Папку</Russian>
+                <German>Datei/Ordner Umbenennen</German>
+                <Chinesesimp>重命名文件/文件夹</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_RenameFailed">
                 <Original>Failed to rename: %1</Original>

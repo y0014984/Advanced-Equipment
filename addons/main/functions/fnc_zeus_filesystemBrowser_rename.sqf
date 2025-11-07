@@ -1,23 +1,54 @@
 /**
- * Renames the currently selected file/folder.
+ * Handles the Rename dialog for the filesystem browser.
  *
  * Arguments:
- * None
+ * 0: Display <DISPLAY>
+ * 1: Exit Code <NUMBER>
+ * 2: Mode <STRING> - "onLoad" or "onUnload"
  *
  * Results:
  * None
  */
 
-[] spawn {
-	private _display = findDisplay 16993;
-	if (isNull _display) exitWith {};
+params ["_display", "_exitCode", "_mode"];
 
-	private _entity = _display getVariable ["AE3_entity", objNull];
+if (_mode isEqualTo "onLoad") then
+{
+	// Get the current file from the browser display and set it in the rename dialog
+	private _browserDisplay = findDisplay 16993;
+	if (isNull _browserDisplay) exitWith {};
+
+	private _currentFile = _browserDisplay getVariable ["AE3_currentFile", ""];
+	if (_currentFile isEqualTo "") exitWith {
+		closeDialog 0;
+		hint localize "STR_AE3_Main_Zeus_NoFileSelected";
+	};
+
+	// Set the current filename in the text field
+	private _editCtrl = _display displayCtrl 1400;
+	_editCtrl ctrlSetText _currentFile;
+	_display setVariable ["newname", _currentFile];
+
+	// Enable OK button since we have a valid name
+	private _okCtrl = _display getVariable ["okCtrl", objNull];
+	if (!isNull _okCtrl) then {
+		_okCtrl ctrlEnable true;
+	};
+};
+
+if (_mode isEqualTo "onUnload") exitWith
+{
+	if (_exitCode != 1) exitWith {}; // User cancelled
+
+	private _browserDisplay = findDisplay 16993;
+	if (isNull _browserDisplay) exitWith {};
+
+	private _entity = _browserDisplay getVariable ["AE3_entity", objNull];
 	if (isNull _entity) exitWith {};
 
-	private _pointer = _display getVariable ["AE3_pointer", []];
+	private _pointer = _browserDisplay getVariable ["AE3_pointer", []];
 	private _filesystem = _entity getVariable ["AE3_filesystem", createHashMap];
-	private _currentFile = _display getVariable ["AE3_currentFile", ""];
+	private _currentFile = _browserDisplay getVariable ["AE3_currentFile", ""];
 
 	if (_currentFile isEqualTo "") exitWith {
 		hint localize "STR_AE3_Main_Zeus_NoFileSelected";
@@ -30,9 +61,8 @@
 		hint localize "STR_AE3_Main_Zeus_CannotModifySystemFolder";
 	};
 
-	// Prompt for new name
-	private _newName = _currentFile;
-	_newName = call compile (format ["'%1'", _newName call BIS_fnc_guiMessage]);
+	// Get new name from dialog
+	private _newName = _display getVariable ["newname", ""];
 
 	if (_newName isEqualTo "") exitWith {};
 	if (_newName isEqualTo _currentFile) exitWith {};
@@ -58,8 +88,8 @@
 		_entity setVariable ["AE3_filesystem", _filesystem, true];
 
 		// Clear current file and refresh
-		_display setVariable ["AE3_currentFile", ""];
-		[_display] call AE3_main_fnc_zeus_filesystemBrowser_refresh;
+		_browserDisplay setVariable ["AE3_currentFile", ""];
+		[_browserDisplay] call AE3_main_fnc_zeus_filesystemBrowser_refresh;
 
 		hint format [localize "STR_AE3_Main_Zeus_Renamed", _currentFile, _newName];
 	}
