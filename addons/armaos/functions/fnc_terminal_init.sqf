@@ -18,10 +18,14 @@ if (!dialog) then
 	if (!_ok) then {hint localize "STR_AE3_ArmaOS_Exception_DialogFailed"};
 };
 
-private _consoleDialog = findDisplay 15984;	
+private _consoleDialog = findDisplay 15984;
 private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
 private _designButton = _consoleDialog displayCtrl 1320;
+private _titleControl = _consoleDialog displayCtrl 1000;
+
+// Set dialog title from CBA setting
+_titleControl ctrlSetText AE3_TerminalDialogTitle;
 
 [_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
 [_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;

@@ -67,24 +67,28 @@ if (!isDedicated) then
 	[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
 
 	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
-	private _networkPath = [];
+	private _hardwarePath = [];
 
 	if (_hasEquipmentAction) then {
-		// Nest under equipment action with Network submenu
+		// Nest under equipment action with Hardware submenu
 		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+		private _hasHardwareSubmenu = _entity getVariable ["AE3_interaction_hasHardwareSubmenu", false];
 
-		// Create Network submenu
-		private _networkSubmenu = ["AE3_NetworkSubmenu", "Network", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-		[_entity, 0, _parentPath, _networkSubmenu] call ace_interact_menu_fnc_addActionToObject;
+		if (!_hasHardwareSubmenu) then {
+			// Create Hardware submenu if it doesn't exist
+			private _hardwareSubmenu = ["AE3_HardwareSubmenu", "Hardware", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+			[_entity, 0, _parentPath, _hardwareSubmenu] call ace_interact_menu_fnc_addActionToObject;
+			_entity setVariable ["AE3_interaction_hasHardwareSubmenu", true];
+		};
 
-		_networkPath = _parentPath + ["AE3_NetworkSubmenu"];
+		_hardwarePath = _parentPath + ["AE3_HardwareSubmenu"];
 	} else {
 		// For non-laptop devices, use existing DeviceAction path
-		_networkPath = ["ACE_MainActions", "AE3_DeviceAction"];
+		_hardwarePath = ["ACE_MainActions", "AE3_DeviceAction"];
 	};
 
-	[_entity, 0, _networkPath, _connect] call ace_interact_menu_fnc_addActionToObject;
-	[_entity, 0, _networkPath, _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	[_entity, 0, _hardwarePath, _connect] call ace_interact_menu_fnc_addActionToObject;
+	[_entity, 0, _hardwarePath, _disconnect] call ace_interact_menu_fnc_addActionToObject;
 };
 
 

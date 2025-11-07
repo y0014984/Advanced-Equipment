@@ -330,15 +330,6 @@
                 <German>AE3 Benutzer hinzufügen</German>
                 <Chinesesimp>AE3添加用户</Chinesesimp>
             </Key>
-            <Key ID="STR_AE3_ArmaOS_Config_ArmaOSDisplayName">
-                <Original>ArmaOS</Original>
-                <English>ArmaOS</English>
-                <French>ArmaOS</French>
-                <Italian>ArmaOS</Italian>
-                <Russian>ArmaOS</Russian>
-                <German>ArmaOS</German>
-                <Chinesesimp>ArmaOS</Chinesesimp>
-            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_BatteryDisplayName">
                 <Original>Battery</Original>
                 <English>Battery</English>
@@ -1109,26 +1100,6 @@
                 <Russian>Пользователь: '%1' не найден</Russian>
                 <German>Benutzer: '%1' nicht gefunden</German>
                 <Chinesesimp>未找到用户: '%1'</Chinesesimp>
-            </Key>
-        </Container>
-        <Container name="Header">
-            <Key ID="STR_AE3_ArmaOS_Header_Line1">
-                <Original>Get a list of available commands by typing 'help'</Original>
-                <English>Get a list of available commands by typing 'help'</English>
-                <French>Obtenez une liste des commandes disponibles en tapant 'help'</French>
-                <Italian>Ricevi una lista di possibili comandi scrivento 'help' 'help'</Italian>
-                <Russian>Получить список доступных команд: 'help'</Russian>
-                <German>Erhalte eine Liste der verfügbaren Befehle durch Eingabe von 'help'</German>
-                <Chinesesimp>输入'help'获取可用命令列表</Chinesesimp>
-            </Key>
-            <Key ID="STR_AE3_ArmaOS_Header_Line2">
-                <Original>Get detailed command information by typing 'man [command]'</Original>
-                <English>Get detailed command information by typing 'man [command]'</English>
-                <French>Obtenez des informations détaillées sur la commande en tapant 'man [commande]'</French>
-                <Italian>Ricevi informazioni dettagliate sul comando scrivendos 'man [command]'</Italian>
-                <Russian>Получить подробную информацию о команде: 'man [command]'</Russian>
-                <German>Erhalte ausführliche Befehlsinformationen durch Eingabe von 'man [Befehl]'</German>
-                <Chinesesimp>输入'man[command]'获取详细的命令信息</Chinesesimp>
             </Key>
         </Container>
         <Container name="Results">

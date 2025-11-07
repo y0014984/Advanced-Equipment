@@ -24,29 +24,17 @@ if(!isDedicated) then
 {
     // Check if equipment action exists (set by fnc_initInteraction for laptops)
     private _hasEquipmentAction = _laptop getVariable ["AE3_interaction_hasEquipmentAction", false];
-    private _parentPath = [];
-    private _armaOSSubmenuPath = [];
+    private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
 
-    if (_hasEquipmentAction) then {
-        // Nest under existing equipment action with ArmaOS submenu
-        _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
-
-        // Create ArmaOS submenu
-        private _armaOSSubmenu = ["AE3_ArmaOSSubmenu", localize "STR_AE3_ArmaOS_Config_ArmaOSDisplayName", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-        [_laptop, 0, _parentPath, _armaOSSubmenu] call ace_interact_menu_fnc_addActionToObject;
-
-        _armaOSSubmenuPath = _parentPath + ["AE3_ArmaOSSubmenu"];
-    } else {
-        // Fallback for non-laptop objects (shouldn't happen, but defensive programming)
-        private _armaOSAction = ["AE3_ArmaOSAction", localize "STR_AE3_ArmaOS_Config_ArmaOSDisplayName", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-        [_laptop, 0, ["ACE_MainActions"], _armaOSAction] call ace_interact_menu_fnc_addActionToObject;
-        _armaOSSubmenuPath = ["ACE_MainActions", "AE3_ArmaOSAction"];
+    if (!_hasEquipmentAction) then {
+        // Fallback: shouldn't happen for laptops, but defensive programming
+        _parentPath = ["ACE_MainActions"];
     };
 
-    // add the 'use' interaction to the armaOS Menu
+    // Add "Use Terminal" action directly under Laptop action (no submenu)
     private _useAction =
     [
-        "AE3_UseAction", // internal name
+        "AE3_UseTerminalAction", // internal name
         localize "STR_AE3_ArmaOS_Config_UseDisplayName", // visible name
         "", // icon
         {
@@ -64,5 +52,5 @@ if(!isDedicated) then
             (isNull (_target getVariable ["AE3_computer_mutex", objNull]))
         }
     ] call ace_interact_menu_fnc_createAction;
-    [_laptop, 0, _armaOSSubmenuPath, _useAction] call ace_interact_menu_fnc_addActionToObject; // 0 = action; 1 = self-action
+    [_laptop, 0, _parentPath, _useAction] call ace_interact_menu_fnc_addActionToObject;
 };

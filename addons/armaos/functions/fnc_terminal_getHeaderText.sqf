@@ -8,12 +8,39 @@
  * Header Lines <[STRING]>
  */
 
-_result = 
-	[
-		"armaOS Terminal v0.1 - © 2022 y0014984|Wasserstoff",
-		localize "STR_AE3_ArmaOS_Header_Line1",
-		localize "STR_AE3_ArmaOS_Header_Line2",
+// Build header array using CBA settings
+_result = [
+	AE3_TerminalBiosVersion,
+	AE3_TerminalCopyright,
+	AE3_TerminalBootMessage,
+	AE3_TerminalTipMessage,
+	" "
+];
+
+// Add ASCII art if enabled
+if (AE3_TerminalShowAsciiArt) then {
+	_result append [
+		"  #######    ##              ####### ",
+		"#########   ####    Root     ####### ",
+		"#########   ####  y0014984   ####### ",
+		"#########   #### Wasserstoff ####### ",
+		"#########   #### JulesVerner ####### ",
+		"#########   ####             ####### ",
+		"#################################### ",
+		"#################################### ",
+		"##############       ############### ",
+		"############# 00       ############# ",
+		"############# 0  00    ############# ",
+		"#############         ############## ",
+		"###############      ############### ",
+		"#################################### ",
+		"#################################### ",
+		"#  ################################# ",
+		"#################################### ",
+		" ",
+		AE3_TerminalTagline,
 		" "
 	];
+};
 
 _result

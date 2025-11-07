@@ -61,7 +61,7 @@ class AE3_ArmaOS_Main_Dialog
 		{
 			// Terminal Header
 			idc = 1000;
-			text = "YOO INDUSTRIES COMPUTER";
+			text = "SHITE™ COMPUTING";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.25 * GUI_GRID_H + GUI_GRID_Y;
 			w = 29.5 * GUI_GRID_W;

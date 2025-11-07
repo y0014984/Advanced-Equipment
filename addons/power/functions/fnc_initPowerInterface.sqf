@@ -87,9 +87,19 @@ if(!isDedicated) then
 	private _hasEquipmentAction = _device getVariable ["AE3_interaction_hasEquipmentAction", false];
 
 	if (_hasEquipmentAction) then {
-		// Add to Power submenu for laptops
-		[_device, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_PowerSubmenu"], _connect] call ace_interact_menu_fnc_addActionToObject;
-		[_device, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_PowerSubmenu"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+		// Create Hardware submenu if it doesn't exist
+		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+		private _hasHardwareSubmenu = _device getVariable ["AE3_interaction_hasHardwareSubmenu", false];
+
+		if (!_hasHardwareSubmenu) then {
+			private _hardwareSubmenu = ["AE3_HardwareSubmenu", "Hardware", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+			[_device, 0, _parentPath, _hardwareSubmenu] call ace_interact_menu_fnc_addActionToObject;
+			_device setVariable ["AE3_interaction_hasHardwareSubmenu", true];
+		};
+
+		// Add power connections to Hardware submenu
+		[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _connect] call ace_interact_menu_fnc_addActionToObject;
+		[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
 	} else {
 		// Add to standalone device action
 		[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
