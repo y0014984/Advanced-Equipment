@@ -333,6 +333,15 @@
                 <German>Systemordner können nicht geändert werden (/bin, /sbin, /etc).</German>
                 <Chinesesimp>无法修改系统文件夹 (/bin, /sbin, /etc).</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_CannotMoveIntoSubdir">
+                <Original>Cannot move into subdirectory of itself</Original>
+                <English>Cannot move into subdirectory of itself</English>
+                <French>Impossible de déplacer dans un sous-dossier de lui-même</French>
+                <Italian>Impossibile spostare nella sottocartella di se stesso</Italian>
+                <Russian>Невозможно переместить в свою подпапку</Russian>
+                <German>Kann nicht in eigenes Unterverzeichnis verschoben werden</German>
+                <Chinesesimp>无法移动到自身的子目录</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_CantCloseObject">
                 <Original>Can't close object.</Original>
                 <English>Can't close object.</English>
@@ -476,15 +485,6 @@
                 <Russian>Удалить</Russian>
                 <German>Löschen</German>
                 <Chinesesimp>删除</Chinesesimp>
-            </Key>
-            <Key ID="STR_AE3_Main_Zeus_DestinationPath">
-                <Original>Destination Path:</Original>
-                <English>Destination Path:</English>
-                <French>Chemin de destination:</French>
-                <Italian>Percorso di destinazione:</Italian>
-                <Russian>Путь назначения:</Russian>
-                <German>Zielpfad:</German>
-                <Chinesesimp>目标路径:</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_DirOwner">
                 <Original>Directory owner</Original>
@@ -1151,6 +1151,15 @@
                 <Russian>AE3 Security Commands added</Russian>
                 <German>AE3 Spiele hinzugefügt</German>
                 <Chinesesimp>AE3 安全命令已添加</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_SelectDestination">
+                <Original>Select destination folder:</Original>
+                <English>Select destination folder:</English>
+                <French>Sélectionnez le dossier de destination:</French>
+                <Italian>Seleziona la cartella di destinazione:</Italian>
+                <Russian>Выберите папку назначения:</Russian>
+                <German>Zielordner auswählen:</German>
+                <Chinesesimp>选择目标文件夹:</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_Standby">
                 <Original>Standby</Original>

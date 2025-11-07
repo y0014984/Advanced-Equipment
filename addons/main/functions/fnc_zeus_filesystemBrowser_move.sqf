@@ -14,7 +14,7 @@ params ["_display", "_exitCode", "_mode"];
 
 if (_mode isEqualTo "onLoad") then
 {
-	// Get the current file from the browser display and set default path
+	// Get the current file from the browser display
 	private _browserDisplay = findDisplay 16993;
 	if (isNull _browserDisplay) exitWith {};
 
@@ -24,19 +24,57 @@ if (_mode isEqualTo "onLoad") then
 		hint localize "STR_AE3_Main_Zeus_NoFileSelected";
 	};
 
-	private _pointer = _browserDisplay getVariable ["AE3_pointer", []];
-	private _defaultPath = "/" + (_pointer joinString "/");
+	private _entity = _browserDisplay getVariable ["AE3_entity", objNull];
+	if (isNull _entity) exitWith { closeDialog 0; };
 
-	// Set the default destination path in the text field
-	private _editCtrl = _display displayCtrl 1400;
-	_editCtrl ctrlSetText _defaultPath;
-	_display setVariable ["destpath", _defaultPath];
+	private _filesystem = _entity getVariable ["AE3_filesystem", createHashMap];
+	private _sourcePointer = _browserDisplay getVariable ["AE3_pointer", []];
 
-	// Enable OK button since we have a valid path
-	private _okCtrl = _display getVariable ["okCtrl", objNull];
-	if (!isNull _okCtrl) then {
-		_okCtrl ctrlEnable true;
-	};
+	// Store info in display for later use
+	_display setVariable ["AE3_sourcePointer", _sourcePointer];
+	_display setVariable ["AE3_sourceFile", _currentFile];
+	_display setVariable ["AE3_filesystem", _filesystem];
+
+	// Get tree control and populate it
+	private _treeCtrl = _display displayCtrl 1500;
+	tvClear _treeCtrl;
+
+	// Add root directory
+	private _rootIndex = _treeCtrl tvAdd [[], "/"];
+	_treeCtrl tvSetData [[_rootIndex], "/"];
+	_treeCtrl tvSetColor [[_rootIndex], [0, 0.55, 0.97, 1]];
+
+	// Get root content and populate recursively
+	private _rootObj = [[], _filesystem] call AE3_filesystem_fnc_resolvePntr;
+	private _rootContent = _rootObj select 0;
+
+	// Populate tree starting from root
+	[_treeCtrl, _rootContent, [], [_rootIndex], _sourcePointer, _currentFile] call AE3_main_fnc_zeus_filesystemBrowser_populateTree;
+
+	// Expand root by default
+	_treeCtrl tvExpand [_rootIndex];
+
+	// Set up selection change handler to update path display
+	_treeCtrl ctrlAddEventHandler ["TreeSelChanged", {
+		params ["_control", "_selPath"];
+		private _display = ctrlParent _control;
+		private _pathData = _control tvData _selPath;
+
+		// Update path display
+		private _pathCtrl = _display displayCtrl 1400;
+		_pathCtrl ctrlSetText _pathData;
+
+		// Store selected path
+		_display setVariable ["destpath", _pathData];
+	}];
+
+	// Select root by default
+	_treeCtrl tvSetCurSel [_rootIndex];
+
+	// Update path display
+	private _pathCtrl = _display displayCtrl 1400;
+	_pathCtrl ctrlSetText "/";
+	_display setVariable ["destpath", "/"];
 };
 
 if (_mode isEqualTo "onUnload") exitWith

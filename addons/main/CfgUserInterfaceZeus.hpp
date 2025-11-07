@@ -10,6 +10,7 @@ class RscButtonMenuOK;
 class RscButtonMenuCancel;
 class RscListBox;
 class RscPicture;
+class RscTree;
 
 /* ================================================================================ */
 
@@ -2623,8 +2624,8 @@ class AE3_UserInterface_Zeus_Browser_Move
 			text = "#(argb,8,8,3)color(1,1,1,1)";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 23 * GUI_GRID_W;
-			h = 7.5 * GUI_GRID_H;
+			w = 30 * GUI_GRID_W;
+			h = 20 * GUI_GRID_H;
 			colorText[] = {0.1,0.1,0.1,1};
 		};
 	};
@@ -2637,7 +2638,7 @@ class AE3_UserInterface_Zeus_Browser_Move
 			text = "$STR_AE3_Main_Zeus_MoveDialogTitle";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 23 * GUI_GRID_W;
+			w = 30 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
 			colorBackground[] = {-1,-1,-1,0.5};
 		};
@@ -2645,31 +2646,39 @@ class AE3_UserInterface_Zeus_Browser_Move
 		class RscText_1001: RscText
 		{
 			idc = 1001;
-			text = "$STR_AE3_Main_Zeus_DestinationPath";
+			text = "$STR_AE3_Main_Zeus_SelectDestination";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 8 * GUI_GRID_W;
+			y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-			style = ST_RIGHT;
 		};
 
-		class RscEdit_1400: RscEdit
+		class RscTree_1500: RscTree
+		{
+			idc = 1500;
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
+			h = 14 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.5};
+			onTreeSelChanged = "params ['_control', '_selPath']; private _display = ctrlParent _control; _display setVariable ['selectedTreePath', _selPath]; private _okCtrl = _display getVariable ['okCtrl', objNull]; if (!isNull _okCtrl) then { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscText_1400: RscText
 		{
 			idc = 1400;
 			text = "";
-			x = 9 * GUI_GRID_W + GUI_GRID_X;
-			y = 2 * GUI_GRID_H + GUI_GRID_Y;
-			w = 14.5 * GUI_GRID_W;
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
 			h = 1 * GUI_GRID_H;
-			colorBackground[] = {-1,-1,-1,0.5};
-			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['destpath', _newText];";
-			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['destpath', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; if (_newText isEqualTo '') then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+			colorBackground[] = {0,0,0,0.3};
 		};
 
 		class RscButtonMenuOK_2600: RscButtonMenuOK
 		{
-			x = 17.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			x = 24.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
 			w = 3 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control]; _control ctrlEnable false;";
@@ -2677,9 +2686,9 @@ class AE3_UserInterface_Zeus_Browser_Move
 
 		class RscButtonMenuCancel_2700: RscButtonMenuCancel
 		{
-			x = 11.5 * GUI_GRID_W + GUI_GRID_X;
-			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
-			w = 5 * GUI_GRID_W;
+			x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 		};
 	};
