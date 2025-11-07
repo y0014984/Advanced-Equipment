@@ -14,7 +14,7 @@ params ["_display", "_exitCode", "_mode"];
 
 if (_mode isEqualTo "onLoad") then
 {
-	// Check if a file is selected
+	// Get the current file from the browser display and set default path
 	private _browserDisplay = findDisplay 16993;
 	if (isNull _browserDisplay) exitWith {};
 
@@ -24,16 +24,19 @@ if (_mode isEqualTo "onLoad") then
 		hint localize "STR_AE3_Main_Zeus_NoFileSelected";
 	};
 
-	private _entity = _browserDisplay getVariable ["AE3_entity", objNull];
-	private _filesystem = _entity getVariable ["AE3_filesystem", createHashMap];
+	private _pointer = _browserDisplay getVariable ["AE3_pointer", []];
+	private _defaultPath = "/" + (_pointer joinString "/");
 
-	// Initialize the move dialog at root directory
-	_display setVariable ["AE3_move_pointer", []];
-	_display setVariable ["AE3_filesystem", _filesystem];
-	_display setVariable ["AE3_entity", _entity];
+	// Set the default destination path in the text field
+	private _editCtrl = _display displayCtrl 1400;
+	_editCtrl ctrlSetText _defaultPath;
+	_display setVariable ["destpath", _defaultPath];
 
-	// Refresh the directory listing
-	[_display] call AE3_main_fnc_zeus_filesystemBrowser_moveRefresh;
+	// Enable OK button since we have a valid path
+	private _okCtrl = _display getVariable ["okCtrl", objNull];
+	if (!isNull _okCtrl) then {
+		_okCtrl ctrlEnable true;
+	};
 };
 
 if (_mode isEqualTo "onUnload") exitWith
@@ -46,7 +49,7 @@ if (_mode isEqualTo "onUnload") exitWith
 	private _entity = _browserDisplay getVariable ["AE3_entity", objNull];
 	if (isNull _entity) exitWith {};
 
-	private _pointer = _browserDisplay getVariable ["AE3_pointer", []];
+	private _sourcePointer = _browserDisplay getVariable ["AE3_pointer", []];
 	private _filesystem = _entity getVariable ["AE3_filesystem", createHashMap];
 	private _currentFile = _browserDisplay getVariable ["AE3_currentFile", ""];
 
@@ -55,19 +58,29 @@ if (_mode isEqualTo "onUnload") exitWith
 	};
 
 	// Check if trying to modify system folder
-	private _pathString = "/" + (_pointer joinString "/");
+	private _pathString = "/" + (_sourcePointer joinString "/");
 	if (_pathString in ["/bin", "/sbin", "/etc"]) exitWith
 	{
 		hint localize "STR_AE3_Main_Zeus_CannotModifySystemFolder";
 	};
 
-	// Get destination pointer from move dialog
-	private _destPointer = _display getVariable ["AE3_move_pointer", []];
+	// Get destination path from dialog
+	private _destPath = _display getVariable ["destpath", ""];
+
+	if (_destPath isEqualTo "") exitWith {};
 
 	try
 	{
+		// Parse destination path
+		private _destPointer = [];
+		if (_destPath != "/") then
+		{
+			_destPointer = _destPath splitString "/";
+			_destPointer = _destPointer select {_x != ""};
+		};
+
 		// Get source directory content
-		private _srcDirObj = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
+		private _srcDirObj = [_sourcePointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
 		private _srcDirContent = _srcDirObj select 0;
 
 		// Get destination directory content
@@ -78,7 +91,7 @@ if (_mode isEqualTo "onUnload") exitWith
 		if (typeName _destDirContent != "HASHMAP") throw "Destination is not a directory";
 
 		// Check if trying to move to the same directory
-		if (_pointer isEqualTo _destPointer) exitWith {
+		if (_sourcePointer isEqualTo _destPointer) exitWith {
 			hint localize "STR_AE3_Main_Zeus_AlreadyInThisDirectory";
 		};
 
@@ -93,7 +106,7 @@ if (_mode isEqualTo "onUnload") exitWith
 		private _isDir = (typeName (_itemObj select 0)) isEqualTo "HASHMAP";
 		if (_isDir) then
 		{
-			private _srcPath = _pointer joinString "/";
+			private _srcPath = _sourcePointer joinString "/";
 			private _destPathStr = _destPointer joinString "/";
 			// Check if destination path starts with source path
 			if ((_destPathStr + "/") find (_srcPath + "/") == 0) throw "Cannot move directory into itself or its subdirectory";
@@ -110,7 +123,6 @@ if (_mode isEqualTo "onUnload") exitWith
 		_browserDisplay setVariable ["AE3_currentFile", ""];
 		[_browserDisplay] call AE3_main_fnc_zeus_filesystemBrowser_refresh;
 
-		private _destPath = "/" + (_destPointer joinString "/");
 		hint format [localize "STR_AE3_Main_Zeus_Moved", _currentFile, _destPath];
 	}
 	catch

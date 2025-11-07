@@ -5,9 +5,14 @@ private _terminal = _computer getVariable "AE3_terminal";
 _computer setVariable ["AE3_terminalKeyboardLayout", _terminalKeyboardLayout];
 
 private _terminalAllowedKeys = _terminal get "AE3_terminalAllowedKeys";
+if (_terminalKeyboardLayout == "AR") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysAR; };
 if (_terminalKeyboardLayout == "DE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysDE; };
 if (_terminalKeyboardLayout == "FR") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysFR; };
+if (_terminalKeyboardLayout == "HE") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysHE; };
+if (_terminalKeyboardLayout == "HU") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysHU; };
 if (_terminalKeyboardLayout == "IT") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysIT; };
+if (_terminalKeyboardLayout == "RU") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysRU; };
+if (_terminalKeyboardLayout == "TR") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysTR; };
 if (_terminalKeyboardLayout == "US") then { _terminalAllowedKeys = [] call AE3_armaos_fnc_terminal_getAllowedKeysUS; };
 _terminal set ["AE3_terminalAllowedKeys", _terminalAllowedKeys];
 

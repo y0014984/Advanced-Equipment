@@ -54,6 +54,9 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			private _keyChar = _terminalAllowedKeys get _keyCombination;
 
 			[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
+
+			// Clear autocomplete state when typing
+			_terminal deleteAt "AE3_autocompleteState";
 		};
 
 		/* ---------------------------------------- */
@@ -61,6 +64,9 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		if (_key isEqualTo DIK_BACKSPACE) then
 		{
 			[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
+
+			// Clear autocomplete state when deleting
+			_terminal deleteAt "AE3_autocompleteState";
 		};
 
 		/* ---------------------------------------- */

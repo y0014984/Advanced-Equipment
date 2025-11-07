@@ -1,6 +1,6 @@
 /**
  * Handles Tab key auto-completion for terminal input.
- * Prioritizes current directory files over system commands.
+ * Cycles through matches alphabetically on subsequent TAB presses.
  *
  * Arguments:
  * 0: Computer <OBJECT>
@@ -34,48 +34,67 @@ if (_parts isNotEqualTo []) then
 	};
 };
 
-// Get potential matches
-private _matches = [];
+// Check if we're continuing a previous autocomplete cycle
+private _autocompleteState = _terminal getOrDefault ["AE3_autocompleteState", []];
+private _lastInput = if (count _autocompleteState > 0) then {_autocompleteState select 0} else {""};
+private _matches = if (count _autocompleteState > 1) then {_autocompleteState select 1} else {[]};
+private _currentIndex = if (count _autocompleteState > 2) then {_autocompleteState select 2} else {-1};
 
-// First, try to match files in current directory
-try
+// If input changed (not just cycling), reset autocomplete
+if (_lastInput != _lastPart) then
 {
-	private _dir = [_pointer, _filesystem, "", _username, false] call AE3_filesystem_fnc_lsdir;
+	_matches = [];
+	_currentIndex = -1;
 
+	// Get potential matches
+	// First, try to match files in current directory
+	try
 	{
-		private _fileName = (_x select 0) select 0;
+		private _dir = [_pointer, _filesystem, "", _username, false] call AE3_filesystem_fnc_lsdir;
 
-		// Check if filename starts with the last part
-		if (_lastPart isEqualTo "" || {(_fileName select [0, count _lastPart]) isEqualTo _lastPart}) then
 		{
-			_matches pushBack _fileName;
-		};
-	} forEach _dir;
-}
-catch
-{
-	// If we can't read directory, continue to command matching
-};
+			private _fileName = (_x select 0) select 0;
 
-// If no file matches and we're completing the first word, try system commands
-if (_matches isEqualTo [] && count _parts <= 1) then
-{
-	private _commands = "true" configClasses (configFile >> "CfgOsFunctions");
-
+			// Check if filename starts with the last part
+			if (_lastPart isEqualTo "" || {(_fileName select [0, count _lastPart]) isEqualTo _lastPart}) then
+			{
+				_matches pushBack _fileName;
+			};
+		} forEach _dir;
+	}
+	catch
 	{
-		private _commandName = configName _x;
+		// If we can't read directory, continue to command matching
+	};
 
-		if (_lastPart isEqualTo "" || {(_commandName select [0, count _lastPart]) isEqualTo _lastPart}) then
+	// If no file matches and we're completing the first word, try system commands
+	if (_matches isEqualTo [] && count _parts <= 1) then
+	{
+		private _commands = "true" configClasses (configFile >> "CfgOsFunctions");
+
 		{
-			_matches pushBack _commandName;
-		};
-	} forEach _commands;
+			private _commandName = configName _x;
+
+			if (_lastPart isEqualTo "" || {(_commandName select [0, count _lastPart]) isEqualTo _lastPart}) then
+			{
+				_matches pushBack _commandName;
+			};
+		} forEach _commands;
+	};
+
+	// Sort matches alphabetically
+	_matches sort true;
 };
 
 // Apply completion
+if (count _matches == 0) exitWith {
+	// No matches - clear state
+	_terminal deleteAt "AE3_autocompleteState";
+};
+
 if (count _matches == 1) then
 {
-	// Single match - complete it
+	// Single match - complete it and clear state
 	private _newInput = _prefix + (_matches select 0);
 
 	// Clear current input
@@ -88,56 +107,28 @@ if (count _matches == 1) then
 	} forEach (toArray _newInput);
 
 	_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
+	_terminal deleteAt "AE3_autocompleteState";
 }
 else
 {
-	if (count _matches > 1) then
+	// Multiple matches - cycle through them
+	_currentIndex = (_currentIndex + 1) mod (count _matches);
+	private _match = _matches select _currentIndex;
+
+	// Store state for next TAB press
+	_terminal set ["AE3_autocompleteState", [_lastPart, _matches, _currentIndex]];
+
+	// Apply the current match
+	private _newInput = _prefix + _match;
+
+	// Clear current input
+	_terminal deleteAt "AE3_terminalInputBuffer";
+
+	// Set new input
+	private _inputBuffer = ["", ""];
 	{
-		// Multiple matches - find common prefix
-		private _commonPrefix = _matches select 0;
+		_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
+	} forEach (toArray _newInput);
 
-		{
-			private _match = _x;
-			private _newCommon = "";
-
-			for [{private _i = 0}, {_i < (count _commonPrefix) && _i < (count _match)}, {_i = _i + 1}] do
-			{
-				if ((_commonPrefix select [_i, 1]) isEqualTo (_match select [_i, 1])) then
-				{
-					_newCommon = _newCommon + (_commonPrefix select [_i, 1]);
-				}
-				else
-				{
-					break;
-				};
-			};
-
-			_commonPrefix = _newCommon;
-		} forEach _matches;
-
-		// If we found a longer common prefix, use it
-		if ((count _commonPrefix) > (count _lastPart)) then
-		{
-			private _newInput = _prefix + _commonPrefix;
-
-			// Clear current input
-			_terminal deleteAt "AE3_terminalInputBuffer";
-
-			// Set new input
-			private _inputBuffer = ["", ""];
-			{
-				_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
-			} forEach (toArray _newInput);
-
-			_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
-		}
-		else
-		{
-			// Show all matches
-			[_computer, ""] call AE3_armaos_fnc_terminal_appendLine;
-
-			private _matchesText = _matches joinString "  ";
-			[_computer, _matchesText] call AE3_armaos_fnc_terminal_appendLine;
-		};
-	};
+	_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
 };
