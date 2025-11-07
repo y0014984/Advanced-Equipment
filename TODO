@@ -1,0 +1,12 @@
+1. The zeus file browser is now in  my screen but is very off center. ITs like starting from middle of my screen to the end safezeon. Ensure that the [0, 0] as start point is replaced by the safezone for wider file.
+
+2. When creating a file/folder it automatically creates as 'true' without asking anything. The buttons should do the following:
+
+2.1. When clicking 'New File' - The display should ask the following: File Name, File Contents, File Owner, File Permissions, and whether the content inside is a code. 
+Refer to the 'Add File' module (fnc_module_addFile.sqf) of this addon to see how it adds the files with these already present and try to replicate that function in the browser.
+
+2.2. When clicking 'New Folder' - The display should only ask for the folder name, owner, and permissions.
+
+3. I am also unable to change the persmissions / owner of any file / folder using the file browser. This has to be fixed. For the permissions, use a checkbox style similar to the 'Add File' module.  (`AE3_filesystem_fnc_module_addFile`)
+
+4. I also want the ability to rename and move files using the file browser

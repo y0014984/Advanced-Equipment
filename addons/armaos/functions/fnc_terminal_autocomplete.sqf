@@ -84,7 +84,7 @@ if (count _matches == 1) then
 	// Set new input
 	private _inputBuffer = ["", ""];
 	{
-		_inputBuffer set [0, (_inputBuffer select 0) + _x];
+		_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
 	} forEach (toArray _newInput);
 
 	_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
@@ -126,7 +126,7 @@ else
 			// Set new input
 			private _inputBuffer = ["", ""];
 			{
-				_inputBuffer set [0, (_inputBuffer select 0) + _x];
+				_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
 			} forEach (toArray _newInput);
 
 			_terminal set ["AE3_terminalInputBuffer", _inputBuffer];

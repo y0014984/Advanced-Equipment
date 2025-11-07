@@ -67,6 +67,7 @@ PREP(os_ipconfig);
 PREP(os_ls);
 PREP(os_man);
 PREP(os_mkdir);
+PREP(os_touch);
 PREP(os_mv);
 PREP(os_cp);
 PREP(os_ping);

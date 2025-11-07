@@ -114,6 +114,14 @@ class CfgOsFunctions
 		code = "call AE3_armaos_fnc_os_mkdir";
 	};
 
+	class touch : OsFunction
+	{
+		path = "/bin/touch";
+		description = "$STR_AE3_ArmaOS_Config_CommandTouchDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandTouchMan";
+		code = "call AE3_armaos_fnc_os_touch";
+	};
+
 	class ping : OsFunction
 	{
 		path = "/sbin/ping";

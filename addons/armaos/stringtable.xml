@@ -789,6 +789,24 @@
                 <German>Verwendung standby: 'standby' aktiviert den Ruhezustand des Computers.</German>
                 <Chinesesimp>standby说明:'standby'切换至待机模式.</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandTouchDescr">
+                <Original>Creates an empty file.</Original>
+                <English>Creates an empty file.</English>
+                <French>Crée un fichier vide.</French>
+                <Italian>Crea un file vuoto.</Italian>
+                <Russian>Создаёт пустой файл</Russian>
+                <German>Erstellt eine leere Datei.</German>
+                <Chinesesimp>创建一个空文件.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandTouchMan">
+                <Original>Usage touch: 'touch [filename]' creates an empty file with the given name.</Original>
+                <English>Usage touch: 'touch [filename]' creates an empty file with the given name.</English>
+                <French>Utilisation touch: 'touch [nom de fichier]' crée un fichier vide avec le nom donné.</French>
+                <Italian>Utilizzo touch: 'touch [filename]' crea un file vuoto con il nome indicato.</Italian>
+                <Russian>Использование touch: 'touch [filename]' создаёт пустой файл с заданным именем</Russian>
+                <German>Verwendung touch: 'touch [Dateiname]' erstellt eine leere Datei mit dem gegebenen Namen.</German>
+                <Chinesesimp>touch说明:'touch [filename]'创建指定名称的空文件.</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandUmountDescr">
                 <Original>Unmounts a flash drive from the specified usb port.</Original>
                 <English>Unmounts a flash drive from the specified usb port.</English>

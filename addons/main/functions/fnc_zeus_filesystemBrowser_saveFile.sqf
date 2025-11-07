@@ -45,7 +45,7 @@ private _newContent = ctrlText _contentCtrl;
 // Get file object and update content
 try
 {
-	[_pointer, _filesystem, _currentFile, _newContent] call AE3_filesystem_fnc_writeToFile;
+	[_pointer, _filesystem, _currentFile, "root", _newContent] call AE3_filesystem_fnc_writeToFile;
 	_entity setVariable ["AE3_filesystem", _filesystem, true];
 
 	hint format [localize "STR_AE3_Main_Zeus_FileSaved", _currentFile];
