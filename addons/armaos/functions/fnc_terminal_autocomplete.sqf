@@ -80,24 +80,40 @@ if (_lastInput != _lastPart) then
 		private _dir = [_pointer, _filesystem, _dirToSearch, _username, false] call AE3_filesystem_fnc_lsdir;
 
 		{
-			private _entry = _x select 0;
-			private _fileName = _entry select 0;
-			private _fileObject = _entry select 1;
-			private _isDirectory = (typeName (_fileObject select 0)) isEqualTo "HASHMAP";
-
-			// Check if filename starts with the prefix
-			if (_filePrefix isEqualTo "" || {(_fileName select [0, count _filePrefix]) isEqualTo _filePrefix}) then
+			// Validate data structure before accessing
+			if (_x isEqualType [] && {count _x > 0}) then
 			{
-				// Build the full path for the match
-				private _fullMatch = _dirToSearch + _fileName;
+				private _entry = _x select 0;
 
-				// Add trailing / for directories to indicate they can be navigated into
-				if (_isDirectory && {(_fullMatch select [(count _fullMatch) - 1] isNotEqualTo "/")}) then
+				// Check if entry has the expected structure
+				if (_entry isEqualType [] && {count _entry >= 2}) then
 				{
-					_fullMatch = _fullMatch + "/";
-				};
+					private _fileName = _entry select 0;
+					private _fileObject = _entry select 1;
 
-				_matches pushBack _fullMatch;
+					// Safely check if it's a directory
+					private _isDirectory = false;
+					if (!isNil "_fileObject" && {_fileObject isEqualType []} && {count _fileObject > 0}) then
+					{
+						private _content = _fileObject select 0;
+						_isDirectory = (!isNil "_content") && {(typeName _content) isEqualTo "HASHMAP"};
+					};
+
+					// Check if filename starts with the prefix
+					if (_filePrefix isEqualTo "" || {(_fileName select [0, count _filePrefix]) isEqualTo _filePrefix}) then
+					{
+						// Build the full path for the match
+						private _fullMatch = _dirToSearch + _fileName;
+
+						// Add trailing / for directories to indicate they can be navigated into
+						if (_isDirectory && {(_fullMatch select [(count _fullMatch) - 1] isNotEqualTo "/")}) then
+						{
+							_fullMatch = _fullMatch + "/";
+						};
+
+						_matches pushBack _fullMatch;
+					};
+				};
 			};
 		} forEach _dir;
 	}

@@ -1,0 +1,20 @@
+1. Crypto encryption still asks for = after mode
+2. Even after providing '=' for mode I get this error:
+19:53:48 Error in expression <se, false]]]];
+
+private _path = _target splitString "/";
+private _new = _path se>
+19:53:48   Error position: <splitString "/";
+private _new = _path se>
+19:53:48   Error splitstring: Type Bool, expected String
+19:53:48 File /z/ae3/addons/filesystem/functions/fnc_getParentDir.sqf..., line 21
+19:53:48  ➥ Context: 	[] L1 ()
+	[] L113 (/z/ae3/addons/armaos/functions/fnc_os_crypto.sqf)
+	[] L116 (/z/ae3/addons/armaos/functions/fnc_os_crypto.sqf)
+	[] L122 (/z/ae3/addons/armaos/functions/fnc_os_crypto.sqf)
+	[] L127 (/z/ae3/addons/armaos/functions/fnc_os_crypto.sqf)
+	[] L132 (/z/ae3/addons/armaos/functions/fnc_os_crypto.sqf)
+	[] L130 (/z/ae3/addons/armaos/functions/fnc_os_crypto.sqf)
+	[] L28 (/z/ae3/addons/filesystem/functions/fnc_writeToFile.sqf)
+	[] L21 (/z/ae3/addons/filesystem/functions/fnc_getParentDir.sqf)
+
