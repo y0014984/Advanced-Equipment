@@ -88,6 +88,8 @@ PREP(os_lsusb);
 /* Encryption Functions */
 PREP(encryption_caesar);
 PREP(encryption_columnar);
+PREP(encryption_crack);
+PREP(encryption_crypto);
 
 /* Terminal Functions */
 PREP(terminal_init);
