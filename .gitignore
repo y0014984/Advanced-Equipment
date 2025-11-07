@@ -10,3 +10,4 @@ hemtt.exe
 !wiki/*
 *.exe
 *.txt
+releases/*.zip

@@ -178,7 +178,7 @@ private _fileContent = [_pointer, _filesystem, "/secret.txt", _username, 1] call
 private _encryptedContent = [_fileContent, "encrypt", 13, "caesar"] call AE3_armaos_fnc_encryption_crypto;
 
 // Write encrypted content to new file
-[_pointer, _filesystem, "/encrypted.txt", _encryptedContent, _username, 2] call AE3_filesystem_fnc_writeToFile;
+[_pointer, _filesystem, "/encrypted.txt", _username, _encryptedContent, false] call AE3_filesystem_fnc_writeToFile;
 
 // Later, decrypt it
 private _encryptedFile = [_pointer, _filesystem, "/encrypted.txt", _username, 1] call AE3_filesystem_fnc_getFile;

@@ -217,7 +217,7 @@ if (_output isNotEqualTo "") then {
 	// Write to file
 	try {
 		private _outputContent = _result joinString endl;
-		[_pointer, _filesystem, _output, _outputContent, _username, 2] call AE3_filesystem_fnc_writeToFile;
+		[_pointer, _filesystem, _output, _username, _outputContent, false] call AE3_filesystem_fnc_writeToFile;
 		[_computer, format ["Results written to: %1", _output]] call AE3_armaos_fnc_shell_stdout;
 	} catch {
 		[_computer, _exception] call AE3_armaos_fnc_shell_stdout;

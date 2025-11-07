@@ -48,18 +48,56 @@ if (_lastInput != _lastPart) then
 	_currentIndex = -1;
 
 	// Get potential matches
-	// First, try to match files in current directory
+	// First, try to match files/directories
 	try
 	{
-		private _dir = [_pointer, _filesystem, "", _username, false] call AE3_filesystem_fnc_lsdir;
+		// Parse the path to determine directory and filename prefix
+		private _pathToComplete = _lastPart;
+		private _dirToSearch = "";
+		private _filePrefix = _lastPart;
+
+		// Check if the path contains a directory separator
+		if (_pathToComplete find "/" >= 0) then
+		{
+			// Split into directory and filename parts
+			private _lastSlashPos = -1;
+			private _pathChars = _pathToComplete splitString "";
+
+			// Find the last '/' position
+			{
+				if (_x isEqualTo "/") then { _lastSlashPos = _forEachIndex; };
+			} forEach _pathChars;
+
+			if (_lastSlashPos >= 0) then
+			{
+				// Extract directory path and filename prefix
+				_dirToSearch = _pathToComplete select [0, _lastSlashPos + 1]; // Include the trailing /
+				_filePrefix = _pathToComplete select [_lastSlashPos + 1]; // Everything after the last /
+			};
+		};
+
+		// List directory contents
+		private _dir = [_pointer, _filesystem, _dirToSearch, _username, false] call AE3_filesystem_fnc_lsdir;
 
 		{
-			private _fileName = (_x select 0) select 0;
+			private _entry = _x select 0;
+			private _fileName = _entry select 0;
+			private _fileObject = _entry select 1;
+			private _isDirectory = (typeName (_fileObject select 0)) isEqualTo "HASHMAP";
 
-			// Check if filename starts with the last part
-			if (_lastPart isEqualTo "" || {(_fileName select [0, count _lastPart]) isEqualTo _lastPart}) then
+			// Check if filename starts with the prefix
+			if (_filePrefix isEqualTo "" || {(_fileName select [0, count _filePrefix]) isEqualTo _filePrefix}) then
 			{
-				_matches pushBack _fileName;
+				// Build the full path for the match
+				private _fullMatch = _dirToSearch + _fileName;
+
+				// Add trailing / for directories to indicate they can be navigated into
+				if (_isDirectory && {(_fullMatch select [(count _fullMatch) - 1] isNotEqualTo "/")}) then
+				{
+					_fullMatch = _fullMatch + "/";
+				};
+
+				_matches pushBack _fullMatch;
 			};
 		} forEach _dir;
 	}
@@ -96,7 +134,15 @@ if (count _matches == 0) exitWith {
 if (count _matches == 1) then
 {
 	// Single match - complete it and clear state
-	private _newInput = _prefix + (_matches select 0);
+	private _match = _matches select 0;
+	private _newInput = _prefix + _match;
+
+	// Add space after non-directory completions for convenience
+	// (directories already have trailing /, commands should get a space)
+	if ((_match select [(count _match) - 1] isNotEqualTo "/")) then
+	{
+		_newInput = _newInput + " ";
+	};
 
 	// Clear current input
 	_terminal deleteAt "AE3_terminalInputBuffer";
@@ -112,24 +158,73 @@ if (count _matches == 1) then
 }
 else
 {
-	// Multiple matches - cycle through them
-	_currentIndex = (_currentIndex + 1) mod (count _matches);
-	private _match = _matches select _currentIndex;
+	// Multiple matches - find longest common prefix
+	private _commonPrefix = _matches select 0;
 
-	// Store state for next TAB press
-	_terminal set ["AE3_autocompleteState", [_lastPart, _matches, _currentIndex]];
-
-	// Apply the current match
-	private _newInput = _prefix + _match;
-
-	// Clear current input
-	_terminal deleteAt "AE3_terminalInputBuffer";
-
-	// Set new input
-	private _inputBuffer = ["", ""];
 	{
-		_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
-	} forEach (toArray _newInput);
+		private _match = _x;
+		private _newCommon = "";
 
-	_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
+		// Find common characters between current common prefix and this match
+		private _minLen = (count _commonPrefix) min (count _match);
+
+		for "_i" from 0 to (_minLen - 1) do
+		{
+			if ((_commonPrefix select [_i, 1]) isEqualTo (_match select [_i, 1])) then
+			{
+				_newCommon = _newCommon + (_commonPrefix select [_i, 1]);
+			}
+			else
+			{
+				// Stop at first difference
+				break;
+			};
+		};
+
+		_commonPrefix = _newCommon;
+	} forEach _matches;
+
+	// Check if we can complete with the common prefix (if it's longer than what user typed)
+	if ((count _commonPrefix) > (count _lastPart)) then
+	{
+		// Complete to common prefix
+		private _newInput = _prefix + _commonPrefix;
+
+		// Clear current input
+		_terminal deleteAt "AE3_terminalInputBuffer";
+
+		// Set new input
+		private _inputBuffer = ["", ""];
+		{
+			_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
+		} forEach (toArray _newInput);
+
+		_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
+
+		// Store state with the new common prefix as the last input
+		_terminal set ["AE3_autocompleteState", [_commonPrefix, _matches, -1]];
+	}
+	else
+	{
+		// Common prefix already typed, cycle through matches
+		_currentIndex = (_currentIndex + 1) mod (count _matches);
+		private _match = _matches select _currentIndex;
+
+		// Store state for next TAB press
+		_terminal set ["AE3_autocompleteState", [_lastPart, _matches, _currentIndex]];
+
+		// Apply the current match
+		private _newInput = _prefix + _match;
+
+		// Clear current input
+		_terminal deleteAt "AE3_terminalInputBuffer";
+
+		// Set new input
+		private _inputBuffer = ["", ""];
+		{
+			_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
+		} forEach (toArray _newInput);
+
+		_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
+	};
 };
