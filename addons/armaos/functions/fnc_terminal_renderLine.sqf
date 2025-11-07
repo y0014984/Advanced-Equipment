@@ -12,6 +12,13 @@
 params['_computer', '_line'];
 
 private _terminal = _computer getVariable "AE3_terminal";
+
+// Safety check: if terminal is not initialized, return empty text to prevent crashes
+if (isNil "_terminal") exitWith {
+	["AE3_armaos_fnc_terminal_renderLine: Terminal not initialized on computer"] call BIS_fnc_error;
+	[text ""];
+};
+
 private _size = _terminal get "AE3_terminalSize";
 private _terminalMaxColumns = (_terminal get "AE3_terminalMaxColumns") * 0.75 / _size;
 

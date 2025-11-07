@@ -59,6 +59,10 @@ private _terminal = createHashMapFromArray
 _consoleOutput setVariable ["AE3_computer", _computer];
 _consoleDialog setVariable ["AE3_computer", _computer];
 
+// Keep terminal local to client (no network sync of HashMap)
+// IMPORTANT: Set this BEFORE restoring sync data, as renderLine needs access to it
+_computer setVariable ["AE3_terminal", _terminal];
+
 // Restore terminal state from sync data if available (from previous session)
 [_computer, "AE3_terminal_sync"] call AE3_main_fnc_getRemoteVar;
 private _terminalSyncData = _computer getVariable ["AE3_terminal_sync", nil];
@@ -77,9 +81,6 @@ if (!isNil "_terminalSyncData") then {
 	} forEach _restoredBuffer;
 	_terminal set ["AE3_terminalRenderedBuffer", _renderedBuffer];
 };
-
-// Keep terminal local to client (no network sync of HashMap)
-_computer setVariable ["AE3_terminal", _terminal];
 
 _terminal set ["AE3_terminalOutput", _consoleOutput];
 
@@ -172,7 +173,5 @@ if (_terminalBuffer isEqualTo []) then
 };
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
-
-_computer setVariable ["AE3_terminal", _terminal];
 
 [_computer, "inUse", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
