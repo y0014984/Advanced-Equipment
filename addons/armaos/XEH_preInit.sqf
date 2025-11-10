@@ -10,7 +10,7 @@
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	[
 		["AR", "DE", "FR", "HE", "HU", "IT", "RU", "TR", "US"],
-		[["AR", "Arabic"], ["DE", "Deutschland"], ["FR", "France"], ["HE", "עברית"], ["HU", "Magyarország"], ["IT", "Italia"], ["RU", "Русский"], ["TR", "Türkiye"], ["US", "United States"]],
+		[["AR", "Arabic"], ["DE", "Deutschland"], ["FR", "France"], ["HE", "Hebrew"], ["HU", "Magyarország"], ["IT", "Italia"], ["RU", "Русский"], ["TR", "Türkiye"], ["US", "United States"]],
 		8
 	],
     nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
@@ -103,7 +103,7 @@
 	["Terminal Dialog Title", "The title shown in the terminal dialog window header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"SHITE™ COMPUTING",
-    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -118,7 +118,7 @@
 	["Terminal BIOS Version", "The BIOS version line shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"SHITE™ BIOS v1.0.0",
-    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -133,7 +133,7 @@
 	["Terminal Copyright", "The copyright line shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"© 2025 System Hardware Integration & Technology Enterprises",
-    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -148,7 +148,7 @@
 	["Terminal Boot Message", "The initialization message shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"Initializing kernel... please wait...",
-    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -163,7 +163,7 @@
 	["Terminal Tip Message", "The tip message shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"> Tip: SHITE™ laptops perform better when plugged in.",
-    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -178,7 +178,7 @@
 	["Show ASCII Art", "Display ASCII art in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	true,
-    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -193,7 +193,7 @@
 	["Terminal Tagline", "The tagline shown in the terminal header after ASCII art"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"Powered by SHITE™ Technologies – Excellence, from the ground up.",
-    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.

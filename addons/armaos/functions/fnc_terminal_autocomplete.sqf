@@ -85,11 +85,11 @@ if (_lastInput != _lastPart) then
 			{
 				private _entry = _x select 0;
 
-				// Check if entry has the expected structure
-				if (_entry isEqualType [] && {count _entry >= 2}) then
+				// Check if entry has the expected structure (1 element = name only, 2 elements = name + color)
+				if (_entry isEqualType [] && {count _entry >= 1}) then
 				{
 					private _fileName = _entry select 0;
-					private _fileObject = _entry select 1;
+					private _fileObject = if (count _entry >= 2) then {_entry select 1} else {nil};
 
 					// Safely check if it's a directory
 					private _isDirectory = false;

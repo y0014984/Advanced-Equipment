@@ -18,6 +18,11 @@
 
 params['_pntr', '_filesystem', '_target', ['_user', ''], ['_create', false], ['_owner', nil], ['_permissions', [[true, true, true], [false, false, false]]]];
 
+// Validate _target is a string
+if (!(_target isEqualType "")) then {
+	throw (format ["Error: Invalid path type. Expected string, got %1", typeName _target]);
+};
+
 private _path = _target splitString "/";
 private _new = _path select -1;
 

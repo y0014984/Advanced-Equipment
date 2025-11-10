@@ -72,6 +72,7 @@ if (!isNil "_terminalSyncData") then {
 	_terminal set ["AE3_terminalPrompt", _terminalSyncData select 2];
 	_terminal set ["AE3_terminalScrollPosition", _terminalSyncData select 3];
 	_terminal set ["AE3_terminalLoginUser", _terminalSyncData select 4];
+	_terminal set ["AE3_terminalCommandHistory", _terminalSyncData select 5];
 
 	// Reconstruct rendered buffer from raw buffer to preserve terminal content
 	private _restoredBuffer = _terminalSyncData select 0;

@@ -43,10 +43,10 @@ private _systemPaths = ["/bin", "/sbin", "/etc"];
 
 if (_itemName isEqualTo "") exitWith {};
 
-// Delete the item
+// Delete the item (Zeus has root privileges)
 try
 {
-	[_pointer, _filesystem, _itemName] call AE3_filesystem_fnc_delObj;
+	[_pointer, _filesystem, _itemName, 'root'] call AE3_filesystem_fnc_delObj;
 	_entity setVariable ["AE3_filesystem", _filesystem, true];
 
 	[_display] call AE3_main_fnc_zeus_filesystemBrowser_refresh;

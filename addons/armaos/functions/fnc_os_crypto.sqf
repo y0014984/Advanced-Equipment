@@ -40,10 +40,10 @@ if (count _options > 0 && {(_options select 0) in ["-h", "--help"]}) exitWith {
 	[_computer, [[["  ", ""], ["columnar", "#008DF8"], ["  - Columnar transposition (key: string, length > 1)", ""]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[["Examples:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m encrypt -k 3 -a caesar ""HELLO WORLD"""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m decrypt -k 3 -a caesar secret.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m encrypt -k PASSWORD -a columnar -o encrypted.txt message.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m decrypt -k PASSWORD -a columnar /tmp/encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crypto -m=encrypt -k=3 -a=caesar ""HELLO WORLD"""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crypto -m=decrypt -k=3 -a=caesar secret.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crypto -m=encrypt -k=PASSWORD -a=columnar -o=encrypted.txt message.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crypto -m=decrypt -k=PASSWORD -a=columnar /tmp/encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[["Note:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[["- Input can be a file path or a quoted string"]]]] call AE3_armaos_fnc_shell_stdout;
@@ -75,11 +75,25 @@ private _mode = ""; private _algorithm = "caesar"; private _key = ""; private _o
 
 if (!_ae3OptsSuccess) exitWith {};
 
+// Validate required mode parameter
+if (_mode isEqualTo "") exitWith {
+	[_computer, "Error: Mode (-m) is required. Use 'encrypt' or 'decrypt'."] call AE3_armaos_fnc_shell_stdout;
+	[_computer, "Example: crypto -m=encrypt -k 3 input.txt"] call AE3_armaos_fnc_shell_stdout;
+};
+
 // Get input - either a file path or a quoted string
 private _inputRaw = _ae3OptsThings joinString " ";
 
 if (_inputRaw isEqualTo "") exitWith {
 	[_computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName]] call AE3_armaos_fnc_shell_stdout;
+};
+
+// Warn if input contains algorithm names (likely user error with extra arguments)
+private _inputUpper = toUpper _inputRaw;
+if ((_inputUpper find "CAESAR" >= 0) || (_inputUpper find "COLUMNAR" >= 0)) then {
+	[_computer, [[["WARNING:", "#FFD966"], [" Input contains algorithm name. Did you include extra arguments by mistake?", ""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["Hint: Use quotes around multi-word strings: ", ""], ["crypto -m=encrypt -k=3 ""my message""", "#008DF8"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
 };
 
 // Try to read as file first, otherwise treat as string

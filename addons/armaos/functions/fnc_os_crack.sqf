@@ -74,6 +74,12 @@ private _mode = ""; private _algorithm = "caesar"; private _output = "";
 
 if (!_ae3OptsSuccess) exitWith {};
 
+// Validate required mode parameter
+if (_mode isEqualTo "") exitWith {
+	[_computer, "Error: Mode (-m) is required. Use 'bruteforce', 'statistics', or 'key'."] call AE3_armaos_fnc_shell_stdout;
+	[_computer, "Example: crack -m=bruteforce -a caesar input.txt"] call AE3_armaos_fnc_shell_stdout;
+};
+
 // Get input - either a file path or a quoted string
 private _inputRaw = _ae3OptsThings joinString " ";
 
