@@ -227,7 +227,7 @@ else
 		private _match = _matches select _currentIndex;
 
 		// Store state for next TAB press
-		_terminal set ["AE3_autocompleteState", [_lastPart, _matches, _currentIndex]];
+		_terminal set ["AE3_autocompleteState", [_match, _matches, _currentIndex]];
 
 		// Apply the current match
 		private _newInput = _prefix + _match;

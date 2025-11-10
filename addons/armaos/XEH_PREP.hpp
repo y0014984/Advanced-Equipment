@@ -51,6 +51,9 @@ PREP(computer_initWithCommands);
 
 PREP(computer_getLocality);
 
+/* Device Initialization */
+PREP(device_initComplete);
+
 /* OS Link Functions */
 PREP(link_add);
 PREP(link_init);

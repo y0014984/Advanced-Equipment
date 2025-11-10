@@ -141,6 +141,12 @@ if ((_mode isEqualTo "encrypt") || (_mode isEqualTo "decrypt")) then
 				if (_output isNotEqualTo "") then {
 					// Write to file
 					try {
+						// Create output file if it doesn't exist (rw-rw- permissions)
+						try {
+							[_pointer, _filesystem, _output, "", _username, _username, [[false, true, true], [false, true, true]]] call AE3_filesystem_fnc_createFile;
+						} catch {
+							// File already exists, ignore error
+						};
 						[_pointer, _filesystem, _output, _username, _processedMessage, false] call AE3_filesystem_fnc_writeToFile;
 						[_computer, format ["Results written to: %1", _output]] call AE3_armaos_fnc_shell_stdout;
 					} catch {
@@ -172,6 +178,12 @@ if ((_mode isEqualTo "encrypt") || (_mode isEqualTo "decrypt")) then
 				if (_output isNotEqualTo "") then {
 					// Write to file
 					try {
+						// Create output file if it doesn't exist (rw-rw- permissions)
+						try {
+							[_pointer, _filesystem, _output, "", _username, _username, [[false, true, true], [false, true, true]]] call AE3_filesystem_fnc_createFile;
+						} catch {
+							// File already exists, ignore error
+						};
 						[_pointer, _filesystem, _output, _username, _processedMessage, false] call AE3_filesystem_fnc_writeToFile;
 						[_computer, format ["Results written to: %1", _output]] call AE3_armaos_fnc_shell_stdout;
 					} catch {

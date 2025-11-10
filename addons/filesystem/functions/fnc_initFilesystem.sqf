@@ -96,5 +96,4 @@ if (!isNil "_config") then
 _entity setVariable ["AE3_filesystem", _filesystem];
 _entity setVariable ["AE3_filepointer", []];
 
-// Set readiness flag for Zeus modules to check
-_entity setVariable ["AE3_filesystemReady", true, true];
+// Note: AE3_filesystemReady flag is set by the device init wrapper after all initialization completes

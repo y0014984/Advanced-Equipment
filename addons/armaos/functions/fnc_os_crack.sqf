@@ -39,11 +39,11 @@ if (count _options > 0 && {(_options select 0) in ["-h", "--help"]}) exitWith {
 	[_computer, [[["  ", ""], ["columnar", "#008DF8"], ["  - Columnar transposition cipher", ""]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[["Examples:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m bruteforce -a caesar ""KHOOR ZRUOG"""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m statistics -a caesar secret.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m bruteforce -a caesar -o output.txt encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m key -a columnar message.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m bruteforce -a columnar /tmp/encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crack -m=bruteforce -a=caesar ""KHOOR ZRUOG"""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crack -m=statistics -a=caesar secret.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crack -m=bruteforce -a=caesar -o=output.txt encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crack -m=key -a=columnar message.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[["  crack -m=bruteforce -a=columnar /tmp/encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[["Note:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[["- Input can be a file path or a quoted string"]]]] call AE3_armaos_fnc_shell_stdout;
@@ -77,7 +77,7 @@ if (!_ae3OptsSuccess) exitWith {};
 // Validate required mode parameter
 if (_mode isEqualTo "") exitWith {
 	[_computer, "Error: Mode (-m) is required. Use 'bruteforce', 'statistics', or 'key'."] call AE3_armaos_fnc_shell_stdout;
-	[_computer, "Example: crack -m=bruteforce -a caesar input.txt"] call AE3_armaos_fnc_shell_stdout;
+	[_computer, "Example: crack -m=bruteforce -a=caesar input.txt"] call AE3_armaos_fnc_shell_stdout;
 };
 
 // Get input - either a file path or a quoted string
@@ -222,6 +222,12 @@ switch (_algorithm) do {
 if (_output isNotEqualTo "") then {
 	// Write to file
 	try {
+		// Create output file if it doesn't exist (rw-rw- permissions)
+		try {
+			[_pointer, _filesystem, _output, "", _username, _username, [[false, true, true], [false, true, true]]] call AE3_filesystem_fnc_createFile;
+		} catch {
+			// File already exists, ignore error
+		};
 		private _outputContent = _result joinString endl;
 		[_pointer, _filesystem, _output, _username, _outputContent, false] call AE3_filesystem_fnc_writeToFile;
 		[_computer, format ["Results written to: %1", _output]] call AE3_armaos_fnc_shell_stdout;

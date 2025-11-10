@@ -1,3 +1,1 @@
-1. Autocompletion using 'tab' does not cycle between different matches. It automatically completes to the first result even if there are multiple results of changing values in the end. For example, if there is a list of files called "test1.txt", "test1_2321.txt", "test1alb.txt" the autocompletion after typing `cat t` automatically goes to `cat test1.txt` instead of asking for different cycles to choose from.
-
-2. When using the crypto command `crypto -m=encrypt -k=root -a=columnar -o=encrypted.txt t1.txt`, I have the 't1.txt' file with contents. But since 'encrypted.txt' file does not exist in the directory, the crypto returns with 'File not found' rather than creating the 'encrypted.txt' file with "rw-rw-" permissions
+Fix Serialization Errors and Performance Warnings
