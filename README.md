@@ -4,7 +4,7 @@
     <img src="https://github.com/A3-Root/Advanced-Equipment/blob/master/AE3_Revamped_Logo.png" width="512">
 </p>
 
-![version](https://img.shields.io/badge/version-0.5.4.3-blue)
+![version](https://img.shields.io/badge/version-1.0.0.0-blue)
 [![build](https://github.com/A3-Root/Advanced-Equipment/actions/workflows/auto-release.yml/badge.svg?branch=master)](https://github.com/A3-Root/Advanced-Equipment/actions/workflows/auto-release.yml)
 [![license](https://img.shields.io/badge/License-APL--SA-blue.svg)](https://github.com/A3-Root/Advanced-Equipment/blob/master/LICENSE)
 
