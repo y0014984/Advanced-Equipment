@@ -1,10 +1,10 @@
 # Advanced Equipment Revamped (AE3)
 
 <p align="center">
-    <img src="https://github.com/A3-Root/Advanced-Equipment/raw/Logo.png" width="512">
+    <img src="https://github.com/A3-Root/Advanced-Equipment/raw/AE3_Revamped_Logo.png" width="512">
 </p>
 
-![version](https://img.shields.io/badge/version-1.0.0.0-blue)
+![version](https://img.shields.io/badge/version-0.5.4.3-blue)
 [![build](https://github.com/A3-Root/Advanced-Equipment/actions/workflows/auto-release.yml/badge.svg?branch=master)](https://github.com/A3-Root/Advanced-Equipment/actions/workflows/auto-release.yml)
 [![license](https://img.shields.io/badge/License-APL--SA-blue.svg)](https://github.com/A3-Root/Advanced-Equipment/blob/master/LICENSE)
 
@@ -344,7 +344,7 @@ Comprehensive documentation is available in the [Wiki](/wiki):
 ## Configuration
 
 AE3 uses CBA settings for customization. Access via:
-- **Main Menu** � **Options** � **Addon Options** � **armaOS main**
+- **Main Menu** � **Options** � **Addon Options** � **AE3 armaOS**
 
 Key settings:
 - **Debug Mode** - Enable system chat debug messages

@@ -51,7 +51,7 @@
 			["STR_AE3_Main_CbaSettings_TerminalDesignNameTerminalGreen", "STR_AE3_Main_CbaSettings_TerminalDesignTooltipTerminalGreen"],
 			["STR_AE3_Main_CbaSettings_TerminalDesignNameSoftBlue", "STR_AE3_Main_CbaSettings_TerminalDesignTooltipSoftBlue"]
 		],
-		0
+		9
 	],
     nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {  

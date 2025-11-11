@@ -46,7 +46,8 @@ _handle =
                 if (_batteryLevelPercent >= 95) then {
                     _value = 100;
                 } else {
-                    _value = (floor (_batteryLevelPercent / 10)) * 10;
+                    _value = (floor ((_batteryLevelPercent + 4) / 10)) * 10;
+                    _value = _value min 100;
                 };
 
                 private _oldValue = ctrlText _batteryCtrl;

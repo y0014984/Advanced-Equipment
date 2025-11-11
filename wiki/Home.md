@@ -61,17 +61,17 @@ private _batteryInfo = [_battery] call AE3_power_fnc_getBatteryLevel;
 
 ### Core Documentation
 
+- **[Terminal Guide](Terminal-Guide.md)** - Terminal interface, OS commands, and customization
 - **[API Reference](API-Reference.md)** - Complete API documentation for all public functions
 - **[Encryption Examples](Encryption-Examples.md)** - Complete documentation for all encryption methods
 - **[Architecture Guide](Architecture.md)** - System architecture, data structures, and design patterns
-- **[Terminal Guide](Terminal-Guide.md)** - Terminal interface, OS commands, and customization
 - **[ACE Mutex Guide](ACE-Mutex.md)** - Understanding and using the computer mutex system
 
 ### Getting Started
 
-1. Read the [Architecture Guide](Architecture.md) to understand how AE3 works
-2. Review the [API Reference](API-Reference.md) for available functions
-3. Check the [Terminal Guide](Terminal-Guide.md) for OS commands
+1. Check the [Terminal Guide](Terminal-Guide.md) for OS commands
+2. Read the [Architecture Guide](Architecture.md) to understand how AE3 works
+3. Review the [API Reference](API-Reference.md) for available functions
 4. See [ACE Mutex](ACE-Mutex.md) for concurrency handling
 
 ### For Mission Makers
@@ -107,7 +107,7 @@ addons/
 ## Key Features
 
 ### Terminal System
-- 4 retro terminal themes (ArmaOS, C64, Apple II, Amber)
+- 20 terminal themes
 - 9 keyboard layouts (AR, DE, FR, HE, HU, IT, RU, TR, US)
 - Command history and autocomplete
 - UI-on-Texture support for in-world laptop screens
@@ -146,10 +146,8 @@ hemtt release       # Build release version
 
 ## Requirements
 
-- **Arma 3** version 2.12+ (required for UI-on-Texture)
 - **CBA** (Community Base Addons) - settings, events, function compilation
-- **ACE3** - interaction menus
-- **ACEX** - extended ACE functionality
+- **ACE3** - interaction menus and extended ACE functionality
 
 ## Performance Notes
 

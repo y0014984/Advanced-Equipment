@@ -67,7 +67,7 @@ if (AE3_UiOnTexture) then
 		// This allows clients to render locally without performance penalties
 		private _rawBuffer = _terminal get "AE3_terminalBuffer";
 		private _scrollPosition = _terminal get "AE3_terminalScrollPosition";
-		private _terminalDesign = _terminal getOrDefault ["AE3_terminalDesign", 0];
+		private _terminalDesign = _terminal getOrDefault ["AE3_terminalDesign", 9];
 		private _cursorPosition = _terminal get "AE3_terminalCursorPosition";
 
 		[_computer, _rawBuffer, _size, _scrollPosition, _terminalDesign, _cursorPosition] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];

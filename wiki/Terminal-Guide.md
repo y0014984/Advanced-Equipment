@@ -30,18 +30,15 @@ This guide covers the ArmaOS terminal interface, built-in OS commands, customiza
 
 ```
 ┌─────────────────────────────────────────────────┐
-│ ArmaOS Terminal                    [Language][Design] │
+│ ArmaOS Terminal                 [Layout][Theme] │
 │                                                 │
-│ admin@armaOS:/>                                │
+│ admin@armaOS:/>                                 │
 │                                                 │
-│ (terminal output appears here)                 │
-│                                                 │
-│                                                 │
+│ (terminal output appears here)                  │
 │                                                 │
 │                                                 │
 │                                                 │
 │                                                 │
-│ admin@armaOS:/> _                              │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -50,8 +47,8 @@ This guide covers the ArmaOS terminal interface, built-in OS commands, customiza
 - **Enter** - Execute command
 - **Up/Down Arrow** - Navigate command history
 - **Page Up/Page Down** - Scroll terminal output
-- **Ctrl + Plus/Minus** - Adjust font size
-- **Tab** - Autocomplete (if enabled)
+- **Ctrl + Numpad Plus/ Numpad Minus** - Adjust font size
+- **Tab** - Autocomplete
 - **ESC** - Close terminal
 
 ---
@@ -70,21 +67,17 @@ Welcome to ArmaOS
 admin@armaOS:/>
 ```
 
-**Default Credentials:**
-- Username: `admin`
-- Password: `admin`
-
-Mission makers can add additional users with different credentials.
+It is the reponsibility of the mission makers to add users with different credentials.
 
 ### Understanding the Prompt
 
 ```
 admin@armaOS:/home/user>
-│     │        │        │
-│     │        │        └── Current directory
-│     │        └─────────── Hostname
-│     └──────────────────── Username
-└────────────────────────── Prompt indicator
+│     │        │        
+│     │        │        
+│     │        └─────────── Current directory
+│     └──────────────────── Hostname
+└────────────────────────── Username
 ```
 
 ### Special Path Characters
@@ -92,7 +85,7 @@ admin@armaOS:/home/user>
 - `/` - Root directory
 - `~` - Home directory (e.g., `/home/admin`)
 - `.` - Current directory
-- `..` - Parent directory
+- `..` - Parent directory (previous directory)
 
 ---
 
@@ -104,17 +97,18 @@ Lists files and directories in the current or specified directory.
 
 **Syntax:**
 ```bash
-ls [-l] [PATH]
+ls [-la] [PATH]
 ```
 
 **Options:**
-- `-l` - Long format (shows permissions and owner)
+- `-l` - (Lowercase "L") Long format (lists the contents in a row)
+- `-a` - (Lowercase "A") Detailed information (shows permissions and owner along with hidden files)
 
 **Examples:**
 ```bash
 ls                  # List current directory
 ls /home            # List /home directory
-ls -l               # Detailed listing
+ls -la               # Detailed listing including hidden files
 ls -l /tmp          # Detailed listing of /tmp
 ```
 
@@ -125,7 +119,7 @@ documents
 file.txt
 scripts
 
-# Long format (-l)
+# Long format (-la)
 drwxr--r--  admin  documents
 -rw-r--r--  admin  file.txt
 -rwxr-xr-x  root   scripts
@@ -212,18 +206,18 @@ mkdir ~/projects
 
 ### touch - Create File
 
-Creates a new empty file or file with content.
+Creates a new empty file.
 
 **Syntax:**
 ```bash
-touch FILE [CONTENT]
+touch FILE
 ```
 
 **Examples:**
 ```bash
 touch file.txt
-touch notes.txt "This is my note"
-touch /tmp/data.txt "Important data"
+touch notes.txt
+touch /tmp/data.txt
 ```
 
 ---
@@ -335,154 +329,6 @@ find password.txt
 /home/admin/config.txt
 2 files found
 Permission denied for 3 directories
-```
-
----
-
-## Device Control Commands
-
-### devices - List Hackable Devices
-
-Lists all devices accessible from the current computer.
-
-**Syntax:**
-```bash
-devices
-```
-
-**Example Output:**
-```
-Name             Type        Status      IP Address
-------------------------------------------------
-main_door        Door        Locked      192.168.1.10
-office_light     Light       Off         192.168.1.11
-patrol_vehicle   Vehicle     Locked      192.168.1.12
-```
-
-**Notes:**
-- Only shows devices on the same network
-- Requires network connection to see devices
-
----
-
-### door - Control Doors
-
-Controls door locks and positions.
-
-**Syntax:**
-```bash
-door -n NAME [-o|-c|-l|-u]
-```
-
-**Options:**
-- `-n NAME` - Door name (required)
-- `-o` - Open door
-- `-c` - Close door
-- `-l` - Lock door
-- `-u` - Unlock door
-
-**Examples:**
-```bash
-door -n main_door -o        # Open main door
-door -n back_door -u        # Unlock back door
-door -n vault_door -l       # Lock vault door
-```
-
-**Power Cost:** Configurable via CBA settings (default: varies by action)
-
----
-
-### light - Control Lights
-
-Controls light switches.
-
-**Syntax:**
-```bash
-light -n NAME [-o|-c]
-```
-
-**Options:**
-- `-n NAME` - Light name (required)
-- `-o` - Turn light on
-- `-c` - Turn light off
-
-**Examples:**
-```bash
-light -n office_light -o    # Turn on office light
-light -n hallway -c         # Turn off hallway light
-```
-
-**Power Cost:** Lights consume power when on
-
----
-
-### vehicle - Control Vehicles
-
-Controls vehicle systems.
-
-**Syntax:**
-```bash
-vehicle -n NAME -a ACTION
-```
-
-**Options:**
-- `-n NAME` - Vehicle name (required)
-- `-a ACTION` - Action to perform:
-  - `engine_on` - Start engine
-  - `engine_off` - Stop engine
-  - `lights_on` - Turn on lights
-  - `lights_off` - Turn off lights
-  - `lock` - Lock vehicle
-  - `unlock` - Unlock vehicle
-
-**Examples:**
-```bash
-vehicle -n patrol_car -a unlock
-vehicle -n humvee -a engine_on
-vehicle -n truck -a lights_on
-```
-
----
-
-## Network Commands
-
-### ipconfig - Show Network Configuration
-
-Displays the computer's network configuration.
-
-**Syntax:**
-```bash
-ipconfig
-```
-
-**Example Output:**
-```
-IP Address: 192.168.1.10
-Router: 192.168.1.1
-Connected: Yes
-```
-
----
-
-### ping - Test Network Connectivity
-
-Tests network connectivity to an IP address.
-
-**Syntax:**
-```bash
-ping IP_ADDRESS
-```
-
-**Examples:**
-```bash
-ping 192.168.1.1        # Ping router
-ping 192.168.1.10       # Ping device
-```
-
-**Output:**
-```
-Pinging 192.168.1.10...
-Reply from 192.168.1.10: Connected
 ```
 
 ---
@@ -844,7 +690,7 @@ Change keyboard layout via the Language button or CBA settings.
 
 ### Terminal Themes
 
-Four retro terminal themes available via the Design button or CBA settings.
+Many terminal themes available via the Design button or CBA settings.
 
 **Available Themes:**
 
@@ -864,6 +710,70 @@ Four retro terminal themes available via the Design button or CBA settings.
    - Amber monochrome monitor theme
    - 1970s terminal look
 
+5. **Midnight Blue**
+   - Deep blue background with soft light-blue text
+   - Modern, cool-toned retro aesthetic
+
+6. **Light Mode**
+   - Bright gray background with dark text
+   - Easy daytime readability
+
+7. **Retro Red**
+   - Red-on-dark theme with pale highlights
+   - Intense 1980s tech look
+
+8. **Teal Terminal**
+   - Teal and cyan hues on deep greenish black
+   - Sleek sci-fi interface feel
+
+9. **Neon Violet**
+   - Purple and pink highlights
+   - Futuristic synthwave mood
+
+10. **Dark Gray Modern**
+   - Minimalist dark gray UI with soft contrast
+   - Professional and understated
+
+11. **Ice Blue**
+   - Cool ice-blue tones on pale backgrounds
+   - Crisp and modern style
+
+12. **Sepia Vintage**
+   - Warm browns and creams
+   - Aged paper / old terminal aesthetic
+
+13. **Pure High Contrast**
+   - White text on pure black
+   - Maximum legibility and clarity
+
+14. **Inverted High Contrast**
+   - Black text on white background
+   - Ideal for print-like readability
+
+15. **Yellow on Black (Colorblind Safe)**
+   - Yellow text with black background
+   - Optimized visibility for colorblind users
+
+16. **Cyan on Black (Tritanopia Safe)**
+   - Cyan text for high readability
+   - Soft yet vivid contrast
+
+17. **Orange on Black (Protanopia Safe)**
+   - Warm orange text on dark background
+   - Comfortable and distinctive contrast
+
+18. **Cream Background (Low Blue Light)**
+   - Black text on cream tones
+   - Eye-friendly for long sessions
+
+19. **Bright Green on Dark Gray (Deuteranopia Safe)**
+   - Vibrant green text for strong visibility
+   - Balanced high-contrast display
+
+20. **Soft Blue & Light Yellow (Balanced)**
+   - Gentle blue background with pale yellow text
+   - Soothing, low-strain theme
+
 **To Change:**
 1. Click the design button in top-right corner of terminal
 2. Or modify `AE3_TerminalDesign` in CBA settings
@@ -875,8 +785,8 @@ Four retro terminal themes available via the Design button or CBA settings.
 Adjust terminal font size for readability.
 
 **To Change:**
-- **Ctrl + Plus** - Increase font size
-- **Ctrl + Minus** - Decrease font size
+- **Ctrl + Numpad Plus** - Increase font size
+- **Ctrl + Numpad Minus** - Decrease font size
 - Or modify `AE3_TerminalDefaultSize` in CBA settings (0.5-1.0)
 
 ---
@@ -912,6 +822,49 @@ History is stored in the terminal hashmap:
 
 ```sqf
 _terminal get "AE3_terminalCommandHistory"  // Hashmap of user -> commands array
+```
+
+---
+
+## Network Commands [WIP / Experimental]
+
+### ipconfig - Show Network Configuration
+
+Displays the computer's network configuration.
+
+**Syntax:**
+```bash
+ipconfig
+```
+
+**Example Output:**
+```
+IP Address: 192.168.1.10
+Router: 192.168.1.1
+Connected: Yes
+```
+
+---
+
+### ping - Test Network Connectivity  [WIP / Experimental]
+
+Tests network connectivity to an IP address.
+
+**Syntax:**
+```bash
+ping IP_ADDRESS
+```
+
+**Examples:**
+```bash
+ping 192.168.1.1        # Ping router
+ping 192.168.1.10       # Ping device
+```
+
+**Output:**
+```
+Pinging 192.168.1.10...
+Reply from 192.168.1.10: Connected
 ```
 
 ---
@@ -1033,14 +986,6 @@ If you get "Permission denied":
 3. Try logging in as a different user
 4. Or use `chown` as root to change ownership
 
-### Network Troubleshooting
-
-If devices don't appear:
-1. Check network connection with `ipconfig`
-2. Ping the router: `ping 192.168.1.1`
-3. Ensure devices are on the same network
-4. Verify router DHCP is configured
-
 ### Power Management
 
 Monitor battery levels:
@@ -1076,13 +1021,15 @@ Monitor battery levels:
 ### Initializing with Specific Commands
 
 ```sqf
-[_laptop, ["ls", "cd", "cat", "devices"], true, false, []] call AE3_armaos_fnc_computer_initWithCommands;
+[_laptop, ["ls", "cd", "cat"], true, false, []] call AE3_armaos_fnc_computer_initWithCommands;
 // Basic commands + security, no games
 ```
 
 ---
 
 For more information, see:
+- [Security Commands](Security-Commands.md) - Complete function documentation
+- [OS Command Customization](OS-Command-Customization.md) - Complete function documentation
 - [API Reference](API-Reference.md) - Complete function documentation
 - [Architecture Guide](Architecture.md) - System architecture
 - [ACE Mutex Guide](ACE-Mutex.md) - Concurrency handling
