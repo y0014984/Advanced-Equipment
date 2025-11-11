@@ -1,7 +1,7 @@
 # Advanced Equipment Revamped (AE3)
 
 <p align="center">
-    <img src="https://github.com/y0014984/Advanced-Equipment/raw/master/design/Advanced-Eqipment-Logo-Simple-Font.png" width="512">
+    <img src="https://github.com/A3-Root/Advanced-Equipment/raw/Logo.png" width="512">
 </p>
 
 ![version](https://img.shields.io/badge/version-1.0.0.0-blue)

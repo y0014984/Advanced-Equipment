@@ -34,34 +34,29 @@ _handle =
             // We have to use 'spawn' inside 'perFrameEventHandler' because this is a scheduled environment, 
             // but 'getRemoteVar' in 'getBatteryLevel' needs unscheduled environment to work properly.
             // Otherwise throwing "suspending not allowd in this context" error.
-            [_computer, _battery, _batteryCtrl] spawn 
-            {
+            [_computer, _battery, _batteryCtrl] spawn {
                 params ["_computer", "_battery", "_batteryCtrl"];
 
                 private _params = [_battery] call AE3_power_fnc_getBatteryLevel;
-
                 _params params ["_batteryLevel", "_batteryLevelPercent"];
 
                 private _value = 0;
 
-                if (_batteryLevelPercent >= 95) then
-                {
+                // Snap to nearest 10%
+                if (_batteryLevelPercent >= 95) then {
                     _value = 100;
-                }
-                else
-                {
-                    _value = (floor (_batteryLevelPercent / 25)) * 25;
+                } else {
+                    _value = (floor (_batteryLevelPercent / 10)) * 10;
                 };
 
                 private _oldValue = ctrlText _batteryCtrl;
-    	        private _newValue = format ["\z\ae3\addons\armaos\images\AE3_battery_%1_percent.paa", _value];
+                private _newValue = format ["\z\ae3\addons\armaos\images\AE3_battery_%1_percent.paa", _value];
 
                 _batteryCtrl ctrlSetText _newValue;
 
                 /* ------------- UI on Texture ------------ */
 
-                if ((AE3_UiOnTexture) && (_oldValue isNotEqualTo _newValue)) then
-                {
+                if ((AE3_UiOnTexture) && (_oldValue isNotEqualTo _newValue)) then {
                     private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
 
                     [_computer, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateBatteryStatus", _playersInRange];

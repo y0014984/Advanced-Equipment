@@ -102,7 +102,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white; this could prohibit to change color to yellow and red on low battery levels, but is necessary for design changes
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			action = "[(uiNamespace getVariable 'AE3_Battery'), true] call AE3_power_fnc_getBatteryLevel; ctrlSetFocus (uiNamespace getVariable 'AE3_ConsoleOutput');";
-			tooltip = "check battery level";
+			tooltip = "Check Battery Level";
 		};
 		class RscButton_1310: RscButton
 		{
@@ -118,7 +118,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white
 			font = "EtelkaMonospaceProBold";
 			shadow = 0;
-			tooltip = "change keyboard layout";
+			tooltip = "Change Keyboard Layout";
 		};
 		class RscButton_1320: RscButton
 		{
@@ -133,7 +133,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorBackgroundActive[] = {0,0,0,0.2}; // darken
 			colorText[] = {1,1,1,1}; // white
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
-			tooltip = "change terminal design";
+			tooltip = "Change Terminal Theme";
 		};
 		class RscButton_1300: RscButton
 		{
@@ -149,7 +149,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			action = "closeDialog 1;";
-			tooltip = "close armaOS";
+			tooltip = "Close armaOS";
 		};
 	};
 };

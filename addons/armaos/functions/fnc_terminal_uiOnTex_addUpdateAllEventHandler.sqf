@@ -26,7 +26,8 @@ _handle =
 
             if (AE3_UiOnTexture) then
             {
-                private _playersInRange = [3, _computer] call AE3_main_fnc_getPlayersInRange;
+                private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 3];
+                private _playersInRange = [_playerRange, _computer] call AE3_main_fnc_getPlayersInRange;
 
                 private _languageButtonCtrl = _consoleDialog displayCtrl 1310;
                 private _batteryButtonCtrl = _consoleDialog displayCtrl 1050;
