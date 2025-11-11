@@ -134,7 +134,7 @@ if (_mode isEqualTo "onUnload") exitWith
 		private _destDirContent = _destDirObj select 0;
 
 		// Check if destination is a directory
-		if (typeName _destDirContent != "HASHMAP") throw "Destination is not a directory";
+		if (typeName _destDirContent != "HASHMAP") throw localize "STR_AE3_Main_Exception_DestinationNotDirectory";
 
 		// Check if trying to move to the same directory
 		if (_sourcePointer isEqualTo _destPointer) exitWith {
@@ -146,7 +146,7 @@ if (_mode isEqualTo "onUnload") exitWith
 
 		// Get the item object
 		private _itemObj = _srcDirContent get _currentFile;
-		if (isNil "_itemObj") throw "File not found";
+		if (isNil "_itemObj") throw localize "STR_AE3_Main_Exception_FileNotFound";
 
 		// Check if trying to move a directory into itself or its subdirectory
 		private _isDir = (typeName (_itemObj select 0)) isEqualTo "HASHMAP";
@@ -155,7 +155,7 @@ if (_mode isEqualTo "onUnload") exitWith
 			private _srcPath = _sourcePointer joinString "/";
 			private _destPathStr = _destPointer joinString "/";
 			// Check if destination path starts with source path
-			if ((_destPathStr + "/") find (_srcPath + "/") == 0) throw "Cannot move directory into itself or its subdirectory";
+			if ((_destPathStr + "/") find (_srcPath + "/") == 0) throw localize "STR_AE3_Main_Exception_CannotMoveIntoSubdir";
 		};
 
 		// Move (copy to destination and delete from source)

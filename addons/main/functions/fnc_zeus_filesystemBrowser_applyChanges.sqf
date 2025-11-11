@@ -37,7 +37,7 @@ try
 	private _dirContent = _dirObj select 0;
 	private _itemObj = _dirContent get _currentFile;
 
-	if (isNil "_itemObj") throw "File not found";
+	if (isNil "_itemObj") throw localize "STR_AE3_Main_Exception_FileNotFound";
 
 	// Get new owner from UI
 	private _newOwner = ctrlText (_display displayCtrl 1402);

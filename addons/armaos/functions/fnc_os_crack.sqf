@@ -20,48 +20,47 @@ params ["_computer", "_options", "_commandName"];
 
 // Help system
 if (count _options > 0 && {(_options select 0) in ["-h", "--help"]}) exitWith {
-	[_computer, [[["CRACK COMMAND HELP", "#8ce10b"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpTitle", "#8ce10b"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Description:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Decrypt encrypted text without knowing the key using various cryptanalysis methods."]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpDescription", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpDescriptionText"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Syntax:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["crack -m <mode> [-a <algorithm>] [-o <output>] <input>"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpSyntax", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpSyntaxText"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Parameters:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["-m <mode>", "#008DF8"], ["      - Cracking mode (required)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["-a <algorithm>", "#008DF8"], [" - Encryption algorithm (default: caesar)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["-o <output>", "#008DF8"], ["    - Save output to file (optional)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["<input>", "#008DF8"], ["        - Input file path or quoted string (required)", ""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParameters", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamMode"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamAlgorithm"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamOutput"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamInput"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Modes:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["bruteforce", "#008DF8"], ["  - Try all possible keys/shifts", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["statistics", "#008DF8"], ["  - Analyze character frequency (Caesar only)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["key", "#008DF8"], ["         - Find possible key lengths (Columnar only)", ""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModes", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModeBruteforce"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModeStatistics"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModeKey"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Algorithms:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["caesar", "#008DF8"], ["    - Caesar cipher (shift cipher)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["columnar", "#008DF8"], ["  - Columnar transposition cipher", ""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpAlgorithms", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpAlgoCaesar"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpAlgoColumnar"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Examples:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m=bruteforce -a=caesar ""KHOOR ZRUOG"""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m=statistics -a=caesar secret.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m=bruteforce -a=caesar -o=output.txt encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m=key -a=columnar message.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crack -m=bruteforce -a=columnar /tmp/encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExamples", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample1"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample2"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample3"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample4"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Note:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Input can be a file path or a quoted string"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Use quotes around strings containing spaces"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Statistics mode only works with Caesar cipher"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Key mode only works with Columnar cipher"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote1"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote2"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote3"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote4"]]]] call AE3_armaos_fnc_shell_stdout;
 };
 
 private _commandOpts =
 	[
 		["_mode", "m", "mode", "stringSelect", "", true, localize "STR_AE3_ArmaOS_CommandHelp_Crack_mode", ["bruteforce", "statistics", "key"]],
         ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, localize "STR_AE3_ArmaOS_CommandHelp_Crack_algorithm", ["caesar", "columnar"]],
-		["_output", "o", "output", "string", "", false, "Output file path"]
+		["_output", "o", "output", "string", "", false, localize "STR_AE3_ArmaOS_Crack_HelpParamOutput"]
 	];
 private _commandSyntax =
 [
@@ -81,8 +80,8 @@ if (!_ae3OptsSuccess) exitWith {};
 
 // Validate required mode parameter
 if (_mode isEqualTo "") exitWith {
-	[_computer, "Error: Mode (-m) is required. Use 'bruteforce', 'statistics', or 'key'."] call AE3_armaos_fnc_shell_stdout;
-	[_computer, "Example: crack -m=bruteforce -a=caesar input.txt"] call AE3_armaos_fnc_shell_stdout;
+	[_computer, localize "STR_AE3_ArmaOS_Crack_ErrorModeRequired"] call AE3_armaos_fnc_shell_stdout;
+	[_computer, localize "STR_AE3_ArmaOS_Crack_ErrorModeExample"] call AE3_armaos_fnc_shell_stdout;
 };
 
 // Get input - either a file path or a quoted string
@@ -235,7 +234,7 @@ if (_output isNotEqualTo "") then {
 		};
 		private _outputContent = _result joinString endl;
 		[_pointer, _filesystem, _output, _username, _outputContent, false] call AE3_filesystem_fnc_writeToFile;
-		[_computer, format ["Results written to: %1", _output]] call AE3_armaos_fnc_shell_stdout;
+		[_computer, format [localize "STR_AE3_ArmaOS_Result_ResultsWrittenTo", _output]] call AE3_armaos_fnc_shell_stdout;
 	} catch {
 		[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 	};

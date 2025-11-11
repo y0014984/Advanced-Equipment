@@ -42,6 +42,10 @@ if (_currentDesignIndex == (count _designs)) then { _currentDesignIndex = 0; };
 
 private _currentDesign = _designs select _currentDesignIndex;
 
+// Store the new design index in terminal hashmap
+_terminal set ["AE3_terminalDesign", _currentDesignIndex];
+_computer setVariable ["AE3_terminal", _terminal];
+
 // set the design
 [_consoleDialog, _currentDesign] call AE3_armaos_fnc_terminal_setTerminalDesign;
 

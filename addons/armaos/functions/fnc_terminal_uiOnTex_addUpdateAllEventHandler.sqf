@@ -48,7 +48,7 @@ _handle =
                 // Send raw buffer data instead of pre-rendered structured text to avoid TEXT serialization warnings
                 private _rawBuffer = _terminal get "AE3_terminalBuffer";
                 private _scrollPosition = _terminal get "AE3_terminalScrollPosition";
-                private _terminalDesign = _terminal get "AE3_terminalDesign";
+                private _terminalDesign = _terminal getOrDefault ["AE3_terminalDesign", 0];
                 private _cursorPosition = _terminal get "AE3_terminalCursorPosition";
                 private _prompt = _terminal get "AE3_terminalPrompt";
                 private _input = _terminal get "AE3_terminalInput";

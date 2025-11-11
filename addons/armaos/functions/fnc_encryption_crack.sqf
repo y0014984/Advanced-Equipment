@@ -62,7 +62,7 @@ switch (_algorithm) do {
 
 			for "_i" from 1 to (count _allowedAlphabet) do {
 				private _decrypted = [_i, "decrypt", _message] call AE3_armaos_fnc_encryption_caesar;
-				private _test = format ["Key %1: %2", _i, _decrypted];
+				private _test = format [localize "STR_AE3_ArmaOS_Result_CrackKeyTest", _i, _decrypted];
 				_result pushBack _test;
 			};
 		};
@@ -86,7 +86,7 @@ switch (_algorithm) do {
 			{
 				private _keyIfThisIsAnE = _allowedAlphabet find _x;
 				_keyIfThisIsAnE = ((_keyIfThisIsAnE + (count _allowedAlphabet)) - _indexOfE) % (count _allowedAlphabet);
-				private _found = format ["Character '%1' appears %2 times (possible key: %3)", _x, _statistics get _x, _keyIfThisIsAnE];
+				private _found = format [localize "STR_AE3_ArmaOS_Result_CrackCharacterStats", _x, _statistics get _x, _keyIfThisIsAnE];
 				_result pushBack _found;
 			} forEach _foundChars;
 		};
@@ -113,7 +113,7 @@ switch (_algorithm) do {
 		};
 
 		if (_mode isEqualTo "key") then {
-			_result pushBack "Possible key lengths:";
+			_result pushBack localize "STR_AE3_ArmaOS_Result_CrackPossibleKeyLengths";
 			{
 				_result pushBack (str _x);
 			} forEach _keyLengths;
@@ -123,7 +123,7 @@ switch (_algorithm) do {
 			{
 				private _col = _x;
 				private _rows = _msgLength / _col;
-				_result pushBack (format ["Columns: %1, Rows: %2", _col, _rows]);
+				_result pushBack (format [localize "STR_AE3_ArmaOS_Result_CrackColumnarLayout", _col, _rows]);
 
 				// Extract the segments from the encrypted message
 				private _msgArr = _message splitString "";

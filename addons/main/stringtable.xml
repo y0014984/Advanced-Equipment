@@ -209,6 +209,35 @@
                 <Chinesesimp>连接警告: 此资产已有一个类型为 %1 的连接</Chinesesimp>
             </Key>
         </Container>
+        <Container name="Filesystem Browser Errors">
+            <Key ID="STR_AE3_Main_Exception_CannotMoveIntoSubdir">
+                <Original>Cannot move directory into itself or its subdirectory</Original>
+                <English>Cannot move directory into itself or its subdirectory</English>
+                <French>Impossible de déplacer un répertoire dans lui-même ou dans son sous-répertoire</French>
+                <Italian>Impossibile spostare la directory in se stessa o nella sua sottodirectory</Italian>
+                <Russian>Невозможно переместить каталог в себя или в свой подкаталог</Russian>
+                <German>Verzeichnis kann nicht in sich selbst oder in sein Unterverzeichnis verschoben werden</German>
+                <Chinesesimp>无法将目录移动到自身或其子目录中</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Exception_DestinationNotDirectory">
+                <Original>Destination is not a directory</Original>
+                <English>Destination is not a directory</English>
+                <French>La destination n'est pas un répertoire</French>
+                <Italian>La destinazione non è una directory</Italian>
+                <Russian>Назначение не является каталогом</Russian>
+                <German>Ziel ist kein Verzeichnis</German>
+                <Chinesesimp>目标不是目录</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Exception_FileNotFound">
+                <Original>File not found</Original>
+                <English>File not found</English>
+                <French>Fichier introuvable</French>
+                <Italian>File non trovato</Italian>
+                <Russian>Файл не найден</Russian>
+                <German>Datei nicht gefunden</German>
+                <Chinesesimp>找不到文件</Chinesesimp>
+            </Key>
+        </Container>
         <Container name="General">
             <Key ID="STR_AE3_Main_AdvancedEquipmentObjectsCategoryDisplayName">
                 <Original>Advanced Equipment Objects (AE3)</Original>

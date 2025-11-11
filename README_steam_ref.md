@@ -1,12 +1,14 @@
-[h1]Root's Cyber Warfare[/h1]
+[h1]Advanced Equipment Revamped[/h1]
 
-[b]Advanced hacking mod for Arma 3 with terminal-based control over doors, lights, vehicles, drones, and more.[/b]
+[b]**A modular framework and equipment pack for Arma 3.**[/b]
 
-Fully integrated with ACE3, AE3 ArmaOS terminal, and Zeus/Eden editors. Tested with 67+ players on dedicated servers. Requires both server and clients to have this mod.
+Advanced Equipment Revamped (AE3) delivers a functional terminal laptop running ArmaOS and a range of connected equipment such as generators, batteries, flash drives, solar panels, and interactable objects. It is designed as a complete mod, ready to use in missions and scenarios while also providing APIs for developers.
 
-[b]Current version - 1.1.1.1[/b]
+Tested with 67+ players on dedicated servers. Requires both server and clients to have this mod.
 
-[img]https://i.imgur.com/EWy3dQc.gif[/img]
+[b]Current version - 1.0.0.0[/b]
+
+[img]https://github.com/y0014984/Advanced-Equipment/raw/master/design/Advanced-Eqipment-Logo-Simple-Font.png[/img]
 
 [hr][/hr]
 [h2]Device Types[/h2]

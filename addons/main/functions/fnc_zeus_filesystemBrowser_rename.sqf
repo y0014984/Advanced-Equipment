@@ -86,7 +86,7 @@ if (_mode isEqualTo "onUnload") exitWith
 
 		// Get the item object
 		private _itemObj = _dirContent get _currentFile;
-		if (isNil "_itemObj") throw "File not found";
+		if (isNil "_itemObj") throw localize "STR_AE3_Main_Exception_FileNotFound";
 
 		// Rename (copy to new name and delete old)
 		_dirContent set [_newName, _itemObj];

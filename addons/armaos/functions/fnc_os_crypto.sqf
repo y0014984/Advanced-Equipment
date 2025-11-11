@@ -20,40 +20,40 @@ params ["_computer", "_options", "_commandName"];
 
 // Help system
 if (count _options > 0 && {(_options select 0) in ["-h", "--help"]}) exitWith {
-	[_computer, [[["CRYPTO COMMAND HELP", "#8ce10b"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpTitle", "#8ce10b"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Description:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Encrypt or decrypt text using specified algorithm and key."]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpDescription", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpDescriptionText"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Syntax:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["crypto -m <mode> -k <key> [-a <algorithm>] [-o <output>] <input>"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpSyntax", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpSyntaxText"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Parameters:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["-m <mode>", "#008DF8"], ["      - Operation mode: encrypt or decrypt (required)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["-k <key>", "#008DF8"], ["       - Encryption/decryption key (required)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["-a <algorithm>", "#008DF8"], [" - Encryption algorithm (default: caesar)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["-o <output>", "#008DF8"], ["    - Save output to file (optional)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["<input>", "#008DF8"], ["        - Input file path or quoted string (required)", ""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpParameters", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpParamMode"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpParamKey"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpParamAlgorithm"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpParamOutput"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpParamInput"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Modes:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["encrypt", "#008DF8"], [" - Encrypt plaintext", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["decrypt", "#008DF8"], [" - Decrypt ciphertext", ""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpModes", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpModeEncrypt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpModeDecrypt"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Algorithms:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["caesar", "#008DF8"], ["    - Caesar cipher (key: integer shift value)", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  ", ""], ["columnar", "#008DF8"], ["  - Columnar transposition (key: string, length > 1)", ""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpAlgorithms", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpAlgoCaesar"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpAlgoColumnar"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Examples:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m=encrypt -k=3 -a=caesar ""HELLO WORLD"""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m=decrypt -k=3 -a=caesar secret.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m=encrypt -k=PASSWORD -a=columnar -o=encrypted.txt message.txt"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["  crypto -m=decrypt -k=PASSWORD -a=columnar /tmp/encrypted.txt"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpExamples", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpExample1"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpExample2"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpExample3"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpExample4"]]]] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Note:", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Input can be a file path or a quoted string"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Use quotes around strings containing spaces"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Caesar cipher requires an integer key (shift value)"]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["- Columnar cipher requires a string key with length > 1"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpNote", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpNote1"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpNote2"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpNote3"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crypto_HelpNote4"]]]] call AE3_armaos_fnc_shell_stdout;
 };
 
 private _commandOpts =
@@ -61,7 +61,7 @@ private _commandOpts =
 		["_mode", "m", "mode", "stringSelect", "", true, localize "STR_AE3_ArmaOS_CommandHelp_Crypto_mode", ["encrypt", "decrypt"]],
         ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, localize "STR_AE3_ArmaOS_CommandHelp_Crypto_algorithm", ["caesar", "columnar"]],
         ["_key", "k", "key", "string", "", true, localize "STR_AE3_ArmaOS_CommandHelp_Crypto_key"],
-		["_output", "o", "output", "string", "", false, "Output file path"]
+		["_output", "o", "output", "string", "", false, localize "STR_AE3_ArmaOS_Crypto_HelpParamOutput"]
 	];
 private _commandSyntax =
 [
@@ -81,8 +81,8 @@ if (!_ae3OptsSuccess) exitWith {};
 
 // Validate required mode parameter
 if (_mode isEqualTo "") exitWith {
-	[_computer, "Error: Mode (-m) is required. Use 'encrypt' or 'decrypt'."] call AE3_armaos_fnc_shell_stdout;
-	[_computer, "Example: crypto -m=encrypt -k 3 input.txt"] call AE3_armaos_fnc_shell_stdout;
+	[_computer, localize "STR_AE3_ArmaOS_Crypto_ErrorModeRequired"] call AE3_armaos_fnc_shell_stdout;
+	[_computer, localize "STR_AE3_ArmaOS_Crypto_ErrorModeExample"] call AE3_armaos_fnc_shell_stdout;
 };
 
 // Get input - either a file path or a quoted string
@@ -95,8 +95,8 @@ if (_inputRaw isEqualTo "") exitWith {
 // Warn if input contains algorithm names (likely user error with extra arguments)
 private _inputUpper = toUpper _inputRaw;
 if ((_inputUpper find "CAESAR" >= 0) || (_inputUpper find "COLUMNAR" >= 0)) then {
-	[_computer, [[["WARNING:", "#FFD966"], [" Input contains algorithm name. Did you include extra arguments by mistake?", ""]]]] call AE3_armaos_fnc_shell_stdout;
-	[_computer, [[["Hint: Use quotes around multi-word strings: ", ""], ["crypto -m=encrypt -k=3 ""my message""", "#008DF8"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, localize "STR_AE3_ArmaOS_Crypto_WarningAlgorithmInInput"] call AE3_armaos_fnc_shell_stdout;
+	[_computer, localize "STR_AE3_ArmaOS_Crypto_HintUseQuotes"] call AE3_armaos_fnc_shell_stdout;
 	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
 };
 
@@ -152,7 +152,7 @@ if ((_mode isEqualTo "encrypt") || (_mode isEqualTo "decrypt")) then
 							// File already exists, ignore error
 						};
 						[_pointer, _filesystem, _output, _username, _processedMessage, false] call AE3_filesystem_fnc_writeToFile;
-						[_computer, format ["Results written to: %1", _output]] call AE3_armaos_fnc_shell_stdout;
+						[_computer, format [localize "STR_AE3_ArmaOS_Result_ResultsWrittenTo", _output]] call AE3_armaos_fnc_shell_stdout;
 					} catch {
 						[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 					};
@@ -189,7 +189,7 @@ if ((_mode isEqualTo "encrypt") || (_mode isEqualTo "decrypt")) then
 							// File already exists, ignore error
 						};
 						[_pointer, _filesystem, _output, _username, _processedMessage, false] call AE3_filesystem_fnc_writeToFile;
-						[_computer, format ["Results written to: %1", _output]] call AE3_armaos_fnc_shell_stdout;
+						[_computer, format [localize "STR_AE3_ArmaOS_Result_ResultsWrittenTo", _output]] call AE3_armaos_fnc_shell_stdout;
 					} catch {
 						[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
 					};

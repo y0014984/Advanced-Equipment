@@ -1,15 +1,20 @@
-# Advanced Equipment (AE3)
+# Advanced Equipment Revamped (AE3)
+
+<p align="center">
+    <img src="https://github.com/y0014984/Advanced-Equipment/raw/master/design/Advanced-Eqipment-Logo-Simple-Font.png" width="512">
+</p>
 
 ![version](https://img.shields.io/badge/version-1.0.0.0-blue)
-[![license](https://img.shields.io/badge/License-APL--SA-blue.svg)](https://github.com/y0014984/Advanced-Equipment/blob/master/LICENSE)
+[![build](https://github.com/A3-Root/Advanced-Equipment/actions/workflows/auto-release.yml/badge.svg?branch=master)](https://github.com/A3-Root/Advanced-Equipment/actions/workflows/auto-release.yml)
+[![license](https://img.shields.io/badge/License-APL--SA-blue.svg)](https://github.com/A3-Root/Advanced-Equipment/blob/master/LICENSE)
 
-**A comprehensive framework for building terminal-based cyber warfare systems in Arma 3**
+**A modular framework and equipment pack for Arma 3.**
 
-Advanced Equipment (AE3) is a foundational framework that provides the core building blocks for creating sophisticated cyber warfare and hacking systems in Arma 3. It features a Unix-like terminal interface (ArmaOS), virtual filesystem, power management, and extensive mod developer APIs.
+Advanced Equipment Revamped (AE3) delivers a functional terminal laptop running ArmaOS and a range of connected equipment such as generators, batteries, flash drives, solar panels, and interactable objects. It is designed as a complete mod, ready to use in missions and scenarios while also providing APIs for developers.
 
 ## What is AE3?
 
-AE3 is **not** an end-user mod with pre-built hacking features. Instead, it's a **framework/library** that mod developers use to build cyber warfare systems. Think of it as the engine that powers mods like [Root's Cyber Warfare](https://github.com/A3-Root/Root_Cyberwarfare), which adds device hacking and GPS tracking on top of AE3's foundation.
+AE3 is both a **gameplay mod** and a **framework**. Players can interact with fully functional laptops, manage power systems, operate equipment, and access data through an in-game terminal interface. Developers can extend AE3 through its API.
 
 ### Core Components
 
@@ -63,6 +68,14 @@ AE3 provides six major systems:
 - **Network-safe serialization** - never transmits TEXT type over network
 - **Player range detection** - efficient UI updates for nearby players only
 - **Locality-aware operations** - server/client execution control
+
+### Included Equipment
+- **Terminal Laptop (ArmaOS)** — core interactive computer.
+- **Flash Drive** — removable storage.
+- **Solar Power Generator** — clean energy source.
+- **Fuel/Electric Generators** — primary power supply.
+- **Battery Units** — charge and discharge dynamically.
+- **Interactable Lights & Lamps** — power-sensitive illumination.
 
 ## For Mod Developers
 
@@ -331,7 +344,7 @@ Comprehensive documentation is available in the [Wiki](/wiki):
 ## Configuration
 
 AE3 uses CBA settings for customization. Access via:
-- **Main Menu** � **Options** � **Addon Options** � **Advanced Equipment**
+- **Main Menu** � **Options** � **Addon Options** � **armaOS main**
 
 Key settings:
 - **Debug Mode** - Enable system chat debug messages
@@ -347,7 +360,6 @@ See [Configuration Guide](wiki/Configuration.md) for complete settings reference
 AE3 uses a network-safe rendering approach:
 - **Terminal buffer** (raw STRING/ARRAY) is synchronized across network
 - **Rendered TEXT** is generated locally on each client
-- **Never transmits TEXT type** - prevents serialization warnings and performance issues
 - **Throttled updates** - configurable refresh rate reduces network traffic
 
 ### Mutex System
@@ -439,8 +451,8 @@ See [LICENSE](LICENSE) for full terms.
 ## Credits
 
 - **Root** - Current framework development and maintenance
-- **y0014984** - Original Advanced Equipment development
-- **Wasserstoff** and **JulesVerner** - Core contributions and development
+- **y0014984** - Original AE3 development
+- **Wasserstoff** and **JulesVerner** - Original AE3 Core contributions and development
 
 ## Mods Built on AE3
 
@@ -456,3 +468,5 @@ See [LICENSE](LICENSE) for full terms.
 - [HEMTT Build Tool](https://github.com/BrettMayson/HEMTT)
 
 ---
+
+*Advanced Equipment Revamped (AE3) — functional ArmaOS terminals and connected equipment for Arma 3.*

@@ -40,7 +40,6 @@ addons/
 2. **Permission-Based Access** - Filesystem uses Unix-like permission model
 3. **Network Serialization** - Only transmit serializable types (STRING, ARRAY, NUMBER, BOOL, OBJECT, CODE)
 4. **Locality Awareness** - Functions handle server/client execution contexts
-5. **Multiplayer-First** - Designed for networked play with 67+ player support
 
 ---
 

@@ -1,20 +1,17 @@
-# Advanced Equipment (AE3) Framework Wiki
+# Advanced Equipment Revamped (AE3) Framework Wiki
 
-Welcome to the AE3 Framework Developer Documentation. AE3 is an Arma 3 mod framework that implements a terminal-based cyber warfare system called ArmaOS. This wiki provides comprehensive technical documentation for mod developers and mission makers.
+Welcome to the AE3 Framework Developer Documentation. AE3 is an Arma 3 mod framework that implements a terminal-based system called ArmaOS. This wiki provides comprehensive technical documentation for mod developers and mission makers.
 
 ## What is AE3?
 
-AE3 (Advanced Equipment Revamped) is a **framework**, not an end-user mod. It provides:
+AE3 is both a **gameplay mod** and a **framework**. Players can interact with fully functional laptops, manage power systems, operate equipment, and access data through an in-game terminal interface. Developers can extend AE3 through its API.
 
 - **ArmaOS**: Unix-like terminal interface for in-game computers
 - **Virtual Filesystem**: Hierarchical file system with permissions
-- **Network Simulation**: Router-based networking with DHCP
+- **Network Simulation**: Router-based networking with DHCP (W.I.P)
 - **Power Management**: Batteries, generators, solar panels with realistic consumption
-- **Device Control**: Hack and control doors, lights, vehicles, drones, GPS trackers
 - **Zeus/Eden Integration**: Modules for mission makers
 - **ACE3 Interactions**: Dynamic interaction menus for equipment
-
-Players use in-game laptops with terminal interfaces to hack and control mission-critical devices. The framework supports complex cyber warfare scenarios with realistic power constraints, network topology, and file permissions.
 
 ## Quick Reference
 
@@ -28,19 +25,14 @@ mkdir PATH                  # Create directory
 rm PATH                     # Delete file/directory
 touch FILE [CONTENT]        # Create file
 
-devices                     # List hackable devices
-door -n NAME [-o|-c|-l|-u]  # Control doors (open/close/lock/unlock)
-light -n NAME [-o|-c]       # Control lights (on/off)
-vehicle -n NAME [ACTION]    # Control vehicles
-
 ipconfig                    # Show network configuration
 ping IP                     # Test network connectivity
 lsusb                       # List USB devices
 mount INTERFACE             # Mount flash drive
 unmount INTERFACE           # Unmount flash drive
 
-crypto -a ALG -m MODE -k KEY MSG  # Encrypt/decrypt messages
-crack -a ALG -m MODE MSG           # Crack encrypted messages
+crypto -m=MODE -k=KEY -a=ALG -o=OUTPUT MSG   # Encrypt/decrypt messages
+crack -m=MODE -a=ALG -o=OUTPUT MSG           # Crack encrypted messages
 ```
 
 ### Common API Functions
@@ -70,6 +62,7 @@ private _batteryInfo = [_battery] call AE3_power_fnc_getBatteryLevel;
 ### Core Documentation
 
 - **[API Reference](API-Reference.md)** - Complete API documentation for all public functions
+- **[Encryption Examples](Encryption-Examples.md)** - Complete documentation for all encryption methods
 - **[Architecture Guide](Architecture.md)** - System architecture, data structures, and design patterns
 - **[Terminal Guide](Terminal-Guide.md)** - Terminal interface, OS commands, and customization
 - **[ACE Mutex Guide](ACE-Mutex.md)** - Understanding and using the computer mutex system
@@ -127,7 +120,7 @@ addons/
 - Mount points for external storage
 - Supports files containing strings, code, or any serializable data
 
-### Network
+### Network [Experimental / W.I.P]
 - Router-based network topology
 - DHCP server for automatic IP assignment
 - Ping functionality for connectivity testing
@@ -139,15 +132,6 @@ addons/
 - Solar panel power generation (time-of-day and orientation-aware)
 - Fuel-powered generators
 - Power connections between devices
-- Configurable power costs per device action
-
-### Device Control
-- Doors (open/close/lock/unlock)
-- Lights (on/off with power consumption)
-- Vehicles (engine, lights, lock)
-- Drones (future implementation)
-- GPS trackers (future implementation)
-- Power grids (control entire networks)
 
 ## Build System
 
@@ -171,7 +155,6 @@ hemtt release       # Build release version
 
 - Tested with 67+ players on dedicated servers
 - Terminal updates throttled (configurable, default 0.3s) to reduce network traffic
-- **NEVER transmit TEXT (structured text) via remoteExec** - always send STRING and render locally
 - Network topology calculations cached for performance
 - Filesystem operations validate paths before execution
 
