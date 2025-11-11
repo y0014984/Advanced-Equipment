@@ -25,9 +25,10 @@ private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // 
 
 if (!_uiOnTexActive) then { [_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init; };
 
-waitUntil { !isNull findDisplay "AE3_UiOnTexture" };
+private _displayName = _computer getVariable ["AE3_UiOnTexDisplayName", "AE3_UiOnTexture"];
+waitUntil { !isNull findDisplay _displayName };
 
-private _uiOnTextureDisplay = findDisplay "AE3_UiOnTexture";
+private _uiOnTextureDisplay = findDisplay _displayName;
 
 private _uiOnTextureOutputCtrl = _uiOnTextureDisplay displayCtrl 1100; // Console Output Control
 

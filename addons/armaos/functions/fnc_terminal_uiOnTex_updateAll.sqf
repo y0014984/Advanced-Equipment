@@ -51,9 +51,20 @@ private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // 
 
 if (!_uiOnTexActive) then { [_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init; };
 
-waitUntil { !isNull findDisplay "AE3_UiOnTexture" };
+private _displayName = _computer getVariable ["AE3_UiOnTexDisplayName", "AE3_UiOnTexture"];
 
-private _uiOnTextureDisplay = findDisplay "AE3_UiOnTexture";
+// Wait for display with timeout to prevent deadlock (e.g., when Arsenal opens during init)
+private _timeoutStart = time;
+private _maxWaitTime = 5; // 5 seconds timeout
+waitUntil {
+	sleep 0.01;
+	!isNull findDisplay _displayName || (time - _timeoutStart) > _maxWaitTime
+};
+
+private _uiOnTextureDisplay = findDisplay _displayName;
+
+// If display not found after timeout, exit gracefully
+if (isNull _uiOnTextureDisplay) exitWith {};
 
 /* ---------------------------------------- */
 

@@ -168,7 +168,16 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
 
-		true // Intercepts the default action, eg. pressing escape won't close the dialog.
+		// Check if Arsenal or other high-priority dialogs are open
+		// Display 602 = ACE Arsenal, Display 312 = Virtual Arsenal, Display 49 = Escape Menu
+		private _arsenalOpen = !(isNull findDisplay 602) || !(isNull findDisplay 312);
+		private _escMenuOpen = !(isNull findDisplay 49);
+
+		// If high-priority dialogs are open, don't intercept keys - let them handle input
+		if (_arsenalOpen || _escMenuOpen) exitWith { false };
+
+		// Otherwise intercept to prevent default actions (eg. pressing escape won't close the terminal dialog)
+		true
 	}
 ];
 

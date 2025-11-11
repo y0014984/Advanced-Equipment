@@ -29,7 +29,15 @@ _tmpDisplay closeDisplay 1;
 
 /* ---------------------------------------- */
 
-_computer setObjectTexture [1, "#(rgb,1024,1024,1)ui('AE3_ArmaOS_Main_Dialog','AE3_UiOnTexture')"];
+// Generate unique display name for this computer using its network ID
+private _computerNetId = netId _computer;
+private _uniqueDisplayName = format ["AE3_UiOnTexture_%1", _computerNetId];
+
+// Store the unique display name on the computer object for later reference
+_computer setVariable ["AE3_UiOnTexDisplayName", _uniqueDisplayName, true];
+
+// Set texture using the unique display name
+_computer setObjectTexture [1, format ["#(rgb,1024,1024,1)ui('AE3_ArmaOS_Main_Dialog','%1')", _uniqueDisplayName]];
 
 _computer setVariable ["AE3_UiOnTexActive", true]; // local variable on computer object is sufficient
 
