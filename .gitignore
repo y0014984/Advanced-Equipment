@@ -6,9 +6,7 @@ hemtt.exe
 *.md
 **/*.json
 !README*.md
-README_reference.md
 !releases/CHANGELOG.md
 !wiki/*
 *.exe
 *.txt
-releases/*.zip
