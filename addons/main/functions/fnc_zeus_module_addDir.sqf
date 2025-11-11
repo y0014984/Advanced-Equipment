@@ -1,20 +1,21 @@
-/**
- * PRIVATE
- *
- * This function is assigned to the 'onLoad' and 'onUnload' Events of the Zeus Module Interface: addDir
- * This function runs local on the computer of the curator/zeus because it is UI triggered.
- * The function makes changes to the asset according the the user input.
- * This module needs to be placed onto a asset with an filesystem.
- * After processing the module will be deleted.
+/*
+ * Author: Root
+ * Description: Handles the Zeus 'Add Directory' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
+ * Creates a new directory on the target computer's filesystem with specified owner and permissions.
+ * The module must be placed on an object with a filesystem and will be deleted after processing.
  *
  * Arguments:
- * 1: Display <OBJECT>
- * 2: Exit Code <NUMBER>
- * 3: Event <STRING>
+ * 0: _display <DISPLAY> - The Zeus module display
+ * 1: _exitCode <NUMBER> - Exit code (1 = OK, 2 = Cancel)
+ * 2: _event <STRING> - Event type ("onLoad" or "onUnload")
  *
- * Results:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_module_addDir;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_event"];

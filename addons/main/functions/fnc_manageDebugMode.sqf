@@ -1,13 +1,19 @@
-/**
-  * Function is triggered by CBA setting changed value event handler. Starts/Stops the debug mode loop.
-  * 
-  * Arguments:
-  * 1: Debug Mode Status <BOOL>
-  * 
-  * Results:
-  * None
-  *
-  */
+/*
+ * Author: Root
+ * Description: Triggered by CBA setting change event handler to start or stop the debug mode loop.
+ * Enables/disables system chat debug messages and optional debug overlay (currently disabled for production use).
+ *
+ * Arguments:
+ * 0: _debugMode <BOOL> - Debug mode status (true = enabled, false = disabled)
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [true] call AE3_main_fnc_manageDebugMode;
+ *
+ * Public: No
+ */
 
 params ["_debugMode"];
 

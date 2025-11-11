@@ -1,12 +1,18 @@
-/**
- * Adds the "turn off" ACE interaction for a given computer object. Computer texture changes accordingly if silent mode is false.
+/*
+ * Author: Root
+ * Description: Executes the turn off operation for a given computer object. Computer texture changes to show shutdown animation and clears terminal state.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Silent Switch <BOOL> (Optional)
+ * 0: _computer <OBJECT> - The computer object to turn off
+ * 1: _silent <BOOL> (Optional, default: false) - Whether to suppress sounds
  *
- * Results:
- * None
+ * Return Value:
+ * Success <BOOL>
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_computer_turnOff;
+ *
+ * Public: Yes
  */
 
 params ["_computer", ["_silent", false]];

@@ -1,13 +1,18 @@
-/**
- * Uses the AE3 Interface config to compile a hashmap 
- * for the object.
+/*
+ * Author: Root
+ * Description: Compiles USB interface configuration from CfgVehicles config into a hashmap containing interface positions and rotations
  *
- * Argmuments:
- * 0: Interface Config <CONFIG>
+ * Arguments:
+ * 0: _deviceCfg <CONFIG> - Device configuration class containing AE3_USB_Interface subclasses
+ * 1: _config <HASHMAP> - Hashmap to store compiled interface data (unused parameter)
  *
- * Returns:
- * 0: Config <ARRAY>
+ * Return Value:
+ * Compiled interface configuration <HASHMAP> - Keys are interface names, values are [index, name, relPos, rotYaw, rotPitch, rotRoll]
  *
+ * Example:
+ * [configFile >> "CfgVehicles" >> "Laptop_Device_AE3" >> "AE3_USB_Interface", createHashMap] call AE3_flashdrive_fnc_compileConfig;
+ *
+ * Public: No
  */
 
 

@@ -1,11 +1,18 @@
-/**
- * Closes a desk
+/*
+ * Author: Root
+ * Description: Closes a desk by animating all drawers closed, hiding lids, and showing wing covers.
+ * Updates ACE3 interaction availability via manageAce3Interactions with unwrapped state.
  *
  * Arguments:
- * 0: Desk <OBJECT>
+ * 0: _desk <OBJECT> - The desk to close
  *
- * Returns:
- * true
+ * Return Value:
+ * true <BOOL>
+ *
+ * Example:
+ * [_desk] call AE3_interaction_fnc_desk_close;
+ *
+ * Public: Yes
  */
 
 params['_desk'];

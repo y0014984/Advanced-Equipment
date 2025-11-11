@@ -1,11 +1,17 @@
-/**
- * List all interfaces.
- * 
- * Arguments:
- * 0: Computer <OBJECT>
+/*
+ * Author: Root
+ * Description: Lists all USB interfaces on a computer with their connection and mount status, formatted for terminal output
  *
- * Returns:
- * 0: Interfaces <[STRING]>
+ * Arguments:
+ * 0: _computer <OBJECT> - Computer object to list USB interfaces from
+ *
+ * Return Value:
+ * Formatted interface list for terminal display <ARRAY> - Array of [text, color] pairs for terminal rendering
+ *
+ * Example:
+ * [laptop] call AE3_flashdrive_fnc_lsInterfaces;
+ *
+ * Public: No
  */
 
 params['_computer'];

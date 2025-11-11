@@ -1,12 +1,17 @@
-/**
- * Uses the active prompt, stored in the prompt variable to change the last line of the terminal buffer accordingly, 
- * all stored in the terminal settings of a given computer.
+/*
+ * Author: Root
+ * Description: Updates the terminal prompt line (command input line) with the current prompt text. Typically shows username, hostname, and current directory.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_setPrompt;
+ *
+ * Public: Yes
  */
 
 params ["_computer"];

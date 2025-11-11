@@ -1,11 +1,17 @@
-/**
- * Display device power state via hint.
+/*
+ * Author: Root
+ * Description: ACE3 interaction action that displays device power state via hint. Shows localized state string (Off, On, Standby, Unknown).
  *
  * Arguments:
- * 0: Device <OBJECT>
- * 
- * Returns:
+ * 0: _target <OBJECT> - Device to check
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_laptop] call AE3_power_fnc_checkPowerStateAction;
+ *
+ * Public: No
  */
 
 params ["_target"];

@@ -1,11 +1,19 @@
-/**
- * Refreshes the filesystem browser file list.
+/*
+ * Author: Root
+ * Description: Refreshes the Zeus filesystem browser file list. Updates the path display, clears and repopulates the list control
+ * with directories and files from the current location. Applies color coding based on item type (directories in blue, executables
+ * in green, regular files in white). Clears the file content and properties display areas.
  *
  * Arguments:
- * 0: Display <DISPLAY>
+ * 0: _display <DISPLAY> - The filesystem browser display
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_display] call AE3_main_fnc_zeus_filesystemBrowser_refresh;
+ *
+ * Public: No
  */
 
 params ["_display"];

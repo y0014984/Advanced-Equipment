@@ -1,12 +1,18 @@
-/**
- * Updates the keyboard layout of the terminal for the "UI on texture" feature. 
+/*
+ * Author: Root
+ * Description: Updates the keyboard layout display on UI-on-Texture for nearby players. Initializes UI-on-Texture if not already active.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Keyboard Layout <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _terminalKeyboardLayout <STRING> - Keyboard layout code (US, DE, FR, IT, RU, AR, HE, HU, TR)
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, "DE"] call AE3_armaos_fnc_terminal_uiOnTex_setKeyboardLayout;
+ *
+ * Public: No
  */
 
 params ["_computer", "_terminalKeyboardLayout"];

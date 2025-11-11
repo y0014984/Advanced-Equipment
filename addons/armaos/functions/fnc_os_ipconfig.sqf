@@ -1,13 +1,19 @@
-/**
- * Pings a given ip address in the current network.
+/*
+ * Author: Root
+ * Description: Displays the network configuration including the computer's IPv4 address. Similar to Windows ipconfig command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: IP-Address <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, [], "ipconfig"] call AE3_armaos_fnc_os_ipconfig;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

@@ -1,19 +1,25 @@
-/**
- * Adds an 5 Sec Per-Frame-Event-Handler for the "UI on texture" feature. This will update all contents regularly.
+/*
+ * Author: Root
+ * Description: Adds an event handler to update UI-on-Texture when terminal state changes.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Console <DIALOG>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _consoleDialog <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_uiOnTex_addUpdateAllEventHandler;
+ *
+ * Public: No
  */
 
 params ["_computer", "_consoleDialog"];
 
 private _updateInterval = 5;
 
-_handle = 
+_handle =
     [
         {
             (_this select 0) params ["_computer", "_consoleDialog"];
@@ -39,13 +45,36 @@ _handle =
 
                 private _terminal = _computer getVariable "AE3_terminal";
 
-                private _terminalBufferVisible = _terminal get "AE3_terminalBufferVisible";
+                // Send raw buffer data instead of pre-rendered structured text to avoid TEXT serialization warnings
+                private _rawBuffer = _terminal get "AE3_terminalBuffer";
+                private _scrollPosition = _terminal get "AE3_terminalScrollPosition";
+                private _terminalDesign = _terminal get "AE3_terminalDesign";
+                private _cursorPosition = _terminal get "AE3_terminalCursorPosition";
+                private _prompt = _terminal get "AE3_terminalPrompt";
+                private _input = _terminal get "AE3_terminalInput";
+                private _application = _terminal get "AE3_terminalApplication";
                 private _size = _terminal get "AE3_terminalSize";
 
-                [_computer, _terminalBufferVisible, _size, _terminalKeyboardLayout, _bgColorHeader, _bgColorConsole, _fontColorHeader, _fontColorConsole, _value] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
+                [
+                    _computer,
+                    _rawBuffer,
+                    _size,
+                    _scrollPosition,
+                    _terminalDesign,
+                    _cursorPosition,
+                    _prompt,
+                    _input,
+                    _application,
+                    _terminalKeyboardLayout,
+                    _bgColorHeader,
+                    _bgColorConsole,
+                    _fontColorHeader,
+                    _fontColorConsole,
+                    _value
+                ] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
             };
-        }, 
-        _updateInterval, 
+        },
+        _updateInterval,
         [_computer, _consoleDialog]
     ] call CBA_fnc_addPerFrameHandler;
 

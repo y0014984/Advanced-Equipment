@@ -1,11 +1,18 @@
-/**
- * Opens the filesystem browser for the selected Zeus entity.
+/*
+ * Author: Root
+ * Description: Opens the filesystem browser dialog for the selected Zeus entity. Allows Zeus curators to browse and manage the filesystem of computers.
+ * Validates that the target entity has a filesystem before opening.
  *
  * Arguments:
+ * None (uses BIS_fnc_initCuratorAttributes_target from mission namespace)
+ *
+ * Return Value:
  * None
  *
- * Results:
- * None
+ * Example:
+ * [] call AE3_main_fnc_zeus_openFilesystemBrowser;
+ *
+ * Public: No
  */
 
 private _entity = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];

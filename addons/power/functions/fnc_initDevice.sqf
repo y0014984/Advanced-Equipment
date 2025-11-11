@@ -1,17 +1,27 @@
-/**
- * Initializes a device.
- * 
- * Arguments:
- * 0: Device <OBJECT>
- * 1: Device name <STRING> (Optional)
- * 2: Powerstate (0 = off, 1 = on, n+1 = custom) <INT>  (Optional)
- * 3: Init function <CODE> (Optional)
- * 4: Turn on function <CODE> (Optional)
- * 5: Turn off function <CODE> (Optional)
+/*
+ * Author: Root
+ * Description: Initializes a power device with turn on/off/standby actions and conditions. Sets up ACE3 interaction menus, creates wrapper functions, and stores device state. Handles both equipment devices (laptops) with submenu structure and standalone devices with simple menu structure.
  *
- * Results:
+ * Arguments:
+ * 0: _entity <OBJECT> - Device object to initialize
+ * 1: _name <STRING> - (Optional, default: "Device") Display name
+ * 2: _powerState <NUMBER> - (Optional, default: 0) Initial power state (0=off, 1=on, 2=standby)
+ * 3: _initFnc <CODE> - (Optional, default: {}) Initialization function
+ * 4: _turnOnFnc <CODE> - (Optional, default: {}) Turn on function
+ * 5: _turnOnCondition <CODE> - (Optional, default: {true}) Turn on condition check
+ * 6: _turnOffFnc <CODE> - (Optional, default: {}) Turn off function
+ * 7: _turnOffCondition <CODE> - (Optional, default: {true}) Turn off condition check
+ * 8: _standbyFnc <CODE> - (Optional, default: {}) Standby function
+ * 9: _standbyCondition <CODE> - (Optional, default: {true}) Standby condition check
+ *
+ * Return Value:
  * None
-*/
+ *
+ * Example:
+ * [_laptop, "Laptop", 0, {}, _turnOnCode, {true}, _turnOffCode, {true}] call AE3_power_fnc_initDevice;
+ *
+ * Public: No
+ */
 
 params ["_entity", ["_name", "Device"], ["_powerState", 0], ["_initFnc", {}], ["_turnOnFnc", {}], ["_turnOnCondition", {true}], ["_turnOffFnc", {}], ["_turnOffCondition", {true}], ["_standbyFnc", {}], ["_standbyCondition", {true}]];
 

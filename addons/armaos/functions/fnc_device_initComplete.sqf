@@ -1,17 +1,18 @@
-/**
- * Wrapper function to initialize a computer/device completely.
- * Runs all initialization steps and sets the ready flag only when everything is complete.
- * This ensures Zeus modules and other systems don't try to use the device before it's fully initialized.
+/*
+ * Author: Root
+ * Description: Marks a device as fully initialized after all setup is complete.
  *
  * Arguments:
- * 0: Target <OBJECT>
- * 1: Config <CONFIG> (Optional)
+ * 0: _entity <STRING> - TODO: Add description
+ * 1: _config <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
  *
  * Example:
- * [_laptop, configFile >> "AE3_FilesystemObjects"] call AE3_armaos_fnc_device_initComplete;
+ * [_entity, _config] call AE3_armaos_fnc_device_initComplete;
+ *
+ * Public: No
  */
 
 params ["_entity", "_config"];

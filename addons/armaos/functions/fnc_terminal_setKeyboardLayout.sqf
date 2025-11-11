@@ -1,3 +1,22 @@
+/*
+ * Author: Root
+ * Description: Sets the keyboard layout for the terminal. Supports 9 languages (US, DE, FR, IT, RU, AR, HE, HU, TR). Updates the keyboard key mappings and syncs to CBA settings.
+ *
+ * Arguments:
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _languageButton <CONTROL> - The language button UI control
+ * 2: _consoleOutput <CONTROL> - The console output UI control
+ * 3: _terminalKeyboardLayout <STRING> - The keyboard layout code (US, DE, FR, IT, RU, AR, HE, HU, TR)
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_computer, _langBtn, _output, "DE"] call AE3_armaos_fnc_terminal_setKeyboardLayout;
+ *
+ * Public: Yes
+ */
+
 params ["_computer", "_languageButton", "_consoleOutput", "_terminalKeyboardLayout"];
 
 private _terminal = _computer getVariable "AE3_terminal";

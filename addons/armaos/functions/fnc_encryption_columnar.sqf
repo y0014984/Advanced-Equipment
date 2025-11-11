@@ -1,13 +1,19 @@
-/**
- * Encrypts/Decrypts string using a columnar tansposition cipher.
+/*
+ * Author: Root
+ * Description: Encrypts or decrypts a message using columnar transposition cipher with the specified key.
  *
  * Arguments:
- * 1: Key <STRING>
- * 2: Mode <STRING>
- * 3: Message <STRING>
+ * 0: _key <STRING> - TODO: Add description
+ * 1: _mode <STRING> - TODO: Add description
+ * 2: _msg <STRING> - TODO: Add description
  *
- * Results:
- * 1: Encrypted/Decrypted Message <STRING>
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_key, _mode, _msg] call AE3_armaos_fnc_encryption_columnar;
+ *
+ * Public: No
  */
 
 params ["_key", "_mode", "_msg"];

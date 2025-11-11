@@ -1,11 +1,17 @@
-/**
- * Gets user input from the terminal.
+/*
+ * Author: Root
+ * Description: Gets user input from the terminal. Waits for user to enter text and press enter, then returns the input string.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object
  *
- * Results:
- * User Input <STRING>
+ * Return Value:
+ * User input text <STRING>
+ *
+ * Example:
+ * private _input = [_computer] call AE3_armaos_fnc_shell_stdin;
+ *
+ * Public: Yes
  */
 
 params['_computer'];

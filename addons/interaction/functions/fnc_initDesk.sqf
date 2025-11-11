@@ -1,11 +1,18 @@
-/**
- * Initializes a desk, especially it's open/close state.
+/*
+ * Author: Root
+ * Description: Initializes a desk by setting its open/closed state based on the AE3_interaction_closeState variable.
+ * Also sets a workaround flag for Zeus UI compatibility.
  *
  * Arguments:
- * 0: Desk <OBJECT>
+ * 0: _desk <OBJECT> - The desk object to initialize
  *
- * Returns:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_desk] call AE3_interaction_fnc_initDesk;
+ *
+ * Public: Yes
  */
 
 params["_desk"];

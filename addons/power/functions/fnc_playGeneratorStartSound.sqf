@@ -1,11 +1,17 @@
-/**
- * Plays the generator start sound and init's the sound loop.
- * 
+/*
+ * Author: Root
+ * Description: Plays generator startup sound effect using soundStartEngine from config. Sets generator engine state to on after sound completes. Uses 3D positional audio with 100m max distance.
+ *
  * Arguments:
- * 0: Generator <OBJECT>
- * 
- * Returns:
+ * 0: _entity <OBJECT> - Generator object
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_generator] spawn AE3_power_fnc_playGeneratorStartSound;
+ *
+ * Public: No
  */
 
 params ["_entity"];

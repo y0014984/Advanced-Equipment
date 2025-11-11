@@ -1,13 +1,19 @@
-/**
- * Puts computer in standby mode.
+/*
+ * Author: Root
+ * Description: Puts the computer into standby mode, closes the terminal dialog and enters low power state.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Options <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, [], "standby"] call AE3_armaos_fnc_os_standby;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

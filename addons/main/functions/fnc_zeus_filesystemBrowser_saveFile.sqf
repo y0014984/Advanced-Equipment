@@ -1,11 +1,19 @@
-/**
- * Saves the currently edited file.
+/*
+ * Author: Root
+ * Description: Saves the currently edited file in the Zeus filesystem browser. Retrieves the edited content from the UI,
+ * validates that the file is not in a protected system directory (/bin, /sbin, /etc), writes the content to the filesystem,
+ * and provides feedback to the user.
  *
  * Arguments:
  * None
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [] call AE3_main_fnc_zeus_filesystemBrowser_saveFile;
+ *
+ * Public: No
  */
 
 private _display = findDisplay 16993;

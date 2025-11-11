@@ -1,12 +1,18 @@
-/**
- * Processes the given command for a given computer. Calls the according functions and updates the terminal output.
+/*
+ * Author: Root
+ * Description: Processes a command string entered by the user. Parses the command, resolves any command links, adds to history, and executes the appropriate command function.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Command <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _commandString <STRING> (Optional, default: "") - The command string to process
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, "ls -l /home"] call AE3_armaos_fnc_shell_process;
+ *
+ * Public: Yes
  */
 
 params ["_computer", ["_commandString", ""]];

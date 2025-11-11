@@ -1,14 +1,19 @@
-/**
- * Decrypt encrypted text without knowing the key/algorythm using various methods. (bruteforce, statistics, etc.)
+/*
+ * Author: Root
+ * Description: Attempts to decrypt encrypted text without knowing the key using cryptanalysis methods (bruteforce, frequency analysis). Supports caesar and columnar ciphers.
  *
  * Arguments:
- * 1: -m Mode <STRING> "bruteforce", "statistics", or "key"
- * 2: -a Algorithm <STRING> Optional, default "caesar"
- * 3: -o Output file <STRING> Optional
- * 4: Input (FILE or STRING) <STRING> File path or quoted string
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments (-m mode, -a algorithm, -o output file, input)
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["-m=bruteforce", "-a=caesar", "KHOOR ZRUOG"], "crack"] call AE3_armaos_fnc_os_crack;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

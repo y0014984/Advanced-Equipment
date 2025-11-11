@@ -1,17 +1,22 @@
-/**
- * PRIVATE
- *
- * This function is a helper function for the zeus module functions. It checks, after a module is placed,
- * if the module is placed an an entity that is an object and has a filesystem and is not currently used by
- * a player a a computer. In case of an error, zeus messages will appear, telling about the error.
+/*
+ * Author: Root
+ * Description: Helper function for Zeus modules that validates the target object.
+ * Checks if the module was placed on an object with a filesystem and that the computer is not currently in use (via ace_mutex check).
+ * Provides Zeus feedback messages on error.
  *
  * Arguments:
- * None
+ * None (uses BIS_fnc_curatorObjectPlaced_mouseOver from mission namespace)
  *
- * Results:
- * 1: Status <STRING>
- * 2: Computer <OBJECT>
+ * Return Value:
+ * Array with status and computer object <ARRAY>:
+ * 0: _status <STRING> - "SUCCESS" or "ERROR"
+ * 1: _computer <OBJECT> - The computer object, or objNull on error
  *
+ * Example:
+ * private _result = [] call AE3_main_fnc_zeus_checkForComputer;
+ * _result params ["_status", "_computer"];
+ *
+ * Public: No
  */
 
 private _mouseOver = missionNamespace getVariable ["BIS_fnc_curatorObjectPlaced_mouseOver", [""]];

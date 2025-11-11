@@ -1,13 +1,19 @@
-/**
- * Prints/outputs the string argument to stdout.
+/*
+ * Author: Root
+ * Description: Displays the specified text to the terminal output. Supports -e flag for backslash interpretation. Similar to Unix echo command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Options <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["Hello World"], "echo"] call AE3_armaos_fnc_os_echo;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

@@ -1,13 +1,19 @@
-/**
- * Switches the used keyboard layout for terminal inputs by cycling through the given layouts. Active layout is written to the button text.
+/*
+ * Author: Root
+ * Description: Cycles through available keyboard layouts (US, DE, FR, IT, RU, AR, HE, HU, TR).
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Keyboard Layout UI Button <CONTROL>
- * 3: UI Text Field <CONTROL>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _languageButton <STRING> - TODO: Add description
+ * 2: _consoleOutput <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _languageButton, _consoleOutput] call AE3_armaos_fnc_terminal_switchKeyboardLayout;
+ *
+ * Public: No
  */
 
 params ["_computer", "_languageButton", "_consoleOutput"];

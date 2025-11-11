@@ -1,13 +1,20 @@
-/**
- * Handles selection change on filesystem browser list item.
- * Sets the selected item (file or folder) as current for operations like move/rename/delete.
+/*
+ * Author: Root
+ * Description: Handles selection change events in the Zeus filesystem browser list. Sets the selected item as the current file/folder
+ * for operations like move, rename, and delete. For files, loads their content and properties into the editor area. For
+ * directories, stores the selection but doesn't load properties.
  *
  * Arguments:
- * 0: Control <CONTROL>
- * 1: Selected Index <NUMBER>
+ * 0: _control <CONTROL> - The list control where selection changed
+ * 1: _selectedIndex <NUMBER> - The index of the newly selected item
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_control, 3] call AE3_main_fnc_zeus_filesystemBrowser_onSelect;
+ *
+ * Public: No
  */
 
 params ["_control", "_selectedIndex"];

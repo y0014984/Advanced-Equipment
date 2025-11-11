@@ -1,14 +1,19 @@
-/**
- * Initializes a power interface
- * 
- * Arguments:
- * 0: Device <OBJECT>
- * 1: Connected Devices <[OBJECT]> (Optional)
- * 2: If Internal <BOOL> (Optional)
+/*
+ * Author: Root
+ * Description: Initializes power connection interface for a device. Sets up ACE3 interactions for connecting to and disconnecting from nearby power sources. Creates dynamic child menus listing available generators and batteries within 10m. Handles both internal and external power interfaces.
  *
- * Results:
+ * Arguments:
+ * 0: _generator <OBJECT> - Device with power interface
+ * 1: _connectedDevices <ARRAY> - (Optional, default: nil) Pre-connected devices
+ * 2: _internal <BOOL> - (Optional, default: false) Whether this is an internal interface
+ *
+ * Return Value:
  * None
  *
+ * Example:
+ * [_laptop, nil, false] call AE3_power_fnc_initPowerInterface;
+ *
+ * Public: No
  */
 
 params["_generator", ["_connectedDevices", nil], ["_internal", false]];

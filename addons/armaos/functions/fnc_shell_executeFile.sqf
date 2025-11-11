@@ -1,14 +1,19 @@
-/**
- * Executes a file.
- * 
- * Arguments:
- * 0: Computer <OBJECT>
- * 1: File pointer [<STRING>]
- * 2: Path to file <STRING>
- * 3: Options <LIST>
+/*
+ * Author: Root
+ * Description: Executes a file from the filesystem. If the file contains executable code, spawns it as a process and waits for completion.
  *
- * Returns:
+ * Arguments:
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _path <STRING> - Path to the file to execute
+ * 2: _options <ARRAY> - Command options and arguments
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, "/bin/ls", ["-l"]] call AE3_armaos_fnc_shell_executeFile;
+ *
+ * Public: Yes
  */
 
 params["_computer", "_path", "_options"];

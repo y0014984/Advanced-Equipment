@@ -1,11 +1,17 @@
-/**
- * Adds the "standby" ACE interaction for a given computer object. Computer texture changes accordingly.
+/*
+ * Author: Root
+ * Description: Executes the standby operation for a given computer object. Syncs terminal state, changes texture to standby screen, and plays standby sound.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object to put into standby mode
  *
- * Results:
- * None
+ * Return Value:
+ * Success <BOOL>
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_computer_standby;
+ *
+ * Public: Yes
  */
 
 params ["_computer"];

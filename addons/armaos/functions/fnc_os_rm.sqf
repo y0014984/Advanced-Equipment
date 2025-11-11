@@ -1,13 +1,19 @@
-/**
- * Removes/deletes a given file on a given computer. Returns information about the success of the command.
+/*
+ * Author: Root
+ * Description: Removes/deletes a file or directory at the specified path. Similar to Unix rm command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: File <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["/home/user/file.txt"], "rm"] call AE3_armaos_fnc_os_rm;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

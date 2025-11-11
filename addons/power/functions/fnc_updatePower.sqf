@@ -1,12 +1,18 @@
-/**
- * Checks if the power capacity of the given entity is enough to supply
- * the connected entities.
+/*
+ * Author: Root
+ * Description: Checks if the power capacity of a generator or battery is sufficient to supply all connected devices. Sums power draw from all connected devices and compares to power capacity. If insufficient, turns off the provider and resets power requirements.
  *
  * Arguments:
- * 0: Entity to check <OBJECT>
+ * 0: _entity <OBJECT> - Power provider to check
  *
- * Returns:
- * Check result <BOOL>
+ * Return Value:
+ * True if power capacity exceeded (insufficient power), false otherwise <BOOL>
+ *
+ * Example:
+ * private _insufficient = [_generator] call AE3_power_fnc_updatePower;
+ * if ([_battery] call AE3_power_fnc_updatePower) then {hint "Battery overloaded!"};
+ *
+ * Public: Yes
  */
 
 params['_entity'];

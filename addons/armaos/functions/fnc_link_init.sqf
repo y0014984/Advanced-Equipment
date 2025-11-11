@@ -1,14 +1,19 @@
-/**
- * Initilizes all programms defined in CfgOsFunctions. Alternatively, you can choose another config file. Also you can provide
- * a list of commands, that should be imported instead of all commands in the config file.
+/*
+ * Author: Root
+ * Description: Initializes command links from config for a computer, loading all available commands.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: Alternative Config File <STRING> (Optional)
- * 2: Command List <ARRAY> (Optional)
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _configFile <STRING> - TODO: Add description
+ * 2: _commandList <STRING> - TODO: Add description
  *
- * Returns:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _configFile, _commandList] call AE3_armaos_fnc_link_init;
+ *
+ * Public: No
  */
 
 params["_computer", ["_configFile", "CfgOsFunctions"], ["_commandList", ["all"]]];

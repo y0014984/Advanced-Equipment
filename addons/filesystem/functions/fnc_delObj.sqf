@@ -1,14 +1,21 @@
-/**
- * Deletes a fileobjekt.
+/*
+ * Author: Root
+ * Description: Deletes a filesystem object (file or directory). Requires write permission on the object. Throws exception if object doesn't exist.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
- * 2: Path to obj <STRING>
- * 3: User <STRING>
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to object to delete
+ * 3: _user <STRING> - User performing the deletion
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [[], _filesystem, "/tmp/test.txt", "root"] call AE3_filesystem_fnc_delObj;
+ * [_pointer, _filesystem, "../oldfile", "user"] call AE3_filesystem_fnc_delObj;
+ *
+ * Public: Yes
  */
 
 params['_pntr', '_filesystem', '_target', '_user'];

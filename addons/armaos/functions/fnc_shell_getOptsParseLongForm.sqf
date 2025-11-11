@@ -1,14 +1,19 @@
-/**
- * Converts the raw long form option to a parsed option.
+/*
+ * Author: Root
+ * Description: Parses long-form command options (--option=value format) and returns parsed option values.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Long Option <STRING>
- * 3: Command Options <[ARRAY]>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _longOpt <STRING> - TODO: Add description
+ * 2: _commandOpts <STRING> - TODO: Add description
  *
- * Results:
- * 1: Parsed Option <HASHMAP>
+ * Return Value:
+ * None
  *
+ * Example:
+ * [_computer, _longOpt, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseLongForm;
+ *
+ * Public: No
  */
 
 params ["_computer", "_longOpt", "_commandOpts"];

@@ -1,17 +1,27 @@
-/**
- * Animates interactive equipment by user-defined input.
+/*
+ * Author: Root
+ * Description: Initializes interactive equipment with ACE3 actions for opening/closing and animation points.
+ * Creates wrapper functions for open/close actions that integrate with the power system. Ensures the Equipment
+ * parent action exists via ensureEquipmentParent.
  *
  * Arguments:
- * 0: Equipment <OBJECT>
- * 1: Name <STRING> (Optional)
- * 2: Close State <Number> (Optional)
- * 3: Init <FUNCTION> (Optional)
- * 4: Open Function <FUNCTION> (Optional)
- * 5: Close Function <FUNCTION> (Optional)
- * 6: Animation Points <ARRAY> (Optional)
+ * 0: _equipment <OBJECT> - The equipment object to initialize
+ * 1: _name <STRING> (Optional, default: "Equipment") - Display name for the equipment
+ * 2: _closeState <NUMBER> (Optional, default: 0) - Initial close state (0=open, 1=closed)
+ * 3: _initFnc <CODE> (Optional, default: {}) - Initialization function to run
+ * 4: _openFnc <CODE> (Optional, default: {}) - Function to execute when opening
+ * 5: _openCondition <CODE> (Optional, default: {true}) - Condition to enable open action
+ * 6: _closeFnc <CODE> (Optional, default: {}) - Function to execute when closing
+ * 7: _closeCondition <CODE> (Optional, default: {true}) - Condition to enable close action
+ * 8: _animationPoints <ARRAY> (Optional, default: []) - Animation point configurations
  *
- * Returns:
- * none
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_laptop, "Laptop", 1, {}, {[_this] call AE3_interaction_fnc_laptop_open}, {true}, {[_this] call AE3_interaction_fnc_laptop_close}, {true}, []] call AE3_interaction_fnc_initInteraction;
+ *
+ * Public: Yes
  */
 
 params["_equipment", ["_name", "Equipment"], ["_closeState", 0], ["_initFnc", {}], ["_openFnc", {}], ["_openCondition", {true}], ["_closeFnc", {}], ["_closeCondition", {true}], ["_animationPoints", []]];

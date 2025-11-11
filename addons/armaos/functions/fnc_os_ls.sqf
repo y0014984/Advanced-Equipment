@@ -1,14 +1,19 @@
-/**
- * Lists/outputs the containing files of a given folder/directory on a given computer.
- * Also returns information about the success of the command.
+/*
+ * Author: Root
+ * Description: Lists files and directories in the specified directory. Supports -l flag for detailed listing. Similar to Unix ls command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Folder/Directory <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["-l", "/home"], "ls"] call AE3_armaos_fnc_os_ls;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

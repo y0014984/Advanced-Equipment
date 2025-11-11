@@ -1,12 +1,17 @@
-/**
- * Updates/sets the visible buffer variable in the terminal settings of a given computer by cropping
- * the full terminal buffer to the visible size with respect of eventually scrolling position changes.
+/*
+ * Author: Root
+ * Description: Updates the visible portion of the terminal buffer based on scroll position and screen size.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_updateBufferVisible;
+ *
+ * Public: No
  */
 
 params ["_computer"];

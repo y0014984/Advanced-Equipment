@@ -1,18 +1,19 @@
-/**
- * PRIVATE
- *
- * This function is triggered by a button in the default AE3 Zeus Asset Attributes Interface.
- * The mechanism is similar to the code that allows this action in the ACE3 Interaction of the object.
+/*
+ * Author: Root
+ * Description: Opens an object (e.g., laptop lid) through the Zeus Asset Attributes Interface. Triggered by the "Open" button.
+ * Sets mutex lock during the operation, executes the open animation, and powers on the device if it was in standby.
+ * Provides visual feedback to the Zeus curator.
  *
  * Arguments:
- * None
+ * None (uses BIS_fnc_initCuratorAttributes_target from mission namespace)
  *
- * Results:
- * Visual Feedback in Zeus Interface
+ * Return Value:
+ * None
  *
  * Example:
  * [] call AE3_main_fnc_zeus_openObject;
  *
+ * Public: No
  */
 
 private _entity = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];

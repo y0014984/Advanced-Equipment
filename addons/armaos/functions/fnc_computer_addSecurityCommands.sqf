@@ -1,20 +1,19 @@
-/**
- * PUBLIC
- *
- * Adds selected security commands to a given computer.
- * Needs to run on server.
+/*
+ * Author: Root
+ * Description: Adds selected security commands (crypto, crack) to a given computer. Must be executed on the server.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Crypto <BOOL>
- * 3: Crack <BOOL>
+ * 0: _computer <OBJECT> - The computer object to add security commands to
+ * 1: _isCrypto <BOOL> - Whether to add the crypto command for encryption/decryption
+ * 2: _isCrack <BOOL> - Whether to add the crack command for password cracking
  *
- * Results:
+ * Return Value:
  * None
  *
  * Example:
  * [_computer, true, true] call AE3_armaos_fnc_computer_addSecurityCommands;
  *
+ * Public: Yes
  */
 
 params ["_computer", "_isCrypto", "_isCrack"];

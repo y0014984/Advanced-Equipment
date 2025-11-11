@@ -1,7 +1,18 @@
-/**
- * Converts an object to an item in the player inventory.
- * Preserves the variables set for the objects namespace.
+/*
+ * Author: Root
+ * Description: Converts a world object to an inventory item, preserving all object variables in the item's namespace and deleting the object from the world
  *
+ * Arguments:
+ * 0: _object <OBJECT> - Object to convert to an item
+ * 1: _player <OBJECT> - Player to receive the item in inventory
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [flashDriveObject, player] call AE3_flashdrive_fnc_obj2item;
+ *
+ * Public: Yes
  */
 
 params ["_object", "_player"];

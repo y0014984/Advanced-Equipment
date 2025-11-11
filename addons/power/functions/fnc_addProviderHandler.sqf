@@ -1,12 +1,20 @@
-/**
- * Creates generator loop.
- * 
+/*
+ * Author: Root
+ * Description: Creates a per-frame handler loop for power providers (generators, batteries, solar panels). Monitors power state and capacity every second, automatically shutting down connected devices if power becomes insufficient. The handler continuously calls the provider's calculation function to update power state.
+ *
  * Arguments:
- * 0: Generator <OBJECT>
- * 1: Gen. Function which calcs power state and output <FUNC>
- * 
- * Return:
- * NULL
+ * 0: _generator <OBJECT> - Power provider object (generator, battery, or solar panel)
+ * 1: _generatorFnc <CODE> - Calculation function that returns [powerState, powerOutput]
+ * 2: _internal <BOOL> - (Optional, default: false) Whether this is an internal device
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_generator, AE3_power_fnc_fuelConsumption] call AE3_power_fnc_addProviderHandler;
+ * [_battery, AE3_power_fnc_batteryCalculation, false] remoteExecCall ["AE3_power_fnc_addProviderHandler", 2];
+ *
+ * Public: No
  */
 params['_generator', '_generatorFnc', ['_internal', false]];
 

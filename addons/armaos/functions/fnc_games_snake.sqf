@@ -1,11 +1,19 @@
-/**
- * Let's user play the game 'snake' and returns the user's score.
+/*
+ * Author: Root
+ * Description: Implements the Snake game playable in the ArmaOS terminal.
  *
  * Arguments:
- * 1: Size <NUMBER>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _options <ARRAY> - TODO: Add description
+ * 2: _commandName <STRING> - TODO: Add description
  *
- * Results:
- * Score <STRING>
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_computer, _options, _commandName] call AE3_armaos_fnc_games_snake;
+ *
+ * Public: No
  */
 
 params ["_computer", "_options", "_commandName"];

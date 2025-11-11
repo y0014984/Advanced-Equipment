@@ -1,11 +1,17 @@
-/**
- * Plays a 3D computer start sound on the position of a given computer object.
+/*
+ * Author: Root
+ * Description: Plays a 3D computer start sound at the position of a given computer object.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object to play the sound at
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_computer_playSoundStart;
+ *
+ * Public: No
  */
  
 params ["_computer"];

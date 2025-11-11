@@ -1,13 +1,21 @@
-/**
- * Handles the Move dialog for the filesystem browser.
+/*
+ * Author: Root
+ * Description: Handles the Move dialog for the Zeus filesystem browser. On load, populates a tree control with the directory
+ * structure, excluding the item being moved and its subdirectories. On unload with OK, moves the selected file or folder
+ * to the chosen destination. Prevents moving into subdirectories of the source and moving to system directories.
  *
  * Arguments:
- * 0: Display <DISPLAY>
- * 1: Exit Code <NUMBER>
- * 2: Mode <STRING> - "onLoad" or "onUnload"
+ * 0: _display <DISPLAY> - The move dialog display
+ * 1: _exitCode <NUMBER> - Exit code from the display (1 = OK, other = Cancel)
+ * 2: _mode <STRING> - Event mode ("onLoad" or "onUnload")
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_filesystemBrowser_move;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_mode"];

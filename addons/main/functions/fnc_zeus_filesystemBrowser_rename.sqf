@@ -1,13 +1,21 @@
-/**
- * Handles the Rename dialog for the filesystem browser.
+/*
+ * Author: Root
+ * Description: Handles the Rename dialog for the Zeus filesystem browser. On load, populates the dialog with the current item name.
+ * On unload with OK, renames the selected file or folder to the new name. Validates that the new name doesn't already exist
+ * and prevents renaming system directories.
  *
  * Arguments:
- * 0: Display <DISPLAY>
- * 1: Exit Code <NUMBER>
- * 2: Mode <STRING> - "onLoad" or "onUnload"
+ * 0: _display <DISPLAY> - The rename dialog display
+ * 1: _exitCode <NUMBER> - Exit code from the display (1 = OK, other = Cancel)
+ * 2: _mode <STRING> - Event mode ("onLoad" or "onUnload")
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_filesystemBrowser_rename;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_mode"];

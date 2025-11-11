@@ -1,12 +1,19 @@
-/**
- * Handles unloading of the filesystem browser display.
+/*
+ * Author: Root
+ * Description: Handles cleanup when the Zeus filesystem browser display is closed. Clears the stored entity reference from
+ * mission namespace to prevent memory leaks.
  *
  * Arguments:
- * 0: Display <DISPLAY>
- * 1: Exit Code <NUMBER>
+ * 0: _display <DISPLAY> - The filesystem browser display being unloaded
+ * 1: _exitCode <NUMBER> - Exit code from the display
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_display, 1] call AE3_main_fnc_zeus_filesystemBrowser_onUnload;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode"];

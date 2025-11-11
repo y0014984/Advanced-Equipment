@@ -1,14 +1,20 @@
-/**
- * Initializes a solar panel.
- * 
- * Arguments:
- * 0: Solar panel <OBJECT>
- * 1: Maximum power output <FLOAT>
- * 2: Function which returns a list of normal vectors for each solar panel <CODE>
- * 3: Height of the solar panel <FLOAT>
+/*
+ * Author: Root
+ * Description: Initializes a solar panel with maximum power output, orientation calculation function, and panel height. The orientation function calculates panel normal vectors for solar efficiency calculations. Sets up ACE3 interaction for checking power output.
  *
- * Returns:
+ * Arguments:
+ * 0: _entity <OBJECT> - Solar panel object to initialize
+ * 1: _powerMax <NUMBER> - Maximum power output in kWh
+ * 2: _orientationFnc <CODE> - Function that returns array of panel normal vectors
+ * 3: _height <NUMBER> - Panel height offset in meters for visibility checks
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_solarPanel, 2, {[_this] call AE3_power_fnc_multSolarPanelOrientation}, 1.5] call AE3_power_fnc_initSolarPanel;
+ *
+ * Public: Yes
  */
 
 params ['_entity', '_powerMax', '_orientationFnc', '_height'];

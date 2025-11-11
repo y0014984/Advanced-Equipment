@@ -1,17 +1,17 @@
-/**
- * PUBLIC
- * 
- * Sets the given device in standby mode. Works for every asset. Returns true/false depending on the success of the command.
+/*
+ * Author: Root
+ * Description: Sets the given device to standby mode with reduced power consumption. Works for any device configured with standby support (primarily laptops). Checks standby conditions including current power state, mutex lock, and device-specific conditions before executing.
  *
  * Arguments:
- * 0: Device <OBJECT>
+ * 0: _device <OBJECT> - Device to put in standby
  *
- * Returns:
- * 0: Result <BOOL>
- * 
+ * Return Value:
+ * Success status <BOOL>
+ *
  * Example:
- * private _result = [_device] call AE3_power_fnc_standbyDevice;
+ * private _success = [_laptop] call AE3_power_fnc_standbyDevice;
  *
+ * Public: Yes
  */
 
 params ["_device"];

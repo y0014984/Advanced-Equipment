@@ -1,13 +1,20 @@
-/**
- * Initializes a (usb) interface.
- * 
- * Arguments:
- * 0: Device <OBJECT>
- * 1: Interface config <ARRAY>
+/*
+ * Author: Root
+ * Description: Initializes USB interfaces on a device, creating ACE3 interaction menus for connecting/disconnecting flash drives.
+ * Sets up server-side tracking arrays for occupied and mounted interface states.
  *
- * Results:
+ * Arguments:
+ * 0: _device <OBJECT> - Device object to initialize USB interfaces on
+ * 1: _config <HASHMAP> - Compiled interface configuration from compileConfig
+ *
+ * Return Value:
  * None
-*/
+ *
+ * Example:
+ * [_laptop, _interfaceConfig] call AE3_flashdrive_fnc_initInterface;
+ *
+ * Public: No
+ */
 
 params ["_device", "_config"];
 

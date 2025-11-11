@@ -1,12 +1,20 @@
-/**
- * Adds event handler to the user interface elements of a terminal.
+/*
+ * Author: Root
+ * Description: Adds an event handler to the terminal for custom events.
  *
  * Arguments:
- * 1: UI Text Field <CONTROL>
- * 2: Keyboard Layout UI Button <CONTROL>
+ * 0: _consoleDialog <STRING> - TODO: Add description
+ * 1: _terminalCtrl <STRING> - TODO: Add description
+ * 2: _languageButtonCtrl <STRING> - TODO: Add description
+ * 3: _designButtonCtrl <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_consoleDialog, _terminalCtrl, _languageButtonCtrl] call AE3_armaos_fnc_terminal_addEventHandler;
+ *
+ * Public: No
  */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"

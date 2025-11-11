@@ -1,13 +1,21 @@
-/**
- * Handles the New Folder dialog for the filesystem browser.
+/*
+ * Author: Root
+ * Description: Handles the New Folder dialog for the Zeus filesystem browser. On load, initializes the dialog. On unload with OK,
+ * creates a new directory in the current location with the specified name, permissions, and owner. Prevents creation in
+ * system directories (/bin, /sbin, /etc).
  *
  * Arguments:
- * 0: Display <DISPLAY>
- * 1: Exit Code <NUMBER>
- * 2: Mode <STRING> - "onLoad" or "onUnload"
+ * 0: _display <DISPLAY> - The new folder dialog display
+ * 1: _exitCode <NUMBER> - Exit code from the display (1 = OK, other = Cancel)
+ * 2: _mode <STRING> - Event mode ("onLoad" or "onUnload")
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_browser_newFolder;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_mode"];

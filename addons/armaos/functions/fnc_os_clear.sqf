@@ -1,13 +1,19 @@
-/**
- * Clears the output buffer of a given terminal on a given computer.
+/*
+ * Author: Root
+ * Description: Clears the terminal output buffer, removing all previous output. Similar to Unix clear command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Options <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, [], "clear"] call AE3_armaos_fnc_os_clear;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

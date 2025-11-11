@@ -1,3 +1,21 @@
+/*
+ * Author: Root
+ * Description: Gets the color of a pixel at specified coordinates in the retro graphics canvas.
+ *
+ * Arguments:
+ * 0: _dialog <DISPLAY> - The canvas display
+ * 1: _x <NUMBER> - X coordinate
+ * 2: _y <NUMBER> - Y coordinate
+ *
+ * Return Value:
+ * Pixel color [R,G,B,A] <ARRAY>
+ *
+ * Example:
+ * private _color = [_canvas, 10, 20] call AE3_armaos_fnc_retro_getPixelColor;
+ *
+ * Public: No
+ */
+
 params ["_dialog", "_x", "_y"];
 
 private _width = _dialog getVariable "AE3_Retro_Width";

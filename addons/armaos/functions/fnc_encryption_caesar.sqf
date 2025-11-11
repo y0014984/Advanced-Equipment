@@ -1,13 +1,19 @@
-/**
- * Encrypts/Decrypts string with ceasar cypher.
+/*
+ * Author: Root
+ * Description: Encrypts or decrypts a message using Caesar cipher (shift cipher). Shifts each letter by the specified key value. Only processes A-Z characters and spaces.
  *
  * Arguments:
- * 1: Key <NUMBER>
- * 2: Mode <STRING>
- * 3: Message <STRING>
+ * 0: _key <NUMBER> - Shift value for encryption/decryption
+ * 1: _mode <STRING> - Operation mode ("encrypt" or "decrypt")
+ * 2: _message <STRING> - Message to encrypt/decrypt
  *
- * Results:
- * 1: Encrypted/Decrypted Message <STRING>
+ * Return Value:
+ * Encrypted or decrypted message <STRING>
+ *
+ * Example:
+ * private _encrypted = [3, "encrypt", "HELLO WORLD"] call AE3_armaos_fnc_encryption_caesar;
+ *
+ * Public: No
  */
 
 // this encryption is especially made to allow manual decryption or bruteforce

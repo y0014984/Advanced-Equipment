@@ -1,11 +1,17 @@
-/**
- * Initializes the texture on the given object for the "UI on texture" feature. 
+/*
+ * Author: Root
+ * Description: Initializes UI-on-Texture rendering for a computer object. Creates a workaround display to preload images and sets the object texture to use the UI render target.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_uiOnTex_init;
+ *
+ * Public: No
  */
 
 params ["_computer"];

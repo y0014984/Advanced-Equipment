@@ -1,15 +1,19 @@
-/**
- * Encrypts/Decrypts string or file by using a specific algorithm and key. Outputs encrypted/decrypted message to stdout or file.
+/*
+ * Author: Root
+ * Description: Encrypts or decrypts text using specified encryption algorithm and key. Supports caesar and columnar cipher algorithms. Can read from files or direct string input.
  *
  * Arguments:
- * 1: -m Mode <STRING> "encrypt" or "decrypt"
- * 2: -a Algorithm <STRING> Optional, default "caesar"
- * 3: -k Key <STRING> Encryption/decryption key (required)
- * 4: -o Output file <STRING> Optional
- * 5: Input (FILE or STRING) <STRING> File path or quoted string
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments (-m mode, -a algorithm, -k key, -o output file, input)
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["-m=encrypt", "-k=3", "-a=caesar", "HELLO WORLD"], "crypto"] call AE3_armaos_fnc_os_crypto;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

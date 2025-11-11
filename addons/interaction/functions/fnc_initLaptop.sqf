@@ -1,11 +1,19 @@
-/**
- * Initializes a laptop, especially the initially open/closed animation phase and the interaction menu.
+/*
+ * Author: Root
+ * Description: Initializes a laptop by setting the open/closed animation state and adding the "Use Terminal"
+ * ACE3 interaction. This function checks the laptop's mutex (AE3_computer_mutex) to prevent concurrent
+ * terminal access.
  *
  * Arguments:
- * 0: Laptop <OBJECT>
+ * 0: _laptop <OBJECT> - The laptop object to initialize
  *
- * Returns:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_laptop] call AE3_interaction_fnc_initLaptop;
+ *
+ * Public: Yes
  */
 
 params["_laptop"];

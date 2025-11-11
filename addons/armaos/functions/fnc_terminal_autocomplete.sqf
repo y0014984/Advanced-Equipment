@@ -1,12 +1,17 @@
-/**
- * Handles Tab key auto-completion for terminal input.
- * Cycles through matches alphabetically on subsequent TAB presses.
+/*
+ * Author: Root
+ * Description: Attempts to autocomplete the current command based on available commands and file paths.
  *
  * Arguments:
- * 0: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_autocomplete;
+ *
+ * Public: No
  */
 
 params ["_computer"];

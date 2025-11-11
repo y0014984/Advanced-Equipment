@@ -1,12 +1,18 @@
-/**
- * Sets the used terminal design.
+/*
+ * Author: Root
+ * Description: Sets the terminal visual design/theme (ArmaOS, C64, Apple II, Amber, etc.).
  *
  * Arguments:
- * 1: Console Dialog <CONTROL>
- * 2: Selected Design <NUMBER>
+ * 0: _consoleDialog <STRING> - TODO: Add description
+ * 1: _currentDesign <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_consoleDialog, _currentDesign] call AE3_armaos_fnc_terminal_setTerminalDesign;
+ *
+ * Public: No
  */
 
 params ["_consoleDialog", "_currentDesign"];

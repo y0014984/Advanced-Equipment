@@ -1,16 +1,23 @@
-/**
- * Changes the file owner to the given user.
+/*
+ * Author: Root
+ * Description: Changes the owner of a filesystem object (file or directory). Can optionally operate recursively on directories. Only the current owner or root can change ownership.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
- * 2: Path to target directory <STRING>
- * 3: User <STRING>
- * 4: New owner <String>
- * 5: Recursive? <Bool> (Optional)
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to target file or directory
+ * 3: _user <STRING> - User performing the operation
+ * 4: _owner <STRING> - New owner name
+ * 5: _recursive <BOOL> (Optional, default: false) - Apply recursively to directory contents
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [[], _filesystem, "/home/user/file.txt", "root", "user"] call AE3_filesystem_fnc_chown;
+ * [[], _filesystem, "/var/www", "root", "www-data", true] call AE3_filesystem_fnc_chown;
+ *
+ * Public: Yes
  */
 
 params['_pntr', '_filesystem', '_target', '_user', '_owner', ['_recursive', false]];

@@ -1,12 +1,18 @@
-/**
- * Updates the Battery Symbol in the upper right corner of the terminal application according to the battery status every 15 seconds.
+/*
+ * Author: Root
+ * Description: Updates the battery status display in the terminal header.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Console Dialog <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _consoleDialog <STRING> - TODO: Add description
  *
- * Results:
- * 1: Per Frame Handler <HANDLE>
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_computer, _consoleDialog] call AE3_armaos_fnc_terminal_updateBatteryStatus;
+ *
+ * Public: No
  */
 
 params ["_computer", "_consoleDialog"];

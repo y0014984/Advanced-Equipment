@@ -1,15 +1,24 @@
-/**
- * Searches for a filesystem object in a given directory. 
+/*
+ * Author: Root
+ * Description: Recursively searches for filesystem objects (files or directories) by name. Returns all matching paths. Respects read permissions and counts directories with insufficient permissions.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem [<HASHMAP>, <STRING>]
- * 2: User <STRING>
- * 3: Filesystem Object Name aka Search String <STRING>
- * 4: Missing Permissions Count <NUMBER> (Optional) Only internally used for recursion
+ * 0: _pointer <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _user <STRING> - User performing the search
+ * 3: _filesystemObjectName <STRING> - Name to search for (exact match)
+ * 4: _missingPermissions <NUMBER> (Optional, default: 0) - Internal recursion counter for permission denials
  *
- * Results:
- * 0: Paths to Filesystem Objects <[STRING]>
+ * Return Value:
+ * Array containing search results and permission count <ARRAY>
+ * 0: Array of paths to matching objects <ARRAY>
+ * 1: Count of directories with insufficient permissions <NUMBER>
+ *
+ * Example:
+ * [[], _filesystem, "root", "password.txt"] call AE3_filesystem_fnc_findFilesystemObject;
+ * [["home"], _filesystem, "user", "config.cfg"] call AE3_filesystem_fnc_findFilesystemObject;
+ *
+ * Public: Yes
  */
 
 params ["_pointer", "_filesystem", "_user", "_filesystemObjectName", ["_missingPermissions", 0]];

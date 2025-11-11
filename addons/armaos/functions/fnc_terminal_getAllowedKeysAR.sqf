@@ -1,11 +1,17 @@
-/**
- * Creates and returns a hashmap for AR (Arabic) keyboard layout.
+/*
+ * Author: Root
+ * Description: Returns the allowed keyboard key mappings for Arabic (AR) layout.
  *
  * Arguments:
  * None
  *
- * Results:
- * Keyboard Layout <HASHMAP>
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [TODO] call AE3_armaos_fnc_terminal_getAllowedKeysAR;
+ *
+ * Public: No
  */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"

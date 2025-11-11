@@ -1,14 +1,20 @@
-/**
-  * Replaces an object with an object with the given type.
-  * 
-  * Arguments:
-  * 0: Object to replace <OBJECT>
-  * 1: Object type <STRIGN>
-  * 
-  * Return:
-  * None
-  *
-  */
+/*
+ * Author: Root
+ * Description: Replaces an object with a new object of the specified type, preserving position, rotation, damage, and fuel.
+ * Must be executed on the server. Waits 5 seconds before replacement.
+ *
+ * Arguments:
+ * 0: _from <OBJECT> - Object to replace
+ * 1: _to_type <STRING> - Classname of the new object type
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_oldLaptop, "Land_Laptop_03_black_F"] call AE3_main_fnc_replace;
+ *
+ * Public: No
+ */
 
 params["_from", "_to_type"];
 

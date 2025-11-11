@@ -1,12 +1,18 @@
-/**
- * Tries to find the given username in the list of local users. If found switches mode to password.
+/*
+ * Author: Root
+ * Description: Finds and validates a login user in the computer's user list by checking username and password.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Username <STRING>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _username <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _username] call AE3_armaos_fnc_shell_findLoginUser;
+ *
+ * Public: No
  */
 
 params ["_computer", "_username"];

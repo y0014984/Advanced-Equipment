@@ -1,11 +1,17 @@
-/**
- * Plays the generator running sound in a loop.
- * 
+/*
+ * Author: Root
+ * Description: Plays generator running sound in infinite loop using soundEngine from config. Repeats every 4 seconds. Uses 3D positional audio with 100m max distance. Should be spawned when generator starts.
+ *
  * Arguments:
- * 0: Generator <OBJECT>
- * 
- * Returns:
+ * 0: _entity <OBJECT> - Generator object
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_generator] spawn AE3_power_fnc_playGeneratorRunningSound;
+ *
+ * Public: No
  */
 
 params ["_entity"];

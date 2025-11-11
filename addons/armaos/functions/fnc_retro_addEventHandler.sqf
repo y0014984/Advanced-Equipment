@@ -1,12 +1,17 @@
-/**
- * Adds event handler to a given control.
+/*
+ * Author: Root
+ * Description: Adds keyboard event handlers to a retro graphics canvas for interactive applications.
  *
  * Arguments:
- * 1: UI Text Field <CONTROL>
- * 2: Keyboard Layout UI Button <CONTROL>
+ * 0: _dialog <DISPLAY> - The canvas display
  *
- * Results:
- * None
+ * Return Value:
+ * Event handler ID <NUMBER>
+ *
+ * Example:
+ * [_canvas] call AE3_armaos_fnc_retro_addEventHandler;
+ *
+ * Public: No
  */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"

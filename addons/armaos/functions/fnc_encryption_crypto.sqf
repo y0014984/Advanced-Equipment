@@ -1,30 +1,20 @@
-/**
- * Programmatically encrypt or decrypt text using a specific algorithm and key.
- * This function can be called directly by scripts without requiring terminal interaction.
+/*
+ * Author: Root
+ * Description: Main encryption/decryption dispatcher function that calls specific cipher implementations.
  *
  * Arguments:
- * 0: Message <STRING> - The message to encrypt or decrypt
- * 1: Mode <STRING> - Operation mode: "encrypt" or "decrypt"
- * 2: Key <STRING or NUMBER> - Encryption/decryption key (integer for caesar, string for columnar)
- * 3: Algorithm <STRING> (Optional, default: "caesar") - Encryption algorithm: "caesar" or "columnar"
+ * 0: _message <STRING> - TODO: Add description
+ * 1: _mode <STRING> - TODO: Add description
+ * 2: _key <STRING> - TODO: Add description
+ * 3: _algorithm <STRING> - TODO: Add description
  *
  * Return Value:
- * <STRING> - The encrypted or decrypted message. Returns empty string on error.
+ * None
  *
  * Example:
- * // Encrypt with Caesar cipher
- * private _encrypted = ["HELLO WORLD", "encrypt", 3, "caesar"] call AE3_armaos_fnc_encryption_crypto;
+ * [_message, _mode, _key] call AE3_armaos_fnc_encryption_crypto;
  *
- * // Decrypt with Caesar cipher
- * private _decrypted = ["KHOOR ZRUOG", "decrypt", 3, "caesar"] call AE3_armaos_fnc_encryption_crypto;
- *
- * // Encrypt with Columnar transposition
- * private _encrypted = ["HELLO WORLD", "encrypt", "PASSWORD", "columnar"] call AE3_armaos_fnc_encryption_crypto;
- *
- * // Decrypt with Columnar transposition
- * private _decrypted = ["ENCRYPTED", "decrypt", "PASSWORD", "columnar"] call AE3_armaos_fnc_encryption_crypto;
- *
- * Public: Yes
+ * Public: No
  */
 
 params [

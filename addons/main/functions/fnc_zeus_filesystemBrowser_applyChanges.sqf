@@ -1,11 +1,19 @@
-/**
- * Applies owner and permission changes to the currently selected file/folder.
+/*
+ * Author: Root
+ * Description: Applies owner and permission changes to the currently selected file or folder in the Zeus filesystem browser.
+ * Reads the modified owner name and permission checkboxes from the UI, updates the filesystem object, saves the changes,
+ * and refreshes the display.
  *
  * Arguments:
  * None
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [] call AE3_main_fnc_zeus_filesystemBrowser_applyChanges;
+ *
+ * Public: No
  */
 
 private _display = findDisplay 16993;

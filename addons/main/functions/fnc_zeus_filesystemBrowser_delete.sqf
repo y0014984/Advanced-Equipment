@@ -1,11 +1,19 @@
-/**
- * Deletes the selected file or folder.
+/*
+ * Author: Root
+ * Description: Deletes the currently selected file or folder in the Zeus filesystem browser. Validates that the item is not a
+ * protected system directory or file (/bin, /sbin, /etc). Uses root privileges for deletion. Refreshes the display after
+ * successful deletion.
  *
  * Arguments:
  * None
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [] call AE3_main_fnc_zeus_filesystemBrowser_delete;
+ *
+ * Public: No
  */
 
 private _display = findDisplay 16993;

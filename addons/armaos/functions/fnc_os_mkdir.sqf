@@ -1,13 +1,19 @@
-/**
- * Creates a given folder/directory on a given computer. Returns information about the success of the command.
+/*
+ * Author: Root
+ * Description: Creates a new directory at the specified path. Similar to Unix mkdir command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: File <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["/home/user/documents"], "mkdir"] call AE3_armaos_fnc_os_mkdir;
+ *
+ * Public: Yes
  */
 
 // TODO: add parameter for recursive folder creation; add parameter for setting permissions

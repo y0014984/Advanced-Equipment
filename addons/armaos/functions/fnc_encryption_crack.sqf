@@ -1,26 +1,19 @@
-/**
- * Programmatically decrypt encrypted text without knowing the key/algorithm using various cryptanalysis methods.
- * This function can be called directly by scripts without requiring terminal interaction.
+/*
+ * Author: Root
+ * Description: Attempts to crack encrypted messages using various cryptanalysis techniques.
  *
  * Arguments:
- * 0: Message <STRING> - The encrypted message to crack
- * 1: Mode <STRING> - Cracking mode: "bruteforce", "statistics", or "key"
- * 2: Algorithm <STRING> (Optional, default: "caesar") - Encryption algorithm: "caesar" or "columnar"
+ * 0: _message <STRING> - TODO: Add description
+ * 1: _mode <STRING> - TODO: Add description
+ * 2: _algorithm <STRING> - TODO: Add description
  *
  * Return Value:
- * <ARRAY> - Array of strings containing the cracking results
+ * None
  *
  * Example:
- * // Bruteforce Caesar cipher
- * private _results = ["KHOOR ZRUOG", "bruteforce", "caesar"] call AE3_armaos_fnc_encryption_crack;
+ * [_message, _mode, _algorithm] call AE3_armaos_fnc_encryption_crack;
  *
- * // Statistics analysis on Caesar cipher
- * private _results = ["ENCRYPTED TEXT", "statistics"] call AE3_armaos_fnc_encryption_crack;
- *
- * // Find possible key lengths for Columnar cipher
- * private _results = ["ENCRYPTEDTEXT", "key", "columnar"] call AE3_armaos_fnc_encryption_crack;
- *
- * Public: Yes
+ * Public: No
  */
 
 params [

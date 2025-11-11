@@ -1,14 +1,20 @@
-/**
- * Shows a splash screen on top of a given retro dialog for given duration.
+/*
+ * Author: Root
+ * Description: Displays a retro splash screen animation on the terminal.
  *
  * Arguments:
- * 1: Dialog <CONTROL>
- * 2: Image Path <STRING>
- * 3: Duration <NUMBER>
- * 4: Pixel Size <NUMBER> (Optional)
+ * 0: _dialog <STRING> - TODO: Add description
+ * 1: _imagePath <STRING> - TODO: Add description
+ * 2: _duration <STRING> - TODO: Add description
+ * 3: _size <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_dialog, _imagePath, _duration] call AE3_armaos_fnc_retro_showSplashScreen;
+ *
+ * Public: No
  */
 
 params ["_dialog", "_imagePath", "_duration", ["_size", 1]];

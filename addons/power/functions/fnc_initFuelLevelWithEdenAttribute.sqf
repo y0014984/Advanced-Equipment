@@ -1,12 +1,17 @@
-/**
- * Sets the fuel level for a given generator if value is changed in Eden Editor. This will only work for an
- * entity that is placed in Eden Editor. In Zeus Mode, the variables are not set.
+/*
+ * Author: Root
+ * Description: Applies Eden Editor fuel level attribute to a generator after mission initialization. Only works for entities placed in Eden Editor (not Zeus). Waits for BIS_fnc_init to complete before reading and applying the AE3_EdenAttribute_FuelLevel attribute. Value is normalized to 0-1 range.
  *
  * Arguments:
- * 0: Generator <OBJECT>
- * 
- * Returns:
+ * 0: _generator <OBJECT> - Generator object to set
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_generator] call AE3_power_fnc_initFuelLevelWithEdenAttribute;
+ *
+ * Public: No
  */
 
 params ["_generator"];

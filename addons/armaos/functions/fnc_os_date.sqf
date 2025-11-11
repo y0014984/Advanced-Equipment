@@ -1,13 +1,19 @@
-/**
- * Prints/outputs the ingame date and time on a given computer.
+/*
+ * Author: Root
+ * Description: Displays the current in-game date and time. Similar to Unix date command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Options <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, [], "date"] call AE3_armaos_fnc_os_date;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

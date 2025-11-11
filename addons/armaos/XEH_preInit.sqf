@@ -98,6 +98,36 @@
 /* ================================================================================ */
 
 [
+	"AE3_UiPlayerRange",
+	"SLIDER",
+	["UI-on-Texture Range", "Max Range (in meter) for players to be for the UI to update for them when viewing the laptop(s)"],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[1, 500, 5, 0],
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
+	"AE3_armaos_uiOnTexUpdateInterval",
+	"SLIDER",
+	["UI-on-Texture Update Interval", "How often (in seconds) to update UI-on-Texture displays for nearby players. Lower values = smoother updates but more network traffic. Higher values = better performance but less smooth updates. Recommended: 0.3 seconds."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[0.1, 2.0, 0.3, 1], // min, max, default, decimal places
+    nil, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
 	"AE3_TerminalDialogTitle",
 	"EDITBOX",
 	["Terminal Dialog Title", "The title shown in the terminal dialog window header"],

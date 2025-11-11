@@ -1,12 +1,17 @@
-/**
- * Calculates and sets the new battery level.
- * 
- * Arguments:
- * 0: Battery Object <OBJECT>
+/*
+ * Author: Root
+ * Description: Calculates and updates the battery level based on power consumption and recharging rate. Called every second by the power provider handler. Handles both charging (from connected power source) and discharging (when powering devices). Power values are in kWh.
  *
- * Returns:
- * 0: Power state <BOOL>
- * 1: Power output <FLOAT>
+ * Arguments:
+ * 0: _battery <OBJECT> - Battery object to calculate
+ *
+ * Return Value:
+ * [Power state (true if battery has charge), Current battery level in kWh] <ARRAY>
+ *
+ * Example:
+ * private _batteryStatus = [_battery] call AE3_power_fnc_batteryCalculation;
+ *
+ * Public: Yes
  */
 
 params ["_battery"];

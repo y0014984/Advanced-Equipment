@@ -1,11 +1,17 @@
-/**
- * Removes the last character of the last line in the terminal buffer stored in the terminal settings of a given computer.
+/*
+ * Author: Root
+ * Description: Removes a character from the terminal buffer at the current cursor position.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_removeChar;
+ *
+ * Public: No
  */
 
 params ["_computer"];

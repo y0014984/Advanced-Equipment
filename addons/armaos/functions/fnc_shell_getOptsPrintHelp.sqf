@@ -1,13 +1,18 @@
-/**
- * Prints help for a given command.
+/*
+ * Author: Root
+ * Description: Prints formatted help text for a command, showing syntax, options, and descriptions.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Command Settings <[STRING,ARRAY,ARRAY]>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _commandSettings <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_computer, _commandSettings] call AE3_armaos_fnc_shell_getOptsPrintHelp;
+ *
+ * Public: No
  */
 
 params ["_computer", "_commandSettings"];

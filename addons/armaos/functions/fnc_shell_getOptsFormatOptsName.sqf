@@ -1,15 +1,20 @@
-/**
- * Creates an humandreadable STRING, that describes an command option.
+/*
+ * Author: Root
+ * Description: Formats an option name for display in help text, combining short and long forms with type information.
  *
  * Arguments:
- * 1: Short Form of Option <STRING>
- * 2: Long Form of Option <STRING>
- * 3: Option Type <STRING>
- * 4: Select Options <[STRING]>
+ * 0: _shortOpt <STRING> - TODO: Add description
+ * 1: _longOpt <STRING> - TODO: Add description
+ * 2: _optType <STRING> - TODO: Add description
+ * 3: _optSelect <STRING> - TODO: Add description
  *
- * Results:
- * 1: Command Description <STRING>
+ * Return Value:
+ * None
  *
+ * Example:
+ * [_shortOpt, _longOpt, _optType] call AE3_armaos_fnc_shell_getOptsFormatOptsName;
+ *
+ * Public: No
  */
 
 params ["_shortOpt", "_longOpt", "_optType", "_optSelect"];

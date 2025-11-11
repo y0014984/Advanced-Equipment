@@ -1,33 +1,24 @@
-/**
- * Adds a custom command to a computer without requiring config file entries.
- * This makes it easy to add unique commands to specific computers.
+/*
+ * Author: Root
+ * Description: Adds a custom command to a computer without requiring config file entries. This makes it easy to add unique commands to specific computers dynamically at runtime.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: Command Name <STRING> - The name users will type (e.g., "nano", "vim")
- * 2: Command Path <STRING> - Where the command is stored in the filesystem (e.g., "/bin/nano", "/usr/bin/vim")
- * 3: Command Code <CODE or STRING> - The SQF code to execute (receives [_computer, _options, _commandName])
- * 4: Description <STRING> (Optional) - Short description for help
- * 5: Manual Text <STRING> (Optional) - Full manual/help text
- * 6: File Owner <STRING> (Optional, default: "root") - Owner of the command file
- * 7: File Permissions <ARRAY> (Optional, default: [[true,true,false],[true,false,false]]) - File permissions
+ * 0: _computer <OBJECT> - The computer object to add the command to
+ * 1: _commandName <STRING> - The name users will type (e.g., "nano", "vim")
+ * 2: _commandPath <STRING> - Where the command is stored in the filesystem (e.g., "/bin/nano", "/usr/bin/vim")
+ * 3: _commandCode <CODE or STRING> - The SQF code to execute (receives [_computer, _options, _commandName])
+ * 4: _description <STRING> (Optional, default: "") - Short description for help
+ * 5: _manual <STRING> (Optional, default: "") - Full manual/help text
+ * 6: _owner <STRING> (Optional, default: "root") - Owner of the command file
+ * 7: _permissions <ARRAY> (Optional, default: [[true,true,false],[true,false,false]]) - File permissions
  *
- * Results:
+ * Return Value:
  * Success <BOOL>
  *
  * Example:
- *   [
- *       _computer,
- *       "nano",
- *       "/bin/nano",
- *       {
- *           params ["_computer", "_options", "_commandName"];
- *           private _terminal = _computer getVariable "AE3_terminal";
- *           [_computer, "Nano editor v1.0 - Not yet implemented"] call AE3_armaos_fnc_shell_stdout;
- *       },
- *       "Simple text editor",
- *       "nano [filename]\n\nA simple text editor for the terminal."
- *   ] call AE3_armaos_fnc_computer_addCustomCommand;
+ * [_computer, "nano", "/bin/nano", {[_this select 0, "Nano v1.0"] call AE3_armaos_fnc_shell_stdout;}, "Simple text editor"] call AE3_armaos_fnc_computer_addCustomCommand;
+ *
+ * Public: Yes
  */
 
 params [

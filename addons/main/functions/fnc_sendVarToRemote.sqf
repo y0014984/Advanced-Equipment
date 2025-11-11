@@ -1,13 +1,19 @@
-/**
- * Sets a local variable to a remote client.
+/*
+ * Author: Root
+ * Description: Sets a local variable to a remote client for multiplayer synchronization.
  *
  * Arguments:
- * 0: Client ID <INT>
- * 1: Namespace of the variable <NAMESPACE>
- * 2: Variable name <STRING>
- * 
- * Return:
- * Nothing
+ * 0: _caller <NUMBER> - Client ID to send the variable to
+ * 1: _namespace <NAMESPACE> - Namespace containing the variable
+ * 2: _variable <STRING> - Name of the variable to send
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [clientOwner, missionNamespace, "myVariable"] call AE3_main_fnc_sendVarToRemote;
+ *
+ * Public: No
  */
 
 params['_caller', '_namespace', '_variable'];

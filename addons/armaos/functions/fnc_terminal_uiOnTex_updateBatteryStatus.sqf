@@ -1,12 +1,18 @@
-/**
- * Updates the battery symbol of the terminal for the "UI on texture" feature. 
+/*
+ * Author: Root
+ * Description: Updates battery status on UI-on-Texture displays for nearby players.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Battery Symbol Path <STRING>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _value <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _value] call AE3_armaos_fnc_terminal_uiOnTex_updateBatteryStatus;
+ *
+ * Public: No
  */
 
 params ["_computer", "_value"];

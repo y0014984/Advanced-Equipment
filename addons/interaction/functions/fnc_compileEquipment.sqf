@@ -1,13 +1,19 @@
-/**
- * Compiles the equipment from config for an object's class.
- * Analoge to ACE3 MenuCompile.
+/*
+ * Author: Root
+ * Description: Compiles the equipment from config for an object's class, analogous to ACE3 MenuCompile.
+ * This function parses the AE3_Equipment config for the object's class, creates a hashmap with compiled
+ * settings, and initializes the interaction system for the equipment.
  *
- * Argmuments:
- * 0: Equipment <OBJECT>
+ * Arguments:
+ * 0: _equipment <OBJECT> - The equipment object to compile interactions for
  *
- * Returns:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_laptop] call AE3_interaction_fnc_compileEquipment;
+ *
+ * Public: Yes
  */
 
 params["_equipment"];

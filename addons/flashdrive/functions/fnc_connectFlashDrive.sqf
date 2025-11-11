@@ -1,14 +1,20 @@
-/**
- * Physically connects a flash drive to a computer
+/*
+ * Author: Root
+ * Description: Physically connects a flash drive item to a computer's USB interface, converting the item to an object and attaching it to the computer
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Executing player <OBJECT>
- * 3: Flashdrive type <STRING>
- * 4: Interface state <ARRAY>
+ * 0: _computer <OBJECT> - Computer object to connect the flash drive to
+ * 1: _player <OBJECT> - Player executing the connection action
+ * 2: _flashDrive <STRING> - Class name of the flash drive item
+ * 3: _USBInterface <ARRAY> - USB interface configuration [index, name, relPos, rotYaw, rotPitch, rotRoll]
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [laptop, player, "Item_FlashDisk_AE3_ID_1", [0, "usb0", [0,0,0], 0, 0, 0]] call AE3_flashdrive_fnc_connectFlashDrive;
+ *
+ * Public: Yes
  */
 
 params['_computer', '_player', '_flashDrive', '_USBInterface'];

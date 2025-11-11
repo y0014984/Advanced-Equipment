@@ -1,31 +1,27 @@
-/**
- * PUBLIC
- *
- * Adds a file to a given Device. Device could be a comupter or a flash drive.
- * Logs and displays an error message if file already exists; On other errors it throws an exception.
- * Needs to run on server.
+/*
+ * Author: Root
+ * Description: Adds a file to a device's filesystem (laptop or flash drive). Supports code compilation and encryption. Must run on server. Logs error if file already exists, throws exception for other errors.
  *
  * Arguments:
- * 1: Device <OBJECT>
- * 2: Path <STRING>
- * 3: Content <STRING>
- * 4: isCode <BOOL>
- * 5: Owner <STRING>
- * 6: Permissions <[ARRAY]>
- * 7: isEncrypted <BOOL> Optional
- * 8: encryptionAlgorithm <STRING> Optional
- * 9: encryptionKey <STRING> Optional
+ * 0: _computer <OBJECT> - Device object (computer or flash drive)
+ * 1: _path <STRING> - Path to new file
+ * 2: _content <STRING> - File content (plain text or code string)
+ * 3: _isCode <BOOL> - If true, content will be compiled as code
+ * 4: _owner <STRING> - Owner of the file
+ * 5: _permissions <ARRAY> - Permissions [[owner x,r,w],[everyone x,r,w]]
+ * 6: _isEncrypted <BOOL> (Optional, default: false) - If true, content will be encrypted
+ * 7: _encryptionAlgorithm <STRING> (Optional) - Encryption algorithm ("caesar" or "columnar")
+ * 8: _encryptionKey <STRING> (Optional) - Encryption key
  *
- * Results:
- * none
+ * Return Value:
+ * None
  *
- * Examples:
- * [_device, "/tmp/new/example.txt", "Lorem ipsum dolor sit amet", false, "root", [[false, true, true], [false, true, true]]] call AE3_filesystem_fnc_device_addFile;
- * [_device, "/test.prg", "hint 'hello world';", true, "root", [[true, false, false], [true, false, false]]] call AE3_filesystem_fnc_device_addFile;
- * [_device, "/tmp/password.txt", "secret", false, "root", [[false, true, true], [false, true, true]], true, "caesar", "13"] call AE3_filesystem_fnc_device_addFile;
+ * Example:
+ * [_laptop, "/tmp/test.txt", "Hello World", false, "root", [[false,true,true],[false,true,false]]] call AE3_filesystem_fnc_device_addFile;
+ * [_laptop, "/bin/script.sqf", "hint 'test';", true, "root", [[true,false,false],[true,false,false]]] call AE3_filesystem_fnc_device_addFile;
+ * [_laptop, "/secure.txt", "secret", false, "root", [[false,true,true],[false,false,false]], true, "caesar", "13"] call AE3_filesystem_fnc_device_addFile;
  *
- * Permissions:
- * [[owner execute, owner read, owner write], [everyone execute, everyone read, everyone write]]
+ * Public: Yes
  */
 
 params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", ["_isEncrypted", false], ["_encryptionAlgorithm", nil], ["_encryptionKey", nil]];

@@ -1,13 +1,19 @@
-/**
- * Mounts a filesystem which is connect via a given interface.
+/*
+ * Author: Root
+ * Description: Mounts a filesystem connected via a USB interface (flash drive). Similar to Unix mount command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Options <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["usb0"], "mount"] call AE3_armaos_fnc_os_mount;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

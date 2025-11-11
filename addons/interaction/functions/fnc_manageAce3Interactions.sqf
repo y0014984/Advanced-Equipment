@@ -1,16 +1,20 @@
-/**
- * Receives a status update and sets ACE3 dragging, carrying and cargo accordingly. Should be executed on server.
+/*
+ * Author: Root
+ * Description: Manages ACE3 interaction states (dragging, carrying, cargo) based on equipment status conditions.
+ * Blocks interactions when equipment is connected, unwrapped, turned on, or in use. Should be executed on server.
  *
  * Arguments:
- * 0: Equipment <OBJECT>
- * 1: Condition <STRING>
- * 2: Status <BOOLEAN>
+ * 0: _target <OBJECT> - The equipment object to manage
+ * 1: _condition <STRING> - Condition name: "powerConnected", "networkConnected", "unwrapped", "turnedOn", "inUse", or "init"
+ * 2: _status <BOOL> - New status value for the condition
  *
- * Returns:
- * none
+ * Return Value:
+ * None
  *
  * Example:
  * [_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
+ *
+ * Public: Yes
  */
 
 params ["_target", "_condition", "_status"];

@@ -1,11 +1,18 @@
-/**
- * Initializes the filesystem browser display.
+/*
+ * Author: Root
+ * Description: Initializes the Zeus filesystem browser display. Retrieves the entity from mission namespace, loads its filesystem,
+ * and sets up the initial display state at the root directory. Closes the dialog if no valid entity is found.
  *
  * Arguments:
- * 0: Display <DISPLAY>
+ * 0: _display <DISPLAY> - The filesystem browser display
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_display] call AE3_main_fnc_zeus_filesystemBrowser_init;
+ *
+ * Public: No
  */
 
 params ["_display"];

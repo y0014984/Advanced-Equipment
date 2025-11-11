@@ -1,17 +1,23 @@
-/**
- * Adjusts an animatable aspect of an object.
+/*
+ * Author: Root
+ * Description: Adjusts an animatable aspect of an object based on mouse scroll input. Applies min/max clamping
+ * and a scroll multiplier to control animation speed. Used by animateInteraction for interactive equipment.
  *
- * Argmuments:
- * 0: Equipment <OBJECT>
- * 1: Animatable Aspect <STRING>
- * 2: min. Value for Animation <NUMBER>
- * 3: max. Value for Animation <NUMBER>
- * 4: Mouse scroll value <NUMBER>
- * 5: Multiplayer to adjust scroll value <NUMBER>
+ * Arguments:
+ * 0: _equipment <OBJECT> - The equipment object to animate
+ * 1: _animateItem <STRING> - The animation source name
+ * 2: _min <NUMBER> - Minimum animation value
+ * 3: _max <NUMBER> - Maximum animation value
+ * 4: _scroll <NUMBER> - Mouse scroll value
+ * 5: _multiplier <NUMBER> - Multiplier to adjust scroll sensitivity
  *
- * Returns:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_laptop, "Screen_Angle", 0, 1, 0.1, 0.05] call AE3_interaction_fnc_animateAction;
+ *
+ * Public: No
  */
 
 params ["_equipment", "_animateItem", "_min", "_max", "_scroll", "_multiplier"];

@@ -1,11 +1,17 @@
-/**
- * Switches the used terminal design by cycling through the given designs. Also reads/saves from/to CBA settings.
+/*
+ * Author: Root
+ * Description: Cycles through available terminal designs.
  *
  * Arguments:
- * 1: Console Dialog <CONTROL>
+ * 0: _consoleDialog <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_consoleDialog] call AE3_armaos_fnc_terminal_switchTerminalDesign;
+ *
+ * Public: No
  */
 
 params ["_consoleDialog"];

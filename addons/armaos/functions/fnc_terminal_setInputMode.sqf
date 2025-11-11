@@ -1,12 +1,18 @@
-/**
- * Sets the input mode of the terminal.
+/*
+ * Author: Root
+ * Description: Sets the terminal input mode (SHELL, INPUT, LOGIN, PASSWORD, etc.).
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Mode <STRING>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _mode <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _mode] call AE3_armaos_fnc_terminal_setInputMode;
+ *
+ * Public: No
  */
 params['_computer', '_mode'];
 

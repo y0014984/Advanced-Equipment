@@ -1,16 +1,24 @@
-/**
- * Recursively populates a tree control with directory structure.
+/*
+ * Author: Root
+ * Description: Recursively populates a tree control with the directory structure for the Zeus filesystem browser Move dialog.
+ * Excludes the source item being moved and disables subdirectories of the source to prevent moving a directory into itself.
+ * Only directories are added to the tree, not files.
  *
  * Arguments:
- * 0: Tree Control <CONTROL>
- * 1: Directory Content <HASHMAP>
- * 2: Current Path <ARRAY>
- * 3: Tree Path <ARRAY>
- * 4: Source Pointer <ARRAY> - The source directory to exclude from tree
- * 5: Source File <STRING> - The source file/folder name to exclude
+ * 0: _treeCtrl <CONTROL> - The tree control to populate
+ * 1: _dirContent <HASHMAP> - The directory content hashmap to process
+ * 2: _currentPath <ARRAY> - The current filesystem path as an array of directory names
+ * 3: _treePath <ARRAY> - The current tree control path as an array of indices
+ * 4: _sourcePointer <ARRAY> - The source directory path to exclude from the tree
+ * 5: _sourceFile <STRING> - The source file/folder name being moved
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_treeCtrl, _dirContent, ["home", "user"], [0, 1], ["home"], "documents"] call AE3_main_fnc_zeus_filesystemBrowser_populateTree;
+ *
+ * Public: No
  */
 
 params ["_treeCtrl", "_dirContent", "_currentPath", "_treePath", "_sourcePointer", "_sourceFile"];

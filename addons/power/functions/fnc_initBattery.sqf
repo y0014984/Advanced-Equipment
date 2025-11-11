@@ -1,15 +1,22 @@
-/**
- * Initializes a battery.
+/*
+ * Author: Root
+ * Description: Initializes a battery with capacity, recharging rate, and initial level. Handles both standalone and internal batteries (like laptop batteries). For internal batteries, automatically connects to parent device and starts charging. Battery capacity and recharging rate are in kWh.
  *
  * Arguments:
- * 0: Battery <OBJECT>
- * 1: Battery Capacity <NUMBER>
- * 2: Recharging Rate <NUMBER>
- * 3: Battery Level <NUMEBR> (Optional)
- * 4: If Internal <BOOL> (Optional)
- * 
- * Returns:
+ * 0: _battery <OBJECT> - Battery object to initialize
+ * 1: _batteryCapacity <NUMBER> - Maximum battery capacity in kWh
+ * 2: _recharging <NUMBER> - Recharging rate in kWh
+ * 3: _batteryLevel <NUMBER> - (Optional, default: 0) Initial battery level in kWh
+ * 4: _internal <BOOL> - (Optional, default: false) Whether this is an internal battery
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_battery, 1.5, 0.5, 0.75, false] call AE3_power_fnc_initBattery;
+ * [_internalBattery, 0.5, 0.2, 0.25, true] call AE3_power_fnc_initBattery;
+ *
+ * Public: Yes
  */
 
 params ["_battery", "_batteryCapacity", "_recharging", ["_batteryLevel", 0], ["_internal", false]];

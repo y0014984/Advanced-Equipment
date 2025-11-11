@@ -1,12 +1,20 @@
-/**
- * Handles double-click on filesystem browser list item.
+/*
+ * Author: Root
+ * Description: Handles double-click events on items in the Zeus filesystem browser. For directories, navigates into the directory.
+ * For files, loads the file content and properties into the editor area for viewing/editing. Supports navigation to parent
+ * directory via the ".." entry.
  *
  * Arguments:
- * 0: Control <CONTROL>
- * 1: Selected Index <NUMBER>
+ * 0: _control <CONTROL> - The list control that was double-clicked
+ * 1: _selectedIndex <NUMBER> - The index of the selected item in the list
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_control, 2] call AE3_main_fnc_zeus_filesystemBrowser_onDblClick;
+ *
+ * Public: No
  */
 
 params ["_control", "_selectedIndex"];

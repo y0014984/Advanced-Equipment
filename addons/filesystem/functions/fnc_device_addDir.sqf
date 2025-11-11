@@ -1,25 +1,21 @@
-/**
- * PUBLIC
- *
- * Adds a directory to a given Device. Device could be a comupter or a flash drive.
- * Logs and displays an error message if dir already exists; On other errors it throws an exception.
- * Needs to run on server.
+/*
+ * Author: Root
+ * Description: Adds a directory to a device's filesystem (laptop or flash drive). Must run on server. Logs error if directory already exists, throws exception for other errors.
  *
  * Arguments:
- * 1: Device <OBJECT>
- * 2: Path <STRING>
- * 3: Owner <STRING>
- * 4: Permissions <[ARRAY]>
+ * 0: _device <OBJECT> - Device object (computer or flash drive)
+ * 1: _path <STRING> - Path to new directory
+ * 2: _owner <STRING> - Owner of the directory
+ * 3: _permissions <ARRAY> - Permissions [[owner x,r,w],[everyone x,r,w]]
  *
- * Results:
- * none
+ * Return Value:
+ * None
  *
  * Example:
- * [_device, "/tmp/new", "root", [[true, true, true], [true, true, true]]] call AE3_filesystem_fnc_device_addDir;
+ * [_laptop, "/tmp/logs", "root", [[true,true,true],[false,false,false]]] call AE3_filesystem_fnc_device_addDir;
+ * [_flashdrive, "/backup", "admin", [[true,true,true],[true,true,false]]] call AE3_filesystem_fnc_device_addDir;
  *
- *
- * Permissions:
- * [[owner execute, owner read, owner write], [everyone execute, everyone read, everyone write]]
+ * Public: Yes
  */
 
 params ["_device", "_path", "_owner", "_permissions"];

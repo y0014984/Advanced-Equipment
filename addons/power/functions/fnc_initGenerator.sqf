@@ -1,16 +1,23 @@
-/**
- * Initializes a generator.
- * 
- * Arguments:
- * 0: Generator <OBJECT>
- * 1: Fuel Capacity <NUMBER>
- * 2: Fuel Consumption <NUMBER>
- * 3: Power Output <NUMBER>
- * 4: Fuel Level <NUMBER> (Optional)
+/*
+ * Author: Root
+ * Description: Initializes a fuel-powered generator with fuel capacity, consumption rate, and power output. Sets up ACE3 interactions for checking fuel level and power output. Fuel consumption is in liters per hour, power output is in kWh.
  *
- * Results:
+ * Arguments:
+ * 0: _entity <OBJECT> - Generator object to initialize
+ * 1: _fuelCapacity <NUMBER> - Maximum fuel capacity in liters
+ * 2: _fuelConsumption <NUMBER> - Fuel consumption rate in liters per hour
+ * 3: _power <NUMBER> - Power output in kWh
+ * 4: _fuelLevel <NUMBER> - (Optional, default: 1) Initial fuel level as fraction (0-1)
+ *
+ * Return Value:
  * None
-*/
+ *
+ * Example:
+ * [_generator, 50, 2.5, 5] call AE3_power_fnc_initGenerator;
+ * [_generator, 100, 5, 10, 0.5] call AE3_power_fnc_initGenerator;
+ *
+ * Public: Yes
+ */
 
 params["_entity", "_fuelCapacity", "_fuelConsumption", "_power", ["_fuelLevel", 1]];
 

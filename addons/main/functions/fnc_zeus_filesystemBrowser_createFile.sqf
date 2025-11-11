@@ -1,11 +1,18 @@
-/**
- * Creates a new file in the current directory.
+/*
+ * Author: Root
+ * Description: Opens the New File dialog in the Zeus filesystem browser. Validates that the current directory is not a protected
+ * system directory (/bin, /sbin, /etc) before opening the dialog. This is a button handler function.
  *
  * Arguments:
  * None
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [] call AE3_main_fnc_zeus_filesystemBrowser_createFile;
+ *
+ * Public: No
  */
 
 private _display = findDisplay 16993;

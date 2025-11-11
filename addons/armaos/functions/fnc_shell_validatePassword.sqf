@@ -1,12 +1,18 @@
-/**
- * Tries to validate given username and password. If successful switches to shell mode.
- * If not successful switches back to login mode.
+/*
+ * Author: Root
+ * Description: Validates a password against the stored password for a given username.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _password <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _password] call AE3_armaos_fnc_shell_validatePassword;
+ *
+ * Public: No
  */
 
 params ["_computer", "_password"];

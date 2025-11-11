@@ -1,11 +1,17 @@
-/**
- * Initializes the terminal of a given computer by showing the terminal window, initializing terminal settings and adding event handlers.
+/*
+ * Author: Root
+ * Description: Initializes a new terminal session for a computer, setting up all terminal variables and state.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_init;
+ *
+ * Public: No
  */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"

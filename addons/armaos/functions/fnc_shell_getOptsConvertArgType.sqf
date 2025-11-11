@@ -1,14 +1,19 @@
-/**
- * Converts a given STRING argument to it's specific type (BOOL, STRING, NUMBER, etc.) according to the given settings.
+/*
+ * Author: Root
+ * Description: Converts a command argument string to the specified type (number, string, bool, etc.).
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Command Options Settings <ARRAY>
- * 3: Arg <STRING>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _optSettings <STRING> - TODO: Add description
+ * 2: _arg <STRING> - TODO: Add description
  *
- * Results:
- * 1: Results <[STRING, ANY]>
+ * Return Value:
+ * None
  *
+ * Example:
+ * [_computer, _optSettings, _arg] call AE3_armaos_fnc_shell_getOptsConvertArgType;
+ *
+ * Public: No
  */
 
 params ["_computer", "_optSettings", "_arg"];

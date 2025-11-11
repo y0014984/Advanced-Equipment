@@ -1,11 +1,17 @@
-/**
- * Creates and returns the terminal header information lines as a string array.
+/*
+ * Author: Root
+ * Description: Returns the terminal header text (ASCII art logo) for the current terminal design.
  *
  * Arguments:
  * None
  *
- * Results:
- * Header Lines <[STRING]>
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [TODO] call AE3_armaos_fnc_terminal_getHeaderText;
+ *
+ * Public: No
  */
 
 // Build header array using CBA settings

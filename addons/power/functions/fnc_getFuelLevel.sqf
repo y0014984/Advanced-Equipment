@@ -1,13 +1,18 @@
-/**
- * Returns the generator fuel level.
+/*
+ * Author: Root
+ * Description: Returns the current fuel level of a generator in absolute liters and as a percentage of capacity. Uses Arma 3's fuel command to get current level.
  *
  * Arguments:
- * 0: Generator <OBJECT>
- * 
- * Returns:
- * 0: Fuel Level absolute <NUMBER>
- * 1: Fuel Level percent <NUMBER>
- * 2: Fuel Capacity <NUMBER>
+ * 0: _entity <OBJECT> - Generator object
+ *
+ * Return Value:
+ * [Fuel level in liters, Fuel level percent (0-100), Fuel capacity in liters] <ARRAY>
+ *
+ * Example:
+ * private _fuelInfo = [_generator] call AE3_power_fnc_getFuelLevel;
+ * _fuelInfo params ["_liters", "_percent", "_capacity"];
+ *
+ * Public: Yes
  */
 
 params ["_entity"];

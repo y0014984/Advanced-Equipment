@@ -1,12 +1,19 @@
-/**
- * Wrapper for obj2items. Calls AE3_Flashdrive_takeEH Eventhandler.
- * 
- * Arguments:
- * 0: Target object <OBJECT>
- * 1: Player which wants to take the object <Object>
+/*
+ * Author: Root
+ * Description: Wrapper function for obj2item that triggers the AE3_Flashdrive_takeEH event handler first.
+ * If any event handler returns true (indicating it handled the take action), obj2item is not called.
  *
- * Results:
+ * Arguments:
+ * 0: _target <OBJECT> - Flash drive object to take
+ * 1: _player <OBJECT> - Player taking the object
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_flashDrive, player] call AE3_flashdrive_fnc_take;
+ *
+ * Public: No
  */
 
 params ["_target", "_player"]; 

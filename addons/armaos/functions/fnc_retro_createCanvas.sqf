@@ -1,12 +1,18 @@
-/**
- * Creates a pixel based canvas.
+/*
+ * Author: Root
+ * Description: Creates a pixel-based retro graphics canvas for terminal applications. Supports two modes: 80x50px (mode 1) or 40x25px (mode 2).
  *
  * Arguments:
- * 1: Mode <CONTROL>
- * 2: Background Color <COLOR>
+ * 0: _mode <NUMBER> (Optional, default: 1) - Canvas mode (1 = 80x50px, 2 = 40x25px)
+ * 1: _bgColor <ARRAY> (Optional, default: [0,0,0,1]) - Background color [R,G,B,A]
  *
- * Results:
- * 1: Dialog <CONTROL>
+ * Return Value:
+ * Canvas dialog display <DISPLAY>
+ *
+ * Example:
+ * private _canvas = [1, [0,0,0,1]] call AE3_armaos_fnc_retro_createCanvas;
+ *
+ * Public: No
  */
 
 params [["_mode", 1], ["_bgColor", [0,0,0,1]]];

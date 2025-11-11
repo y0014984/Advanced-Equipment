@@ -1,14 +1,19 @@
-/**
- * Copies a given file on a given computer.
- * Returns information about the success of the command.
+/*
+ * Author: Root
+ * Description: Copies a file from source to destination path. Similar to Unix cp command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: File <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["/home/user/file.txt", "/tmp/file.txt"], "cp"] call AE3_armaos_fnc_os_cp;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];

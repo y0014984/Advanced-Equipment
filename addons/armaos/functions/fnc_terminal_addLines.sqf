@@ -1,13 +1,18 @@
-/**
- * Adds multiple lines to the output buffer stored in terminal settings of a given computer.
- * Long lines will be split into multiple lines according to maximum allowed length of lines in the given terminal.
+/*
+ * Author: Root
+ * Description: Adds one or more lines of output to the terminal buffer. Accepts string or array of strings/formatted text. Long lines are automatically wrapped to terminal width.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Command <[[STRING]]>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _outputLines <STRING or ARRAY> - Lines to add to terminal output
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["Line 1", "Line 2"]] call AE3_armaos_fnc_terminal_addLines;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_outputLines"];

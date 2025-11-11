@@ -1,15 +1,22 @@
-/**
- * Inits ACE3 Interactions likes dragging, carrying and cargo.
- * Workaround is needed for some classes, that can't use ACE3 config entries.
+/*
+ * Author: Root
+ * Description: Initializes ACE3 interactions (dragging, carrying, cargo) for equipment objects. Creates a
+ * settings hashmap and calls manageAce3Interactions to apply initial state. Runs only on server.
  *
  * Arguments:
- * 0: Equipment <OBJECT>
- * 1: Dragging Settings <ARRAY>
- * 2: Carrying Settings <ARRAY>
- * 3: Cargo Settings <ARRAY>
+ * 0: _equipment <OBJECT> - The equipment object to initialize
+ * 1: _aceDragging <ARRAY> - Dragging settings [canDrag, dragPosition, dragDirection]
+ * 2: _aceCarrying <ARRAY> - Carrying settings [canCarry, carryPosition, carryDirection]
+ * 3: _aceCargo <ARRAY> - Cargo settings [canLoad, size]
+ * 4: _interactionConditions <ARRAY> - Interaction conditions [unwrapped]
  *
- * Returns:
- * none
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_laptop, [1, [0, 1, 0], 0], [1, [0, 1, 0], 0], [1, 2], [0]] call AE3_interaction_fnc_initAce3Interactions;
+ *
+ * Public: Yes
  */
 
 params["_equipment", "_aceDragging", "_aceCarrying", "_aceCargo", "_interactionConditions"];

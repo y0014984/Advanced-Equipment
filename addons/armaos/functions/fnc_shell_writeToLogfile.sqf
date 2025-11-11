@@ -1,22 +1,20 @@
-/**
- * Writes given log message to given logfile.
+/*
+ * Author: Root
+ * Description: Writes a log entry to the terminal's log file for debugging and audit purposes.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Sender <STRING>
- * 3: Log message <STRING>
- * 4: Path to Log file <STRING> (Optional)
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _sender <STRING> - TODO: Add description
+ * 2: _logMessage <STRING> - TODO: Add description
+ * 3: _logFile <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
  *
  * Example:
- * --------
- * private _computer = cursorObject getVariable "AE3_Computer";
- * private _sender = "System";
- * private _logMessage = "Login by user 'admin' successful.";
- * private _logFile = "/var/log/auth.log";
- * [_computer, _sender, _logMessage, _logFile] call AE3_armaos_fnc_writeToLogfile;
+ * [_computer, _sender, _logMessage] call AE3_armaos_fnc_shell_writeToLogfile;
+ *
+ * Public: No
  */
 
 params ["_computer", "_sender", "_logMessage", ["_logFile", "/var/log/syslog"]];

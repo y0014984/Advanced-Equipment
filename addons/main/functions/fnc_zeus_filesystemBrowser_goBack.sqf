@@ -1,11 +1,18 @@
-/**
- * Goes back to parent directory in filesystem browser.
+/*
+ * Author: Root
+ * Description: Navigates to the parent directory in the Zeus filesystem browser. Removes the last directory from the pointer stack
+ * and refreshes the display. Does nothing if already at the root directory.
  *
  * Arguments:
  * None
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [] call AE3_main_fnc_zeus_filesystemBrowser_goBack;
+ *
+ * Public: No
  */
 
 private _display = findDisplay 16993;

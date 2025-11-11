@@ -1,11 +1,17 @@
-/**
- * Adds the "turn on" ACE interaction for a given computer object. Computer texture changes accordingly.
+/*
+ * Author: Root
+ * Description: Executes the turn on operation for a given computer object. Computer texture changes to show booting animation and plays startup sound.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object to turn on
  *
- * Results:
- * None
+ * Return Value:
+ * Success <BOOL>
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_computer_turnOn;
+ *
+ * Public: Yes
  */
 
 params ["_computer"];

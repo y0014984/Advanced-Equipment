@@ -1,18 +1,18 @@
-/**
- * PRIVATE
- *
- * This function is triggered by a button in the default AE3 Zeus Asset Attributes Interface.
- * The mechanism is similar to the code that allows this action in the ACE3 Interaction of the object.
+/*
+ * Author: Root
+ * Description: Puts a device into standby mode through the Zeus Asset Attributes Interface. Triggered by the "Standby" button in the Zeus interface.
+ * Provides visual feedback to the Zeus curator indicating success or failure.
  *
  * Arguments:
- * None
+ * None (uses BIS_fnc_initCuratorAttributes_target from mission namespace)
  *
- * Results:
- * Visual Feedback in Zeus Interface
+ * Return Value:
+ * None
  *
  * Example:
  * [] call AE3_main_fnc_zeus_standbyDevice;
  *
+ * Public: No
  */
 
 private _entity = missionNamespace getVariable ["BIS_fnc_initCuratorAttributes_target", objNull];

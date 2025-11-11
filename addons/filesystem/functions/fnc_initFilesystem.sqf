@@ -1,12 +1,19 @@
-/**
- * Initilizes the filesystem and loads filesystem objects from config.
+/*
+ * Author: Root
+ * Description: Initializes the filesystem on a device and loads filesystem objects from config. Creates root filesystem structure and processes config entries to add files and directories. Must run on server.
  *
  * Arguments:
- * 0: Target <OBJECT>
- * 1: Config <CONFIG> (Optional)
+ * 0: _entity <OBJECT> - Device object to initialize (laptop or flash drive)
+ * 1: _config <CONFIG> (Optional) - Config class containing AE3_FilesystemObject entries
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_laptop] call AE3_filesystem_fnc_initFilesystem;
+ * [_laptop, configFile >> "CfgFilesystemObjects" >> "MyCustomObjects"] call AE3_filesystem_fnc_initFilesystem;
+ *
+ * Public: No
  */
 
 params["_entity", "_config"];

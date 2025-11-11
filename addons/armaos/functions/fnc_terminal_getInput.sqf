@@ -1,11 +1,17 @@
-/**
- * Returns the current content of the input buffer.
+/*
+ * Author: Root
+ * Description: Returns the current text from the terminal input buffer.
  *
  * Arguments:
- * 0: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_getInput;
+ *
+ * Public: No
  */
 
 params ["_computer"];

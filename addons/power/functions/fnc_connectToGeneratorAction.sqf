@@ -1,12 +1,18 @@
-/**
- * Connect device to power provider (Generator, Battery).
+/*
+ * Author: Root
+ * Description: Internal action that establishes power connection from device to provider. Handles internal batteries, updates connected devices list, and manages ACE3 interactions for both consumer and provider. Called by ACE3 interaction menu.
  *
  * Arguments:
- * 0: Device <OBJECT>
- * 0: Provider <OBJECT>
- * 
- * Returns:
+ * 0: _target <OBJECT> - Consumer device to connect
+ * 1: _generator <OBJECT> - Power provider (generator, battery, solar panel)
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_laptop, _generator] call AE3_power_fnc_connectToGeneratorAction;
+ *
+ * Public: No
  */
 
 params ["_target", "_generator"];

@@ -1,20 +1,19 @@
-/**
- * PUBLIC
- *
- * Adds a user to a given computer by providing username and password. Also a user directory will be created.
- * Needs to run on server.
+/*
+ * Author: Root
+ * Description: Adds a user account to a given computer by providing username and password. Creates a user directory at /home/<username>. Must be executed on the server.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Username <STRING>
- * 3: Password <STRING>
+ * 0: _computer <OBJECT> - The computer object to add the user to
+ * 1: _username <STRING> - The username for the new account
+ * 2: _password <STRING> - The password for the new account
  *
- * Results:
+ * Return Value:
  * None
  *
  * Example:
  * [_computer, "admin", "admin123"] call AE3_armaos_fnc_computer_addUser;
  *
+ * Public: Yes
  */
 
 params ["_computer", "_username", "_password"];

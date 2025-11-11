@@ -1,42 +1,21 @@
-/**
- * Initializes a computer with a specific set of commands.
- * This makes it easy to create computers with different command sets.
+/*
+ * Author: Root
+ * Description: Initializes a computer with a specific set of commands from CfgOsFunctions, security commands, games, and custom commands. This makes it easy to create computers with different command sets.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: Base Commands <ARRAY> (Optional) - Array of command names from CfgOsFunctions to include
- *                                        Use ["all"] for all commands, [] for none
- *                                        Default: ["all"]
- * 2: Security Commands <BOOL> (Optional) - Include security commands (crypto, crack)
- *                                           Default: false
- * 3: Games <BOOL> (Optional) - Include games (snake)
- *                               Default: false
- * 4: Custom Commands <ARRAY> (Optional) - Array of custom command definitions [name, path, code, description, manual]
- *                                          Default: []
+ * 0: _computer <OBJECT> - The computer object to initialize
+ * 1: _baseCommands <ARRAY> (Optional, default: ["all"]) - Array of command names from CfgOsFunctions to include, use ["all"] for all commands, [] for none
+ * 2: _includeSecurity <BOOL> (Optional, default: false) - Include security commands (crypto, crack)
+ * 3: _includeGames <BOOL> (Optional, default: false) - Include games (snake)
+ * 4: _customCommands <ARRAY> (Optional, default: []) - Array of custom command definitions [name, path, code, description, manual]
  *
- * Results:
+ * Return Value:
  * None
  *
- * Examples:
- *   // Computer with all standard commands
- *   [_computer] call AE3_armaos_fnc_computer_initWithCommands;
+ * Example:
+ * [_computer, ["ls", "cd", "cat"], true, false, []] call AE3_armaos_fnc_computer_initWithCommands;
  *
- *   // Computer with only basic file commands
- *   [_computer, ["ls", "cd", "pwd", "cat", "mkdir"]] call AE3_armaos_fnc_computer_initWithCommands;
- *
- *   // Computer with all commands plus security tools
- *   [_computer, ["all"], true] call AE3_armaos_fnc_computer_initWithCommands;
- *
- *   // Computer with custom command set
- *   [
- *       _computer,
- *       ["ls", "cd", "cat"],
- *       false,
- *       false,
- *       [
- *           ["nano", "/bin/nano", {hint "Nano editor"}, "Text editor", "nano [file]"]
- *       ]
- *   ] call AE3_armaos_fnc_computer_initWithCommands;
+ * Public: Yes
  */
 
 params [

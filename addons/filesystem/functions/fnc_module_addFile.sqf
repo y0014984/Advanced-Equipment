@@ -1,18 +1,19 @@
-/**
- * PRIVATE
- *
- * This function is assigned in module config and will be triggered after mission start and if the module is placed by zeus on every computer.
- * The function will only run on server and only if placed in eden editor. The module will be deleted after processing.
- * The effect of this module applies to all syncted entities.
+/*
+ * Author: Root
+ * Description: Module function for adding files to devices via Eden editor. Supports code compilation and encryption. Triggered after mission start for synced objects. Only runs on server and ignores Zeus-placed modules. Module is deleted after processing.
  *
  * Arguments:
- * 1: Module <OBJECT>
- * 2: Synced Units <[OBJECT]>
- * 3: Activated <BOOL> currently unused in this function
+ * 0: _module <OBJECT> - Module object
+ * 1: _syncedUnits <ARRAY> - Array of synced units (not used directly)
+ * 2: _activated <BOOL> - Module activation state
  *
- * Results:
- * None
+ * Return Value:
+ * Success state <BOOL>
  *
+ * Example:
+ * Called automatically by Eden editor module system
+ *
+ * Public: No
  */
 
 params ["_module", "_syncedUnits", "_activated"];

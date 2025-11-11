@@ -1,3 +1,20 @@
+/*
+ * Author: Root
+ * Description: DEPRECATED - This function is not implemented yet and needs to be rewritten. Was intended for network chat between computers.
+ *
+ * Arguments:
+ * 0: _options <ARRAY> - Command options and arguments
+ * 1: _consoleInput <HASHMAP> - Console input data
+ *
+ * Return Value:
+ * Result messages <ARRAY>
+ *
+ * Example:
+ * [["192.168.1.2", "message"], _consoleInput] call AE3_armaos_fnc_os_chat;
+ *
+ * Public: No
+ */
+
 //This function is not implemented yet and needs to be rewritten - y0014984 2022-10-21
 
 params ["_options", "_consoleInput"];

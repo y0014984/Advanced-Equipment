@@ -1,17 +1,19 @@
-/**
- * Waits for a computer's filesystem to be ready before proceeding.
- * Used by Zeus modules to ensure filesystem is initialized before operations.
+/*
+ * Author: Root
+ * Description: Waits for a computer's filesystem to be ready before proceeding. Used by Zeus modules to ensure filesystem is initialized before operations.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: Timeout in seconds <NUMBER> (Optional, default: 10)
+ * 0: _computer <OBJECT> - Computer object to check
+ * 1: _timeoutSeconds <NUMBER> (Optional) - Timeout duration in seconds, default: 10
  *
- * Results:
+ * Return Value:
  * Success <BOOL> - true if filesystem is ready, false if timeout occurred
  *
  * Example:
- * [_computer] call AE3_main_fnc_waitForFilesystem;
- * [_computer, 15] call AE3_main_fnc_waitForFilesystem;
+ * private _ready = [_computer] call AE3_main_fnc_waitForFilesystem;
+ * private _ready = [_computer, 15] call AE3_main_fnc_waitForFilesystem;
+ *
+ * Public: Yes
  */
 
 params ["_computer", ["_timeoutSeconds", 10]];

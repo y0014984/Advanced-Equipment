@@ -1,14 +1,19 @@
-/**
- * Converts the raw short form option to a parsed option.
+/*
+ * Author: Root
+ * Description: Parses short-form command options (-o value format) and returns parsed option values.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Short Option <STRING>
- * 3: Command Options <[ARRAY]>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _shortOpt <STRING> - TODO: Add description
+ * 2: _commandOpts <STRING> - TODO: Add description
  *
- * Results:
- * 1: Parsed Options <HASHMAP>
+ * Return Value:
+ * None
  *
+ * Example:
+ * [_computer, _shortOpt, _commandOpts] call AE3_armaos_fnc_shell_getOptsParseShortForm;
+ *
+ * Public: No
  */
 
 params ["_computer", "_shortOpt", "_commandOpts"];

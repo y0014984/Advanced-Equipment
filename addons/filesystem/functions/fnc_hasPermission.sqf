@@ -1,14 +1,20 @@
-/**
- * Checks if the given user has the permission in the directory.
+/*
+ * Author: Root
+ * Description: Checks if a user has the specified permission on a filesystem object. Throws exception if permission denied. Root user and empty owner always pass. Checks owner permissions first, then everyone permissions.
  *
  * Arguments:
- * 0: File or folder [<HASHMAP>, <STRING>]
- * 1: User <STRING>
- * 2: Permission <NUMBER> (0: Execute, 1: Read, 2: Write)
+ * 0: _fileObject <ARRAY> - Filesystem object [content, owner, permissions]
+ * 1: _user <STRING> - User to check permissions for
+ * 2: _permission <NUMBER> - Permission to check (0: Execute, 1: Read, 2: Write)
  *
- * Returns:
- * None
+ * Return Value:
+ * None (throws exception if permission denied)
  *
+ * Example:
+ * [_fileObj, "root", 1] call AE3_filesystem_fnc_hasPermission;
+ * [_dirObj, "user", 2] call AE3_filesystem_fnc_hasPermission;
+ *
+ * Public: Yes
  */
 
 params['_fileObject', '_user', '_permission'];

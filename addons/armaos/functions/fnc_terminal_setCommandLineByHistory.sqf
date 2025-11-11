@@ -1,13 +1,18 @@
-/**
- * Sets the actual command line of the terminal of a given computer according to the command history,
- * if user presses up oder down arrow. 
+/*
+ * Author: Root
+ * Description: Sets the command line input to a command from history based on history index.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 1: Arrow Key <NUMBER>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _key <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _key] call AE3_armaos_fnc_terminal_setCommandLineByHistory;
+ *
+ * Public: No
  */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"

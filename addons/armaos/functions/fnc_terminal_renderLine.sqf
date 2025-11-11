@@ -1,12 +1,18 @@
-/**
- * Converts the line to structured text. Crops the line, if it is to long.
- * 
- * Arguments:
- * 0: Computer <OBJECT>
- * 1: Line to render <STRING> or <[STRING]> or <[[STRING, STRING]]>
+/*
+ * Author: Root
+ * Description: Renders a line of text as structured text with color formatting for terminal display.
  *
- * Results:
+ * Arguments:
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _line <STRING> - TODO: Add description
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _line] call AE3_armaos_fnc_terminal_renderLine;
+ *
+ * Public: No
  */
 
 params['_computer', '_line'];

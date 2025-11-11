@@ -1,11 +1,18 @@
-/**
- * Initializes a lamp;
+/*
+ * Author: Root
+ * Description: Initializes a lamp by switching it off and removing default ACE3 TurnOn/TurnOff interactions
+ * (replaced with custom AE3 power-integrated lamp controls).
  *
  * Arguments:
- * 0: Lamp <OBJECT>
+ * 0: _entity <OBJECT> - The lamp object to initialize
  *
- * Returns:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_lamp] call AE3_interaction_fnc_initLamp;
+ *
+ * Public: Yes
  */
 
 params ["_entity"];

@@ -1,11 +1,17 @@
-/**
- * Display generator fuel level via hint.
+/*
+ * Author: Root
+ * Description: ACE3 interaction action that displays generator fuel level via hint. Shows fuel in liters, percentage, and total capacity with formatted numbers.
  *
  * Arguments:
- * 0: Generator <OBJECT>
- * 
- * Returns:
+ * 0: _entity <OBJECT> - Generator object
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_generator] call AE3_power_fnc_checkFuelLevelAction;
+ *
+ * Public: No
  */
 
 params ["_entity"];

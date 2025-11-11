@@ -1,12 +1,17 @@
-/**
- * Splits an option string into option and agument, if existing.
+/*
+ * Author: Root
+ * Description: Splits an option-argument pair (e.g., '--key=value' into ['--key', 'value']).
  *
  * Arguments:
- * 1: Option-Argument-Combo <STRING>
+ * 0: _opt <STRING> - TODO: Add description
  *
- * Results:
- * 1: Option and Argument <[STRING]>
+ * Return Value:
+ * None
  *
+ * Example:
+ * [_opt] call AE3_armaos_fnc_shell_getOptsSplitOptionArgument;
+ *
+ * Public: No
  */
 
 params ["_opt"];

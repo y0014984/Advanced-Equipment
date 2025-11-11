@@ -1,1 +1,23 @@
-Fix Serialization Errors and Performance Warnings
+21:09:05 Error in expression <er, _rawBuffer, _size, _scrollPosition, _terminalDesign, _cursorPosition] remote>
+21:09:05   Error position: <_terminalDesign, _cursorPosition] remote>
+21:09:05   Error Undefined variable in expression: _terminaldesign
+21:09:05 File /z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf..., line 65
+21:09:05  ➥ Context: 	[] L176 (/z/ae3/addons/armaos/functions/fnc_terminal_init.sqf)
+	[] L43 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+	[] L52 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+	[] L65 (/z/ae3/addons/armaos/functions/fnc_terminal_updateOutput.sqf)
+
+
+  ☐ Document flashdrive addon (12 .sqf files with SQFdoc headers)
+  ☐ Create README.md at project root (framework-focused)
+  ☐ Create /wiki folder structure
+  ☐ Create /wiki/Home.md (framework overview and navigation)
+  ☐ Create /wiki/API-Reference.md (complete function reference)
+  ☐ Create /wiki/Architecture.md (technical implementation)
+  ☐ Create /wiki/Terminal-Guide.md (terminal and OS commands)
+  ☐ Create /wiki/Zeus-Guide.md (Zeus modules documentation)
+  ☐ Create /wiki/Eden-Editor-Guide.md (3DEN modules)
+  ☐ Create /wiki/Mission-Maker-Guide.md (API usage examples)
+  ☐ Create /wiki/Configuration.md (CBA settings reference)
+  ☐ Create /wiki/ACE-Mutex.md (mutex system documentation)
+  ☐ Run hemtt check to validate no syntax errors

@@ -1,11 +1,17 @@
-/**
- * Closes a laptop
+/*
+ * Author: Root
+ * Description: Closes a laptop by animating the lid to the closed position (animation phase 1).
  *
  * Arguments:
- * 0: Laptop <OBJECT>
+ * 0: _laptop <OBJECT> - The laptop to close
  *
- * Returns:
- * true
+ * Return Value:
+ * true <BOOL>
+ *
+ * Example:
+ * [_laptop] call AE3_interaction_fnc_laptop_close;
+ *
+ * Public: Yes
  */
 
 params['_laptop'];
