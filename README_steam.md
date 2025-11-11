@@ -344,7 +344,7 @@ class mycmd {
 
 [b]Related Mods:[/b]
 [list]
-[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=XXXXXXXXX]Root's Cyber Warfare[/url] - Device hacking mod built on AE3 framework
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3591608460]Root's Cyber Warfare[/url] - Device hacking mod built on AE3 framework
 [/list]
 
 [hr][/hr]

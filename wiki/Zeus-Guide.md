@@ -250,14 +250,6 @@ Everyone: [Execute: NO, Read: YES, Write: YES]
 
 ---
 
-### Add Connection Module
-
-**Purpose:** Internal module for creating power and network connections. Not typically used directly by Zeus curators.
-
-**Note:** This module is primarily used by the Eden Editor's connection system. For Zeus, use the Filesystem Browser and Asset Attributes instead.
-
----
-
 ## Zeus Interfaces
 
 ### Filesystem Browser
