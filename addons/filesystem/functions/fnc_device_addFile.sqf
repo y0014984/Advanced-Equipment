@@ -28,7 +28,19 @@ params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", [
 
 if (!isServer) exitWith {};
 
-private _filesystem = _computer getVariable "AE3_filesystem";
+// Validate computer object
+if (isNull _computer) exitWith {
+	diag_log format ["AE3 ERROR: fnc_device_addFile called with null computer object. Path: %1", _path];
+	["AE3 ERROR: Cannot add file to null computer object. Path: %1", _path] call BIS_fnc_error;
+};
+
+private _filesystem = _computer getVariable ["AE3_filesystem", nil];
+
+// Validate filesystem exists
+if (isNil "_filesystem") exitWith {
+	diag_log format ["AE3 ERROR: Computer %1 has no filesystem initialized. Cannot add file: %2", _computer, _path];
+	["AE3 ERROR: Computer has no filesystem. Please wait for initialization to complete and try again."] call BIS_fnc_error;
+};
 
 if(_isCode) then
 {
@@ -86,7 +98,7 @@ if (_isEncrypted) then
 };
 
 // throws exception if file already exists
-try 
+try
 {
     [
         [],
@@ -97,19 +109,21 @@ try
         _owner,
         _permissions
     ] call AE3_filesystem_fnc_createFile;
-} 
+}
 catch
 {
     private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
     if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
     {
-        diag_log format ["AE3 exception: %1", _exception];
-		["AE3 exception: %1", _exception] call BIS_fnc_error;
+        diag_log format ["AE3: File already exists: %1", _exception];
+		["AE3: File already exists: %1", _exception] call BIS_fnc_error;
     }
     else
     {
+        diag_log format ["AE3 ERROR: Failed to create file %1: %2", _path, _exception];
         throw _exception;
     };
 };
 
-_computer setVariable ["AE3_filesystem", _filesystem];
+// Save filesystem back to computer
+_computer setVariable ["AE3_filesystem", _filesystem, true];

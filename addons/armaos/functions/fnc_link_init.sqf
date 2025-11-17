@@ -20,6 +20,9 @@ params["_computer", ["_configFile", "CfgOsFunctions"], ["_commandList", ["all"]]
 
 if(!isServer) exitWith {};
 
+// Clear existing links to prevent "Link already exists" errors on re-initialization
+_computer setVariable ["AE3_Links", createHashMap, true];
+
 private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _config = configFile >> _configFile;

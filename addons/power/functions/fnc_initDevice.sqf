@@ -69,95 +69,104 @@ private _standbyWrapper = {
 
 if(!isDedicated) then
 {
-	// Ensure equipment parent action exists (creates if needed)
-	[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
+	// Check if power device interactions have already been added
+	// This prevents duplicate actions when device is deployed from inventory
+	private _powerActionsAdded = _entity getVariable ["AE3_power_actionsAdded", false];
 
-	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
-	private _parentPath = [];
-	private _powerSubmenuPath = [];
+	if (!_powerActionsAdded) then {
+		// Mark that we're adding the power actions
+		_entity setVariable ["AE3_power_actionsAdded", true];
 
-	if (_hasEquipmentAction) then {
-		// Nest under equipment action with Power submenu
-		_parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+		// Ensure equipment parent action exists (creates if needed)
+		[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
 
-		// Create Power submenu
-		private _powerSubmenu = ["AE3_PowerSubmenu", "Power", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-		[_entity, 0, _parentPath, _powerSubmenu] call ace_interact_menu_fnc_addActionToObject;
+		private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
+		private _parentPath = [];
+		private _powerSubmenuPath = [];
 
-		_powerSubmenuPath = _parentPath + ["AE3_PowerSubmenu"];
-	} else {
-		// Create standalone device parent for non-laptop devices
-		private _parentAction = ["AE3_DeviceAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
-		[_entity, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
+		if (_hasEquipmentAction) then {
+			// Nest under equipment action with Power submenu
+			_parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
 
-		_powerSubmenuPath = ["ACE_MainActions", "AE3_DeviceAction"];
-	};
+			// Create Power submenu
+			private _powerSubmenu = ["AE3_PowerSubmenu", "Power", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+			[_entity, 0, _parentPath, _powerSubmenu] call ace_interact_menu_fnc_addActionToObject;
 
-	// Add check power state action
-	private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
-	[_entity, 0, _powerSubmenuPath, _power] call ace_interact_menu_fnc_addActionToObject;
+			_powerSubmenuPath = _parentPath + ["AE3_PowerSubmenu"];
+		} else {
+			// Create standalone device parent for non-laptop devices
+			private _parentAction = ["AE3_DeviceAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
+			[_entity, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
 
-	// Add turn on/off action
-	if (!((_turnOnFnc isEqualTo {}) || (_turnOffFnc isEqualTo {}))) then
-	{
-		
-		_turnOn = ["AE3_TurnOnAction", localize "STR_AE3_Power_Interaction_TurnOn", "", 
-					{
-						params ['_target', '_player', '_params']; 
-						_target setVariable ['AE3_power_mutex', true, true];
-						[_target] spawn {
-							params['_target'];
-							[_target] call (_target getVariable "AE3_power_fnc_turnOnWrapper");
-							_target setVariable ['AE3_power_mutex', false, true];
-						};
-						
-					}, 
-					{
-						((_target call (_target getVariable ["AE3_power_fnc_turnOnCondition", {true}]) and
-							(alive _target) and 
-						(_target getVariable 'AE3_power_powerState' != 1) and 
-						!(_target getVariable ['AE3_power_mutex', false]) and 
-						(_target getVariable ['AE3_interaction_closeState', 0] == 0))) //and 
-						},
-					{}] call ace_interact_menu_fnc_createAction;
-
-		_turnOff = ["AE3_TurnOffAction", localize "STR_AE3_Power_Interaction_TurnOff", "", 
-						{
-							params ['_target', '_player', '_params']; 
-							
-							_target setVariable ['AE3_power_mutex', true, true];
-							[_target] spawn {
-								params['_target'];
-								[_target] call (_target getVariable "AE3_power_fnc_turnOffWrapper");
-								_target setVariable ['AE3_power_mutex', false, true];
-							};
-						}, 
-						{((_target call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])) and (alive _target) and  (_target getVariable 'AE3_power_powerState' != 0) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])))
-						{}] call ace_interact_menu_fnc_createAction;
-
-		[_entity, 0, _powerSubmenuPath, _turnOn] call ace_interact_menu_fnc_addActionToObject;
-		[_entity, 0, _powerSubmenuPath, _turnOff] call ace_interact_menu_fnc_addActionToObject;
-
-		// Standby action
-		if((_standbyFnc isNotEqualTo {})) then
-		{
-			_standby = ["AE3_StandbyAction", localize "STR_AE3_Power_Interaction_Standby", "", 
-						{
-							params ['_target', '_player', '_params']; 
-							
-							_target setVariable ['AE3_power_mutex', true, true];
-							[_target] spawn {
-								params['_target'];
-								[_target] call (_target getVariable "AE3_power_fnc_standbyWrapper");
-								_target setVariable ['AE3_power_mutex', false, true];
-							};
-						}, 
-						{((_target call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}])) and (alive _target) and (_target getVariable 'AE3_power_powerState' == 1) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}]))
-						{}] call ace_interact_menu_fnc_createAction;
-
-			[_entity, 0, _powerSubmenuPath, _standby] call ace_interact_menu_fnc_addActionToObject;
+			_powerSubmenuPath = ["ACE_MainActions", "AE3_DeviceAction"];
 		};
 
+		// Add check power state action
+		private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
+		[_entity, 0, _powerSubmenuPath, _power] call ace_interact_menu_fnc_addActionToObject;
+
+		// Add turn on/off action
+		if (!((_turnOnFnc isEqualTo {}) || (_turnOffFnc isEqualTo {}))) then
+		{
+
+			_turnOn = ["AE3_TurnOnAction", localize "STR_AE3_Power_Interaction_TurnOn", "",
+						{
+							params ['_target', '_player', '_params'];
+							_target setVariable ['AE3_power_mutex', true, true];
+							[_target] spawn {
+								params['_target'];
+								[_target] call (_target getVariable "AE3_power_fnc_turnOnWrapper");
+								_target setVariable ['AE3_power_mutex', false, true];
+							};
+
+						},
+						{
+							((_target call (_target getVariable ["AE3_power_fnc_turnOnCondition", {true}]) and
+								(alive _target) and
+							(_target getVariable 'AE3_power_powerState' != 1) and
+							!(_target getVariable ['AE3_power_mutex', false]) and
+							(_target getVariable ['AE3_interaction_closeState', 0] == 0))) //and
+							},
+						{}] call ace_interact_menu_fnc_createAction;
+
+			_turnOff = ["AE3_TurnOffAction", localize "STR_AE3_Power_Interaction_TurnOff", "",
+							{
+								params ['_target', '_player', '_params'];
+
+								_target setVariable ['AE3_power_mutex', true, true];
+								[_target] spawn {
+									params['_target'];
+									[_target] call (_target getVariable "AE3_power_fnc_turnOffWrapper");
+									_target setVariable ['AE3_power_mutex', false, true];
+								};
+							},
+							{((_target call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])) and (alive _target) and  (_target getVariable 'AE3_power_powerState' != 0) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_turnOffCondition", {true}])))
+							{}] call ace_interact_menu_fnc_createAction;
+
+			[_entity, 0, _powerSubmenuPath, _turnOn] call ace_interact_menu_fnc_addActionToObject;
+			[_entity, 0, _powerSubmenuPath, _turnOff] call ace_interact_menu_fnc_addActionToObject;
+
+			// Standby action
+			if((_standbyFnc isNotEqualTo {})) then
+			{
+				_standby = ["AE3_StandbyAction", localize "STR_AE3_Power_Interaction_Standby", "",
+							{
+								params ['_target', '_player', '_params'];
+
+								_target setVariable ['AE3_power_mutex', true, true];
+								[_target] spawn {
+									params['_target'];
+									[_target] call (_target getVariable "AE3_power_fnc_standbyWrapper");
+									_target setVariable ['AE3_power_mutex', false, true];
+								};
+							},
+							{((_target call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}])) and (alive _target) and (_target getVariable 'AE3_power_powerState' == 1) and !(_target getVariable ['AE3_power_mutex', false]) and (_target getVariable ['AE3_interaction_closeState', 0] == 0))}, // and ([_target] call (_target getVariable ["AE3_power_fnc_standbyCondition", {true}]))
+							{}] call ace_interact_menu_fnc_createAction;
+
+				[_entity, 0, _powerSubmenuPath, _standby] call ace_interact_menu_fnc_addActionToObject;
+			};
+
+		};
 	};
 };
 

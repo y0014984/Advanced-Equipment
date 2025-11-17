@@ -134,9 +134,9 @@
 [
 	"AE3_armaos_uiOnTexUpdateInterval",
 	"SLIDER",
-	["UI-on-Texture Update Interval", "How often (in seconds) to update UI-on-Texture displays for nearby players. Lower values = smoother updates but more network traffic. Higher values = better performance but less smooth updates. Recommended: 0.3 seconds."],
+	["UI-on-Texture Update Interval", "How often (in seconds) to update UI-on-Texture displays for nearby players. 0 = Real-time synchronization (instant updates, highest network usage). 0.1-2.0 = Hybrid mode with throttled full updates + real-time input tracking (balanced). Recommended: 0.3 seconds for normal play, 0 for demonstrations."],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
-	[0.1, 2.0, 0.3, 1], // min, max, default, decimal places
+	[0, 2.0, 0.3, 1], // min, max, default, decimal places
     1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
@@ -248,5 +248,108 @@
     }, // function that will be executed once on mission start and every time the setting is changed.
     false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
 ] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+// Add ACE self-action for deploying laptops from inventory
+if (!isDedicated) then {
+	[
+		{
+			// Add deploy laptop self-action when ACE interactions are ready
+			private _deployAction =
+			[
+				"AE3_DeployLaptopAction", // internal name
+				localize "STR_AE3_ArmaOS_Laptop_Deploy", // visible name
+				"", // icon (removed - file not found in vanilla Arma)
+				{},  // No direct action - uses children
+				{
+					// condition - only show if player has a laptop item in inventory
+					params ["_player", "_player", "_params"];
+					private _hasLaptop = false;
+					{
+						if (_x find "Item_Laptop_AE3_ID_" == 0) exitWith {
+							_hasLaptop = true;
+						};
+					} forEach (items _player);
+					_hasLaptop
+				},
+				{
+					// Insert children - dynamic list of laptops
+					params ["_player", "_player", "_params"];
+
+					// Build list of laptop items
+					private _laptopItems = [];
+					private _actions = [];
+
+					{
+						if (_x find "Item_Laptop_AE3_ID_" == 0) then {
+							_laptopItems pushBack _x;
+						};
+					} forEach (items _player);
+
+					// Create an action for each laptop
+					{
+						private _itemClass = _x;
+
+						// Extract ID from item class name (e.g., "Item_Laptop_AE3_ID_5" -> "5")
+						private _idStr = _itemClass select [20]; // Skip "Item_Laptop_AE3_ID_"
+						private _laptopName = format ["Laptop %1", _idStr];
+
+						// Create action for this specific laptop
+						private _laptopAction = [
+							format ["AE3_DeployLaptop_%1", _itemClass],
+							_laptopName,
+							"", // icon
+							{
+								params ["_target", "_player", "_params"];
+
+								// Spawn to run in scheduled environment (required for getRemoteVar)
+								[_player, _params] spawn {
+									params ["_player", "_params"];
+									private _itemToDeploy = _params select 0;
+									private _laptopName = _params select 1;
+
+									// Calculate deployment position
+									private _deployPos = _player modelToWorld [0, 1.5, 0];
+									_deployPos set [2, 0];
+
+									// Deploy the selected laptop
+									private _laptop = [_player, _itemToDeploy, _deployPos] call AE3_armaos_fnc_laptop_item2obj;
+
+									if (!isNull _laptop) then {
+										hint format ["Deployed %1", _laptopName];
+									};
+								};
+							},
+							{true},
+							{},
+							[_itemClass, _laptopName]  // Pass item class and name as params
+						] call ace_interact_menu_fnc_createAction;
+
+						_actions pushBack [_laptopAction, [], _player];
+					} forEach _laptopItems;
+
+					_actions
+				}
+			] call ace_interact_menu_fnc_createAction;
+
+			["CAManBase", 1, ["ACE_SelfActions", "ACE_Equipment"], _deployAction, true] call ace_interact_menu_fnc_addActionToClass;
+		},
+		[],
+		0.5 // Delay to ensure ACE is fully loaded
+	] call CBA_fnc_waitAndExecute;
+
+	// Register event handlers for vanilla inventory operations (drag-and-drop)
+	// This ensures laptops work correctly when dropped or transferred via inventory UI
+	["Item_Laptop_AE3", "Put", {
+		params ["_unit", "_container", "_item"];
+		[_unit, _container, _item] call AE3_armaos_fnc_laptop_handlePut;
+	}] call CBA_fnc_addItemEventHandler;
+
+	["Item_Laptop_AE3", "Take", {
+		params ["_unit", "_container", "_item"];
+		[_unit, _container, _item] call AE3_armaos_fnc_laptop_handleTake;
+	}] call CBA_fnc_addItemEventHandler;
+};
 
 /* ================================================================================ */

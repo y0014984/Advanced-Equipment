@@ -138,7 +138,17 @@ PREP(terminal_updateBatteryStatus);
 PREP(terminal_uiOnTex_init);
 PREP(terminal_uiOnTex_updateAll);
 PREP(terminal_uiOnTex_updateOutput);
+PREP(terminal_uiOnTex_updateInputOnly);
 PREP(terminal_uiOnTex_updateBatteryStatus);
 PREP(terminal_uiOnTex_setTerminalDesign);
 PREP(terminal_uiOnTex_setKeyboardLayout);
 PREP(terminal_uiOnTex_addUpdateAllEventHandler);
+PREP(terminal_syncInputState);
+
+/* Laptop Inventory Functions */
+PREP(laptop_obj2item);
+PREP(laptop_item2obj);
+PREP(laptop_pickup);
+PREP(laptop_deploy);
+PREP(laptop_handlePut);
+PREP(laptop_handleTake);

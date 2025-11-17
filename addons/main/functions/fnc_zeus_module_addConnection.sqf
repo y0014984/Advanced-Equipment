@@ -37,8 +37,9 @@ if (_event isEqualTo "onLoad") then
     // remove all unnecessary connections
     if ((count _syncedObjects) > 2) then
     {
-        private _connectionsToDelete = [];
-        _connectionsToDelete = _syncedObjects deleteRange [2, (count _syncedObjects) - 1];
+        // Extract connections to delete BEFORE modifying the array (deleteRange returns Nothing, not the deleted elements)
+        private _connectionsToDelete = _syncedObjects select [2, (count _syncedObjects) - 2];
+        _syncedObjects deleteRange [2, (count _syncedObjects) - 2];
         _module synchronizeObjectsRemove _connectionsToDelete;
     };
 

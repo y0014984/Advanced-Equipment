@@ -14,7 +14,7 @@ class CfgPatches
                 "AE3_AddSecurityCommands",
                 "AE3_AddGames"
             };
-        weapons[] = {};
+        weapons[] = {"Item_Laptop_AE3"};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"A3_Modules_F", "cba_main", "ace_main", "acex_main", "ae3_main", "ae3_network", "ae3_filesystem", "ae3_interaction"};
         author = "y0014984|Wasserstoff";
@@ -24,6 +24,7 @@ class CfgPatches
 
 #include "CfgEventHandlers.hpp"
 #include "CfgVehicles.hpp"
+#include "CfgWeapons.hpp"
 #include "Cfg3DEN.hpp"
 
 #include "CfgOsFunctions.hpp"

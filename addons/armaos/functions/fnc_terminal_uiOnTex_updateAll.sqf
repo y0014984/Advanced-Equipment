@@ -113,19 +113,43 @@ if (!isNil "_rawBuffer" && {count _rawBuffer > 0}) then {
 };
 
 // Calculate visible buffer based on scroll position
+// Match the player dialog logic: subtract scroll position from the end to keep behavior consistent
 private _terminal = _computer getVariable ["AE3_terminal", createHashMap];
 private _terminalRows = _terminal getOrDefault ["AE3_terminalRows", 24];
 
 private _visibleBuffer = [];
-private _startIndex = _scrollPosition max 0;
-private _endIndex = (_startIndex + _terminalRows) min (count _renderedBuffer);
+private _renderedBufferLength = count _renderedBuffer;
 
-for "_i" from _startIndex to (_endIndex - 1) do {
-	_visibleBuffer pushBack (_renderedBuffer select _i);
+if (_renderedBufferLength > _terminalRows) then {
+	// Calculate start index by subtracting scroll position from end (same as player dialog)
+	private _startIndex = (_renderedBufferLength - _terminalRows) - _scrollPosition;
+	_startIndex = _startIndex max 0; // Ensure start index is never negative
+
+	// Calculate how many lines we can actually display from this position
+	private _availableLines = (_renderedBufferLength - _startIndex) min _terminalRows;
+
+	for "_i" from _startIndex to (_startIndex + _availableLines - 1) do {
+		_visibleBuffer pushBack (_renderedBuffer select _i);
+	};
+} else {
+	// Buffer is smaller than terminal rows, show all
+	_visibleBuffer = +_renderedBuffer;
 };
 
 // Compose output with proper formatting
 private _output = [];
+
+// Hybrid mode: Check for real-time input state overlay
+private _inputState = _computer getVariable ["AE3_terminalInputState", createHashMap];
+private _hasRecentInputState = false;
+if (count _inputState > 0) then {
+	private _inputStateTime = _inputState getOrDefault ["timestamp", 0];
+	// Only use input state if it's recent (within 1 second)
+	if (time - _inputStateTime < 1) then {
+		_hasRecentInputState = true;
+	};
+};
+
 {
 	if (!isNil "_x") then {
 		private _buffer = composeText [_x, lineBreak];
@@ -133,6 +157,30 @@ private _output = [];
 		_output pushBack _buffer;
 	};
 } forEach _visibleBuffer;
+
+// If we have recent input state, remove the last line (old prompt) and replace with live input
+if (_hasRecentInputState) then {
+	// Remove the last line which contains the stale prompt from the periodic buffer
+	if (_output isNotEqualTo []) then {
+		_output deleteAt ((count _output) - 1);
+	};
+
+	private _stateInput = _inputState getOrDefault ["input", ""];
+	private _statePrompt = _inputState getOrDefault ["prompt", ""];
+	private _stateCursor = _inputState getOrDefault ["cursorPosition", 0];
+
+	// Render the current input line with live prompt
+	private _inputLine = [_computer, [_statePrompt, _stateInput]] call AE3_armaos_fnc_terminal_renderLine;
+	if (count _inputLine > 0) then {
+		{
+			if (!isNil "_x") then {
+				private _buffer = composeText [_x, lineBreak];
+				_buffer setAttributes ["size", str _size, "font", "EtelkaMonospacePro"];
+				_output pushBack _buffer;
+			};
+		} forEach _inputLine;
+	};
+};
 
 _uiOnTextureOutputCtrl ctrlSetStructuredText (composeText _output);
 

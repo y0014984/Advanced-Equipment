@@ -48,30 +48,29 @@ _computer setVariable ["AE3_terminal", _terminal];
 
 if (AE3_UiOnTexture) then
 {
-	// Check throttle to reduce network traffic
-	private _lastRemoteUpdate = _terminal getOrDefault ["AE3_lastRemoteUpdateTime", 0];
-	private _currentTime = time;
-
-	// Default 0.3 seconds, configurable via CBA setting
+	// Default 0.3 seconds, configurable via CBA setting (0 = instant/real-time)
 	private _updateInterval = missionNamespace getVariable ["AE3_armaos_uiOnTexUpdateInterval", 0.3];
 
-	if (_currentTime - _lastRemoteUpdate > _updateInterval) then {
-		_terminal set ["AE3_lastRemoteUpdateTime", _currentTime];
-		_computer setVariable ["AE3_terminal", _terminal];
-
+	// If CBA setting is 0, enable real-time synchronization (no throttle)
+	if (_updateInterval == 0) exitWith {
 		private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 3];
-
 		private _playersInRange = [_playerRange, _computer] call AE3_main_fnc_getPlayersInRange;
 
-		// Send raw buffer data instead of pre-rendered structured text to avoid TEXT serialization warnings
-		// This allows clients to render locally without performance penalties
+		// Send raw buffer data for instant updates
 		private _rawBuffer = _terminal get "AE3_terminalBuffer";
 		private _scrollPosition = _terminal get "AE3_terminalScrollPosition";
 		private _terminalDesign = _terminal getOrDefault ["AE3_terminalDesign", 9];
 		private _cursorPosition = _terminal get "AE3_terminalCursorPosition";
 
 		[_computer, _rawBuffer, _size, _scrollPosition, _terminalDesign, _cursorPosition] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
+
+		// Also sync input state for real-time typing visibility
+		[_computer] call AE3_armaos_fnc_terminal_syncInputState;
 	};
+
+	// Hybrid mode: Use lightweight input sync for immediate feedback
+	// Full buffer updates handled by periodic handler
+	[_computer] call AE3_armaos_fnc_terminal_syncInputState;
 };
 
 /* ---------------------------------------- */

@@ -6,6 +6,8 @@ class CfgVehicles
 	class Land_Laptop_03_black_F;
 	class Land_Laptop_03_black_F_AE3: Land_Laptop_03_black_F
 	{
+		ae3_item = "Item_Laptop_AE3"; // Maps to inventory item class
+
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
@@ -134,6 +136,8 @@ class CfgVehicles
 	class Land_Laptop_03_olive_F;
 	class Land_Laptop_03_olive_F_AE3: Land_Laptop_03_olive_F
 	{
+		ae3_item = "Item_Laptop_AE3"; // Maps to inventory item class
+
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
@@ -262,6 +266,8 @@ class CfgVehicles
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
+		ae3_item = "Item_Laptop_AE3"; // Maps to inventory item class
+
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";

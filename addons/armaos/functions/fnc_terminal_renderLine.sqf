@@ -37,7 +37,10 @@ if (_line isEqualType "") then
 
 private _croppedOutputLines = [text ""];
 private _tmpLine = "";
+private _buffer = text "";
+private _color = "";
 private _counter = 0;
+private _c = 0;
 {
 	_color = "";
 

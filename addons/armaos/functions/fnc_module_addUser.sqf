@@ -43,8 +43,16 @@ if (_activated) then
 		if((_username find " ") != -1) exitWith { deleteVehicle _module; false; };
 
 		{
-			//--- Add user to every synced computer
-			[_x, _username, _password] call AE3_armaos_fnc_computer_addUser;
+			private _computer = _x;
+
+			// Wait for this specific computer to be fully initialized
+			waitUntil {
+				sleep 0.1;
+				_computer getVariable ["AE3_filesystemReady", false]
+			};
+
+			//--- Add user to computer
+			[_computer, _username, _password] call AE3_armaos_fnc_computer_addUser;
 		} forEach _syncedUnits;
 
 		deleteVehicle _module;

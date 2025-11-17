@@ -21,6 +21,12 @@ params['_namespace', '_variable', ['_from', 2]];
 
 if(!isMultiplayer) exitWith {};
 
+// If running in unscheduled environment, re-spawn in scheduled environment
+// This prevents "Suspending not allowed" errors when called from event handlers
+if (!canSuspend) exitWith {
+	[_namespace, _variable, _from] spawn AE3_main_fnc_getRemoteVar;
+};
+
 private _transfer = _variable + "_trans";
 _namespace setVariable [_transfer, false];
 

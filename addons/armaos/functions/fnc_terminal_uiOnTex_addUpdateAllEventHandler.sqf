@@ -17,7 +17,7 @@
 
 params ["_computer", "_consoleDialog"];
 
-private _updateInterval = 5;
+private _updateInterval = missionNamespace getVariable ["AE3_armaos_uiOnTexUpdateInterval", 0.3];
 
 _handle =
     [
