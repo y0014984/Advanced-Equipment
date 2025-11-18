@@ -18,6 +18,10 @@
 
 params["_laptop"];
 
+// DEBUG: Log EVERY call to initLaptop with stack trace and timestamp
+diag_log format ["[AE3 DEBUG] [%1] ========== initLaptop CALLED on %2 ==========", time, _laptop];
+diag_log format ["[AE3 DEBUG] [%1] Call stack: %2", time, diag_stacktrace];
+
 // init the open/close state of the laptop
 if (_laptop getVariable "AE3_interaction_closeState" == 1) then
 {
@@ -34,9 +38,28 @@ if(!isDedicated) then
     // This prevents duplicate actions when laptop is deployed from inventory
     private _laptopActionsAdded = _laptop getVariable ["AE3_interaction_laptopActionsAdded", false];
 
+    // DEBUG: Log laptop action attempts with full details
+    diag_log format ["[AE3 DEBUG] [%1] ===== initLaptop processing interactions on %2 (type: %3) | laptopActionsAdded: %4 =====", time, _laptop, typeOf _laptop, _laptopActionsAdded];
+
+    // DEBUG: Check ALL flag states to see what's already set
+    private _equipmentFlag = _laptop getVariable ["AE3_interaction_equipmentActionsAdded", "UNDEFINED"];
+    private _hasEquipmentFlag = _laptop getVariable ["AE3_interaction_hasEquipmentAction", "UNDEFINED"];
+    private _powerFlag = _laptop getVariable ["AE3_power_actionsAdded", "UNDEFINED"];
+    diag_log format ["[AE3 DEBUG] [%1] Current flag states: laptop=%2 | equipment=%3 | hasEquipment=%4 | power=%5", time, _laptopActionsAdded, _equipmentFlag, _hasEquipmentFlag, _powerFlag];
+
+    // DEBUG: Count ACE actions before we do anything
+    private _actionsBeforeCount = 0;
+    private _existingActionsBefore = _laptop getVariable ["ace_interact_menu_Act_SelfActions", []];
+    if (_existingActionsBefore isEqualType []) then {
+        _actionsBeforeCount = count _existingActionsBefore;
+    };
+    diag_log format ["[AE3 DEBUG] [%1] ACE actions on laptop BEFORE initLaptop processing: %2", time, _actionsBeforeCount];
+
     if (!_laptopActionsAdded) then {
-        // Mark that we're adding the actions
+        // Mark that we're adding the actions IMMEDIATELY to prevent race conditions
+        diag_log format ["[AE3 DEBUG] [%1] initLaptop: SETTING laptopActionsAdded flag to TRUE for %2", time, _laptop];
         _laptop setVariable ["AE3_interaction_laptopActionsAdded", true];
+        diag_log format ["[AE3 DEBUG] [%1] Adding laptop-specific actions (Use Terminal, Pickup) for %2", time, _laptop];
 
         // Check if equipment action exists (set by fnc_initInteraction for laptops)
         private _hasEquipmentAction = _laptop getVariable ["AE3_interaction_hasEquipmentAction", false];
@@ -69,6 +92,7 @@ if(!isDedicated) then
             }
         ] call ace_interact_menu_fnc_createAction;
         [_laptop, 0, _parentPath, _useAction] call ace_interact_menu_fnc_addActionToObject;
+        diag_log format ["[AE3 DEBUG] [%1] Added Use Terminal action for %2 under path: %3", time, _laptop, _parentPath];
 
         // Add "Pickup to Inventory" action
         private _pickupAction =
@@ -89,5 +113,24 @@ if(!isDedicated) then
             }
         ] call ace_interact_menu_fnc_createAction;
         [_laptop, 0, _parentPath, _pickupAction] call ace_interact_menu_fnc_addActionToObject;
+        diag_log format ["[AE3 DEBUG] [%1] Added Pickup action for %2", time, _laptop];
+
+        // DEBUG: Count ACE actions after adding laptop-specific actions
+        private _actionsAfterCount = 0;
+        private _existingActionsAfter = _laptop getVariable ["ace_interact_menu_Act_SelfActions", []];
+        if (_existingActionsAfter isEqualType []) then {
+            _actionsAfterCount = count _existingActionsAfter;
+        };
+        diag_log format ["[AE3 DEBUG] [%1] ACE actions on laptop AFTER adding laptop actions: %2 (added %3 actions)", time, _actionsAfterCount, _actionsAfterCount - _actionsBeforeCount];
+    } else {
+        diag_log format ["[AE3 DEBUG] [%1] Laptop actions already added for %2, skipping", time, _laptop];
+
+        // DEBUG: Count actions even when skipping to detect duplicates
+        private _actionsCount = 0;
+        private _existingActions = _laptop getVariable ["ace_interact_menu_Act_SelfActions", []];
+        if (_existingActions isEqualType []) then {
+            _actionsCount = count _existingActions;
+        };
+        diag_log format ["[AE3 DEBUG] [%1] Current ACE actions on laptop: %2", time, _actionsCount];
     };
 };

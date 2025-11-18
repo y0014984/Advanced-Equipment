@@ -251,6 +251,36 @@
 
 /* ================================================================================ */
 
+[
+	"AE3_StartupTime",
+	"SLIDER",
+	["Laptop Startup Time", "Time (in seconds) for laptop to complete cold boot startup animation. Warm boot (from standby) is always 3 seconds."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[1, 15, 15, 0], // min, max, default, decimal places
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
+	"AE3_ShutdownTime",
+	"SLIDER",
+	["Laptop Shutdown Time", "Time (in seconds) for laptop to complete shutdown animation."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[1, 15, 15, 0], // min, max, default, decimal places
+    1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
 // Add ACE self-action for deploying laptops from inventory
 if (!isDedicated) then {
 	[

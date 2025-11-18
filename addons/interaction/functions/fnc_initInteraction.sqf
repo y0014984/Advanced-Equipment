@@ -66,9 +66,23 @@ if (!isDedicated) then
 	// This prevents duplicate actions when equipment is deployed from inventory
 	private _equipmentActionsAdded = _equipment getVariable ["AE3_interaction_equipmentActionsAdded", false];
 
+	// DEBUG: Log equipment action attempts with timestamp
+	diag_log format ["[AE3 DEBUG] [%1] ===== initInteraction called on %2 (type: %3) | actionsAdded: %4 =====", time, _equipment, typeOf _equipment, _equipmentActionsAdded];
+	diag_log format ["[AE3 DEBUG] [%1] Call stack: %2", time, diag_stacktrace];
+
 	if (!_equipmentActionsAdded) then {
-		// Mark that we're adding the equipment actions
+		// Mark that we're adding the equipment actions IMMEDIATELY to prevent race conditions
+		diag_log format ["[AE3 DEBUG] [%1] initInteraction: SETTING equipmentActionsAdded flag to TRUE for %2", time, _equipment];
 		_equipment setVariable ["AE3_interaction_equipmentActionsAdded", true];
+		diag_log format ["[AE3 DEBUG] [%1] Adding equipment actions (Open/Close) for %2", time, _equipment];
+
+		// Count existing ACE actions before we add ours
+		private _actionsBeforeCount = 0;
+		private _existingActions = _equipment getVariable ["ace_interact_menu_Act_SelfActions", []];
+		if (_existingActions isEqualType []) then {
+			_actionsBeforeCount = count _existingActions;
+		};
+		diag_log format ["[AE3 DEBUG] [%1] ACE actions before adding equipment actions: %2", time, _actionsBeforeCount];
 
 		{
 			private _animationPointDescription = _x select 0;
@@ -150,9 +164,29 @@ if (!isDedicated) then
 
 			[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _open] call ace_interact_menu_fnc_addActionToObject;
 			[_equipment, 0, ["ACE_MainActions", "AE3_EquipmentAction"], _close] call ace_interact_menu_fnc_addActionToObject;
+			diag_log format ["[AE3 DEBUG] [%1] Added Open/Close actions for %2", time, _equipment];
 		};
+
+		// Count ACE actions after we added ours
+		private _actionsAfterCount = 0;
+		private _existingActionsAfter = _equipment getVariable ["ace_interact_menu_Act_SelfActions", []];
+		if (_existingActionsAfter isEqualType []) then {
+			_actionsAfterCount = count _existingActionsAfter;
+		};
+		diag_log format ["[AE3 DEBUG] [%1] ACE actions after adding equipment actions: %2 (added %3 actions)", time, _actionsAfterCount, _actionsAfterCount - _actionsBeforeCount];
+	} else {
+		diag_log format ["[AE3 DEBUG] [%1] Equipment actions already added for %2, skipping", time, _equipment];
+
+		// Even though we're skipping, count the existing actions to see if there are duplicates
+		private _actionsCount = 0;
+		private _existingActions = _equipment getVariable ["ace_interact_menu_Act_SelfActions", []];
+		if (_existingActions isEqualType []) then {
+			_actionsCount = count _existingActions;
+		};
+		diag_log format ["[AE3 DEBUG] [%1] Current ACE actions on object: %2", time, _actionsCount];
 	};
 };
+
 
 /* ---------------------------------------- */
 

@@ -27,14 +27,8 @@ params ["_computer", ["_silent", false]];
 	private _elapsedTime = 0;
 	private _color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
 
-	if (_powerState == 1) then
-	{
-		_turnOffTime = 15;
-	}
-	else
-	{
-		_turnOffTime = 10;
-	};
+	// Use CBA setting for shutdown time
+	_turnOffTime = AE3_ShutdownTime;
 
 	if (AE3_DebugMode) then { _turnOffTime = 3; };
 

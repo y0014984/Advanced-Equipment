@@ -23,10 +23,12 @@ private _elapsedTime = 0;
 
 if (_powerState == 0) then
 {
-	_turnOnTime = 15; 
+	// Cold boot - use CBA setting
+	_turnOnTime = AE3_StartupTime;
 }
 else
 {
+	// Warm boot from standby - always 3 seconds
 	_turnOnTime = 3;
 };
 
