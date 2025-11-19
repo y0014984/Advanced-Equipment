@@ -29,12 +29,12 @@ if (hasInterface) then
     {
 
 
-        private _debugModeLoopHandle = 
+        private _debugModeLoopHandle =
         [
             {
                 systemChat localize "STR_AE3_Main_DebugMode_enabled";
-            }, 
-            5, 
+            },
+            30, // Print message every 30 seconds instead of every 5 seconds
             []
         ] call CBA_fnc_addPerFrameHandler;
         

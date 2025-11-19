@@ -56,6 +56,11 @@ if (AE3_DebugMode) then {
 // Create the laptop object
 private _object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
 
+// CRITICAL: Set restoration flag IMMEDIATELY (before any delays)
+// This flag tells init code not to overwrite the restored power state
+// Must be set before init handlers complete their execution
+_object setVariable ["AE3_laptop_restored", true, true];
+
 // Small delay to allow init events to fire
 sleep 0.05;
 
@@ -79,10 +84,6 @@ if (AE3_DebugMode) then {
 
 	diag_log format ["[AE3 DEBUG] [%1] laptop_item2obj: ACE actions immediately after createVehicle: %2", time, _actionsPostCreate];
 };
-
-// CRITICAL: Set restoration flag FIRST before restoring any variables
-// This flag tells init code not to overwrite the restored power state
-_object setVariable ["AE3_laptop_restored", true, true];
 
 if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] laptop_item2obj: Set restoration flag to TRUE", time];
@@ -192,6 +193,22 @@ if (AE3_DebugMode) then {
 // Restore orientation if available
 private _originalDir = _itemNamespace getOrDefault ["AE3_ORIGINAL_DIR", getDir _player];
 _object setDir _originalDir;
+
+// CRITICAL: Ensure laptop is in proper state when deployed
+// Power state was excluded from save, so it needs to be explicitly set here
+// Close state should always be OPEN (0) when deployed for usability
+if (isServer) then {
+	_object setVariable ["AE3_power_powerState", 0, true]; // OFF state
+	_object setVariable ["AE3_interaction_closeState", 0, true]; // OPEN state (lid open)
+};
+
+// Set texture to OFF state (procedural black texture)
+private _offTexture = "#(argb,8,8,3)color(0,0,0,0.0,co)";
+_object setObjectTextureGlobal [1, _offTexture];
+
+if (AE3_DebugMode) then {
+	diag_log format ["[AE3 DEBUG] [%1] laptop_item2obj: Set power state to OFF, close state to OPEN, and texture to OFF state", time];
+};
 
 // Remove item from player inventory
 [_player, _item] remoteExecCall ["CBA_fnc_removeItem", _player];

@@ -73,30 +73,38 @@ if(!isDedicated) then
 	// This prevents duplicate actions when device is deployed from inventory
 	private _powerActionsAdded = _entity getVariable ["AE3_power_actionsAdded", false];
 
-	// DEBUG: Log power action attempts with timestamp and stack trace
-	diag_log format ["[AE3 DEBUG] [%1] ===== initDevice called on %2 (type: %3) | powerActionsAdded: %4 =====", time, _entity, typeOf _entity, _powerActionsAdded];
-	diag_log format ["[AE3 DEBUG] [%1] Call stack: %2", time, diag_stacktrace];
-
-	// DEBUG: Check ALL flag states
-	private _laptopFlag = _entity getVariable ["AE3_interaction_laptopActionsAdded", "UNDEFINED"];
-	private _equipmentFlag = _entity getVariable ["AE3_interaction_equipmentActionsAdded", "UNDEFINED"];
-	private _hasEquipmentFlag = _entity getVariable ["AE3_interaction_hasEquipmentAction", "UNDEFINED"];
-	diag_log format ["[AE3 DEBUG] [%1] Current flag states: power=%2 | laptop=%3 | equipment=%4 | hasEquipment=%5", time, _powerActionsAdded, _laptopFlag, _equipmentFlag, _hasEquipmentFlag];
-
-	// DEBUG: Count ACE actions before we do anything
+	// Declare outside debug block for use in nested blocks
 	private _actionsBeforeCount = 0;
-	private _existingActionsBefore = _entity getVariable ["ace_interact_menu_Act_SelfActions", []];
-	if (_existingActionsBefore isEqualType []) then {
-		_actionsBeforeCount = count _existingActionsBefore;
+
+	if (AE3_DebugMode) then {
+		// DEBUG: Log power action attempts with timestamp and stack trace
+		diag_log format ["[AE3 DEBUG] [%1] ===== initDevice called on %2 (type: %3) | powerActionsAdded: %4 =====", time, _entity, typeOf _entity, _powerActionsAdded];
+		diag_log format ["[AE3 DEBUG] [%1] Call stack: %2", time, diag_stacktrace];
+
+		// DEBUG: Check ALL flag states
+		private _laptopFlag = _entity getVariable ["AE3_interaction_laptopActionsAdded", "UNDEFINED"];
+		private _equipmentFlag = _entity getVariable ["AE3_interaction_equipmentActionsAdded", "UNDEFINED"];
+		private _hasEquipmentFlag = _entity getVariable ["AE3_interaction_hasEquipmentAction", "UNDEFINED"];
+		diag_log format ["[AE3 DEBUG] [%1] Current flag states: power=%2 | laptop=%3 | equipment=%4 | hasEquipment=%5", time, _powerActionsAdded, _laptopFlag, _equipmentFlag, _hasEquipmentFlag];
+
+		// DEBUG: Count ACE actions before we do anything
+		private _existingActionsBefore = _entity getVariable ["ace_interact_menu_Act_SelfActions", []];
+		if (_existingActionsBefore isEqualType []) then {
+			_actionsBeforeCount = count _existingActionsBefore;
+		};
+		diag_log format ["[AE3 DEBUG] [%1] ACE actions on device BEFORE initDevice: %2", time, _actionsBeforeCount];
 	};
-	diag_log format ["[AE3 DEBUG] [%1] ACE actions on device BEFORE initDevice: %2", time, _actionsBeforeCount];
 
 	if (!_powerActionsAdded) then {
 		// Mark that we're adding the power actions IMMEDIATELY to prevent race conditions
 		// (local only - ACE actions are per-client)
-		diag_log format ["[AE3 DEBUG] [%1] initDevice: SETTING powerActionsAdded flag to TRUE for %2", time, _entity];
+		if (AE3_DebugMode) then {
+			diag_log format ["[AE3 DEBUG] [%1] initDevice: SETTING powerActionsAdded flag to TRUE for %2", time, _entity];
+		};
 		_entity setVariable ["AE3_power_actionsAdded", true];
-		diag_log format ["[AE3 DEBUG] [%1] Adding power actions for %2", time, _entity];
+		if (AE3_DebugMode) then {
+			diag_log format ["[AE3 DEBUG] [%1] Adding power actions for %2", time, _entity];
+		};
 
 		// Ensure equipment parent action exists (creates if needed)
 		[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
@@ -125,7 +133,9 @@ if(!isDedicated) then
 		// Add check power state action
 		private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;
 		[_entity, 0, _powerSubmenuPath, _power] call ace_interact_menu_fnc_addActionToObject;
-		diag_log format ["[AE3 DEBUG] [%1] Added power actions for %2 under path: %3", time, _entity, _powerSubmenuPath];
+		if (AE3_DebugMode) then {
+			diag_log format ["[AE3 DEBUG] [%1] Added power actions for %2 under path: %3", time, _entity, _powerSubmenuPath];
+		};
 
 		// Add turn on/off action
 		if (!((_turnOnFnc isEqualTo {}) || (_turnOffFnc isEqualTo {}))) then
@@ -190,23 +200,27 @@ if(!isDedicated) then
 
 		};
 
-		// DEBUG: Count ACE actions after adding power actions
-		private _actionsAfterCount = 0;
-		private _existingActionsAfter = _entity getVariable ["ace_interact_menu_Act_SelfActions", []];
-		if (_existingActionsAfter isEqualType []) then {
-			_actionsAfterCount = count _existingActionsAfter;
+		if (AE3_DebugMode) then {
+			// DEBUG: Count ACE actions after adding power actions
+			private _actionsAfterCount = 0;
+			private _existingActionsAfter = _entity getVariable ["ace_interact_menu_Act_SelfActions", []];
+			if (_existingActionsAfter isEqualType []) then {
+				_actionsAfterCount = count _existingActionsAfter;
+			};
+			diag_log format ["[AE3 DEBUG] [%1] ACE actions on device AFTER adding power actions: %2 (added %3 actions)", time, _actionsAfterCount, _actionsAfterCount - _actionsBeforeCount];
 		};
-		diag_log format ["[AE3 DEBUG] [%1] ACE actions on device AFTER adding power actions: %2 (added %3 actions)", time, _actionsAfterCount, _actionsAfterCount - _actionsBeforeCount];
 	} else {
-		diag_log format ["[AE3 DEBUG] [%1] Power actions already added for %2, skipping", time, _entity];
+		if (AE3_DebugMode) then {
+			diag_log format ["[AE3 DEBUG] [%1] Power actions already added for %2, skipping", time, _entity];
 
-		// DEBUG: Count actions even when skipping to detect duplicates
-		private _actionsCount = 0;
-		private _existingActions = _entity getVariable ["ace_interact_menu_Act_SelfActions", []];
-		if (_existingActions isEqualType []) then {
-			_actionsCount = count _existingActions;
+			// DEBUG: Count actions even when skipping to detect duplicates
+			private _actionsCount = 0;
+			private _existingActions = _entity getVariable ["ace_interact_menu_Act_SelfActions", []];
+			if (_existingActions isEqualType []) then {
+				_actionsCount = count _existingActions;
+			};
+			diag_log format ["[AE3 DEBUG] [%1] Current ACE actions on device: %2", time, _actionsCount];
 		};
-		diag_log format ["[AE3 DEBUG] [%1] Current ACE actions on device: %2", time, _actionsCount];
 	};
 };
 

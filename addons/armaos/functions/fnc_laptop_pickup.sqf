@@ -59,6 +59,21 @@ if (!isNull _mutex) then {
 	_target setVariable ["AE3_computer_mutex", objNull, true];
 };
 
+// CRITICAL: Ensure terminal sync data is available before saving to item
+// The terminal_sync variable contains the raw buffer (STRING data) that can be safely saved
+// When the terminal dialog closes, it saves sync data, but we need to retrieve it from remote
+[_target, "AE3_terminal_sync"] call AE3_main_fnc_getRemoteVar;
+
+if (AE3_DebugMode) then {
+	private _syncData = _target getVariable ["AE3_terminal_sync", nil];
+	if (!isNil "_syncData") then {
+		private _bufferSize = count (_syncData select 0);
+		diag_log format ["[AE3 DEBUG] [%1] laptop_pickup: Terminal sync data found - buffer has %2 lines", time, _bufferSize];
+	} else {
+		diag_log format ["[AE3 DEBUG] [%1] laptop_pickup: No terminal sync data found (terminal may never have been used)", time];
+	};
+};
+
 // Convert object to item - laptop state is preserved (except power state which is excluded)
 // The fnc_laptop_obj2item function saves all variables except power state and runtime flags
 if (AE3_DebugMode) then {
