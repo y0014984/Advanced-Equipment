@@ -322,8 +322,24 @@ if (!isDedicated) then {
 						private _itemClass = _x;
 
 						// Extract ID from item class name (e.g., "Item_Laptop_AE3_ID_5" -> "5")
-						private _idStr = _itemClass select [20]; // Skip "Item_Laptop_AE3_ID_"
-						private _laptopName = format ["Laptop %1", _idStr];
+						private _idStr = _itemClass select [19]; // Skip "Item_Laptop_AE3_ID_" (19 chars)
+
+						// Get custom name from laptop object if in stable mode
+						private _customName = "";
+						private _laptopTracker = missionNamespace getVariable ["AE3_LAPTOP_STABLE_TRACKER", createHashMap];
+						if (_itemClass in _laptopTracker) then {
+							private _laptopObj = _laptopTracker get _itemClass;
+							if (!isNull _laptopObj) then {
+								_customName = _laptopObj getVariable ["AE3_laptop_customName", ""];
+							};
+						};
+
+						// Format action label: "CustomName (RootBook X)" or "RootBook X" if no custom name
+						private _laptopName = if (_customName != "") then {
+							format ["%1 (RootBook %2)", _customName, _idStr]
+						} else {
+							format ["RootBook %1", _idStr]
+						};
 
 						// Create action for this specific laptop
 						private _laptopAction = [
@@ -349,14 +365,13 @@ if (!isDedicated) then {
 										// Experimental mode - use experimental deployment
 										// Calculate deployment position
 										private _deployPos = _player modelToWorld [0, 1.5, 0];
-										_deployPos set [2, 0];
+										private _terrainHeight = getTerrainHeightASL [_deployPos select 0, _deployPos select 1];
+										_deployPos set [2, _terrainHeight];
 
 										// Deploy the selected laptop
 										private _laptop = [_player, _itemToDeploy, _deployPos] call AE3_armaos_fnc_laptop_item2obj;
 
-										if (!isNull _laptop) then {
-											hint format ["Deployed %1", _laptopName];
-										};
+										// Laptop deployed successfully (no hint needed)
 									};
 								};
 							},

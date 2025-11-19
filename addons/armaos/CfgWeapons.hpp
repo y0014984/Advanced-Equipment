@@ -13,8 +13,8 @@ class CfgWeapons {
 		descriptionShort = "$STR_AE3_ArmaOS_Laptop_Item_DescrShort";
 		useActionTitle = "$STR_AE3_ArmaOS_Laptop_Deploy";
 
-		model = ""; // Model not needed for inventory item
-		picture = "\a3\ui_f\data\gui\Rsc\RscDisplayArsenal\itemoptic_ca.paa"; // Generic item icon
+		model = "\A3\Structures_F\Items\Electronics\Laptop_F.p3d"; // Vanilla laptop model for inventory
+		picture = "a3\missions_f_oldman\props\data\laptop_closed_ca.paa"; // Vanilla laptop icon
 
 		// Maps to the ground object class - will be determined dynamically based on original laptop type
 		ae3_vehicle = "Land_Laptop_03_black_F_AE3";  // Default vehicle class
@@ -26,5 +26,5 @@ class CfgWeapons {
 	};
 
 	// Generate 512 unique laptop item variants for state tracking
-	ITEM_ID_LIST(Item_Laptop_AE3,Laptop)
+	ITEM_ID_LIST(Item_Laptop_AE3,RootBook)
 };

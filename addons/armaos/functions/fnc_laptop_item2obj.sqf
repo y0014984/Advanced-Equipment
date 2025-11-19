@@ -38,11 +38,11 @@ if (isNil "_type" || {_type == ""}) exitWith {
 
 // Determine deployment position
 if (_pos isEqualTo []) then {
-	// Deploy in front of player
+	// Deploy in front of player on the ground
 	_pos = _player modelToWorld [0, 1.5, 0];
-	private _eyeASL = eyePos _player;
-	private _eyeATL = ASLToATL _eyeASL;
-	_pos set [2, _eyeATL select 2];
+	// Get terrain height at deployment position
+	private _terrainHeight = getTerrainHeightASL [_pos select 0, _pos select 1];
+	_pos set [2, _terrainHeight];
 };
 
 if (AE3_DebugMode) then {
@@ -213,9 +213,7 @@ if (AE3_DebugMode) then {
 // Remove item from player inventory
 [_player, _item] remoteExecCall ["CBA_fnc_removeItem", _player];
 
-// Show feedback - extract ID from item class name (e.g., "Item_Laptop_AE3_ID_5" -> "5")
-private _idStr = _item select [20]; // Skip "Item_Laptop_AE3_ID_"
-hint format ["Deployed Laptop %1", _idStr];
+// No deployment hint needed
 
 if (AE3_DebugMode) then {
 	// DEBUG: Final state check after everything

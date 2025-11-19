@@ -1981,13 +1981,13 @@
                 <Chinesesimp>笔记本电脑</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Laptop_Pickup">
-                <Original>Pick up into inventory</Original>
-                <English>Pick up into inventory</English>
-                <French>Ramasser dans l'inventaire</French>
-                <Italian>Raccogli nell'inventario</Italian>
-                <Russian>Поднять в инвентарь</Russian>
-                <German>Ins Inventar aufnehmen</German>
-                <Chinesesimp>拾取到库存</Chinesesimp>
+                <Original>Take Laptop</Original>
+                <English>Take Laptop</English>
+                <French>Prendre ordinateur portable</French>
+                <Italian>Prendi laptop</Italian>
+                <Russian>Взять ноутбук</Russian>
+                <German>Laptop nehmen</German>
+                <Chinesesimp>拿走笔记本电脑</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Result_Bitten">
                 <Original>Bitten. Game over!</Original>

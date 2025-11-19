@@ -198,7 +198,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			w = 8 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0.5,0,0.5};
-			
+
 			action = "closeDialog 1;";
 			font = "EtelkaMonospaceProBold";
 		};
@@ -206,3 +206,60 @@ class AE3_ArmaOS_Waiting_Dialog
 };
 
 /* ================================================================================ */
+
+class RscEdit;
+class RscTitle;
+
+class AE3_LaptopNameDialog {
+	idd = 87654; // Unique ID for the dialog
+	movingEnable = 0;
+
+	class controls {
+		class Background: RscText {
+			idc = -1;
+			x = "0.3 * safezoneW + safezoneX";
+			y = "0.4 * safezoneH + safezoneY";
+			w = "0.4 * safezoneW";
+			h = "0.2 * safezoneH";
+			colorBackground[] = {0, 0, 0, 0.7};
+		};
+
+		class Title: RscTitle {
+			idc = 1000;
+			text = "Name your laptop:";
+			x = "0.3 * safezoneW + safezoneX";
+			y = "0.4 * safezoneH + safezoneY";
+			w = "0.4 * safezoneW";
+			h = "0.04 * safezoneH";
+		};
+
+		class NameInput: RscEdit {
+			idc = 1001;
+			x = "0.32 * safezoneW + safezoneX";
+			y = "0.46 * safezoneH + safezoneY";
+			w = "0.36 * safezoneW";
+			h = "0.04 * safezoneH";
+			text = "";
+		};
+
+		class OKButton: RscButton {
+			idc = 1002;
+			text = "OK";
+			x = "0.42 * safezoneW + safezoneX";
+			y = "0.52 * safezoneH + safezoneY";
+			w = "0.08 * safezoneW";
+			h = "0.04 * safezoneH";
+			action = "[] call AE3_armaos_fnc_laptop_nameDialog_OK;";
+		};
+
+		class CancelButton: RscButton {
+			idc = 1003;
+			text = "Cancel";
+			x = "0.52 * safezoneW + safezoneX";
+			y = "0.52 * safezoneH + safezoneY";
+			w = "0.08 * safezoneW";
+			h = "0.04 * safezoneH";
+			action = "closeDialog 0;";
+		};
+	};
+};

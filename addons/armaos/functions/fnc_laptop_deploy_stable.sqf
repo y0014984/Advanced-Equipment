@@ -71,12 +71,12 @@ if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] laptop_deploy_stable: Deploying laptop %2 from item %3", time, _laptop, _itemToDeploy];
 };
 
-// Calculate deployment position 1.5m in front of player at eye level
+// Calculate deployment position 1.5m in front of player on the ground
 private _deployPos = _player modelToWorld [0, 1.5, 0];
 
-// Get player's eye position for height
-private _eyePos = eyePos _player;
-_deployPos set [2, (_eyePos select 2)];
+// Get terrain height at deployment position and add small offset
+private _terrainHeight = getTerrainHeightASL [_deployPos select 0, _deployPos select 1];
+_deployPos set [2, _terrainHeight];
 
 if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] laptop_deploy_stable: Deploying at position %2", time, _deployPos];
@@ -94,10 +94,7 @@ missionNamespace setVariable ["AE3_LAPTOP_STABLE_TRACKER", _laptopTracker, true]
 // Remove the dummy item from player's inventory
 [_player, _itemToDeploy] call CBA_fnc_removeItem;
 
-// Extract ID from item name for display
-private _idStr = _itemToDeploy select [20]; // Skip "Item_Laptop_AE3_ID_"
-
-hint format ["Deployed Laptop %1", _idStr];
+// No deployment hint needed
 
 if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] ========== laptop_deploy_stable COMPLETE ==========", time];

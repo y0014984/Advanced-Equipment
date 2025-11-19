@@ -48,6 +48,12 @@ if (_id == -1) then
 
 _item = _item + (str _id);
 
+// Check if player has inventory space
+if !([_player, _item] call CBA_fnc_canAddItem) exitWith {
+	hint "No storage space in inventory";
+	false
+};
+
 // Copy all object variables - this preserves ALL laptop state
 // Exclude variables containing TEXT (structured text) to prevent serialization warnings
 // Exclude all CODE references (functions) - they cannot be serialized and must be regenerated

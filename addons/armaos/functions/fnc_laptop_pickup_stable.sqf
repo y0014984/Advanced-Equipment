@@ -73,6 +73,15 @@ while {(_item + str _id) in _laptopTracker} do {
 
 _item = _item + (str _id);
 
+// Check if player has inventory space
+if !([_player, _item] call CBA_fnc_canAddItem) exitWith {
+	hint "No storage space in inventory";
+	if (AE3_DebugMode) then {
+		diag_log format ["[AE3 DEBUG] [%1] laptop_pickup_stable: Player %2 has no inventory space for %3", time, _player, _item];
+	};
+	false
+};
+
 if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] laptop_pickup_stable: Assigned item %2 to laptop %3", time, _item, _target];
 };
@@ -96,7 +105,7 @@ private _radius = sqrt _hiddenLaptopCount * 2; // 2 meters spacing factor
 
 private _x = 2 + (_radius * cos _angle);
 private _y = 2 + (_radius * sin _angle);
-private _z = 2; // Keep all at same altitude
+private _z = 100; // Keep all at same altitude
 
 private _hidePos = [_x, _y, _z];
 
@@ -112,8 +121,11 @@ if (AE3_DebugMode) then {
 // Add dummy laptop item to player inventory
 [_player, _item, true] remoteExecCall ["CBA_fnc_addItem", _player];
 
+// Prompt player to name the laptop (on client side)
+[_target, _id, _player] remoteExec ["AE3_armaos_fnc_laptop_promptNameAndStore", _player];
+
 // Show feedback to player
-hint format ["Packed Laptop %1 into inventory", _id];
+hint format ["Packed RootBook %1 into inventory", _id];
 
 if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] ========== laptop_pickup_stable COMPLETE ==========", time];
