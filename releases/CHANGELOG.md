@@ -4,6 +4,7 @@
 
 ### Added
 - 16 New Themes + 4 Original Themes (20 in Total)
+- Ability to carry laptops to inventory (with an experimental system implemented as well for future testing)
 - Zeus File Browser
 - Linear / Sorted Single ACE Interaction
 - New Bootup Message
