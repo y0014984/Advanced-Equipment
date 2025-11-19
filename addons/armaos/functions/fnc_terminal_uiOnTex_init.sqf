@@ -16,6 +16,11 @@
 
 params ["_computer"];
 
+// Prevent multiple simultaneous initializations of the same laptop
+private _isInitializing = _computer getVariable ["AE3_UiOnTexInitializing", false];
+if (_isInitializing) exitWith {};
+_computer setVariable ["AE3_UiOnTexInitializing", true];
+
 /* -------------- WORKAROUND -------------- */
 
 // Workaround: We need to preload the UI, so the used images are also preloaded; otherwise the
@@ -40,4 +45,5 @@ _computer setVariable ["AE3_UiOnTexDisplayName", _uniqueDisplayName, true];
 _computer setObjectTexture [1, format ["#(rgb,1024,1024,1)ui('AE3_ArmaOS_Main_Dialog','%1')", _uniqueDisplayName]];
 
 _computer setVariable ["AE3_UiOnTexActive", true]; // local variable on computer object is sufficient
+_computer setVariable ["AE3_UiOnTexInitializing", false]; // Clear initialization lock
 

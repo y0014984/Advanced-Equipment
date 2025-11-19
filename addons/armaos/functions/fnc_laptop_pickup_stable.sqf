@@ -110,9 +110,9 @@ private _z = 100; // Keep all at same altitude
 private _hidePos = [_x, _y, _z];
 
 // Hide the laptop and disable simulation
-_target hideObjectGlobal true;
+[_target, true] remoteExec ["hideObjectGlobal", 2];
 _target setPosATL _hidePos;
-_target enableSimulationGlobal false;
+[_target, false] remoteExec ["enableSimulationGlobal", 2];
 
 if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] laptop_pickup_stable: Laptop #%2 hidden at position %3 (radius: %4m)", time, _hiddenLaptopCount, _hidePos, _radius];

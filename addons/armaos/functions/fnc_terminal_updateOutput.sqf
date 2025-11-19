@@ -61,8 +61,9 @@ if (AE3_UiOnTexture) then
 		private _scrollPosition = _terminal get "AE3_terminalScrollPosition";
 		private _terminalDesign = _terminal getOrDefault ["AE3_terminalDesign", 9];
 		private _cursorPosition = _terminal get "AE3_terminalCursorPosition";
+		private _terminalMaxColumns = _terminal get "AE3_terminalMaxColumns";
 
-		[_computer, _rawBuffer, _size, _scrollPosition, _terminalDesign, _cursorPosition] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
+		[_computer, _rawBuffer, _size, _scrollPosition, _terminalDesign, _cursorPosition, _terminalMaxColumns] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
 
 		// Also sync input state for real-time typing visibility
 		[_computer] call AE3_armaos_fnc_terminal_syncInputState;

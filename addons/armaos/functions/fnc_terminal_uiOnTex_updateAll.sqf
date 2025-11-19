@@ -18,6 +18,7 @@
  * 12: _fontColorHeader <STRING> - TODO: Add description
  * 13: _fontColorConsole <STRING> - TODO: Add description
  * 14: _value <STRING> - TODO: Add description
+ * 15: _terminalMaxColumns <NUMBER> - Terminal max columns for rendering
  *
  * Return Value:
  * None
@@ -44,12 +45,16 @@ params [
 	"_bgColorConsole",
 	"_fontColorHeader",
 	"_fontColorConsole",
-	"_value"
+	"_value",
+	"_terminalMaxColumns"
 ];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
-if (!_uiOnTexActive) then { [_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init; };
+if (!_uiOnTexActive) then {
+	_computer setVariable ["AE3_UiOnTexActive", true]; // Set immediately to prevent race condition
+	[_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init;
+};
 
 private _displayName = _computer getVariable ["AE3_UiOnTexDisplayName", "AE3_UiOnTexture"];
 
@@ -106,7 +111,8 @@ if (!isNil "_rawBuffer" && {count _rawBuffer > 0}) then {
 	{
 		if (!isNil "_x") then {
 			// Use fnc_terminal_renderLine to convert raw line to structured text with proper formatting
-			private _renderedLine = [_computer, _x] call AE3_armaos_fnc_terminal_renderLine;
+			// Pass size and maxColumns as parameters to avoid needing AE3_terminal variable
+			private _renderedLine = [_computer, _x, _size, _terminalMaxColumns] call AE3_armaos_fnc_terminal_renderLine;
 			_renderedBuffer append _renderedLine;
 		};
 	} forEach _rawBuffer;
@@ -170,7 +176,7 @@ if (_hasRecentInputState) then {
 	private _stateCursor = _inputState getOrDefault ["cursorPosition", 0];
 
 	// Render the current input line with live prompt
-	private _inputLine = [_computer, [_statePrompt, _stateInput]] call AE3_armaos_fnc_terminal_renderLine;
+	private _inputLine = [_computer, [_statePrompt, _stateInput], _size, _terminalMaxColumns] call AE3_armaos_fnc_terminal_renderLine;
 	if (count _inputLine > 0) then {
 		{
 			if (!isNil "_x") then {

@@ -55,6 +55,7 @@ _handle =
                 private _input = _terminal get "AE3_terminalInput";
                 private _application = _terminal get "AE3_terminalApplication";
                 private _size = _terminal get "AE3_terminalSize";
+                private _terminalMaxColumns = _terminal get "AE3_terminalMaxColumns";
 
                 [
                     _computer,
@@ -71,7 +72,8 @@ _handle =
                     _bgColorConsole,
                     _fontColorHeader,
                     _fontColorConsole,
-                    _value
+                    _value,
+                    _terminalMaxColumns
                 ] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
             };
         },

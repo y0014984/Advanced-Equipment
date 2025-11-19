@@ -87,9 +87,9 @@ if (AE3_DebugMode) then {
 };
 
 // Unhide and move the laptop
-_laptop hideObjectGlobal false;
+[_laptop, false] remoteExec ["hideObjectGlobal", 2];
 _laptop setPosATL _deployPos;
-_laptop enableSimulationGlobal true;
+[_laptop, true] remoteExec ["enableSimulationGlobal", 2];
 
 // Remove the item from tracker
 _laptopTracker deleteAt _itemToDeploy;

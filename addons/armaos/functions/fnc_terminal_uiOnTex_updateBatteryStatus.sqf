@@ -19,7 +19,10 @@ params ["_computer", "_value"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
-if (!_uiOnTexActive) then { [_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init; };
+if (!_uiOnTexActive) then {
+	_computer setVariable ["AE3_UiOnTexActive", true]; // Set immediately to prevent race condition
+	[_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init;
+};
 
 private _displayName = _computer getVariable ["AE3_UiOnTexDisplayName", "AE3_UiOnTexture"];
 waitUntil { !isNull findDisplay _displayName };

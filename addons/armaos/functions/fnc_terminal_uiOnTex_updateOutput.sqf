@@ -9,21 +9,25 @@
  * 3: _scrollPosition <NUMBER> - Current scroll position
  * 4: _terminalDesign <STRING> - Terminal design name
  * 5: _cursorPosition <NUMBER> - Current cursor position
+ * 6: _terminalMaxColumns <NUMBER> - Terminal max columns for rendering
  *
  * Return Value:
  * None
  *
  * Example:
- * [_computer, _rawBuffer, 0.8, 0, "ArmaOS", 10] call AE3_armaos_fnc_terminal_uiOnTex_updateOutput;
+ * [_computer, _rawBuffer, 0.8, 0, "ArmaOS", 10, 80] call AE3_armaos_fnc_terminal_uiOnTex_updateOutput;
  *
  * Public: No
  */
 
-params ["_computer", "_rawBuffer", "_size", "_scrollPosition", "_terminalDesign", "_cursorPosition"];
+params ["_computer", "_rawBuffer", "_size", "_scrollPosition", "_terminalDesign", "_cursorPosition", "_terminalMaxColumns"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
-if (!_uiOnTexActive) then { [_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init; };
+if (!_uiOnTexActive) then {
+	_computer setVariable ["AE3_UiOnTexActive", true]; // Set immediately to prevent race condition
+	[_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init;
+};
 
 private _displayName = _computer getVariable ["AE3_UiOnTexDisplayName", "AE3_UiOnTexture"];
 waitUntil { !isNull findDisplay _displayName };
@@ -38,7 +42,8 @@ if (!isNil "_rawBuffer" && {count _rawBuffer > 0}) then {
 	{
 		if (!isNil "_x") then {
 			// Use fnc_terminal_renderLine to convert raw line to structured text with proper formatting
-			private _renderedLine = [_computer, _x] call AE3_armaos_fnc_terminal_renderLine;
+			// Pass size and maxColumns as parameters to avoid needing AE3_terminal variable
+			private _renderedLine = [_computer, _x, _size, _terminalMaxColumns] call AE3_armaos_fnc_terminal_renderLine;
 			_renderedBuffer append _renderedLine;
 		};
 	} forEach _rawBuffer;
