@@ -71,12 +71,16 @@ if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] laptop_deploy_stable: Deploying laptop %2 from item %3", time, _laptop, _itemToDeploy];
 };
 
-// Calculate deployment position 1.5m in front of player on the ground
-private _deployPos = _player modelToWorld [0, 1.5, 0];
+// Calculate deployment position 1.5m in front of player at ground level
+private _playerPos = getPosATL _player;
+private _playerDir = getDir _player;
 
-// Get terrain height at deployment position and add small offset
-private _terrainHeight = getTerrainHeightASL [_deployPos select 0, _deployPos select 1];
-_deployPos set [2, _terrainHeight];
+// Calculate position 1.5m in front of player
+private _deployPos = [
+	(_playerPos select 0) + (1.5 * sin _playerDir),
+	(_playerPos select 1) + (1.5 * cos _playerDir),
+	0.05  // Small offset above ground to prevent clipping
+];
 
 if (AE3_DebugMode) then {
 	diag_log format ["[AE3 DEBUG] [%1] laptop_deploy_stable: Deploying at position %2", time, _deployPos];

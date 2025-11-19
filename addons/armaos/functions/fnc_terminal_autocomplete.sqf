@@ -31,9 +31,12 @@ if (_parts isNotEqualTo []) then
 {
 	_lastPart = _parts select -1;
 
+	// Normalize path separators (convert backslashes to forward slashes)
+	_lastPart = _lastPart regexReplace ["\\", "/"];
+
 	// Calculate prefix (everything before the last part)
 	// Use length calculation instead of find to get the LAST occurrence position
-	private _lastPartStart = (count _input) - (count _lastPart);
+	private _lastPartStart = (count _input) - (count (_parts select -1));
 	if (_lastPartStart > 0) then
 	{
 		_prefix = _input select [0, _lastPartStart];
@@ -131,15 +134,28 @@ if (_lastInput != _lastPart) then
 	if (_matches isEqualTo [] && count _parts <= 1) then
 	{
 		private _commands = "true" configClasses (configFile >> "CfgOsFunctions");
+		private _isExactCommand = false;
 
+		// First check if _lastPart is already an exact command name
 		{
-			private _commandName = configName _x;
-
-			if (_lastPart isEqualTo "" || {(_commandName select [0, count _lastPart]) isEqualTo _lastPart}) then
-			{
-				_matches pushBack _commandName;
+			if ((configName _x) isEqualTo _lastPart) exitWith {
+				_isExactCommand = true;
 			};
 		} forEach _commands;
+
+		// If it's already an exact command, don't try to extend it to other commands
+		// Instead, this will fall through and match files in the current directory
+		if (!_isExactCommand) then
+		{
+			{
+				private _commandName = configName _x;
+
+				if (_lastPart isEqualTo "" || {(_commandName select [0, count _lastPart]) isEqualTo _lastPart}) then
+				{
+					_matches pushBack _commandName;
+				};
+			} forEach _commands;
+		};
 	};
 
 	// Sort matches alphabetically
