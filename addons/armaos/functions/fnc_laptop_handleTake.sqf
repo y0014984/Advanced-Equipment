@@ -24,7 +24,6 @@ if (_item find "Item_Laptop_AE3_ID_" != 0) exitWith {};
 
 // When a laptop item is taken from a container, it's already in inventory
 // Just log for debugging
-diag_log format ["AE3: Laptop item %1 was taken by %2 from %3", _item, name _unit, _container];
-
-// The item state is already preserved in the global buffer (AE3_LAPTOP_ITEM)
-// No additional action needed - the item will work correctly when deployed
+if (AE3_DebugMode) then {
+    diag_log format ["AE3: Laptop item %1 was taken by %2 from %3", _item, name _unit, _container];
+};

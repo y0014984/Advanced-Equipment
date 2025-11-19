@@ -40,7 +40,6 @@ private _terminalScrollPosition = _terminal get "AE3_terminalScrollPosition";
 private _terminalRenderedBufferVisible = +_terminalRenderedBuffer;
 private _buffer = +_terminalBuffer;
 
-// ENHANCEMENT: add block sign (needs new or modified font) instead of ¶ sign to the end of the _terminalRenderedBufferVisible
 private _lastBufferVisibleLineIndex = (count _buffer) - 1;
 private _lastBufferVisibleLine = _buffer # (_lastBufferVisibleLineIndex);
 

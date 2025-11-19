@@ -18,8 +18,6 @@
 
 params ["_computer", "_options", "_commandName"];
 
-//hint format ["canSuspend: %1", canSuspend]; // true
-
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
 private _commandOpts = 

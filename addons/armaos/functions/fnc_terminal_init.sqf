@@ -92,9 +92,6 @@ if (!isNil "_terminalSyncData") then {
 _terminal set ["AE3_terminalOutput", _consoleOutput];
 
 private _localGameLanguage = language;
-// we can determine the language of arma 3 but not the language of the keyboard layout
-// if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
-// perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
 /* ---------------------------------------- */
 

@@ -256,7 +256,7 @@
 	"SLIDER",
 	["Laptop Startup Time", "Time (in seconds) for laptop to complete cold boot startup animation. Warm boot (from standby) is always 3 seconds."],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
-	[1, 15, 15, 0], // min, max, default, decimal places
+	[3, 15, 15, 0], // min, max, default, decimal places
     1, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
     {
         params ["_value"];
@@ -290,7 +290,7 @@ if (!isDedicated) then {
 			[
 				"AE3_DeployLaptopAction", // internal name
 				localize "STR_AE3_ArmaOS_Laptop_Deploy", // visible name
-				"", // icon (removed - file not found in vanilla Arma)
+				"",
 				{},  // No direct action - uses children
 				{
 					// condition - only show if player has a laptop item in inventory

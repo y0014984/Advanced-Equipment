@@ -196,18 +196,12 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		if (_terminalApplication == "SHELL") then
 		{
-			// Desired behavior: Scroll wheel down = older content, Scroll wheel up = newer content
-			// _scroll > 0 means scroll down (wheel forward), _scroll < 0 means scroll up (wheel back)
-			// Increasing scroll position shows older content (scrolling up in terminal history)
-			// Decreasing scroll position shows newer content (scrolling down towards current)
 			if (_scroll >= 0) then
 			{
-				// Scroll down (wheel forward) - increase position to see older content
 				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + AE3_TerminalScrollSpeed];
 			}
 			else
 			{
-				// Scroll up (wheel back) - decrease position to see newer content
 				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - AE3_TerminalScrollSpeed];
 			};
 		};

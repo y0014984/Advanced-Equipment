@@ -28,6 +28,3 @@ _inputState set ["prompt", _prompt];
 _inputState set ["timestamp", time];
 
 _computer setVariable ["AE3_terminalInputState", _inputState];
-
-// Note: The actual UI update will be handled by fnc_terminal_uiOnTex_updateAll
-// which will check for this variable and overlay the input state on the periodic buffer

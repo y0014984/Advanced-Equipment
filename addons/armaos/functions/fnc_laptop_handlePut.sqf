@@ -36,6 +36,8 @@ private _pos = getPosATL _container;
 	if (!isNull _laptop) then {
 		// The item was already removed from player inventory by Arma
 		// The weaponholder will clean itself up since we removed the item programmatically
-		diag_log format ["AE3: Laptop item %1 was dropped and recreated as object %2", _item, _laptop];
+		if (AE3_DebugMode) then {
+			diag_log format ["AE3: Laptop item %1 was dropped and recreated as object %2", _item, _laptop];
+		};
 	};
 }, [_unit, _container, _item, _pos], 0.1] call CBA_fnc_waitAndExecute;

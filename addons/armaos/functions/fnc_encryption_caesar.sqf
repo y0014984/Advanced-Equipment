@@ -16,10 +16,6 @@
  * Public: No
  */
 
-// this encryption is especially made to allow manual decryption or bruteforce
-
-// later we could implement processing complete files, for new you can use only one line
-
 params ["_key", "_mode", "_message"];
 
 // normalize Message to allowed characters
