@@ -339,15 +339,24 @@ if (!isDedicated) then {
 									private _itemToDeploy = _params select 0;
 									private _laptopName = _params select 1;
 
-									// Calculate deployment position
-									private _deployPos = _player modelToWorld [0, 1.5, 0];
-									_deployPos set [2, 0];
+									// Check deployment type setting: 0 = Stable, 1 = Experimental
+									private _deploymentType = missionNamespace getVariable ["AE3_DeploymentType", 0];
 
-									// Deploy the selected laptop
-									private _laptop = [_player, _itemToDeploy, _deployPos] call AE3_armaos_fnc_laptop_item2obj;
+									if (_deploymentType == 0) then {
+										// Stable mode - use stable deployment
+										private _success = [_player, _itemToDeploy] call AE3_armaos_fnc_laptop_deploy_stable;
+									} else {
+										// Experimental mode - use experimental deployment
+										// Calculate deployment position
+										private _deployPos = _player modelToWorld [0, 1.5, 0];
+										_deployPos set [2, 0];
 
-									if (!isNull _laptop) then {
-										hint format ["Deployed %1", _laptopName];
+										// Deploy the selected laptop
+										private _laptop = [_player, _itemToDeploy, _deployPos] call AE3_armaos_fnc_laptop_item2obj;
+
+										if (!isNull _laptop) then {
+											hint format ["Deployed %1", _laptopName];
+										};
 									};
 								};
 							},

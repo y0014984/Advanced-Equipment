@@ -20,6 +20,42 @@
                 <German>Durch das Aktivieren des AE3 Debug Modus erhältst du zusätzliche Informationen über die interne Struktur von AE3.</German>
                 <Chinesesimp>你可以通过AE3调试模式获得更多有关AE3内部结构的信息.</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DeploymentTypeExperimental">
+                <Original>Experimental</Original>
+                <English>Experimental</English>
+                <French>Expérimental</French>
+                <Italian>Sperimentale</Italian>
+                <Russian>Экспериментальный</Russian>
+                <German>Experimentell</German>
+                <Chinesesimp>实验性</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DeploymentTypeName">
+                <Original>Laptop Deployment Type</Original>
+                <English>Laptop Deployment Type</English>
+                <French>Type de déploiement d'ordinateur portable</French>
+                <Italian>Tipo di distribuzione del laptop</Italian>
+                <Russian>Тип развёртывания ноутбука</Russian>
+                <German>Laptop-Bereitstellungstyp</German>
+                <Chinesesimp>笔记本电脑部署类型</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DeploymentTypeStable">
+                <Original>Stable</Original>
+                <English>Stable</English>
+                <French>Stable</French>
+                <Italian>Stabile</Italian>
+                <Russian>Стабильный</Russian>
+                <German>Stabil</German>
+                <Chinesesimp>稳定</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DeploymentTypeTooltip">
+                <Original>Choose how laptop pickup/deployment works. Stable: Simple hide/show system with vanilla laptop items. Experimental: Full state preservation with custom items.</Original>
+                <English>Choose how laptop pickup/deployment works. Stable: Simple hide/show system with vanilla laptop items. Experimental: Full state preservation with custom items.</English>
+                <French>Choisissez le fonctionnement du ramassage/déploiement de l'ordinateur portable. Stable: système simple de masquage/affichage avec des éléments d'ordinateur portable vanille. Expérimental: préservation complète de l'état avec des éléments personnalisés.</French>
+                <Italian>Scegli come funziona il ritiro/distribuzione del laptop. Stabile: sistema semplice di nascondi/mostra con elementi laptop vanilla. Sperimentale: conservazione completa dello stato con elementi personalizzati.</Italian>
+                <Russian>Выберите, как работает подбор/развёртывание ноутбука. Стабильный: простая система скрытия/отображения с ванильными предметами ноутбука. Экспериментальный: полное сохранение состояния с пользовательскими предметами.</Russian>
+                <German>Wählen Sie, wie das Aufheben/Bereitstellen von Laptops funktioniert. Stabil: Einfaches Ausblenden/Anzeigen-System mit Vanilla-Laptop-Gegenständen. Experimentell: Vollständige Zustandserhaltung mit benutzerdefinierten Gegenständen.</German>
+                <Chinesesimp>选择笔记本电脑拾取/部署的工作方式。稳定：使用原版笔记本电脑物品的简单隐藏/显示系统。实验性：使用自定义物品的完整状态保存。</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_CbaSettings_MainCategoryName">
                 <Original>AE3 main</Original>
                 <English>AE3 main</English>

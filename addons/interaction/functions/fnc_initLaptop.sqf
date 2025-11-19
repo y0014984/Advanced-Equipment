@@ -115,8 +115,17 @@ if(!isDedicated) then
             {
                 // statement
                 params ["_target", "_player", "_params"];
-                // Execute pickup function on server using spawn for scheduled environment
-                [_target, _player] remoteExec ["AE3_armaos_fnc_laptop_pickup", 2];
+
+                // Check deployment type setting: 0 = Stable, 1 = Experimental
+                private _deploymentType = missionNamespace getVariable ["AE3_DeploymentType", 0];
+
+                if (_deploymentType == 0) then {
+                    // Stable mode - use stable pickup
+                    [_target, _player] remoteExec ["AE3_armaos_fnc_laptop_pickup_stable", 2];
+                } else {
+                    // Experimental mode - use experimental pickup
+                    [_target, _player] remoteExec ["AE3_armaos_fnc_laptop_pickup", 2];
+                };
             },
             {
                 // condition - only when not in use

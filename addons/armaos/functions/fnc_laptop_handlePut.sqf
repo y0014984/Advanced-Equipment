@@ -22,22 +22,44 @@ params ["_unit", "_container", "_item"];
 // Check if this is a laptop item
 if (_item find "Item_Laptop_AE3_ID_" != 0) exitWith {};
 
-// Get the position where the item was dropped (weaponholder position)
-private _pos = getPosATL _container;
+// Check deployment type setting: 0 = Stable, 1 = Experimental
+private _deploymentType = missionNamespace getVariable ["AE3_DeploymentType", 0];
 
-// Small delay to ensure the item is removed from inventory first
-[{
-	params ["_unit", "_container", "_item", "_pos"];
+if (_deploymentType == 0) then {
+	// Stable mode - check if this is a tracked stable item
+	private _laptopTracker = missionNamespace getVariable ["AE3_LAPTOP_STABLE_TRACKER", createHashMap];
 
-	// Convert the item back to a laptop object
-	private _laptop = [_unit, _item, _pos] call AE3_armaos_fnc_laptop_item2obj;
-
-	// If successful, the laptop object now exists at the drop position
-	if (!isNull _laptop) then {
-		// The item was already removed from player inventory by Arma
-		// The weaponholder will clean itself up since we removed the item programmatically
+	if (_item in _laptopTracker) then {
+		// This is a stable mode item - don't auto-deploy when dropped
+		// The item will stay in the weaponholder/container and players can pick it up normally
 		if (AE3_DebugMode) then {
-			diag_log format ["AE3: Laptop item %1 was dropped and recreated as object %2", _item, _laptop];
+			diag_log format ["AE3: Stable laptop item %1 was dropped into container %2 (not auto-deploying)", _item, _container];
+		};
+	} else {
+		// Not a tracked stable item, treat as normal drop (shouldn't happen in stable mode)
+		if (AE3_DebugMode) then {
+			diag_log format ["AE3: Warning - Laptop item %1 dropped but not found in stable tracker", _item];
 		};
 	};
-}, [_unit, _container, _item, _pos], 0.1] call CBA_fnc_waitAndExecute;
+} else {
+	// Experimental mode - auto-deploy when dropped on ground
+	// Get the position where the item was dropped (weaponholder position)
+	private _pos = getPosATL _container;
+
+	// Small delay to ensure the item is removed from inventory first
+	[{
+		params ["_unit", "_container", "_item", "_pos"];
+
+		// Convert the item back to a laptop object
+		private _laptop = [_unit, _item, _pos] call AE3_armaos_fnc_laptop_item2obj;
+
+		// If successful, the laptop object now exists at the drop position
+		if (!isNull _laptop) then {
+			// The item was already removed from player inventory by Arma
+			// The weaponholder will clean itself up since we removed the item programmatically
+			if (AE3_DebugMode) then {
+				diag_log format ["AE3: Laptop item %1 was dropped and recreated as object %2", _item, _laptop];
+			};
+		};
+	}, [_unit, _container, _item, _pos], 0.1] call CBA_fnc_waitAndExecute;
+};

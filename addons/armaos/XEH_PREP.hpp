@@ -152,3 +152,5 @@ PREP(laptop_pickup);
 PREP(laptop_deploy);
 PREP(laptop_handlePut);
 PREP(laptop_handleTake);
+PREP(laptop_pickup_stable);
+PREP(laptop_deploy_stable);
