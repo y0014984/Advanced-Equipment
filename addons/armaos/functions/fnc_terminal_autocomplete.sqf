@@ -3,7 +3,7 @@
  * Description: Attempts to autocomplete the current command based on available commands and file paths.
  *
  * Arguments:
- * 0: _computer <OBJECT> - TODO: Add description
+ * 0: _computer <OBJECT> - The computer object
  *
  * Return Value:
  * None
@@ -22,187 +22,194 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 private _pointer = _computer getVariable "AE3_filepointer";
 private _username = _terminal get "AE3_terminalLoginUser";
 
-// Parse input to determine what to complete
-private _parts = _input splitString " ";
-private _lastPart = "";
-private _prefix = "";
+// Split input into words
+private _words = _input splitString " ";
 
-if (_parts isNotEqualTo []) then
+// Determine what we're completing
+private _completionWord = "";
+private _prefixBeforeWord = "";
+private _commandName = "";
+
+// Check if input ends with space - if so, we're starting a new word
+private _endsWithSpace = (count _input > 0) && {(_input select [(count _input) - 1]) isEqualTo " "};
+
+if (_endsWithSpace) then
 {
-	_lastPart = _parts select -1;
-
-	// Normalize path separators (convert backslashes to forward slashes)
-	_lastPart = _lastPart regexReplace ["\\", "/"];
-
-	// Calculate prefix (everything before the last part)
-	// Use length calculation instead of find to get the LAST occurrence position
-	private _lastPartStart = (count _input) - (count (_parts select -1));
-	if (_lastPartStart > 0) then
+	// Starting a new argument
+	_prefixBeforeWord = _input;
+	_completionWord = "";
+	if (_words isNotEqualTo []) then { _commandName = _words select 0; };
+}
+else
+{
+	// Completing the last word
+	if (_words isNotEqualTo []) then
 	{
-		_prefix = _input select [0, _lastPartStart];
+		_completionWord = _words select -1;
+		// Calculate prefix (everything before the word being completed)
+		if (count _input > count _completionWord) then
+		{
+			_prefixBeforeWord = _input select [0, (count _input) - (count _completionWord)];
+		};
+		if (count _words > 1) then { _commandName = _words select 0; };
 	};
 };
 
-// Check if we're continuing a previous autocomplete cycle
-private _autocompleteState = _terminal getOrDefault ["AE3_autocompleteState", []];
-private _lastInput = if (count _autocompleteState > 0) then {_autocompleteState select 0} else {""};
-private _matches = if (count _autocompleteState > 1) then {_autocompleteState select 1} else {[]};
-private _currentIndex = if (count _autocompleteState > 2) then {_autocompleteState select 2} else {-1};
-
-// If input changed (not just cycling), reset autocomplete
-if (_lastInput != _lastPart) then
+// Normalize backslashes to forward slashes
+private _normalizedWord = "";
 {
-	_matches = [];
-	_currentIndex = -1;
-
-	// Get potential matches
-	// First, try to match files/directories
-	try
+	if (_x isEqualTo 92) then  // 92 is backslash ASCII code
 	{
-		// Parse the path to determine directory and filename prefix
-		private _pathToComplete = _lastPart;
-		private _dirToSearch = "";
-		private _filePrefix = _lastPart;
-
-		// Check if the path contains a directory separator
-		if (_pathToComplete find "/" >= 0) then
-		{
-			// Split into directory and filename parts
-			private _lastSlashPos = -1;
-			private _pathChars = _pathToComplete splitString "";
-
-			// Find the last '/' position
-			{
-				if (_x isEqualTo "/") then { _lastSlashPos = _forEachIndex; };
-			} forEach _pathChars;
-
-			if (_lastSlashPos >= 0) then
-			{
-				// Extract directory path and filename prefix
-				_dirToSearch = _pathToComplete select [0, _lastSlashPos + 1]; // Include the trailing /
-				_filePrefix = _pathToComplete select [_lastSlashPos + 1]; // Everything after the last /
-			};
-		};
-
-		// List directory contents
-		private _dir = [_pointer, _filesystem, _dirToSearch, _username, false] call AE3_filesystem_fnc_lsdir;
-
-		{
-			// Validate data structure before accessing
-			if (_x isEqualType [] && {count _x > 0}) then
-			{
-				private _entry = _x select 0;
-
-				// Check if entry has the expected structure (1 element = name only, 2 elements = name + color)
-				if (_entry isEqualType [] && {count _entry >= 1}) then
-				{
-					private _fileName = _entry select 0;
-					private _fileObject = if (count _entry >= 2) then {_entry select 1} else {nil};
-
-					// Safely check if it's a directory
-					private _isDirectory = false;
-					if (!isNil "_fileObject" && {_fileObject isEqualType []} && {count _fileObject > 0}) then
-					{
-						private _content = _fileObject select 0;
-						_isDirectory = (!isNil "_content") && {(typeName _content) isEqualTo "HASHMAP"};
-					};
-
-					// Check if filename starts with the prefix
-					if (_filePrefix isEqualTo "" || {(_fileName select [0, count _filePrefix]) isEqualTo _filePrefix}) then
-					{
-						// Build the full path for the match
-						private _fullMatch = _dirToSearch + _fileName;
-
-						// Add trailing / for directories to indicate they can be navigated into
-						if (_isDirectory && {(_fullMatch select [(count _fullMatch) - 1] isNotEqualTo "/")}) then
-						{
-							_fullMatch = _fullMatch + "/";
-						};
-
-						_matches pushBack _fullMatch;
-					};
-				};
-			};
-		} forEach _dir;
+		_normalizedWord = _normalizedWord + "/";
 	}
-	catch
+	else
 	{
-		// If we can't read directory, continue to command matching
+		_normalizedWord = _normalizedWord + toString [_x];
 	};
+} forEach (toArray _completionWord);
+_completionWord = _normalizedWord;
 
-	// If no file matches and we're completing the first word, try system commands
-	if (_matches isEqualTo [] && count _parts <= 1) then
+// Check autocomplete state for cycling
+private _state = _terminal getOrDefault ["AE3_autocompleteState", []];
+private _prevWord = if (count _state > 0) then {_state select 0} else {""};
+private _prevMatches = if (count _state > 1) then {_state select 1} else {[]};
+private _prevIndex = if (count _state > 2) then {_state select 2} else {-1};
+
+// If word changed, find new matches
+private _matches = [];
+if (_prevWord != _completionWord) then
+{
+	// Determine if we're completing a command or a file/directory
+	private _isCompletingCommand = (count _words <= 1) && !_endsWithSpace;
+
+	if (_isCompletingCommand) then
 	{
+		// Complete command names
 		private _commands = "true" configClasses (configFile >> "CfgOsFunctions");
-		private _isExactCommand = false;
-
-		// First check if _lastPart is already an exact command name
 		{
-			if ((configName _x) isEqualTo _lastPart) exitWith {
-				_isExactCommand = true;
+			private _cmdName = configName _x;
+			// Match if word is empty OR command starts with word
+			if (_completionWord isEqualTo "" || {(_cmdName select [0, count _completionWord]) isEqualTo _completionWord}) then
+			{
+				_matches pushBack _cmdName;
 			};
 		} forEach _commands;
-
-		// If it's already an exact command, don't try to extend it to other commands
-		// Instead, this will fall through and match files in the current directory
-		if (!_isExactCommand) then
+	}
+	else
+	{
+		// Complete file/directory paths
+		try
 		{
-			{
-				private _commandName = configName _x;
+			// Parse path: split into directory and filename parts
+			private _dirPart = "";
+			private _filePart = _completionWord;
+			private _usePointer = _pointer;
 
-				if (_lastPart isEqualTo "" || {(_commandName select [0, count _lastPart]) isEqualTo _lastPart}) then
+			// Check if this is an absolute path (starts with /)
+			private _isAbsolutePath = (count _completionWord > 0) && {(_completionWord select [0, 1]) isEqualTo "/"};
+
+			// Find last / to split directory from filename
+			private _lastSlashIdx = -1;
+			{
+				if (_x isEqualTo 47) then { _lastSlashIdx = _forEachIndex; };  // 47 is / ASCII code
+			} forEach (toArray _completionWord);
+
+			if (_lastSlashIdx >= 0) then
+			{
+				_dirPart = _completionWord select [0, _lastSlashIdx + 1];  // Include the /
+				_filePart = _completionWord select [_lastSlashIdx + 1];    // After the /
+			};
+
+			// For absolute paths, ensure we use root pointer if dirPart is just "/"
+			if (_isAbsolutePath) then
+			{
+				_usePointer = [];  // Use root pointer for absolute paths
+			};
+
+			// List directory
+			private _dirList = [_usePointer, _filesystem, _dirPart, _username, false] call AE3_filesystem_fnc_lsdir;
+
+			{
+				if (_x isEqualType [] && {count _x > 0}) then
 				{
-					_matches pushBack _commandName;
+					private _entry = _x select 0;
+					if (_entry isEqualType [] && {count _entry >= 1}) then
+					{
+						private _name = _entry select 0;
+						private _color = if (count _entry >= 2) then {_entry select 1} else {""};
+
+						// Check if it's a directory by color code (lsdir returns color codes, not objects)
+						// Directory color is "#008df8"
+						private _isDir = _color isEqualTo "#008df8";
+
+						// Filter by command type
+						private _include = true;
+						if (_commandName isEqualTo "cd" && !_isDir) then
+						{
+							_include = false;  // cd only completes directories
+						};
+
+						// Match filename
+						if (_include && {_filePart isEqualTo "" || {(_name select [0, count _filePart]) isEqualTo _filePart}}) then
+						{
+							private _fullPath = _dirPart + _name;
+							if (_isDir) then { _fullPath = _fullPath + "/"; };  // Add / for directories
+							_matches pushBack _fullPath;
+						};
+					};
 				};
-			} forEach _commands;
+			} forEach _dirList;
+		}
+		catch
+		{
+			// Ignore errors from lsdir
 		};
 	};
 
-	// Sort matches alphabetically
+	// Sort matches
 	_matches sort true;
+}
+else
+{
+	// Word didn't change, use previous matches for cycling
+	_matches = _prevMatches;
 };
 
 // Apply completion
-if (count _matches == 0) exitWith {
+if (count _matches == 0) exitWith
+{
 	// No matches - clear state
 	_terminal deleteAt "AE3_autocompleteState";
 };
 
+private _newInput = "";
+
 if (count _matches == 1) then
 {
-	// Single match - complete it and clear state
+	// Single match - complete it fully
 	private _match = _matches select 0;
-	private _newInput = _prefix + _match;
+	_newInput = _prefixBeforeWord + _match;
 
 	// Add space after non-directory completions for convenience
-	// (directories already have trailing /, commands should get a space)
-	if ((_match select [(count _match) - 1] isNotEqualTo "/")) then
+	private _isDir = (_match select [(count _match) - 1]) isEqualTo "/";
+	private _isCmd = (count _words <= 1) && !_endsWithSpace;
+
+	if (!_isDir && _isCmd) then
 	{
-		_newInput = _newInput + " ";
+		_newInput = _newInput + " ";  // Add space after commands
 	};
 
-	// Clear current input
-	_terminal deleteAt "AE3_terminalInputBuffer";
-
-	// Set new input
-	private _inputBuffer = ["", ""];
-	{
-		_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
-	} forEach (toArray _newInput);
-
-	_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
+	// Clear state
 	_terminal deleteAt "AE3_autocompleteState";
 }
 else
 {
-	// Multiple matches - find longest common prefix
+	// Multiple matches - complete to common prefix or cycle
 	private _commonPrefix = _matches select 0;
 
 	{
 		private _match = _x;
 		private _newCommon = "";
-
-		// Find common characters between current common prefix and this match
 		private _minLen = (count _commonPrefix) min (count _match);
 
 		for "_i" from 0 to (_minLen - 1) do
@@ -213,7 +220,6 @@ else
 			}
 			else
 			{
-				// Stop at first difference
 				break;
 			};
 		};
@@ -221,47 +227,27 @@ else
 		_commonPrefix = _newCommon;
 	} forEach _matches;
 
-	// Check if we can complete with the common prefix (if it's longer than what user typed)
-	if ((count _commonPrefix) > (count _lastPart)) then
+	// If common prefix is longer than what user typed, use it
+	if ((count _commonPrefix) > (count _completionWord)) then
 	{
-		// Complete to common prefix
-		private _newInput = _prefix + _commonPrefix;
-
-		// Clear current input
-		_terminal deleteAt "AE3_terminalInputBuffer";
-
-		// Set new input
-		private _inputBuffer = ["", ""];
-		{
-			_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
-		} forEach (toArray _newInput);
-
-		_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
-
-		// Store state with the new common prefix as the last input
+		_newInput = _prefixBeforeWord + _commonPrefix;
 		_terminal set ["AE3_autocompleteState", [_commonPrefix, _matches, -1]];
 	}
 	else
 	{
-		// Common prefix already typed, cycle through matches
-		_currentIndex = (_currentIndex + 1) mod (count _matches);
-		private _match = _matches select _currentIndex;
+		// Cycle through matches
+		private _idx = (_prevIndex + 1) mod (count _matches);
+		private _match = _matches select _idx;
 
-		// Store state for next TAB press
-		_terminal set ["AE3_autocompleteState", [_match, _matches, _currentIndex]];
-
-		// Apply the current match
-		private _newInput = _prefix + _match;
-
-		// Clear current input
-		_terminal deleteAt "AE3_terminalInputBuffer";
-
-		// Set new input
-		private _inputBuffer = ["", ""];
-		{
-			_inputBuffer set [0, (_inputBuffer select 0) + (toString [_x])];
-		} forEach (toArray _newInput);
-
-		_terminal set ["AE3_terminalInputBuffer", _inputBuffer];
+		_newInput = _prefixBeforeWord + _match;
+		_terminal set ["AE3_autocompleteState", [_match, _matches, _idx]];
 	};
 };
+
+// Update terminal input
+_terminal deleteAt "AE3_terminalInputBuffer";
+private _buffer = ["", ""];
+{
+	_buffer set [0, (_buffer select 0) + (toString [_x])];
+} forEach (toArray _newInput);
+_terminal set ["AE3_terminalInputBuffer", _buffer];
