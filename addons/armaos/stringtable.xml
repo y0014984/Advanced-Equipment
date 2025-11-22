@@ -957,7 +957,7 @@
                 <French>Monte un lecteur flash dans le port USB spécifié.</French>
                 <Italian>Monta una chiavetta USB nella specifica porta USB.</Italian>
                 <Russian>Подключает флэш-накопитель к указанному порту USB.</Russian>
-                <German>Hängt einen usb stick in den gegeben usb port ein.</German>
+                <German>Hängt einen USB Stick in den gegebenen USB Port ein.</German>
                 <Chinesesimp>在指定的usb端口装载一个闪盘驱动器.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandMountMan">
