@@ -966,7 +966,7 @@
                 <French>Utilisation mount: 'mount [nom interface]' monte l'interface donnée.</French>
                 <Italian>Utilizzo mount: 'mount [interface name]' monta l'interfaccia indicata.</Italian>
                 <Russian>Использование mount: 'mount [interface name]' подключает usb-накопитель к заданному порту.</Russian>
-                <German>Verwendung mount: 'mount [Name]' hängt usb stick in gegebenen Port ein.</German>
+                <German>Verwendung mount: 'mount [Name]' hängt den USB Stick in den gegebenen Port ein.</German>
                 <Chinesesimp>mount说明: 'mount [interface name]' 装载给定的接口.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandMvDescr">
