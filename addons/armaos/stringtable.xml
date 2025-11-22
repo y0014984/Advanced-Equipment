@@ -1101,7 +1101,7 @@
                 <French>Ejecte un lecteur flash du port USB spécifié.</French>
                 <Italian>Smonta una chiavetta USB da una specifica porta usb.</Italian>
                 <Russian>Отсоединяет флэш-накопитель от указанного USB-порта.</Russian>
-                <German>Hängt einen usb stick aus den gegeben usb port aus.</German>
+                <German>Hängt einen USB Stick aus dem gegebenen USB Port aus.</German>
                 <Chinesesimp>在指定的usb端口卸载闪盘驱动器.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandUmountMan">
