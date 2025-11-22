@@ -912,7 +912,7 @@
                 <French>Utilisation lsusb: 'lsusb' Liste les interfaces usb.</French>
                 <Italian>Utilizzo lsusb: 'lsusb' lista delle interfacce USB.</Italian>
                 <Russian>Использование lsusb: 'lsusb' отображает порты usb</Russian>
-                <German>Verwendung lsusb: 'lsusb' zeigt die usb Ports an.</German>
+                <German>Verwendung lsusb: 'lsusb' zeigt die USB Ports an.</German>
                 <Chinesesimp>lsusb说明: 'lsusb' 列出usb接口.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandManDescr">
