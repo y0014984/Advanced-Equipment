@@ -903,7 +903,7 @@
                 <French>Liste les interfaces (usb) disponibles.</French>
                 <Italian>Lista delle interfacce USB disponibili.</Italian>
                 <Russian>Перечисляет доступные интерфейсы (usb).</Russian>
-                <German>Zeigt die verfügbaren usb Ports an.</German>
+                <German>Zeigt die verfügbaren USB Ports an.</German>
                 <Chinesesimp>列出可用的（usb）接口.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandLsusbMan">
