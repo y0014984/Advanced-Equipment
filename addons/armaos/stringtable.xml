@@ -1110,7 +1110,7 @@
                 <French>Utilisation umount: 'umount [nom interface]' ejecte l'interface spécifié.</French>
                 <Italian>Utilizzo umount: 'umount [interface name]' smonta l'interfaccia indicata.</Italian>
                 <Russian>Использование umount: 'umount [interface name]' отключает usb-накопитель от заданного порта</Russian>
-                <German>Verwendung umount: 'umount [Name]' hängt usb stick in gegebenen Port aus.</German>
+                <German>Verwendung umount: 'umount [Name]' hängt USB Stick in gegebenem Port aus.</German>
                 <Chinesesimp>umount说明: 'umount [interface name]'卸载给定的接口.</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandWhoamiDescr">
