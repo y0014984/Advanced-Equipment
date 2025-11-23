@@ -53,7 +53,7 @@
                 <French>Choisissez le fonctionnement du ramassage/déploiement de l'ordinateur portable. Stable: système simple de masquage/affichage avec des éléments d'ordinateur portable vanille. Expérimental: préservation complète de l'état avec des éléments personnalisés.</French>
                 <Italian>Scegli come funziona il ritiro/distribuzione del laptop. Stabile: sistema semplice di nascondi/mostra con elementi laptop vanilla. Sperimentale: conservazione completa dello stato con elementi personalizzati.</Italian>
                 <Russian>Выберите, как работает подбор/развёртывание ноутбука. Стабильный: простая система скрытия/отображения с ванильными предметами ноутбука. Экспериментальный: полное сохранение состояния с пользовательскими предметами.</Russian>
-                <German>Wählen Sie, wie das Aufheben/Bereitstellen von Laptops funktioniert. Stabil: Einfaches Ausblenden/Anzeigen-System mit Vanilla-Laptop-Gegenständen. Experimentell: Vollständige Zustandserhaltung mit benutzerdefinierten Gegenständen.</German>
+                <German>Wähle, wie das Aufheben/Ablegen von Laptops funktioniert. Stabil: Einfaches Ausblenden/Anzeigen-System mit Vanilla-Laptop-Gegenständen. Experimentell: Vollständige Zustandserhaltung mit benutzerdefinierten Gegenständen.</German>
                 <Chinesesimp>选择笔记本电脑拾取/部署的工作方式。稳定：使用原版笔记本电脑物品的简单隐藏/显示系统。实验性：使用自定义物品的完整状态保存。</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_CbaSettings_MainCategoryName">
