@@ -1178,7 +1178,7 @@
                 <French>Renommer Fichier/Dossier</French>
                 <Italian>Rinomina File/Cartella</Italian>
                 <Russian>Переименовать Файл/Папку</Russian>
-                <German>Datei/Ordner Umbenennen</German>
+                <German>Datei/Ordner umbenennen</German>
                 <Chinesesimp>重命名文件/文件夹</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_RenameFailed">
