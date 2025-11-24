@@ -125,5 +125,8 @@ catch
     };
 };
 
-// Save filesystem back to computer
-_computer setVariable ["AE3_filesystem", _filesystem, true];
+// Save filesystem back to computer with configurable sync mode
+// 0 = Server Only (flag 2), 1 = Global (flag true)
+private _syncMode = missionNamespace getVariable ["AE3_Filesystem_SyncMode", 0];
+private _syncFlag = [2, true] select (_syncMode == 1);
+_computer setVariable ["AE3_filesystem", _filesystem, _syncFlag];

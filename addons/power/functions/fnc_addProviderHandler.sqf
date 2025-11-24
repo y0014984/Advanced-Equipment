@@ -33,13 +33,16 @@ if(!_internal) then
 	_generatorTurnoff = _generator getVariable 'AE3_power_fnc_turnOffWrapper';
 };
 
+// Get power update interval from CBA setting
+private _updateInterval = missionNamespace getVariable ["AE3_Power_UpdateInterval", 1.0];
+
 private _handle = [
 	{
 		private _handle = _this select 1;
 		(_this select 0) params ['_generator', '_generatorFnc', '_generatorTurnoff'];
 
 		([_generator] call _generatorFnc) params['_powerState', '_newPower'];
-		
+
 		if(!_powerState) then
 		{
 			[_generator, [true]] call _generatorTurnoff;
@@ -48,14 +51,14 @@ private _handle = [
 		if(_newPower != (_generator getVariable ['AE3_power_powerCapacity', 0])) then
 		{
 			_generator setVariable ['AE3_power_powerCapacity', _newPower];
-			
+
 			if(_newPower < _generator getVariable ['AE3_power_powerReq', 0]) then
 			{
 				[_generator, [true]] call _generatorTurnoff;
 			}
 		}
 	},
-	1,
+	_updateInterval,
 	[_generator, _generatorFnc, _generatorTurnoff]
 ] call CBA_fnc_addPerFrameHandler;
 

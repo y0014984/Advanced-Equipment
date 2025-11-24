@@ -47,8 +47,11 @@ private _result = [];
 try
 {
 	[_pointer, _filesystem, _oldPath, _newPath, _username] call AE3_filesystem_fnc_mvObj;
-	_computer setVariable ["AE3_filesystem", _filesystem, 2];
-	
+	// Respect filesystem sync mode CBA setting
+	private _syncMode = missionNamespace getVariable ["AE3_Filesystem_SyncMode", 0];
+	private _syncFlag = [2, true] select (_syncMode == 1);
+	_computer setVariable ["AE3_filesystem", _filesystem, _syncFlag];
+
 }catch
 {
 	_result pushBack _exception;

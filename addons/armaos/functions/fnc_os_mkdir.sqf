@@ -55,7 +55,10 @@ try
 		_username
 	] call AE3_filesystem_fnc_createDir;
 
-	_computer setVariable ["AE3_filesystem", _filesystem, 2];
+	// Respect filesystem sync mode CBA setting
+	private _syncMode = missionNamespace getVariable ["AE3_Filesystem_SyncMode", 0];
+	private _syncFlag = [2, true] select (_syncMode == 1);
+	_computer setVariable ["AE3_filesystem", _filesystem, _syncFlag];
 }catch
 {
 	[_computer, _exception] call AE3_armaos_fnc_shell_stdout;

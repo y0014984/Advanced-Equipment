@@ -27,14 +27,29 @@ private _connected = _entity getVariable ['AE3_power_connectedDevices', []];
 	_pwrDraw = _pwrDraw + (_x getVariable ['AE3_power_powerDraw', 0]);
 } forEach _connected;
 
-if (_pwrDraw > _pwrCap) then
-{
+// Determine new power requirement value
+private _newPowerReq = if (_pwrDraw > _pwrCap) then {
 	[_entity, [true]] spawn (_entity getVariable 'AE3_power_fnc_turnOffWrapper');
+	0
+} else {
+	_pwrDraw
+};
 
-	_entity setVariable ['AE3_power_powerReq', 0, [clientOwner, 2]];
-}else
+// Only sync if power requirement changed (respects CBA settings)
+private _enableSync = missionNamespace getVariable ["AE3_Power_EnableStateSync", true];
+if (_enableSync) then
 {
-	_entity setVariable ['AE3_power_powerReq', _pwrDraw, [clientOwner, 2]];
+    private _oldPowerReq = _entity getVariable ["AE3_power_powerReq", -1];
+
+    // Only sync if value changed
+    if (_oldPowerReq != _newPowerReq) then
+    {
+        _entity setVariable ['AE3_power_powerReq', _newPowerReq, [clientOwner, 2]];
+    } else {
+        _entity setVariable ['AE3_power_powerReq', _newPowerReq];
+    };
+} else {
+    _entity setVariable ['AE3_power_powerReq', _newPowerReq];
 };
 
 (_pwrDraw > _pwrCap);

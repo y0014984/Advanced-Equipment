@@ -120,8 +120,8 @@
 	"SLIDER",
 	["UI-on-Texture Range", "Max Range (in meter) for players to be for the UI to update for them when viewing the laptop(s)"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
-	[1, 500, 5, 0],
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+	[1, 10, 2, 0],
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
 		missionNamespace setVariable ["AE3_UiPlayerRange", _value, true];
@@ -134,10 +134,55 @@
 [
 	"AE3_armaos_uiOnTexUpdateInterval",
 	"SLIDER",
-	["UI-on-Texture Update Interval", "How often (in seconds) to update UI-on-Texture displays for nearby players. 0 = Real-time synchronization (instant updates, highest network usage). 0.1-2.0 = Hybrid mode with throttled full updates + real-time input tracking (balanced). Recommended: 0.3 seconds for normal play, 0 for demonstrations."],
+	["UI-on-Texture Update Interval", "How often (in seconds) to update UI-on-Texture displays for nearby players. 0 = Real-time synchronization (instant updates, highest network usage). 0.1-2.0 = Hybrid mode with throttled full updates + real-time input tracking (balanced). Recommended: 1.0 seconds for normal play, 0.3 for demonstrations."],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
-	[0, 2.0, 0.3, 1], // min, max, default, decimal places
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+	[0, 2.0, 1.0, 1], // min, max, default, decimal places
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
+	"AE3_UiMaxConcurrentViewers",
+	"SLIDER",
+	["UI-on-Texture Max Viewers", "Maximum number of players who can simultaneously receive UI-on-Texture updates from a single laptop. Limits network bandwidth usage. Set to -1 for unlimited (not recommended for dedicated servers with many players)."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[-1, 50, 3, 0], // min, max, default, decimal places (-1 = unlimited)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
+	"AE3_UiKeystrokeSyncInterval",
+	"SLIDER",
+	["UI-on-Texture Keystroke Sync Interval", "Minimum interval (in seconds) between keystroke synchronization to nearby players. 0 = Real-time per-keystroke sync (highest responsiveness, high network usage). 0.1-0.3 = Debounced sync (balanced). Recommended: 0.1 seconds."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[0, 1.0, 0.1, 2], // min, max, default, decimal places
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
+	"AE3_UiEnableChangeDetection",
+	"CHECKBOX",
+	["UI-on-Texture Change Detection", "Only send terminal updates when content actually changes. Significantly reduces network usage when terminals are idle. Recommended: Enabled."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	true,
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.

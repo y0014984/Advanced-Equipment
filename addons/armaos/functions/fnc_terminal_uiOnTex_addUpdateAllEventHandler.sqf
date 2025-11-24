@@ -17,17 +17,32 @@
 
 params ["_computer", "_consoleDialog"];
 
-private _updateInterval = missionNamespace getVariable ["AE3_armaos_uiOnTexUpdateInterval", 0.3];
+private _updateInterval = missionNamespace getVariable ["AE3_armaos_uiOnTexUpdateInterval", 1.0];
+
+// Initialize previous state storage for change detection
+private _previousState = createHashMap;
 
 _handle =
     [
         {
-            (_this select 0) params ["_computer", "_consoleDialog"];
+            (_this select 0) params ["_computer", "_consoleDialog", "_previousState"];
 
             if (AE3_UiOnTexture) then
             {
-                private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 3];
+                private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 2];
                 private _playersInRange = [_playerRange, _computer] call AE3_main_fnc_getPlayersInRange;
+
+                // Apply viewer limit if configured
+                private _maxViewers = missionNamespace getVariable ["AE3_UiMaxConcurrentViewers", 3];
+                if (_maxViewers > 0 && count _playersInRange > _maxViewers) then
+                {
+                    // Sort by distance and take only closest N players
+                    _playersInRange = _playersInRange apply {
+                        [_x distance _computer, _x]
+                    };
+                    _playersInRange sort true; // Sort by distance (ascending)
+                    _playersInRange = (_playersInRange select [0, _maxViewers]) apply { _x select 1 };
+                };
 
                 private _languageButtonCtrl = _consoleDialog displayCtrl 1310;
                 private _batteryButtonCtrl = _consoleDialog displayCtrl 1050;
@@ -57,28 +72,61 @@ _handle =
                 private _size = _terminal get "AE3_terminalSize";
                 private _terminalMaxColumns = _terminal get "AE3_terminalMaxColumns";
 
-                [
-                    _computer,
-                    _rawBuffer,
-                    _size,
-                    _scrollPosition,
-                    _terminalDesign,
-                    _cursorPosition,
-                    _prompt,
-                    _input,
-                    _application,
-                    _terminalKeyboardLayout,
-                    _bgColorHeader,
-                    _bgColorConsole,
-                    _fontColorHeader,
-                    _fontColorConsole,
-                    _value,
-                    _terminalMaxColumns
-                ] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
+                // Change detection - only send if state changed
+                private _enableChangeDetection = missionNamespace getVariable ["AE3_UiEnableChangeDetection", true];
+                private _shouldUpdate = true;
+
+                if (_enableChangeDetection) then
+                {
+                    // Create hash of current state for comparison
+                    private _currentStateHash = str [
+                        _rawBuffer,
+                        _scrollPosition,
+                        _terminalDesign,
+                        _cursorPosition,
+                        _prompt,
+                        _input,
+                        _application,
+                        _size,
+                        _terminalMaxColumns,
+                        _value
+                    ];
+
+                    private _previousHash = _previousState getOrDefault ["hash", ""];
+
+                    if (_currentStateHash == _previousHash) then
+                    {
+                        _shouldUpdate = false;
+                    } else {
+                        _previousState set ["hash", _currentStateHash];
+                    };
+                };
+
+                if (_shouldUpdate) then
+                {
+                    [
+                        _computer,
+                        _rawBuffer,
+                        _size,
+                        _scrollPosition,
+                        _terminalDesign,
+                        _cursorPosition,
+                        _prompt,
+                        _input,
+                        _application,
+                        _terminalKeyboardLayout,
+                        _bgColorHeader,
+                        _bgColorConsole,
+                        _fontColorHeader,
+                        _fontColorConsole,
+                        _value,
+                        _terminalMaxColumns
+                    ] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateAll", _playersInRange];
+                };
             };
         },
         _updateInterval,
-        [_computer, _consoleDialog]
+        [_computer, _consoleDialog, _previousState]
     ] call CBA_fnc_addPerFrameHandler;
 
 _handle;

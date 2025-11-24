@@ -19,8 +19,34 @@ params ["_computer"];
 
 if (!AE3_UiOnTexture) exitWith {};
 
-private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 3];
+// Debounce keystroke synchronization based on CBA setting
+private _debounceInterval = missionNamespace getVariable ["AE3_UiKeystrokeSyncInterval", 0.1];
+
+// Get last sync time for this computer
+private _lastSyncTime = _computer getVariable ["AE3_lastKeystrokeSyncTime", -999];
+private _currentTime = CBA_missionTime;
+
+// If debounce interval is 0, always sync (real-time mode)
+// Otherwise, only sync if enough time has passed since last sync
+if (_debounceInterval > 0 && (_currentTime - _lastSyncTime) < _debounceInterval) exitWith {};
+
+// Update last sync time
+_computer setVariable ["AE3_lastKeystrokeSyncTime", _currentTime];
+
+private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 2];
 private _playersInRange = [_playerRange, _computer] call AE3_main_fnc_getPlayersInRange;
+
+// Apply viewer limit if configured
+private _maxViewers = missionNamespace getVariable ["AE3_UiMaxConcurrentViewers", 3];
+if (_maxViewers > 0 && count _playersInRange > _maxViewers) then
+{
+    // Sort by distance and take only closest N players
+    _playersInRange = _playersInRange apply {
+        [_x distance _computer, _x]
+    };
+    _playersInRange sort true; // Sort by distance (ascending)
+    _playersInRange = (_playersInRange select [0, _maxViewers]) apply { _x select 1 };
+};
 
 // Exit if no players in range to avoid network overhead
 if (count _playersInRange == 0) exitWith {};

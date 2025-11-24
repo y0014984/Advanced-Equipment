@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="AE3">
     <Package name="Filesystem">
+        <Container name="CbaSettings">
+            <Key ID="STR_AE3_Filesystem_CbaSettings_FilesystemCategoryName">
+                <Original>AE3 Filesystem</Original>
+                <English>AE3 Filesystem</English>
+                <French>AE3 Système de fichiers</French>
+                <Italian>AE3 Filesystem</Italian>
+                <Russian>AE3 Файловая система</Russian>
+                <German>AE3 Dateisystem</German>
+                <Chinesesimp>AE3 文件系统</Chinesesimp>
+            </Key>
+        </Container>
         <Container name="Config">
             <Key ID="STR_AE3_Filesystem_Config_AddDirDisplayName">
                 <Original>AE3 Add Directory</Original>

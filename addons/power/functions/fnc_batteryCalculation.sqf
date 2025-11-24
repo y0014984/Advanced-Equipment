@@ -67,6 +67,34 @@ if(_newBatteryLevel > _batteryCapacity) then
 };
 
 _battery setVariable ['AE3_power_batteryLevel', _newBatteryLevel];
-_battery setVariable ['AE3_power_powerState', _powerState, true];
+
+// Only sync power state if it changed (respects CBA settings)
+private _enableSync = missionNamespace getVariable ["AE3_Power_EnableStateSync", true];
+if (_enableSync) then
+{
+    private _oldPowerState = _battery getVariable ["AE3_power_powerState_previous", -1];
+    private _changeThreshold = missionNamespace getVariable ["AE3_Power_ChangeThreshold", 1];
+
+    // Calculate percentage change in battery level
+    private _batteryCapacity = _battery getVariable 'AE3_power_batteryCapacity';
+    private _oldBatteryLevel = _battery getVariable ["AE3_power_batteryLevel_previous", _newBatteryLevel];
+    private _percentChange = if (_batteryCapacity > 0) then {
+        abs ((_newBatteryLevel - _oldBatteryLevel) / _batteryCapacity * 100)
+    } else {
+        0
+    };
+
+    // Only sync if power state changed OR battery level changed beyond threshold
+    if (_oldPowerState != _powerState || _percentChange >= _changeThreshold) then
+    {
+        _battery setVariable ['AE3_power_powerState', _powerState, true];
+        _battery setVariable ["AE3_power_powerState_previous", _powerState];
+        _battery setVariable ["AE3_power_batteryLevel_previous", _newBatteryLevel];
+    } else {
+        _battery setVariable ['AE3_power_powerState', _powerState];
+    };
+} else {
+    _battery setVariable ['AE3_power_powerState', _powerState];
+};
 
 [_powerState == 1, _newBatteryLevel];

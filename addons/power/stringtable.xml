@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="AE3">
     <Package name="Power">
+        <Container name="CbaSettings">
+            <Key ID="STR_AE3_Power_CbaSettings_PowerCategoryName">
+                <Original>AE3 Power</Original>
+                <English>AE3 Power</English>
+                <French>AE3 Puissance</French>
+                <Italian>AE3 Potenza</Italian>
+                <Russian>AE3 Питание</Russian>
+                <German>AE3 Strom</German>
+                <Chinesesimp>AE3 电源</Chinesesimp>
+            </Key>
+        </Container>
         <Container name="Config">
             <Key ID="STR_AE3_Power_Config_AirportGeneratorDisplayName">
                 <Original>Diesel Ground Power Unit</Original>
