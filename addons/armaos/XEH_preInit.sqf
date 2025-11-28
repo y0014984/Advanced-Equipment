@@ -162,6 +162,21 @@
 /* ================================================================================ */
 
 [
+	"AE3_UiMaxTransmitLines",
+	"SLIDER",
+	["STR_AE3_Main_CbaSettings_UiOnTexMaxLinesName", "STR_AE3_Main_CbaSettings_UiOnTexMaxLinesTooltip"],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[16, 400, 64, 0], // min, max, default, decimal places
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
+    {
+        params ["_value"];
+    }, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+/* ================================================================================ */
+
+[
 	"AE3_UiKeystrokeSyncInterval",
 	"SLIDER",
 	["UI-on-Texture Keystroke Sync Interval", "Minimum interval (in seconds) between keystroke synchronization to nearby players. 0 = Real-time per-keystroke sync (highest responsiveness, high network usage). 0.1-0.3 = Debounced sync (balanced). Recommended: 0.1 seconds."],

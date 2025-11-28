@@ -10,17 +10,18 @@
  * 4: _terminalDesign <STRING> - Terminal design name
  * 5: _cursorPosition <NUMBER> - Current cursor position
  * 6: _terminalMaxColumns <NUMBER> - Terminal max columns for rendering
+ * 7: _visibleStartOffset <NUMBER> - Optional; start index of the visible viewport within the provided buffer slice (default -1 to auto-calc)
  *
  * Return Value:
  * None
  *
  * Example:
- * [_computer, _rawBuffer, 0.8, 0, "ArmaOS", 10, 80] call AE3_armaos_fnc_terminal_uiOnTex_updateOutput;
+ * Called via remoteExec from laptop terminals; not intended for direct manual invocation.
  *
  * Public: No
  */
 
-params ["_computer", "_rawBuffer", "_size", "_scrollPosition", "_terminalDesign", "_cursorPosition", "_terminalMaxColumns"];
+params ["_computer", "_rawBuffer", "_size", "_scrollPosition", "_terminalDesign", "_cursorPosition", "_terminalMaxColumns", ["_visibleStartOffset", -1]];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
@@ -55,11 +56,21 @@ private _terminal = _computer getVariable ["AE3_terminal", createHashMap];
 private _terminalRows = _terminal getOrDefault ["AE3_terminalRows", 24];
 
 private _visibleBuffer = [];
-private _startIndex = _scrollPosition max 0;
-private _endIndex = (_startIndex + _terminalRows) min (count _renderedBuffer);
+private _renderedBufferLength = count _renderedBuffer;
 
-for "_i" from _startIndex to (_endIndex - 1) do {
-	_visibleBuffer pushBack (_renderedBuffer select _i);
+if (_renderedBufferLength > 0) then {
+	private _startIndex = if (_visibleStartOffset >= 0) then {
+		_visibleStartOffset min _renderedBufferLength
+	} else {
+		private _idx = (_renderedBufferLength - _terminalRows) - _scrollPosition;
+		_idx max 0
+	};
+
+	private _availableLines = (_renderedBufferLength - _startIndex) min _terminalRows;
+
+	for "_i" from _startIndex to (_startIndex + _availableLines - 1) do {
+		_visibleBuffer pushBack (_renderedBuffer select _i);
+	};
 };
 
 // Compose output with proper formatting

@@ -15,6 +15,17 @@
 ] call CBA_fnc_addSetting;
 
 [
+	"AE3_NetworkDebug", // Settings internal name
+	"CHECKBOX", // Settings type
+	["STR_AE3_Main_CbaSettings_NetworkDebugName", "STR_AE3_Main_CbaSettings_NetworkDebugTooltip"], // Settings Name + Tooltip
+	"STR_AE3_Main_CbaSettings_MainCategoryName", // Settings category
+	false, // Default Value
+    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    AE3_main_fnc_manageNetworkDebug, // function that will be executed once on mission start and every time the setting is changed.
+    false // Setting will be marked as needing mission restart after being changed. (optional, default false) <BOOL>
+] call CBA_fnc_addSetting;
+
+[
 	"AE3_DeploymentType", // Settings internal name
 	"LIST", // Settings type
 	["STR_AE3_Main_CbaSettings_DeploymentTypeName", "STR_AE3_Main_CbaSettings_DeploymentTypeTooltip"], // Settings Name + Tooltip

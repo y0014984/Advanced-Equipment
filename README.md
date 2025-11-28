@@ -350,6 +350,7 @@ Key settings:
 - **Debug Mode** - Enable system chat debug messages
 - **Power Costs** - Customize battery consumption per operation
 - **Terminal Update Rate** - UI-on-Texture refresh frequency (default: 0.3s)
+- **Network Debug** - Optional verbose logging of AE3 remoteExec traffic (diag_log; off by default)
 
 See [Configuration Guide](wiki/Configuration.md) for complete settings reference.
 
@@ -361,6 +362,8 @@ AE3 uses a network-safe rendering approach:
 - **Terminal buffer** (raw STRING/ARRAY) is synchronized across network
 - **Rendered TEXT** is generated locally on each client
 - **Throttled updates** - configurable refresh rate reduces network traffic
+- **Viewport-only payloads** - only the visible window is transmitted, capped by `AE3_UiMaxTransmitLines` (defaults are recommended; raising this is not advised)
+- **Usage-aware** - no UI-on-Texture traffic is sent when laptops are idle, UI-on-Texture is disabled, or no viewers are nearby
 
 ### Mutex System
 

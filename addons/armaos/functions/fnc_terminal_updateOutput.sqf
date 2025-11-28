@@ -56,14 +56,27 @@ if (AE3_UiOnTexture) then
 		private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 3];
 		private _playersInRange = [_playerRange, _computer] call AE3_main_fnc_getPlayersInRange;
 
-		// Send raw buffer data for instant updates
-		private _rawBuffer = _terminal get "AE3_terminalBuffer";
+		// Skip network traffic if laptop is not in use
+		private _settingsAce3 = _computer getVariable ["AE3_SettingsACE3", createHashMap];
+		private _inUse = _settingsAce3 getOrDefault ["inUse", false, true];
+		if (!_inUse) exitWith {};
+
+		// Send trimmed raw buffer data for instant updates
+		private _rawBufferFull = _terminal get "AE3_terminalBuffer";
 		private _scrollPosition = _terminal get "AE3_terminalScrollPosition";
 		private _terminalDesign = _terminal getOrDefault ["AE3_terminalDesign", 9];
 		private _cursorPosition = _terminal get "AE3_terminalCursorPosition";
 		private _terminalMaxColumns = _terminal get "AE3_terminalMaxColumns";
+		private _terminalRows = _terminal getOrDefault ["AE3_terminalRows", 24];
+		private _maxTransmitLines = missionNamespace getVariable ["AE3_UiMaxTransmitLines", 120];
 
-		[_computer, _rawBuffer, _size, _scrollPosition, _terminalDesign, _cursorPosition, _terminalMaxColumns] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
+		private _uiPayload = [_rawBufferFull, _terminalRows, _scrollPosition, _maxTransmitLines] call AE3_armaos_fnc_terminal_buildUiPayload;
+		_uiPayload params ["_rawBuffer", "_visibleStartOffset"];
+
+		// Abort if no viewers are in range
+		if ((count _playersInRange) isEqualTo 0) exitWith {};
+
+		[_computer, _rawBuffer, _size, _scrollPosition, _terminalDesign, _cursorPosition, _terminalMaxColumns, _visibleStartOffset] remoteExec ["AE3_armaos_fnc_terminal_uiOnTex_updateOutput", _playersInRange];
 
 		// Also sync input state for real-time typing visibility
 		[_computer] call AE3_armaos_fnc_terminal_syncInputState;

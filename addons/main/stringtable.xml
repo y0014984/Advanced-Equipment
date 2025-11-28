@@ -65,6 +65,24 @@
                 <German>AE3 Allgemein</German>
                 <Chinesesimp>AE3 主体</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_NetworkDebugName">
+                <Original>Network Debug</Original>
+                <English>Network Debug</English>
+                <French>Debug Réseau</French>
+                <Italian>Debug di Rete</Italian>
+                <Russian>Отладка сети</Russian>
+                <German>Netzwerk-Debug</German>
+                <Chinesesimp>网络调试</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_NetworkDebugTooltip">
+                <Original>Logs AE3 remoteExec traffic to diag_log. Use only for troubleshooting; generates verbose output.</Original>
+                <English>Logs AE3 remoteExec traffic to diag_log. Use only for troubleshooting; generates verbose output.</English>
+                <French>Journalise le trafic remoteExec AE3 dans diag_log. À utiliser uniquement pour le dépannage; sortie volumineuse.</French>
+                <Italian>Registra il traffico remoteExec di AE3 su diag_log. Usare solo per troubleshooting; output verboso.</Italian>
+                <Russian>Логирует трафик remoteExec AE3 в diag_log. Используйте только для отладки; вывод объёмный.</Russian>
+                <German>Protokolliert AE3-remoteExec-Verkehr in diag_log. Nur für Fehleranalyse nutzen; sehr ausführlich.</German>
+                <Chinesesimp>将AE3的remoteExec流量记录到diag_log，仅用于排障，会产生大量输出。</Chinesesimp>
+            </Key>
         </Container>
         <Container name="Config">
             <Key ID="STR_AE3_Main_Config_ModuleAddConnectionDescription">

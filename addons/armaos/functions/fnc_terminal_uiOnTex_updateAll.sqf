@@ -19,12 +19,13 @@
  * 13: _fontColorConsole <STRING> - TODO: Add description
  * 14: _value <STRING> - TODO: Add description
  * 15: _terminalMaxColumns <NUMBER> - Terminal max columns for rendering
+ * 16: _visibleStartOffset <NUMBER> - Optional; start index of the visible viewport within the provided buffer slice (default -1 to auto-calc)
  *
  * Return Value:
  * None
  *
  * Example:
- * [_computer, _rawBuffer, _size] call AE3_armaos_fnc_terminal_uiOnTex_updateAll;
+ * Called via remoteExec from laptop terminals; not intended for direct manual invocation.
  *
  * Public: No
  */
@@ -46,7 +47,8 @@ params [
 	"_fontColorHeader",
 	"_fontColorConsole",
 	"_value",
-	"_terminalMaxColumns"
+	"_terminalMaxColumns",
+	["_visibleStartOffset", -1]
 ];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
@@ -126,20 +128,20 @@ private _terminalRows = _terminal getOrDefault ["AE3_terminalRows", 24];
 private _visibleBuffer = [];
 private _renderedBufferLength = count _renderedBuffer;
 
-if (_renderedBufferLength > _terminalRows) then {
-	// Calculate start index by subtracting scroll position from end (same as player dialog)
-	private _startIndex = (_renderedBufferLength - _terminalRows) - _scrollPosition;
-	_startIndex = _startIndex max 0; // Ensure start index is never negative
+if (_renderedBufferLength > 0) then {
+	private _startIndex = if (_visibleStartOffset >= 0) then {
+		_visibleStartOffset min _renderedBufferLength
+	} else {
+		// Fallback to legacy behavior if no offset is provided
+		private _idx = (_renderedBufferLength - _terminalRows) - _scrollPosition;
+		_idx max 0
+	};
 
-	// Calculate how many lines we can actually display from this position
 	private _availableLines = (_renderedBufferLength - _startIndex) min _terminalRows;
 
 	for "_i" from _startIndex to (_startIndex + _availableLines - 1) do {
 		_visibleBuffer pushBack (_renderedBuffer select _i);
 	};
-} else {
-	// Buffer is smaller than terminal rows, show all
-	_visibleBuffer = +_renderedBuffer;
 };
 
 // Compose output with proper formatting

@@ -452,6 +452,24 @@
                 <German>Legt die Geschwindigkeit in Zeilen für die Mausrad-Scroll-Funktion des Terminals fest.</German>
                 <Chinesesimp>确定终端鼠标滚轮滚动的速度(以行为单位).</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_UiOnTexMaxLinesName">
+                <Original>UI-on-Texture Max Transmit Lines</Original>
+                <English>UI-on-Texture Max Transmit Lines</English>
+                <French>UI-on-Texture Max Transmit Lines</French>
+                <Italian>UI-on-Texture Max Transmit Lines</Italian>
+                <Russian>UI-on-Texture Max Transmit Lines</Russian>
+                <German>UI-on-Texture Max Transmit Lines</German>
+                <Chinesesimp>UI-on-Texture Max Transmit Lines</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_UiOnTexMaxLinesTooltip">
+                <Original>Caps how many terminal lines are sent to nearby viewers. Higher values mirror more history but sharply increase bandwidth and can cause stutters; defaults are recommended.</Original>
+                <English>Caps how many terminal lines are sent to nearby viewers. Higher values mirror more history but sharply increase bandwidth and can cause stutters; defaults are recommended.</English>
+                <French>Limite le nombre de lignes du terminal envoyées aux spectateurs proches. Des valeurs plus élevées répliquent plus d'historique mais augmentent fortement la bande passante et peuvent causer des saccades; les valeurs par défaut sont recommandées.</French>
+                <Italian>Limita quante righe di terminale vengono inviate agli osservatori vicini. Valori più alti replicano più cronologia ma aumentano molto il traffico e possono causare scatti; si raccomanda il valore predefinito.</Italian>
+                <Russian>Ограничивает число строк терминала, отправляемых близким игрокам. Более высокие значения передают больше истории, но резко увеличивают трафик и могут вызывать подтормаживания; рекомендуется оставлять значение по умолчанию.</Russian>
+                <German>Begrenzt, wie viele Terminalzeilen an nahe Spieler gesendet werden. Höhere Werte spiegeln mehr Verlauf, erhöhen aber die Bandbreite stark und können Ruckler verursachen; Standardwerte werden empfohlen.</German>
+                <Chinesesimp>限制发送给附近玩家的终端行数。数值越高可显示更多历史，但会明显增加带宽并可能引起卡顿；建议使用默认值。</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_Main_CbaSettings_UiOnTextureName">
                 <Original>UI on texture</Original>
                 <English>UI on texture</English>

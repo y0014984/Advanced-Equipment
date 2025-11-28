@@ -106,6 +106,7 @@ PREP(terminal_autocomplete);
 
 PREP(terminal_renderLine);
 PREP(terminal_reRenderBuffer);
+PREP(terminal_buildUiPayload);
 
 PREP(terminal_addChar);
 PREP(terminal_addLines);

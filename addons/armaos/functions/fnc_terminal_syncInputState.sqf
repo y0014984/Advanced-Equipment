@@ -19,6 +19,11 @@ params ["_computer"];
 
 if (!AE3_UiOnTexture) exitWith {};
 
+// Do not broadcast when laptop is not actively in use
+private _settingsAce3 = _computer getVariable ["AE3_SettingsACE3", createHashMap];
+private _inUse = _settingsAce3 getOrDefault ["inUse", false, true];
+if (!_inUse) exitWith {};
+
 // Debounce keystroke synchronization based on CBA setting
 private _debounceInterval = missionNamespace getVariable ["AE3_UiKeystrokeSyncInterval", 0.1];
 

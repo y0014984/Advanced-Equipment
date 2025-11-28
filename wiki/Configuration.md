@@ -85,6 +85,34 @@ AE3_DebugMode = true;  // Enable debug mode
 
 ---
 
+### AE3_NetworkDebug
+
+**Category:** Advanced Equipment
+
+**Type:** Checkbox (Boolean)
+
+**Default:** `false`
+
+**Description:** Logs AE3 remoteExec traffic to `diag_log` for troubleshooting. Verbose; leave disabled on live servers.
+
+**Effects:**
+- Writes an entry for each AE3 remoteExec observed on the local machine.
+- Useful for diagnosing excessive traffic or unexpected network calls.
+- May produce large RPT logs; do not enable in production.
+
+**Recommended Values:**
+- **Production/Public Server:** `false`
+- **Development/Testing:** `true` only temporarily when investigating network behavior
+
+**Requires Mission Restart:** No
+
+**Example:**
+```sqf
+AE3_NetworkDebug = true;  // Enable network logging to diag_log
+```
+
+---
+
 ## Terminal Appearance Settings
 
 ### AE3_TerminalDesign
@@ -278,6 +306,7 @@ AE3_TerminalScrollSpeed = 2;  // Scroll 3 lines at a time
 - **Enabled**: Terminal is visible on laptop screen in 3D world
 - **Disabled**: Terminal is only visible in dialog window
 - Increases network traffic when enabled (transmits terminal state to nearby players)
+- When disabled, laptops do not broadcast UI-on-Texture data
 - Looks more immersive but has performance cost
 
 **Performance Impact:**
@@ -373,6 +402,40 @@ AE3_armaos_uiOnTexUpdateInterval = 0.5;  // Update every 0.5 seconds
 ```
 
 **Note:** This setting is critical for multiplayer performance. See "Recommended Configurations" for guidance.
+
+---
+
+### AE3_UiMaxTransmitLines
+
+**Category:** ArmaOS
+
+**Type:** Slider
+
+**Default:** `120` lines
+
+**Range:** `16` to `400` lines
+
+**Description:** Caps how many terminal lines are transmitted to nearby viewers for UI-on-Texture. Only the visible viewport and nearby context are sent.
+
+**Effects:**
+- **Lower values (64-120):** Minimal bandwidth use; mirrors the current viewport.
+- **Higher values (200-400):** Sends more history; sharply increases bandwidth and may stutter or spike clients/servers. Not advised outside testing.
+
+**Performance Impact:** Directly limits payload size per update. Raising above defaults can cause large network bursts and should be avoided on live servers.
+
+**Recommended Values:**
+- **Performance Priority (default):** `64`
+- **Tight Bandwidth:** `64` to `96`
+- **Testing/Presentations (use with caution):** `160` to `200` (expect higher traffic)
+
+**Requires Mission Restart:** No
+
+**Example:**
+```sqf
+AE3_UiMaxTransmitLines = 64;  // Cap UI-on-Texture payload to 120 lines
+```
+
+**Warning:** Increasing beyond the default is not recommended and may cause severe bandwidth spikes or server network instability.
 
 ---
 
