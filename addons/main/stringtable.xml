@@ -352,6 +352,11 @@
             <Key ID="STR_AE3_Main_Zeus_AssetDetails">
                 <Original>Asset Details</Original>
                 <English>Asset Details</English>
+                <French>Détails de l'actif</French>
+                <Italian>Dettagli delle risorse</Italian>
+                <Russian>Подробная информация об активах</Russian>
+                <German>Asset Details</German>
+                <Chinesesimp>资产详情</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_Back">
                 <Original>Back</Original>
