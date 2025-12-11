@@ -1,12 +1,18 @@
-/**
- * Adds a single character to the output buffer stored in the terminal settings of a given computer.
+/*
+ * Author: Root
+ * Description: Adds a character to the terminal buffer at the current cursor position.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Character <STRING>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _inputChar <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _inputChar] call AE3_armaos_fnc_terminal_addChar;
+ *
+ * Public: No
  */
 
 params ["_computer", "_inputChar"];

@@ -1,20 +1,22 @@
-/**
- * PRIVATE
- *
- * This function is assigned to the 'onLoad' and 'onUnload' Events of the Zeus Module Interface: addConnection
- * This function runs local on the computer of the curator/zeus because it is UI triggered.
- * The function makes changes to the asset according the the user input.
- * This module needs to be placed individually and needs two synced objects.
- * After processing the module will be deleted.
+/*
+ * Author: Root
+ * Description: Handles the Zeus "Add Connection" module interface events (onLoad and onUnload). On load, populates the UI with
+ * synced objects and validates that exactly two objects are connected. On unload, creates the selected connection type
+ * (power or network) between the two synced objects after validation. Runs locally on the curator's machine and deletes the
+ * module after successful processing.
  *
  * Arguments:
- * 1: Display <OBJECT>
- * 2: Exit Code <NUMBER>
- * 3: Event <STRING>
+ * 0: _display <DISPLAY> - The Zeus module interface display
+ * 1: _exitCode <NUMBER> - Exit code from the display (1 = OK, 2 = Cancel)
+ * 2: _event <STRING> - Event type ("onLoad" or "onUnload")
  *
- * Results:
- * Visual Feedback in Zeus
+ * Return Value:
+ * None
  *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_module_addConnection;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_event"];
@@ -35,7 +37,9 @@ if (_event isEqualTo "onLoad") then
     // remove all unnecessary connections
     if ((count _syncedObjects) > 2) then
     {
-        private _connectionsToDelete = _syncedObjects deleteRange [2, (count _syncedObjects) - 1];
+        // Extract connections to delete BEFORE modifying the array (deleteRange returns Nothing, not the deleted elements)
+        private _connectionsToDelete = _syncedObjects select [2, (count _syncedObjects) - 2];
+        _syncedObjects deleteRange [2, (count _syncedObjects) - 2];
         _module synchronizeObjectsRemove _connectionsToDelete;
     };
 
@@ -51,7 +55,7 @@ if (_event isEqualTo "onLoad") then
     };
 
     // fill 'From' field
-    if ((count _syncedObjects) > 0) then
+    if (_syncedObjects isNotEqualTo []) then
     {
         private _from = _syncedObjects select 0;
         private _fromNameWithAceCargoName = [_from, true] call ace_cargo_fnc_getNameItem;

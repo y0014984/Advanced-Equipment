@@ -1,12 +1,20 @@
-/**
- * Adds event handler to the user interface elements of a terminal.
+/*
+ * Author: Root
+ * Description: Adds an event handler to the terminal for custom events.
  *
  * Arguments:
- * 1: UI Text Field <CONTROL>
- * 2: Keyboard Layout UI Button <CONTROL>
+ * 0: _consoleDialog <STRING> - TODO: Add description
+ * 1: _terminalCtrl <STRING> - TODO: Add description
+ * 2: _languageButtonCtrl <STRING> - TODO: Add description
+ * 3: _designButtonCtrl <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_consoleDialog, _terminalCtrl, _languageButtonCtrl] call AE3_armaos_fnc_terminal_addEventHandler;
+ *
+ * Public: No
  */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
@@ -54,6 +62,9 @@ private _result = _terminalCtrl ctrlAddEventHandler
 			private _keyChar = _terminalAllowedKeys get _keyCombination;
 
 			[_computer, _keyChar] call AE3_armaos_fnc_terminal_addCharToInput;
+
+			// Clear autocomplete state when typing
+			_terminal deleteAt "AE3_autocompleteState";
 		};
 
 		/* ---------------------------------------- */
@@ -61,11 +72,24 @@ private _result = _terminalCtrl ctrlAddEventHandler
 		if (_key isEqualTo DIK_BACKSPACE) then
 		{
 			[_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
+
+			// Clear autocomplete state when deleting
+			_terminal deleteAt "AE3_autocompleteState";
 		};
 
 		/* ---------------------------------------- */
 
-		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then	
+		if (_key isEqualTo DIK_TAB) then
+		{
+			if (_terminalApplication == "SHELL") then
+			{
+				[_computer] call AE3_armaos_fnc_terminal_autocomplete;
+			};
+		};
+
+		/* ---------------------------------------- */
+
+		if ((_key isEqualTo DIK_RETURN) || (_key isEqualTo DIK_NUMPADENTER)) then
 		{
 			private _input = [_computer] call AE3_armaos_fnc_terminal_getInput;
 
@@ -144,7 +168,16 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		[_computer, _displayorcontrol] call AE3_armaos_fnc_terminal_updateOutput;
 
-		true // Intercepts the default action, eg. pressing escape won't close the dialog.
+		// Check if Arsenal or other high-priority dialogs are open
+		// Display 602 = ACE Arsenal, Display 312 = Virtual Arsenal, Display 49 = Escape Menu
+		private _arsenalOpen = !(isNull findDisplay 602) || !(isNull findDisplay 312);
+		private _escMenuOpen = !(isNull findDisplay 49);
+
+		// If high-priority dialogs are open, don't intercept keys - let them handle input
+		if (_arsenalOpen || _escMenuOpen) exitWith { false };
+
+		// Otherwise intercept to prevent default actions (eg. pressing escape won't close the terminal dialog)
+		true
 	}
 ];
 
@@ -163,13 +196,13 @@ private _result = _terminalCtrl ctrlAddEventHandler
 
 		if (_terminalApplication == "SHELL") then
 		{
-			if (_scroll >= 0) then 
+			if (_scroll >= 0) then
 			{
-				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - AE3_TerminalScrollSpeed];
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + AE3_TerminalScrollSpeed];
 			}
 			else
 			{
-				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition + AE3_TerminalScrollSpeed];
+				_terminal set ["AE3_terminalScrollPosition", _terminalScrollPosition - AE3_TerminalScrollSpeed];
 			};
 		};
 
@@ -222,11 +255,22 @@ private _result = _consoleDialog displayAddEventHandler
 
 		/* ---------------------------------------- */
 
-		// Updates terminal variable for all
+		// Sync only essential terminal data to avoid serialization warnings
 		_terminal = _computer getVariable "AE3_terminal";
-		_computer setVariable ["AE3_terminal", _terminal, 2];
+
+		// Extract only essential data for network sync (avoid HashMap serialization)
+		private _terminalSyncData = [
+			_terminal get "AE3_terminalBuffer",
+			_terminal get "AE3_terminalApplication",
+			_terminal get "AE3_terminalPrompt",
+			_terminal get "AE3_terminalScrollPosition",
+			_terminal get "AE3_terminalLoginUser",
+			_terminal get "AE3_terminalCommandHistory"
+		];
+		_computer setVariable ["AE3_terminal_sync", _terminalSyncData, [clientOwner, 2]];
+
 		_filepointer = _computer getVariable "AE3_filepointer";
-		_computer setVariable ["AE3_filepointer", _filepointer, 2];
+		_computer setVariable ["AE3_filepointer", _filepointer, [clientOwner, 2]];
 
 		[_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 	}

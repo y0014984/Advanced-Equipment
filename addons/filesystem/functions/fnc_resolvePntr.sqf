@@ -1,12 +1,19 @@
-/**
- * Resolves an absolute path of a pointer to the corresponding dir or file.
+/*
+ * Author: Root
+ * Description: Resolves a directory pointer (array of directory names) to the corresponding filesystem object. Throws exception if any directory in the path doesn't exist.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem [<HASHMAP>, <STRING>]
+ * 0: _pntr <ARRAY> - Directory pointer (array of directory names forming absolute path)
+ * 1: _filesystem <ARRAY> - Filesystem object
  *
- * Results:
- * Directory Object [<HASHMAP>, <STRING>]
+ * Return Value:
+ * Resolved filesystem object [content, owner, permissions] <ARRAY>
+ *
+ * Example:
+ * [[], _filesystem] call AE3_filesystem_fnc_resolvePntr;
+ * [["home", "user", "documents"], _filesystem] call AE3_filesystem_fnc_resolvePntr;
+ *
+ * Public: Yes
  */
 
 params ['_pntr', '_filesystem'];

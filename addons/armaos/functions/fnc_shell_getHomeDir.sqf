@@ -1,11 +1,17 @@
-/**
- * Returns file pointer to home directory of the user.
+/*
+ * Author: Root
+ * Description: Returns the home directory path for a given username. Root user gets /root, other users get /home/<username>.
  *
  * Arguments:
- * 1: Username <String>
+ * 0: _username <STRING> - TODO: Add description
  *
- * Results:
- * Filepointer [<String>]
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_username] call AE3_armaos_fnc_shell_getHomeDir;
+ *
+ * Public: No
  */
 
 

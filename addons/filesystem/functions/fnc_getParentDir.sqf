@@ -1,25 +1,38 @@
-/**
- * Get parent dir.
+/*
+ * Author: Root
+ * Description: Resolves the parent directory of a given path and returns the parent directory object along with the target name. Handles special paths like . .. and ~. Can optionally create parent directories if they don't exist.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
- * 2: Raw path to target directory <STRING>
- * 3: User <STRING> (Optional)
- * 4: Creates a directory if it is not found <BOOL> (Optional)
- * 5: Owner of the created directory <String> (Optional)
- * 6: Permissions of the created directory [[<BOOL>]] (Optional)
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to target (file or directory)
+ * 3: _user <STRING> (Optional, default: "") - User performing the operation
+ * 4: _create <BOOL> (Optional, default: false) - Create parent directories if they don't exist
+ * 5: _owner <STRING> (Optional, default: _user) - Owner of created directories
+ * 6: _permissions <ARRAY> (Optional, default: [[true,true,true],[false,false,false]]) - Permissions for created directories
  *
- * Results:
- * 0: Absolute path to target dir <[STRING]>
- * 1: Target dir <HASHMAP>
- * 2: Tail <STRING>
+ * Return Value:
+ * Array containing parent directory information <ARRAY>
+ * 0: Absolute path to parent directory <ARRAY>
+ * 1: Parent directory object <ARRAY>
+ * 2: Target name (filename or directory name) <STRING>
+ *
+ * Example:
+ * [[], _filesystem, "/tmp/test.txt", "root"] call AE3_filesystem_fnc_getParentDir;
+ * [_pointer, _filesystem, "../newdir", "user", true] call AE3_filesystem_fnc_getParentDir;
+ *
+ * Public: No
  */
 
 params['_pntr', '_filesystem', '_target', ['_user', ''], ['_create', false], ['_owner', nil], ['_permissions', [[true, true, true], [false, false, false]]]];
 
+// Validate _target is a string
+if (!(_target isEqualType "")) then {
+	throw (format ["Error: Invalid path type. Expected string, got %1", typeName _target]);
+};
+
 private _path = _target splitString "/";
-private _new = _path select (count _path - 1);
+private _new = _path select -1;
 
 if (_new isEqualTo "~") exitWith
 {
@@ -34,7 +47,7 @@ if (_new isEqualTo "~") exitWith
 		_current = (_filesystem select 0) get 'home';
 		_pointer = ["home"];
 		_new = "";
-		if(!(_user isEqualTo '')) then
+		if (_user isNotEqualTo '') then
 		{
 			_new = _user;
 		};
@@ -63,13 +76,13 @@ if (isNil "_owner") then
 
 if (_new isEqualTo ".") then 
 {
-	_new = _pntr select (count _pntr - 1);
+	_new = _pntr select -1;
 	_path = ".."
 };
 
 if (_new isEqualTo "..") then 
 {
-	_new = _pntr select (count _pntr - 2);
+	_new = _pntr select -2;
 	_path = "../.."
 };
 

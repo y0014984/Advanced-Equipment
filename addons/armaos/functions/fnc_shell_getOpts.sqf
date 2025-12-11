@@ -1,15 +1,19 @@
-/**
- * Parses options string/array from a command with given settings and returns a variables HashMap that can be loaded directly
+/*
+ * Author: Root
+ * Description: Parses command-line options and arguments according to command settings. Supports both short (-o) and long (--option) form options with type validation and default values. Returns parsed variables as an array.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Options <[STRING]>
- * 3: Command Settings <[STRING,ARRAY,ARRAY]>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Raw options array from command line
+ * 2: _commandSettings <ARRAY> - Command settings array [commandName, commandOpts, commandSyntax]
  *
- * Results:
- * 1: Results <[ARRAY]>
+ * Return Value:
+ * Parsed options array (use with [] params) <ARRAY>
  *
- * See AE3 wiki on how to you this in your own commands and applications
+ * Example:
+ * private _ae3OptsSuccess = false; [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandSettings"];

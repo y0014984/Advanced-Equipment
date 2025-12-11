@@ -1,23 +1,33 @@
-/**
- * Updates the battery symbol of the terminal for the "UI on texture" feature. 
+/*
+ * Author: Root
+ * Description: Updates battery status on UI-on-Texture displays for nearby players.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Battery Symbol Path <STRING>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _value <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _value] call AE3_armaos_fnc_terminal_uiOnTex_updateBatteryStatus;
+ *
+ * Public: No
  */
 
 params ["_computer", "_value"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
-if (!_uiOnTexActive) then { [_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init; };
+if (!_uiOnTexActive) then {
+	_computer setVariable ["AE3_UiOnTexActive", true]; // Set immediately to prevent race condition
+	[_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init;
+};
 
-waitUntil { !isNull findDisplay "AE3_UiOnTexture" };
+private _displayName = _computer getVariable ["AE3_UiOnTexDisplayName", "AE3_UiOnTexture"];
+waitUntil { !isNull findDisplay _displayName };
 
-private _uiOnTextureDisplay = findDisplay "AE3_UiOnTexture";
+private _uiOnTextureDisplay = findDisplay _displayName;
 
 private _uiOnTextureBatteryCtrl = _uiOnTextureDisplay displayCtrl 1050; // Battery Control
 

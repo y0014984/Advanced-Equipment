@@ -1,13 +1,19 @@
-/**
- * Prints/outputs informatioms about a given shell command.
+/*
+ * Author: Root
+ * Description: Displays the manual/help information for a specific command. Similar to Unix man command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Command <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["ls"], "man"] call AE3_armaos_fnc_os_man;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];
@@ -22,6 +28,7 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _ae3OptsThings = [];
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};

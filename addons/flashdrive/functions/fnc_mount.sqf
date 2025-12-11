@@ -1,13 +1,19 @@
-/**
- * Mounts a flashdrive attached to a given (usb) interface for a given (armaOS) user.
- * 
- * Arguments:
- * 0: Computer <OBJECT>
- * 1: Interfacename <String>
- * 2: Username <String>
+/*
+ * Author: Root
+ * Description: Mounts a flash drive attached to a USB interface, creating a mount point at /mnt/<interface> and making the drive's filesystem accessible to the specified user
  *
- * Results:
+ * Arguments:
+ * 0: _computer <OBJECT> - Computer object with USB interfaces
+ * 1: _interface <STRING> - Name of the USB interface to mount
+ * 2: _username <STRING> - ArmaOS username to grant access permissions
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [laptop, "usb0", "user"] call AE3_flashdrive_fnc_mount;
+ *
+ * Public: Yes
  */
 
 params['_computer', '_interface', '_username'];

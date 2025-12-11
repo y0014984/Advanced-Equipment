@@ -1,3 +1,22 @@
+/*
+ * Author: Root
+ * Description: Sets the color of a pixel at specified coordinates in the retro graphics canvas. Creates or deletes control as needed.
+ *
+ * Arguments:
+ * 0: _dialog <DISPLAY> - The canvas display
+ * 1: _x <NUMBER> - X coordinate
+ * 2: _y <NUMBER> - Y coordinate
+ * 3: _color <ARRAY> - Color array [R,G,B,A]
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_canvas, 10, 20, [1,0,0,1]] call AE3_armaos_fnc_retro_setPixelColor;
+ *
+ * Public: No
+ */
+
 params ["_dialog", "_x", "_y", "_color"];
 
 private _width = _dialog getVariable "AE3_Retro_Width";
@@ -21,7 +40,7 @@ private _pixelCtrl = _bitmap get _key;
 
 if (isNil "_pixelCtrl") then
 {
-    if (!(_color isEqualTo _bgColor)) then
+    if (_color isNotEqualTo _bgColor) then
     {
         // if pixel control does not exist and color is not bg color, then create control
         _pixelCtrl = _dialog ctrlCreate ["RscText", -1];
@@ -52,4 +71,3 @@ else
         _pixelCtrl ctrlSetBackgroundColor _color;
     };
 };
-

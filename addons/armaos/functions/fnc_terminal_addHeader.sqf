@@ -1,11 +1,17 @@
-/**
- * Adds the terminal header lines to the terminal of a given computer. 
+/*
+ * Author: Root
+ * Description: Adds the terminal header (logo/banner) to the terminal output buffer.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_addHeader;
+ *
+ * Public: No
  */
 
 params ["_computer"];

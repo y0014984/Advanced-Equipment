@@ -1,9 +1,22 @@
-// _type <STRING> = Connection Name/Type; same as data property
-// _from <[[OBJECT]]> = Array of 3den Objects starting the connection; You can multiselect and connect all at once
-// _to <OBJECT> = 3den Object the connection goes to
-// Array of Eden entities
-// [objects, groups, triggers, systems, waypoints, markers, layers, comments]
-// https://community.bistudio.com/wiki/Array_of_Eden_Entities
+/*
+ * Author: Root
+ * Description: Handles connection end events in Eden Editor. Validates and processes network and power connections between devices.
+ * This function is triggered when a connection is created in 3DEN editor. It validates the connection type and connected objects,
+ * then delegates to appropriate validation functions based on connection type (network or power).
+ *
+ * Arguments:
+ * 0: _type <STRING> - Connection type/name (AE3_PowerConnection or AE3_NetworkConnection)
+ * 1: _from <ARRAY> - Array of Eden entities starting the connection (format: [objects, groups, triggers, systems, waypoints, markers, layers, comments])
+ * 2: _to <OBJECT> - Eden object the connection goes to
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * ["AE3_NetworkConnection", [[laptop1, laptop2], [], [], [], [], [], [], []], router1] call AE3_main_fnc_3denEventHandlers_onConnectionEnd;
+ *
+ * Public: No
+ */
 
 params ["_type", "_from", "_to"];
 

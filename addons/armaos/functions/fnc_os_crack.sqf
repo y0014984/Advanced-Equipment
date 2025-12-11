@@ -1,37 +1,118 @@
-/**
- * Decrypt encrypted text without knowing the key/algorythm using various methods. (bruteforce, statistics, etc.)
+/*
+ * Author: Root
+ * Description: Attempts to decrypt encrypted text without knowing the key using cryptanalysis methods (bruteforce, frequency analysis). Supports caesar and columnar ciphers.
  *
  * Arguments:
- * 1: -m Mode <STRING> "bruteforce" or "statistics"
- * 2: -a Algorythm <STRING> Optional
- * 3: Message to Process <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments (-m mode, -a algorithm, -o output file, input)
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["-m=bruteforce", "-a=caesar", "KHOOR ZRUOG"], "crack"] call AE3_armaos_fnc_os_crack;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];
 
-private _commandOpts = 
+// Help system
+if (count _options > 0 && {(_options select 0) in ["-h", "--help"]}) exitWith {
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpTitle", "#8ce10b"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpDescription", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpDescriptionText"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpSyntax", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpSyntaxText"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParameters", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamMode"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamAlgorithm"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamOutput"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpParamInput"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModes", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModeBruteforce"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModeStatistics"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpModeKey"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpAlgorithms", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpAlgoCaesar"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpAlgoColumnar"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExamples", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample1"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample2"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample3"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpExample4"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[""]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote", "#FFD966"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote1"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote2"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote3"]]]] call AE3_armaos_fnc_shell_stdout;
+	[_computer, [[[localize "STR_AE3_ArmaOS_Crack_HelpNote4"]]]] call AE3_armaos_fnc_shell_stdout;
+};
+
+private _commandOpts =
 	[
 		["_mode", "m", "mode", "stringSelect", "", true, localize "STR_AE3_ArmaOS_CommandHelp_Crack_mode", ["bruteforce", "statistics", "key"]],
-        ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, localize "STR_AE3_ArmaOS_CommandHelp_Crack_algorithm", ["caesar", "columnar"]]
+        ["_algorithm", "a", "algorithm", "stringSelect", "caesar", false, localize "STR_AE3_ArmaOS_CommandHelp_Crack_algorithm", ["caesar", "columnar"]],
+		["_output", "o", "output", "string", "", false, localize "STR_AE3_ArmaOS_Crack_HelpParamOutput"]
 	];
 private _commandSyntax =
 [
 	[
 			["command", _commandName, true, false],
             ["options", "OPTIONS", true, false],
-			["path", "MESSAGE", true, true]
+			["path", "INPUT", true, true]
 	]
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _ae3OptsThings = [];
+private _mode = ""; private _algorithm = "caesar"; private _output = "";
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
 
-private _message = _ae3OptsThings joinString " ";
+// Validate required mode parameter
+if (_mode isEqualTo "") exitWith {
+	[_computer, localize "STR_AE3_ArmaOS_Crack_ErrorModeRequired"] call AE3_armaos_fnc_shell_stdout;
+	[_computer, localize "STR_AE3_ArmaOS_Crack_ErrorModeExample"] call AE3_armaos_fnc_shell_stdout;
+};
+
+// Get input - either a file path or a quoted string
+private _inputRaw = _ae3OptsThings joinString " ";
+
+if (_inputRaw isEqualTo "") exitWith {
+	[_computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName]] call AE3_armaos_fnc_shell_stdout;
+};
+
+// Try to read as file first, otherwise treat as string
+private _message = "";
+private _pointer = _computer getVariable "AE3_filepointer";
+private _filesystem = _computer getVariable "AE3_filesystem";
+private _terminal = _computer getVariable "AE3_terminal";
+private _username = _terminal get "AE3_terminalLoginUser";
+
+try {
+	// Attempt to read as file
+	private _fileContent = [_pointer, _filesystem, _inputRaw, _username, 1] call AE3_filesystem_fnc_getFile;
+
+	if (_fileContent isEqualType "") then {
+		// Successfully read file
+		_message = _fileContent;
+	} else {
+		// Not a file, treat as string
+		_message = _inputRaw;
+	};
+} catch {
+	// File read failed, treat as string input
+	_message = _inputRaw;
+};
 
 if (_message isEqualTo "") exitWith { [ _computer, format [localize "STR_AE3_ArmaOS_Exception_CommandHasMissingMessage", _commandName] ] call AE3_armaos_fnc_shell_stdout; };
 
@@ -63,7 +144,7 @@ switch (_algorithm) do {
             private _statistics = createHashMap;
 
             {
-                if (!(_x isEqualTo " ")) then
+                if (_x isNotEqualTo " ") then
                 {
                     private _count = 0;
                     if (_x in _statistics) then { _count = _statistics get _x; };
@@ -141,4 +222,23 @@ switch (_algorithm) do {
     };
 };
 
-[_computer, _result] call AE3_armaos_fnc_shell_stdout;
+// Output results
+if (_output isNotEqualTo "") then {
+	// Write to file
+	try {
+		// Create output file if it doesn't exist (rw-rw- permissions)
+		try {
+			[_pointer, _filesystem, _output, "", _username, _username, [[false, true, true], [false, true, true]]] call AE3_filesystem_fnc_createFile;
+		} catch {
+			// File already exists, ignore error
+		};
+		private _outputContent = _result joinString endl;
+		[_pointer, _filesystem, _output, _username, _outputContent, false] call AE3_filesystem_fnc_writeToFile;
+		[_computer, format [localize "STR_AE3_ArmaOS_Result_ResultsWrittenTo", _output]] call AE3_armaos_fnc_shell_stdout;
+	} catch {
+		[_computer, _exception] call AE3_armaos_fnc_shell_stdout;
+	};
+} else {
+	// Output to stdout
+	[_computer, _result] call AE3_armaos_fnc_shell_stdout;
+};

@@ -1,13 +1,18 @@
-/**
- * Creates an ARRAY of options, that is easy to search through by 'find' command
+/*
+ * Author: Root
+ * Description: Creates a search array for option parsing by combining short and long form option names.
  *
  * Arguments:
- * 1: Command Options <[ARRAY]>
- * 2: Form Type <STRING>
+ * 0: _commandOpts <STRING> - TODO: Add description
+ * 1: _formType <STRING> - TODO: Add description
  *
- * Results:
- * 1: Results <[STRING]>
+ * Return Value:
+ * None
  *
+ * Example:
+ * [_commandOpts, _formType] call AE3_armaos_fnc_shell_getOptsCreateSearchArray;
+ *
+ * Public: No
  */
 
 params ["_commandOpts", "_formType"];

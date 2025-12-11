@@ -1,11 +1,18 @@
-/**
- * Initializes and adds onEachFrame Event Handler to draw Debug Information above AE3 objects.
+/*
+ * Author: Root
+ * Description: Initializes and adds onEachFrame event handler to draw debug information above AE3 objects in 3D space.
+ * Displays object name, class, power state, battery level, fuel level, and connected devices.
  *
  * Arguments:
- * 0: AE3 Objects [<OBJECT>]
- * 
- * Results:
+ * 0: _ae3Objects <ARRAY> - Array of AE3 objects to monitor
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [[_laptop, _generator, _battery]] call AE3_main_fnc_initDebugOverlay;
+ *
+ * Public: No
  */
 
 /* 

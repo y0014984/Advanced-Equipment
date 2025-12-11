@@ -1,13 +1,18 @@
-/**
- * Compiles the device from config for an object's class.
- * Analoge to ACE3 MenuCompile.
+/*
+ * Author: Root
+ * Description: Compiles power device configuration from CfgVehicles config for a given object. Reads AE3_Device, AE3_InternalDevice, AE3_Battery, AE3_Generator, AE3_SolarGenerator, and AE3_Consumer configs. Caches compiled config in missionNamespace for performance. Analogous to ACE3 MenuCompile pattern.
  *
- * Argmuments:
- * 0: Entity
+ * Arguments:
+ * 0: _entity <OBJECT> - Object to compile device config for
  *
- * Returns:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_laptop] call AE3_power_fnc_compileDevice;
+ * [_generator] call AE3_power_fnc_compileDevice;
+ *
+ * Public: Yes
  */
 
 params['_entity'];

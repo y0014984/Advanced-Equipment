@@ -1,11 +1,17 @@
-/**
- * Removes/deletes last character of a hidden password variable in terminal settings of the given computer.
+/*
+ * Author: Root
+ * Description: Removes a character from the terminal input buffer at the current cursor position.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_removeCharFromInput;
+ *
+ * Public: No
  */
 
 params ["_computer"];

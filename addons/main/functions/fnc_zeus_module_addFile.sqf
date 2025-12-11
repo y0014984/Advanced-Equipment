@@ -1,20 +1,21 @@
-/**
- * PRIVATE
- *
- * This function is assigned to the 'onLoad' and 'onUnload' Events of the Zeus Module Interface: addFile
- * This function runs local on the computer of the curator/zeus because it is UI triggered.
- * The function makes changes to the asset according the the user input.
- * This module needs to be placed onto a asset with an filesystem.
- * After processing the module will be deleted.
+/*
+ * Author: Root
+ * Description: Handles the Zeus 'Add File' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
+ * Creates a new file on the target computer's filesystem with specified content, permissions, and optional encryption.
+ * The module must be placed on an object with a filesystem and will be deleted after processing.
  *
  * Arguments:
- * 1: Display <OBJECT>
- * 2: Exit Code <NUMBER>
- * 3: Event <STRING>
+ * 0: _display <DISPLAY> - The Zeus module display
+ * 1: _exitCode <NUMBER> - Exit code (1 = OK, 2 = Cancel)
+ * 2: _event <STRING> - Event type ("onLoad" or "onUnload")
  *
- * Results:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_module_addFile;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_event"];
@@ -94,14 +95,27 @@ if (_event isEqualTo "onUnload") exitWith
     if((_path find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_PathContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
     if((_owner find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_OwnerContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
 
-    // add file to computer
-    [_computer, _path, _content, _isCode, _owner, _permissions, _enableEncryption, _encryptionAlgorithm, _encryptionKey] remoteExecCall ["AE3_filesystem_fnc_device_addFile", 2];
+    // Wait for filesystem to be ready before adding file
+    [_computer, _path, _content, _isCode, _owner, _permissions, _enableEncryption, _encryptionAlgorithm, _encryptionKey, _module] spawn {
+        params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", "_enableEncryption", "_encryptionAlgorithm", "_encryptionKey", "_module"];
 
-    private _message = format ["%1: %2", localize "STR_AE3_Main_Zeus_Path", _path];
-    [localize "STR_AE3_Main_Zeus_FileAdded", _message, 5] call BIS_fnc_curatorHint;
+        // Wait for filesystem initialization (10 second timeout)
+        private _filesystemReady = [_computer, 10] call AE3_main_fnc_waitForFilesystem;
 
-    // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _module;
+        if (!_filesystemReady) exitWith {
+            [objNull, "Filesystem not ready. Please wait and try again."] call BIS_fnc_showCuratorFeedbackMessage;
+            deleteVehicle _module;
+        };
+
+        // Add file to computer
+        [_computer, _path, _content, _isCode, _owner, _permissions, _enableEncryption, _encryptionAlgorithm, _encryptionKey] remoteExecCall ["AE3_filesystem_fnc_device_addFile", 2];
+
+        private _message = format ["%1: %2", localize "STR_AE3_Main_Zeus_Path", _path];
+        [localize "STR_AE3_Main_Zeus_FileAdded", _message, 5] call BIS_fnc_curatorHint;
+
+        // Delete module
+        deleteVehicle _module;
+    };
 };
 
 /* ---------------------------------------- */

@@ -1,12 +1,18 @@
-/**
- * Adds the "turn off" ACE interaction for a given computer object. Computer texture changes accordingly if silent mode is false.
+/*
+ * Author: Root
+ * Description: Executes the turn off operation for a given computer object. Computer texture changes to show shutdown animation and clears terminal state.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Silent Switch <BOOL> (Optional)
+ * 0: _computer <OBJECT> - The computer object to turn off
+ * 1: _silent <BOOL> (Optional, default: false) - Whether to suppress sounds
  *
- * Results:
- * None
+ * Return Value:
+ * Success <BOOL>
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_computer_turnOff;
+ *
+ * Public: Yes
  */
 
 params ["_computer", ["_silent", false]];
@@ -21,14 +27,8 @@ params ["_computer", ["_silent", false]];
 	private _elapsedTime = 0;
 	private _color = "#(argb,8,8,3)color(0,0,0,0.0,co)";
 
-	if (_powerState == 1) then
-	{
-		_turnOffTime = 15;
-	}
-	else
-	{
-		_turnOffTime = 10;
-	};
+	// Use CBA setting for shutdown time
+	_turnOffTime = AE3_ShutdownTime;
 
 	if (AE3_DebugMode) then { _turnOffTime = 3; };
 
@@ -45,7 +45,9 @@ params ["_computer", ["_silent", false]];
 
 	private _handle = [_computer] spawn AE3_armaos_fnc_computer_playSoundStop;
 
-	_computer setVariable ["AE3_terminal", nil, [clientOwner, 2]];
+	// Clear terminal and sync data
+	_computer setVariable ["AE3_terminal", nil];
+	_computer setVariable ["AE3_terminal_sync", nil, [clientOwner, 2]];
 };
 
 true;

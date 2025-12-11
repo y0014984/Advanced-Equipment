@@ -46,8 +46,13 @@ PREP(computer_turnOff);
 PREP(computer_addUser);
 PREP(computer_addSecurityCommands);
 PREP(computer_addGames);
+PREP(computer_addCustomCommand);
+PREP(computer_initWithCommands);
 
 PREP(computer_getLocality);
+
+/* Device Initialization */
+PREP(device_initComplete);
 
 /* OS Link Functions */
 PREP(link_add);
@@ -67,6 +72,7 @@ PREP(os_ipconfig);
 PREP(os_ls);
 PREP(os_man);
 PREP(os_mkdir);
+PREP(os_touch);
 PREP(os_mv);
 PREP(os_cp);
 PREP(os_ping);
@@ -85,6 +91,8 @@ PREP(os_lsusb);
 /* Encryption Functions */
 PREP(encryption_caesar);
 PREP(encryption_columnar);
+PREP(encryption_crack);
+PREP(encryption_crypto);
 
 /* Terminal Functions */
 PREP(terminal_init);
@@ -94,9 +102,11 @@ PREP(terminal_addCharToInput);
 PREP(terminal_removeCharFromInput);
 PREP(terminal_shiftInputBuffer);
 PREP(terminal_getInput);
+PREP(terminal_autocomplete);
 
 PREP(terminal_renderLine);
 PREP(terminal_reRenderBuffer);
+PREP(terminal_buildUiPayload);
 
 PREP(terminal_addChar);
 PREP(terminal_addLines);
@@ -105,9 +115,14 @@ PREP(terminal_removeChar);
 PREP(terminal_addHeader);
 PREP(terminal_setPrompt);
 PREP(terminal_updateOutput);
+PREP(terminal_getAllowedKeysAR);
 PREP(terminal_getAllowedKeysDE);
 PREP(terminal_getAllowedKeysFR);
+PREP(terminal_getAllowedKeysHE);
+PREP(terminal_getAllowedKeysHU);
 PREP(terminal_getAllowedKeysIT);
+PREP(terminal_getAllowedKeysRU);
+PREP(terminal_getAllowedKeysTR);
 PREP(terminal_getAllowedKeysUS);
 PREP(terminal_getHeaderText);
 PREP(terminal_updateBufferVisible);
@@ -124,7 +139,22 @@ PREP(terminal_updateBatteryStatus);
 PREP(terminal_uiOnTex_init);
 PREP(terminal_uiOnTex_updateAll);
 PREP(terminal_uiOnTex_updateOutput);
+PREP(terminal_uiOnTex_updateInputOnly);
 PREP(terminal_uiOnTex_updateBatteryStatus);
 PREP(terminal_uiOnTex_setTerminalDesign);
 PREP(terminal_uiOnTex_setKeyboardLayout);
 PREP(terminal_uiOnTex_addUpdateAllEventHandler);
+PREP(terminal_syncInputState);
+
+/* Laptop Inventory Functions */
+PREP(laptop_obj2item);
+PREP(laptop_item2obj);
+PREP(laptop_pickup);
+PREP(laptop_deploy);
+PREP(laptop_handlePut);
+PREP(laptop_handleTake);
+PREP(laptop_pickup_stable);
+PREP(laptop_deploy_stable);
+PREP(laptop_promptName);
+PREP(laptop_promptNameAndStore);
+PREP(laptop_nameDialog_OK);

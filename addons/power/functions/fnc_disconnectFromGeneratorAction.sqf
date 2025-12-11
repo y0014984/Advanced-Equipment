@@ -1,13 +1,17 @@
-/**
- * PRIVATE
- *
- * Disconnects a device from it's power source. This function is triggered by a ACE3 interaction.
+/*
+ * Author: Root
+ * Description: ACE3 interaction action wrapper that disconnects a device from its power source. Calls removePowerConnection to handle the disconnection logic.
  *
  * Arguments:
- * 0: Device <OBJECT>
- * 
- * Returns:
+ * 0: _target <OBJECT> - Device to disconnect
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_laptop] call AE3_power_fnc_disconnectFromGeneratorAction;
+ *
+ * Public: No
  */
 
 params ["_target"];

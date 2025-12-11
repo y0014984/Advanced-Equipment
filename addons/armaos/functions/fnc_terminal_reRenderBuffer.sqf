@@ -1,11 +1,17 @@
-/**
- * Converts the terminal buffer to lines of structured text. Crops lines, if they are to long.
+/*
+ * Author: Root
+ * Description: Re-renders the entire terminal buffer, converting raw text to formatted structured text.
  *
  * Arguments:
- * 0: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_reRenderBuffer;
+ *
+ * Public: No
  */
 
 params['_computer'];

@@ -1,19 +1,13 @@
-class RscListbox;
 class RscText;
 class RscStructuredText;
-class RscEdit;
 class RscButton;
-class RscSlider;
-class RscPicture;
-class RscPictureKeepAspect;
-
 /* ================================================================================ */
 
 class AE3_ArmaOS_Retro_Dialog
 {
 	idd = 15985;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
 	class ControlsBackground
 	{
@@ -24,8 +18,8 @@ class AE3_ArmaOS_Retro_Dialog
 			colorBackground[] = {0,0,0,0};
 			x = 0;
 			y = 0;
-			w = pixelW * pixelGrid * 1;
-			h = pixelH * pixelGrid * 1;
+			w = "pixelW * pixelGrid * 1";
+			h = "pixelH * pixelGrid * 1";
 		};
 	};
 };
@@ -35,8 +29,8 @@ class AE3_ArmaOS_Retro_Dialog
 class AE3_ArmaOS_Main_Dialog
 {
 	idd = 15984;
-	movingEnable = true; // allow moving window by dragging the element with: moving = true
-	enableSimulation = true;
+	movingEnable = 1; // allow moving window by dragging the element with: moving = true
+	enableSimulation = 1;
 	class controlsBackground
 	{
 		// size 40x25
@@ -67,7 +61,7 @@ class AE3_ArmaOS_Main_Dialog
 		{
 			// Terminal Header
 			idc = 1000;
-			text = "YOO INDUSTRIES COMPUTER";
+			text = "SHITE™ COMPUTING";
 			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
 			y = 0.25 * GUI_GRID_H + GUI_GRID_Y;
 			w = 29.5 * GUI_GRID_W;
@@ -76,7 +70,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white
 			font = "EtelkaMonospaceProBold";
 			shadow = 0;
-			moving = true; // drag title bar to move window
+			moving = 1; // drag title bar to move window
 		};
 		class RscText_1100: RscStructuredText
 		{
@@ -108,7 +102,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white; this could prohibit to change color to yellow and red on low battery levels, but is necessary for design changes
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			action = "[(uiNamespace getVariable 'AE3_Battery'), true] call AE3_power_fnc_getBatteryLevel; ctrlSetFocus (uiNamespace getVariable 'AE3_ConsoleOutput');";
-			tooltip = "check battery level";
+			tooltip = "Check Battery Level";
 		};
 		class RscButton_1310: RscButton
 		{
@@ -124,7 +118,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white
 			font = "EtelkaMonospaceProBold";
 			shadow = 0;
-			tooltip = "change keyboard layout";
+			tooltip = "Change Keyboard Layout";
 		};
 		class RscButton_1320: RscButton
 		{
@@ -139,7 +133,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorBackgroundActive[] = {0,0,0,0.2}; // darken
 			colorText[] = {1,1,1,1}; // white
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
-			tooltip = "change terminal design";
+			tooltip = "Change Terminal Theme";
 		};
 		class RscButton_1300: RscButton
 		{
@@ -155,7 +149,7 @@ class AE3_ArmaOS_Main_Dialog
 			colorText[] = {1,1,1,1}; // white
 			style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
 			action = "closeDialog 1;";
-			tooltip = "close armaOS";
+			tooltip = "Close armaOS";
 		};
 	};
 };
@@ -165,8 +159,8 @@ class AE3_ArmaOS_Main_Dialog
 class AE3_ArmaOS_Waiting_Dialog
 {
 	idd = 16983;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 	class controls
 	{
 		class RscText_1000: RscText
@@ -204,7 +198,7 @@ class AE3_ArmaOS_Waiting_Dialog
 			w = 8 * GUI_GRID_W;
 			h = 1.5 * GUI_GRID_H;
 			colorBackground[] = {0,0.5,0,0.5};
-			
+
 			action = "closeDialog 1;";
 			font = "EtelkaMonospaceProBold";
 		};
@@ -212,3 +206,60 @@ class AE3_ArmaOS_Waiting_Dialog
 };
 
 /* ================================================================================ */
+
+class RscEdit;
+class RscTitle;
+
+class AE3_LaptopNameDialog {
+	idd = 87654; // Unique ID for the dialog
+	movingEnable = 0;
+
+	class controls {
+		class Background: RscText {
+			idc = -1;
+			x = "0.3 * safezoneW + safezoneX";
+			y = "0.4 * safezoneH + safezoneY";
+			w = "0.4 * safezoneW";
+			h = "0.2 * safezoneH";
+			colorBackground[] = {0, 0, 0, 0.7};
+		};
+
+		class Title: RscTitle {
+			idc = 1000;
+			text = "Name your laptop:";
+			x = "0.3 * safezoneW + safezoneX";
+			y = "0.4 * safezoneH + safezoneY";
+			w = "0.4 * safezoneW";
+			h = "0.04 * safezoneH";
+		};
+
+		class NameInput: RscEdit {
+			idc = 1001;
+			x = "0.32 * safezoneW + safezoneX";
+			y = "0.46 * safezoneH + safezoneY";
+			w = "0.36 * safezoneW";
+			h = "0.04 * safezoneH";
+			text = "";
+		};
+
+		class OKButton: RscButton {
+			idc = 1002;
+			text = "OK";
+			x = "0.42 * safezoneW + safezoneX";
+			y = "0.52 * safezoneH + safezoneY";
+			w = "0.08 * safezoneW";
+			h = "0.04 * safezoneH";
+			action = "[] call AE3_armaos_fnc_laptop_nameDialog_OK;";
+		};
+
+		class CancelButton: RscButton {
+			idc = 1003;
+			text = "Cancel";
+			x = "0.52 * safezoneW + safezoneX";
+			y = "0.52 * safezoneH + safezoneY";
+			w = "0.08 * safezoneW";
+			h = "0.04 * safezoneH";
+			action = "closeDialog 0;";
+		};
+	};
+};

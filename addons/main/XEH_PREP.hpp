@@ -7,6 +7,7 @@ PREP(sendVarToRemote);
 
 /* Debug Mode and Overlay */
 PREP(manageDebugMode);
+PREP(manageNetworkDebug);
 PREP(initDebugOverlay);
 PREP(killDebugOverlay);
 
@@ -16,6 +17,7 @@ PREP(3den_checkConnection);
 
 /* Misc */
 PREP(getPlayersInRange);
+PREP(waitForFilesystem);
 
 /* Terminate */
 PREP(terminateDevice);
@@ -41,3 +43,21 @@ PREP(zeus_module_addConnection);
 PREP(zeus_checkForComputer);
 
 PREP(zeus_isConnectionAllowed);
+
+PREP(zeus_openFilesystemBrowser);
+PREP(zeus_filesystemBrowser_init);
+PREP(zeus_filesystemBrowser_refresh);
+PREP(zeus_filesystemBrowser_onSelect);
+PREP(zeus_filesystemBrowser_onDblClick);
+PREP(zeus_filesystemBrowser_goBack);
+PREP(zeus_filesystemBrowser_createFile);
+PREP(zeus_filesystemBrowser_createFolder);
+PREP(zeus_filesystemBrowser_saveFile);
+PREP(zeus_filesystemBrowser_delete);
+PREP(zeus_filesystemBrowser_onUnload);
+PREP(zeus_filesystemBrowser_applyChanges);
+PREP(zeus_filesystemBrowser_rename);
+PREP(zeus_filesystemBrowser_move);
+PREP(zeus_filesystemBrowser_populateTree);
+PREP(zeus_browser_newFile);
+PREP(zeus_browser_newFolder);

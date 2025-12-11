@@ -1,19 +1,18 @@
-/**
- * PUBLIC
- *
- * Adds selected games to a given computer. Currently only Snake supported.
- * Needs to run on server.
+/*
+ * Author: Root
+ * Description: Adds selected games to a given computer. Currently only Snake is supported. Must be executed on the server.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Snake <BOOL>
+ * 0: _computer <OBJECT> - The computer object to add games to
+ * 1: _isSnake <BOOL> - Whether to add the Snake game
  *
- * Results:
+ * Return Value:
  * None
  *
  * Example:
  * [_computer, true] call AE3_armaos_fnc_computer_addGames;
  *
+ * Public: Yes
  */
 
 params ["_computer", "_isSnake"];

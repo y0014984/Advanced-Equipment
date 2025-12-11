@@ -1,24 +1,25 @@
-/**
- * PRIVATE
- *
- * This function is assigned in module config and will be triggered after mission start and if the module is placed by zeus on every computer.
- * The function will only run on server and only if placed in eden editor. The module will be deleted after processing.
- * The effect of this module applies to all syncted entities.
+/*
+ * Author: Root
+ * Description: Eden/Zeus module function to add a user account to all synced computers. Only runs on server when placed in Eden editor. Module is deleted after processing.
  *
  * Arguments:
- * 1: Module <OBJECT>
- * 2: Synced Units <[OBJECT]>
- * 3: Activated <BOOL> currently unused in this function
+ * 0: _module <OBJECT> - The Eden module object
+ * 1: _syncedUnits <ARRAY> - Array of synced computer objects
+ * 2: _activated <BOOL> - Module activation state
  *
- * Results:
- * 1: Success <BOOL> true = success and false = error
+ * Return Value:
+ * Success status <BOOL>
  *
+ * Example:
+ * [_module, [_computer1, _computer2], true] call AE3_armaos_fnc_module_addUser;
+ *
+ * Public: No
  */
 
 params["_module", "_syncedUnits", "_activated"];
 
 // ignore this function if module is placed by curator/zeus
-if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith { false; };
+if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith { false; };
 
 if (!isServer) exitWith {};
 
@@ -42,9 +43,17 @@ if (_activated) then
 		if((_username find " ") != -1) exitWith { deleteVehicle _module; false; };
 
 		{
-			//--- Add user to every synced computer
-			[_x, _username, _password] call AE3_armaos_fnc_computer_addUser;
-		} foreach _syncedUnits;
+			private _computer = _x;
+
+			// Wait for this specific computer to be fully initialized
+			waitUntil {
+				sleep 0.1;
+				_computer getVariable ["AE3_filesystemReady", false]
+			};
+
+			//--- Add user to computer
+			[_computer, _username, _password] call AE3_armaos_fnc_computer_addUser;
+		} forEach _syncedUnits;
 
 		deleteVehicle _module;
 	};

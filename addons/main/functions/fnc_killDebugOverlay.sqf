@@ -1,11 +1,18 @@
-/**
- * Removes/kills every onEachFrame Event Handler to draw Debug Information above AE3 objects.
+/*
+ * Author: Root
+ * Description: Removes all onEachFrame event handlers and cleans up debug overlays for AE3 objects.
+ * Deletes all associated UI controls.
  *
  * Arguments:
- * 0: AE3 Objects [<OBJECT>]
- * 
- * Results:
+ * 0: _ae3Objects <ARRAY> - Array of AE3 objects with debug overlays to remove
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_ae3ObjectsArray] call AE3_main_fnc_killDebugOverlay;
+ *
+ * Public: No
  */
 
 params ["_ae3Objects"];
@@ -14,7 +21,7 @@ params ["_ae3Objects"];
 	private _obj = _x select 0;
     private _control = _x select 1;
 
-    if (!(_control isEqualTo controlNull)) then
+    if (_control isNotEqualTo controlNull) then
     {
         private _objId = _forEachIndex;
 

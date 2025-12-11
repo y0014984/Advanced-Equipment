@@ -1,19 +1,19 @@
-/**
- * Returns the battery level of the given device. Optional displays hint.
- * This function will check if it's executed in scheduled or unscheduled mode.
- * if executed in unscheduled mode, the result could be outdated.
- * The given entity must be a battery. If you want to check an entity with an internal
- * battery, like the laptop, you need to pass the object of the internal battery
- * to this function instead of laptop itself.
+/*
+ * Author: Root
+ * Description: Returns the battery level of the given battery device in Wh and percent. Optionally displays a hint with the battery status. This function handles both scheduled and unscheduled execution contexts. For devices with internal batteries (like laptops), pass the internal battery object instead of the parent device.
  *
  * Arguments:
- * 0: Device <OBJECT>
- * 1: Hint <BOOLEAN> (Optional)
- * 
- * Returns:
- * 0: Battery Level absolute <NUMBER>
- * 1: Battery Level percent <NUMBER>
- * 2: Battery Capacity <NUMBER>
+ * 0: _entity <OBJECT> - Battery object to check
+ * 1: _hint <BOOL> - (Optional, default: false) Display hint with battery level
+ *
+ * Return Value:
+ * [Battery level in Wh, Battery level percent, Battery capacity in Wh] <ARRAY>
+ *
+ * Example:
+ * private _batteryInfo = [_battery, true] call AE3_power_fnc_getBatteryLevel;
+ * private _batteryInfo = [_laptop getVariable "AE3_power_internal", false] call AE3_power_fnc_getBatteryLevel;
+ *
+ * Public: Yes
  */
 
 params ["_entity", ["_hint", false]];

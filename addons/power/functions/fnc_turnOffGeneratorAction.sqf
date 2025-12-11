@@ -1,13 +1,19 @@
 /*
- * Turns off the generator.
+ * Author: Root
+ * Description: ACE3 interaction action that turns off a fuel generator with progress bar and sound effects. Removes provider handler, plays stop sound, turns off connected devices, and updates interactions. In Zeus mode or if silent, stops immediately without progress bar. Handles progress bar cancellation with restart sound.
  *
  * Arguments:
- * 0: Generator <OBJECT>
- * 1: If the ace progress bar is shown <BOOL>
- * 
- * Return:
- * None
-*/
+ * 0: _entity <OBJECT> - Generator object to turn off
+ * 1: _silent <BOOL> - (Optional, default: false) Skip progress bar and immediate stop
+ *
+ * Return Value:
+ * Success status (true if immediate stop, false if progress bar started) <BOOL>
+ *
+ * Example:
+ * [_generator, false] call AE3_power_fnc_turnOffGeneratorAction;
+ *
+ * Public: No
+ */
 
 params ["_entity", ["_silent", false]];
 

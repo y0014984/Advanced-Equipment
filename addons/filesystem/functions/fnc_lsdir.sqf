@@ -1,15 +1,22 @@
-/**
- * List directory.
+/*
+ * Author: Root
+ * Description: Lists the contents of a directory. Returns formatted output with optional detailed information including permissions and ownership. Directories are displayed in blue, executables in green.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
- * 2: Raw path to target directory <STRING>
- * 3: User <STRING> (Optional)
- * 4: Long mode <BOOL> (Optional)
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to directory to list
+ * 3: _user <STRING> (Optional, default: "") - User performing the operation
+ * 4: _long <BOOL> (Optional, default: false) - Show detailed listing with permissions and owner
  *
- * Results:
- * Content of the directory <[STRING]>
+ * Return Value:
+ * Array of directory entries (each entry is array of [permission string, name with color]) <ARRAY>
+ *
+ * Example:
+ * [[], _filesystem, "/tmp", "root"] call AE3_filesystem_fnc_lsdir;
+ * [[], _filesystem, "/home/user", "user", true] call AE3_filesystem_fnc_lsdir;
+ *
+ * Public: Yes
  */
 
 params['_pntr', '_filesystem', '_target', ['_user', ''], ['_long', false]];

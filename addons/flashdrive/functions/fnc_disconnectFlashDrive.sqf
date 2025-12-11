@@ -1,13 +1,19 @@
-/**
- * Physically disconects a flash drive from a computer
+/*
+ * Author: Root
+ * Description: Physically disconnects a flash drive from a computer's USB interface, unmounting it if necessary and converting the object back to an inventory item
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Player <OBJECT>
- * 3: Interface state <ARRAY>
+ * 0: _computer <OBJECT> - Computer object to disconnect the flash drive from
+ * 1: _player <OBJECT> - Player executing the disconnection action
+ * 2: _USBInterface <ARRAY> - USB interface configuration [index, name, relPos, rotYaw, rotPitch, rotRoll]
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [laptop, player, [0, "usb0", [0,0,0], 0, 0, 0]] call AE3_flashdrive_fnc_disconnectFlashDrive;
+ *
+ * Public: Yes
  */
 
 params['_computer', '_player', '_USBInterface'];

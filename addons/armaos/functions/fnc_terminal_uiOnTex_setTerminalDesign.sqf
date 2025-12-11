@@ -1,26 +1,36 @@
-/**
- * Updates the design of the terminal for the "UI on texture" feature. 
+/*
+ * Author: Root
+ * Description: Sets terminal design on UI-on-Texture displays for nearby players.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Background Color Header <COLOR>
- * 3: Background Color Console <COLOR>
- * 4: Font Color Header <COLOR>
- * 5: Font Color Console <COLOR>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _bgColorHeader <STRING> - TODO: Add description
+ * 2: _bgColorConsole <STRING> - TODO: Add description
+ * 3: _fontColorHeader <STRING> - TODO: Add description
+ * 4: _fontColorConsole <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _bgColorHeader, _bgColorConsole] call AE3_armaos_fnc_terminal_uiOnTex_setTerminalDesign;
+ *
+ * Public: No
  */
 
 params ["_computer", "_bgColorHeader", "_bgColorConsole", "_fontColorHeader", "_fontColorConsole"];
 
 private _uiOnTexActive = _computer getVariable ["AE3_UiOnTexActive", false]; // local variable on computer object is sufficient
 
-if (!_uiOnTexActive) then { [_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init; };
+if (!_uiOnTexActive) then {
+	_computer setVariable ["AE3_UiOnTexActive", true]; // Set immediately to prevent race condition
+	[_computer] spawn AE3_armaos_fnc_terminal_uiOnTex_init;
+};
 
-waitUntil { !isNull findDisplay "AE3_UiOnTexture" };
+private _displayName = _computer getVariable ["AE3_UiOnTexDisplayName", "AE3_UiOnTexture"];
+waitUntil { !isNull findDisplay _displayName };
 
-private _uiOnTextureDisplay = findDisplay "AE3_UiOnTexture";
+private _uiOnTextureDisplay = findDisplay _displayName;
 
 private _uiOnTextureHeaderBackgroundCtrl = _uiOnTextureDisplay displayCtrl 900;
 private _uiOnTextureConsoleBackgroundCtrl = _uiOnTextureDisplay displayCtrl 910;

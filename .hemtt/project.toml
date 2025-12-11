@@ -1,0 +1,61 @@
+name = "Advanced Equipment Revamped"
+prefix = "ae3"
+template = "cba"
+mainprefix = "z"
+folder_optionals = true
+
+[files]
+include = [
+    "mod.cpp",        
+    "meta.cpp",       
+    "LICENSE",
+    "logo_ae3_ca.paa",
+    "logo_ae3_ca_hover.paa",
+    "logo_ae3_ca_font.paa",
+    "README*.md",
+]
+exclude = [
+    ".gitignore",
+    ".editorconfig",
+    "*.md",
+    "*.json",
+]
+
+[properties]
+author = "Root"
+url = "https://github.com/A3-Root/Advanced-Equipment"
+
+[lints.sqf.banned_commands]
+options.banned = [
+    "execVM",
+]
+options.ignore = [
+    "addPublicVariableEventHandler",
+]
+
+[lints.sqf.var_all_caps]
+options.ignore = [
+    "ROOT_ADVANCEDEQUIPMENT_*",
+]
+
+[config.config_this_call]
+enabled = true
+
+[sqf.undefined]
+enabled = true
+options.check_orphan_code = true
+
+[sqf.if_not_else]
+enabled = true
+
+[sqf.shadowed]
+enabled = true
+
+[sqf.not_private]
+enabled = true
+
+[sqf.short_circuit_bool_var]
+enabled = true
+
+[version]
+git_hash = 0

@@ -1,14 +1,19 @@
-/**
- * Lists/outputs the containing files of a given folder/directory on a given computer.
- * Also returns information about the success of the command.
+/*
+ * Author: Root
+ * Description: Lists files and directories in the specified directory. Supports -l flag for detailed listing. Similar to Unix ls command.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Folder/Directory <[STRING]>
- * 3: Command Name <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _options <ARRAY> - Command options and arguments
+ * 2: _commandName <STRING> - The name of the command
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, ["-l", "/home"], "ls"] call AE3_armaos_fnc_os_ls;
+ *
+ * Public: Yes
  */
 
 params ["_computer", "_options", "_commandName"];
@@ -27,13 +32,14 @@ private _commandSyntax =
 ];
 private _commandSettings = [_commandName, _commandOpts, _commandSyntax];
 
+private _ae3OptsSuccess = false; private _ae3OptsThings = [];
 [] params ([_computer, _options, _commandSettings] call AE3_armaos_fnc_shell_getOpts);
 
 if (!_ae3OptsSuccess) exitWith {};
 
 private _path = _ae3OptsThings;
 
-if (count _path == 0) then
+if (_path isEqualTo []) then
 {
 	_path = [""];
 };
@@ -49,7 +55,7 @@ private _output = [];
 try
 {
 	{
-		_dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
+		private _dir = [_pointer, _filesystem, _x, _username, _long] call AE3_filesystem_fnc_lsdir;
 		_output append _dir;
 	}forEach _path;
 }catch

@@ -1,14 +1,19 @@
-/**
- * Uses the AE3 Equipment config to compile a hashmap 
- * for the object.
+/*
+ * Author: Root
+ * Description: Uses the AE3 Equipment config to compile a hashmap for the object. Parses config entries
+ * including animations, ACE3 interactions (dragging, carrying, cargo), and interaction conditions.
  *
- * Argmuments:
- * 0: Equipment Config <CONFIG>
- * 1: Config <HASHMAP>
+ * Arguments:
+ * 0: _equipmentCfg <CONFIG> - The equipment config class (CfgVehicles >> class >> AE3_Equipment)
+ * 1: _config <HASHMAP> - The hashmap to populate with compiled settings
  *
- * Returns:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_equipmentCfg, _config] call AE3_interaction_fnc_compileConfig;
+ *
+ * Public: No
  */
 
 

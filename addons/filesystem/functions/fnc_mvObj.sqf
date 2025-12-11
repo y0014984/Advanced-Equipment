@@ -1,16 +1,23 @@
-/**
- * Moves or copies a filesystem object to another directory.
+/*
+ * Author: Root
+ * Description: Moves or copies a filesystem object (file or directory) to another location. If copying, requires read permission on source. If moving, requires write permission on source. Always requires write permission on target directory.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
- * 2: Raw path to source obj <STRING>
- * 3: Raw path to target obj <STRING>
- * 4: User <STRING>
- * 5: If the obj should be copied <BOOL>
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _source <STRING> - Path to source object
+ * 3: _target <STRING> - Path to target location
+ * 4: _user <STRING> - User performing the operation
+ * 5: _copy <BOOL> (Optional, default: false) - If true, copy instead of move
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [[], _filesystem, "/tmp/old.txt", "/tmp/new.txt", "root"] call AE3_filesystem_fnc_mvObj;
+ * [[], _filesystem, "/home/file.txt", "/backup/", "user", true] call AE3_filesystem_fnc_mvObj;
+ *
+ * Public: Yes
  */
 
 params['_pntr', '_filesystem', '_source', '_target', '_user', ['_copy', false]];

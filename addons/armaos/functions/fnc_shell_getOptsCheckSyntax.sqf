@@ -1,20 +1,18 @@
-/**
- * checks the amount of things against the defined syntax
+/*
+ * Author: Root
+ * Description: Validates command syntax by checking if provided arguments match the expected command syntax pattern.
  *
  * Arguments:
- * 1: Syntax <[ARRAY]>
- * 2: Things <[STRING]>
+ * 0: _syntax <STRING> - TODO: Add description
+ * 1: _things <ARRAY> - TODO: Add description
  *
- * Results:
- * 1: Result <BOOLEAN>
+ * Return Value:
+ * None
  *
- * See AE3 wiki on how to you this in your own commands and applications
+ * Example:
+ * [_syntax, _things] call AE3_armaos_fnc_shell_getOptsCheckSyntax;
  *
- * things count conventions:
- * 0 = no things
- * -1 = unlimited things, minimum 1
- * 1-X = exact number of things
- *
+ * Public: No
  */
 
 params ["_syntax", "_things"];

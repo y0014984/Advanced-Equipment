@@ -1,14 +1,22 @@
-/**
- * Gets a file from filesystem.
+/*
+ * Author: Root
+ * Description: Retrieves the content of a file from the filesystem. Checks the specified permission before returning content. Throws exception if file doesn't exist or permission denied.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem [<HASHMAP>, <STRING>]
- * 2: Path to file <STRING>
- * 3: User <STRING>
- * 4: Permission <NUMBER> (0: Execute, 1: Read, 2: Write)
- * Results:
- * Filecontent <any>
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to file
+ * 3: _user <STRING> - User accessing the file
+ * 4: _permission <NUMBER> - Permission to check (0: Execute, 1: Read, 2: Write)
+ *
+ * Return Value:
+ * File content (can be string, code, or any stored type) <ANY>
+ *
+ * Example:
+ * [[], _filesystem, "/tmp/data.txt", "root", 1] call AE3_filesystem_fnc_getFile;
+ * [_pointer, _filesystem, "../script.sqf", "user", 0] call AE3_filesystem_fnc_getFile;
+ *
+ * Public: Yes
  */
 
 params['_pntr', '_filesystem', '_target', '_user', '_permission'];

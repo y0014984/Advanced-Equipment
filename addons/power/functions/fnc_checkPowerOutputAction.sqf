@@ -1,11 +1,17 @@
-/**
- * Checks power output of a generator or solar panel.
+/*
+ * Author: Root
+ * Description: ACE3 interaction action that displays power output via hint. Wrapper function that calls getPowerOutput with hint enabled.
  *
- * Argmuments:
- * 0: Entity <OBJECT>
+ * Arguments:
+ * 0: _entity <OBJECT> - Generator or solar panel object
  *
- * Returns:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_generator] call AE3_power_fnc_checkPowerOutputAction;
+ *
+ * Public: No
  */
 
 params["_entity"];

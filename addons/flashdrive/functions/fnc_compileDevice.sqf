@@ -1,13 +1,18 @@
-/**
- * Compiles the (usb) interface from config for an object's class.
- * Analoge to ACE3 MenuCompile.
+/*
+ * Author: Root
+ * Description: Compiles the USB interface configuration from config for an object's class. Analogous to ACE3 menu compilation.
+ * Reads the AE3_USB_Interface config section and initializes USB interfaces on the device.
  *
- * Argmuments:
- * 0: Entity
+ * Arguments:
+ * 0: _entity <OBJECT> - Device object to compile USB interfaces for
  *
- * Returns:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_laptop] call AE3_flashdrive_fnc_compileDevice;
+ *
+ * Public: No
  */
 
 params['_entity'];

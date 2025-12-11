@@ -11,12 +11,7 @@ class CfgVehicles
 
 		editorCategory = "AE3_Assets";
 
-		ae3_item = Item_FlashDisk_AE3;
-
-		class EventHandlers
-		{
-			init = "_this call AE3_filesystem_fnc_initFilesystem";
-		};
+		ae3_item = "Item_FlashDisk_AE3";
 
 		class ACE_Actions {
 			class Pickup {

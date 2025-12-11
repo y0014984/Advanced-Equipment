@@ -71,7 +71,7 @@ if (!isNil {_entity getVariable "AE3_network_children"}) exitWith
 	// Target is in parents
 	_result = [objNull, 0];
 	_parent = _entity getVariable ["AE3_network_parent", objNull];
-	if (!isNull (_parent) && !(_parent isEqualTo _last)) then
+	if (!isNull (_parent) && (_parent isNotEqualTo _last)) then
 	{
 		_res = [_parent, _target, _entity] call AE3_network_fnc_ping;
 
@@ -90,7 +90,7 @@ if (!isNil {_entity getVariable "AE3_network_children"}) exitWith
 };
 
 private _parent = _entity getVariable ["AE3_network_parent", objNull];
-if (!isNull _parent && !(_parent isEqualTo _last)) exitWith
+if (!isNull _parent && (_parent isNotEqualTo _last)) exitWith
 {
 	_res = [_parent, _target, _entity] call AE3_network_fnc_ping;
 	_len = (_parent distance _entity) + (_res select 1);

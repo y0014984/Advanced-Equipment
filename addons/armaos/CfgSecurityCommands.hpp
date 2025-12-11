@@ -1,4 +1,3 @@
-class OsFunction;
 
 // DO NOT USE [] in Strings.
 
@@ -9,7 +8,7 @@ class CfgSecurityCommands
 		path = "/bin/crypto";
 		description = "$STR_AE3_ArmaOS_Config_CommandCryptoDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandCryptoMan";
-		code = "_this call AE3_armaos_fnc_os_crypto";
+		code = "call AE3_armaos_fnc_os_crypto";
 	};
 
 	class crack : OsFunction
@@ -17,6 +16,6 @@ class CfgSecurityCommands
 		path = "/bin/crack";
 		description = "$STR_AE3_ArmaOS_Config_CommandCrackDescr";
 		man = "$STR_AE3_ArmaOS_Config_CommandCrackMan";
-		code = "_this call AE3_armaos_fnc_os_crack";
+		code = "call AE3_armaos_fnc_os_crack";
 	};
 };

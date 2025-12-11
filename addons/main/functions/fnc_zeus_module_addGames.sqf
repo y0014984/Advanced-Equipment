@@ -1,20 +1,21 @@
-/**
- * PRIVATE
- *
- * This function is assigned to the 'onLoad' and 'onUnload' Events of the Zeus Module Interface: addGames
- * This function runs local on the computer of the curator/zeus because it is UI triggered.
- * The function makes changes to the asset according the the user input.
- * This module needs to be placed onto a computer.
- * After processing the module will be deleted.
+/*
+ * Author: Root
+ * Description: Handles the Zeus 'Add Games' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
+ * Adds game programs (such as Snake) to the target computer.
+ * The module must be placed on a computer object and will be deleted after processing.
  *
  * Arguments:
- * 1: Display <OBJECT>
- * 2: Exit Code <NUMBER>
- * 3: Event <STRING>
+ * 0: _display <DISPLAY> - The Zeus module display
+ * 1: _exitCode <NUMBER> - Exit code (1 = OK, 2 = Cancel)
+ * 2: _event <STRING> - Event type ("onLoad" or "onUnload")
  *
- * Results:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_module_addGames;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_event"];
@@ -56,14 +57,27 @@ if (_event isEqualTo "onUnload") exitWith
     private _isSnakeCtrl = _display displayCtrl 1401;
     private _isSnake = cbChecked _isSnakeCtrl;
 
-    // add security commands to computer
-    [_computer, _isSnake] remoteExecCall ["AE3_armaos_fnc_computer_addGames", 2];
+    // Wait for filesystem to be ready before adding games
+    [_computer, _isSnake, _module] spawn {
+        params ["_computer", "_isSnake", "_module"];
 
-    private _message = format ["snake: %1 ", _isSnake];
-    [localize "STR_AE3_Main_Zeus_GamesAdded", _message, 5] call BIS_fnc_curatorHint;
+        // Wait for filesystem initialization (10 second timeout)
+        private _filesystemReady = [_computer, 10] call AE3_main_fnc_waitForFilesystem;
 
-    // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _module;
+        if (!_filesystemReady) exitWith {
+            [objNull, "Filesystem not ready. Please wait and try again."] call BIS_fnc_showCuratorFeedbackMessage;
+            deleteVehicle _module;
+        };
+
+        // Add games to computer
+        [_computer, _isSnake] remoteExecCall ["AE3_armaos_fnc_computer_addGames", 2];
+
+        private _message = format ["snake: %1 ", _isSnake];
+        [localize "STR_AE3_Main_Zeus_GamesAdded", _message, 5] call BIS_fnc_curatorHint;
+
+        // Delete module
+        deleteVehicle _module;
+    };
 };
 
 /* ---------------------------------------- */

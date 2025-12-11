@@ -1,13 +1,19 @@
 /*
- * Turns off the solar panel.
+ * Author: Root
+ * Description: ACE3 interaction action that turns off a solar panel with progress bar. Removes provider handler, turns off connected devices, and updates interactions. In Zeus mode or if silent, stops immediately without progress bar.
  *
  * Arguments:
- * 0: Solar panel <OBJECT>
- * 1: If the ace progress bar is shown <BOOL>
- * 
- * Return:
- * None
-*/
+ * 0: _entity <OBJECT> - Solar panel object to turn off
+ * 1: _silent <BOOL> - (Optional, default: false) Skip progress bar and immediate stop
+ *
+ * Return Value:
+ * Success status (true if immediate stop, false if progress bar started) <BOOL>
+ *
+ * Example:
+ * [_solarPanel, false] call AE3_power_fnc_turnOffSolarAction;
+ *
+ * Public: No
+ */
 
 params ["_entity", ["_silent", false]];
 

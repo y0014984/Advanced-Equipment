@@ -1,13 +1,18 @@
-/**
- * Returns the client ID of the current computer user.
- * If the computer is unused, the server owns the computer.
+/*
+ * Author: Root
+ * Description: Returns the client ID of the current computer user. If the computer is unused, returns 2 (server ownership).
  *
  * Arguments:
- * 0: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object to query
  *
- * Returns:
- * Owner of the computer <INT>
-*/
+ * Return Value:
+ * Owner client ID <NUMBER>
+ *
+ * Example:
+ * private _owner = [_computer] call AE3_armaos_fnc_computer_getLocality;
+ *
+ * Public: No
+ */
 
 params['_computer'];
 

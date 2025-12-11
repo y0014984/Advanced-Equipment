@@ -1,11 +1,17 @@
-/**
- * Plays the generator stop sound.
- * 
+/*
+ * Author: Root
+ * Description: Plays generator shutdown sound effect using soundStopEngine from config. Sets generator engine state to off before sound. Uses 3D positional audio with 100m max distance.
+ *
  * Arguments:
- * 0: Generator <OBJECT>
- * 
- * Returns:
+ * 0: _entity <OBJECT> - Generator object
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_generator] spawn AE3_power_fnc_playGeneratorStopSound;
+ *
+ * Public: No
  */
 
 

@@ -1,12 +1,18 @@
-/**
- * Writes input to terminal.
+/*
+ * Author: Root
+ * Description: Writes output to the terminal display. Accepts string or array of strings/formatted text. This is the standard output function for all commands.
  *
  * Arguments:
- * 1: Computer <OBJECT>
- * 2: Input <STRING>
+ * 0: _computer <OBJECT> - The computer object
+ * 1: _input <STRING or ARRAY> - The text to output
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, "Hello World"] call AE3_armaos_fnc_shell_stdout;
+ *
+ * Public: Yes
  */
 params['_computer', '_input'];
 

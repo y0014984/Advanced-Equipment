@@ -1,11 +1,17 @@
-/**
- * Initializes the terminal of a given computer by showing the terminal window, initializing terminal settings and adding event handlers.
+/*
+ * Author: Root
+ * Description: Initializes a new terminal session for a computer, setting up all terminal variables and state.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_init;
+ *
+ * Public: No
  */
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
@@ -18,10 +24,14 @@ if (!dialog) then
 	if (!_ok) then {hint localize "STR_AE3_ArmaOS_Exception_DialogFailed"};
 };
 
-private _consoleDialog = findDisplay 15984;	
+private _consoleDialog = findDisplay 15984;
 private _consoleOutput = _consoleDialog displayCtrl 1100;
 private _languageButton = _consoleDialog displayCtrl 1310;
 private _designButton = _consoleDialog displayCtrl 1320;
+private _titleControl = _consoleDialog displayCtrl 1000;
+
+// Set dialog title from CBA setting
+_titleControl ctrlSetText AE3_TerminalDialogTitle;
 
 [_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
 [_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
@@ -46,7 +56,7 @@ private _terminal = createHashMapFromArray
 		["AE3_terminalComputer", _computer],
 		["AE3_terminalPrompt", "/>"],
 		["AE3_terminalApplication", "LOGIN"],
-		["AE3_terminalSize", 0.75],
+		["AE3_terminalSize", AE3_TerminalDefaultSize],
 		["AE3_terminalMaxRows", 26],
 		["AE3_terminalMaxColumns", 80]
 	];
@@ -55,19 +65,33 @@ private _terminal = createHashMapFromArray
 _consoleOutput setVariable ["AE3_computer", _computer];
 _consoleDialog setVariable ["AE3_computer", _computer];
 
-[_computer, "AE3_terminal"] call AE3_main_fnc_getRemoteVar;
-if (isNil { _computer getVariable "AE3_terminal" }) then 
-{
-	_computer setVariable ["AE3_terminal", _terminal, [clientOwner, 2]];
+// Keep terminal local to client (no network sync of HashMap)
+// IMPORTANT: Set this BEFORE restoring sync data, as renderLine needs access to it
+_computer setVariable ["AE3_terminal", _terminal];
+
+// Restore terminal state from sync data if available (from previous session)
+[_computer, "AE3_terminal_sync"] call AE3_main_fnc_getRemoteVar;
+private _terminalSyncData = _computer getVariable ["AE3_terminal_sync", nil];
+if (!isNil "_terminalSyncData") then {
+	_terminal set ["AE3_terminalBuffer", _terminalSyncData select 0];
+	_terminal set ["AE3_terminalApplication", _terminalSyncData select 1];
+	_terminal set ["AE3_terminalPrompt", _terminalSyncData select 2];
+	_terminal set ["AE3_terminalScrollPosition", _terminalSyncData select 3];
+	_terminal set ["AE3_terminalLoginUser", _terminalSyncData select 4];
+	_terminal set ["AE3_terminalCommandHistory", _terminalSyncData select 5];
+
+	// Reconstruct rendered buffer from raw buffer to preserve terminal content
+	private _restoredBuffer = _terminalSyncData select 0;
+	private _renderedBuffer = [];
+	{
+		_renderedBuffer pushBack ([_computer, _x] call AE3_armaos_fnc_terminal_renderLine);
+	} forEach _restoredBuffer;
+	_terminal set ["AE3_terminalRenderedBuffer", _renderedBuffer];
 };
-_terminal = _computer getVariable "AE3_terminal";
 
 _terminal set ["AE3_terminalOutput", _consoleOutput];
 
 private _localGameLanguage = language;
-// we can determine the language of arma 3 but not the language of the keyboard layout
-// if the language is german, it's obvious, that the keyboard layout is also german (this is not the case, if game language is english)
-// perhaps we need to provide a CBA setting for changing keyboard layout or allow to change the layout directly in the terminal window
 
 /* ---------------------------------------- */
 
@@ -105,15 +129,37 @@ else
 };
 
 // background color header, background color console, font color header, font color console
-private _designs =
+private _designs = 
 [
-	[[0.125,0.125,0.125,1], [0.2,0.2,0.2,1], [1,1,1,1], [1,1,1,1]], // default armaOS design
-	[[0.502,0.459,0.835,1], [0.243,0.192,0.635,1], [0.243,0.192,0.635,1], [0.502,0.459,0.835,1]], // C64 design
-	[[0.2,1,0.2,1], [0.157,0.157,0.157,1],[0.157,0.157,0.157,1] , [0.2,1,0.2,1]], // Apple II ( green monochrome)
-	[[1,0.69,0,1], [0.157,0.157,0.157,1],[0.157,0.157,0.157,1] , [1,0.69,0,1]] // Amber monochrome
+	[[0.125,0.125,0.125,1], [0.2,0.2,0.2,1], [1,1,1,1], [1,1,1,1]], // Default armaOS
+	[[0.502,0.459,0.835,1], [0.243,0.192,0.635,1], [0.243,0.192,0.635,1], [0.502,0.459,0.835,1]], // C64
+	[[0.2,1,0.2,1], [0.157,0.157,0.157,1],[0.157,0.157,0.157,1] , [0.2,1,0.2,1]], // Apple II (green)
+	[[1,0.69,0,1], [0.157,0.157,0.157,1],[0.157,0.157,0.157,1] , [1,0.69,0,1]], // Amber
+
+	// Modern/Retro
+	[[0.1,0.1,0.15,1], [0.05,0.05,0.1,1], [0.6,0.8,1,1], [0.4,0.7,1,1]], // Midnight Blue
+	[[0.9,0.9,0.9,1], [0.75,0.75,0.75,1], [0.1,0.1,0.1,1], [0.2,0.2,0.2,1]], // Light Mode
+	[[0.95,0.25,0.25,1], [0.25,0.05,0.05,1], [1,0.9,0.9,1], [1,0.8,0.8,1]], // Retro Red
+	[[0.25,0.75,0.75,1], [0.1,0.3,0.3,1], [0.05,0.15,0.15,1], [0.25,0.75,0.75,1]], // Teal Terminal
+	[[0.6,0.1,0.4,1], [0.1,0.05,0.15,1], [1,0.7,0.9,1], [1,0.5,0.8,1]], // Neon Violet
+	[[0.3,0.3,0.3,1], [0.05,0.05,0.05,1], [0.8,0.8,0.8,1], [0.8,0.8,0.8,1]], // Dark Gray Modern
+	[[0.85,0.95,1,1], [0.6,0.75,0.9,1], [0.05,0.1,0.25,1], [0.1,0.2,0.4,1]], // Ice Blue
+	[[0.9,0.8,0.6,1], [0.5,0.35,0.2,1], [0.2,0.1,0.05,1], [0.2,0.1,0.05,1]], // Sepia Vintage
+
+	// === High Contrast & Accessibility Themes ===
+	[[0,0,0,1], [0,0,0,1], [1,1,1,1], [1,1,1,1]], // Pure High Contrast (White on Black)
+	[[1,1,1,1], [1,1,1,1], [0,0,0,1], [0,0,0,1]], // Inverted High Contrast (Black on White)
+	[[0,0,0,1], [0.1,0.1,0.1,1], [1,1,0,1], [1,1,0,1]], // Yellow Text on Black (Colorblind Safe)
+	[[0,0,0,1], [0.1,0.1,0.1,1], [0,1,1,1], [0,1,1,1]], // Cyan Text on Black (Tritanopia Safe)
+	[[0,0,0,1], [0.1,0.1,0.1,1], [1,0.5,0,1], [1,0.5,0,1]], // Orange Text on Black (Protanopia Safe)
+	[[1,1,0.8,1], [0.2,0.2,0.2,1], [0,0,0,1], [0,0,0,1]], // Cream Background, Black Text (Low Blue Light)
+	[[0.05,0.05,0.05,1], [0.2,0.2,0.2,1], [0,1,0,1], [0,1,0,1]], // Bright Green on Dark Gray (Deuteranopia Safe)
+	[[0,0,0.15,1], [0.05,0.05,0.1,1], [1,1,0.5,1], [1,1,0.5,1]]  // Soft Blue with Light Yellow Text (Balanced)
 ];
 
+
 _terminal set ["AE3_terminalDesigns", _designs];
+_terminal set ["AE3_terminalDesign", _currentDesignIndex];
 
 private _currentDesign = _designs select _currentDesignIndex;
 
@@ -153,7 +199,5 @@ if (_terminalBuffer isEqualTo []) then
 };
 
 [_computer, _consoleOutput] call AE3_armaos_fnc_terminal_updateOutput;
-
-_computer setVariable ["AE3_terminal", _terminal];
 
 [_computer, "inUse", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];

@@ -1,15 +1,22 @@
-/**
- * Mounts a given filesystem in a specified directory.
+/*
+ * Author: Root
+ * Description: Unmounts a filesystem from a mount point by replacing it with an empty directory. Requires write permission on the mount point. Used for detaching external storage devices safely.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
- * 2: Filesystem to mount <HASHMAP>
- * 3: Path to target directory <STRING>
- * 4: User <STRING>
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Host filesystem object
+ * 2: _mountFilesystem <ARRAY> - Mounted filesystem (not used in current implementation)
+ * 3: _target <STRING> - Path to mount point directory
+ * 4: _user <STRING> - User performing the unmount operation
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [[], _filesystem, _flashdriveFS, "/mnt/usb", "root"] call AE3_filesystem_fnc_unmount;
+ * [_pointer, _filesystem, _externalFS, "/media/drive", "user"] call AE3_filesystem_fnc_unmount;
+ *
+ * Public: Yes
  */
 
 params['_pntr', '_filesystem', '_mountFilesystem', '_target', '_user'];

@@ -1,0 +1,60 @@
+name: release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  auto-release:
+    if: contains(github.event.head_commit.message, 'RELEASE')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Install GitHub CLI and dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y gh python3-pip
+          pip install packaging
+
+      - name: Authenticate GitHub CLI
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh auth setup-git
+
+      - name: Auto-filter, release, and clean
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/auto_release.py
+
+      - name: Update README with version info
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/update_readme.py
+
+  update-badge-on-failure:
+    if: failure() && contains(github.event.head_commit.message, 'RELEASE')
+    runs-on: ubuntu-latest
+    needs: [auto-release]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: pip install packaging
+
+      - name: Update README with failure status
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/update_readme.py --status failure

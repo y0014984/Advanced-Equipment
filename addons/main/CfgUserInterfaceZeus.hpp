@@ -8,14 +8,17 @@ class RscCombo;
 class RscXSliderH;
 class RscButtonMenuOK;
 class RscButtonMenuCancel;
+class RscListBox;
+class RscPicture;
+class RscTree;
 
 /* ================================================================================ */
 
 class AE3_UserInterface_Zeus_Asset_Details
 {
 	idd = 16986;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display] call AE3_main_fnc_zeus_initAttributes;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode] call AE3_main_fnc_zeus_updateAttributes;";
@@ -211,6 +214,18 @@ class AE3_UserInterface_Zeus_Asset_Details
             onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_turnOnDevice;";
         };
 
+        class RscButton_2800: RscButton
+        {
+            x = 21 * GUI_GRID_W + GUI_GRID_X;
+            y = 21 * GUI_GRID_H + GUI_GRID_Y;
+            w = 5 * GUI_GRID_W;
+            h = 1.5 * GUI_GRID_H;
+
+            text = "$STR_AE3_Main_Zeus_BrowseFiles";
+
+            onButtonClick = "params ['_control']; [] call AE3_main_fnc_zeus_openFilesystemBrowser;";
+        };
+
         class RscButtonMenuOK_2600: RscButtonMenuOK
         {
             x = 37 * GUI_GRID_W + GUI_GRID_X;
@@ -231,11 +246,405 @@ class AE3_UserInterface_Zeus_Asset_Details
 
 /* ================================================================================ */
 
+class AE3_UserInterface_Zeus_FilesystemBrowser
+{
+	idd = 16993;
+	movingEnable = 1;
+	enableSimulation = 1;
+
+	onLoad = "params ['_display', ['_config', configNull]]; [_display] spawn AE3_main_fnc_zeus_filesystemBrowser_init;";
+	onUnload = "params ['_display', '_exitCode']; [_display, _exitCode] call AE3_main_fnc_zeus_filesystemBrowser_onUnload;";
+
+	class controlsBackground
+	{
+		class RscText_900: RscText
+		{
+			idc = 900;
+			x = -10 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 60 * GUI_GRID_W;
+			h = 23 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,1};
+		};
+	};
+
+	class controls
+	{
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "$STR_AE3_Main_Zeus_FilesystemBrowser";
+			x = -10 * GUI_GRID_W + GUI_GRID_X;
+			y = 1 * GUI_GRID_H + GUI_GRID_Y;
+			w = 60 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,1};
+		};
+
+		// Current path display
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			text = "$STR_AE3_Main_Zeus_CurrentPath";
+			x = -9.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1400: RscEdit
+		{
+			idc = 1400;
+			text = "/";
+			x = -1 * GUI_GRID_W + GUI_GRID_X;
+			y = 3.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 50.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			canModify = 0;
+		};
+
+		// File/Folder list
+		class RscListBox_1500: RscListBox
+		{
+			idc = 1500;
+			x = -9.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 28 * GUI_GRID_W;
+			h = 16 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			onLBSelChanged = "params ['_control', '_selectedIndex']; [_control, _selectedIndex] call AE3_main_fnc_zeus_filesystemBrowser_onSelect;";
+			onLBDblClick = "params ['_control', '_selectedIndex']; [_control, _selectedIndex] call AE3_main_fnc_zeus_filesystemBrowser_onDblClick;";
+		};
+
+		// File content/properties panel
+		class RscText_1002: RscText
+		{
+			idc = 1002;
+			text = "$STR_AE3_Main_Zeus_FileContent";
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscEdit_1401: RscEdit
+		{
+			idc = 1401;
+			text = "";
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30.5 * GUI_GRID_W;
+			h = 10 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			style = ST_MULTI;
+			lineSpacing = 1;
+		};
+
+		// File/Folder properties
+		class RscText_1003: RscText
+		{
+			idc = 1003;
+			text = "$STR_AE3_Main_Zeus_Owner";
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;
+			w = 7 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1402: RscEdit
+		{
+			idc = 1402;
+			text = "";
+			x = 26.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;
+			w = 12 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscText_1004: RscText
+		{
+			idc = 1004;
+			text = "$STR_AE3_Main_Zeus_Permissions";
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 7 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		// Permission labels
+		class RscText_1020: RscText
+		{
+			idc = 1020;
+			text = "$STR_AE3_Main_Zeus_Owner";
+			x = 26.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1021: RscText
+		{
+			idc = 1021;
+			text = "$STR_AE3_Main_Zeus_Everyone";
+			x = 32.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1022: RscText
+		{
+			idc = 1022;
+			text = "R";
+			x = 26.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1023: RscText
+		{
+			idc = 1023;
+			text = "W";
+			x = 28.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1024: RscText
+		{
+			idc = 1024;
+			text = "X";
+			x = 30.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1025: RscText
+		{
+			idc = 1025;
+			text = "R";
+			x = 32.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1026: RscText
+		{
+			idc = 1026;
+			text = "W";
+			x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1027: RscText
+		{
+			idc = 1027;
+			text = "X";
+			x = 36.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		// Permission checkboxes
+		class RscCheckBox_1310: RscCheckBox
+		{
+			idc = 1310;
+			x = 26.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscCheckBox_1311: RscCheckBox
+		{
+			idc = 1311;
+			x = 28.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscCheckBox_1312: RscCheckBox
+		{
+			idc = 1312;
+			x = 30.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscCheckBox_1313: RscCheckBox
+		{
+			idc = 1313;
+			x = 32.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscCheckBox_1314: RscCheckBox
+		{
+			idc = 1314;
+			x = 34.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscCheckBox_1315: RscCheckBox
+		{
+			idc = 1315;
+			x = 36.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 20.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		// Apply changes button
+		class RscButton_2600: RscButton
+		{
+			idc = 2600;
+			x = 39 * GUI_GRID_W + GUI_GRID_X;
+			y = 17 * GUI_GRID_H + GUI_GRID_Y;
+			w = 10.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_ApplyChanges";
+			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_applyChanges;";
+		};
+
+		// Rename button
+		class RscButton_2700: RscButton
+		{
+			idc = 2700;
+			x = 39 * GUI_GRID_W + GUI_GRID_X;
+			y = 19 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_Rename";
+			onButtonClick = "createDialog 'AE3_UserInterface_Zeus_Browser_Rename';";
+		};
+
+		// Move button
+		class RscButton_2800: RscButton
+		{
+			idc = 2800;
+			x = 44.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 19 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_Move";
+			onButtonClick = "createDialog 'AE3_UserInterface_Zeus_Browser_Move';";
+		};
+
+		// Action buttons
+		class RscButton_2100: RscButton
+		{
+			idc = 2100;
+			x = -9.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_CreateFile";
+			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_createFile;";
+		};
+
+		class RscButton_2200: RscButton
+		{
+			idc = 2200;
+			x = -3.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_CreateFolder";
+			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_createFolder;";
+		};
+
+		class RscButton_2300: RscButton
+		{
+			idc = 2300;
+			x = 2.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_Save";
+			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_saveFile;";
+		};
+
+		class RscButton_2400: RscButton
+		{
+			idc = 2400;
+			x = 8.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_Delete";
+			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_delete;";
+		};
+
+		class RscButton_2500: RscButton
+		{
+			idc = 2500;
+			x = 14 * GUI_GRID_W + GUI_GRID_X;
+			y = 21.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			text = "$STR_AE3_Main_Zeus_Back";
+			onButtonClick = "[] call AE3_main_fnc_zeus_filesystemBrowser_goBack;";
+		};
+
+		// Bottom buttons
+		class RscButtonMenuOK_2600: RscButtonMenuOK
+		{
+			x = 47 * GUI_GRID_W + GUI_GRID_X;
+			y = 24 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+
+		class RscButtonMenuCancel_2700: RscButtonMenuCancel
+		{
+			x = 41 * GUI_GRID_W + GUI_GRID_X;
+			y = 24 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+	};
+};
+
+/* ================================================================================ */
+
 class AE3_UserInterface_Zeus_Module_AddUser
 {
 	idd = 16987;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addUser;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addUser;";
@@ -364,8 +773,8 @@ class AE3_UserInterface_Zeus_Module_AddUser
 class AE3_UserInterface_Zeus_Module_AddSecurityCommands
 {
 	idd = 16988;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addSecurityCommands;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addSecurityCommands;";
@@ -484,8 +893,8 @@ class AE3_UserInterface_Zeus_Module_AddSecurityCommands
 class AE3_UserInterface_Zeus_Module_AddGames
 {
 	idd = 16989;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addGames;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addGames;";
@@ -579,8 +988,8 @@ class AE3_UserInterface_Zeus_Module_AddGames
 class AE3_UserInterface_Zeus_Module_AddFile
 {
 	idd = 16990;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addFile;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addFile;";
@@ -1044,8 +1453,8 @@ class AE3_UserInterface_Zeus_Module_AddFile
 class AE3_UserInterface_Zeus_Module_AddDir
 {
 	idd = 16991;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_module_addDir;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addDir;";
@@ -1363,8 +1772,8 @@ class AE3_UserInterface_Zeus_Module_AddDir
 class AE3_UserInterface_Zeus_Module_AddConnection
 {
 	idd = 16992;
-	movingEnable = true;
-	enableSimulation = true;
+	movingEnable = 1;
+	enableSimulation = 1;
 
     onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] call AE3_main_fnc_zeus_module_addConnection;";
     onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_module_addConnection;";
@@ -1525,3 +1934,764 @@ class AE3_UserInterface_Zeus_Module_AddConnection
 };
 
 /* ================================================================================ */
+
+class AE3_UserInterface_Zeus_Browser_NewFile
+{
+	idd = 16994;
+	movingEnable = 1;
+	enableSimulation = 1;
+
+	onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_browser_newFile;";
+	onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_browser_newFile;";
+
+	class controlsBackground
+	{
+		class RscText_900: RscText
+		{
+			idc = 900;
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 45 * GUI_GRID_W;
+			h = 24 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,1};
+		};
+	};
+
+	class controls
+	{
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "$STR_AE3_Main_Zeus_CreateFile";
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 45 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,1};
+		};
+
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			text = "$STR_AE3_Main_Zeus_FileName";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1401: RscEdit
+		{
+			idc = 1401;
+			text = "newfile.txt";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 35.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+
+			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['filename', _newText];";
+			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['filename', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _owner = _display getVariable ['owner', '']; if ((_newText isEqualTo '') || (_owner isEqualTo '') || ((_newText find ' ') != -1) || ((_owner find ' ') != -1)) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscText_1002: RscText
+		{
+			idc = 1002;
+			text = "$STR_AE3_Main_Zeus_FileContent";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1402: RscEdit
+		{
+			idc = 1402;
+			text = "";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 35.5 * GUI_GRID_W;
+			h = 5 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			style = ST_MULTI;
+			lineSpacing = 1;
+		};
+
+		class RscText_1003: RscText
+		{
+			idc = 1003;
+			text = "$STR_AE3_Main_Zeus_IsCode";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 10 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscCheckBox_1301: RscCheckBox
+		{
+			idc = 1301;
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 10 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 0;
+		};
+
+		class RscText_1004: RscText
+		{
+			idc = 1004;
+			text = "$STR_AE3_Main_Zeus_FileOwner";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 11.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1403: RscEdit
+		{
+			idc = 1403;
+			text = "root";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 11.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 11 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+
+			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['owner', _newText];";
+			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['owner', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _filename = _display getVariable ['filename', '']; if ((_newText isEqualTo '') || (_filename isEqualTo '') || ((_newText find ' ') != -1) || ((_filename find ' ') != -1)) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscText_1005: RscText
+		{
+			idc = 1005;
+			text = "$STR_AE3_Main_Zeus_Permissions";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscText_1012: RscText
+		{
+			idc = 1012;
+			text = "$STR_AE3_Main_Zeus_Owner";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1013: RscText
+		{
+			idc = 1013;
+			text = "$STR_AE3_Main_Zeus_Everyone";
+			x = 15 * GUI_GRID_W + GUI_GRID_X;
+			y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1006: RscText
+		{
+			idc = 1006;
+			text = "R";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 15 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1007: RscText
+		{
+			idc = 1007;
+			text = "W";
+			x = 11 * GUI_GRID_W + GUI_GRID_X;
+			y = 15 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1008: RscText
+		{
+			idc = 1008;
+			text = "X";
+			x = 13 * GUI_GRID_W + GUI_GRID_X;
+			y = 15 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1009: RscText
+		{
+			idc = 1009;
+			text = "R";
+			x = 15 * GUI_GRID_W + GUI_GRID_X;
+			y = 15 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1010: RscText
+		{
+			idc = 1010;
+			text = "W";
+			x = 17 * GUI_GRID_W + GUI_GRID_X;
+			y = 15 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1011: RscText
+		{
+			idc = 1011;
+			text = "X";
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 15 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		// Owner permissions checkboxes
+		class RscCheckBox_1302: RscCheckBox
+		{
+			idc = 1302;
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscCheckBox_1303: RscCheckBox
+		{
+			idc = 1303;
+			x = 11 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscCheckBox_1304: RscCheckBox
+		{
+			idc = 1304;
+			x = 13 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 0;
+		};
+
+		// Everyone permissions checkboxes
+		class RscCheckBox_1305: RscCheckBox
+		{
+			idc = 1305;
+			x = 15 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscCheckBox_1306: RscCheckBox
+		{
+			idc = 1306;
+			x = 17 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 0;
+		};
+
+		class RscCheckBox_1307: RscCheckBox
+		{
+			idc = 1307;
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 16 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 0;
+		};
+
+		class RscButtonMenuOK_2600: RscButtonMenuOK
+		{
+			x = 42 * GUI_GRID_W + GUI_GRID_X;
+			y = 24.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+
+			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control];";
+		};
+
+		class RscButtonMenuCancel_2700: RscButtonMenuCancel
+		{
+			x = 36 * GUI_GRID_W + GUI_GRID_X;
+			y = 24.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+	};
+};
+
+/* ================================================================================ */
+
+class AE3_UserInterface_Zeus_Browser_NewFolder
+{
+	idd = 16995;
+	movingEnable = 1;
+	enableSimulation = 1;
+
+	onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_browser_newFolder;";
+	onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_browser_newFolder;";
+
+	class controlsBackground
+	{
+		class RscText_900: RscText
+		{
+			idc = 900;
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 18 * GUI_GRID_H;
+			colorBackground[] = {0.2,0.2,0.2,1};
+		};
+	};
+
+	class controls
+	{
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "$STR_AE3_Main_Zeus_CreateFolder";
+			x = 0 * GUI_GRID_W + GUI_GRID_X;
+			y = 0 * GUI_GRID_H + GUI_GRID_Y;
+			w = 40 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,1};
+		};
+
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			text = "$STR_AE3_Main_Zeus_FolderName";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1401: RscEdit
+		{
+			idc = 1401;
+			text = "newfolder";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 3 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+
+			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['foldername', _newText];";
+			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['foldername', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _owner = _display getVariable ['owner', '']; if ((_newText isEqualTo '') || (_owner isEqualTo '') || ((_newText find ' ') != -1) || ((_owner find ' ') != -1)) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscText_1004: RscText
+		{
+			idc = 1004;
+			text = "$STR_AE3_Main_Zeus_DirOwner";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1403: RscEdit
+		{
+			idc = 1403;
+			text = "root";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 4.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+
+			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['owner', _newText];";
+			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['owner', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; private _foldername = _display getVariable ['foldername', '']; if ((_newText isEqualTo '') || (_foldername isEqualTo '') || ((_newText find ' ') != -1) || ((_foldername find ' ') != -1)) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscText_1005: RscText
+		{
+			idc = 1005;
+			text = "$STR_AE3_Main_Zeus_Permissions";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscText_1012: RscText
+		{
+			idc = 1012;
+			text = "$STR_AE3_Main_Zeus_Owner";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 7 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1013: RscText
+		{
+			idc = 1013;
+			text = "$STR_AE3_Main_Zeus_Everyone";
+			x = 15 * GUI_GRID_W + GUI_GRID_X;
+			y = 7 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1006: RscText
+		{
+			idc = 1006;
+			text = "R";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1007: RscText
+		{
+			idc = 1007;
+			text = "W";
+			x = 11 * GUI_GRID_W + GUI_GRID_X;
+			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1008: RscText
+		{
+			idc = 1008;
+			text = "X";
+			x = 13 * GUI_GRID_W + GUI_GRID_X;
+			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1009: RscText
+		{
+			idc = 1009;
+			text = "R";
+			x = 15 * GUI_GRID_W + GUI_GRID_X;
+			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1010: RscText
+		{
+			idc = 1010;
+			text = "W";
+			x = 17 * GUI_GRID_W + GUI_GRID_X;
+			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		class RscText_1011: RscText
+		{
+			idc = 1011;
+			text = "X";
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 8.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_CENTER;
+		};
+
+		// Owner permissions checkboxes
+		class RscCheckBox_1302: RscCheckBox
+		{
+			idc = 1302;
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscCheckBox_1303: RscCheckBox
+		{
+			idc = 1303;
+			x = 11 * GUI_GRID_W + GUI_GRID_X;
+			y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscCheckBox_1304: RscCheckBox
+		{
+			idc = 1304;
+			x = 13 * GUI_GRID_W + GUI_GRID_X;
+			y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		// Everyone permissions checkboxes
+		class RscCheckBox_1305: RscCheckBox
+		{
+			idc = 1305;
+			x = 15 * GUI_GRID_W + GUI_GRID_X;
+			y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscCheckBox_1306: RscCheckBox
+		{
+			idc = 1306;
+			x = 17 * GUI_GRID_W + GUI_GRID_X;
+			y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscCheckBox_1307: RscCheckBox
+		{
+			idc = 1307;
+			x = 19 * GUI_GRID_W + GUI_GRID_X;
+			y = 9.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 1 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			checked = 1;
+		};
+
+		class RscButtonMenuOK_2600: RscButtonMenuOK
+		{
+			x = 37 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+
+			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control];";
+		};
+
+		class RscButtonMenuCancel_2700: RscButtonMenuCancel
+		{
+			x = 31 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+	};
+};
+
+/* ================================================================================ */
+
+class AE3_UserInterface_Zeus_Browser_Rename
+{
+	idd = 16996;
+	movingEnable = 1;
+	enableSimulation = 1;
+
+	onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_filesystemBrowser_rename;";
+	onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_filesystemBrowser_rename;";
+
+	class ControlsBackground
+	{
+		class RscPicture_1200: RscPicture
+		{
+			idc = 1200;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 23 * GUI_GRID_W;
+			h = 7.5 * GUI_GRID_H;
+			colorText[] = {0.1,0.1,0.1,1};
+		};
+	};
+
+	class Controls
+	{
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "$STR_AE3_Main_Zeus_RenameDialogTitle";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 23 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			text = "$STR_AE3_Main_Zeus_NewName";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 8 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			style = ST_RIGHT;
+		};
+
+		class RscEdit_1400: RscEdit
+		{
+			idc = 1400;
+			text = "";
+			x = 9 * GUI_GRID_W + GUI_GRID_X;
+			y = 2 * GUI_GRID_H + GUI_GRID_Y;
+			w = 14.5 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+			onLoad = "params ['_control']; private _display = ctrlParent _control; private _newText = ctrlText _control; _display setVariable ['newname', _newText];";
+			onKeyUp = "params ['_control', '_key', '_shift', '_ctrl', '_alt']; private _newText = ctrlText _control; private _display = ctrlParent _control; _display setVariable ['newname', _newText]; private _okCtrl = _display getVariable ['okCtrl', objNull]; if ((_newText isEqualTo '') || ((_newText find ' ') != -1)) then { _okCtrl ctrlEnable false; } else { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscButtonMenuOK_2600: RscButtonMenuOK
+		{
+			x = 17.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 3 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control]; _control ctrlEnable false;";
+		};
+
+		class RscButtonMenuCancel_2700: RscButtonMenuCancel
+		{
+			x = 11.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 6.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+	};
+};
+
+class AE3_UserInterface_Zeus_Browser_Move
+{
+	idd = 16997;
+	movingEnable = 1;
+	enableSimulation = 1;
+
+	onLoad = "params ['_display', ['_config', configNull]]; [_display, 0, 'onLoad'] spawn AE3_main_fnc_zeus_filesystemBrowser_move;";
+	onUnload = "params ['_display', '_exitCode']; [_display, _exitCode, 'onUnload'] call AE3_main_fnc_zeus_filesystemBrowser_move;";
+
+	class ControlsBackground
+	{
+		class RscPicture_1200: RscPicture
+		{
+			idc = 1200;
+			text = "#(argb,8,8,3)color(1,1,1,1)";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
+			h = 20 * GUI_GRID_H;
+			colorText[] = {0.1,0.1,0.1,1};
+		};
+	};
+
+	class Controls
+	{
+		class RscText_1000: RscText
+		{
+			idc = 1000;
+			text = "$STR_AE3_Main_Zeus_MoveDialogTitle";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 0.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {-1,-1,-1,0.5};
+		};
+
+		class RscText_1001: RscText
+		{
+			idc = 1001;
+			text = "$STR_AE3_Main_Zeus_SelectDestination";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 1.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+		};
+
+		class RscTree_1500: RscTree
+		{
+			idc = 1500;
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 2.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
+			h = 14 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.5};
+			onTreeSelChanged = "params ['_control', '_selPath']; private _display = ctrlParent _control; _display setVariable ['selectedTreePath', _selPath]; private _okCtrl = _display getVariable ['okCtrl', objNull]; if (!isNull _okCtrl) then { _okCtrl ctrlEnable true; };";
+		};
+
+		class RscText_1400: RscText
+		{
+			idc = 1400;
+			text = "";
+			x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 16.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 30 * GUI_GRID_W;
+			h = 1 * GUI_GRID_H;
+			colorBackground[] = {0,0,0,0.3};
+		};
+
+		class RscButtonMenuOK_2600: RscButtonMenuOK
+		{
+			x = 18.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+			onLoad = "params ['_control']; private _display = ctrlParent _control; _display setVariable ['okCtrl', _control]; _control ctrlEnable false;";
+		};
+
+		class RscButtonMenuCancel_2700: RscButtonMenuCancel
+		{
+			x = 24.5 * GUI_GRID_W + GUI_GRID_X;
+			y = 18.5 * GUI_GRID_H + GUI_GRID_Y;
+			w = 5.5 * GUI_GRID_W;
+			h = 1.5 * GUI_GRID_H;
+		};
+	};
+};
+

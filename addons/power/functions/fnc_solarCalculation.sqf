@@ -1,12 +1,17 @@
-/**
- * Calculates the current solar panel output.
+/*
+ * Author: Root
+ * Description: Calculates current solar panel power output based on sun position, panel orientation, and visibility. Uses solar zenith and azimuth angles, panel normal vectors, and line-of-sight checks to determine effective power. Output is scaled by panel orientation efficiency, sun intensity, and occlusion.
  *
  * Arguments:
- * 0: Solarpanel <OBJECT>
+ * 0: _solar <OBJECT> - Solar panel object
  *
- * Returns:
- * 0: Powerstate <BOOL>
- * 1: Poweroutput <FLOAT>
+ * Return Value:
+ * [Power state (always true), Effective power output in kWh] <ARRAY>
+ *
+ * Example:
+ * private _solarStatus = [_solarPanel] call AE3_power_fnc_solarCalculation;
+ *
+ * Public: Yes
  */
 
 params['_solar'];

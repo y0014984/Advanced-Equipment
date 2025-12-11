@@ -1,27 +1,24 @@
-/**
- * Writes or appends string to a file.
+/*
+ * Author: Root
+ * Description: Writes content to a file, either replacing existing content or appending to it. Requires write permission on the file.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem [<HASHMAP>, <STRING>]
- * 2: Filepath <STRING>
- * 3: User <STRING>
- * 4: Content <STRING>
- * 5: Append Mode <BOOL> (Optional)
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to file
+ * 3: _user <STRING> - User performing the write operation
+ * 4: _content <STRING> - Content to write
+ * 5: _appendMode <BOOL> (Optional, default: false) - If true, append to existing content instead of replacing
  *
- * Results:
+ * Return Value:
  * None
  *
  * Example:
- * --------
- * private _pointer = cursorObject getVariable "AE3_Filepointer";
- * private _filesystem = cursorObject getVariable "AE3_Filesystem";
- * private _filePath = "/tmp/new/example.txt";
- * private _user = "root"; 
- * private _content = "file content";
- * private _appendMode = true;
- * [_pointer, _filesystem, _filePath, _user, _content, _appendMode] call AE3_filesystem_fnc_writeToFile;
-*/
+ * [[], _filesystem, "/tmp/log.txt", "root", "New log entry\n"] call AE3_filesystem_fnc_writeToFile;
+ * [_pointer, _filesystem, "/var/data.txt", "user", "More data\n", true] call AE3_filesystem_fnc_writeToFile;
+ *
+ * Public: Yes
+ */
 
 params["_pntr", "_filesystem", "_target", "_user", "_content", ["_appendMode", false]];
 

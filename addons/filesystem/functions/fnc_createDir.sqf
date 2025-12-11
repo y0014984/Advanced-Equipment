@@ -1,19 +1,23 @@
-/**
- * Creates a directory.
- * Permission list is defined by:
- * 0: Permissions for the owner with [execute, read, write]
- * 1: Permissions for everyone with [execute, read, write]
+/*
+ * Author: Root
+ * Description: Creates a new directory in the filesystem. Automatically ensures parent directories have appropriate execute/read permissions. Throws exception if directory already exists.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem <HASHMAP>
- * 2: New directory <STRING>
- * 3: User <STRING>
- * 4: Owner <String> (Optional)
- * 5: Permission [[<BOOL>]] (Optional)
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to new directory
+ * 3: _user <STRING> - User creating the directory
+ * 4: _owner <STRING> (Optional, default: _user) - Owner of the new directory
+ * 5: _permissions <ARRAY> (Optional, default: [[true,true,true],[false,false,false]]) - Permissions [[owner x,r,w],[everyone x,r,w]]
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [[], _filesystem, "/tmp/logs", "root"] call AE3_filesystem_fnc_createDir;
+ * [[], _filesystem, "/home/user/documents", "user", "user", [[true,true,true],[true,true,false]]] call AE3_filesystem_fnc_createDir;
+ *
+ * Public: Yes
  */
 
 params['_pntr', '_filesystem', '_target', '_user', '_owner', ['_permissions', [[true, true, true], [false, false, false]]]];

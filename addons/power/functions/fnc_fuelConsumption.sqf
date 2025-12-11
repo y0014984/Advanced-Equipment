@@ -1,12 +1,17 @@
-/**
- * Calculates and sets the new fuel level for a fuel based generator.
- * 
- * Arguments:
- * 0: Generator Object <OBJECT>
+/*
+ * Author: Root
+ * Description: Calculates and updates the fuel level for a fuel-powered generator. Called every second by the power provider handler. Consumes fuel based on the configured consumption rate and returns whether the generator can still run. Fuel consumption is in liters per hour, converted to per-second rate.
  *
- * Returns:
- * 0: Power state <BOOL>
- * 1: Power output <FLOAT>
+ * Arguments:
+ * 0: _generator <OBJECT> - Generator object
+ *
+ * Return Value:
+ * [Power state (true if fuel remaining), Power output in kWh] <ARRAY>
+ *
+ * Example:
+ * private _genStatus = [_generator] call AE3_power_fnc_fuelConsumption;
+ *
+ * Public: Yes
  */
 
 params ["_generator"];

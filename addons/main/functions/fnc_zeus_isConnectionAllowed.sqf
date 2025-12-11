@@ -1,20 +1,22 @@
-/**
- * PRIVATE
- *
- * This function checks wether or not a network or power connection in Zeus is valid or not. 
- * If connection is not valid, it will be removed. Gives visual feeedback in Zeus.
- * This function is private because it only makes sense in context of Zeus UI.
+/*
+ * Author: Root
+ * Description: Validates whether a network or power connection in Zeus is allowed based on object classes.
+ * Checks if source and target objects are compatible and not the same object. Provides visual feedback to the Zeus curator on validation failure.
  *
  * Arguments:
- * 1: Type <STRING>
- * 2: From <OBJECT>
- * 3: To <OBJECT>
- * 4: Allowed From Classes <[STRING]>
- * 5: Allowed To Classes <[STRING]>
+ * 0: _type <STRING> - Connection type name for feedback messages
+ * 1: _from <OBJECT> - Source object of the connection
+ * 2: _to <OBJECT> - Target object of the connection
+ * 3: _allowedFromClasses <ARRAY> - Array of allowed source object classnames
+ * 4: _allowedToClasses <ARRAY> - Array of allowed target object classnames
  *
- * Results:
- * 1: Result <BOOL>
+ * Return Value:
+ * Connection validity <BOOL> - true if connection is allowed, false otherwise
  *
+ * Example:
+ * private _allowed = ["Power", _generator, _laptop, ["Land_PortableGenerator_01_sand_F_AE3"], ["Land_Laptop_03_sand_F_AE3"]] call AE3_main_fnc_zeus_isConnectionAllowed;
+ *
+ * Public: No
  */
 
 params ["_type", "_from", "_to", "_allowedFromClasses", "_allowedToClasses"];

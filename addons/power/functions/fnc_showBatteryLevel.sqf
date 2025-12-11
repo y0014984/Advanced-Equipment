@@ -1,11 +1,17 @@
-/**
- * 
- * TODO:
- * - Depricated?
- * - Documentation
- * 
- * 
- * 
+/*
+ * Author: Root
+ * Description: Legacy function that continuously updates terminal title with battery level and power mode. Monitors battery state while terminal dialog is open and updates title text every second. May be deprecated in favor of newer terminal state management.
+ *
+ * Arguments:
+ * 0: _computer <OBJECT> - Computer/laptop object
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_laptop] spawn AE3_power_fnc_showBatteryLevel;
+ *
+ * Public: No
  */
 
 params ["_computer"];

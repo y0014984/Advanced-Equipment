@@ -1,11 +1,17 @@
-/**
- * Updates/sets the pointer path in the prompt variable of the terminal settings for the given computer.
+/*
+ * Author: Root
+ * Description: Updates the terminal prompt pointer (current working directory display).
  *
  * Arguments:
- * 1: Computer Object <OBJECT>
+ * 0: _computer <OBJECT> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+ *
+ * Public: No
  */
 
 params ["_computer"];

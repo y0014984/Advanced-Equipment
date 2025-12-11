@@ -1,14 +1,18 @@
-/**
- * Uses the AE3 Device config to compile a hashmap 
- * for the object.
+/*
+ * Author: Root
+ * Description: Compiles device configuration from config entries into a hashmap. Reads device properties, power interface, battery, generator, solar generator, and consumer configs. Compiles init/action code strings into executable code. Helper function for compileDevice.
  *
- * Argmuments:
- * 0: Device Config <CONFIG>
- * 1: Config <HASHMAP>
+ * Arguments:
+ * 0: _deviceCfg <CONFIG> - Config entry for the device (AE3_Device or AE3_InternalDevice)
+ * 1: _config <HASHMAP> - Hashmap to populate with compiled config data
  *
- * Returns:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_deviceCfg, _config] call AE3_power_fnc_compileConfig;
+ *
+ * Public: No
  */
 
 

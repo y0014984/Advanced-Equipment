@@ -1,13 +1,20 @@
-/**
- * Initializes a consumer.
- * 
- * Arguments:
- * 0: Device <OBJECT>
- * 1: Power consumption in [kW] <NUMBER>
+/*
+ * Author: Root
+ * Description: Initializes a power consumer device with consumption and standby power requirements. Creates wrapper functions that check power availability before turning on and update power draw when changing states. Power consumption is in kWh.
  *
- * Results:
+ * Arguments:
+ * 0: _entity <OBJECT> - Consumer device object
+ * 1: _powerConsumption <NUMBER> - Active power consumption in kWh
+ * 2: _standbyConsumption <NUMBER> - Standby power consumption in kWh
+ *
+ * Return Value:
  * None
-*/
+ *
+ * Example:
+ * [_laptop, 0.065, 0.01] call AE3_power_fnc_initConsumer;
+ *
+ * Public: No
+ */
 
 params['_entity', '_powerConsumption', '_standbyConsumption'];
 

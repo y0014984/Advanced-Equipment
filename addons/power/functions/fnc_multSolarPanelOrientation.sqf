@@ -1,12 +1,17 @@
-/**
- * Returns the normal vector of both solar panels.
- * 
- * Arguments:
- * 0: Solar panel <OBJECT>
+/*
+ * Author: Root
+ * Description: Calculates and returns the world-space normal vectors for a dual solar panel system. Uses panel yaw and pitch angles stored in object variables to compute 3D orientation vectors. Used for solar efficiency calculations based on sun position.
  *
- * Returns:
- * 0: Normal vector of panel 1
- * 1: Normal vector of panel 2
+ * Arguments:
+ * 0: _solar <OBJECT> - Solar panel object
+ *
+ * Return Value:
+ * [Panel 1 normal vector, Panel 2 normal vector] <ARRAY>
+ *
+ * Example:
+ * private _normals = [_solarPanel] call AE3_power_fnc_multSolarPanelOrientation;
+ *
+ * Public: No
  */
 
 params['_solar'];

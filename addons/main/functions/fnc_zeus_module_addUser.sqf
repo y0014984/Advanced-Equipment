@@ -1,20 +1,21 @@
-/**
- * PRIVATE
- *
- * This function is assigned to the 'onLoad' and 'onUnload' Events of the Zeus Module Interface: addUser
- * This function runs local on the computer of the curator/zeus because it is UI triggered.
- * The function makes changes to the asset according the the user input.
- * This module needs to be placed onto a computer.
- * After processing the module will be deleted.
+/*
+ * Author: Root
+ * Description: Handles the Zeus 'Add User' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
+ * Creates a new user account on the target computer with the specified username and password.
+ * The module must be placed on a computer object and will be deleted after processing.
  *
  * Arguments:
- * 1: Display <OBJECT>
- * 2: Exit Code <NUMBER>
- * 3: Event <STRING>
+ * 0: _display <DISPLAY> - The Zeus module display
+ * 1: _exitCode <NUMBER> - Exit code (1 = OK, 2 = Cancel)
+ * 2: _event <STRING> - Event type ("onLoad" or "onUnload")
  *
- * Results:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_display, 1, "onUnload"] call AE3_main_fnc_zeus_module_addUser;
+ *
+ * Public: No
  */
 
 params ["_display", "_exitCode", "_event"];
@@ -67,14 +68,27 @@ if (_event isEqualTo "onUnload") exitWith
     // check for not allowed spaces in username
     if((_username find " ") != -1) exitWith { [objNull, localize "STR_AE3_Main_Zeus_UsernameContainsSpaces"] call BIS_fnc_showCuratorFeedbackMessage; };
 
-    // add user to computer
-    [_computer, _username, _password] remoteExecCall ["AE3_armaos_fnc_computer_addUser", 2];
+    // Wait for filesystem to be ready before adding user
+    [_computer, _username, _password, _module] spawn {
+        params ["_computer", "_username", "_password", "_module"];
 
-    private _message = format ["'%1': %2 '%3': %2", localize "STR_AE3_Main_Zeus_Username", _username, localize "STR_AE3_Main_Zeus_Password", _password];
-    [localize "STR_AE3_Main_Zeus_UserAdded", _message, 5] call BIS_fnc_curatorHint;
+        // Wait for filesystem initialization (10 second timeout)
+        private _filesystemReady = [_computer, 10] call AE3_main_fnc_waitForFilesystem;
 
-    // delete module if dialog cancelled or computer not linked to module
-    deleteVehicle _module;
+        if (!_filesystemReady) exitWith {
+            [objNull, "Filesystem not ready. Please wait and try again."] call BIS_fnc_showCuratorFeedbackMessage;
+            deleteVehicle _module;
+        };
+
+        // Add user to computer
+        [_computer, _username, _password] remoteExecCall ["AE3_armaos_fnc_computer_addUser", 2];
+
+        private _message = format ["'%1': %2 '%3': %4", localize "STR_AE3_Main_Zeus_Username", _username, localize "STR_AE3_Main_Zeus_Password", _password];
+        [localize "STR_AE3_Main_Zeus_UserAdded", _message, 5] call BIS_fnc_curatorHint;
+
+        // Delete module
+        deleteVehicle _module;
+    };
 };
 
 /* ---------------------------------------- */

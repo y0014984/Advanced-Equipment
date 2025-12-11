@@ -1,233 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="AE3">
     <Package name="Interaction">
-        <Container name="General">
-            <Key ID="STR_AE3_Interaction_General_Open">
-                <Original>Open</Original>
-                <English>Open</English>
-                <German>Öffnen</German>
-                <Chinesesimp>打开</Chinesesimp>
-                <Russian>Открыть</Russian>
-                <French>Ouvrir</French>
-                <Italian>Apri</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_General_Close">
-                <Original>Close</Original>
-                <English>Close</English>
-                <German>Schließen</German>
-                <Chinesesimp>关闭</Chinesesimp>
-                <Russian>Закрыть</Russian>
-                <French>Fermer</French>
-                <Italian>Chiudi</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_General_Exit">
-                <Original>Exit interaction</Original>
-                <English>Exit interaction</English>
-                <German>Interaction verlassen</German>
-                <Chinesesimp>退出交互</Chinesesimp>
-                <Russian>Завершить взаимодействие</Russian>
-                <French>Quitter l'interaction</French>
-                <Italian>Interazione Uscita</Italian>
-            </Key>
-        </Container>
         <Container name="Config">
-            <Key ID="STR_AE3_Interaction_Config_LampDisplayName">
-                <Original>Lamp</Original>
-                <English>Lamp</English>
-                <German>Lampe</German>
-                <Chinesesimp>灯</Chinesesimp>
-                <Russian>Лампа</Russian>
-                <French>Lampe</French>
-                <Italian>Lampada</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_Lamp1">
-                <Original>lamp 1</Original>
-                <English>lamp 1</English>
-                <German>Lampe 1</German>
-                <Chinesesimp>灯1</Chinesesimp>
-                <Russian>Лампа 1</Russian>
-                <French>lampe 1</French>
-                <Italian>Lampada 1</Italian>
+            <Key ID="STR_AE3_Interaction_Config_DeskDisplayName">
+                <Original>desk</Original>
+                <English>desk</English>
+                <French>bureau</French>
+                <Italian>Scrivania</Italian>
+                <Russian>Стол</Russian>
+                <German>Tisch</German>
+                <Chinesesimp>桌子</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp1">
                 <Original>extend lamp 1</Original>
                 <English>extend lamp 1</English>
-                <German>Lampe 1 ausfahren</German>
-                <Chinesesimp>展开灯1</Chinesesimp>
-                <Russian>Выдвинуть лампу 1</Russian>
                 <French>déployer lampe 1</French>
                 <Italian>Estendi lampada 1</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_PitchLamp1">
-                <Original>pitch lamp 1</Original>
-                <English>pitch lamp 1</English>
-                <German>Lampe 1 neigen</German>
-                <Chinesesimp>倾斜灯1</Chinesesimp>
-                <Russian>Наклонить лампу 1</Russian>
-                <French>Basculer lampe 1</French>
-                <Italian>Inclina lampada 1</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_YawLamp1">
-                <Original>yaw lamp 1</Original>
-                <English>yaw lamp 1</English>
-                <German>Lampe 1 gieren</German>
-                <Chinesesimp>偏转灯1</Chinesesimp>
-                <Russian> Повернуть лампу 1</Russian>
-                <French>Tourner lampe 1</French>
-                <Italian>Ruota lampada 1</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_Lamp2">
-                <Original>lamp 2</Original>
-                <English>lamp 2</English>
-                <German>Lampe 2</German>
-                <Chinesesimp>灯2</Chinesesimp>
-                <Russian>Лампа 2</Russian>
-                <French>lampe 2</French>
-                <Italian>lampada 2</Italian>
+                <Russian>Выдвинуть лампу 1</Russian>
+                <German>Lampe 1 ausfahren</German>
+                <Chinesesimp>展开灯1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp2">
                 <Original>extend lamp 2</Original>
                 <English>extend lamp 2</English>
-                <German>Lampe 2 ausfahren</German>
-                <Chinesesimp>展开灯2</Chinesesimp>
-                <Russian>Выдвинуть лампу 2</Russian>
                 <French>déployer lampe 2</French>
                 <Italian>Estendi lampada 2</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_PitchLamp2">
-                <Original>pitch lamp 2</Original>
-                <English>pitch lamp 2</English>
-                <German>Lampe 2 neigen</German>
-                <Chinesesimp>倾斜灯2</Chinesesimp>
-                <Russian>Наклонить лампу 2</Russian>
-                <French>Basculer lampe 2</French>
-                <Italian>inclina lampada 2</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_YawLamp2">
-                <Original>yaw lamp 2</Original>
-                <English>yaw lamp 2</English>
-                <German>Lampe 2 gieren</German>
-                <Chinesesimp>偏转灯2</Chinesesimp>
-                <Russian>Повернуть лампу 2</Russian>
-                <French>Tourner lampe 2</French>
-                <Italian>Ruota lampada 2</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_Lamp3">
-                <Original>lamp 3</Original>
-                <English>lamp 3</English>
-                <German>Lampe 3</German>
-                <Chinesesimp>灯3</Chinesesimp>
-                <Russian>Лампа 3</Russian>
-                <French>lampe 3</French>
-                <Italian>Lampada 3</Italian>
+                <Russian>Выдвинуть лампу 2</Russian>
+                <German>Lampe 2 ausfahren</German>
+                <Chinesesimp>展开灯2</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp3">
                 <Original>extend lamp 3</Original>
                 <English>extend lamp 3</English>
-                <German>Lampe 3 ausfahren</German>
-                <Chinesesimp>展开灯3</Chinesesimp>
-                <Russian>Выдвинуть лампу 3</Russian>
                 <French>Déployer lampe 3</French>
                 <Italian>Estendi lampada 3</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_PitchLamp3">
-                <Original>pitch lamp 3</Original>
-                <English>pitch lamp 3</English>
-                <German>Lampe 3 neigen</German>
-                <Chinesesimp>倾斜灯3</Chinesesimp>
-                <Russian>Наклонить лампу 3</Russian>
-                <French>Basculer lampe 3</French>
-                <Italian>Inclina lampada 3</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_YawLamp3">
-                <Original>yaw lamp 3</Original>
-                <English>yaw lamp 3</English>
-                <German>Lampe 3 gieren</German>
-                <Chinesesimp>偏转灯3</Chinesesimp>
-                <Russian>Повернуть лампу 3</Russian>
-                <French>Tourner lampe 3</French>
-                <Italian>Ruota lampada 3</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_Lamp4">
-                <Original>lamp 4</Original>
-                <English>lamp 4</English>
-                <German>Lampe 4</German>
-                <Chinesesimp>灯4</Chinesesimp>
-                <Russian>Лампа 4</Russian>
-                <French>lampe 4</French>
-                <Italian>Lampada 4</Italian>
+                <Russian>Выдвинуть лампу 3</Russian>
+                <German>Lampe 3 ausfahren</German>
+                <Chinesesimp>展开灯3</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_ExtendLamp4">
                 <Original>extend lamp 4</Original>
                 <English>extend lamp 4</English>
-                <German>Lampe 4 ausfahren</German>
-                <Chinesesimp>展开灯4</Chinesesimp>
-                <Russian>Выдвинуть лампу 4</Russian>
                 <French>Déployer lampe 4</French>
                 <Italian>Estendi lampada 4</Italian>
+                <Russian>Выдвинуть лампу 4</Russian>
+                <German>Lampe 4 ausfahren</German>
+                <Chinesesimp>展开灯4</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp1">
+                <Original>lamp 1</Original>
+                <English>lamp 1</English>
+                <French>lampe 1</French>
+                <Italian>Lampada 1</Italian>
+                <Russian>Лампа 1</Russian>
+                <German>Lampe 1</German>
+                <Chinesesimp>灯1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp2">
+                <Original>lamp 2</Original>
+                <English>lamp 2</English>
+                <French>lampe 2</French>
+                <Italian>lampada 2</Italian>
+                <Russian>Лампа 2</Russian>
+                <German>Lampe 2</German>
+                <Chinesesimp>灯2</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp3">
+                <Original>lamp 3</Original>
+                <English>lamp 3</English>
+                <French>lampe 3</French>
+                <Italian>Lampada 3</Italian>
+                <Russian>Лампа 3</Russian>
+                <German>Lampe 3</German>
+                <Chinesesimp>灯3</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_Lamp4">
+                <Original>lamp 4</Original>
+                <English>lamp 4</English>
+                <French>lampe 4</French>
+                <Italian>Lampada 4</Italian>
+                <Russian>Лампа 4</Russian>
+                <German>Lampe 4</German>
+                <Chinesesimp>灯4</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_LampDisplayName">
+                <Original>Lamp</Original>
+                <English>Lamp</English>
+                <French>Lampe</French>
+                <Italian>Lampada</Italian>
+                <Russian>Лампа</Russian>
+                <German>Lampe</German>
+                <Chinesesimp>灯</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_PitchLamp1">
+                <Original>pitch lamp 1</Original>
+                <English>pitch lamp 1</English>
+                <French>Basculer lampe 1</French>
+                <Italian>Inclina lampada 1</Italian>
+                <Russian>Наклонить лампу 1</Russian>
+                <German>Lampe 1 neigen</German>
+                <Chinesesimp>倾斜灯1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_PitchLamp2">
+                <Original>pitch lamp 2</Original>
+                <English>pitch lamp 2</English>
+                <French>Basculer lampe 2</French>
+                <Italian>inclina lampada 2</Italian>
+                <Russian>Наклонить лампу 2</Russian>
+                <German>Lampe 2 neigen</German>
+                <Chinesesimp>倾斜灯2</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_PitchLamp3">
+                <Original>pitch lamp 3</Original>
+                <English>pitch lamp 3</English>
+                <French>Basculer lampe 3</French>
+                <Italian>Inclina lampada 3</Italian>
+                <Russian>Наклонить лампу 3</Russian>
+                <German>Lampe 3 neigen</German>
+                <Chinesesimp>倾斜灯3</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_PitchLamp4">
                 <Original>pitch lamp 4</Original>
                 <English>pitch lamp 4</English>
-                <German>Lampe 4 neigen</German>
-                <Chinesesimp>倾斜灯4</Chinesesimp>
-                <Russian>Наклонить лампу 4</Russian>
                 <French>Basculer lampe 4</French>
                 <Italian>Inclina lampada 4</Italian>
+                <Russian>Наклонить лампу 4</Russian>
+                <German>Lampe 4 neigen</German>
+                <Chinesesimp>倾斜灯4</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_YawLamp1">
+                <Original>yaw lamp 1</Original>
+                <English>yaw lamp 1</English>
+                <French>Tourner lampe 1</French>
+                <Italian>Ruota lampada 1</Italian>
+                <Russian> Повернуть лампу 1</Russian>
+                <German>Lampe 1 gieren</German>
+                <Chinesesimp>偏转灯1</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_YawLamp2">
+                <Original>yaw lamp 2</Original>
+                <English>yaw lamp 2</English>
+                <French>Tourner lampe 2</French>
+                <Italian>Ruota lampada 2</Italian>
+                <Russian>Повернуть лампу 2</Russian>
+                <German>Lampe 2 gieren</German>
+                <Chinesesimp>偏转灯2</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Interaction_Config_YawLamp3">
+                <Original>yaw lamp 3</Original>
+                <English>yaw lamp 3</English>
+                <French>Tourner lampe 3</French>
+                <Italian>Ruota lampada 3</Italian>
+                <Russian>Повернуть лампу 3</Russian>
+                <German>Lampe 3 gieren</German>
+                <Chinesesimp>偏转灯3</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_Interaction_Config_YawLamp4">
                 <Original>yaw lamp 4</Original>
                 <English>yaw lamp 4</English>
-                <German>Lampe 4 gieren</German>
-                <Chinesesimp>偏转灯4</Chinesesimp>
-                <Russian>Повернуть лампу 4</Russian>
                 <French>Tourner lampe 4</French>
                 <Italian>Ruota lampada 4</Italian>
+                <Russian>Повернуть лампу 4</Russian>
+                <German>Lampe 4 gieren</German>
+                <Chinesesimp>偏转灯4</Chinesesimp>
             </Key>
-            <Key ID="STR_AE3_Interaction_Config_DeskDisplayName">
-                <Original>desk</Original>
-                <English>desk</English>
-                <German>Tisch</German>
-                <Chinesesimp>桌子</Chinesesimp>
-                <Russian>Стол</Russian>
-                <French>bureau</French>
-                <Italian>Scrivania</Italian>
+        </Container>
+        <Container name="General">
+            <Key ID="STR_AE3_Interaction_General_Close">
+                <Original>Close</Original>
+                <English>Close</English>
+                <French>Fermer</French>
+                <Italian>Chiudi</Italian>
+                <Russian>Закрыть</Russian>
+                <German>Schließen</German>
+                <Chinesesimp>关闭</Chinesesimp>
             </Key>
-            <Key ID="STR_AE3_Interaction_Config_TextureBlack">
-                <Original>Black</Original>
-                <English>Black</English>
-                <German>Schwarz</German>
-                <Chinesesimp>黑色</Chinesesimp>
-                <Russian>Black</Russian>
-                <French>Noir</French>
-                <Italian>Nero</Italian>
+            <Key ID="STR_AE3_Interaction_General_Exit">
+                <Original>Exit interaction</Original>
+                <English>Exit interaction</English>
+                <French>Quitter l'interaction</French>
+                <Italian>Interazione Uscita</Italian>
+                <Russian>Завершить взаимодействие</Russian>
+                <German>Interaction verlassen</German>
+                <Chinesesimp>退出交互</Chinesesimp>
             </Key>
-            <Key ID="STR_AE3_Interaction_Config_TextureOlive">
-                <Original>Olive</Original>
-                <English>Olive</English>
-                <German>Oliv</German>
-                <Chinesesimp>橄榄色</Chinesesimp>
-                <Russian>Olive</Russian>
-                <French>Olive</French>
-                <Italian>Oliva</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_TextureYellow">
-                <Original>Yellow</Original>
-                <English>Yellow</English>
-                <German>Gelb</German>
-                <Chinesesimp>黄色</Chinesesimp>
-                <Russian>Yellow</Russian>
-                <French>Jaune</French>
-                <Italian>Giallo</Italian>
-            </Key>
-            <Key ID="STR_AE3_Interaction_Config_TextureSand">
-                <Original>Sand</Original>
-                <English>Sand</English>
-                <German>Sand</German>
-                <Chinesesimp>沙色</Chinesesimp>
-                <Russian>Sand</Russian>
-                <French>Sable</French>
-                <Italian>Sabbia</Italian>
+            <Key ID="STR_AE3_Interaction_General_Open">
+                <Original>Open</Original>
+                <English>Open</English>
+                <French>Ouvrir</French>
+                <Italian>Apri</Italian>
+                <Russian>Открыть</Russian>
+                <German>Öffnen</German>
+                <Chinesesimp>打开</Chinesesimp>
             </Key>
         </Container>
     </Package>

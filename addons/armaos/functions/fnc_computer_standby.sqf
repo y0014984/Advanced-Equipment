@@ -1,11 +1,17 @@
-/**
- * Adds the "standby" ACE interaction for a given computer object. Computer texture changes accordingly.
+/*
+ * Author: Root
+ * Description: Executes the standby operation for a given computer object. Syncs terminal state, changes texture to standby screen, and plays standby sound.
  *
  * Arguments:
- * 1: Computer <OBJECT>
+ * 0: _computer <OBJECT> - The computer object to put into standby mode
  *
- * Results:
- * None
+ * Return Value:
+ * Success <BOOL>
+ *
+ * Example:
+ * [_computer] call AE3_armaos_fnc_computer_standby;
+ *
+ * Public: Yes
  */
 
 params ["_computer"];
@@ -18,15 +24,14 @@ params ["_computer"];
 
 	private _terminal = _computer getVariable "AE3_terminal";
 
-	// if the laptop was turned on and immediately after that the standby mode war triggered, the 
+	// if the laptop was turned on and immediately after that the standby mode war triggered, the
 	// _terminal var dosn't seem to be set, so there's no need to sync that undefined var to server
-	if (!isNil "_terminal") then 
+	if (!isNil "_terminal") then
 	{
 		[_computer, [], "exit"] call AE3_armaos_fnc_os_exit;
 
-		private _terminal = _computer getVariable "AE3_terminal";
-
-		_computer setVariable ["AE3_terminal", _terminal, 2]; 
+		// Terminal state is persisted via AE3_terminal_sync (serializable types only)
+		// NEVER broadcast AE3_terminal as it contains TEXT which causes serialization warnings
 	};
 
 	_computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_4_to_3_Standby.paa"];

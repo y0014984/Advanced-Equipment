@@ -15,11 +15,11 @@ class CfgVehicles
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
-			init = "_this call AE3_network_fnc_initRouter;";
+			init = "call AE3_network_fnc_initRouter;";
 
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; true";
+			turnOnAction = "call AE3_network_fnc_dhcp_onTurnOn; true";
 			turnOffAction = "true";
 
 			class AE3_PowerInterface
@@ -68,11 +68,11 @@ class CfgVehicles
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
-			init = "_this call AE3_network_fnc_initRouter;";
+			init = "call AE3_network_fnc_initRouter;";
 
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; true";
+			turnOnAction = "call AE3_network_fnc_dhcp_onTurnOn; true";
 			turnOffAction = "true";
 
 			class AE3_PowerInterface
@@ -121,11 +121,11 @@ class CfgVehicles
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Network_Config_RouterDisplayName";
-			init = "_this call AE3_network_fnc_initRouter;";
+			init = "call AE3_network_fnc_initRouter;";
 
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; true";
+			turnOnAction = "call AE3_network_fnc_dhcp_onTurnOn; true";
 			turnOffAction = "true";
 
 			class AE3_PowerInterface

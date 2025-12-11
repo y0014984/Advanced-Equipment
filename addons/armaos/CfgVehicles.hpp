@@ -6,6 +6,8 @@ class CfgVehicles
 	class Land_Laptop_03_black_F;
 	class Land_Laptop_03_black_F_AE3: Land_Laptop_03_black_F
 	{
+		ae3_item = "Item_Laptop_AE3"; // Maps to inventory item class
+
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
@@ -41,11 +43,11 @@ class CfgVehicles
 
 			closeState = 0;
 
-			init = "_this call AE3_interaction_fnc_initLaptop;";
+			init = "call AE3_interaction_fnc_initLaptop;";
 
-			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			openAction = "call AE3_interaction_fnc_laptop_open;";
 			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
+			closeAction = "call AE3_interaction_fnc_laptop_close;";
 			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
       
 			class AE3_ace3Interactions
@@ -70,13 +72,13 @@ class CfgVehicles
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 			defaultPowerLevel = 0;
 
-			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_armaos_fnc_device_initComplete;";
 
-			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnAction = "call AE3_network_fnc_dhcp_onTurnOn; call AE3_armaos_fnc_computer_turnOn;";
 			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			turnOffAction = "call AE3_armaos_fnc_computer_turnOff;";
 			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			standByAction = "call AE3_armaos_fnc_computer_standby;";
 			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 
 			class AE3_Consumer
@@ -134,6 +136,8 @@ class CfgVehicles
 	class Land_Laptop_03_olive_F;
 	class Land_Laptop_03_olive_F_AE3: Land_Laptop_03_olive_F
 	{
+		ae3_item = "Item_Laptop_AE3"; // Maps to inventory item class
+
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
@@ -169,11 +173,11 @@ class CfgVehicles
 
 			closeState = 0;
 
-			init = "_this call AE3_interaction_fnc_initLaptop;";
+			init = "call AE3_interaction_fnc_initLaptop;";
 
-			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			openAction = "call AE3_interaction_fnc_laptop_open;";
 			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
+			closeAction = "call AE3_interaction_fnc_laptop_close;";
 			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
       
       		class AE3_ace3Interactions
@@ -198,13 +202,13 @@ class CfgVehicles
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 			defaultPowerLevel = 0;
 
-			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_armaos_fnc_device_initComplete;";
 
-			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnAction = "call AE3_network_fnc_dhcp_onTurnOn; call AE3_armaos_fnc_computer_turnOn;";
 			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			turnOffAction = "call AE3_armaos_fnc_computer_turnOff;";
 			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			standByAction = "call AE3_armaos_fnc_computer_standby;";
 			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 
 			class AE3_Consumer
@@ -262,6 +266,8 @@ class CfgVehicles
 	class Land_Laptop_03_sand_F;
 	class Land_Laptop_03_sand_F_AE3: Land_Laptop_03_sand_F
 	{
+		ae3_item = "Item_Laptop_AE3"; // Maps to inventory item class
+
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
 		editorCategory = "AE3_Assets";
@@ -297,11 +303,11 @@ class CfgVehicles
 
 			closeState = 0;
 
-			init = "_this call AE3_interaction_fnc_initLaptop;";
+			init = "call AE3_interaction_fnc_initLaptop;";
 
-			openAction = "_this call AE3_interaction_fnc_laptop_open;";
+			openAction = "call AE3_interaction_fnc_laptop_open;";
 			openActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			closeAction = "_this call AE3_interaction_fnc_laptop_close;";
+			closeAction = "call AE3_interaction_fnc_laptop_close;";
 			closeActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 
 			class AE3_ace3Interactions
@@ -326,13 +332,13 @@ class CfgVehicles
 			displayName = "$STR_AE3_ArmaOS_Config_LaptopDisplayName";
 			defaultPowerLevel = 0;
 
-			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_filesystem_fnc_initFilesystem; _this call AE3_armaos_fnc_link_init; _this call AE3_network_fnc_initNetworkDevice;";
+			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_armaos_fnc_device_initComplete;";
 
-			turnOnAction = "_this call AE3_network_fnc_dhcp_onTurnOn; _this call AE3_armaos_fnc_computer_turnOn;";
+			turnOnAction = "call AE3_network_fnc_dhcp_onTurnOn; call AE3_armaos_fnc_computer_turnOn;";
 			turnOnActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			turnOffAction = "_this call AE3_armaos_fnc_computer_turnOff;";
+			turnOffAction = "call AE3_armaos_fnc_computer_turnOff;";
 			turnOffActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
-			standByAction = "_this call AE3_armaos_fnc_computer_standby;";
+			standByAction = "call AE3_armaos_fnc_computer_standby;";
 			standByActionCondition = "isNull (_this getVariable ['AE3_computer_mutex', objNull])";
 
 			class AE3_Consumer
@@ -391,16 +397,12 @@ class CfgVehicles
 	{
 		class AttributesBase
 		{
-			class Default;
 			class Edit;					// Default edit box (i.e., text input field)
 			class Checkbox;
 			class ModuleDescription;	// Module description
 		};
 		// Description base classes, for more information see below
-		class ModuleDescription
-		{
-			class AnyBrain;
-		};
+		class ModuleDescription {};
 	};
 
 	/* ================================================================================ */
@@ -521,7 +523,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 
 			// Arguments shared by specific module type (have to be mentioned in order to be present)
@@ -533,7 +535,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
@@ -601,7 +603,7 @@ class CfgVehicles
 				typeName = "BOOL"; // Value type, can be "NUMBER", "STRING" or "BOOL"
 				// Default text filled in the input box
 				// Because it is an expression, to return a String one must have a string within a string
-				defaultValue = true;
+				defaultValue = 1;
 			};
 
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last

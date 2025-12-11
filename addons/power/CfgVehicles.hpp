@@ -12,6 +12,25 @@ class CfgVehicles
 		curatorInfoType = "AE3_UserInterface_Zeus_Asset_Details"; // when placing with AI
 		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details"; // when placing without AI
 
+		// Override inherited countermeasure properties to prevent config warnings
+		incomingMissileDetectionSystem = 0;
+		weaponLockSystem = 0;
+		magazines[] = {};
+		weapons[] = {};
+
+		// Completely remove countermeasure flare/chaff launchers inherited from radar system
+		class Turrets {};
+
+		// Explicitly disable countermeasure classes inherited from radar system
+		class EventHandlers {};
+		class Components
+		{
+			class SensorsManagerComponent
+			{
+				class Components {};
+			};
+		};
+
 		// Eden Editor Attributes
 		class Attributes
 		{
@@ -57,7 +76,6 @@ class CfgVehicles
 		cargoAction[] = {};
 		driverAction = "";
 		typicalCargo[] = {};
-		weapons[] = {};
 
 		fuelConsumptionRate = 0.0;
 	};
@@ -97,8 +115,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_RuggedPortableGeneratorDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+			turnOnAction = "call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "call AE3_power_fnc_turnOffGeneratorAction";
 
 			class AE3_Generator
 			{
@@ -185,8 +203,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_RadarGeneratorDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+			turnOnAction = "call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "call AE3_power_fnc_turnOffGeneratorAction";
 
 			class AE3_Generator
 			{
@@ -234,8 +252,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_AirportGeneratorDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+			turnOnAction = "call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "call AE3_power_fnc_turnOffGeneratorAction";
 
 			class AE3_Generator
 			{
@@ -283,8 +301,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_PowerGeneratorDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+			turnOnAction = "call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "call AE3_power_fnc_turnOffGeneratorAction";
 
 			class AE3_Generator
 			{
@@ -332,8 +350,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_PortableGeneratorDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnGeneratorAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffGeneratorAction";
+			turnOnAction = "call AE3_power_fnc_turnOnGeneratorAction";
+			turnOffAction = "call AE3_power_fnc_turnOffGeneratorAction";
 
 			class AE3_Generator
 			{
@@ -407,8 +425,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_BatteryDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnBatteryAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffBatteryAction";
+			turnOnAction = "call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "call AE3_power_fnc_turnOffBatteryAction";
 
 			class AE3_PowerInterface
 			{
@@ -484,8 +502,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_BatteryDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnBatteryAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffBatteryAction";
+			turnOnAction = "call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "call AE3_power_fnc_turnOffBatteryAction";
 
 			class AE3_PowerInterface
 			{
@@ -561,8 +579,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_BatteryDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnBatteryAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffBatteryAction";
+			turnOnAction = "call AE3_power_fnc_turnOnBatteryAction";
+			turnOffAction = "call AE3_power_fnc_turnOffBatteryAction";
 
 			class AE3_PowerInterface
 			{
@@ -641,7 +659,7 @@ class CfgVehicles
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 
-			init = "_this call AE3_interaction_fnc_initSolarPanel;";
+			init = "call AE3_interaction_fnc_initSolarPanel;";
 
 			class AE3_ace3Interactions
 			{
@@ -713,13 +731,13 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffSolarAction";
+			turnOnAction = "call AE3_power_fnc_turnOnSolarAction";
+			turnOffAction = "call AE3_power_fnc_turnOffSolarAction";
 
 			class AE3_SolarGenerator
 			{
 				powerMax = 0.1/3600; // In this case per panel
-				orientationFnc = "_this call AE3_power_fnc_multSolarPanelOrientation";
+				orientationFnc = "call AE3_power_fnc_multSolarPanelOrientation";
 				height = 1.2;
 			};
 		};
@@ -790,7 +808,7 @@ class CfgVehicles
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 
-			init = "_this call AE3_interaction_fnc_initSolarPanel;";
+			init = "call AE3_interaction_fnc_initSolarPanel;";
 
 			class AE3_ace3Interactions
 			{
@@ -862,13 +880,13 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffSolarAction";
+			turnOnAction = "call AE3_power_fnc_turnOnSolarAction";
+			turnOffAction = "call AE3_power_fnc_turnOffSolarAction";
 
 			class AE3_SolarGenerator
 			{
 				powerMax = 0.1/3600; // In this case per panel
-				orientationFnc = "_this call AE3_power_fnc_multSolarPanelOrientation";
+				orientationFnc = "call AE3_power_fnc_multSolarPanelOrientation";
 				height = 1.2;
 			};
 		};
@@ -935,7 +953,7 @@ class CfgVehicles
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 
-			init = "_this call AE3_interaction_fnc_initSolarPanel;";
+			init = "call AE3_interaction_fnc_initSolarPanel;";
 
 			class AE3_ace3Interactions
 			{
@@ -1007,13 +1025,13 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffSolarAction";
+			turnOnAction = "call AE3_power_fnc_turnOnSolarAction";
+			turnOffAction = "call AE3_power_fnc_turnOffSolarAction";
 
 			class AE3_SolarGenerator
 			{
 				powerMax = 0.1/3600; // In this case per panel
-				orientationFnc = "_this call AE3_power_fnc_multSolarPanelOrientation";
+				orientationFnc = "call AE3_power_fnc_multSolarPanelOrientation";
 				height = 1.2;
 			};
 		};
@@ -1058,8 +1076,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffSolarAction";
+			turnOnAction = "call AE3_power_fnc_turnOnSolarAction";
+			turnOffAction = "call AE3_power_fnc_turnOffSolarAction";
 
 			class AE3_SolarGenerator
 			{
@@ -1106,8 +1124,8 @@ class CfgVehicles
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
 			defaultPowerLevel = 0;
 
-			turnOnAction = "_this call AE3_power_fnc_turnOnSolarAction";
-			turnOffAction = "_this call AE3_power_fnc_turnOffSolarAction";
+			turnOnAction = "call AE3_power_fnc_turnOnSolarAction";
+			turnOffAction = "call AE3_power_fnc_turnOffSolarAction";
 
 			class AE3_SolarGenerator
 			{

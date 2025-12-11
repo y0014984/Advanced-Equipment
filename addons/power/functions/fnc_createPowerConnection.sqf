@@ -1,19 +1,19 @@
-/**
- * PUBLIC
- *
- * This function creates a power connection from the _from object to the _to object.
+/*
+ * Author: Root
+ * Description: Creates a power connection from a consumer device to a power provider (generator or battery). Waits for both devices to complete initialization before establishing the connection. Handles internal batteries automatically.
  *
  * Arguments:
- * 1: From <OBJECT>
- * 2: To <OBJECT>
+ * 0: _from <OBJECT> - Consumer device (laptop, battery, etc.)
+ * 1: _to <OBJECT> - Power provider (generator, solar panel, battery)
  *
- * Results:
+ * Return Value:
  * None
  *
- * Examples:
+ * Example:
  * [_laptop, _generator] call AE3_power_fnc_createPowerConnection;
- * [_battery, _generator] call AE3_power_fnc_createPowerConnection;
+ * [_battery, _solarPanel] call AE3_power_fnc_createPowerConnection;
  *
+ * Public: Yes
  */
 
 params ["_from", "_to"];

@@ -1,7 +1,19 @@
-/**
- * Converts an item to an object.
- * Preserves the variables set for the items namespace.
+/*
+ * Author: Root
+ * Description: Converts an inventory item to a world object, preserving all variables from the item's namespace and removing the item from player inventory
  *
+ * Arguments:
+ * 0: _player <OBJECT> - Player who has the item in inventory
+ * 1: _item <STRING> - Class name of the item to convert (e.g., "Item_FlashDisk_AE3_ID_1")
+ * 2: _pos <ARRAY> - (Optional, default: [0,0,0]) Position to create the object at
+ *
+ * Return Value:
+ * Created object or objNull if item not found <OBJECT>
+ *
+ * Example:
+ * [player, "Item_FlashDisk_AE3_ID_1", [0,0,0]] call AE3_flashdrive_fnc_item2obj;
+ *
+ * Public: Yes
  */
 params['_player', '_item', ['_pos', [0, 0, 0]]];
 

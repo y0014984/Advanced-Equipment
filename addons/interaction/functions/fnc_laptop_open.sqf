@@ -1,11 +1,17 @@
-/**
- * Opens a laptop
+/*
+ * Author: Root
+ * Description: Opens a laptop by animating the lid to the open position (animation phase 0).
  *
  * Arguments:
- * 0: Laptop <OBJECT>
+ * 0: _laptop <OBJECT> - The laptop to open
  *
- * Returns:
- * true
+ * Return Value:
+ * true <BOOL>
+ *
+ * Example:
+ * [_laptop] call AE3_interaction_fnc_laptop_open;
+ *
+ * Public: Yes
  */
 
 params['_laptop'];

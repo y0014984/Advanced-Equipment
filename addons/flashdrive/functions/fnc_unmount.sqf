@@ -1,12 +1,18 @@
-/**
- * Unmounts a flashdrive attached to a given (usb) interface.
- * 
- * Arguments:
- * 0: Computer <OBJECT>
- * 1: Interfacename <String>
+/*
+ * Author: Root
+ * Description: Unmounts a flash drive from a USB interface, saving the filesystem state back to the drive and removing the mount point from /mnt/<interface>
  *
- * Results:
+ * Arguments:
+ * 0: _computer <OBJECT> - Computer object with USB interfaces
+ * 1: _interface <STRING> - Name of the USB interface to unmount
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [laptop, "usb0"] call AE3_flashdrive_fnc_unmount;
+ *
+ * Public: Yes
  */
 
 params['_computer', '_interface'];

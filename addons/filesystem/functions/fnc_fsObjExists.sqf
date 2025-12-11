@@ -1,13 +1,21 @@
-/**
- * Checks wether the filesystem object exists in the given filesystem or not
+/*
+ * Author: Root
+ * Description: Checks whether a filesystem object (file or directory) exists at the specified path. Returns false if path is invalid or object doesn't exist.
  *
  * Arguments:
- * 0: Pointer <[STRING]>
- * 1: Filesystem [<HASHMAP>, <STRING>]
- * 2: Path to filesystem object <STRING>
- * 3: User <STRING>
- * Results:
- * 0: exists <BOOL>
+ * 0: _pntr <ARRAY> - Current directory pointer
+ * 1: _filesystem <ARRAY> - Filesystem object
+ * 2: _target <STRING> - Path to filesystem object
+ * 3: _user <STRING> - User performing the check
+ *
+ * Return Value:
+ * True if object exists, false otherwise <BOOL>
+ *
+ * Example:
+ * [[], _filesystem, "/tmp/test.txt", "root"] call AE3_filesystem_fnc_fsObjExists;
+ * [_pointer, _filesystem, "../config.cfg", "user"] call AE3_filesystem_fnc_fsObjExists;
+ *
+ * Public: Yes
  */
 
 params["_pntr", "_filesystem", "_target", "_user"];
@@ -20,7 +28,7 @@ try
 
     private _fsObj = _dir select 2;
 
-    if(_fsObj in _current) then { true; } else { false; };
+    [false, true] select (_fsObj in _current);
 } catch
 {
     false;

@@ -1,20 +1,23 @@
-/**
- * PRIVATE
- *
- * This function checks wether or not a network or power connection in Eden Editor is valid or not. 
- * If connection is not valid, it will be removed. Gives visual feeedback in Eden Editor.
- * This function is private because it only makes sense in context of Eden Editor Event Handlers.
+/*
+ * Author: Root
+ * Description: Validates a network or power connection in Eden Editor. Checks if the connection is between allowed object classes,
+ * prevents self-connections, and warns about multiple connections of the same type. Removes invalid connections and provides
+ * visual feedback via Eden Editor notifications.
  *
  * Arguments:
- * 1: Type <STRING>
- * 2: From <OBJECT>
- * 3: To <OBJECT>
- * 4: Allowed From Classes <[STRING]>
- * 5: Allowed To Classes <[STRING]>
+ * 0: _type <STRING> - Connection type (AE3_PowerConnection or AE3_NetworkConnection)
+ * 1: _from <OBJECT> - Source object of the connection
+ * 2: _to <OBJECT> - Destination object of the connection
+ * 3: _allowedFromClasses <ARRAY> - Array of allowed source object class names
+ * 4: _allowedToClasses <ARRAY> - Array of allowed destination object class names
  *
- * Results:
- * Visual Feedback in Eden Editor; Potentially removed connection
+ * Return Value:
+ * None
  *
+ * Example:
+ * ["AE3_NetworkConnection", laptop1, router1, ["Land_Laptop_03_sand_F_AE3"], ["Land_Router_01_sand_F_AE3"]] call AE3_main_fnc_3den_checkConnection;
+ *
+ * Public: No
  */
 
 params ["_type", "_from", "_to", "_allowedFromClasses", "_allowedToClasses"];

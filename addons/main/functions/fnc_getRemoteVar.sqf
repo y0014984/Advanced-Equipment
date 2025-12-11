@@ -1,18 +1,31 @@
-/**
- * Gets a remote variable and sets it locally.
+/*
+ * Author: Root
+ * Description: Retrieves a variable from a remote client and sets it locally. Waits until the variable transfer is complete.
  *
  * Arguments:
- * 0: Namespace of the variable <NAMESPACE>
- * 1: Variable name <STRING>
- * 2: Remote client (OPTIONAL)
- * 
- * Return:
- * Nothing
+ * 0: _namespace <NAMESPACE> - Namespace where the variable should be stored locally
+ * 1: _variable <STRING> - Name of the variable to retrieve
+ * 2: _from <NUMBER> (Optional) - Client ID to retrieve from, default: 2 (server)
+ *
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [missionNamespace, "remoteData"] call AE3_main_fnc_getRemoteVar;
+ * [missionNamespace, "remoteData", 3] call AE3_main_fnc_getRemoteVar; // From specific client
+ *
+ * Public: No
  */
 
 params['_namespace', '_variable', ['_from', 2]];
 
 if(!isMultiplayer) exitWith {};
+
+// If running in unscheduled environment, re-spawn in scheduled environment
+// This prevents "Suspending not allowed" errors when called from event handlers
+if (!canSuspend) exitWith {
+	[_namespace, _variable, _from] spawn AE3_main_fnc_getRemoteVar;
+};
 
 private _transfer = _variable + "_trans";
 _namespace setVariable [_transfer, false];

@@ -1,17 +1,18 @@
-/**
- * PUBLIC
- *
- * Removes the power connection (Uplink) for a given device and updates the available interactions.
+/*
+ * Author: Root
+ * Description: Removes the power connection from a consumer device to its power provider. Updates ACE3 interactions, removes the device from the provider's connected devices list, turns off the consumer if it was running, and updates the provider's power state.
  *
  * Arguments:
- * 0: Power Consumer <OBJECT>
- * 
- * Returns:
- * None
+ * 0: _powerConsumer <OBJECT> - Consumer device to disconnect
+ *
+ * Return Value:
+ * Success status <BOOL>
  *
  * Example:
- * [_entity] call AE3_power_fnc_removePowerConnection;
+ * [_laptop] call AE3_power_fnc_removePowerConnection;
+ * [_battery] call AE3_power_fnc_removePowerConnection;
  *
+ * Public: Yes
  */
 
 params ["_powerConsumer"];

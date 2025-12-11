@@ -1,15 +1,19 @@
-/**
- * PUBLIC - Needs to be executed on the server.
- * 
- * Sets the battery level of a given battery.
+/*
+ * Author: Root
+ * Description: Sets the battery level of a given battery to a specified percentage. Must be executed on the server. The value is automatically clamped between 0 and 100 percent.
  *
  * Arguments:
- * 0: Battery <OBJECT>
- * 1: Battery Level Percent <NUMBER>
- * 
- * Example:
- * [battery, 100] call AE3_power_fnc_setBatteryLevel;
+ * 0: _battery <OBJECT> - Battery object to modify
+ * 1: _batteryLevelPercent <NUMBER> - Battery level in percent (0-100)
  *
+ * Return Value:
+ * Success status <BOOL>
+ *
+ * Example:
+ * [_battery, 100] call AE3_power_fnc_setBatteryLevel;
+ * [_battery, 50] remoteExecCall ["AE3_power_fnc_setBatteryLevel", 2];
+ *
+ * Public: Yes
  */
 
 params ["_battery", "_batteryLevelPercent"];

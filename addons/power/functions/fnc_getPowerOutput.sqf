@@ -1,12 +1,19 @@
-/**
- * Returns device power output. Optional displays hint.
+/*
+ * Author: Root
+ * Description: Returns the current power output of a generator or solar panel in Watts. Optionally displays a hint showing power output in kW or W. Power capacity is converted from kWh to instantaneous Watts.
  *
  * Arguments:
- * 0: Device <OBJECT>
- * 1: Hint <BOOLEAN> (Optional)
- * 
- * Returns:
- * 0: Power Output <STRING>
+ * 0: _entity <OBJECT> - Generator or solar panel object
+ * 1: _hint <BOOL> - (Optional, default: false) Display hint with power output
+ *
+ * Return Value:
+ * Power output in Watts <NUMBER>
+ *
+ * Example:
+ * private _powerW = [_generator, true] call AE3_power_fnc_getPowerOutput;
+ * private _solarOutput = [_solarPanel, false] call AE3_power_fnc_getPowerOutput;
+ *
+ * Public: Yes
  */
 
 params ["_entity", ["_hint", false]];

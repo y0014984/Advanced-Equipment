@@ -1,13 +1,19 @@
-/**
- * Shifts the input buffer.
+/*
+ * Author: Root
+ * Description: Shifts the terminal input buffer left or right for cursor movement.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: If to the right <BOOL>
- * 2: If to the end <BOOL>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _right <STRING> - TODO: Add description
+ * 2: _end <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _right, _end] call AE3_armaos_fnc_terminal_shiftInputBuffer;
+ *
+ * Public: No
  */
 
 params['_computer', '_right', ['_end', false]];

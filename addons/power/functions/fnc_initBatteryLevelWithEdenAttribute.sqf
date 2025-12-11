@@ -1,13 +1,18 @@
-/**
- * Sets the battery level for a given battery inside an entity if value is changed in Eden Editor. This will only work for an
- * entity that is placed in Eden Editor. In Zeus Mode, the variables are not set.
+/*
+ * Author: Root
+ * Description: Applies Eden Editor battery level attribute to a battery after mission initialization. Only works for entities placed in Eden Editor (not Zeus). Waits for BIS_fnc_init to complete before reading and applying the AE3_EdenAttribute_PowerLevel attribute. Value is normalized to 0-1 range.
  *
  * Arguments:
- * 0: Battery <OBJECT>
- * 1: Entity <OBJECT>
- * 
- * Returns:
+ * 0: _battery <OBJECT> - Battery object to set
+ * 1: _entity <OBJECT> - Parent entity with Eden attribute
+ *
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_battery, _laptop] call AE3_power_fnc_initBatteryLevelWithEdenAttribute;
+ *
+ * Public: No
  */
 
 params ["_battery", "_entity"];

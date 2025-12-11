@@ -1,10 +1,18 @@
-/**
- * Approximate position of the sun for dates between 1950 and 2050.
- * Source: https://en.wikipedia.org/wiki/Position_of_the_Sun
+/*
+ * Author: Root
+ * Description: Calculates approximate sun position (zenith and azimuth angles) for current mission date and map location. Uses simplified astronomical formulas valid for dates between 1950 and 2050. Accounts for map latitude/longitude and approximates timezone from longitude. Defaults to Altis coordinates if map has no position data. Source: https://en.wikipedia.org/wiki/Position_of_the_Sun
  *
- * Returns:
- * 0: Solar Zenith in [°]
- * 1: Solar Azimuth in [°]
+ * Arguments:
+ * None (uses global date variable)
+ *
+ * Return Value:
+ * [Solar zenith angle in degrees, Solar azimuth angle in degrees] <ARRAY>
+ *
+ * Example:
+ * private _sunPos = call AE3_power_fnc_getSolarPosition;
+ * _sunPos params ["_zenith", "_azimuth"];
+ *
+ * Public: No
  */
 
 date params ['_year', '_month', '_day', '_hours', '_minutes'];

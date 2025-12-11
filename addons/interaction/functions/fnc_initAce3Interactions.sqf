@@ -1,15 +1,22 @@
-/**
- * Inits ACE3 Interactions likes dragging, carrying and cargo.
- * Workaround is needed for some classes, that can't use ACE3 config entries.
+/*
+ * Author: Root
+ * Description: Initializes ACE3 interactions (dragging, carrying, cargo) for equipment objects. Creates a
+ * settings hashmap and calls manageAce3Interactions to apply initial state. Runs only on server.
  *
  * Arguments:
- * 0: Equipment <OBJECT>
- * 1: Dragging Settings <ARRAY>
- * 2: Carrying Settings <ARRAY>
- * 3: Cargo Settings <ARRAY>
+ * 0: _equipment <OBJECT> - The equipment object to initialize
+ * 1: _aceDragging <ARRAY> - Dragging settings [canDrag, dragPosition, dragDirection]
+ * 2: _aceCarrying <ARRAY> - Carrying settings [canCarry, carryPosition, carryDirection]
+ * 3: _aceCargo <ARRAY> - Cargo settings [canLoad, size]
+ * 4: _interactionConditions <ARRAY> - Interaction conditions [unwrapped]
  *
- * Returns:
- * none
+ * Return Value:
+ * None
+ *
+ * Example:
+ * [_laptop, [1, [0, 1, 0], 0], [1, [0, 1, 0], 0], [1, 2], [0]] call AE3_interaction_fnc_initAce3Interactions;
+ *
+ * Public: Yes
  */
 
 params["_equipment", "_aceDragging", "_aceCarrying", "_aceCargo", "_interactionConditions"];
@@ -19,7 +26,7 @@ if(isServer) then
 {
 	private _settingsAce3 = createHashMap;
 
-	if (!(_aceDragging isEqualTo [])) then
+	if (_aceDragging isNotEqualTo []) then
 	{
 		private _ae3_dragging_canDrag = _aceDragging select 0;
 		private _ae3_dragging_dragPosition = _aceDragging select 1;
@@ -32,7 +39,7 @@ if(isServer) then
 		_settingsAce3 set ["ae3_dragging_dragDirection", _ae3_dragging_dragDirection];
 	};
 
-	if (!(_aceCarrying isEqualTo [])) then
+	if (_aceCarrying isNotEqualTo []) then
 	{
 		private _ae3_dragging_canCarry = _aceCarrying select 0;
 		private _ae3_dragging_carryPosition = _aceCarrying select 1;
@@ -45,7 +52,7 @@ if(isServer) then
 		_settingsAce3 set ["ae3_dragging_carryDirection", _ae3_dragging_carryDirection];
 	};
 
-	if (!(_aceCargo isEqualTo [])) then
+	if (_aceCargo isNotEqualTo []) then
 	{
 		private _ae3_cargo_canLoad = _aceCargo select 0;
 		private _ae3_cargo_size = _aceCargo select 1;
@@ -56,7 +63,7 @@ if(isServer) then
 		_settingsAce3 set ["ae3_cargo_size", _ae3_cargo_size];
 	};
 
-	if (!(_interactionConditions isEqualTo [])) then
+	if (_interactionConditions isNotEqualTo []) then
 	{
 		private _ae3_unwrapped = _interactionConditions select 0;
 

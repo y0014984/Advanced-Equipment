@@ -1,24 +1,25 @@
-/**
- * PRIVATE
- *
- * This function is assigned in module config and will be triggered after mission start and if the module is placed by zeus on every computer.
- * The function will only run on server and only if placed in eden editor. The module will be deleted after processing.
- * The effect of this module applies to all syncted entities.
+/*
+ * Author: Root
+ * Description: Eden/Zeus module function to add security commands to synced computers.
  *
  * Arguments:
- * 1: Module <OBJECT>
- * 2: Synced Units <[OBJECT]>
- * 3: Activated <BOOL> currently unused in this function
+ * 0: _module <STRING> - TODO: Add description
+ * 1: _syncedUnits <STRING> - TODO: Add description
+ * 2: _activated <STRING> - TODO: Add description
  *
- * Results:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_module, _syncedUnits, _activated] call AE3_armaos_fnc_module_addSecurityCommands;
+ *
+ * Public: No
  */
 
 params["_module", "_syncedUnits", "_activated"];
 
 // ignore this function if module is placed by curator/zeus
-if (_module getvariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
+if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {};
 
 if(!isServer) exitWith {};
 
@@ -36,7 +37,7 @@ if (_activated) then
 
 		{
 			[_x, _isCrypto, _isCrack] call AE3_armaos_fnc_computer_addSecurityCommands;
-		} foreach _syncedUnits;
+		} forEach _syncedUnits;
 
 		deleteVehicle _module;
 	};

@@ -1,14 +1,19 @@
-/**
- * Initializes a power interface
- * 
- * Arguments:
- * 0: Device <OBJECT>
- * 1: Connected Devices <[OBJECT]> (Optional)
- * 2: If Internal <BOOL> (Optional)
+/*
+ * Author: Root
+ * Description: Initializes power connection interface for a device. Sets up ACE3 interactions for connecting to and disconnecting from nearby power sources. Creates dynamic child menus listing available generators and batteries within 10m. Handles both internal and external power interfaces.
  *
- * Results:
+ * Arguments:
+ * 0: _generator <OBJECT> - Device with power interface
+ * 1: _connectedDevices <ARRAY> - (Optional, default: nil) Pre-connected devices
+ * 2: _internal <BOOL> - (Optional, default: false) Whether this is an internal interface
+ *
+ * Return Value:
  * None
  *
+ * Example:
+ * [_laptop, nil, false] call AE3_power_fnc_initPowerInterface;
+ *
+ * Public: No
  */
 
 params["_generator", ["_connectedDevices", nil], ["_internal", false]];
@@ -81,8 +86,30 @@ if(_internal) then
 
 if(!isDedicated) then
 {
-	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
-	[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	// Ensure equipment parent action exists (creates if needed)
+	[_device] call AE3_interaction_fnc_ensureEquipmentParent;
+
+	private _hasEquipmentAction = _device getVariable ["AE3_interaction_hasEquipmentAction", false];
+
+	if (_hasEquipmentAction) then {
+		// Create Hardware submenu if it doesn't exist
+		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+		private _hasHardwareSubmenu = _device getVariable ["AE3_interaction_hasHardwareSubmenu", false];
+
+		if (!_hasHardwareSubmenu) then {
+			private _hardwareSubmenu = ["AE3_HardwareSubmenu", "Hardware", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+			[_device, 0, _parentPath, _hardwareSubmenu] call ace_interact_menu_fnc_addActionToObject;
+			_device setVariable ["AE3_interaction_hasHardwareSubmenu", true];
+		};
+
+		// Add power connections to Hardware submenu
+		[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _connect] call ace_interact_menu_fnc_addActionToObject;
+		[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	} else {
+		// Add to standalone device action
+		[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
+		[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	};
 };
 
 if(isServer) then

@@ -1,12 +1,18 @@
-/**
- * Appends line to last line.
+/*
+ * Author: Root
+ * Description: Appends text to the last line in the terminal buffer.
  *
  * Arguments:
- * 0: Computer <OBJECT>
- * 1: Line <STRING> or <[STRING]> or <[STRING, STRING]>
+ * 0: _computer <OBJECT> - TODO: Add description
+ * 1: _inputLine <STRING> - TODO: Add description
  *
- * Returns:
+ * Return Value:
  * None
+ *
+ * Example:
+ * [_computer, _inputLine] call AE3_armaos_fnc_terminal_appendLine;
+ *
+ * Public: No
  */
 
 params ["_computer", "_inputLine"];

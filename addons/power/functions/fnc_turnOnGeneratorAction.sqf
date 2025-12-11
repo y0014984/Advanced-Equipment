@@ -1,12 +1,18 @@
-/**
- * Turns on the generator.
+/*
+ * Author: Root
+ * Description: ACE3 interaction action that turns on a fuel generator with progress bar and sound effects. Checks fuel level before starting, plays start sound, adds provider handler, and updates interactions. In Zeus mode or if silent, starts immediately without progress bar.
  *
  * Arguments:
- * 0: Generator <OBJECT>
- * 1: If the ace progress bar is shown <BOOL>
+ * 0: _entity <OBJECT> - Generator object to turn on
+ * 1: _silent <BOOL> - (Optional, default: false) Skip progress bar and immediate start
  *
- * Returns:
- * None
+ * Return Value:
+ * Success status (true if immediate start, false if progress bar started) <BOOL>
+ *
+ * Example:
+ * [_generator, false] call AE3_power_fnc_turnOnGeneratorAction;
+ *
+ * Public: No
  */
 
 params ["_entity", ["_silent", false]];

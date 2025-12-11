@@ -1,25 +1,31 @@
-/**
- * Creates event handler for the interaction animation.
+/*
+ * Author: Root
+ * Description: Creates event handlers for interactive equipment animations via mouse scroll and modifier keys.
+ * Supports different animations for Shift, Ctrl, and Alt modifiers. Displays mouse hint with available actions.
  *
- * Argmuments:
- * 0: Equipment <OBJECT>
- * 1: Main Animation <ARRAY>
- * 2: Shift Animation <ARRAY>
- * 3: Ctrl Animation <ARRAY>
- * 4: Ctrl Animation <ARRAY>
+ * Arguments:
+ * 0: _equipment <OBJECT> - The equipment object to animate
+ * 1: _animationMain <ARRAY> - Main animation config [description, animation, min, max, scrollMultiplier]
+ * 2: _animationModifiedShift <ARRAY> - Shift-modified animation config (empty array if none)
+ * 3: _animationModifiedCtrl <ARRAY> - Ctrl-modified animation config (empty array if none)
+ * 4: _animationModifiedAlt <ARRAY> - Alt-modified animation config (empty array if none)
  *
- * Returns:
+ * Return Value:
  * None
  *
+ * Example:
+ * [_laptop, ["Adjust Screen", "Screen_Angle", 0, 1, 0.05], [], [], []] call AE3_interaction_fnc_animateInteraction;
+ *
+ * Public: No
  */
 
 params ["_equipment", "_animationMain", "_animationModifiedShift", "_animationModifiedCtrl", "_animationModifiedAlt"];
 
 private _modifier = [];
 
-if (!(_animationModifiedShift isEqualTo [])) then { _modifier pushBack ["shift", _animationModifiedShift select 0] };
-if (!(_animationModifiedCtrl isEqualTo [])) then { _modifier pushBack ["control", _animationModifiedCtrl select 0] };
-if (!(_animationModifiedAlt isEqualTo [])) then { _modifier pushBack ["alt", _animationModifiedAlt select 0] };
+if ((_animationModifiedShift isNotEqualTo [])) then { _modifier pushBack ["shift", _animationModifiedShift select 0] };
+if ((_animationModifiedCtrl isNotEqualTo [])) then { _modifier pushBack ["control", _animationModifiedCtrl select 0] };
+if ((_animationModifiedAlt isNotEqualTo [])) then { _modifier pushBack ["alt", _animationModifiedAlt select 0] };
 
 ["", localize "STR_AE3_Interaction_General_Exit", _animationMain select 0, _modifier] call ace_interaction_fnc_showMouseHint;
 
@@ -51,7 +57,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 		private _ctrlKeyDown = uiNamespace getVariable ["AE3_ctrlKeyDown", false];
 		private _altKeyDown = uiNamespace getVariable ["AE3_altKeyDown", false];
 
-		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == false) && (_altKeyDown == false) ) then
+		if ( !(_shiftKeyDown) && !(_ctrlKeyDown) && !(_altKeyDown) ) then
 		{
 			[
 				_equipment,
@@ -63,7 +69,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 			] call AE3_interaction_fnc_animateAction;			
 		};
 
-		if ( (_shiftKeyDown == true) && (_ctrlKeyDown == false) && (_altKeyDown == false) && (!(_animationModifiedShift isEqualTo [])) ) then
+		if ( (_shiftKeyDown) && !(_ctrlKeyDown) && !(_altKeyDown) && ((_animationModifiedShift isNotEqualTo [])) ) then
 		{
 			[
 				_equipment,
@@ -75,7 +81,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 			] call AE3_interaction_fnc_animateAction;			
 		};
 
-		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == true) && (_altKeyDown == false) && (!(_animationModifiedCtrl isEqualTo [])) ) then
+		if ( !(_shiftKeyDown) && (_ctrlKeyDown) && (_altKeyDown) && ((_animationModifiedCtrl isNotEqualTo [])) ) then
 		{
 			[
 				_equipment,
@@ -87,7 +93,7 @@ private _mouseZChangedEhId = _display displayAddEventHandler
 			] call AE3_interaction_fnc_animateAction;			
 		};
 
-		if ( (_shiftKeyDown == false) && (_ctrlKeyDown == false) && (_altKeyDown == true) && (!(_animationModifiedAlt isEqualTo [])) ) then
+		if ( !(_shiftKeyDown) && !(_ctrlKeyDown) && (_altKeyDown) && ((_animationModifiedAlt isNotEqualTo [])) ) then
 		{
 			
 			[
