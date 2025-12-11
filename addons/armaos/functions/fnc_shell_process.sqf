@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Processes a command string entered by the user. Parses the command, resolves any command links, adds to history, and executes the appropriate command function.
  *
  * Arguments:

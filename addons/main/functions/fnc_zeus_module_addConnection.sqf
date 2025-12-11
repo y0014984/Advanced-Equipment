@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the Zeus "Add Connection" module interface events (onLoad and onUnload). On load, populates the UI with
  * synced objects and validates that exactly two objects are connected. On unload, creates the selected connection type
  * (power or network) between the two synced objects after validation. Runs locally on the curator's machine and deletes the

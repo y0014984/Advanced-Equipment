@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Initializes a solar panel with maximum power output, orientation calculation function, and panel height. The orientation function calculates panel normal vectors for solar efficiency calculations. Sets up ACE3 interaction for checking power output.
  *
  * Arguments:

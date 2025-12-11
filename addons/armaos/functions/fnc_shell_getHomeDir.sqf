@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Returns the home directory path for a given username. Root user gets /root, other users get /home/<username>.
  *
  * Arguments:

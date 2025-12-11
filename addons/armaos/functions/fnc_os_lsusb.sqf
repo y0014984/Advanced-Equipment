@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Lists all available USB interfaces and connected USB devices. Similar to Linux lsusb command.
  *
  * Arguments:

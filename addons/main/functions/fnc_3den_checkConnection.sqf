@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Validates a network or power connection in Eden Editor. Checks if the connection is between allowed object classes,
  * prevents self-connections, and warns about multiple connections of the same type. Removes invalid connections and provides
  * visual feedback via Eden Editor notifications.

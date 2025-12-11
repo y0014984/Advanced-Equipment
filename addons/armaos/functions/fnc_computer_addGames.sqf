@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Adds selected games to a given computer. Currently only Snake is supported. Must be executed on the server.
  *
  * Arguments:

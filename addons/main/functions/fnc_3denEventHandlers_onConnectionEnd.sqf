@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles connection end events in Eden Editor. Validates and processes network and power connections between devices.
  * This function is triggered when a connection is created in 3DEN editor. It validates the connection type and connected objects,
  * then delegates to appropriate validation functions based on connection type (network or power).

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Initializes command links from config for a computer, loading all available commands.
  *
  * Arguments:

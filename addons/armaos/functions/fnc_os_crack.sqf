@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, JulesVerner, y0014984
  * Description: Attempts to decrypt encrypted text without knowing the key using cryptanalysis methods (bruteforce, frequency analysis). Supports caesar and columnar ciphers.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Displays a retro splash screen animation on the terminal.
  *
  * Arguments:

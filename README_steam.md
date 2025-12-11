@@ -355,7 +355,7 @@ class mycmd {
 
 [b]TL;DR - What am I allowed to do?[/b]
 
-✅ [b]Attribution Required[/b] - Credit original authors (y0014984, Wasserstoff, JulesVerner) and current maintainer
+✅ [b]Attribution Required[/b] - Credit original authors (y0014984, Wasserstoff, JulesVerner) and current maintainer (Root)
 ✅ [b]Share Alike[/b] - Derivative works must use same APL-SA license
 ✅ [b]Redistribute publicly[/b] with clear credit and link to this workshop page
 ❌ [b]Non-Commercial[/b] - No commercial use
@@ -365,9 +365,9 @@ class mycmd {
 [hr][/hr]
 [h2]Links[/h2]
 
-[url=https://github.com/A3-Root/Advanced-Equipment][b]GitHub Repository[/b][/url]
+[url=https://github.com/y0014984/Advanced-Equipment][b]GitHub Repository[/b][/url]
 
-[url=https://github.com/A3-Root/Advanced-Equipment/issues][b]Issue Tracker[/b][/url]
+[url=https://github.com/y0014984/Advanced-Equipment/issues][b]Issue Tracker[/b][/url]
 
 [hr][/hr]
 

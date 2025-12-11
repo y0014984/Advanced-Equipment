@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Parses short-form command options (-o value format) and returns parsed option values.
  *
  * Arguments:

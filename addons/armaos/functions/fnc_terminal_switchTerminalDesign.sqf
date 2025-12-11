@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Cycles through available terminal designs.
  *
  * Arguments:

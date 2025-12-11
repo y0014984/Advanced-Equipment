@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Adds a command to the current user's command history for later recall with arrow keys or history command.
  *
  * Arguments:

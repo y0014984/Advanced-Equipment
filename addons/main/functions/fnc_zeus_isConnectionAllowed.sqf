@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Validates whether a network or power connection in Zeus is allowed based on object classes.
  * Checks if source and target objects are compatible and not the same object. Provides visual feedback to the Zeus curator on validation failure.
  *

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Unmounts a flash drive from a USB interface, saving the filesystem state back to the drive and removing the mount point from /mnt/<interface>
  *
  * Arguments:

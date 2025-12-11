@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Calculates current solar panel power output based on sun position, panel orientation, and visibility. Uses solar zenith and azimuth angles, panel normal vectors, and line-of-sight checks to determine effective power. Output is scaled by panel orientation efficiency, sun intensity, and occlusion.
  *
  * Arguments:

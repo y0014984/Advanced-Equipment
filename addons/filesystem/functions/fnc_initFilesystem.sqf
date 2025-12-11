@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Initializes the filesystem on a device and loads filesystem objects from config. Creates root filesystem structure and processes config entries to add files and directories. Must run on server.
  *
  * Arguments:

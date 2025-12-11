@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Creates event handlers for interactive equipment animations via mouse scroll and modifier keys.
  * Supports different animations for Shift, Ctrl, and Alt modifiers. Displays mouse hint with available actions.
  *

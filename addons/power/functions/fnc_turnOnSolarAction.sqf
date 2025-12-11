@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: ACE3 interaction action that turns on a solar panel with progress bar. Adds provider handler for solar calculation and updates interactions. In Zeus mode or if silent, starts immediately without progress bar.
  *
  * Arguments:

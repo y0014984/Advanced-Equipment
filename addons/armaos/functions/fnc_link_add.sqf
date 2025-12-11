@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Adds a command link (alias) to a computer, mapping a command name to a filesystem path with optional description and manual text.
  *
  * Arguments:

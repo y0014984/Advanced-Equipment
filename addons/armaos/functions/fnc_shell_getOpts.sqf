@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Parses command-line options and arguments according to command settings. Supports both short (-o) and long (--option) form options with type validation and default values. Returns parsed variables as an array.
  *
  * Arguments:

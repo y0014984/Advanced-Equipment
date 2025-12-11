@@ -1,13 +1,13 @@
 name = "Advanced Equipment Revamped";
 picture = "logo_ae3_ca_font.paa";
 actionName = "GitHub";
-action = "https://github.com/A3-Root/Advanced-Equipment";
+action = "https://github.com/y0014984/Advanced-Equipment";
 description = "Advanced Equipment Revamped";
 logo = "logo_ae3_ca.paa";
 logoOver = "logo_ae3_ca_hover.paa";
 tooltip = "Advanced Equipment Revamped";
 tooltipOwned = "Advanced Equipment Revamped";
 overview = "Revamped edition of Advanced Equipment with bug fixes, standardization, lots of QoL improvements and more standardized to the year 2026.";
-author = "Root";
+author = "Root, y0014984, Wasserstoff";
 overviewPicture = "logo_ae3_ca.paa";
 dir = "@ae3";

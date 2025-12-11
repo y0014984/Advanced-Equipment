@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Turns off the given power device. Works for any device configured with the power system (laptops, generators, solar panels, batteries, etc.). Checks turn-off conditions including power state, mutex lock, and device-specific conditions before executing.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Displays the network configuration including the computer's IPv4 address. Similar to Windows ipconfig command.
  *
  * Arguments:

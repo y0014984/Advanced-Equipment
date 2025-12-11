@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Sets the terminal input mode (SHELL, INPUT, LOGIN, PASSWORD, etc.).
  *
  * Arguments:

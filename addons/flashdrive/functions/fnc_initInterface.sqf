@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Initializes USB interfaces on a device, creating ACE3 interaction menus for connecting/disconnecting flash drives.
  * Sets up server-side tracking arrays for occupied and mounted interface states.
  *

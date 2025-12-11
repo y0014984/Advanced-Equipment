@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Helper function for Zeus modules that validates the target object.
  * Checks if the module was placed on an object with a filesystem and that the computer is not currently in use (via ace_mutex check).
  * Provides Zeus feedback messages on error.

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Adds selected security commands (crypto, crack) to a given computer. Must be executed on the server.
  *
  * Arguments:

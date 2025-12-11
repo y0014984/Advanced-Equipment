@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Displays the contents of one or more files to the terminal output. Supports -n flag for line numbering. Similar to Unix cat command.
  *
  * Arguments:

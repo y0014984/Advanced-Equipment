@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Removes a character from the terminal buffer at the current cursor position.
  *
  * Arguments:

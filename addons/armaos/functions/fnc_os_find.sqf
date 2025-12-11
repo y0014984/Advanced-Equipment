@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Searches for files or directories matching the given name in the current directory tree. Similar to Unix find command.
  *
  * Arguments:

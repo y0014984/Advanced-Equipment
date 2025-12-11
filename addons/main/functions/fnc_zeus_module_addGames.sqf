@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the Zeus 'Add Games' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
  * Adds game programs (such as Snake) to the target computer.
  * The module must be placed on a computer object and will be deleted after processing.

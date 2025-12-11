@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Compiles the equipment from config for an object's class, analogous to ACE3 MenuCompile.
  * This function parses the AE3_Equipment config for the object's class, creates a hashmap with compiled
  * settings, and initializes the interaction system for the equipment.

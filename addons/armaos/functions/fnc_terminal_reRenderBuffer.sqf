@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Re-renders the entire terminal buffer, converting raw text to formatted structured text.
  *
  * Arguments:

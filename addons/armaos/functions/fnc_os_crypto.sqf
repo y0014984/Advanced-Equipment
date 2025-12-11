@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, JulesVerner, y0014984
  * Description: Encrypts or decrypts text using specified encryption algorithm and key. Supports caesar and columnar cipher algorithms. Can read from files or direct string input.
  *
  * Arguments:

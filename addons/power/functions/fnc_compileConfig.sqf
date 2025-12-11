@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Compiles device configuration from config entries into a hashmap. Reads device properties, power interface, battery, generator, solar generator, and consumer configs. Compiles init/action code strings into executable code. Helper function for compileDevice.
  *
  * Arguments:

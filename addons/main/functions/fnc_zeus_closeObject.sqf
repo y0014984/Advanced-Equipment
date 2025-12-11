@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Closes an object (e.g., laptop lid) through the Zeus Asset Attributes Interface. Triggered by the "Close" button.
  * Sets mutex lock during the operation, executes the close animation, and puts the device into standby if it was on.
  * Provides visual feedback to the Zeus curator.

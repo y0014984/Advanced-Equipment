@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Adds a user account to a given computer by providing username and password. Creates a user directory at /home/<username>. Must be executed on the server.
  *
  * Arguments:

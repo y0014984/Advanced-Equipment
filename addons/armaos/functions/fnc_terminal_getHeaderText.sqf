@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Returns the terminal header text (ASCII art logo) for the current terminal design.
  *
  * Arguments:

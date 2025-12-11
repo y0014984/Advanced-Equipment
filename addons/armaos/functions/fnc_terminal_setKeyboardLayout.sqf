@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Sets the keyboard layout for the terminal. Supports 9 languages (US, DE, FR, IT, RU, AR, HE, HU, TR). Updates the keyboard key mappings and syncs to CBA settings.
  *
  * Arguments:

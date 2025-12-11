@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Updates the UI-on-Texture output display with raw buffer data. Receives raw string data and renders locally to avoid TEXT serialization warnings. This is a network-optimized approach.
  *
  * Arguments:

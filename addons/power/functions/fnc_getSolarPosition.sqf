@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Calculates approximate sun position (zenith and azimuth angles) for current mission date and map location. Uses simplified astronomical formulas valid for dates between 1950 and 2050. Accounts for map latitude/longitude and approximates timezone from longitude. Defaults to Altis coordinates if map has no position data. Source: https://en.wikipedia.org/wiki/Position_of_the_Sun
  *
  * Arguments:

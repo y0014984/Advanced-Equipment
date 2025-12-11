@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Sets a local variable to a remote client for multiplayer synchronization.
  *
  * Arguments:

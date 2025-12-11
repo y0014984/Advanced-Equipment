@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Initializes a desk by setting its open/closed state based on the AE3_interaction_closeState variable.
  * Also sets a workaround flag for Zeus UI compatibility.
  *

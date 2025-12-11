@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Changes the current working directory of the terminal. Similar to Unix cd command.
  *
  * Arguments:

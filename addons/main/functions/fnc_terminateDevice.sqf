@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the termination/deletion of an AE3 device. Automatically turns off the device and removes all power and network connections (both incoming and outgoing).
  * Can be triggered automatically when an asset is deleted by Zeus, or called manually.
  *

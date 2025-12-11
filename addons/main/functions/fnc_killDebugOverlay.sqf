@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Removes all onEachFrame event handlers and cleans up debug overlays for AE3 objects.
  * Deletes all associated UI controls.
  *

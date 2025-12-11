@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the Zeus Asset Attributes interface on unload. Runs locally on the Zeus curator's machine.
  * Updates battery level and/or fuel level for the selected device based on slider values set by the curator.
  * Terminates the status update loop and provides feedback on changes made.

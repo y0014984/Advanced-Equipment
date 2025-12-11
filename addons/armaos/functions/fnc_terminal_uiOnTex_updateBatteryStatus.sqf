@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Updates battery status on UI-on-Texture displays for nearby players.
  *
  * Arguments:

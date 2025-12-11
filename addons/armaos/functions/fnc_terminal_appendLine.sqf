@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Appends text to the last line in the terminal buffer.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: ACE3 interaction action that displays power output via hint. Wrapper function that calls getPowerOutput with hint enabled.
  *
  * Arguments:

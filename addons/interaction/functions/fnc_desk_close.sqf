@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Closes a desk by animating all drawers closed, hiding lids, and showing wing covers.
  * Updates ACE3 interaction availability via manageAce3Interactions with unwrapped state.
  *

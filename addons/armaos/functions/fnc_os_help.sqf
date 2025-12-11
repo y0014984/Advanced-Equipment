@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Displays a list of all available commands on the computer with their descriptions.
  *
  * Arguments:

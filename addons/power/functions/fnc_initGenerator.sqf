@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Initializes a fuel-powered generator with fuel capacity, consumption rate, and power output. Sets up ACE3 interactions for checking fuel level and power output. Fuel consumption is in liters per hour, power output is in kWh.
  *
  * Arguments:

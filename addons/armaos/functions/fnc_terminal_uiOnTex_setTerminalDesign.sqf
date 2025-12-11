@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Sets terminal design on UI-on-Texture displays for nearby players.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the Zeus 'Add Directory' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
  * Creates a new directory on the target computer's filesystem with specified owner and permissions.
  * The module must be placed on an object with a filesystem and will be deleted after processing.

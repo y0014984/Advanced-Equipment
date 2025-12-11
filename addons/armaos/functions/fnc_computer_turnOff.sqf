@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Executes the turn off operation for a given computer object. Computer texture changes to show shutdown animation and clears terminal state.
  *
  * Arguments:

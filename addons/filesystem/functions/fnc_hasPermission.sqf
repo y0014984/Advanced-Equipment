@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Checks if a user has the specified permission on a filesystem object. Throws exception if permission denied. Root user and empty owner always pass. Checks owner permissions first, then everyone permissions.
  *
  * Arguments:

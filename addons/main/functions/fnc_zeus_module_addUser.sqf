@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the Zeus 'Add User' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
  * Creates a new user account on the target computer with the specified username and password.
  * The module must be placed on a computer object and will be deleted after processing.

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Mounts a filesystem connected via a USB interface (flash drive). Similar to Unix mount command.
  *
  * Arguments:

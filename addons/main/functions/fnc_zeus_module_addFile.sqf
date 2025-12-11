@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the Zeus 'Add File' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
  * Creates a new file on the target computer's filesystem with specified content, permissions, and optional encryption.
  * The module must be placed on an object with a filesystem and will be deleted after processing.

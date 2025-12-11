@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Initializes power connection interface for a device. Sets up ACE3 interactions for connecting to and disconnecting from nearby power sources. Creates dynamic child menus listing available generators and batteries within 10m. Handles both internal and external power interfaces.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Wrapper function for obj2item that triggers the AE3_Flashdrive_takeEH event handler first.
  * If any event handler returns true (indicating it handled the take action), obj2item is not called.
  *

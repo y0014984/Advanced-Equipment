@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Parses long-form command options (--option=value format) and returns parsed option values.
  *
  * Arguments:

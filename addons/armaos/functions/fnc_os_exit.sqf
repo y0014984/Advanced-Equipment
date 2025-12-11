@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Logs out the current user and returns to the login screen. Similar to Unix exit command.
  *
  * Arguments:

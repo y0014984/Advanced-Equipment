@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Adds the terminal header (logo/banner) to the terminal output buffer.
  *
  * Arguments:

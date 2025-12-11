@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Updates all UI-on-Texture display elements (output, battery, design) for nearby players.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Initializes a laptop by setting the open/closed animation state and adding the "Use Terminal"
  * ACE3 interaction. This function checks the laptop's mutex (AE3_computer_mutex) to prevent concurrent
  * terminal access.

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Compiles the USB interface configuration from config for an object's class. Analogous to ACE3 menu compilation.
  * Reads the AE3_USB_Interface config section and initializes USB interfaces on the device.
  *

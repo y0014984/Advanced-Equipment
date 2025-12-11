@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Validates command syntax by checking if provided arguments match the expected command syntax pattern.
  *
  * Arguments:
