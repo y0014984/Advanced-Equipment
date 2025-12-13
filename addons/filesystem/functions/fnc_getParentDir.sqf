@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Resolves the parent directory of a given path and returns the parent directory object along with the target name. Handles special paths like . .. and ~. Can optionally create parent directories if they don't exist.
  *
  * Arguments:

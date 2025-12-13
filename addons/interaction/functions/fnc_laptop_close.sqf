@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Closes a laptop by animating the lid to the closed position (animation phase 1).
  *
  * Arguments:

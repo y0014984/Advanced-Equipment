@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Returns the width in pixels of a retro graphics canvas.
  *
  * Arguments:

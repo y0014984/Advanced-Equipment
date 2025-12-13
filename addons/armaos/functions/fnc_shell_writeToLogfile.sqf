@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Writes a log entry to the terminal's log file for debugging and audit purposes.
  *
  * Arguments:

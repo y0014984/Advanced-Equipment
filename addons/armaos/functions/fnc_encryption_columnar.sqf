@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, JulesVerner
  * Description: Encrypts or decrypts a message using columnar transposition cipher with the specified key.
  *
  * Arguments:

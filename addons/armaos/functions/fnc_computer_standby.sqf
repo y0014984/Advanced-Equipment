@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Executes the standby operation for a given computer object. Syncs terminal state, changes texture to standby screen, and plays standby sound.
  *
  * Arguments:
@@ -25,7 +25,7 @@ params ["_computer"];
 	private _terminal = _computer getVariable "AE3_terminal";
 
 	// if the laptop was turned on and immediately after that the standby mode war triggered, the
-	// _terminal var dosn't seem to be set, so there's no need to sync that undefined var to server
+	// _terminal var doesn't seem to be set, so there's no need to sync that undefined var to server
 	if (!isNil "_terminal") then
 	{
 		[_computer, [], "exit"] call AE3_armaos_fnc_os_exit;

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Adjusts an animatable aspect of an object based on mouse scroll input. Applies min/max clamping
  * and a scroll multiplier to control animation speed. Used by animateInteraction for interactive equipment.
  *

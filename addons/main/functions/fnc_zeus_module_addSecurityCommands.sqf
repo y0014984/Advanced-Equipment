@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Handles the Zeus 'Add Security Commands' module interface events (onLoad/onUnload). Runs locally on the Zeus curator's machine.
  * Adds security/hacking tools (crypto and crack commands) to the target computer.
  * The module must be placed on a computer object and will be deleted after processing.

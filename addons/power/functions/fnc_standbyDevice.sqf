@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Sets the given device to standby mode with reduced power consumption. Works for any device configured with standby support (primarily laptops). Checks standby conditions including current power state, mutex lock, and device-specific conditions before executing.
  *
  * Arguments:

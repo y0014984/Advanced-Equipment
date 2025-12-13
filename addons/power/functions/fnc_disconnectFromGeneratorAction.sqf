@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: ACE3 interaction action wrapper that disconnects a device from its power source. Calls removePowerConnection to handle the disconnection logic.
  *
  * Arguments:

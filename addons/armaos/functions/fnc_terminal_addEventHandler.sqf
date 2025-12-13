@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Adds an event handler to the terminal for custom events.
  *
  * Arguments:

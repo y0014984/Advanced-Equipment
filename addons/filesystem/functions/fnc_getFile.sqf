@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Retrieves the content of a file from the filesystem. Checks the specified permission before returning content. Throws exception if file doesn't exist or permission denied.
  *
  * Arguments:

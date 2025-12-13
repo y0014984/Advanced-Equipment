@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Writes output to the terminal display. Accepts string or array of strings/formatted text. This is the standard output function for all commands.
  *
  * Arguments:

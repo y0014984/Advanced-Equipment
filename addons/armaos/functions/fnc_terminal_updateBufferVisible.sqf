@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Updates the visible portion of the terminal buffer based on scroll position and screen size.
  *
  * Arguments:

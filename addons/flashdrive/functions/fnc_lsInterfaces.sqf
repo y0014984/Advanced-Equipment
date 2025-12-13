@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Lists all USB interfaces on a computer with their connection and mount status, formatted for terminal output
  *
  * Arguments:

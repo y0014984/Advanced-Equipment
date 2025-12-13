@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Changes the owner of a filesystem object (file or directory). Can optionally operate recursively on directories. Only the current owner or root can change ownership.
  *
  * Arguments:

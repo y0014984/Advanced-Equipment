@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Manages ACE3 interaction states (dragging, carrying, cargo) based on equipment status conditions.
  * Blocks interactions when equipment is connected, unwrapped, turned on, or in use. Should be executed on server.
  *

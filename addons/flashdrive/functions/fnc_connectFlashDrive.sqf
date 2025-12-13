@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Physically connects a flash drive item to a computer's USB interface, converting the item to an object and attaching it to the computer
  *
  * Arguments:

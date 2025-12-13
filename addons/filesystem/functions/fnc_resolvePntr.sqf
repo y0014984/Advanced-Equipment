@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Resolves a directory pointer (array of directory names) to the corresponding filesystem object. Throws exception if any directory in the path doesn't exist.
  *
  * Arguments:

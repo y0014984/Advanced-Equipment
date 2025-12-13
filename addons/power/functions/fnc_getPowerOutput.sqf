@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Returns the current power output of a generator or solar panel in Watts. Optionally displays a hint showing power output in kW or W. Power capacity is converted from kWh to instantaneous Watts.
  *
  * Arguments:

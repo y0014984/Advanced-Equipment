@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Lists files and directories in the specified directory. Supports -l flag for detailed listing. Similar to Unix ls command.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Displays the current in-game date and time. Similar to Unix date command.
  *
  * Arguments:

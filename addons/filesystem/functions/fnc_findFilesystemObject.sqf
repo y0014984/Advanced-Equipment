@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Recursively searches for filesystem objects (files or directories) by name. Returns all matching paths. Respects read permissions and counts directories with insufficient permissions.
  *
  * Arguments:

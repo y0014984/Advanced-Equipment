@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Initializes interactive equipment with ACE3 actions for opening/closing and animation points.
  * Creates wrapper functions for open/close actions that integrate with the power system. Ensures the Equipment
  * parent action exists via ensureEquipmentParent.

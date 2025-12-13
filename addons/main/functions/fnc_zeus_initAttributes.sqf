@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Initializes the Zeus Asset Attributes interface on load. Runs locally on the Zeus curator's machine.
  * Gathers and displays information about the selected AE3 asset including power status, power output, power requirements, IP address, fuel level, and battery level.
  * Continuously updates the display with live asset information.

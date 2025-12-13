@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Renders a line of text as structured text with color formatting for terminal display.
  *
  * Arguments:

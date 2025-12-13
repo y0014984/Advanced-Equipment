@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Initializes a lamp by switching it off and removing default ACE3 TurnOn/TurnOff interactions
  * (replaced with custom AE3 power-integrated lamp controls).
  *

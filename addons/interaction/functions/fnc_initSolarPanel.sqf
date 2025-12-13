@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Initializes a solar panel object. Currently a stub function with no implementation.
  *
  * Arguments:

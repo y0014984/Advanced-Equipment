@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Implements the Snake game playable in the ArmaOS terminal.
  *
  * Arguments:

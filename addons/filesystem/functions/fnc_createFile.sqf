@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Creates a new file in the filesystem with specified content. Automatically ensures parent directories have appropriate execute/read permissions. Throws exception if file already exists.
  *
  * Arguments:

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Adds an event handler to update UI-on-Texture when terminal state changes.
  *
  * Arguments:

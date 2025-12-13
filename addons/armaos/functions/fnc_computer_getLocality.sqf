@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Returns the client ID of the current computer user. If the computer is unused, returns 2 (server ownership).
  *
  * Arguments:

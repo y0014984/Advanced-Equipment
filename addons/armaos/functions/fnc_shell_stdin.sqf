@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Gets user input from the terminal. Waits for user to enter text and press enter, then returns the input string.
  *
  * Arguments:

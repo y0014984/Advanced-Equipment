@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Sets the command line input to a command from history based on history index.
  *
  * Arguments:

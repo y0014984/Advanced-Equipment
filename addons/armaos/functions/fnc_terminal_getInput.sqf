@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Returns the current text from the terminal input buffer.
  *
  * Arguments:

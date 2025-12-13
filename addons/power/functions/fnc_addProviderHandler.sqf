@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Creates a per-frame handler loop for power providers (generators, batteries, solar panels). Monitors power state and capacity every second, automatically shutting down connected devices if power becomes insufficient. The handler continuously calls the provider's calculation function to update power state.
  *
  * Arguments:

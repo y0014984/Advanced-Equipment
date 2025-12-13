@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Adds a character to the terminal buffer at the current cursor position.
  *
  * Arguments:

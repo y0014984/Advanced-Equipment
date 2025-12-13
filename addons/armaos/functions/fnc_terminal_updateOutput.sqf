@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Updates the terminal display control with the current visible buffer contents. Handles rendering, scrolling, and UI-on-Texture synchronization with network optimization.
  *
  * Arguments:

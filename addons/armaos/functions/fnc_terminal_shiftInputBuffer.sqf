@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Shifts the terminal input buffer left or right for cursor movement.
  *
  * Arguments:

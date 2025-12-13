@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Clears the terminal output buffer, removing all previous output. Similar to Unix clear command.
  *
  * Arguments:

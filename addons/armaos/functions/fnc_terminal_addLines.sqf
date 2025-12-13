@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Adds one or more lines of output to the terminal buffer. Accepts string or array of strings/formatted text. Long lines are automatically wrapped to terminal width.
  *
  * Arguments:

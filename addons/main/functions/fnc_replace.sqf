@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Replaces an object with a new object of the specified type, preserving position, rotation, damage, and fuel.
  * Must be executed on the server. Waits 5 seconds before replacement.
  *

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: DEPRECATED - This function is not implemented yet and needs to be rewritten. Was intended for network chat between computers.
  *
  * Arguments:

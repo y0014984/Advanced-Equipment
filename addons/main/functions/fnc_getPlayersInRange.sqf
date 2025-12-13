@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Returns all players within a specified radius around the given object. Used for UI-on-Texture rendering to determine which clients need updates.
  *
  * Arguments:

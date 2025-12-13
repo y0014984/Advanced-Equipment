@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Applies Eden Editor battery level attribute to a battery after mission initialization. Only works for entities placed in Eden Editor (not Zeus). Waits for BIS_fnc_init to complete before reading and applying the AE3_EdenAttribute_PowerLevel attribute. Value is normalized to 0-1 range.
  *
  * Arguments:

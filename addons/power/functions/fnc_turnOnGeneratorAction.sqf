@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: ACE3 interaction action that turns on a fuel generator with progress bar and sound effects. Checks fuel level before starting, plays start sound, adds provider handler, and updates interactions. In Zeus mode or if silent, starts immediately without progress bar.
  *
  * Arguments:

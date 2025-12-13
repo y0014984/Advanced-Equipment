@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Lists the contents of a directory. Returns formatted output with optional detailed information including permissions and ownership. Directories are displayed in blue, executables in green.
  *
  * Arguments:

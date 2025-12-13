@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Opens a desk by animating all drawers closed, showing lids, and hiding wing covers.
  * Updates ACE3 interaction availability via manageAce3Interactions with unwrapped state.
  *

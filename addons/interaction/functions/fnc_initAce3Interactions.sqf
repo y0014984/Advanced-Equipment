@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Initializes ACE3 interactions (dragging, carrying, cargo) for equipment objects. Creates a
  * settings hashmap and calls manageAce3Interactions to apply initial state. Runs only on server.
  *

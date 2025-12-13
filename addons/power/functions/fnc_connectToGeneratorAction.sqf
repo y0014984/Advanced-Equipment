@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Internal action that establishes power connection from device to provider. Handles internal batteries, updates connected devices list, and manages ACE3 interactions for both consumer and provider. Called by ACE3 interaction menu.
  *
  * Arguments:

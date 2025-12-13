@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Displays the specified text to the terminal output. Supports -e flag for backslash interpretation. Similar to Unix echo command.
  *
  * Arguments:

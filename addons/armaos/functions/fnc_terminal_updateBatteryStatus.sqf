@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Updates the battery status display in the terminal header.
  *
  * Arguments:

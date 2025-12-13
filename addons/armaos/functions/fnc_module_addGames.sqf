@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Eden/Zeus module function to add games to synced computers.
  *
  * Arguments:

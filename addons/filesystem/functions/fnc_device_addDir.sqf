@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Adds a directory to a device's filesystem (laptop or flash drive). Must run on server. Logs error if directory already exists, throws exception for other errors.
  *
  * Arguments:

@@ -22,8 +22,8 @@ exclude = [
 ]
 
 [properties]
-author = "Root"
-url = "https://github.com/A3-Root/Advanced-Equipment"
+author = "Root, y0014984, Wasserstoff"
+url = "https://github.com/y0014984/Advanced-Equipment"
 
 [lints.sqf.banned_commands]
 options.banned = [

@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Opens an object (e.g., laptop lid) through the Zeus Asset Attributes Interface. Triggered by the "Open" button.
  * Sets mutex lock during the operation, executes the open animation, and powers on the device if it was in standby.
  * Provides visual feedback to the Zeus curator.

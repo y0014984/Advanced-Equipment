@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Plays generator running sound in infinite loop using soundEngine from config. Repeats every 4 seconds. Uses 3D positional audio with 100m max distance. Should be spawned when generator starts.
  *
  * Arguments:

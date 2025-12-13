@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Legacy function that continuously updates terminal title with battery level and power mode. Monitors battery state while terminal dialog is open and updates title text every second. May be deprecated in favor of newer terminal state management.
  *
  * Arguments:

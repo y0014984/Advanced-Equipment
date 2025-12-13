@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984, Wasserstoff
  * Description: Deletes a filesystem object (file or directory). Requires write permission on the object. Throws exception if object doesn't exist.
  *
  * Arguments:

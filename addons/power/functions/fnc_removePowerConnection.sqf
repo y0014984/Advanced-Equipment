@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, y0014984
  * Description: Removes the power connection from a consumer device to its power provider. Updates ACE3 interactions, removes the device from the provider's connected devices list, turns off the consumer if it was running, and updates the provider's power state.
  *
  * Arguments:

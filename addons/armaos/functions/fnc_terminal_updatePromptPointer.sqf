@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff, y0014984
  * Description: Updates the terminal prompt pointer (current working directory display).
  *
  * Arguments:

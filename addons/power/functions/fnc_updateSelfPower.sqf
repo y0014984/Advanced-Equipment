@@ -1,5 +1,5 @@
 /*
- * Author: Root
+ * Author: Root, Wasserstoff
  * Description: Updates power draw for a consumer device and checks if connected generator can supply sufficient power. Returns failure status if device has no generator connection, generator is off, or insufficient power available.
  *
  * Arguments:
