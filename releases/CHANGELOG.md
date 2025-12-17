@@ -1,5 +1,16 @@
 # Changelog
 
+## Update 1 (v1.0.0.1)
+
+### Added
+- N/A
+
+### Removed
+- N/A
+
+### Changed
+- Fixed 'Add Security Commands' module breaking unix commands.
+
 ## Initial Public Release (v1.0.0.0)
 
 ### Added

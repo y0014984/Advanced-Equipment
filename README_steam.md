@@ -6,7 +6,7 @@ Advanced Equipment Revamped (AE3) delivers a functional terminal laptop running 
 
 Tested with 67+ players on dedicated servers. Requires both server and clients to have this mod.
 
-[b]Current version - 1.0.0.0[/b]
+[b]Current version - 1.0.0.1[/b]
 
 [img]https://github.com/y0014984/Advanced-Equipment/raw/master/AE3_Revamped_Logo.png[/img]
 
