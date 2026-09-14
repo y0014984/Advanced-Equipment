@@ -45,6 +45,28 @@ if (_exitCode == 1) then
 
     /* ======================================== */
 
+    // Power devices carry an on/off toggle. It is applied only when it differs from the live state, so
+    // confirming the panel again does not restart a generator that is already running, and the switch
+    // itself runs on the server because the power state and its mutex are shared across the mission.
+    if (isClass (configOf _entity >> "AE3_Device")) then
+    {
+        private _requestedOn = cbChecked (_display displayCtrl 1322);
+        private _currentlyOn = (_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1;
+
+        if (_requestedOn isNotEqualTo _currentlyOn) then
+        {
+            private _powerFunction = ["AE3_power_fnc_turnOffDevice", "AE3_power_fnc_turnOnDevice"] select _requestedOn;
+            [_entity] remoteExecCall [_powerFunction, 2];
+
+            _message = _message + format [
+                localize "STR_AE3_Main_Zeus_NewPowerState",
+                localize (["STR_AE3_Power_Interaction_TurnOff", "STR_AE3_Power_Interaction_TurnOn"] select _requestedOn)
+            ];
+        };
+    };
+
+    /* ======================================== */
+
     // if asset has battery, update battery level
     if (!isNil { _battery getVariable "AE3_power_batteryCapacity" }) then
     {

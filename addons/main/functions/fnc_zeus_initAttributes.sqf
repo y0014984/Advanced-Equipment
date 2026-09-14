@@ -157,6 +157,16 @@ if (isNull _entity) exitWith {};
 
     /* ======================================== */
 
+    // Every power device gets the on/off toggle, mirroring the state the ACE interaction on the object
+    // would show. A device the curator has just placed reports state 0 until it finishes initializing.
+    private _powerStateLabelCtrl = _display displayCtrl 1014;
+    private _powerStateCheckCtrl = _display displayCtrl 1322;
+    { _x ctrlShow true } forEach [_powerStateLabelCtrl, _powerStateCheckCtrl];
+    _powerStateCheckCtrl ctrlEnable true;
+    _powerStateCheckCtrl cbSetChecked ((_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1);
+
+    /* ======================================== */
+
     // if asset has battery, init battery level controls
     if (!isNil { _battery getVariable "AE3_power_batteryCapacity" }) then
     {

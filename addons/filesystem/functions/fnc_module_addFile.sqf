@@ -48,14 +48,24 @@ if (_activated) then
 	private _encryptionAlgorithm = _module getVariable "AE3_Module_AddFile_EncryptionAlgorithm";
 	private _encryptionKey = _module getVariable "AE3_Module_AddFile_EncryptionKey";
 
+	// A rejected module used to disappear without a word, which reads exactly like a module that worked
+	// until the file turns out to be missing in game. Each rejection now names itself in the log, with
+	// the value that caused it, so the reason is one RPT search away instead of a guess.
+	private _reject = {
+		params ["_reason"];
+		diag_log format ["AE3: Add File module skipped - %1 (path: '%2', owner: '%3')", _reason, _path, _owner];
+		deleteVehicle _module;
+		false
+	};
+
 	// check for empty path, owner and encryption key
-	if (_path isEqualTo "") exitWith { deleteVehicle _module; false; };
-	if (_owner isEqualTo "") exitWith { deleteVehicle _module; false; };
-	if (_encryptionKey isEqualTo "") exitWith { deleteVehicle _module; false; };
+	if (_path isEqualTo "") exitWith { ["the file path is empty"] call _reject };
+	if (_owner isEqualTo "") exitWith { ["the owner is empty"] call _reject };
+	if (_encryptionKey isEqualTo "") exitWith { ["the encryption key is empty"] call _reject };
 
 	// check for not allowed spaces in path and owner
-	if((_path find " ") != -1) exitWith { deleteVehicle _module; false; };
-	if((_owner find " ") != -1) exitWith { deleteVehicle _module; false; };
+	if((_path find " ") != -1) exitWith { ["the file path contains a space, which paths cannot hold"] call _reject };
+	if((_owner find " ") != -1) exitWith { ["the owner name contains a space, which user names cannot hold"] call _reject };
 
 	[_module, _syncedObjects, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey] spawn
 	{

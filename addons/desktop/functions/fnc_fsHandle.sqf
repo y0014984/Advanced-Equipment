@@ -39,8 +39,14 @@ if (_fs isEqualTo []) exitWith {
     _res
 };
 
-// Root, admin and sudoers see/modify everything; everyone else is permission-bound.
-private _elevated = (_user isEqualTo "admin") || {[_computer, _user] call AE3_armaos_fnc_computer_isSudoer};
+// Root and admin see/modify everything. A sudoer does too while the mission lets superusers act as root
+// without elevating first - the same switch the terminal reads, so an account carries one set of rights
+// whichever front-end it is used from. With it off both interfaces hold the sudoer to their own files.
+private _elevated = (_user isEqualTo "admin")
+    || {
+        (missionNamespace getVariable ["AE3_CliElevateSudoers", true])
+        && {[_computer, _user] call AE3_armaos_fnc_computer_isSudoer}
+    };
 private _fsUser = [_user, "root"] select _elevated;
 private _path = _data getOrDefault ["path", "/"];
 

@@ -1019,6 +1019,10 @@
                 <German>Neuer Name:</German>
                 <Chinesesimp>新名称:</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_NewPowerState">
+                <Original>Power: %1.</Original>
+                <English>Power: %1.</English>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_NoComputer">
                 <Original>No computer. Place module on computer.</Original>
                 <English>No computer. Place module on computer.</English>
@@ -1211,6 +1215,10 @@
                 <Russian>AE3 Power Connection added</Russian>
                 <German>AE3 Stromverbindung hinzugefügt</German>
                 <Chinesesimp>AE3 电力连接已添加</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_PoweredOn">
+                <Original>Powered On</Original>
+                <English>Powered On</English>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_Rename">
                 <Original>Rename</Original>

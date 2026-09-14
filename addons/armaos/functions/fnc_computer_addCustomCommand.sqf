@@ -34,6 +34,10 @@ params [
 ];
 
 // Validate parameters
+// The command file and its link belong to the device's authoritative state, so only the server writes
+// them; a client running this in parallel would build a second copy of the file that nothing publishes.
+if (!isServer) exitWith { false };
+
 if (isNull _computer) exitWith {
 	["AE3_armaos_fnc_computer_addCustomCommand: Invalid computer object"] call BIS_fnc_error;
 	false
@@ -62,6 +66,11 @@ if (isNil "_filesystem") exitWith {
 try {
 	// Create the command file in the filesystem
 	[[], _filesystem, _commandPath, _commandCode, _owner, "root", _permissions] call AE3_filesystem_fnc_createFile;
+
+	// Publish the filesystem the new command file now lives in. Every other filesystem mutator ends the
+	// same way: without it the file exists only on the server, and a terminal that reads its own copy
+	// reports the command as missing.
+	_computer setVariable ["AE3_filesystem", _filesystem, true];
 
 	// Add the command link
 	[_computer, _commandName, _commandPath, _description, _manual] call AE3_armaos_fnc_link_add;

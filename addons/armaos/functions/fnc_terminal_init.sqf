@@ -55,6 +55,20 @@ _titleControl ctrlSetText AE3_TerminalDialogTitle;
 [_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
 [_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
 
+// The login prompt reads the account roster, the superuser roster and the root-login policy off this
+// client's copy of the device. Each of them is published by the server as the device initializes or as
+// a mission script adds accounts, and a client that was mid-load, or that opened the terminal in the
+// same instant, can still be holding the pre-publication value. The desktop login pulls them fresh for
+// that reason; the terminal does the same so both front-ends judge a login by identical state.
+[_computer, "AE3_Userlist"] call AE3_main_fnc_getRemoteVar;
+[_computer, "AE3_sudoers"] call AE3_main_fnc_getRemoteVar;
+[_computer, "AE3_allowRootLogin"] call AE3_main_fnc_getRemoteVar;
+
+// The mission-wide root-login policy is the fallback for every laptop that states none of its own, and
+// the server owns it. Taking it from there rather than from this client's copy keeps the terminal from
+// judging a login against a value that arrived late.
+[missionNamespace, "AE3_AllowRootLogin"] call AE3_main_fnc_getRemoteVar;
+
 // The fetches above can suspend; if the terminal was closed meanwhile, stop here. The Unload handler
 // wired above has already released the device.
 if (isNull _consoleDialog) exitWith {};

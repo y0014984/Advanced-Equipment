@@ -1,5 +1,24 @@
 # Changelog
 
+## Update 6 (v2.0.0.4)
+
+### Added
+
+- A **Powered On At Start** checkbox on every AE3 power device in the Eden editor - generators, batteries and solar panels. It switches the device on as the mission begins, which previously needed a player to walk up to the object and use the ACE interaction after the mission had already started.
+- A **Powered On** checkbox in the Zeus asset attributes panel for any AE3 power device, so a curator can switch a generator or battery on and off from the panel during play. The switch is applied on the server and only when it differs from the state the device is already in, so confirming the panel again never restarts a running generator.
+
+### Removed
+- N/A
+
+### Changed
+
+- **Fixed:** logging in at a laptop terminal on a dedicated server could report missing permissions for a perfectly valid account, or claim direct root login was disabled while the setting allowing it was on. The terminal judged the login against whatever account list, superuser roster and root-login policy had reached that client, and those are published once as a laptop initializes - a player who opened the terminal in that window was reading pre-publication state. The terminal now fetches all of them from the server as it opens, which is what the desktop login and `ssh` already did. This is also why the same laptop behaved correctly in single player and on a self-hosted server, where client and server are the same machine.
+- **Fixed:** a login as `root` reported "root login disabled" even when the mission allowed it, whenever the account was simply not present on that laptop. A refusal now says so only when the policy actually refuses; an unknown account reports that instead.
+- **Fixed:** a custom command added with `AE3_armaos_fnc_computer_addCustomCommand` existed only on the machine that ran the call, so on a dedicated server the command was missing from the terminal it was added to. The function now runs server-side and publishes the filesystem afterwards, as every other filesystem function does.
+- The desktop Files app now honours the *Sudoers act as root at the terminal* setting. Turning it off for strict Unix semantics used to restrict the terminal while leaving the Files app wide open for the same account; both interfaces now agree. With the setting on - the default - nothing changes.
+- **Fixed:** the Eden **Add File** and **Add Directory** modules deleted themselves without a word when the path or owner was empty or contained a space, which is indistinguishable from a module that worked until the file turns out to be missing in game. Each rejection is now written to the RPT log, naming the rule and the value that broke it.
+- Wiki: *Add Files and Folders* gained the rules a path and owner must follow, the RPT lines a rejected module writes, and an explanation of file ownership - including why browsing to `/root` answers "Permission denied" and the three ways to get past it. *Eden Attributes* now lists the power attributes that actually exist.
+
 ## Update 5 (v2.0.0.3)
 
 ### Added

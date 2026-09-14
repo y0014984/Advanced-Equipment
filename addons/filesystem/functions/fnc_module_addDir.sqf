@@ -43,13 +43,23 @@ if (_activated) then
 		]
 	];
 
-	// check for empty path, owner and encryption key
-	if (_path isEqualTo "") exitWith { deleteVehicle _module; false; };
-	if (_owner isEqualTo "") exitWith { deleteVehicle _module; false; };
+	// A rejected module used to disappear without a word, which reads exactly like a module that worked
+	// until the directory turns out to be missing in game. Each rejection now names itself in the log,
+	// with the value that caused it, so the reason is one RPT search away instead of a guess.
+	private _reject = {
+		params ["_reason"];
+		diag_log format ["AE3: Add Directory module skipped - %1 (path: '%2', owner: '%3')", _reason, _path, _owner];
+		deleteVehicle _module;
+		false
+	};
+
+	// check for empty path and owner
+	if (_path isEqualTo "") exitWith { ["the directory path is empty"] call _reject };
+	if (_owner isEqualTo "") exitWith { ["the owner is empty"] call _reject };
 
 	// check for not allowed spaces in path and owner
-	if((_path find " ") != -1) exitWith { deleteVehicle _module; false; };
-	if((_owner find " ") != -1) exitWith { deleteVehicle _module; false; };
+	if((_path find " ") != -1) exitWith { ["the directory path contains a space, which paths cannot hold"] call _reject };
+	if((_owner find " ") != -1) exitWith { ["the owner name contains a space, which user names cannot hold"] call _reject };
 
 	[_module, _syncedObjects, _path, _owner, _permissions] spawn 
 	{

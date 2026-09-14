@@ -1,4 +1,24 @@
-class CfgVehicles 
+// Powered-on-at-start toggle exposed as a 3DEN object attribute, shared by every power device that can
+// be switched on and off. AE3_power_fnc_initDevice already switches a device on when AE3_power_startOn
+// is set, but an attribute expression can run either side of that initialization, so the expression also
+// waits for the device to finish initializing and switches it on itself if the init pass has been and
+// gone. Without the attribute the only way to start a device on is an ACE interaction after mission
+// start, which a mission maker cannot reach while building the scene.
+#define AE3_POWER_STARTON_ATTRIBUTE \
+	class AE3_EdenAttribute_PowerStartOn \
+	{ \
+		displayName = "$STR_AE3_Power_EdenAttributes_StartOnDisplayName"; \
+		tooltip = "$STR_AE3_Power_EdenAttributes_StartOnTooltip"; \
+		property = "AE3_EdenAttribute_PowerStartOn"; \
+		control = "Checkbox"; \
+		expression = "private _on = _value in [true, 1]; _this setVariable ['AE3_power_startOn', _on, true]; if (_on) then {[{ params ['_device']; !alive _device || {(_device getVariable ['AE3_power_initDone', false]) && {!isNil {_device getVariable 'AE3_power_fnc_turnOnWrapper'}}} }, { params ['_device']; if (alive _device && {(_device getVariable ['AE3_power_powerState', 0]) != 1}) then {[_device] call AE3_power_fnc_turnOnDevice;}; }, [_this]] call CBA_fnc_waitUntilAndExecute;};"; \
+		defaultValue = "false"; \
+		validate = "none"; \
+		condition = "1"; \
+		typeName = "BOOL"; \
+	};
+
+class CfgVehicles
 {
 	/* ================================================================================ */
 
@@ -52,6 +72,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
 
 		// scope = 1; //Hide class in 3DEN asset browser
@@ -447,6 +468,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
 
 		class AE3_Device
@@ -525,6 +547,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		class AE3_Device
@@ -603,6 +626,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		class AE3_Device
@@ -681,6 +705,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
 
 		// Cargo
@@ -831,6 +856,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		// Cargo
@@ -981,6 +1007,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		class AE3_Equipment
@@ -1106,6 +1133,12 @@ class CfgVehicles
 
 		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 
+		// Eden Editor Attributes
+		class Attributes
+		{
+			AE3_POWER_STARTON_ATTRIBUTE
+		};
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
@@ -1154,6 +1187,12 @@ class CfgVehicles
 		editorSubcategory = "AE3_Sub_SolarPanel";
 
 		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
+		// Eden Editor Attributes
+		class Attributes
+		{
+			AE3_POWER_STARTON_ATTRIBUTE
+		};
 
 		class AE3_Device
 		{

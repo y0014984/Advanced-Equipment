@@ -43,7 +43,8 @@ The power component models devices, providers, consumers, batteries, generators,
 ## gotchas
 
 - `initDevice` has duplicate-action protection through `AE3_power_actionsAdded`; new ACE actions should respect that pattern.
-- Starting powered-on depends on `AE3_power_startOn` being set before init completes.
+- Starting powered-on depends on `AE3_power_startOn` being set before init completes. The `AE3_POWER_STARTON_ATTRIBUTE` macro (top of `addons/power/CfgVehicles.hpp`) supplies the Eden "Powered On At Start" checkbox on every power device and cannot rely on that ordering, so its expression both sets the variable and, when ticked, waits for `AE3_power_initDone` + `AE3_power_fnc_turnOnWrapper` and calls `turnOnDevice` itself - same shape as `AE3_LaptopStartOn` in `addons/armaos/CfgVehicles.hpp`.
+- The Zeus asset panel carries the same toggle as a "Powered On" checkbox (IDC 1014 label / 1322 checkbox, `addons/main/CfgUserInterfaceZeus.hpp`), shown for anything with an `AE3_Device` config class. `fnc_zeus_updateAttributes` applies it only when it differs from `AE3_power_powerState`, and through `remoteExecCall` to the server, because the state and its mutex are shared.
 - Overload turns the provider off asynchronously through the stored wrapper.
 - Some power interactions are nested under the shared equipment parent action when available.
 

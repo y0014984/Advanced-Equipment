@@ -90,6 +90,34 @@ class AE3_UserInterface_Zeus_Asset_Details
             style = ST_RIGHT;
         };
 
+        // Power state toggle for any AE3 power device, so an asset can be switched on or off from the
+        // curator panel instead of only through the ACE interaction on the object itself. Hidden until
+        // the panel identifies the selected asset as a power device.
+        class RscText_1014: RscText
+        {
+            idc = 1014;
+
+            text = "$STR_AE3_Main_Zeus_PoweredOn";
+            x = 0.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 7 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+            onLoad = "params ['_control']; _control ctrlShow false;";
+        };
+
+        class RscCheckBox_1322: RscCheckBox
+        {
+            idc = 1322;
+            x = 8 * GUI_GRID_W + GUI_GRID_X;
+            y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 1 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+            onLoad = "params ['_control']; _control ctrlShow false; _control ctrlEnable false;";
+        };
+
         class RscSlider_1900: RscXSliderH
         {
             idc = 1900;
