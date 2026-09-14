@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-2.0.0.0-blue" alt="version">
+  <img src="https://img.shields.io/badge/version-2.0.0.4-blue" alt="version">
   <a href="https://github.com/y0014984/Advanced-Equipment/actions/workflows/auto-release.yml"><img src="https://github.com/y0014984/Advanced-Equipment/actions/workflows/auto-release.yml/badge.svg?branch=master" alt="build"></a>
   <a href="https://github.com/y0014984/Advanced-Equipment/blob/master/LICENSE"><img src="https://img.shields.io/badge/License-APL--SA-blue.svg" alt="license"></a>
 </p>

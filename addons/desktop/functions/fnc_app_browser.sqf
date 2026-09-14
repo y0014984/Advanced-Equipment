@@ -239,7 +239,7 @@ _historyBtn ctrlAddEventHandler ["ButtonClick", {
 	try
 	{
 		private _content = [[], _filesystem, "/var/log/browser_history", "root", 0] call AE3_filesystem_fnc_getFile;
-		if (_content isEqualType "" && {_content isNotEqualTo ""}) then
+		if (_content isEqualType "" && _content isNotEqualTo "") then
 		{
 			{
 				private _line = [_x] call CBA_fnc_trim;

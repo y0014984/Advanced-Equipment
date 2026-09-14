@@ -48,6 +48,18 @@ if (!isNil "_terminal") then {
 	// End an active SSH session (releases the remote mutex and pushes the remote filesystem)
 	[_computer] call AE3_armaos_fnc_shell_sshEnd;
 
+	// A session elevated through su drops back to the account it was logged in as. The terminal resumes
+	// where it was left for whoever opens it next, so an elevated shell must not be part of what is
+	// persisted.
+	private _suStack = _terminal getOrDefault ["AE3_terminalSuStack", []];
+	if (_suStack isNotEqualTo []) then {
+		private _originalUser = _suStack select 0;
+		_terminal set ["AE3_terminalLoginUser", _originalUser];
+		_computer setVariable ["AE3_filepointer", [_originalUser] call AE3_armaos_fnc_shell_getHomeDir];
+		[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+	};
+	_terminal deleteAt "AE3_terminalSuStack";
+
 	// Extract only essential data for network sync (avoid HashMap serialization)
 	private _terminalSyncData = [
 		_terminal get "AE3_terminalBuffer",

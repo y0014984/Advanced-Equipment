@@ -12,6 +12,15 @@
 
 params ["_router", "_parent"];
 
+if (isNull _router) exitWith {};
+
+// Cascading a router re-leases every device below it, so the link is established on the server where
+// the full device registry is available to detect duplicate addresses.
+if (!isServer) exitWith
+{
+	["ae3_network_connectRouter", [netId _router, netId _parent]] call CBA_fnc_serverEvent;
+};
+
 if (!isNull (_router getVariable ["AE3_network_parent", objNull])) then
 {
 	[_router] call AE3_network_fnc_disconnect;

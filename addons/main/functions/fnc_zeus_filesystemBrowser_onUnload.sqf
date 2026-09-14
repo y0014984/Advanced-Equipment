@@ -22,7 +22,7 @@ params ["_display", "_exitCode"];
 // In pick mode, the bottom OK (exit code 1) must return the chosen path just like the "Select Path"
 // button (fnc_zeus_filesystemBrowser_pickPath) - otherwise OK closed the browser and discarded it.
 private _pickMode = uiNamespace getVariable ["AE3_zeus_fsBrowser_pickMode", false];
-if (_pickMode && {_exitCode == 1}) then
+if (_pickMode && _exitCode == 1) then
 {
     private _pointer = _display getVariable ["AE3_pointer", []];
     private _current = _display getVariable ["AE3_currentFile", ""];

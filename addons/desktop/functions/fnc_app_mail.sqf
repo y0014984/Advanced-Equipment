@@ -235,7 +235,7 @@ _composeBtn ctrlAddEventHandler ["ButtonClick", {
 
 		// route over the simulated network (honours each router's external access policy)
 		([_computer, _targetIp] call AE3_network_fnc_resolve) params ["_target"];
-		if (isNull _target || {_target isEqualTo _computer}) exitWith
+		if (isNull _target || _target isEqualTo _computer) exitWith
 		{
 			hintSilent format [localize "STR_AE3_ArmaOS_Ssh_NoRoute", ctrlText _toCtrl];
 		};

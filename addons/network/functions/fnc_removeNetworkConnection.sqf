@@ -17,6 +17,16 @@
 
 params ["_networkConsumer"];
 
+if (isNull _networkConsumer) exitWith { false };
+
+// Leaving a network re-leases the remaining devices on that router, so the disconnect is applied on
+// the server where the full device registry is available to detect duplicate addresses.
+if (!isServer) exitWith
+{
+	["ae3_network_disconnectDevice", [netId _networkConsumer]] call CBA_fnc_serverEvent;
+	true
+};
+
 private _networkProvider = _networkConsumer getVariable ["AE3_network_parent", objNull];
 
 if (!(isNull _networkProvider)) then

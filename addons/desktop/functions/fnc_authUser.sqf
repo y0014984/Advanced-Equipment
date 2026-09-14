@@ -3,8 +3,8 @@
 /*
  * Author: Root
  * Description: Validates a username/password against a computer's synced AE3_Userlist for the web
- * desktop login. Mirrors the CLI rules: root is blocked unless AE3_AllowRootLogin is
- * set. The userlist is broadcast by AE3_armaos_fnc_computer_addUser, so validation is local (no
+ * desktop login. Mirrors the CLI rules: root is blocked unless this computer allows a direct root
+ * login. The userlist is broadcast by AE3_armaos_fnc_computer_addUser, so validation is local (no
  * server round-trip), matching the terminal login. Returns a result hashmap for AE3_recv.
  *
  * Arguments:
@@ -33,7 +33,7 @@ private _fail = {
 if (isNull _computer) exitWith { ["No device" ] call _fail };
 if (_user isEqualTo "") exitWith { ["Enter a username"] call _fail };
 
-private _rootBlocked = (_user isEqualTo "root") && {!(missionNamespace getVariable ["AE3_AllowRootLogin", false])};
+private _rootBlocked = (_user isEqualTo "root") && {!([_computer] call AE3_armaos_fnc_computer_allowsRootLogin)};
 if (_rootBlocked) exitWith { ["Root login is disabled"] call _fail };
 
 private _users = _computer getVariable ["AE3_Userlist", createHashMap];

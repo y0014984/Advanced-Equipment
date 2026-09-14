@@ -49,6 +49,22 @@ Locked files are best when players need to find a password elsewhere. Avoid maki
 
 Chat is useful for network communication and live-feeling computer systems. It works best when players understand which devices can communicate — pair it with [Networking](Networking.md) so the chat participants make sense as laptops on the same network.
 
+## Sharing Intel Out of the Mail and Messenger Apps
+
+Players can take intel out of the Email and Messenger apps two ways.
+
+**Save to a file.** The reader in Email has an **Export** button (also on a message's right-click menu),
+and a Messenger conversation has one on its toolbar. Both open the normal Save As dialog and write a
+plain-text file into the laptop's own filesystem, owned by whoever is logged in. Once saved, the file
+behaves like any other: `cat` it in the terminal, copy it to a flash drive, or SSH/`scp` it to another
+laptop. This is the intended route for passing intel between laptops in-mission.
+
+**Copy to the real clipboard.** The **Copy** button next to Export copies the From, To, Subject or
+Body of an email, or the whole message; a Messenger conversation can be copied whole, and a single
+message from its right-click menu. This writes to the player's actual OS clipboard, so it can be
+pasted into notes or documents outside the game. If the embedded browser blocks a direct clipboard
+write, a dialog opens with the text preselected so Ctrl+C still works.
+
 ## Choosing the Right Intel Type
 
 | Goal | Use |

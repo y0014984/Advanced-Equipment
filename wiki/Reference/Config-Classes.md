@@ -179,6 +179,7 @@ AE3 modules are normal `Module_F` classes. Current module classes include:
 | Module class | Purpose |
 | --- | --- |
 | `AE3_AddUser` | Add laptop user. |
+| `AE3_AddSudoer` | Give an existing account superuser rights (`/etc/sudoers`). |
 | `AE3_AddCalendarEvent` | Add calendar event. |
 | `AE3_SaveLaptop` | Save a laptop state. |
 | `AE3_RestoreLaptop` | Restore a saved laptop state. |
@@ -236,7 +237,8 @@ All CBA settings AE3 registers, by component. All are configurable from the in-g
 
 | Setting | Type | Meaning |
 | --- | --- | --- |
-| `AE3_AllowRootLogin` | Checkbox, default off | Allow logging in directly as `root`. When off, use a regular user + `sudo` (see `/etc/sudoers`). |
+| `AE3_AllowRootLogin` | Checkbox, default off | Default root login policy for laptops that don't set their own (Eden attribute *Direct root login*, or `AE3_armaos_fnc_computer_setRootLogin`). When off, use a regular user + `sudo` (see `/etc/sudoers`). |
+| `AE3_DefaultRootPassword` | Editbox, default `toor` | Password of the `root` account every laptop is created with. A laptop's own root password overrides it. |
 | `AE3_EnableErrorSound` | Checkbox, default on | Play an error sound on failed commands. |
 | `AE3_TransferSpeedLocal` | Slider, default 20480 KB/s | Simulated local copy speed. `0` disables the simulated delay. |
 | `AE3_TransferSpeedUsb` | Slider, default 2048 KB/s | Simulated USB flash drive transfer speed. |

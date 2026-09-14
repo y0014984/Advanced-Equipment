@@ -74,7 +74,8 @@ switch (_mode) do {
 			} forEach _matrix;
 			_keyArrCopy deleteAt (_keyArrCopy find _min);
 		};
-		copyToClipboard _cipher;
+		// The cipher is returned to the caller rather than pushed to the clipboard: copyToClipboard is
+		// restricted to the server, so on a dedicated server it does nothing for the player who ran it.
 		_result = _cipher;
 	};
 

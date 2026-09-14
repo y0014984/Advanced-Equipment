@@ -135,7 +135,7 @@ if (!isDedicated && !_internal) then
 	 // This applies to cascaded child routers too, so every router stays a distinct gateway.
 	 private _gateway = _address;
 	 private _preset = _entity getVariable ["AE3_network_address", []];
-	 if (count _preset == 4 && {(_preset findIf { !(_x isEqualType 0) || {_x < 0} || {_x > 255} }) == -1}) then
+	 if (count _preset == 4 && {(_preset findIf { if !(_x isEqualType 0) exitWith {true}; _x < 0 || _x > 255 }) == -1}) then
 	 {
 		_gateway = _preset;
 	 }

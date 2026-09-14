@@ -25,6 +25,53 @@
 		condition = "1"; \
 	};
 
+// Per-laptop superuser policy exposed as 3DEN object attributes. Each laptop decides on its own
+// whether root may log in directly, which password root uses, and who may run sudo.
+// Shared by every laptop variant.
+#define AE3_LAPTOP_ROOT_ATTRIBUTES \
+	class AE3_EdenAttribute_RootLogin \
+	{ \
+		displayName = "$STR_AE3_ArmaOS_EdenAttributes_RootLoginDisplayName"; \
+		tooltip = "$STR_AE3_ArmaOS_EdenAttributes_RootLoginTooltip"; \
+		property = "AE3_EdenAttribute_RootLogin"; \
+		control = "Combo"; \
+		expression = "if (_value != 'default') then { _this setVariable ['AE3_allowRootLogin', _value, true]; };"; \
+		defaultValue = """default"""; \
+		unique = 0; \
+		condition = "1"; \
+		typeName = "STRING"; \
+		class Values \
+		{ \
+			class RootDefault { name = "$STR_AE3_ArmaOS_EdenAttributes_RootLoginDefault"; value = "default"; }; \
+			class RootAllow   { name = "$STR_AE3_ArmaOS_EdenAttributes_RootLoginAllow"; value = "allow"; }; \
+			class RootDeny    { name = "$STR_AE3_ArmaOS_EdenAttributes_RootLoginDeny"; value = "deny"; }; \
+		}; \
+	}; \
+	class AE3_EdenAttribute_RootPassword \
+	{ \
+		displayName = "$STR_AE3_ArmaOS_EdenAttributes_RootPasswordDisplayName"; \
+		tooltip = "$STR_AE3_ArmaOS_EdenAttributes_RootPasswordTooltip"; \
+		property = "AE3_EdenAttribute_RootPassword"; \
+		control = "Edit"; \
+		expression = "[_this, _value] call AE3_armaos_fnc_attr_setRootPassword;"; \
+		defaultValue = """"""; \
+		unique = 0; \
+		condition = "1"; \
+		typeName = "STRING"; \
+	}; \
+	class AE3_EdenAttribute_Sudoers \
+	{ \
+		displayName = "$STR_AE3_ArmaOS_EdenAttributes_SudoersDisplayName"; \
+		tooltip = "$STR_AE3_ArmaOS_EdenAttributes_SudoersTooltip"; \
+		property = "AE3_EdenAttribute_Sudoers"; \
+		control = "Edit"; \
+		expression = "[_this, _value] call AE3_armaos_fnc_attr_addSudoers;"; \
+		defaultValue = """"""; \
+		unique = 0; \
+		condition = "1"; \
+		typeName = "STRING"; \
+	};
+
 class CfgVehicles
 {
 	/* ================================================================================ */
@@ -108,6 +155,8 @@ class CfgVehicles
 			};
 
 			AE3_LAPTOP_SOFTWARE_ATTRIBUTES
+
+			AE3_LAPTOP_ROOT_ATTRIBUTES
 		};
 
 		class AE3_Equipment
@@ -284,6 +333,8 @@ class CfgVehicles
 			};
 
 			AE3_LAPTOP_SOFTWARE_ATTRIBUTES
+
+			AE3_LAPTOP_ROOT_ATTRIBUTES
 		};
 
 		class AE3_Equipment
@@ -460,6 +511,8 @@ class CfgVehicles
 			};
 
 			AE3_LAPTOP_SOFTWARE_ATTRIBUTES
+
+			AE3_LAPTOP_ROOT_ATTRIBUTES
 		};
 
 		class AE3_Equipment
@@ -640,6 +693,58 @@ class CfgVehicles
 				direction = 1; // Direction is taken into effect
 				optional = 0; // Synced entity is optional
 				duplicate = 0; // Multiple entities of this type can be synced
+			};
+		};
+	};
+
+	/* ================================================================================ */
+
+	// MODULE ADDSUDOER
+	class AE3_AddSudoer: Module_F
+	{
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "$STR_AE3_ArmaOS_Config_AddSudoerDisplayName";
+		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icons_addUser.paa";
+		category = "AE3_armaosModules";
+
+		function = "AE3_armaos_fnc_module_addSudoer";
+		functionPriority = 1;
+		isGlobal = 1;
+		isTriggerActivated = 1;
+		isDisposable = 1;
+		is3DEN = 0;
+
+		curatorInfoType = "AE3_UserInterface_Zeus_Module_AddSudoer";
+
+		class Attributes: AttributesBase
+		{
+			class AE3_ModuleSudoers_User: Edit
+			{
+				property = "AE3_ModuleSudoers_User";
+				displayName = "$STR_AE3_ArmaOS_Config_UsernameDisplayName";
+				tooltip = "$STR_AE3_ArmaOS_Config_SudoerUsernameTooltip";
+				typeName = "STRING";
+				defaultValue = """admin""";
+			};
+			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
+		};
+
+		class ModuleDescription: ModuleDescription
+		{
+			description = "$STR_AE3_ArmaOS_Config_ModuleAddSudoerDescription";
+			sync[] = { "Land_Laptop_03_sand_F_AE3" };
+
+			class Land_Laptop_03_sand_F_AE3
+			{
+				description[] = {
+					"First line",
+					"Second line"
+				};
+				position = 1;
+				direction = 1;
+				optional = 0;
+				duplicate = 0;
 			};
 		};
 	};

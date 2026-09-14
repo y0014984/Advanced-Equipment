@@ -32,6 +32,7 @@ PREP(mapOpen);
 PREP(volHandle);
 PREP(playDeviceSound);
 PREP(routerHandle);
+PREP(routeReply);
 PREP(sshOpServer);
 PREP(setSystemConfig);
 

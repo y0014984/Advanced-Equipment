@@ -45,8 +45,11 @@ if (isNull _entity) exitWith {};
     // This could be the case for the desk
     if (!_isPowerDevice) exitWith {};
 
-    // wait for asset init to finish
-    waitUntil { !isNil { _entity getVariable "AE3_power_initDone" }; };
+    // Wait for asset init to finish. The flag is set on the server and replicated, so on a dedicated
+    // server it can still be in flight when the curator opens the dialog. The wait is bounded so a
+    // flag that never arrives leaves a usable panel instead of a dead one.
+    private _initDeadline = diag_tickTime + 5;
+    waitUntil { !isNil { _entity getVariable "AE3_power_initDone" } || {diag_tickTime > _initDeadline} };
 
     /* ======================================== */
 
@@ -154,6 +157,16 @@ if (isNull _entity) exitWith {};
 
     /* ======================================== */
 
+    // Every power device gets the on/off toggle, mirroring the state the ACE interaction on the object
+    // would show. A device the curator has just placed reports state 0 until it finishes initializing.
+    private _powerStateLabelCtrl = _display displayCtrl 1014;
+    private _powerStateCheckCtrl = _display displayCtrl 1322;
+    { _x ctrlShow true } forEach [_powerStateLabelCtrl, _powerStateCheckCtrl];
+    _powerStateCheckCtrl ctrlEnable true;
+    _powerStateCheckCtrl cbSetChecked ((_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1);
+
+    /* ======================================== */
+
     // if asset has battery, init battery level controls
     if (!isNil { _battery getVariable "AE3_power_batteryCapacity" }) then
     {
@@ -254,7 +267,12 @@ if (isNull _entity) exitWith {};
         // List routers in reach (within each router's wireless range); preselect the current parent.
         private _parent = _entity getVariable ["AE3_network_parent", objNull];
         lbClear _rtComboCtrl;
+        // Nearby objects cover the common case; the mission-wide registry is merged in so a router
+        // whose wireless range reaches further than the proximity scan is still offered.
         private _routers = (nearestObjects [_entity, [], 300]) select { _x getVariable ["AE3_cap_isRouter", false] };
+        {
+            if (!isNull _x && {alive _x} && {!(_x in _routers)}) then { _routers pushBack _x; };
+        } forEach (missionNamespace getVariable ["AE3_network_routers", []]);
         {
             private _r = _x;
             private _range = _r getVariable ["AE3_network_wirelessRange", 100];

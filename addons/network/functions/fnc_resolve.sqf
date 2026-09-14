@@ -34,7 +34,7 @@ private _trace = {
 
 // Loopback or the source's own address always resolves to the source itself.
 private _srcAddr = _source getVariable ["AE3_network_address", [127, 0, 0, 1]];
-if (_target isEqualTo [127, 0, 0, 1] || {_target isEqualTo _srcAddr}) exitWith
+if (_target isEqualTo [127, 0, 0, 1] || _target isEqualTo _srcAddr) exitWith
 {
 	if (_dbg) then {["self"] call _trace};
 	[_source, 0];

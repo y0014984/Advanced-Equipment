@@ -36,7 +36,7 @@ private _onConfirm = {
         [objNull, localize "STR_AE3_Main_Zeus_OwnerMissing"] call BIS_fnc_showCuratorFeedbackMessage;
         deleteVehicle _module;
     };
-    if (_enableEncryption && {_encryptionKey isEqualTo ""}) exitWith {
+    if (_enableEncryption && _encryptionKey isEqualTo "") exitWith {
         [objNull, localize "STR_AE3_Main_Zeus_KeyMissing"] call BIS_fnc_showCuratorFeedbackMessage;
         deleteVehicle _module;
     };

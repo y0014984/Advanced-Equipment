@@ -591,6 +591,10 @@
                 <German>Schutz dauerhaft entfernen (Datei wird neu geschrieben)</German>
                 <Chinesesimp>永久移除保护(重写文件)</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_AddSudoerDisplayName">
+                <Original>AE3: Add Sudoer</Original>
+                <English>AE3: Add Sudoer</English>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_AddUserDisplayName">
                 <Original>AE3: Add User</Original>
                 <English>AE3: Add User</English>
@@ -1077,6 +1081,24 @@
                 <German>Verwendung standby: 'standby' aktiviert den Ruhezustand des Computers.</German>
                 <Chinesesimp>standby说明:'standby'切换至待机模式.</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandSuDescr">
+                <Original>Switch to another account.</Original>
+                <English>Switch to another account.</English>
+                <French>Change de compte.</French>
+                <Italian>Passa a un altro account.</Italian>
+                <Russian>Switch to another account.</Russian>
+                <German>Wechselt zu einem anderen Konto.</German>
+                <Chinesesimp>切换到其他账户.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_CommandSuMan">
+                <Original>Usage su: 'su [USER]' switches the session to USER, or to root when no account is given. The current user must be root or listed in /etc/sudoers. Use exit to return to the previous account.</Original>
+                <English>Usage su: 'su [USER]' switches the session to USER, or to root when no account is given. The current user must be root or listed in /etc/sudoers. Use exit to return to the previous account.</English>
+                <French>Utilisation su: 'su [UTILISATEUR]' change la session vers UTILISATEUR, ou vers root si aucun compte n'est indiqué. L'utilisateur doit être root ou figurer dans /etc/sudoers. Utilisez exit pour revenir au compte précédent.</French>
+                <Italian>Utilizza su: 'su [UTENTE]' passa la sessione a UTENTE, o a root se non viene indicato un account. L'utente deve essere root o essere elencato in /etc/sudoers. Usa exit per tornare all'account precedente.</Italian>
+                <Russian>Usage su: 'su [USER]' switches the session to USER, or to root when no account is given. The current user must be root or listed in /etc/sudoers. Use exit to return to the previous account.</Russian>
+                <German>Verwendung su: 'su [BENUTZER]' wechselt die Sitzung zu BENUTZER, ohne Angabe zu root. Der Benutzer muss root sein oder in /etc/sudoers stehen. Mit exit geht es zum vorherigen Konto zurück.</German>
+                <Chinesesimp>su说明:'su [用户]'将会话切换到该用户,未指定时切换到root.当前用户必须是root或在/etc/sudoers中.使用exit返回上一个账户.</Chinesesimp>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_CommandSudoDescr">
                 <Original>Execute a command as root.</Original>
                 <English>Execute a command as root.</English>
@@ -1185,6 +1207,10 @@
                 <German>Das 'snake' Spiel. Iss Früchte während du immer länger wirst. Vermeide mit der Wand oder dir selbst zu kollidieren.</German>
                 <Chinesesimp>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSudoerDescription">
+                <Original>This module gives an existing account superuser rights on an armaOS computer by adding it to /etc/sudoers. Sync one or more of these modules to a supported computer.</Original>
+                <English>This module gives an existing account superuser rights on an armaOS computer by adding it to /etc/sudoers. Sync one or more of these modules to a supported computer.</English>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_ModuleAddUserDescription">
                 <Original>This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer.</Original>
                 <English>This module defines users for an armaOS computer. Simply sync one or more of these modules to a supported computer.</English>
@@ -1235,6 +1261,10 @@
             <Key ID="STR_AE3_ArmaOS_Config_SaveSlotTooltip">
                 <Original>Name of the slot the laptop snapshot is stored under. Use the same name on the Restore Laptop module.</Original>
                 <English>Name of the slot the laptop snapshot is stored under. Use the same name on the Restore Laptop module.</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Config_SudoerUsernameTooltip">
+                <Original>Name of an existing account that gets superuser rights, for example 'admin' or 'stavros'</Original>
+                <English>Name of an existing account that gets superuser rights, for example 'admin' or 'stavros'</English>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Config_UseDisplayName">
                 <Original>Use</Original>
@@ -1299,6 +1329,34 @@
                 <German>Standard (CBA-Einstellung)</German>
                 <Chinesesimp>默认(CBA设置)</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_RootLoginAllow">
+                <Original>Allowed</Original>
+                <English>Allowed</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_RootLoginDefault">
+                <Original>Default (CBA setting)</Original>
+                <English>Default (CBA setting)</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_RootLoginDeny">
+                <Original>Denied</Original>
+                <English>Denied</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_RootLoginDisplayName">
+                <Original>Direct root login</Original>
+                <English>Direct root login</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_RootLoginTooltip">
+                <Original>Whether root may log in directly on this laptop. Default follows the AE3_AllowRootLogin CBA setting; users listed as sudoers can always use the sudo command instead.</Original>
+                <English>Whether root may log in directly on this laptop. Default follows the AE3_AllowRootLogin CBA setting; users listed as sudoers can always use the sudo command instead.</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_RootPasswordDisplayName">
+                <Original>Root password (blank = default)</Original>
+                <English>Root password (blank = default)</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_RootPasswordTooltip">
+                <Original>Password of this laptop's root account. Leave blank to use the default root password from the CBA settings.</Original>
+                <English>Password of this laptop's root account. Leave blank to use the default root password from the CBA settings.</English>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_EdenAttributes_StaticIpDisplayName">
                 <Original>Static IP (blank = DHCP)</Original>
                 <English>Static IP (blank = DHCP)</English>
@@ -1306,6 +1364,14 @@
             <Key ID="STR_AE3_ArmaOS_EdenAttributes_StaticIpTooltip">
                 <Original>Assign a fixed IP address. Leave blank to use DHCP from the connected router. Format: 192.168.1.5</Original>
                 <English>Assign a fixed IP address. Leave blank to use DHCP from the connected router. Format: 192.168.1.5</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_SudoersDisplayName">
+                <Original>Sudoers (comma separated)</Original>
+                <English>Sudoers (comma separated)</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_SudoersTooltip">
+                <Original>Accounts that may run the sudo command and get superuser rights in the desktop apps. The accounts must exist on the laptop. Format: analyst, cracked</Original>
+                <English>Accounts that may run the sudo command and get superuser rights in the desktop apps. The accounts must exist on the laptop. Format: analyst, cracked</English>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Msg_Sent">
                 <Original>Message sent to %1</Original>
@@ -1427,6 +1493,24 @@
                 <Russian>usage: ssh USER@IP PASSWORD</Russian>
                 <German>Verwendung: ssh BENUTZER@IP PASSWORT</German>
                 <Chinesesimp>用法: ssh 用户@IP 密码</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Su_NotPermitted">
+                <Original>su: %1 is not authorized to switch accounts. This incident will be reported.</Original>
+                <English>su: %1 is not authorized to switch accounts. This incident will be reported.</English>
+                <French>su: %1 n'est pas autorisé à changer de compte. Cet incident sera signalé.</French>
+                <Italian>su: %1 non è autorizzato a cambiare account. L'incidente verrà segnalato.</Italian>
+                <Russian>su: %1 is not authorized to switch accounts. This incident will be reported.</Russian>
+                <German>su: %1 darf das Konto nicht wechseln. Dieser Vorfall wird gemeldet.</German>
+                <Chinesesimp>su:%1无权切换账户.此事件将被记录.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Su_UserNotFound">
+                <Original>su: no such user: %1</Original>
+                <English>su: no such user: %1</English>
+                <French>su: utilisateur inconnu: %1</French>
+                <Italian>su: utente inesistente: %1</Italian>
+                <Russian>su: no such user: %1</Russian>
+                <German>su: unbekannter Benutzer: %1</German>
+                <Chinesesimp>su:用户不存在:%1</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Sudo_NotInSudoers">
                 <Original>%1 is not in the sudoers file. This incident will be reported.</Original>

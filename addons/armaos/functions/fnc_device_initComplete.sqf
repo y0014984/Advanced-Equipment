@@ -34,6 +34,20 @@ if (!_wasRestored) then {
 		[_fs, "/root", "root"] call AE3_filesystem_fnc_seedDesktop;
 		_entity setVariable ["AE3_filesystem", _fs];
 	};
+
+	// Give the device a root account so a permitted root login has a password to check against.
+	// The per-device AE3_rootPassword (Eden attribute / API) wins over the mission-wide default.
+	if (isServer) then {
+		private _userlist = _entity getVariable ["AE3_Userlist", createHashMap];
+		if !("root" in _userlist) then {
+			private _rootPassword = _entity getVariable ["AE3_rootPassword", ""];
+			if (_rootPassword isEqualTo "") then {
+				_rootPassword = missionNamespace getVariable ["AE3_DefaultRootPassword", "toor"];
+			};
+			_userlist set ["root", _rootPassword];
+			_entity setVariable ["AE3_Userlist", _userlist, true];
+		};
+	};
 };
 
 // (Re-)initialize OS command links (CODE references must be regenerated after item restore)
@@ -53,6 +67,14 @@ try {
 
 // All initialization complete - now set the ready flag and capability flags
 if (isServer) then {
+	// Publish the superuser roster from whatever /etc/sudoers the device was seeded with (addon config,
+	// Eden attribute, restored state). Permission checks run on clients, whose filesystem copy can lag
+	// behind, so the roster has to be broadcast rather than read out of the file on each machine.
+	private _sudoers = [_entity] call AE3_armaos_fnc_computer_getSudoers;
+	if (_sudoers isNotEqualTo []) then {
+		_entity setVariable ["AE3_sudoers", _sudoers, true];
+	};
+
 	_entity setVariable ["AE3_cap_hasTerminal", true, true];
 	_entity setVariable ["AE3_cap_hasFilesystem", true, true];
 	_entity setVariable ["AE3_filesystemReady", true, true];

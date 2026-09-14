@@ -51,7 +51,8 @@ Games:
 | `echo` | `/bin/echo` | Prints text. |
 | `find` | `/bin/find` | Searches the filesystem by object name. |
 | `grep` | `/bin/grep` | Searches text content. |
-| `sudo` | `/bin/sudo` | Runs commands with elevated permissions when the user/password allows it. |
+| `sudo` | `/bin/sudo` | Runs a single command as `root`. Available to `root` and to accounts listed in `/etc/sudoers` (see the [ArmaOS API](ArmaOS-API.md#superuser-access)). |
+| `su` | `/bin/su` | Switches the session to another account, or to `root` when none is given. Same requirement as `sudo`. Unlike `sudo` the switch lasts until `exit`, which returns to the previous account. |
 
 ## System and Network Commands
 

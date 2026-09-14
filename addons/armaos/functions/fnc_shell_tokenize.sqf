@@ -35,7 +35,7 @@ private _inToken = false;
 	switch (true) do
 	{
 		// closing quote
-		case (_quote isNotEqualTo "" && {_char isEqualTo _quote}):
+		case (_quote isNotEqualTo "" && _char isEqualTo _quote):
 		{
 			_quote = "";
 		};
@@ -45,7 +45,7 @@ private _inToken = false;
 			_buffer = _buffer + _char;
 		};
 		// opening quote
-		case (_char isEqualTo """" || {_char isEqualTo "'"}):
+		case (_char isEqualTo """" || _char isEqualTo "'"):
 		{
 			_quote = _char;
 			_inToken = true; // empty quoted string still yields a token
@@ -53,7 +53,7 @@ private _inToken = false;
 		// token separator
 		case (_char isEqualTo " "):
 		{
-			if (_inToken || {_buffer isNotEqualTo ""}) then
+			if (_inToken || _buffer isNotEqualTo "") then
 			{
 				_tokens pushBack _buffer;
 				_buffer = "";
@@ -67,7 +67,7 @@ private _inToken = false;
 	};
 } forEach (_input splitString "");
 
-if (_inToken || {_buffer isNotEqualTo ""}) then
+if (_inToken || _buffer isNotEqualTo "") then
 {
 	_tokens pushBack _buffer;
 };

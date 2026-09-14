@@ -240,7 +240,7 @@ switch (_command) do {
         private _grid = toUpper (_data getOrDefault ["grid", ""]);
         private _digits = count (toArray _grid);
         private _res = createHashMapFromArray [["ok", false], ["pos", []]];
-        if (_grid regexMatch "^\d+$" && {_digits >= 2} && {_digits % 2 == 0} && {_digits <= 10}) then {
+        if (_grid regexMatch "^\d+$" && _digits >= 2 && {_digits % 2 == 0} && _digits <= 10) then {
             // true = centre of the grid square, so the radius is measured from the middle of the
             // square the operator named rather than its top-left corner.
             _res set ["pos", [_grid, true] call CBA_fnc_mapGridToPos];
@@ -269,7 +269,7 @@ switch (_command) do {
         private _ares = createHashMapFromArray [["error", ""]];
         private _date = _data getOrDefault ["date", ""];
         private _title = _data getOrDefault ["title", ""];
-        if (isNull _computer || {_date isEqualTo "" || {_title isEqualTo ""}}) then { _ares set ["error", "bad_input"]; }
+        if (isNull _computer || {_date isEqualTo "" || _title isEqualTo ""}) then { _ares set ["error", "bad_input"]; }
         else {
             [_computer, _date, _title, _data getOrDefault ["location", ""], _data getOrDefault ["body", ""], _data getOrDefault ["time", ""]] remoteExec ["AE3_armaos_fnc_computer_addCalendarEvent", 2];
             _ares set ["ok", true];
@@ -279,7 +279,7 @@ switch (_command) do {
     case "cal_delete": {
         private _dres = createHashMapFromArray [["error", ""]];
         private _idx = _data getOrDefault ["index", -1];
-        if (isNull _computer || {_idx < 0}) then { _dres set ["error", "bad_input"]; }
+        if (isNull _computer || _idx < 0) then { _dres set ["error", "bad_input"]; }
         else {
             [_computer, _idx] remoteExec ["AE3_armaos_fnc_computer_removeCalendarEvent", 2];
             _dres set ["ok", true];
@@ -497,7 +497,9 @@ switch (_command) do {
         private _sres = createHashMapFromArray [["error", ""]];
         if (isNull _computer) then { _sres set ["error", "no_device"]; }
         else {
-            [_computer, ["AE3_ssh_enabled", _data getOrDefault ["enabled", false], true]] remoteExecCall ["setVariable", 2];
+            // Named function rather than a remote-executed raw setVariable: raw commands need their
+            // own exclusions to pass the remote execution filters used on dedicated servers.
+            [_computer, _data getOrDefault ["enabled", false]] remoteExecCall ["AE3_network_fnc_setSshEnabled", 2];
             _sres set ["ok", true];
         };
         [_sres] call _reply;
@@ -522,7 +524,7 @@ switch (_command) do {
     };
 
     // SSH client ops: connect + remote filesystem browse/copy. Resolve the target IP, then run
-    // server-side (auth against the remote user list); the server replies async via ae3_desktop_sshReply.
+    // server-side (auth against the remote user list); the server replies async through routeReply.
     case "ssh_connect";
     case "ssh_ls";
     case "ssh_read";

@@ -41,8 +41,8 @@ private _filesystem = _computer getVariable "AE3_filesystem";
 
 private _current = [_pointer, _filesystem] call AE3_filesystem_fnc_resolvePntr;
 
-private _terminal = _computer getVariable "AE3_terminal";
-private _user = _terminal get "AE3_terminalLoginUser";
+// Superusers act as root over the filesystem here, exactly as they do in the desktop file manager.
+private _user = [_computer] call AE3_armaos_fnc_shell_getFsUser;
 
 private _result = [_pointer, _current, _user, _searchString] call AE3_filesystem_fnc_findFilesystemObject;
 

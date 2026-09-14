@@ -45,8 +45,15 @@ if (hasInterface) then
 		["chat_data", createHashMapFromArray [["threads", _out]]] call AE3_desktop_fnc_jsSend;
 	}] call CBA_fnc_addEventHandler;
 
+	// Reply to a web request the server handled. The payload arrives JSON-encoded because only plain
+	// strings survive a network event reliably; it is decoded here and handed to the browser with the
+	// original request id so the JS A3.request promise resolves.
 	["ae3_desktop_routeReply", {
-		params ["_rid", "_cmd", "_payload"];
+		params ["_rid", "_cmd", ["_json", ""]];
+		// parseJSON yields nil for malformed input; fall back to an empty payload so the browser still
+		// gets an answer instead of the request timing out.
+		private _payload = if (_json isEqualTo "") then { [] } else { [_json, 2] call CBA_fnc_parseJSON };
+		if (isNil "_payload") then { _payload = []; };
 		[_cmd, createHashMapFromArray [["_rid", _rid], ["data", _payload]]] call AE3_desktop_fnc_jsSend;
 	}] call CBA_fnc_addEventHandler;
 
@@ -67,12 +74,6 @@ if (hasInterface) then
 	// refresh. No-op when no desktop is open or the Calendar app is not subscribed.
 	["ae3_desktop_calChanged", {
 		["cal_changed", []] call AE3_desktop_fnc_jsSend;
-	}] call CBA_fnc_addEventHandler;
-
-	// SSH server reply: forward to the SSH app, echoing the rid so its A3.request resolves.
-	["ae3_desktop_sshReply", {
-		params ["_rid", "_cmd", "_payload"];
-		[_cmd, createHashMapFromArray [["_rid", _rid], ["data", _payload]]] call AE3_desktop_fnc_jsSend;
 	}] call CBA_fnc_addEventHandler;
 
 	// USB volume change (connect/auto-mount): nudge an open My Computer app to refresh.

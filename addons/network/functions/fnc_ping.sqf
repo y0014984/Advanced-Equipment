@@ -115,7 +115,7 @@ if (!isNil {_entity getVariable "AE3_network_children"}) exitWith
 	};
 
 	private _parent = _entity getVariable ["AE3_network_parent", objNull];
-	if (!isNull _parent && {_parent isNotEqualTo _last} && {!(_parent in _visited)}) then
+	if (!isNull _parent && _parent isNotEqualTo _last && {!(_parent in _visited)}) then
 	{
 		private _res = [_parent, _target, _entity, +_visited] call AE3_network_fnc_ping;
 
@@ -134,7 +134,7 @@ if (!isNil {_entity getVariable "AE3_network_children"}) exitWith
 };
 
 private _parent = _entity getVariable ["AE3_network_parent", objNull];
-if (!isNull _parent && {_parent isNotEqualTo _last} && {!(_parent in _visited)}) exitWith
+if (!isNull _parent && _parent isNotEqualTo _last && {!(_parent in _visited)}) exitWith
 {
 	private _res = [_parent, _target, _entity, +_visited] call AE3_network_fnc_ping;
 	if (!isNull (_res select 0)) then

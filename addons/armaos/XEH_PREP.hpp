@@ -1,5 +1,6 @@
 /* Module Functions */
 PREP(module_addUser);
+PREP(module_addSudoer);
 PREP(module_addCalendarEvent);
 PREP(module_saveLaptop);
 PREP(module_restoreLaptop);
@@ -26,6 +27,7 @@ PREP(shell_isSshCompatible);
 PREP(shell_parseLockedFile);
 PREP(shell_playErrorSound);
 PREP(shell_findLoginUser);
+PREP(shell_getFsUser);
 PREP(shell_validatePassword);
 PREP(shell_getHomeDir);
 PREP(shell_executeFile);
@@ -66,9 +68,21 @@ PREP(computer_turnOff);
 PREP(computer_addUser);
 PREP(computer_addGames);
 PREP(attr_addGames);
+PREP(attr_addSudoers);
+PREP(attr_setRootPassword);
 PREP(computer_addCustomCommand);
 PREP(computer_initWithCommands);
 
+/* Superuser Access */
+PREP(computer_allowsRootLogin);
+PREP(computer_setRootLogin);
+PREP(computer_setRootPassword);
+PREP(computer_getSudoers);
+PREP(computer_isSudoer);
+PREP(computer_addSudoer);
+PREP(computer_removeSudoer);
+
+PREP(computer_setHostname);
 PREP(computer_getLocality);
 PREP(computer_isFree);
 PREP(computer_release);
@@ -114,6 +128,7 @@ PREP(os_unlock);
 PREP(os_ssh);
 PREP(os_msg);
 PREP(os_sudo);
+PREP(os_su);
 
 /* Encryption Functions */
 PREP(encryption_caesar);

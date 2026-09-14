@@ -39,6 +39,7 @@ PREP(zeus_connectToRouter);
 PREP(zeus_disconnectFromRouter);
 
 PREP(zeus_module_addUser);
+PREP(zeus_module_addSudoer);
 PREP(zeus_module_addCalendarEvent);
 PREP(zeus_module_addFile);
 PREP(zeus_module_addDir);
@@ -47,6 +48,7 @@ PREP(zeus_module_addConnection);
 /* Optional ZEN (Zeus Enhanced) Dynamic Dialog compat */
 PREP(zen_createDialog);
 PREP(zen_module_addUser);
+PREP(zen_module_addSudoer);
 PREP(zen_module_addCalendarEvent);
 PREP(zen_module_addFile);
 PREP(zen_module_addDir);

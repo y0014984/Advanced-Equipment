@@ -11,6 +11,14 @@
 
 params ["_entity"];
 
+if (isNull _entity) exitWith {};
+
+// Leases are handed out by the server, which is the only machine holding the full device registry.
+if (!isServer) exitWith
+{
+	["ae3_network_dhcpTurnOn", [netId _entity]] call CBA_fnc_serverEvent;
+};
+
 private _parent = _entity getVariable ["AE3_network_parent", objNull];
 private _leases = _entity getVariable ["AE3_network_staticIpByRouter", createHashMap];
 private _staticStr = if (isNull _parent) then { "" } else { _leases getOrDefault [netId _parent, ""] };

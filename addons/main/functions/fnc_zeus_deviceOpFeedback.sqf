@@ -34,6 +34,12 @@ switch (_op) do
 		private _message = format ["'%1': %2 '%3': %4", localize "STR_AE3_Main_Zeus_Username", _username, localize "STR_AE3_Main_Zeus_Password", _password];
 		[localize "STR_AE3_Main_Zeus_UserAdded", _message, 5] call BIS_fnc_curatorHint;
 	};
+	case "addSudoer":
+	{
+		_args params ["_username"];
+		private _message = format ["'%1': %2", localize "STR_AE3_Main_Zeus_Username", _username];
+		[localize "STR_AE3_Main_Zeus_SudoerAdded", _message, 5] call BIS_fnc_curatorHint;
+	};
 	case "addGames":
 	{
 		_args params ["_isSnake"];

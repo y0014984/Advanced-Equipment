@@ -45,10 +45,19 @@ _computer setVariable ["AE3_USB_Interfaces_occupied", _occupiedList, true];
 // without reopening the laptop (connect/mount/unmount raise the same event).
 ["ae3_desktop_volChanged", []] call CBA_fnc_globalEvent;
 
-private _sound = "\z\ae3\addons\flashdrive\audio\usb_connect.ogg";
-if ((typeOf _occupied) find "ROOT_Rubberducky" == 0) then {
-    _sound = "\z\root_cyberwarfare\addons\main\audio\ducky_connected.ogg";
+// Removing a drive is announced with the same sound the drive arrived with, and obeys the same enable
+// and volume settings, so silencing a drive silences it in both directions. Missing settings read as
+// sound on, which is what AE3 does without them.
+private _isDucky = (typeOf _occupied) find "ROOT_Rubberducky" == 0;
+private _soundEnabled = missionNamespace getVariable [
+    ["ROOT_CYBERWARFARE_USB_SOUND_ENABLED", "ROOT_CYBERWARFARE_DUCKY_SOUND_ENABLED"] select _isDucky,
+    true
+];
+
+if (_soundEnabled) then {
+    private _sound = ["\z\ae3\addons\flashdrive\audio\usb_connect.ogg", "\z\root_cyberwarfare\addons\main\audio\ducky_connected.ogg"] select _isDucky;
+    private _volume = missionNamespace getVariable ["ROOT_CYBERWARFARE_DEVICE_SOUND_VOLUME", 3];
+    [_computer, _sound, _volume] remoteExecCall ["AE3_desktop_fnc_playDeviceSound", 0];
 };
-[_computer, _sound] remoteExecCall ["AE3_desktop_fnc_playDeviceSound", 0];
 
 _item

@@ -13,6 +13,15 @@
 
  params ["_entity"];
 
+if (isNull _entity) exitWith {};
+
+// Re-leasing a whole subtree is an addressing decision, so it is made on the server where the full
+// device registry is available to detect duplicate addresses.
+if (!isServer) exitWith
+{
+	["ae3_network_dhcpRefresh", [netId _entity]] call CBA_fnc_serverEvent;
+};
+
 {
 
 	if (isNil {_x getVariable "AE3_network_children"}) then

@@ -61,7 +61,7 @@ private _deliver = {
 	params ["_computer", "_content", "_fileName", "_from", "_holder"];
 	private _owner = if (isNull _holder) then { 2 } else { owner _holder };
 
-	if (isMultiplayer && {_owner != 2}) then
+	if (isMultiplayer && _owner != 2) then
 	{
 		[_computer, "AE3_filesystem", _owner] call AE3_main_fnc_getRemoteVar; // authoritative copy
 	};
@@ -112,8 +112,8 @@ private _targetNetId = switch (true) do
 	default                             { _target };
 };
 private _toRegister = [];
-if (_createFrom && {_from isNotEqualTo ""} && {(_from find "@") >= 0}) then { _toRegister pushBack _from; };
-if (_createTo && {_to isNotEqualTo ""} && {(_to find "@") >= 0}) then { _toRegister pushBack _to; };
+if (_createFrom && _from isNotEqualTo "" && {(_from find "@") >= 0}) then { _toRegister pushBack _from; };
+if (_createTo && _to isNotEqualTo "" && {(_to find "@") >= 0}) then { _toRegister pushBack _to; };
 if (_targetNetId isNotEqualTo "" && {_toRegister isNotEqualTo []}) then
 {
 	private _registry = missionNamespace getVariable ["AE3_mail_addresses", createHashMap];

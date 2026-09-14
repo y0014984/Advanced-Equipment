@@ -5,7 +5,7 @@
  * Description: Server-side SSH backend for the web SSH app. Handles connect (auth against the
  * REMOTE device's user list + its SSH-enabled flag) and remote filesystem ops (list/read) plus
  * cross-device copy (pull remote->local, push local->remote). Every op replies to the requesting
- * client via "ae3_desktop_sshReply", echoing the rid so the JS A3.request promise resolves. The
+ * client through AE3_desktop_fnc_routeReply, echoing the rid so the JS A3.request promise resolves. The
  * body is guarded so any failure still sends exactly one reply, turning errors into a visible
  * verdict instead of a client-side timeout. Server-only.
  *
@@ -35,7 +35,7 @@ private _debug = (missionNamespace getVariable [QGVAR(debug), false]) || {missio
 
 private _reply = {
     params ["_cmd", "_payload"];
-    ["ae3_desktop_sshReply", [_rid, _cmd, _payload], _clientOwner] call CBA_fnc_ownerEvent;
+    [_clientOwner, _rid, _cmd, _payload] call AE3_desktop_fnc_routeReply;
 };
 
 if (_debug) then {
@@ -65,13 +65,14 @@ try {
     if ((_target getVariable ["AE3_power_powerState", 0]) != 1) then { throw "offline" };
     // SSH must be enabled on the remote device.
     if !(_target getVariable ["AE3_ssh_enabled", true]) then { throw "ssh_disabled" };
-    if (!isNull (_target getVariable ["AE3_computer_mutex", objNull]) && {_target isNotEqualTo _local}) then { throw "busy" };
+    if (!isNull (_target getVariable ["AE3_computer_mutex", objNull]) && _target isNotEqualTo _local) then { throw "busy" };
 
     // Authenticate against the remote user list.
     private _authed = ([_target, _user, _pass, true] call AE3_desktop_fnc_authUser) getOrDefault ["ok", false];
     if (!_authed) then { throw "auth_failed" };
 
-    private _fsUser = ["root", _user] select (!(_user in ["root", "admin"]));
+    // the remote device decides who is elevated there: root, admin, or one of its own sudoers
+    private _fsUser = ["root", _user] select (_user isNotEqualTo "admin" && {!([_target, _user] call AE3_armaos_fnc_computer_isSudoer)});
     private _tfs = _target getVariable ["AE3_filesystem", []];
 
     switch (_op) do {

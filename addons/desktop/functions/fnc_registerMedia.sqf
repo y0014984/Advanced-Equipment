@@ -52,7 +52,7 @@ private _extType = switch (true) do
 	case (_ext in ["paa", "jpg", "jpeg", "png", "gif", "bmp", "tga"]): { "image" };
 	default { "" };
 };
-if (_extType isNotEqualTo "" && {_extType isNotEqualTo _type}) then { _type = _extType; };
+if (_extType isNotEqualTo "" && _extType isNotEqualTo _type) then { _type = _extType; };
 
 // Normalise the origin hint and the experimental web-viewer flag so the marker is always well formed.
 _scope = toLower _scope;

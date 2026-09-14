@@ -53,9 +53,12 @@ if (_isFreshItem) exitWith {
 };
 
 private _itemNamespace = _buffer get _item;
-private _type = _itemNamespace get "AE3_OBJECT_TYPE";
+// A buffer written by an older version, or one that lost the entry, has no type to build from. Reading
+// it with a default keeps the missing case as an empty string, which the check below reports.
+private _type = _itemNamespace getOrDefault ["AE3_OBJECT_TYPE", ""];
+if !(_type isEqualType "") then { _type = ""; };
 
-if (isNil "_type" || {_type == ""}) exitWith {
+if (_type isEqualTo "") exitWith {
 	hint "Laptop type data missing. Cannot deploy.";
 	objNull
 };

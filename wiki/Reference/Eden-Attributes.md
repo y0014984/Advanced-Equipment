@@ -15,6 +15,9 @@ AE3 laptop variants expose these object attributes.
 | Crack | `AE3_SecurityCommand_Crack` | Bool | Installs `crack` command. |
 | Snake | `AE3_Game_Snake` | Bool | Installs Snake game. |
 | Powered On At Start | `AE3_power_startOn` | Bool | Turns the laptop on after power init. |
+| Direct root login | `AE3_allowRootLogin` | String | Whether `root` may log in directly on this laptop: `default` (follow the `AE3_AllowRootLogin` CBA setting), `allow`, or `deny`. |
+| Root password | `AE3_rootPassword` | String | Password of this laptop's `root` account. Blank uses the `AE3_DefaultRootPassword` CBA setting. |
+| Sudoers | applied to `/etc/sudoers` | String | Comma-separated accounts that may run `sudo` and act as superuser in the desktop apps. The accounts must exist on the laptop. |
 
 Interface Mode values:
 
@@ -52,12 +55,14 @@ External policy is enforced by `AE3_network_fnc_resolve`, which is used by highe
 
 Power devices expose attributes appropriate to their class:
 
-| Device type | Common attributes |
+| Device type | Attributes |
 | --- | --- |
-| Generator | Fuel level, powered-on state. |
-| Battery | Battery level, powered-on state. |
-| Solar panel | Powered-on state and orientation-sensitive output. |
-| Laptop/internal battery | Power level and powered-on behavior. |
+| Generator | `Fuel Level`, `Powered On At Start`. |
+| Battery | `Power Level`, `Powered On At Start`. |
+| Solar panel | `Power Level` (panel variants that carry one), `Powered On At Start`. |
+| Laptop/internal battery | `Power Level`, `Powered On At Start`. |
+
+`Powered On At Start` switches the device on as the mission begins, instead of leaving it for a player to reach through the ACE interaction on the object. It is a checkbox, off by default, and it is available on every AE3 power device. The same on/off state is also editable during play from the Zeus asset attributes panel, which shows a `Powered On` checkbox for any AE3 power device.
 
 Exact fields depend on the class configuration. Runtime power scripts can also set levels with [Power API](Power-API.md).
 
@@ -92,6 +97,7 @@ These modules are useful in Eden and/or Zeus. In Eden, place the module, open it
 | Module | Purpose | Important fields |
 | --- | --- | --- |
 | `AE3_AddUser` | Adds a user account. | Username, password. |
+| `AE3_AddSudoer` | Gives an existing account superuser rights (adds it to `/etc/sudoers`). | Username. |
 | `AE3_AddDir` | Creates a directory. | Path, owner, permissions. |
 | `AE3_AddFile` | Creates a file. | Path, content, owner, permissions, code/encryption options. |
 | `AE3_AddCalendarEvent` | Adds calendar entry. | Date, title, location/details. |

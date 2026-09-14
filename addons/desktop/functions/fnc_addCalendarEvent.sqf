@@ -48,7 +48,7 @@ private _deliver = {
 	private _holder = _computer getVariable ["AE3_computer_mutex", objNull];
 	private _ownerId = if (isNull _holder) then { 2 } else { owner _holder };
 
-	if (isMultiplayer && {_ownerId != 2}) then
+	if (isMultiplayer && _ownerId != 2) then
 	{
 		[_computer, "AE3_filesystem", _ownerId] call AE3_main_fnc_getRemoteVar; // authoritative copy
 	};

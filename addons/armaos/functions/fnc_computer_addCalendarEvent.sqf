@@ -29,7 +29,7 @@ params [["_computer", objNull, [objNull]], ["_date", "", [""]], ["_title", "", [
 
 if (!isServer) exitWith { false };
 if (isNull _computer) exitWith { false };
-if (_date isEqualTo "" || {_title isEqualTo ""}) exitWith { false };
+if (_date isEqualTo "" || _title isEqualTo "") exitWith { false };
 
 // Basic ISO date sanity check ("YYYY-MM-DD"); reject anything else so the UI grid stays consistent.
 if !(_date regexMatch "^\d{4}-\d{2}-\d{2}$") exitWith { false };

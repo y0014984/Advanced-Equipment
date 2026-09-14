@@ -1,4 +1,5 @@
 // File: fnc_setStaticIp.sqf
+#include "..\script_component.hpp"
 /*
  * Author: Root
  * Description: Applies a laptop static IP after validating format and duplicate use. Static leases
@@ -16,6 +17,17 @@
 params ["_device", ["_ipStr", ""]];
 
 private _res = createHashMapFromArray [["error", ""]];
+
+// Duplicate detection needs the full device registry, which only the server holds. This function
+// returns its result, so it cannot route itself: callers reach it through the desktop and Zeus
+// server events, and a hit here means a new client-side path was introduced.
+if (!isServer) exitWith
+{
+	WARNING_1("setStaticIp called on a client for %1 - addressing must run on the server",_device);
+	_res set ["error", "not_server"];
+	_res
+};
+
 if (isNull _device) exitWith { _res set ["error", "no_device"]; _res };
 
 private _parent = _device getVariable ["AE3_network_parent", objNull];

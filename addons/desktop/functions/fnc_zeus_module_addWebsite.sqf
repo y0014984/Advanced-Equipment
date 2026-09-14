@@ -51,7 +51,7 @@ if (_event isEqualTo "onUnload") exitWith
 
     private _domain = ctrlText (_display displayCtrl 1401);
     private _siteRoot = ctrlText (_display displayCtrl 1402);
-    if (_domain isNotEqualTo "" && {_siteRoot isNotEqualTo ""}) then
+    if (_domain isNotEqualTo "" && _siteRoot isNotEqualTo "") then
     {
         [_domain, _siteRoot] call AE3_desktop_fnc_registerSite; // routes to the server
     };

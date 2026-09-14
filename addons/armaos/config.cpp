@@ -11,6 +11,7 @@ class CfgPatches
                 "Land_Laptop_03_olive_F_AE3",
                 "Land_Laptop_03_sand_F_AE3",
                 "AE3_AddUser",
+                "AE3_AddSudoer",
                 "AE3_AddCalendarEvent",
                 "AE3_SaveLaptop",
                 "AE3_RestoreLaptop"

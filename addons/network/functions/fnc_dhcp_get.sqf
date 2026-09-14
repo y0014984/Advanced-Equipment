@@ -1,4 +1,5 @@
 // File: fnc_dhcp_get.sqf
+#include "..\script_component.hpp"
 /**
  * Hands out a lease from a router's own subnet. Each router owns a single /24 and keeps its own
  * lease counter, so a device always receives an address inside the subnet of the router it is
@@ -14,6 +15,15 @@
  */
 
 params ["_entity"];
+
+// A lease can only be handed out where the full device registry exists. This function returns the
+// address, so it cannot route itself: every caller is server-side by construction and a hit here
+// means a new client-side allocation path was introduced.
+if (!isServer) exitWith
+{
+	WARNING_1("dhcp_get called on a client for %1 - addressing must run on the server",_entity);
+	[127, 0, 0, 1]
+};
 
 if (isNull _entity || {!alive _entity} || {(_entity getVariable ["AE3_power_powerState", 0]) == 0}) exitWith { [127, 0, 0, 1] };
 

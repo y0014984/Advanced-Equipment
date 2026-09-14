@@ -47,8 +47,8 @@ _ae3OptsThings params ["_path", "_password"];
 private _pointer = _computer getVariable "AE3_filepointer";
 private _filesystem = _computer getVariable "AE3_filesystem";
 
-private _terminal = _computer getVariable "AE3_terminal";
-private _username = _terminal get "AE3_terminalLoginUser";
+// Superusers act as root over the filesystem here, exactly as they do in the desktop file manager.
+private _username = [_computer] call AE3_armaos_fnc_shell_getFsUser;
 
 try
 {

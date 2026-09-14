@@ -40,7 +40,7 @@ if (_activated) then
         private _location = _module getVariable ["AE3_ModuleCalendar_Location", ""];
         private _body     = _module getVariable ["AE3_ModuleCalendar_Body", ""];
 
-        if (_date isEqualTo "" || {_title isEqualTo ""}) exitWith { deleteVehicle _module; false };
+        if (_date isEqualTo "" || _title isEqualTo "") exitWith { deleteVehicle _module; false };
 
         {
             private _computer = _x;

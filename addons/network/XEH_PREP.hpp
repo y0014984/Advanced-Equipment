@@ -27,6 +27,8 @@ PREP(dhcp_refresh);
 PREP(dhcp_onTurnOn);
 PREP(ipInUse);
 PREP(setStaticIp);
+PREP(setStaticIpZeus);
+PREP(setSshEnabled);
 
 /* Generic */
 PREP(ip2str);

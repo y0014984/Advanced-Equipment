@@ -5,8 +5,9 @@
  * Description: Filesystem operations for the web desktop Files/Notepad apps (WS-C/D). Operates on
  * the laptop's locally-cached AE3_filesystem copy (pulled via getRemoteVar in
  * AE3_desktop_fnc_desktop_openWeb), reusing the standard AE3 filesystem functions so Unix
- * permissions are enforced exactly like the CLI. Per-user scoping: root and admin act as
- * "root" and bypass permission checks; every other user is bound by ownership/permission bits.
+ * permissions are enforced exactly like the CLI. Per-user scoping: root, admin and accounts listed in
+ * /etc/sudoers act as "root" and bypass permission checks, matching what the sudo command grants in
+ * the terminal; every other user is bound by ownership/permission bits.
  * Mutating ops (save/mkdir/delete) push the updated filesystem back to the server.
  *
  * Arguments:
@@ -38,8 +39,15 @@ if (_fs isEqualTo []) exitWith {
     _res
 };
 
-// Root and admin see/modify everything; everyone else is permission-bound.
-private _fsUser = [_user, "root"] select (_user in ["root", "admin"]);
+// Root and admin see/modify everything. A sudoer does too while the mission lets superusers act as root
+// without elevating first - the same switch the terminal reads, so an account carries one set of rights
+// whichever front-end it is used from. With it off both interfaces hold the sudoer to their own files.
+private _elevated = (_user isEqualTo "admin")
+    || {
+        (missionNamespace getVariable ["AE3_CliElevateSudoers", true])
+        && {[_computer, _user] call AE3_armaos_fnc_computer_isSudoer}
+    };
+private _fsUser = [_user, "root"] select _elevated;
 private _path = _data getOrDefault ["path", "/"];
 
 switch (_op) do {
@@ -65,7 +73,7 @@ switch (_op) do {
         private _recursive = _data getOrDefault ["recursive", false];
         if !(_permissions isEqualType [] && {count _permissions == 2}) exitWith { _res set ["error", "bad_input"]; };
         try {
-            private _chmodUser = [_user, "root"] select (_user isEqualTo "root");
+            private _chmodUser = [_user, "root"] select _elevated;
             [[], _fs, _path, _chmodUser, _permissions, _recursive] call AE3_filesystem_fnc_chmod;
             _computer setVariable ["AE3_filesystem", _fs, 2];
             _res set ["ok", true];
@@ -249,7 +257,8 @@ switch (_op) do {
         private _overwrite = _data getOrDefault ["overwrite", false];
         if (_name isEqualTo "") exitWith { _res set ["error", "bad_input"]; };
         private _meta = _computer getVariable ["AE3_trash_meta", createHashMap];
-        private _home = [format ["/home/%1", _user], "/root"] select (_fsUser isEqualTo "root");
+        // a sudoer keeps their own home; only the root/admin accounts live in /root
+        private _home = [format ["/home/%1", _user], "/root"] select (_user in ["root", "admin"]);
         private _dest = _meta getOrDefault [_name, _home + "/" + _name];
         try {
             if (!_overwrite && {[[], _fs, _dest, _fsUser] call AE3_filesystem_fnc_fsObjExists}) exitWith {

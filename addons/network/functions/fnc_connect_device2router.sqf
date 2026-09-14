@@ -12,10 +12,19 @@
 
 params ["_device", "_parent"];
 
+if (isNull _device) exitWith {};
+
+// Addressing must be decided by the server: only it holds the complete device registry needed to
+// detect a duplicate address. Hand the request over rather than leasing from a client's partial view.
+if (!isServer) exitWith
+{
+	["ae3_network_connectDevice", [netId _device, netId _parent]] call CBA_fnc_serverEvent;
+};
+
 // A device belongs to exactly one router: drop any existing uplink before joining the new one so it
 // cannot linger in a previous router's children list.
 private _currentParent = _device getVariable ["AE3_network_parent", objNull];
-if (!isNull _currentParent && {_currentParent isNotEqualTo _parent}) then
+if (!isNull _currentParent && _currentParent isNotEqualTo _parent) then
 {
 	[_device] call AE3_network_fnc_disconnect;
 };

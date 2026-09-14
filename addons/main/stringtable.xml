@@ -912,6 +912,14 @@
                 <German>Dieses Modul fügt eine Datei zu einem Objekt hinzu, das Dateisysteme unterstützt, wie Computer.</German>
                 <Chinesesimp>此模块将文件添加到支持文件系统的对象(如计算机).</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddSudoer">
+                <Original>AE3: Add Sudoer</Original>
+                <English>AE3: Add Sudoer</English>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_Module_AddSudoer_Description">
+                <Original>Gives an existing account superuser rights on this armaOS computer. The account can then run the sudo command in the terminal and works with root permissions in the desktop apps.</Original>
+                <English>Gives an existing account superuser rights on this armaOS computer. The account can then run the sudo command in the terminal and works with root permissions in the desktop apps.</English>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_Module_AddUser">
                 <Original>AE3: Add User</Original>
                 <English>AE3: Add User</English>
@@ -1010,6 +1018,10 @@
                 <Russian>Новое Имя:</Russian>
                 <German>Neuer Name:</German>
                 <Chinesesimp>新名称:</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_NewPowerState">
+                <Original>Power: %1.</Original>
+                <English>Power: %1.</English>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_NoComputer">
                 <Original>No computer. Place module on computer.</Original>
@@ -1204,6 +1216,10 @@
                 <German>AE3 Stromverbindung hinzugefügt</German>
                 <Chinesesimp>AE3 电力连接已添加</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Main_Zeus_PoweredOn">
+                <Original>Powered On</Original>
+                <English>Powered On</English>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_Rename">
                 <Original>Rename</Original>
                 <English>Rename</English>
@@ -1279,6 +1295,10 @@
                 <Russian>Device put into standby mode.</Russian>
                 <German>Gerät in den Ruhezustand versetzt.</German>
                 <Chinesesimp>设备进入待机模式.</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_SudoerAdded">
+                <Original>AE3 Sudoer added</Original>
+                <English>AE3 Sudoer added</English>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_Switch">
                 <Original>Switch</Original>

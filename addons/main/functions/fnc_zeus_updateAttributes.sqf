@@ -45,6 +45,28 @@ if (_exitCode == 1) then
 
     /* ======================================== */
 
+    // Power devices carry an on/off toggle. It is applied only when it differs from the live state, so
+    // confirming the panel again does not restart a generator that is already running, and the switch
+    // itself runs on the server because the power state and its mutex are shared across the mission.
+    if (isClass (configOf _entity >> "AE3_Device")) then
+    {
+        private _requestedOn = cbChecked (_display displayCtrl 1322);
+        private _currentlyOn = (_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1;
+
+        if (_requestedOn isNotEqualTo _currentlyOn) then
+        {
+            private _powerFunction = ["AE3_power_fnc_turnOffDevice", "AE3_power_fnc_turnOnDevice"] select _requestedOn;
+            [_entity] remoteExecCall [_powerFunction, 2];
+
+            _message = _message + format [
+                localize "STR_AE3_Main_Zeus_NewPowerState",
+                localize (["STR_AE3_Power_Interaction_TurnOff", "STR_AE3_Power_Interaction_TurnOn"] select _requestedOn)
+            ];
+        };
+    };
+
+    /* ======================================== */
+
     // if asset has battery, update battery level
     if (!isNil { _battery getVariable "AE3_power_batteryCapacity" }) then
     {
@@ -92,13 +114,19 @@ if (_exitCode == 1) then
         private _hostname = ctrlText (_display displayCtrl 1913);
         private _sshEnabled = cbChecked (_display displayCtrl 1320);
         private _staticIp = ctrlText (_display displayCtrl 1916);
+        // Named functions rather than a remote-executed raw setVariable: raw commands need their own
+        // exclusions to pass the remote execution filters used on dedicated servers, so routing them
+        // through addon functions is what makes these writes land there.
         if (_hostname isNotEqualTo "") then
         {
-            [_entity, ["ace_cargo_customName", _hostname, true]] remoteExecCall ["setVariable", 2];
+            [_entity, _hostname] remoteExecCall ["AE3_armaos_fnc_computer_setHostname", 2];
         };
-        [_entity, ["AE3_ssh_enabled", _sshEnabled, true]] remoteExecCall ["setVariable", 2];
-        [_entity, _staticIp] remoteExecCall ["AE3_network_fnc_setStaticIp", 2];
-        _message = _message + format ["Hostname: %1. SSH: %2. IP: %3.", _hostname, ["disabled", "enabled"] select _sshEnabled, [_staticIp, "DHCP"] select (_staticIp isEqualTo "")];
+        [_entity, _sshEnabled] remoteExecCall ["AE3_network_fnc_setSshEnabled", 2];
+        // Address validation happens on the server, which reports the real verdict back to this curator.
+        [_entity, _staticIp, clientOwner] remoteExecCall ["AE3_network_fnc_setStaticIpZeus", 2];
+        // The address line only records what was requested; the server sends the accepted/rejected
+        // verdict as its own hint once it has validated the address.
+        _message = _message + format ["Hostname: %1. SSH: %2. IP requested: %3.", _hostname, ["disabled", "enabled"] select _sshEnabled, [_staticIp, "DHCP"] select (_staticIp isEqualTo "")];
     };
 
     /* ======================================== */

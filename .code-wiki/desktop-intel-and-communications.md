@@ -51,6 +51,21 @@ The desktop component also acts as the mission-intel and communications layer: E
 - Mail/chat reachability currently depends on power state, not network topology. These apps model an online/offline service layer separate from SSH route policy.
 - Media is represented as filesystem marker content instead of embedding binary content in the virtual filesystem. Arma media remains a mission/mod asset while the laptop filesystem stores discoverable shortcuts.
 
+## export and clipboard
+
+The Mail and Messenger web apps can write what is on screen out to the laptop's own filesystem and to
+the player's real OS clipboard. Both are front-end only (`addons/desktop/ui/web/js/apps.js`):
+
+- One formatter per type - `formatMail(m)` and `formatThread(t, self)` - feeds both the file export
+  and the clipboard, so the two can never drift. `fileSlug` sanitizes the suggested filename.
+- Export reuses `window.AE3_pickFile("save", ...)` and the existing `fs_save` route
+  (`fnc_jsRouter` -> `fnc_fsHandle` case `"save"`). The file is owned by the logged-in desktop user,
+  so it is immediately readable by CLI `cat`, `scp` and the SSH pull path. No new SQF was needed.
+- Clipboard goes through `window.AE3_copyText` (`ui/web/js/desktop.js`): async clipboard API, then
+  `document.execCommand("copy")`, then a dialog with the text preselected for manual Ctrl+C. The
+  `copyToClipboard` script command is **not** usable here - it is server-restricted, so on a dedicated
+  server it would write to the server's clipboard, which no player can reach.
+
 ## gotchas
 
 - Zeus-placed AddIntel modules must not run through the normal Eden/trigger handler.

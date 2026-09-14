@@ -27,7 +27,7 @@ private _apply = {
 	params ["_fsObject", "_user", "_permissions", "_recursive", "_apply"];
 
 	private _owner = _fsObject select 1;
-	if (!(_user isEqualTo "root" || {_owner isEqualTo _user})) then {
+	if (!(_user isEqualTo "root" || _owner isEqualTo _user)) then {
 		throw localize "STR_AE3_Filesystem_Exception_MissingPermissions";
 	};
 

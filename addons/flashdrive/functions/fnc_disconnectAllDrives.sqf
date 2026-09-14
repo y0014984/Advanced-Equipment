@@ -39,7 +39,7 @@ private _savedDrives = [];
         {
             private _wasMounted = _mountedList param [_cfg select 0, false];
             private _item = [_computer, _player, _cfg] call AE3_flashdrive_fnc_disconnectFlashDrive;
-            if (_item isEqualType "" && {_item isNotEqualTo ""}) then {
+            if (_item isEqualType "" && _item isNotEqualTo "") then {
                 _savedDrives pushBack [_name, _item, _wasMounted];
             };
         };

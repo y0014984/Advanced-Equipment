@@ -71,7 +71,7 @@ if (AE3_DebugMode || {missionNamespace getVariable ["AE3_NetworkDebugEnabled", f
 // Route to the target over the simulated network (honours each router's external access policy)
 ([_computer, _targetIp] call AE3_network_fnc_resolve) params ["_target", "_routeLength"];
 
-if (isNull _target || {_target isEqualTo _computer}) exitWith
+if (isNull _target || _target isEqualTo _computer) exitWith
 {
 	[_computer, format [localize "STR_AE3_ArmaOS_Ssh_NoRoute", _ipString]] call AE3_armaos_fnc_shell_stdout;
 	[_computer] call AE3_armaos_fnc_shell_playErrorSound;
@@ -105,11 +105,12 @@ if (!([_target] call AE3_armaos_fnc_computer_isFree)) exitWith
 };
 
 // Validate credentials against the remote user list (root login over ssh follows the same
-// rule as local login: blocked unless AE3_AllowRootLogin is enabled)
+// rule as local login: it is the target computer that decides whether root may log in)
 [_target, "AE3_Userlist"] call AE3_main_fnc_getRemoteVar;
+[_target, "AE3_allowRootLogin"] call AE3_main_fnc_getRemoteVar;
 private _users = _target getVariable ["AE3_Userlist", createHashMap];
 
-private _rootBlocked = (_user isEqualTo "root") && {!(missionNamespace getVariable ["AE3_AllowRootLogin", false])};
+private _rootBlocked = (_user isEqualTo "root") && {!([_target] call AE3_armaos_fnc_computer_allowsRootLogin)};
 
 if (_rootBlocked || {!(_user in _users)} || {(_users get _user) isNotEqualTo _password}) exitWith
 {

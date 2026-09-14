@@ -24,7 +24,8 @@ params [["_computer", objNull, [objNull]], ["_user", "", [""]], ["_op", "", [""]
 private _res = createHashMapFromArray [["error", ""]];
 if (isNull _computer) exitWith { _res set ["error", "no_device"]; _res };
 
-private _mountUser = ["root", _user] select (_user isNotEqualTo "" && {!(_user in ["root", "admin"])});
+// superusers (root, admin, sudoers) mount as root, everyone else mounts under their own account
+private _mountUser = ["root", _user] select (_user isNotEqualTo "" && _user isNotEqualTo "admin" && {!([_computer, _user] call AE3_armaos_fnc_computer_isSudoer)});
 
 switch (_op) do {
 
@@ -87,7 +88,7 @@ switch (_op) do {
         private _item = _data getOrDefault ["item", ""];
         private _interfaces = _computer getVariable ["AE3_USB_Interfaces", createHashMap];
         private _cfg = _interfaces getOrDefault [_interface, []];
-        if (_interface isEqualTo "" || {_item isEqualTo ""} || {_cfg isEqualTo []}) exitWith { _res set ["error", "bad_input"]; };
+        if (_interface isEqualTo "" || _item isEqualTo "" || {_cfg isEqualTo []}) exitWith { _res set ["error", "bad_input"]; };
         private _occupied = _computer getVariable ["AE3_USB_Interfaces_occupied", []];
         if !(((_occupied param [_cfg select 0, objNull]) isEqualTo objNull) && {_item in (items player)}) exitWith { _res set ["error", "unavailable"]; };
         [_computer, player, _item, _cfg] remoteExecCall ["AE3_flashdrive_fnc_connectFlashDrive", 2];

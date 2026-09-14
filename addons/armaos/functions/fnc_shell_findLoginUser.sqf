@@ -20,6 +20,9 @@ params ["_computer", "_username"];
 
 private _terminal = _computer getVariable "AE3_terminal";
 
+// A fresh login never inherits the account chain of a previous session's su.
+_terminal deleteAt "AE3_terminalSuStack";
+
 private _users = _computer getVariable ["AE3_Userlist", createHashMap];
 
 private _result = [];
@@ -32,8 +35,8 @@ if (AE3_DebugMode) then
 	if (((count _debugUsername) > 0) && !(_username in _users)) then { _username = _debugUsername; };
 };
 
-// Direct root login is disabled unless explicitly allowed (use sudo instead)
-private _rootBlocked = (_username isEqualTo "root") && {!(missionNamespace getVariable ["AE3_AllowRootLogin", false])};
+// Direct root login is disabled unless this computer allows it (use sudo instead)
+private _rootBlocked = (_username isEqualTo "root") && {!([_computer] call AE3_armaos_fnc_computer_allowsRootLogin)};
 
 if (((_username in _users) || AE3_DebugMode) && {!_rootBlocked}) then
 {
@@ -43,7 +46,10 @@ if (((_username in _users) || AE3_DebugMode) && {!_rootBlocked}) then
 }
 else 
 {
-	if (_rootBlocked || {_username isEqualTo "root"}) then
+	// Only a policy refusal reports the root account as closed. A root name that reaches this point
+	// with the policy allowing it has no entry on this machine instead, and calling that "disabled"
+	// sends the operator hunting for a switch that is already set the way they want it.
+	if (_rootBlocked) then
 	{
 		_logMessage = localize "STR_AE3_ArmaOS_Exception_RootLoginDisabled";
 		[_computer, "System", _logMessage, "/var/log/auth.log"] call AE3_armaos_fnc_shell_writeToLogfile;

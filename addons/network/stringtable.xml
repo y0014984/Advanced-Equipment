@@ -72,6 +72,22 @@
                 <Original>Incorrect router password</Original>
                 <English>Incorrect router password</English>
             </Key>
+            <Key ID="STR_AE3_Network_Zeus_IpApplied">
+                <Original>IP address set to %1.</Original>
+                <English>IP address set to %1.</English>
+            </Key>
+            <Key ID="STR_AE3_Network_Zeus_IpFailed">
+                <Original>IP address could not be applied.</Original>
+                <English>IP address could not be applied.</English>
+            </Key>
+            <Key ID="STR_AE3_Network_Zeus_IpInUse">
+                <Original>IP address rejected: %1 is already in use.</Original>
+                <English>IP address rejected: %1 is already in use.</English>
+            </Key>
+            <Key ID="STR_AE3_Network_Zeus_IpInvalid">
+                <Original>IP address rejected: not a valid address.</Original>
+                <English>IP address rejected: not a valid address.</English>
+            </Key>
         </Container>
     </Package>
 </Project>

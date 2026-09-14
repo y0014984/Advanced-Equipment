@@ -18,6 +18,6 @@ private _parts = _str splitString ".";
 if (count _parts != 4) exitWith { [] };
 
 private _ip = _parts apply { floor parseNumber _x };
-if (_ip findIf { _x < 0 || {_x > 255} } != -1) exitWith { [] };
+if (_ip findIf { _x < 0 || _x > 255 } != -1) exitWith { [] };
 
 _ip;

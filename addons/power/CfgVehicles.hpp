@@ -1,4 +1,24 @@
-class CfgVehicles 
+// Powered-on-at-start toggle exposed as a 3DEN object attribute, shared by every power device that can
+// be switched on and off. AE3_power_fnc_initDevice already switches a device on when AE3_power_startOn
+// is set, but an attribute expression can run either side of that initialization, so the expression also
+// waits for the device to finish initializing and switches it on itself if the init pass has been and
+// gone. Without the attribute the only way to start a device on is an ACE interaction after mission
+// start, which a mission maker cannot reach while building the scene.
+#define AE3_POWER_STARTON_ATTRIBUTE \
+	class AE3_EdenAttribute_PowerStartOn \
+	{ \
+		displayName = "$STR_AE3_Power_EdenAttributes_StartOnDisplayName"; \
+		tooltip = "$STR_AE3_Power_EdenAttributes_StartOnTooltip"; \
+		property = "AE3_EdenAttribute_PowerStartOn"; \
+		control = "Checkbox"; \
+		expression = "private _on = _value in [true, 1]; _this setVariable ['AE3_power_startOn', _on, true]; if (_on) then {[{ params ['_device']; !alive _device || {(_device getVariable ['AE3_power_initDone', false]) && {!isNil {_device getVariable 'AE3_power_fnc_turnOnWrapper'}}} }, { params ['_device']; if (alive _device && {(_device getVariable ['AE3_power_powerState', 0]) != 1}) then {[_device] call AE3_power_fnc_turnOnDevice;}; }, [_this]] call CBA_fnc_waitUntilAndExecute;};"; \
+		defaultValue = "false"; \
+		validate = "none"; \
+		condition = "1"; \
+		typeName = "BOOL"; \
+	};
+
+class CfgVehicles
 {
 	/* ================================================================================ */
 
@@ -52,6 +72,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
 
 		// scope = 1; //Hide class in 3DEN asset browser
@@ -63,6 +84,13 @@ class CfgVehicles
 		/* -------------------- */
 
 		// Override
+		// The generators are the only AE3 assets built on a vehicle base rather than a prop one, and
+		// B_Radar_System_01_F is a BLUFOR static. That side is what files an asset under a side in the
+		// 3DEN asset browser, so the generators landed under BLUFOR while every other AE3 asset sat in
+		// Props - and once faction was overridden to Default, which is not a BLUFOR faction, they had
+		// no branch left to appear under at all. Declaring no side puts them in Props beside the rest.
+		// Zeus was never affected: the curator browser groups purely by editorCategory.
+		side = 4;
 		faction = "Default";
 		editorCategory = "AE3_Assets";
 		editorSubcategory = "AE3_Sub_Power";
@@ -84,6 +112,9 @@ class CfgVehicles
 
 	class Land_PortableGenerator_01_F_AE3: GeneratorMaster_01_F_AE3
 	{
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "AE3_Sub_Power";
+
 		scope = 2; // Dummy Class
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
@@ -154,6 +185,9 @@ class CfgVehicles
 
 	class Land_PortableGenerator_01_black_F_AE3: Land_PortableGenerator_01_F_AE3
 	{
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "AE3_Sub_Power";
+
 		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_black_F.jpg"; // modified for texture variants
 		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_black_CO.paa"}; // modified for texture variants
 		displayName = "$STR_A3_C_CfgVehicles_Land_PortableGenerator_01_black_F0"; // modified for texture variants
@@ -163,6 +197,9 @@ class CfgVehicles
 
 	class Land_PortableGenerator_01_sand_F_AE3: Land_PortableGenerator_01_F_AE3
 	{
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "AE3_Sub_Power";
+
 		editorPreview = "\A3\EditorPreviews_F_Enoch\Data\CfgVehicles\Land_PortableGenerator_01_sand_F.jpg"; // modified for texture variants
 		hiddenSelectionsTextures[] = {"a3\Props_F_Enoch\Military\Camps\data\PortableGenerator_01_sand_CO.paa"}; // modified for texture variants
 		displayName = "$STR_A3_C_CfgVehicles_Land_PortableGenerator_01_sand_F0"; // modified for texture variants
@@ -172,6 +209,9 @@ class CfgVehicles
 
 	class Land_MobileRadar_01_generator_F_AE3: GeneratorMaster_01_F_AE3
 	{
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "AE3_Sub_Power";
+
 		scope = 2; // Dummy Class
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
@@ -221,6 +261,9 @@ class CfgVehicles
 
 	class Land_DieselGroundPowerUnit_01_F_AE3: GeneratorMaster_01_F_AE3
 	{
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "AE3_Sub_Power";
+
 		scope = 2; // Dummy Class
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
@@ -270,6 +313,9 @@ class CfgVehicles
 
 	class Land_PowerGenerator_F_AE3: GeneratorMaster_01_F_AE3
 	{
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "AE3_Sub_Power";
+
 		scope = 2; // Dummy Class
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 
@@ -319,6 +365,9 @@ class CfgVehicles
 
 	class Land_Portable_generator_F_AE3: GeneratorMaster_01_F_AE3
 	{
+		editorCategory = "AE3_Assets";
+		editorSubcategory = "AE3_Sub_Power";
+
 		scope = 2; // Dummy Class
 		scopeCurator = 2; // Zeus visability; 2 will show it in the menu, 0 will hide it.
 		
@@ -419,6 +468,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
 
 		class AE3_Device
@@ -497,6 +547,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		class AE3_Device
@@ -575,6 +626,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		class AE3_Device
@@ -653,6 +705,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
 
 		// Cargo
@@ -803,6 +856,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		// Cargo
@@ -953,6 +1007,7 @@ class CfgVehicles
 				condition = "1"; // Condition for attribute to appear (see the table below)
 				typeName = "NUMBER"; // Defines data type of saved value, can be STRING, NUMBER or BOOL. Used only when control is "Combo", "Edit" or their variants
 			};
+			AE3_POWER_STARTON_ATTRIBUTE
 		};
     
 		class AE3_Equipment
@@ -1078,6 +1133,12 @@ class CfgVehicles
 
 		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
 
+		// Eden Editor Attributes
+		class Attributes
+		{
+			AE3_POWER_STARTON_ATTRIBUTE
+		};
+
 		class AE3_Device
 		{
 			displayName = "$STR_AE3_Power_Config_SolarPanelDisplayName";
@@ -1126,6 +1187,12 @@ class CfgVehicles
 		editorSubcategory = "AE3_Sub_SolarPanel";
 
 		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details";
+
+		// Eden Editor Attributes
+		class Attributes
+		{
+			AE3_POWER_STARTON_ATTRIBUTE
+		};
 
 		class AE3_Device
 		{

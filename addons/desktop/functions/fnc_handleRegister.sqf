@@ -22,7 +22,7 @@ if (!isServer) exitWith {};
 
 private _reply = {
 	params ["_owner", "_rid", "_payload"];
-	["ae3_desktop_routeReply", [_rid, "handle_create", _payload], _owner] call CBA_fnc_ownerEvent;
+	[_owner, _rid, "handle_create", _payload] call AE3_desktop_fnc_routeReply;
 };
 private _res = createHashMapFromArray [["error", ""]];
 private _computer = objectFromNetId _computerNetId;

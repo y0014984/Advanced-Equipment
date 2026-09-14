@@ -39,7 +39,7 @@ if (_commandElements isNotEqualTo []) then
 		_terminal set ["AE3_terminalCommandHistoryIndex", -1];
 
 		// 'exit' ends the SSH session instead of logging out
-		if (_sshActive && {_rawCommand isEqualTo "exit"}) exitWith
+		if (_sshActive && _rawCommand isEqualTo "exit") exitWith
 		{
 			[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
 			[_computer] call AE3_armaos_fnc_shell_sshEnd;

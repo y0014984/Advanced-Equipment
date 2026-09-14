@@ -257,4 +257,11 @@ class CfgOsFunctions
 		man = "$STR_AE3_ArmaOS_Config_CommandSudoMan";
 		code = "call AE3_armaos_fnc_os_sudo";
 	};
+	class su : OsFunction
+	{
+		path = "/bin/su";
+		description = "$STR_AE3_ArmaOS_Config_CommandSuDescr";
+		man = "$STR_AE3_ArmaOS_Config_CommandSuMan";
+		code = "call AE3_armaos_fnc_os_su";
+	};
 };

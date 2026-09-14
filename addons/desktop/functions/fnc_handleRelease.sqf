@@ -31,4 +31,4 @@ if (_entry isEqualTo [] || {(_entry param [0, ""]) isNotEqualTo _computerNetId})
 	missionNamespace setVariable ["AE3_msg_handles", _registry, true];
 	_res set ["ok", true];
 };
-["ae3_desktop_routeReply", [_rid, "handle_delete", _res], _owner] call CBA_fnc_ownerEvent;
+[_owner, _rid, "handle_delete", _res] call AE3_desktop_fnc_routeReply;

@@ -130,6 +130,16 @@
                 <Chinesesimp>偏转太阳能电池板</Chinesesimp>
             </Key>
         </Container>
+        <Container name="EdenAttributes">
+            <Key ID="STR_AE3_Power_EdenAttributes_StartOnDisplayName">
+                <Original>Powered On At Start</Original>
+                <English>Powered On At Start</English>
+            </Key>
+            <Key ID="STR_AE3_Power_EdenAttributes_StartOnTooltip">
+                <Original>Switch this device on automatically when the mission starts, instead of leaving it for a player to turn on.</Original>
+                <English>Switch this device on automatically when the mission starts, instead of leaving it for a player to turn on.</English>
+            </Key>
+        </Container>
         <Container name="Interaction">
             <Key ID="STR_AE3_Power_Interaction_BatteryLevelHint">
                 <Original>Battery Level: %1 Wh (%2%3 of %4 Wh)</Original>

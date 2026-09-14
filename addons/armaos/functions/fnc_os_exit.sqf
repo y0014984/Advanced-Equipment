@@ -35,8 +35,24 @@ if (!_ae3OptsSuccess) exitWith {};
 
 private _terminal = _computer getVariable "AE3_terminal";
 
+// A session entered through su returns to the account it came from; only the original login is
+// actually logged out, so a superuser shell is left rather than the whole terminal.
+private _suStack = _terminal getOrDefault ["AE3_terminalSuStack", []];
+if (_suStack isNotEqualTo []) exitWith
+{
+	private _previousUser = _suStack deleteAt (count _suStack - 1);
+	_terminal set ["AE3_terminalSuStack", _suStack];
+	_terminal set ["AE3_terminalLoginUser", _previousUser];
+	_computer setVariable ["AE3_filepointer", [_previousUser] call AE3_armaos_fnc_shell_getHomeDir];
+
+	[_computer] call AE3_armaos_fnc_terminal_updatePromptPointer;
+	[_computer] call AE3_armaos_fnc_terminal_setPrompt;
+};
+
 _terminal deleteAt "AE3_terminalLoginUser";
 _terminal deleteAt "AE3_terminalInputBuffer";
+
+_terminal deleteAt "AE3_terminalSuStack";
 
 _terminal set ["AE3_terminalApplication", "LOGIN"];
 _terminal set ["AE3_terminalPrompt", "LOGIN>"];

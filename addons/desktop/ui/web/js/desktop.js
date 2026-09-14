@@ -113,6 +113,66 @@
     setTimeout(function () { t.classList.remove("show"); setTimeout(function () { t.remove(); }, 250); }, 4200);
   };
 
+  // ---------------- OS clipboard ----------------
+  // Copies text to the machine's real clipboard so it can be pasted outside the game. This runs in
+  // the browser control on the player's own machine; the copyToClipboard script command cannot be
+  // used because it is restricted to the server, where the text would be of no use to anyone.
+  // Three tiers, because the embedded browser does not always allow a programmatic clipboard write:
+  // the async clipboard API, the execCommand fallback (works without a secure context, needs the
+  // user gesture that every caller already has), and finally a dialog with the text preselected so
+  // the player can copy it by hand.
+  window.AE3_copyText = function (text, label) {
+    text = String(text == null ? "" : text);
+    if (!text) return;
+    var what = label || "Text";
+
+    function done() { window.AE3_toast(what + " copied to clipboard.", "ok"); }
+
+    function viaExecCommand() {
+      var ta = el("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "readonly");
+      ta.style.cssText = "position:fixed;top:-1000px;left:-1000px;opacity:0;";
+      document.body.appendChild(ta);
+      var ok = false;
+      try {
+        ta.select();
+        ta.setSelectionRange(0, text.length);
+        ok = document.execCommand("copy");
+      } catch (e) { ok = false; }
+      ta.remove();
+      return ok;
+    }
+
+    // Last resort: show the text so it can be copied manually with Ctrl+C.
+    function manual() {
+      var ov = el("div");
+      ov.style.cssText = "position:fixed;inset:0;z-index:5000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45);";
+      var box = el("div", "window");
+      box.style.cssText = "position:relative;min-width:420px;max-width:80%;";
+      box.innerHTML =
+        '<div class="titlebar"><span class="title">Copy ' + what + '</span></div>' +
+        '<div class="pad"><p class="muted">Press Ctrl+C to copy, then close this dialog.</p>' +
+        '<textarea class="input cp-text" rows="10" style="width:100%"></textarea></div>' +
+        '<div class="pad" style="display:flex;justify-content:flex-end"><button class="btn accent cp-close">Close</button></div>';
+      ov.appendChild(box);
+      document.body.appendChild(ov);
+      var ta = box.querySelector(".cp-text");
+      ta.value = text;
+      ta.focus();
+      ta.select();
+      box.querySelector(".cp-close").addEventListener("click", function () { ov.remove(); });
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () {
+        if (viaExecCommand()) { done(); } else { manual(); }
+      });
+      return;
+    }
+    if (viaExecCommand()) { done(); } else { manual(); }
+  };
+
   // ---------------- Left dock (quick launch) ----------------
   function buildDock() {
     var dock = document.getElementById("dock");

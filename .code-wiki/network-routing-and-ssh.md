@@ -40,6 +40,26 @@ The network component manages routers, laptop/router network connections, DHCP/s
 - Desktop SSH runs sensitive operations on the server, keeping remote filesystem and user auth authoritative instead of trusting browser/client state.
 - Wireless range and passwords are router object variables rather than global settings, allowing missions to mix open/locked networks with different ranges.
 
+## addressing is server-authoritative
+
+Every function that hands out or changes an address runs on the server, because duplicate detection
+needs the full device registry and only the server holds it. `connect_device2router`,
+`connect_router2router`, `removeNetworkConnection`, `dhcp_refresh` and `dhcp_onTurnOn` each begin with
+an `if (!isServer) exitWith { ... CBA_fnc_serverEvent }` hand-off (`ae3_network_connectDevice`,
+`ae3_network_connectRouter`, `ae3_network_disconnectDevice`, `ae3_network_dhcpRefresh`,
+`ae3_network_dhcpTurnOn`, registered in `addons/network/XEH_preInit.sqf`); payloads are netId strings
+only. `dhcp_get` and `setStaticIp` return values and so cannot route themselves - they carry a hard
+`isServer` exit plus a `WARNING_1` that fires if a new client-side allocation path is ever added.
+
+This matters because the ACE interaction menu (`fnc_promptConnect`, `fnc_connectSubmitPassword`,
+`fnc_disconnect`) calls these functions on the clicking client. Before the hand-off, that client ran
+`ipInUse` against `ae3_desktop_computers`, which existed only on the server, so the duplicate check
+always returned `false` and every ACE-menu connect on a dedicated server handed out a colliding
+address. SP/hosted never showed it because there the player's machine is the server.
+
+`ipInUse` now also treats a router's own gateway address as taken, and `ae3_desktop_computers` is
+broadcast (`addons/desktop/XEH_preInit.sqf`) so client-side reads see the real device set.
+
 ## gotchas
 
 - `AE3_network_externalAllow` accepts regex, so invalid patterns are caught and ignored per entry.
@@ -47,6 +67,8 @@ The network component manages routers, laptop/router network connections, DHCP/s
 - `resolve` only gets callers to the target router. `ping` can still return `objNull` when the target device is dead or powered off.
 - Desktop SSH payloads avoid HashMaps across network events; operation arguments are serialized as arrays/plain strings.
 - A preset static IP/gateway must be a four-number array to be honored by router init.
+- Zeus applies terminal/router attributes through named functions (`AE3_armaos_fnc_computer_setHostname`, `AE3_network_fnc_setSshEnabled`, `AE3_network_fnc_setStaticIpZeus`), not `remoteExecCall ["setVariable", 2]`. `setStaticIpZeus` exists purely so the curator gets the server's real verdict (`ae3_network_zeusIpResult` -> `BIS_fnc_curatorHint`); the attribute dialog used to report success even for a rejected address.
+- The Zeus attribute panel bounds its wait on `AE3_power_initDone` and merges `AE3_network_routers` into its `nearestObjects` router picker, so a slow-replicating flag or a long-range router no longer leaves the panel unusable.
 
 ## static IP is subnet-gated per gateway
 
@@ -65,4 +87,8 @@ When a device joins a router (`fnc_connect_device2router`) or a router refreshes
 - `addons/network/functions/fnc_createNetworkConnection.sqf`
 - `addons/armaos/functions/fnc_os_ssh.sqf`
 - `addons/desktop/functions/fnc_sshOpServer.sqf`
+- `addons/network/XEH_preInit.sqf`
+- `addons/network/functions/fnc_ipInUse.sqf`
+- `addons/network/functions/fnc_setStaticIpZeus.sqf`
+- `addons/network/functions/fnc_setSshEnabled.sqf`
 

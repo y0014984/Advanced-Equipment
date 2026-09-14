@@ -32,6 +32,38 @@ Use absolute paths for mission setup:
 
 For ordinary player-readable text, keep `Is Code` disabled. Enable code only when you intentionally create executable terminal command content.
 
+### Rules a Path Must Follow
+
+A path or owner name that breaks one of these is rejected outright, and the module that carried it is removed at mission start without creating anything:
+
+| Rule | Example that fails | Use instead |
+| --- | --- | --- |
+| No spaces anywhere in the path | `/home/admin/mission orders.txt` | `/home/admin/mission_orders.txt` |
+| No spaces in the owner name | `site admin` | `admin` |
+| Path must not be empty | *(blank Path field)* | `/home/admin/notes.txt` |
+| Owner must not be empty | *(blank Owner field)* | `admin` |
+| Encryption key must not be empty when encryption is enabled | *(blank Key field)* | any key string |
+
+A rejection is written to the RPT log, naming the rule and the value that broke it:
+
+```text
+AE3: Add File module skipped - the file path contains a space, which paths cannot hold (path: '/home/admin/mission orders.txt', owner: 'admin')
+```
+
+If a file you added never appears in game, search the RPT for `AE3: Add File module skipped` or `AE3: Add Directory module skipped` before looking anywhere else.
+
+### Who Can Read What, and Why `/root` Says "Permission denied"
+
+The filesystem enforces Unix-style ownership. A file carries an owner plus two permission sets: one for the owner, one for everyone else. `/root` is root's own home directory and grants nothing to everyone else, so a laptop logged in as `admin` browsing to `/root` is told `Permission denied` - the path exists, the account simply has no claim on it. Content meant for a player belongs under that player's own home, typically `/home/admin`, or needs Everyone Read enabled.
+
+Three ways to reach another user's files:
+
+- Log in as `root` directly. Only possible when the laptop or the mission allows direct root login; see the *Allow direct root login* setting and the per-laptop Eden attribute.
+- Use `sudo` or `su` from an account listed in `/etc/sudoers`.
+- Rely on superuser elevation: with the *Sudoers act as root at the terminal* setting enabled (the default), an account in `/etc/sudoers` reads and writes any file from the terminal without typing `sudo` first, matching what the desktop Files app already does for that account. Turn the setting off and both interfaces hold that account to strict Unix rules instead.
+
+The `admin` account is treated as a superuser throughout, so mission content owned by `root` is still reachable from it.
+
 ## Eden Editor Workflow
 
 Use this before the mission starts.

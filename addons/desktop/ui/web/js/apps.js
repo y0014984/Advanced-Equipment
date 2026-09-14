@@ -468,6 +468,74 @@
     });
   };
 
+  // ---------------- Export helpers (Mail / Messenger) ----------------
+  // One formatter per content type, shared by "save to file" and "copy to clipboard", so the exported
+  // file and the clipboard text can never drift apart.
+
+  // Turns a subject or handle into something safe to use as a filename in the laptop's filesystem.
+  function fileSlug(s, fallback) {
+    var v = String(s == null ? "" : s).replace(/[^A-Za-z0-9._-]+/g, "_").replace(/^_+|_+$/g, "");
+    if (v.length > 48) v = v.slice(0, 48);
+    return v || (fallback || "export") + "_" + Date.now();
+  }
+
+  // Mail as plain text, laid out like the message file the server writes.
+  function formatMail(m) {
+    var lines = [];
+    if (m.received) lines.push("Received: " + m.received);
+    lines.push("From: " + (m.from || ""));
+    if (m.to) lines.push("To: " + m.to);
+    lines.push("Subject: " + (m.subject || ""));
+    lines.push("");
+    lines.push(m.body || "");
+    return lines.join("\n");
+  }
+
+  // A conversation as a plain transcript, one message per line, oldest first. The sending identity is
+  // passed in because a thread saved before handles existed can carry an empty one.
+  function formatThread(t, self) {
+    self = self || t.self || "me";
+    var lines = ["Conversation with " + (t.peer || "?") + " as " + self, ""];
+    (t.messages || []).forEach(function (m) {
+      lines.push("[" + (m.time || "") + "] " + (m.dir === "o" ? self : (t.peer || "?")) + ": " + (m.text || ""));
+    });
+    return lines.join("\n");
+  }
+
+  // An external cryptography app can register a hand-off hook so that intercepted mail and chat can be
+  // decrypted where it was read, without a copy-and-paste detour. The menu entry appears only while such
+  // a hook exists, which keeps this file free of any dependency on the app that provides it: no hook,
+  // no entry, and everything else works exactly as before. Returned as an array so a caller can splice
+  // it into a context menu with concat and get nothing at all when the app is absent.
+  // getText may hand back the text directly or a promise of it, so a menu built over a list row - which
+  // holds headers only - can fetch the message body first and still use the same entry.
+  function cryptoMenuItems(getText) {
+    var hook = window.RootCW_openCryptoWith;
+    if (typeof hook !== "function") return [];
+    return [{ sep: true }, { label: "Send to Cryptography", action: function () {
+      Promise.resolve(getText()).then(function (text) { hook(String(text == null ? "" : text)); });
+    } }];
+  }
+
+  // Save-As into the laptop's own filesystem through the same fs_save route the text editor uses, so
+  // the file is owned by the logged-in user and can then be read, copied over SSH or shared as usual.
+  function exportText(text, filename, title) {
+    return window.AE3_pickFile("save", {
+      start: window.AE3_HOME || "/root",
+      filename: filename,
+      title: title
+    }).then(function (path) {
+      if (!path) return;
+      return A3.request("fs_save", { path: path, content: text }).then(function (r) {
+        if (r && r.error && r.error !== "") {
+          Modal.alert(title, r.error === "denied" ? "No permission to write there." : "Could not save the file.");
+          return;
+        }
+        window.AE3_toast("Saved to " + path, "ok");
+      });
+    });
+  }
+
   // ---------------- Notepad ----------------
   Apps.register({
     id: "notepad", title: "Text Editor", glyph: Icons.notepad, width: 620, height: 460,
@@ -1623,6 +1691,30 @@
       var addresses = [];
       var mailbox = "inbox";
 
+      // Fetches a message and hands it to a callback; used by the list context menu, which acts on a
+      // message that is not necessarily the one open in the reader.
+      function withMail(file, cb) {
+        var readOp = mailbox === "sent" ? "mail_read_sent" : "mail_read";
+        A3.request(readOp, { file: file }).then(function (m) {
+          if (!m || (m.error && m.error !== "")) { Modal.alert("Email", "Cannot open this message."); return; }
+          cb(m);
+        });
+      }
+      function exportMail(m) {
+        exportText(formatMail(m), fileSlug(m.subject, "email") + ".txt", "Export email");
+      }
+      // Field-by-field copying so a single address or the body can be lifted out on its own.
+      function copyMenu(m, x, y) {
+        window.AE3_ctxMenu(x, y, [
+          { label: "Copy all", action: function () { window.AE3_copyText(formatMail(m), "Email"); } },
+          { sep: true },
+          { label: "Copy From", action: function () { window.AE3_copyText(m.from || "", "From address"); } },
+          { label: "Copy To", disabled: !m.to, action: function () { window.AE3_copyText(m.to || "", "To address"); } },
+          { label: "Copy Subject", action: function () { window.AE3_copyText(m.subject || "", "Subject"); } },
+          { label: "Copy Body", action: function () { window.AE3_copyText(m.body || "", "Message body"); } }
+        ].concat(cryptoMenuItems(function () { return m.body || ""; })));
+      }
+
       function setActiveTab(tab) {
         mailbox = tab;
         body.querySelector(".tab-inbox").className = "btn tab-inbox" + (tab === "inbox" ? " accent" : "");
@@ -1651,8 +1743,14 @@
             window.AE3_ctxMenu(e.clientX, e.clientY, [
               { label: "Open", action: function () { open(m.file); } },
               { sep: true },
+              { label: "Save to file...", action: function () { withMail(m.file, exportMail); } },
+              { label: "Copy...", action: function () { withMail(m.file, function (full) { copyMenu(full, e.clientX, e.clientY); }); } },
+              { sep: true },
               { label: "Delete", action: function () { del(m.file); } }
-            ]);
+            // The list row carries headers only, so the message is fetched before its body is handed over.
+            ].concat(cryptoMenuItems(function () {
+              return new Promise(function (resolve) { withMail(m.file, function (full) { resolve(full.body || ""); }); });
+            })));
           });
           mails.appendChild(li);
         });
@@ -1687,10 +1785,16 @@
           if (m.error && m.error !== "") { reader.innerHTML = '<p class="muted">Cannot open.</p>'; return; }
           var toLine = m.to ? '<br>To: ' + esc(m.to || "") : "";
           var recLine = m.received ? '<br><span class="muted">' + esc(m.received) + '</span>' : "";
-          reader.innerHTML = '<div style="display:flex;align-items:center"><h2 style="flex:1;margin:0">' + esc(m.subject || "") + '</h2>' +
+          reader.innerHTML = '<div style="display:flex;align-items:center;gap:6px"><h2 style="flex:1;margin:0">' + esc(m.subject || "") + '</h2>' +
+            '<button class="btn mexport">Export</button><button class="btn mcopy">Copy</button>' +
             '<button class="btn mdel">Delete</button></div><p class="muted">From: ' + esc(m.from || "") +
             toLine + recLine + '</p><hr style="border-color:var(--line)"><pre style="white-space:pre-wrap;font-family:inherit">' + esc(m.body || "") + "</pre>";
           reader.querySelector(".mdel").addEventListener("click", function () { del(file); });
+          reader.querySelector(".mexport").addEventListener("click", function () { exportMail(m); });
+          reader.querySelector(".mcopy").addEventListener("click", function (e) {
+            var r = e.currentTarget.getBoundingClientRect();
+            copyMenu(m, r.left, r.bottom);
+          });
         });
       }
       searchEl.addEventListener("input", render);
@@ -1861,7 +1965,8 @@
         var savedStart = prevInput ? prevInput.selectionStart : null;
         var savedEnd = prevInput ? prevInput.selectionEnd : null;
         convoEl.innerHTML =
-          '<div class="toolbar" style="align-items:center"><span style="font-weight:600;flex:1">' + esc(t.peer) + "</span>" + chip(selfOf(t)) + "</div>" +
+          '<div class="toolbar" style="align-items:center"><span style="font-weight:600;flex:1">' + esc(t.peer) + "</span>" + chip(selfOf(t)) +
+            '<button class="btn cexport" style="margin-left:6px">Export</button><button class="btn ccopy">Copy</button></div>' +
           '<div class="cmsgs" style="flex:1;overflow:auto;padding:12px;background:#262626"></div>' +
           '<div class="toolbar"><input class="input ctext" placeholder="Message" style="flex:1"><button class="btn accent csend">Send</button></div>';
         var msgs = convoEl.querySelector(".cmsgs");
@@ -1869,9 +1974,28 @@
         t.messages.forEach(function (m) {
           if (q && (m.text || "").toLowerCase().indexOf(q) < 0) return;
           var out = m.dir === "o";
-          msgs.appendChild(h('<div style="margin:6px 0;display:flex;' + (out ? "justify-content:flex-end" : "") + '">' +
+          var row = h('<div style="margin:6px 0;display:flex;' + (out ? "justify-content:flex-end" : "") + '">' +
             '<div style="max-width:75%;padding:6px 10px;border-radius:10px;background:' + (out ? "var(--accent);color:#fff" : "#3a3a3a") + '">' +
-            esc(m.text) + '<div style="font-size:10px;opacity:.7;text-align:right">' + esc(m.time) + '</div></div></div>'));
+            esc(m.text) + '<div style="font-size:10px;opacity:.7;text-align:right">' + esc(m.time) + '</div></div></div>');
+          // Right-click a single bubble to lift just that message out of the conversation.
+          row.addEventListener("contextmenu", function (e) {
+            e.preventDefault(); e.stopPropagation();
+            window.AE3_ctxMenu(e.clientX, e.clientY, [
+              { label: "Copy message", action: function () { window.AE3_copyText(m.text || "", "Message"); } },
+              { label: "Copy conversation", action: function () { window.AE3_copyText(formatThread(t, selfOf(t)), "Conversation"); } }
+            ].concat(cryptoMenuItems(function () { return m.text || ""; })));
+          });
+          msgs.appendChild(row);
+        });
+        convoEl.querySelector(".cexport").addEventListener("click", function () {
+          exportText(formatThread(t, selfOf(t)), fileSlug("chat_" + t.peer, "chat") + ".txt", "Export conversation");
+        });
+        convoEl.querySelector(".ccopy").addEventListener("click", function (e) {
+          var r = e.currentTarget.getBoundingClientRect();
+          window.AE3_ctxMenu(r.left, r.bottom, [
+            { label: "Copy conversation", action: function () { window.AE3_copyText(formatThread(t, selfOf(t)), "Conversation"); } },
+            { label: "Copy handle", action: function () { window.AE3_copyText(t.peer || "", "Handle"); } }
+          ].concat(cryptoMenuItems(function () { return formatThread(t, selfOf(t)); })));
         });
         msgs.scrollTop = msgs.scrollHeight;
         var ctext = convoEl.querySelector(".ctext");

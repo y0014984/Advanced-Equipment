@@ -42,8 +42,11 @@ AE3 relies heavily on object variables, CBA events, remote execution, and server
 
 - `getRemoteVar` waits and therefore requires scheduled execution unless it can spawn itself.
 - Passing HashMaps through multiplayer events can be unreliable; desktop SSH explicitly serializes operation arguments into arrays/plain strings.
+- **Never send a HashMap as a CBA event payload.** In SP/hosted the "remote" machine is the local one and the HashMap survives by reference, so a broken payload only shows on a dedicated server, where the browser request then never resolves. Every server->client web reply now goes through `AE3_desktop_fnc_routeReply`, which `CBA_fnc_encodeJSON`s the payload; the `ae3_desktop_routeReply` handler in `addons/desktop/XEH_postInit.sqf` parses it back with `CBA_fnc_parseJSON` mode 2 and forwards it via `jsSend`. The old `ae3_desktop_sshReply` event was folded into this and no longer exists.
 - Object variables are sometimes synced to server only, sometimes all clients, and sometimes a specific owner.
 - Client-only session data in `uiNamespace` must not be treated as authoritative mission state.
+- A server-only `missionNamespace` variable read by a function that clients can also reach is a silent-failure pattern: the client sees the default and the check it guards passes vacuously. `ae3_desktop_computers` was exactly this (see [[network-routing-and-ssh]]); it is now broadcast.
+- Prefer a named addon function over `remoteExecCall ["<raw command>", 2]`. Raw commands need their own BattlEye/`CfgRemoteExec` exclusions and are commonly filtered on dedicated servers, so the write silently never lands.
 
 ## re-verify when
 

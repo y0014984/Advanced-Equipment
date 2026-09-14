@@ -25,7 +25,7 @@ private _computer = objectFromNetId _computerNetId;
 _address = [_address] call CBA_fnc_trim;
 if (isNull _computer || {_address isEqualTo "" || {(_address find "@") < 0}}) exitWith {
 	_res set ["error", "bad_addr"];
-	["ae3_desktop_routeReply", [_rid, "addr_create", _res], _owner] call CBA_fnc_ownerEvent;
+	[_owner, _rid, "addr_create", _res] call AE3_desktop_fnc_routeReply;
 };
 
 private _key = toLower _address;
@@ -33,10 +33,10 @@ private _registry = missionNamespace getVariable ["AE3_mail_addresses", createHa
 private _existing = _registry getOrDefault [_key, []];
 if (_existing isNotEqualTo [] && {(_existing param [0, ""]) isNotEqualTo _computerNetId}) exitWith {
 	_res set ["error", "taken"];
-	["ae3_desktop_routeReply", [_rid, "addr_create", _res], _owner] call CBA_fnc_ownerEvent;
+	[_owner, _rid, "addr_create", _res] call AE3_desktop_fnc_routeReply;
 };
 
 _registry set [_key, [_computerNetId, _address]];
 missionNamespace setVariable ["AE3_mail_addresses", _registry, true];
 _res set ["ok", true];
-["ae3_desktop_routeReply", [_rid, "addr_create", _res], _owner] call CBA_fnc_ownerEvent;
+[_owner, _rid, "addr_create", _res] call AE3_desktop_fnc_routeReply;

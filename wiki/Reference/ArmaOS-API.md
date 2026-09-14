@@ -75,6 +75,77 @@ Notes:
 - If a home directory already exists, the account can still be added.
 - Avoid duplicate usernames unless you intentionally want to replace the stored password.
 
+## Superuser Access
+
+Every laptop is created with a `root` account. Its password comes from the laptop's *Root password* Eden attribute, or from the `AE3_DefaultRootPassword` CBA setting (`toor`) when that attribute is blank.
+
+Whether `root` may log in **directly** is decided per laptop: the *Direct root login* Eden attribute (`default` / `allow` / `deny`) wins over the mission-wide `AE3_AllowRootLogin` CBA setting. The same rule applies to the terminal login, the desktop login, and `ssh`.
+
+Accounts listed in `/etc/sudoers` may run `sudo <command>` in the terminal and act with root permissions in the desktop apps (Files, Notepad, My Computer, remote SSH sessions), while keeping their own home directory.
+
+By default the terminal elevates sudoers the same way the desktop does: `cat /home/someone-else/notes` works without a prefix, because one account should not have two different sets of rights depending on which interface it is used from. `whoami` still reports the real account, and `sudo` / `su` keep working as they always did.
+
+Missions that prefer strict Unix semantics turn the `AE3_CliElevateSudoers` CBA setting off. Plain commands then run as the logged-in user again, `cat /home/someone-else/notes` reports missing permissions, and a sudoer must use `sudo <command>` for one command or `su` for a shell that stays root until `exit`. The desktop apps elevate a sudoer either way, because a graphical file manager has no command to prefix.
+
+### `AE3_armaos_fnc_computer_setRootLogin`
+
+```sqf
+[_computer, _allowed, _password] call AE3_armaos_fnc_computer_setRootLogin;
+```
+
+| Index | Type | Meaning |
+| --- | --- | --- |
+| `0` | Object | Laptop/computer object. |
+| `1` | Any | `true`/`"allow"` to allow direct root login, `false`/`"deny"` to deny it, `"default"` to follow the CBA setting again. Optional, default `"default"`. |
+| `2` | String | New root password; `""` keeps the current one. Optional. |
+
+Return value: Bool - whether the policy was applied. Server-only.
+
+### `AE3_armaos_fnc_computer_setRootPassword`
+
+```sqf
+[_computer, _password] call AE3_armaos_fnc_computer_setRootPassword;
+```
+
+Sets only the root password. Server-only.
+
+### `AE3_armaos_fnc_computer_addSudoer` / `AE3_armaos_fnc_computer_removeSudoer`
+
+```sqf
+[_computer, _username] call AE3_armaos_fnc_computer_addSudoer;
+[_computer, _username] call AE3_armaos_fnc_computer_removeSudoer;
+```
+
+Adds/removes an account in `/etc/sudoers`. `addSudoer` initialises the device on demand, creates the file when missing, ignores duplicates, and broadcasts the filesystem, so it is safe to call from `init.sqf` before the laptop has finished its own init. Both are server-only and return a Bool.
+
+Example:
+
+```sqf
+if (isServer) then {
+    [_laptop, "cracked", "cracked"] call AE3_armaos_fnc_computer_addUser;
+    [_laptop, "cracked"] call AE3_armaos_fnc_computer_addSudoer;
+};
+```
+
+Do not write `/etc/sudoers` by hand from a mission script: the file is owned by `root` with no permissions for other users, and a raw write before the laptop's filesystem exists fails silently.
+
+### `AE3_armaos_fnc_computer_getSudoers` / `AE3_armaos_fnc_computer_isSudoer`
+
+```sqf
+private _sudoers = [_computer] call AE3_armaos_fnc_computer_getSudoers;   // ARRAY of STRING
+private _elevated = [_computer, _username] call AE3_armaos_fnc_computer_isSudoer;  // BOOL, true for root
+```
+
+Read-only, can run anywhere. `getSudoers` returns the union of the broadcast roster and the accounts written in `/etc/sudoers`, so it stays correct on a client whose copy of the filesystem has not caught up yet. `isSudoer` matches names case-insensitively and ignores surrounding whitespace.
+
+### `AE3_armaos_fnc_computer_allowsRootLogin`
+
+```sqf
+private _allowed = [_computer] call AE3_armaos_fnc_computer_allowsRootLogin;
+```
+
+Resolves the laptop's own policy, falling back to the CBA setting.
+
 ## Installing Built-In Commands
 
 ### `AE3_armaos_fnc_computer_initWithCommands`

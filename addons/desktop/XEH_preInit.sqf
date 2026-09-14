@@ -77,7 +77,10 @@
 
 if (isServer) then
 {
-	ae3_desktop_computers = [];
+	// Broadcast: the address allocator and the Zeus/desktop panels need to know which laptops exist.
+	// A namespace variable set with the public flag is JIP-persistent, so clients that join later
+	// receive the registry as well.
+	missionNamespace setVariable ["ae3_desktop_computers", [], true];
 	ae3_desktop_pendingMedia = []; // [_sourcePath, _type, _fsDest, _scope, _web] entries applied to future laptops
 	ae3_desktop_pendingPictures = []; // [_b64, _fsDest, _pictureType] inline-picture entries applied to future laptops
 
@@ -85,7 +88,10 @@ if (isServer) then
 	["ae3_armaos_deviceReady", {
 		params ["_computer"];
 
-		ae3_desktop_computers pushBackUnique _computer;
+		if (ae3_desktop_computers pushBackUnique _computer != -1) then
+		{
+			missionNamespace setVariable ["ae3_desktop_computers", ae3_desktop_computers, true];
+		};
 
 		// Give the laptop a default mail address + Messenger handle so messaging works immediately.
 		[_computer] call AE3_desktop_fnc_provisionIdentity;
@@ -114,7 +120,7 @@ if (isServer) then
 		params ["_owner", "_rid", "_netId", "_ip"];
 		private _device = objectFromNetId _netId;
 		private _res = [_device, _ip] call AE3_network_fnc_setStaticIp;
-		["ae3_desktop_routeReply", [_rid, "net_setip", _res], _owner] call CBA_fnc_ownerEvent;
+		[_owner, _rid, "net_setip", _res] call AE3_desktop_fnc_routeReply;
 	}] call CBA_fnc_addEventHandler;
 
 	// Client-routed intel APIs (email, webpages, browser history, calendar)

@@ -62,7 +62,7 @@ switch (_op) do {
             {
                 private _entry = _content get _x;
                 // Skip the legacy IM inbox if present - chat now lives in /var/chat.
-                if ((_entry select 0) isEqualType "" && {_x isNotEqualTo "inbox"}) then {
+                if ((_entry select 0) isEqualType "" && _x isNotEqualTo "inbox") then {
                     private _meta = [_entry select 0, _x] call _parse;
                     _meta set ["body", ""]; // list view: headers only
                     _items pushBack _meta;
