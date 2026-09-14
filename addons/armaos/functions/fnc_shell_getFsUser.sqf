@@ -33,7 +33,7 @@ private _terminal = _computer getVariable ["AE3_terminal", createHashMap];
 private _username = _terminal getOrDefault ["AE3_terminalLoginUser", ""];
 
 if (_username isEqualTo "") exitWith { "" };
-if (_username isEqualTo "root" || {_username isEqualTo "admin"}) exitWith { "root" };
+if (_username isEqualTo "root" || _username isEqualTo "admin") exitWith { "root" };
 if (!(missionNamespace getVariable ["AE3_CliElevateSudoers", true])) exitWith { _username };
 
 if ([_computer, _username] call AE3_armaos_fnc_computer_isSudoer) exitWith { "root" };

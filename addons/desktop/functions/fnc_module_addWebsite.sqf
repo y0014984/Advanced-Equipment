@@ -30,7 +30,7 @@ if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith 
 // Eden / trigger: read the configured attributes.
 private _domain = _module getVariable ["AE3_ModuleWebsite_Domain", ""];
 private _siteRoot = _module getVariable ["AE3_ModuleWebsite_SiteRoot", ""];
-if (_domain isNotEqualTo "" && {_siteRoot isNotEqualTo ""}) then
+if (_domain isNotEqualTo "" && _siteRoot isNotEqualTo "") then
 {
     [_domain, _siteRoot] call AE3_desktop_fnc_registerSite;
 };

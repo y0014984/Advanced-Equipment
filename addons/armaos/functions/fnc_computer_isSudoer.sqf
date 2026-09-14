@@ -24,7 +24,7 @@ params [["_computer", objNull, [objNull]], ["_user", "", [""]]];
 _user = toLowerANSI (trim _user);
 
 if (_user isEqualTo "root") exitWith { true };
-if (isNull _computer || {_user isEqualTo ""}) exitWith { false };
+if (isNull _computer || _user isEqualTo "") exitWith { false };
 
 // Account names are compared case-insensitively and without surrounding whitespace, so a name typed
 // at a login prompt matches the same name written into /etc/sudoers by a module or mission script.

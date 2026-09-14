@@ -18,6 +18,8 @@
 - The desktop Files app now honours the *Sudoers act as root at the terminal* setting. Turning it off for strict Unix semantics used to restrict the terminal while leaving the Files app wide open for the same account; both interfaces now agree. With the setting on - the default - nothing changes.
 - **Fixed:** the Eden **Add File** and **Add Directory** modules deleted themselves without a word when the path or owner was empty or contained a space, which is indistinguishable from a module that worked until the file turns out to be missing in game. Each rejection is now written to the RPT log, naming the rule and the value that broke it.
 - Wiki: *Add Files and Folders* gained the rules a path and owner must follow, the RPT lines a rejected module writes, and an explanation of file ownership - including why browsing to `/root` answers "Permission denied" and the three ways to get past it. *Eden Attributes* now lists the power attributes that actually exist.
+- Deploying a laptop from a save buffer that carries no object type now reports the missing type instead of risking a script error, and a desktop opened before the size preference has registered falls back to fullscreen rather than reading an unset value.
+- Router gateway validation checks that an address part is a number before comparing its range, so a malformed entry is rejected rather than raising an error.
 
 ## Update 5 (v2.0.0.3)
 

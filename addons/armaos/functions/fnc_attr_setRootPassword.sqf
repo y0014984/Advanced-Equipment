@@ -22,7 +22,7 @@
 params [["_computer", objNull, [objNull]], ["_password", "", [""]]];
 
 if (!isServer) exitWith {};
-if (isNull _computer || {_password isEqualTo ""}) exitWith {};
+if (isNull _computer || _password isEqualTo "") exitWith {};
 
 // keep the attribute value on the object right away; the user list entry follows once init is done
 _computer setVariable ["AE3_rootPassword", _password, true];

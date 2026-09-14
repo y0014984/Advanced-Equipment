@@ -22,7 +22,7 @@
 params [["_computer", objNull, [objNull]], ["_password", "", [""]]];
 
 if (!isServer) exitWith { false };
-if (isNull _computer || {_password isEqualTo ""}) exitWith { false };
+if (isNull _computer || _password isEqualTo "") exitWith { false };
 
 _computer setVariable ["AE3_rootPassword", _password, true];
 

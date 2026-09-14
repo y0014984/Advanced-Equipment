@@ -26,7 +26,7 @@ if (!isServer) exitWith { false };
 if (isNull _computer) exitWith { false };
 
 _username = trim _username;
-if (_username isEqualTo "" || {_username isEqualTo "root"}) exitWith { false };
+if (_username isEqualTo "" || _username isEqualTo "root") exitWith { false };
 
 if (!([_computer] call AE3_armaos_fnc_device_ensureInit)) exitWith
 {

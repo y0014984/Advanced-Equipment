@@ -65,7 +65,7 @@ try {
     if ((_target getVariable ["AE3_power_powerState", 0]) != 1) then { throw "offline" };
     // SSH must be enabled on the remote device.
     if !(_target getVariable ["AE3_ssh_enabled", true]) then { throw "ssh_disabled" };
-    if (!isNull (_target getVariable ["AE3_computer_mutex", objNull]) && {_target isNotEqualTo _local}) then { throw "busy" };
+    if (!isNull (_target getVariable ["AE3_computer_mutex", objNull]) && _target isNotEqualTo _local) then { throw "busy" };
 
     // Authenticate against the remote user list.
     private _authed = ([_target, _user, _pass, true] call AE3_desktop_fnc_authUser) getOrDefault ["ok", false];

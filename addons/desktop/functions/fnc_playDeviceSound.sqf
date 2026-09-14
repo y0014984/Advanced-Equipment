@@ -18,7 +18,7 @@
 
 params [["_device", objNull, [objNull]], ["_path", "", [""]], ["_volume", 3, [0]]];
 
-if (!hasInterface || {isNull _device} || {_path isEqualTo ""}) exitWith {};
+if (!hasInterface || {isNull _device} || _path isEqualTo "") exitWith {};
 
 // A volume of zero is a caller asking for silence rather than for an inaudible sound, so nothing plays.
 if (_volume <= 0) exitWith {};

@@ -240,7 +240,7 @@ switch (_command) do {
         private _grid = toUpper (_data getOrDefault ["grid", ""]);
         private _digits = count (toArray _grid);
         private _res = createHashMapFromArray [["ok", false], ["pos", []]];
-        if (_grid regexMatch "^\d+$" && {_digits >= 2} && {_digits % 2 == 0} && {_digits <= 10}) then {
+        if (_grid regexMatch "^\d+$" && _digits >= 2 && {_digits % 2 == 0} && _digits <= 10) then {
             // true = centre of the grid square, so the radius is measured from the middle of the
             // square the operator named rather than its top-left corner.
             _res set ["pos", [_grid, true] call CBA_fnc_mapGridToPos];
@@ -269,7 +269,7 @@ switch (_command) do {
         private _ares = createHashMapFromArray [["error", ""]];
         private _date = _data getOrDefault ["date", ""];
         private _title = _data getOrDefault ["title", ""];
-        if (isNull _computer || {_date isEqualTo "" || {_title isEqualTo ""}}) then { _ares set ["error", "bad_input"]; }
+        if (isNull _computer || {_date isEqualTo "" || _title isEqualTo ""}) then { _ares set ["error", "bad_input"]; }
         else {
             [_computer, _date, _title, _data getOrDefault ["location", ""], _data getOrDefault ["body", ""], _data getOrDefault ["time", ""]] remoteExec ["AE3_armaos_fnc_computer_addCalendarEvent", 2];
             _ares set ["ok", true];
@@ -279,7 +279,7 @@ switch (_command) do {
     case "cal_delete": {
         private _dres = createHashMapFromArray [["error", ""]];
         private _idx = _data getOrDefault ["index", -1];
-        if (isNull _computer || {_idx < 0}) then { _dres set ["error", "bad_input"]; }
+        if (isNull _computer || _idx < 0) then { _dres set ["error", "bad_input"]; }
         else {
             [_computer, _idx] remoteExec ["AE3_armaos_fnc_computer_removeCalendarEvent", 2];
             _dres set ["ok", true];

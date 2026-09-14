@@ -38,7 +38,7 @@ if ((_router getVariable ["AE3_power_powerState", 0]) != 1) exitWith {
 };
 
 private _routerPass = _router getVariable ["AE3_network_password", ""];
-if (_routerPass isNotEqualTo "" && {_password isNotEqualTo _routerPass}) exitWith {
+if (_routerPass isNotEqualTo "" && _password isNotEqualTo _routerPass) exitWith {
     [false, "Wrong password"] call _notify;
 };
 

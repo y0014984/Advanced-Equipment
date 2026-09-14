@@ -18,7 +18,7 @@ params ["_device", "_ip"];
 private _computers = missionNamespace getVariable ["ae3_desktop_computers", []];
 private _taken = (_computers findIf {
 	!isNull _x
-	&& {_x isNotEqualTo _device}
+	&& _x isNotEqualTo _device
 	&& {_x getVariable ["AE3_cap_hasTerminal", false]}
 	&& {(_x getVariable ["AE3_network_address", [127, 0, 0, 1]]) isEqualTo _ip}
 }) >= 0;
@@ -29,6 +29,6 @@ if (_taken) exitWith { true };
 private _routers = missionNamespace getVariable ["AE3_network_routers", []];
 (_routers findIf {
 	!isNull _x
-	&& {_x isNotEqualTo _device}
+	&& _x isNotEqualTo _device
 	&& {(_x getVariable ["AE3_network_address", []]) isEqualTo _ip}
 }) >= 0

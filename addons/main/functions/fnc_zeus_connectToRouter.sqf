@@ -32,7 +32,7 @@ if (isNull _router) exitWith { ["AE3 Network", "Selected router not found.", 5] 
 // Validate the network password: only an actual password (non-blank) is enforced.
 private _routerPass = _router getVariable ["AE3_network_password", ""];
 private _pass = ctrlText (_display displayCtrl 1914);
-if (_routerPass isNotEqualTo "" && {_pass isNotEqualTo _routerPass}) exitWith
+if (_routerPass isNotEqualTo "" && _pass isNotEqualTo _routerPass) exitWith
 {
     ["AE3 Network", "Wrong network password.", 5] call BIS_fnc_curatorHint;
 };

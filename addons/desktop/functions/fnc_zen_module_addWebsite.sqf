@@ -26,7 +26,7 @@ private _onConfirm = {
     _values params ["_domain", "_siteRoot"];
     _args params ["_moduleNetId"];
 
-    if (_domain isNotEqualTo "" && {_siteRoot isNotEqualTo ""}) then
+    if (_domain isNotEqualTo "" && _siteRoot isNotEqualTo "") then
     {
         [_domain, _siteRoot] call AE3_desktop_fnc_registerSite; // routes to the server
     };

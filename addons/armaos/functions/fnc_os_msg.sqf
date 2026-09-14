@@ -51,7 +51,7 @@ if (count _targetIp != 4) exitWith
 // Route to the target over the simulated network (honours each router's external access policy)
 ([_computer, _targetIp] call AE3_network_fnc_resolve) params ["_target", "_routeLength"];
 
-if (isNull _target || {_target isEqualTo _computer}) exitWith
+if (isNull _target || _target isEqualTo _computer) exitWith
 {
 	[_computer, format [localize "STR_AE3_ArmaOS_Ssh_NoRoute", _ipString]] call AE3_armaos_fnc_shell_stdout;
 	[_computer] call AE3_armaos_fnc_shell_playErrorSound;

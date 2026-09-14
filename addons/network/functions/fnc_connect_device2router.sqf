@@ -24,7 +24,7 @@ if (!isServer) exitWith
 // A device belongs to exactly one router: drop any existing uplink before joining the new one so it
 // cannot linger in a previous router's children list.
 private _currentParent = _device getVariable ["AE3_network_parent", objNull];
-if (!isNull _currentParent && {_currentParent isNotEqualTo _parent}) then
+if (!isNull _currentParent && _currentParent isNotEqualTo _parent) then
 {
 	[_device] call AE3_network_fnc_disconnect;
 };

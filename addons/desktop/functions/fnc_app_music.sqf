@@ -57,7 +57,7 @@ if (_filesystem isNotEqualTo []) then
 			else
 			{
 				([_content] call AE3_desktop_fnc_parseMediaMarker) params ["_isMedia", "_type", "", "", "_sourcePath"];
-				if (_isMedia && {_type isEqualTo "audio"}) then
+				if (_isMedia && _type isEqualTo "audio") then
 				{
 					_tracks pushBack [_pathPrefix + "/" + _x, _sourcePath];
 				};

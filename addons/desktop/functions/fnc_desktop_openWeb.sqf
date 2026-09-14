@@ -37,8 +37,12 @@ _display setVariable [QGVAR(computer), _computer];
 
 // Apply the player's desktop size preference. The display class is fullscreen by default; the
 // smaller options render it as a centred window (handy when using a laptop inside a vehicle).
+// The setting reads back as nil until CBA has registered it, so the preference is normalised to a
+// number first and only then compared - a desktop opened that early simply uses the fullscreen default.
 private _sizeIdx = ["AE3_Desktop_Size"] call CBA_settings_fnc_get;
-if (!isNil "_sizeIdx" && {_sizeIdx isEqualType 0} && {_sizeIdx > 0}) then
+if (isNil "_sizeIdx") then { _sizeIdx = 0; };
+if !(_sizeIdx isEqualType 0) then { _sizeIdx = 0; };
+if (_sizeIdx > 0) then
 {
 	private _frac = [1, 0.85, 0.65, 0.45] select _sizeIdx;
 	private _w = safeZoneW * _frac;

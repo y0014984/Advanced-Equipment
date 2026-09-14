@@ -59,7 +59,7 @@ private _fromHandle = "";
 {
 	private _entry = _registry get _x;
 	if ((_entry param [0, ""]) isEqualTo _senderNetId) then {
-		if (_fromHandle isEqualTo "" || {_x isEqualTo _wantKey}) then { _fromHandle = _entry param [1, _x]; };
+		if (_fromHandle isEqualTo "" || _x isEqualTo _wantKey) then { _fromHandle = _entry param [1, _x]; };
 	};
 } forEach (keys _registry);
 if (_fromHandle isEqualTo "") then { _fromHandle = "@" + (_sender getVariable ["ace_cargo_customName", "unknown"]); };

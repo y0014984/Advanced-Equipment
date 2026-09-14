@@ -41,7 +41,7 @@ if (_gateway isEqualType "") then {
 } else {
     _gw = _gateway;
 };
-if (count _gw == 4 && {(_gw findIf { !(_x isEqualType 0) || {_x < 0} || {_x > 255} }) == -1}) then {
+if (count _gw == 4 && {(_gw findIf { if !(_x isEqualType 0) exitWith {true}; _x < 0 || _x > 255 }) == -1}) then {
     _router setVariable ["AE3_network_address", _gw, true];
 };
 
