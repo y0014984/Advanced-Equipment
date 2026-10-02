@@ -10,7 +10,7 @@ class OsFunction
 
 class CfgOsFunctions
 {
-	class man : OsFunction
+	class Man : OsFunction
 	{
 		path = "/bin/man";
 		description = "$STR_AE3_ArmaOS_Config_CommandManDescr";

@@ -46,10 +46,7 @@ try
 
 	private _sudoers = [_computer] call AE3_armaos_fnc_computer_getSudoers;
 
-	if !(_username in _sudoers) then
-	{
-		_sudoers pushBack _username;
-	};
+	_sudoers pushBackUnique _username;
 
 	[[], _filesystem, "/etc/sudoers", "root", (_sudoers joinString endl) + endl] call AE3_filesystem_fnc_writeToFile;
 
