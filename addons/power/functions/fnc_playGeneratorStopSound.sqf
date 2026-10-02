@@ -21,6 +21,10 @@ params ["_entity"];
 private _class = typeOf _entity;
 getArray (configFile >> "CfgVehicles" >> _class >> "soundStopEngine") params ["_filename", "_volume", "_speed"];
 
+// Silences the running loop on every machine. engineOn is kept for a generator registered on a
+// vehicle-based object, where it still drives the engine sound config; the prop-based generator
+// classes have no engine simulation and rely on the flag instead.
+_entity setVariable ["AE3_power_engineSoundOn", false, true];
 [_entity, false] remoteExecCall ["engineOn", _entity];
 
 if(!isNil "_filename") then

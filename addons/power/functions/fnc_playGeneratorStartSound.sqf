@@ -36,4 +36,8 @@ if(!isNil "_filename") then
 	sleep 6;
 };
 
+// Starts the running loop on every machine, once the startup sound has finished, which is where the
+// engine sound config used to take over. engineOn is kept for a generator registered on a
+// vehicle-based object, where it still drives that config.
+_entity setVariable ["AE3_power_engineSoundOn", true, true];
 [_entity, true] remoteExecCall ["engineOn", _entity];
