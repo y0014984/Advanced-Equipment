@@ -114,6 +114,19 @@
                 });
                 return;
               }
+              // Prompt flow: the action needs a value the list cannot supply (e.g. the identifier of
+              // a device this app does not list). The typed text travels as promptValue; cancelling
+              // sends nothing.
+              if (a.flow === "prompt") {
+                Modal.prompt(a.promptTitle || a.label, "").then(function (value) {
+                  if (value === null) return;
+                  value = String(value).trim();
+                  if (!value) return;
+                  A3.send("dev_action", { app: desc.id, type: extra.type, id: "", action: a.id, path: "", promptValue: value });
+                  setStatus(a.label + "...");
+                });
+                return;
+              }
               A3.send("dev_action", {
                 app: desc.id, type: extra.type, id: "", action: a.id, path: "",
                 ids: visibleItems.map(function (d) { return d.id; }),

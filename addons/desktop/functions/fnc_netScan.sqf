@@ -31,7 +31,7 @@ private _parent = _computer getVariable ["AE3_network_parent", objNull];
 // deduplicated so a router that appears in both is listed once.
 private _candidates = nearestObjects [_computer, [], _scanCap];
 {
-    if !(_x in _candidates) then { _candidates pushBack _x; };
+   _candidates pushBackUnique _x;
 } forEach (missionNamespace getVariable ["AE3_network_routers", []]);
 
 private _routers = _candidates select {
