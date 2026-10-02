@@ -1,5 +1,17 @@
 # Changelog
 
+## Update 8 (v2.0.0.8)
+
+### Added
+- N/A
+
+### Removed
+- N/A
+
+### Changed
+- **Fixed:** the generators were missing from the Eden asset browser, and from the Zeus asset list as well since v2.0.0.4.
+- A generator's fuel is now ACE refuel cargo rather than engine fuel. A nozzle refuels generators as before, and can now also draw fuel out of one.
+
 ## Update 7 (v2.0.0.7)
 
 ### Added

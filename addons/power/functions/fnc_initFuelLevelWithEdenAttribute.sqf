@@ -38,7 +38,7 @@ params ["_generator"];
             if (_edenAttributeFuelLevel > 1) then { _edenAttributeFuelLevel = 1; };
 
             // set fuel level
-            _generator setFuel _edenAttributeFuelLevel;
+            [_generator, _edenAttributeFuelLevel * 100] call AE3_power_fnc_setFuelLevel;
         };
     };
 };

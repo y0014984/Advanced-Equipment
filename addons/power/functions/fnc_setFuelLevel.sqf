@@ -1,7 +1,7 @@
 // File: fnc_setFuelLevel.sqf
 /*
  * Author: Root, y0014984
- * Description: Sets the fuel level of a generator to a specified percentage. The value is automatically clamped between 0 and 100 percent. Uses Arma 3's setFuel command.
+ * Description: Sets the fuel level of a generator to a specified percentage. The value is automatically clamped between 0 and 100 percent. Writes the generator's ACE refuel cargo store, which a generator has in place of the engine fuel tank a prop cannot carry.
  *
  * Arguments:
  * 0: _generator <OBJECT> - Generator object to modify
@@ -21,6 +21,6 @@ params ["_generator", "_fuelLevelPercent"];
 
 _fuelLevelPercent = ((_fuelLevelPercent min 100) max 0); // normalize; max = 100 and min = 0
 
-private _fuelLevel = _fuelLevelPercent / 100;
+private _fuelCapacity = _generator getVariable ["AE3_power_fuelCapacity", 0];
 
-_generator setFuel _fuelLevel;
+[_generator, _fuelCapacity * (_fuelLevelPercent / 100)] call ace_refuel_fnc_setFuel;

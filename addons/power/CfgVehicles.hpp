@@ -23,8 +23,15 @@ class CfgVehicles
 	/* ================================================================================ */
 
 	// Generator
-	class B_Radar_System_01_F;
-	class GeneratorMaster_01_F_AE3: B_Radar_System_01_F
+	// Built on the vanilla portable generator prop. Neither asset browser will place a class that
+	// inherits AllVehicles in its Empty list - Eden files such an entity under the side it declares
+	// and the curator browser rejects a side outside BLUFOR, OPFOR, Independent and Civilian - so a
+	// vehicle base cannot sit beside the prop-based AE3 assets whatever its side, faction or editor
+	// category says. A prop base is what puts the generators there, and it means engine fuel is not
+	// available to them: the fuel level lives in the ACE refuel cargo store instead, which also keeps
+	// a nozzle working on them. See AE3_power_fnc_getFuelLevel and AE3_power_fnc_setFuelLevel.
+	class Land_PortableGenerator_01_F;
+	class GeneratorMaster_01_F_AE3: Land_PortableGenerator_01_F
 	{
 		scope = 0; // Dummy Class
 		scopeCurator = 0; // Zeus visability; 2 will show it in the menu, 0 will hide it.
@@ -32,24 +39,7 @@ class CfgVehicles
 		curatorInfoType = "AE3_UserInterface_Zeus_Asset_Details"; // when placing with AI
 		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details"; // when placing without AI
 
-		// Override inherited countermeasure properties to prevent config warnings
-		incomingMissileDetectionSystem = 0;
-		weaponLockSystem = 0;
-		magazines[] = {};
-		weapons[] = {};
-
-		// Completely remove countermeasure flare/chaff launchers inherited from radar system
-		class Turrets {};
-
-		// Explicitly disable countermeasure classes inherited from radar system
 		class EventHandlers {};
-		class Components
-		{
-			class SensorsManagerComponent
-			{
-				class Components {};
-			};
-		};
 
 		// Eden Editor Attributes
 		class Attributes
@@ -78,34 +68,23 @@ class CfgVehicles
 		// scope = 1; //Hide class in 3DEN asset browser
 
 		// Refuel
-		ace_refuel_canReceive = 1; // For vehicles which can't be refueled
+		// A prop has no engine fuel tank for a nozzle to fill, so each generator declares its tank as
+		// ACE fuel cargo instead and canReceive is off, which routes a connected nozzle down ACE's
+		// cargo path. That store is also where the generator's own fuel level is kept, so refuelling
+		// and the power simulation read and write the same number. A side effect of being fuel cargo
+		// is that a nozzle can draw fuel back out of a generator as well as put it in.
+		ace_refuel_canReceive = 0;
 		ace_refuel_flowRate = 1; // Speed?
 
 		/* -------------------- */
 
-		// Override
-		// The generators are the only AE3 assets built on a vehicle base rather than a prop one, and
-		// B_Radar_System_01_F is a BLUFOR static. That side is what files an asset under a side in the
-		// 3DEN asset browser, so the generators landed under BLUFOR while every other AE3 asset sat in
-		// Props - and once faction was overridden to Default, which is not a BLUFOR faction, they had
-		// no branch left to appear under at all. Declaring no side puts them in Props beside the rest.
-		// Zeus was never affected: the curator browser groups purely by editorCategory.
-		side = 4;
-		faction = "Default";
+		// The editorCategory and subcategory gather the generators under the Advanced Equipment entry
+		// of the Empty list, beside the prop-based AE3 assets. No side or faction is declared: the prop
+		// base is what files them under Empty, and overriding either only moves them into a side list.
 		editorCategory = "AE3_Assets";
 		editorSubcategory = "AE3_Sub_Power";
 		icon = "iconObject_1x1"; // Object gets invisible, except the shadow
 		picture = "pictureThing";
-		hasDriver = 0;
-		getInAction = "";
-		maximumLoad = 0;
-
-		cargoCompartments[] = {};
-		cargoAction[] = {};
-		driverAction = "";
-		typicalCargo[] = {};
-
-		fuelConsumptionRate = 0.0;
 	};
 
 	/* ================================================================================ */
@@ -126,6 +105,7 @@ class CfgVehicles
 
 		fuelCapacity = "5";
 		ace_refuel_fuelCapacity = 5; // Fuel tank volume
+		ace_refuel_fuelCargo = 5; // Same tank, declared as ACE fuel cargo - see the master class
 
 		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorStartSound.ogg", 5, 1};
 		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorStopSound.ogg", 5, 1};
@@ -223,6 +203,7 @@ class CfgVehicles
 
 		fuelCapacity = "470";
 		ace_refuel_fuelCapacity = 470; // Fuel tank volume
+		ace_refuel_fuelCargo = 470; // Same tank, declared as ACE fuel cargo - see the master class
 		
 		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorLargeStartSound.ogg", 5, 1};
 		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorLargeStopSound.ogg", 5, 1};
@@ -275,6 +256,7 @@ class CfgVehicles
 
 		fuelCapacity = "300";
 		ace_refuel_fuelCapacity = 300; // Fuel tank volume
+		ace_refuel_fuelCargo = 300; // Same tank, declared as ACE fuel cargo - see the master class
 		
 		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStartSound.ogg", 5, 1};
 		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStopSound.ogg", 5, 1};
@@ -327,6 +309,7 @@ class CfgVehicles
 
 		fuelCapacity = "300";
 		ace_refuel_fuelCapacity = 300; // Fuel tank volume
+		ace_refuel_fuelCargo = 300; // Same tank, declared as ACE fuel cargo - see the master class
 		
 		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStartSound.ogg", 5, 1};
 		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorAirportStopSound.ogg", 5, 1};
@@ -379,6 +362,7 @@ class CfgVehicles
 
 		fuelCapacity = "5";
 		ace_refuel_fuelCapacity = 5; // Fuel tank volume
+		ace_refuel_fuelCargo = 5; // Same tank, declared as ACE fuel cargo - see the master class
 		
 		soundStartEngine[] = {"z\ae3\addons\power\sounds\GeneratorStartSound.ogg", 5, 1};
 		soundStopEngine[] = {"z\ae3\addons\power\sounds\GeneratorStopSound.ogg", 5, 1};
@@ -1229,6 +1213,8 @@ class CfgVehicles
 			};
 		};
 	};
+
+	/* ================================================================================ */
 
 	/* ================================================================================ */
 };

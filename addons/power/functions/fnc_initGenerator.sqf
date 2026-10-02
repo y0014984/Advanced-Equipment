@@ -40,7 +40,12 @@ if(isServer) then
 {
 	_entity setVariable ["AE3_cap_hasFuelTank", true, true];
 
-	_entity setFuel _fuelLevel;
+	// A generator keeps its fuel in the ACE refuel cargo store rather than an engine fuel tank, which
+	// a prop-based object does not have. Declaring the capacity here rather than relying on the class
+	// config lets any object passed to this function hold fuel, and lets a nozzle refuel it.
+	_entity setVariable ["ace_refuel_capacity", _fuelCapacity, true];
+	[_entity, _fuelCapacity * _fuelLevel] call ace_refuel_fnc_setFuel;
+
 	_entity setVariable ["AE3_power_fuelCapacity", _fuelCapacity, true];
 	_entity setVariable ["AE3_power_fuelConsumption", _fuelConsumption, true];
 	_entity setVariable ["AE3_power_powerMax", _power, true];

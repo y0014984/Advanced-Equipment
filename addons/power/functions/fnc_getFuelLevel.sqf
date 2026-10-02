@@ -1,7 +1,7 @@
 // File: fnc_getFuelLevel.sqf
 /*
  * Author: Root, y0014984
- * Description: Returns the current fuel level of a generator in absolute liters and as a percentage of capacity. Uses Arma 3's fuel command to get current level.
+ * Description: Returns the current fuel level of a generator in absolute liters and as a percentage of capacity. The level is held in the generator's ACE refuel cargo store, which a generator has in place of the engine fuel tank a prop cannot carry, and which a connected nozzle fills directly.
  *
  * Arguments:
  * 0: _entity <OBJECT> - Generator object
@@ -19,10 +19,8 @@
 params ["_entity"];
 
 private _fuelCapacity = _entity getVariable "AE3_power_fuelCapacity";
-private _fuelLevelPercent = fuel _entity;
+private _fuelLevel = [_entity] call ace_refuel_fnc_getFuel;
 
-private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
-
-_fuelLevelPercent = _fuelLevelPercent * 100;
+private _fuelLevelPercent = if (_fuelCapacity > 0) then { (_fuelLevel / _fuelCapacity) * 100 } else { 0 };
 
 [_fuelLevel, _fuelLevelPercent, _fuelCapacity]
