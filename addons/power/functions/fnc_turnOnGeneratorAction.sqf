@@ -42,9 +42,7 @@ else
 {
 	private _turnOnTime = 5;
 
-	private _fuelCapacity = _entity getVariable "AE3_power_fuelCapacity";
-	private _fuelLevelPercent = fuel _entity;
-	private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
+	private _fuelLevel = [_entity] call ace_refuel_fnc_getFuel;
 
 	if (_fuelLevel > 0) then
 	{

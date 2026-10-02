@@ -18,21 +18,17 @@
 params ["_generator"];
 
 private _fuelConsumption = _generator getVariable 'AE3_power_fuelConsumption';
-private _fuelCapacity = _generator getVariable 'AE3_power_fuelCapacity';
 
-private _fuelLevelPercent = fuel _generator;
-private _fuelLevel = _fuelCapacity * _fuelLevelPercent;
+private _fuelLevel = [_generator] call ace_refuel_fnc_getFuel;
 
 private _newFuelLevel = _fuelLevel - (_fuelConsumption / 3600);
-private _newFuelLevelPercent = (_newFuelLevel / _fuelCapacity);
 
 if (_newFuelLevel < 0) then
 {
 	_newFuelLevel = 0;
-	_newFuelLevelPercent = 0;
 };
 
-_generator setFuel (_newFuelLevelPercent);
+[_generator, _newFuelLevel] call ace_refuel_fnc_setFuel;
 
 if(_newFuelLevel > 0) exitWith 
 {
