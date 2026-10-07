@@ -1,20 +1,42 @@
 name: release
 
+# Runs on every push (any branch, including merge commits), every pull request and on demand.
+# - Publish: a push to master where any pushed commit message contains RELEASE. A merged pull
+#   request counts through its merge/squash commit, which carries the PR title and commits.
+# - Preview: pull requests or pushes to other branches mentioning RELEASE get a dry run that
+#   shows what would be released, without publishing anything.
 on:
   push:
     branches:
-      - master
+      - "**"
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  workflow_dispatch:
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   auto-release:
-    if: contains(github.event.head_commit.message, 'RELEASE')
+    if: >-
+      github.ref == 'refs/heads/master' && (
+        github.event_name == 'workflow_dispatch' ||
+        (github.event_name == 'push' && (
+          contains(github.event.head_commit.message, 'RELEASE') ||
+          contains(join(github.event.commits.*.message, ' '), 'RELEASE')
+        ))
+      )
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: master
           fetch-depth: 0
 
       - name: Install GitHub CLI and dependencies
@@ -39,16 +61,50 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 .github/scripts/update_readme.py
 
+  release-preview:
+    if: >-
+      (github.event_name == 'pull_request' && (
+        contains(github.event.pull_request.title, 'RELEASE') ||
+        contains(github.event.pull_request.body, 'RELEASE')
+      )) ||
+      (github.event_name == 'push' && github.ref != 'refs/heads/master' && (
+        contains(github.event.head_commit.message, 'RELEASE') ||
+        contains(join(github.event.commits.*.message, ' '), 'RELEASE')
+      ))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: pip install packaging
+
+      - name: Preview release (dry run)
+        run: python3 .github/scripts/auto_release.py --dry-run
+
   update-badge-on-failure:
-    if: failure() && contains(github.event.head_commit.message, 'RELEASE')
+    if: >-
+      failure() && github.ref == 'refs/heads/master' && (
+        github.event_name == 'workflow_dispatch' ||
+        (github.event_name == 'push' && (
+          contains(github.event.head_commit.message, 'RELEASE') ||
+          contains(join(github.event.commits.*.message, ' '), 'RELEASE')
+        ))
+      )
     runs-on: ubuntu-latest
     needs: [auto-release]
-    
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          ref: master
           fetch-depth: 0
 
       - name: Install dependencies

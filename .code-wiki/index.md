@@ -26,7 +26,7 @@ The public mod documentation starts at [wiki/Home.md](../wiki/Home.md). This ind
 | 3 | [network-routing-and-ssh](network-routing-and-ssh.md) | core | ~560 | VERIFIED |
 | 4 | [desktop-intel-and-communications](desktop-intel-and-communications.md) | core | ~650 | VERIFIED |
 | 5 | [armaos-terminal](armaos-terminal.md) | core | ~590 | VERIFIED |
-| 6 | [power-model](power-model.md) | core | ~345 | VERIFIED |
+| 6 | [power-model](power-model.md) | core | ~470 | VERIFIED |
 | 7 | [filesystem-model](filesystem-model.md) | core | ~400 | VERIFIED |
 | 8 | [multiplayer-locality-and-sync](multiplayer-locality-and-sync.md) | core | ~365 | VERIFIED |
 | 9 | [flashdrive-usb](flashdrive-usb.md) | support | ~440 | VERIFIED |

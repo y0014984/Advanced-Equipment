@@ -20,16 +20,16 @@ params ["_entity", ["_silent", false]];
 
 private _result = false;
 
-private _stopSoundHandle = scriptNull;
-
+// Removes the generator as a provider and turns off its devices. The stop sound is spawned here only
+// when the caller has not already started it (the progress bar path starts it together with the bar).
 private _turnOffGenFunc =
 {
-	params ["_entity", "_stopSoundHandle"];
+	params ["_entity", ["_soundStarted", false]];
 
 	[_entity, "turnedOn", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 	[_entity] remoteExecCall ["AE3_power_fnc_removeProviderHandler", 2];
 
-	_stopSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
+	if (!_soundStarted) then { [_entity] spawn AE3_power_fnc_playGeneratorStopSound; };
 
 	// TODO: Wrapper?
 	{
@@ -47,6 +47,10 @@ else
 {
 	private _turnOffTime = 3;
 
+	// The stop sound runs alongside the progress bar; a cancelled bar terminates it and plays the
+	// start sound, which restores the running loop.
+	private _stopSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStopSound;
+
 	[
 		_turnOffTime,
 		[_entity, _stopSoundHandle, _turnOffGenFunc], 
@@ -54,9 +58,9 @@ else
 			// following code only runs on progress bar success
 			params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 			
-			_args params ["_entity", "_stopSoundHandle", "_turnOffGenFunc"];
+			_args params ["_entity", "", "_turnOffGenFunc"];
 
-			[_entity, _stopSoundHandle] call _turnOffGenFunc;
+			[_entity, true] call _turnOffGenFunc;
 
 			// we need to set power state here because function already returned false
 			// and therefore the turn on wrapper doesn't set the state to turned on

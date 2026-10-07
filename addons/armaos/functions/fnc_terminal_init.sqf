@@ -78,7 +78,6 @@ if (isNil { _computer getVariable "AE3_filepointer" }) then
 {
 	_computer setVariable ["AE3_filepointer", _pointer, [clientOwner, 2]];
 };
-_pointer = _computer getVariable "AE3_filepointer";
 
 private _terminal = createHashMapFromArray
 	[

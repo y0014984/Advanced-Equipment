@@ -32,7 +32,7 @@ if(!isNil "_filename") then
 	playSound3D [_filename, 
 			_entity, 
 			false, // is inside
-			getPos _entity,  // position
+			getPosASL _entity, // position (playSound3D expects ASL)
 			_volume, // volume
 			1, // pitch
 			100, // max distance
