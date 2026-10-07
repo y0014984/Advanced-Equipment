@@ -12,6 +12,7 @@ Usage:
 """
 import re
 import subprocess
+import time
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -196,6 +197,19 @@ def main():
     apply_retention_policy(versioned)
 
 
+
+def push_with_retry(attempts=4):
+    """Push the current branch. GitHub occasionally refuses a ref update right after another push
+    ('remote rejected ... (failed)'), so re-sync with origin and retry with a growing delay."""
+    for attempt in range(1, attempts + 1):
+        if subprocess.run(["git", "push"]).returncode == 0:
+            return True
+        print(f"⚠️  git push failed (attempt {attempt}/{attempts}), re-syncing with origin and retrying...")
+        time.sleep(5 * attempt)
+        subprocess.run(["git", "pull", "--rebase", "origin", "master"])
+    return False
+
+
 def apply_retention_policy(versioned):
     """Keep 1 major, 2 minor, 3 patch versions (latest build of each) and delete the rest locally."""
     major_map = defaultdict(list)
@@ -232,8 +246,10 @@ def apply_retention_policy(versioned):
         run(["git", "config", "user.email", "github-actions@github.com"])
         run(["git", "add", "releases/"])
         run(["git", "commit", "-m", "Cleanup: remove old mod releases [skip ci]"])
-        run(["git", "push"])
-        print("✅ Cleanup committed to repository")
+        if push_with_retry():
+            print("✅ Cleanup committed to repository")
+        else:
+            print("⚠️  Could not push the cleanup commit; old archives will be removed on the next run")
     elif not deleted_any:
         print("✅ No old files to clean up")
 
