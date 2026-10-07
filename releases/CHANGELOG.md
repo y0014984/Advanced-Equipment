@@ -1,5 +1,16 @@
 # Changelog
 
+## Update 9 (v2.0.0.9)
+
+### Added
+- N/A
+
+### Removed
+- N/A
+
+### Changed
+- Updated to v2.0.0.9 of Cyberwarfare
+
 ## Update 8 (v2.0.0.8)
 
 ### Added
