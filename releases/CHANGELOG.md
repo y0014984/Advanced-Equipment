@@ -1,5 +1,16 @@
 # Changelog
 
+## Update 9 (v2.0.0.9)
+
+### Added
+- N/A
+
+### Removed
+- N/A
+
+### Changed
+- Updated to v2.0.0.9 of Cyberwarfare
+
 ## Update 8 (v2.0.0.8)
 
 ### Added
@@ -11,6 +22,9 @@
 ### Changed
 - **Fixed:** the generators were missing from the Eden asset browser, and from the Zeus asset list as well since v2.0.0.4.
 - A generator's fuel is now ACE refuel cargo rather than engine fuel. A nozzle refuels generators as before, and can now also draw fuel out of one.
+- The Eden **Fuel Level** attribute on a generator is now applied at mission start. It previously had no effect.
+- **Fixed:** a generator switched on by a script, by the Eden **Powered On At Start** attribute or from the Zeus attributes panel started and then shut itself down again a few seconds later.
+- **Fixed:** the generator running sound did not loop - a generator went silent once its startup sound finished.
 
 ## Update 7 (v2.0.0.7)
 

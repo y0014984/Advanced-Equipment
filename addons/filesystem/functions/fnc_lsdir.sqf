@@ -50,7 +50,7 @@ private _ownerString =
 
 	private _result = _object select 1;
 
-	for [{private _i = 0}, {count _result < _length}, {_i = _i + 1}] do
+	while {count _result < _length} do
 	{
 		_result = _result + " ";
 	};

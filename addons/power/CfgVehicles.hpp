@@ -133,7 +133,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 1.5; // 1.5 litres per hour consumption
 				fuelCapacity = 5; // 5 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+				fuelLevel = 1; // 100 % full tank
 
 				power = 5/3600; // provides max. 5.000 Watts
 			};
@@ -231,7 +231,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 48.0; // 48 litres per hour consumption
 				fuelCapacity = 470; // 400 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+				fuelLevel = 1; // 100 % full tank
 
 				power = 400/3600; // provides max. 400kW
 			};
@@ -284,7 +284,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 30; // 48 litres per hour consumption
 				fuelCapacity = 300; // 400 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+				fuelLevel = 1; // 100 % full tank
 
 				power = 100/3600; // provides max. 100 kW
 			};
@@ -337,7 +337,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 30; // 48 litres per hour consumption
 				fuelCapacity = 300; // 400 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+				fuelLevel = 1; // 100 % full tank
 
 				power = 100/3600; // provides max. 100 kW
 			};
@@ -390,7 +390,7 @@ class CfgVehicles
 			{
 				fuelConsumption = 1.5; // 48 litres per hour consumption
 				fuelCapacity = 5; // 400 litres max. tank volume
-				fuelLevel = 1; // 100 % full tank; Doesn't work here because this is set via vanilla fuel
+				fuelLevel = 1; // 100 % full tank
 
 				power = 5/3600; // provides max. 5 kW
 			};

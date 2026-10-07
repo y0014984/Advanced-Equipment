@@ -20,16 +20,16 @@ params ["_entity", ["_silent", false]];
 
 private _result = false;
 
-private _startSoundHandle = scriptNull;
-
+// Registers the generator as a provider. The start sound is spawned here only when the caller has
+// not already started it (the progress bar path starts it together with the bar).
 private _turnOnGenFunc =
 {
-	params ["_entity", "_startSoundHandle"];
+	params ["_entity", ["_soundStarted", false]];
 
 	[_entity, AE3_power_fnc_fuelConsumption] remoteExecCall ["AE3_power_fnc_addProviderHandler", 2];
 	[_entity, "turnedOn", true] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];
 
-	_startSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
+	if (!_soundStarted) then { [_entity] spawn AE3_power_fnc_playGeneratorStartSound; };
 };
 
 if ((!isNull curatorCamera) || (_silent)) then
@@ -46,6 +46,10 @@ else
 
 	if (_fuelLevel > 0) then
 	{
+		// The start sound runs alongside the progress bar; its handle lets a cancelled bar stop the
+		// pending engine start before the sound reaches it.
+		private _startSoundHandle = [_entity] spawn AE3_power_fnc_playGeneratorStartSound;
+
 		[
 			_turnOnTime,
 			[_entity, _startSoundHandle, _turnOnGenFunc], 
@@ -53,9 +57,9 @@ else
 				// following code only runs on progress bar success
 				params ["_args", "_elapsedTime", "_totalTime", "_errorCode"];
 				
-				_args params ["_entity", "_startSoundHandle", "_turnOnGenFunc"];
+				_args params ["_entity", "", "_turnOnGenFunc"];
 
-				[_entity, _startSoundHandle] call _turnOnGenFunc;
+				[_entity, true] call _turnOnGenFunc;
 
 				// we need to set power state here because function already returned false
 				// and therefore the turn on wrapper doesn't set the state to turned on

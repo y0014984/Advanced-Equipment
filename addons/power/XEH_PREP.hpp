@@ -50,6 +50,7 @@ PREP(updateSelfPower);
 
 /* Helper */
 PREP(crashDevice);
+PREP(playGeneratorRunningSound);
 PREP(playGeneratorStartSound);
 PREP(playGeneratorStopSound);
 

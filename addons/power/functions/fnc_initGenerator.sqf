@@ -34,6 +34,11 @@ if(!isDedicated) then
 
 	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _check] call ace_interact_menu_fnc_addActionToObject;
 	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _power] call ace_interact_menu_fnc_addActionToObject;
+
+	// Watches for the generator running and keeps its engine loop playing on this machine. Registered
+	// per client rather than broadcast on turn-on, so a player who joins while a generator is already
+	// running hears it too.
+	[_entity] call AE3_power_fnc_playGeneratorRunningSound;
 };
 
 if(isServer) then

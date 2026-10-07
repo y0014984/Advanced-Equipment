@@ -3,6 +3,7 @@ import re
 import os
 import sys
 import subprocess
+import time
 from pathlib import Path
 from packaging.version import Version # type: ignore
 from collections import defaultdict
@@ -93,6 +94,19 @@ def update_readme_version(version, status="success"):
         print(f"❌ Failed to update README: {e}")
         return False, False
 
+
+def push_with_retry(attempts=4):
+    """Push the current branch. GitHub occasionally refuses a ref update right after another push
+    ('remote rejected ... (failed)'), so re-sync with origin and retry with a growing delay."""
+    for attempt in range(1, attempts + 1):
+        if subprocess.run(["git", "push"]).returncode == 0:
+            return True
+        print(f"⚠️  git push failed (attempt {attempt}/{attempts}), re-syncing with origin and retrying...")
+        time.sleep(5 * attempt)
+        subprocess.run(["git", "pull", "--rebase", "origin", "master"])
+    return False
+
+
 def commit_readme_changes(version, status):
     """Commit the updated README back to the repository if there are changes"""
     try:
@@ -120,7 +134,9 @@ def commit_readme_changes(version, status):
             commit_message = f"docs: update README with build failure status [skip ci]"
 
         subprocess.run(["git", "commit", "-m", commit_message], check=True)
-        subprocess.run(["git", "push"], check=True)
+        if not push_with_retry():
+            print("⚠️  Could not push the README badge update; the release itself succeeded, leaving it for the next run")
+            return True
 
         print(f"✅ Committed README changes to repository")
         return True

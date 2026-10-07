@@ -33,7 +33,10 @@ if (_turnOnCondition && ((_device getVariable ["AE3_power_fnc_turnOn", {}]) isNo
 {
     _device setVariable ["AE3_power_mutex", true, true];
 
-    [_device] call (_device getVariable "AE3_power_fnc_turnOnWrapper");
+    // Scripted turn-on, so the device's turn-on action is asked to skip any progress bar. A generator
+    // otherwise opens a five second ACE progress bar that nothing is driving, which fails and leaves
+    // the generator off again - the ACE interaction reaches the wrapper directly and keeps its bar.
+    [_device, [true]] call (_device getVariable "AE3_power_fnc_turnOnWrapper");
 
     _device setVariable ["AE3_power_mutex", false, true];
 

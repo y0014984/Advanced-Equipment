@@ -33,7 +33,9 @@ if (_turnOffCondition && ((_device getVariable ["AE3_power_fnc_turnOff", {}]) is
 {
     _device setVariable ["AE3_power_mutex", true, true];
 
-    [_device] call (_device getVariable "AE3_power_fnc_turnOffWrapper");
+    // Scripted turn-off, so the device's turn-off action is asked to skip any progress bar, for the
+    // same reason as the turn-on above.
+    [_device, [true]] call (_device getVariable "AE3_power_fnc_turnOffWrapper");
 
     _device setVariable ["AE3_power_mutex", false, true];
 
