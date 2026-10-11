@@ -174,5 +174,4 @@ Special thanks to [JSF Reaper](https://steamcommunity.com/id/operator-101992) wh
 ## License
 
 Licensed under the Arma Public License - Share Alike. See [LICENSE](LICENSE) for the full license text.
-
 Summary: you may share and adapt the material for non-commercial Arma use, with attribution, under the same license.
