@@ -1,6 +1,9 @@
 /* Device Functions */
 PREP(device_addFile);
 PREP(device_addDir);
+PREP(device_writeFile);
+PREP(device_setFileSize);
+PREP(device_withFilesystem);
 
 /* Module Functions */
 PREP(module_addFile);
@@ -18,6 +21,11 @@ PREP(ensureDir);
 PREP(ensureFile);
 PREP(writeToFile);
 PREP(getFile);
+PREP(getFileEntry);
+PREP(getFileSize);
+PREP(setFileSize);
+PREP(parseSize);
+PREP(formatSize);
 PREP(mvObj);
 PREP(delObj);
 PREP(hasPermission);

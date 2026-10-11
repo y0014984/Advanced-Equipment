@@ -88,7 +88,9 @@ private _result = [];
 
 	if(_long) then
 	{
-		_buffer = [format ["%1  %2  ", [_y] call _permissionString, [_y, _maxOwnerLength] call _ownerString]];
+		private _sizeString = if ((_y select 0) isEqualType createHashMap) then { "-" } else { [[_y] call AE3_filesystem_fnc_getFileSize] call AE3_filesystem_fnc_formatSize };
+		while {count _sizeString < 9} do { _sizeString = " " + _sizeString; };
+		_buffer = [format ["%1  %2  %3  ", [_y] call _permissionString, [_y, _maxOwnerLength] call _ownerString, _sizeString]];
 	};
 
 	_buffer pushBack ([_x, _y, _user] call

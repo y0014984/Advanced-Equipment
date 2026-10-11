@@ -209,6 +209,7 @@ switch (_command) do {
     case "fs_purge";
     case "fs_empty_trash";
     case "fs_stat";
+    case "fs_estimate";
     case "fs_chmod": {
         private _user = _display getVariable [QGVAR(user), ""];
         private _op = _command select [3]; // strip "fs_"
@@ -529,6 +530,7 @@ switch (_command) do {
     case "ssh_ls";
     case "ssh_read";
     case "ssh_pull";
+    case "ssh_estimate";
     case "ssh_push": {
         private _op = _command select [4]; // strip "ssh_"
         private _targetIp = [_data getOrDefault ["to", ""]] call AE3_network_fnc_str2ip;
@@ -544,7 +546,8 @@ switch (_command) do {
         private _opArgs = [
             _data getOrDefault ["path", ""],
             _data getOrDefault ["dest", ""],
-            _data getOrDefault ["content", ""]
+            _data getOrDefault ["content", ""],
+            _display getVariable [QGVAR(user), ""]
         ];
         ["ae3_desktop_sshOp", [clientOwner, _rid, netId _computer, _targetIp,
             _data getOrDefault ["user", ""], _data getOrDefault ["pass", ""], _op, _opArgs]] call CBA_fnc_serverEvent;

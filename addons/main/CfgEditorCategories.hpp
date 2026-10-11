@@ -21,6 +21,7 @@ class CfgEditorSubcategories
 	class AE3_Sub_Power       { displayName = "$STR_AE3_Main_SubcategoryPower"; };
 	class AE3_Sub_Battery     { displayName = "$STR_AE3_Main_SubcategoryBattery"; };
 	class AE3_Sub_Laptop      { displayName = "$STR_AE3_Main_SubcategoryLaptop"; };
+	class AE3_Sub_Servers     { displayName = "$STR_AE3_Main_SubcategoryServers"; };
 	class AE3_Sub_SolarPanel  { displayName = "$STR_AE3_Main_SubcategorySolarPanel"; };
 };
 

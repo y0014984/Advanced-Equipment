@@ -47,10 +47,11 @@ private _result = [];
 
 try
 {
-	// Simulate the transfer based on file size and medium (USB if either path is under /mnt)
-	private _content = [_pointer, _filesystem, _oldPath, _username, 0] call AE3_filesystem_fnc_getFile;
-	private _bytes = if (_content isEqualType "") then { count _content } else { count (str _content) };
-	private _medium = ["local", "usb"] select (((_oldPath find "/mnt") == 0) || ((_newPath find "/mnt") == 0));
+	// Simulate the transfer based on the (virtual) size and medium (USB if either path is under /mnt)
+	private _entry = [_pointer, _filesystem, _oldPath, _username] call AE3_filesystem_fnc_getFileEntry;
+	[_entry, _username, 0] call AE3_filesystem_fnc_hasPermission;
+	private _bytes = [_entry] call AE3_filesystem_fnc_getFileSize;
+	private _medium = [_oldPath, _newPath] call AE3_armaos_fnc_shell_transferMedium;
 	[_computer, _bytes, _medium] call AE3_armaos_fnc_shell_simulateTransfer;
 
 	[_pointer, _filesystem, _oldPath, _newPath, _username, true] call AE3_filesystem_fnc_mvObj;

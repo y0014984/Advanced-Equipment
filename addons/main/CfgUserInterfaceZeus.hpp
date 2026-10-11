@@ -118,6 +118,32 @@ class AE3_UserInterface_Zeus_Asset_Details
             onLoad = "params ['_control']; _control ctrlShow false; _control ctrlEnable false;";
         };
 
+        // External power requirement for devices that can also run on mains (headless servers).
+        class RscText_1015: RscText
+        {
+            idc = 1015;
+
+            text = "$STR_AE3_Main_Zeus_ExternalPower";
+            x = 10 * GUI_GRID_W + GUI_GRID_X;
+            y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 9 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+
+            style = ST_RIGHT;
+            onLoad = "params ['_control']; _control ctrlShow false;";
+        };
+
+        class RscCheckBox_1323: RscCheckBox
+        {
+            idc = 1323;
+            x = 19.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 19.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 1 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+            onLoad = "params ['_control']; _control ctrlShow false; _control ctrlEnable false;";
+        };
+
         class RscSlider_1900: RscXSliderH
         {
             idc = 1900;

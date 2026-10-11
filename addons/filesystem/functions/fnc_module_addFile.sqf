@@ -47,6 +47,7 @@ if (_activated) then
 	private _isEncrypted = _module getVariable "AE3_Module_AddFile_IsEncrypted";
 	private _encryptionAlgorithm = _module getVariable "AE3_Module_AddFile_EncryptionAlgorithm";
 	private _encryptionKey = _module getVariable "AE3_Module_AddFile_EncryptionKey";
+	private _virtualSize = _module getVariable ["AE3_Module_AddFile_VirtualSize", ""];
 
 	// A rejected module used to disappear without a word, which reads exactly like a module that worked
 	// until the file turns out to be missing in game. Each rejection now names itself in the log, with
@@ -67,14 +68,14 @@ if (_activated) then
 	if((_path find " ") != -1) exitWith { ["the file path contains a space, which paths cannot hold"] call _reject };
 	if((_owner find " ") != -1) exitWith { ["the owner name contains a space, which user names cannot hold"] call _reject };
 
-	[_module, _syncedObjects, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey] spawn
+	[_module, _syncedObjects, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey, _virtualSize] spawn
 	{
-		params ["_module", "_syncedObjects", "_path", "_content", "_isCode", "_owner", "_permissions", "_isEncrypted", "_encryptionAlgorithm", "_encryptionKey"];
+		params ["_module", "_syncedObjects", "_path", "_content", "_isCode", "_owner", "_permissions", "_isEncrypted", "_encryptionAlgorithm", "_encryptionKey", "_virtualSize"];
 
 		waitUntil { !isNil "BIS_fnc_init" };
 
 		{
-			[_x, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey] call AE3_filesystem_fnc_device_addFile;
+			[_x, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey, false, false, "auto", _virtualSize] call AE3_filesystem_fnc_device_addFile;
 		} forEach _syncedObjects;
 
 		deleteVehicle _module;

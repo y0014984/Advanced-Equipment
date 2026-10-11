@@ -53,23 +53,29 @@ _computer setVariable ["AE3_computer_mutex", objNull, true];
 // A crashed device draws no power
 [_computer, 0] call AE3_power_fnc_updateSelfPower;
 
+// Screenless devices (AE3_Device >> hasScreen = 0, e.g. servers) keep their model textures.
+private _hasScreen = !isNumber (configOf _computer >> "AE3_Device" >> "hasScreen") || {getNumber (configOf _computer >> "AE3_Device" >> "hasScreen") == 1};
+
 // Crash screen (procedural blue screen) - setObjectTextureGlobal must run where the object is local.
 // Applied now and re-asserted a moment later so it wins over any idle-screen texture a closing
 // terminal/desktop unload handler may set on the owning client.
-private _crashTexture = "#(argb,8,8,3)color(0,0.05,0.4,1,co)";
-[_computer, [1, _crashTexture]] remoteExecCall ["setObjectTextureGlobal", _computer];
-[
-	{
-		params ["_computer", "_crashTexture"];
-		if (isNull _computer) exitWith {};
-		if ((_computer getVariable ["AE3_power_powerState", 0]) == 3) then
+if (_hasScreen) then
+{
+	private _crashTexture = "#(argb,8,8,3)color(0,0.05,0.4,1,co)";
+	[_computer, [1, _crashTexture]] remoteExecCall ["setObjectTextureGlobal", _computer];
+	[
 		{
-			[_computer, [1, _crashTexture]] remoteExecCall ["setObjectTextureGlobal", _computer];
-		};
-	},
-	[_computer, _crashTexture],
-	0.5
-] call CBA_fnc_waitAndExecute;
+			params ["_computer", "_crashTexture"];
+			if (isNull _computer) exitWith {};
+			if ((_computer getVariable ["AE3_power_powerState", 0]) == 3) then
+			{
+				[_computer, [1, _crashTexture]] remoteExecCall ["setObjectTextureGlobal", _computer];
+			};
+		},
+		[_computer, _crashTexture],
+		0.5
+	] call CBA_fnc_waitAndExecute;
+};
 
 INFO_1("Device crashed: %1",typeOf _computer);
 

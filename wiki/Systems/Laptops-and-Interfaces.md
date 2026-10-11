@@ -52,3 +52,13 @@ GUI and terminal access can be restricted separately from Interface Mode — thi
 - [Create a Laptop](../Examples/Create-a-Laptop.md) — step-by-step tutorial.
 - [Configure GUI vs TUI Access](../Examples/Configure-GUI-vs-TUI-Access.md) — worked example of interface restriction.
 - [Desktop API](../Reference/Desktop-API.md) / [ArmaOS API](../Reference/ArmaOS-API.md) — scripted setup.
+
+## Headless Servers
+
+`Land_PortableServer_01_{black,olive,sand}_F_AE3` (Eden/Zeus: AE3 > Servers) are computers without a screen: they have a filesystem, users, sudoers, a network address and SSH, but no Use Terminal/Use Desktop action, no USB ports and cannot be picked up. Players reach them over the network with `ssh user@<ip>` or the desktop SSH app — e.g. a server farm behind a router that players explore from a laptop to find and pull files.
+
+- **Power:** mains by default (switch on/off, never drains). Tick *Requires external power* (Eden attribute, Zeus asset panel, or `[_server, false] call AE3_power_fnc_setMainsPowered`) to make it a 150 W consumer that must be cabled to a generator or battery; it shuts down when that power is lost.
+- **Attributes:** Hostname, SSH enabled, Static IP, Root login/password, Sudoers, Powered On At Start.
+- **Content:** use the same modules and functions as for laptops (`AE3: Add File`, `AE3: Add User`, `AE3_filesystem_fnc_device_writeFile`, ...).
+- Connect it to a router with an Eden/Zeus network connection, like a laptop.
+

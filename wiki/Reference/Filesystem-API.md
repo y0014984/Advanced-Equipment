@@ -270,7 +270,44 @@ Mission scripts rarely need these directly. Prefer `AE3_flashdrive_fnc_mount` an
 
 ## Device-Level Content Helpers
 
-These are what `AE3: Add File`/`AE3: Add Directory` call under the hood. Unlike the low-level calls above, they take the device object directly (not a filesystem array + pointer), run server-only, skip re-creating an existing path instead of throwing, and publish the filesystem back for you — closer to what a mission script actually wants for one-off content.
+These are what `AE3: Add File`/`AE3: Add Directory` call under the hood. Unlike the low-level calls above, they take the device object directly (not a filesystem array + pointer) and publish the filesystem back for you — closer to what a mission script actually wants.
+
+> **Writing text into a file from a script:** use `AE3_filesystem_fnc_device_writeFile` (below). `device_addFile` only *creates* files: on an existing path it does nothing unless `_overwrite` is set, and it silently does nothing when called on a client. The low-level `writeToFile` only edits a filesystem array you pass in — it never publishes it, and while a player is using the laptop their client holds the live copy, so a server-side write is lost when they exit. Mind the argument order: `createFile`/`ensureFile` take `_content` before `_user`, `writeToFile` takes `_user` before `_content`.
+
+### `AE3_filesystem_fnc_device_writeFile`
+
+Writes or appends text to a file on a laptop, server or flash drive. Callable from any machine; creates the file and missing folders by default; works while the device is in use (the open terminal/desktop/SSH session sees it immediately). Asynchronous.
+
+```sqf
+[_computer, _path, _content, _append, _create, _owner, _permissions, _size] call AE3_filesystem_fnc_device_writeFile;
+```
+
+| Index | Type | Default | Meaning |
+| --- | --- | --- | --- |
+| `0` | Object/String | Required | Device or its netId. |
+| `1` | String | Required | Absolute file path. |
+| `2` | String/Code | Required | Content (code makes it executable; cannot be appended). |
+| `3` | Bool | `false` | Append instead of replace. |
+| `4` | Bool | `true` | Create the file and folders if missing. |
+| `5` | String | `"root"` | Owner when created. |
+| `6` | Array | `[[true,true,false],[true,false,false]]` | Permissions when created. |
+| `7` | Number/String | `-1` | Virtual size (`"50MB"` or bytes); `-1` keeps the current size. |
+
+```sqf
+[_laptop, "/home/user/notes.txt", "Meet at the bridge."] call AE3_filesystem_fnc_device_writeFile;
+[_laptop, "/var/log/ops.log", "Contact at grid 042" + endl, true] call AE3_filesystem_fnc_device_writeFile;
+```
+
+### Virtual file size
+
+Any file can carry a virtual size: copies (`cp`, desktop paste, SSH app upload/download) and Cyber Warfare downloads take as long as that size needs at the configured transfer speed (`AE3_TransferSpeedLocal`/`Usb`/`Network`, capped by `AE3_TransferMaxDuration`). Content is unchanged; `ls -l` and Properties show the size. The size travels with the file through copies.
+
+```sqf
+[_server, "/data/deathstar_plans.bin", "<binary>", false, true, "root", [[true,true,false],[true,false,false]], "800MB"] call AE3_filesystem_fnc_device_writeFile;
+[_server, "/data/existing.db", "1.5GB"] call AE3_filesystem_fnc_device_setFileSize; // -1 restores the real size
+```
+
+Helpers: `AE3_filesystem_fnc_getFileSize [_entry]`, `AE3_filesystem_fnc_getFileEntry [_pntr, _fs, _path, _user]`, `AE3_filesystem_fnc_setFileSize [_pntr, _fs, _path, _user, _bytes]`, `AE3_filesystem_fnc_parseSize ["50MB"]`, `AE3_filesystem_fnc_formatSize [_bytes]`, `AE3_armaos_fnc_shell_transferDuration [_bytes, _medium]`.
 
 ### `AE3_filesystem_fnc_device_addDir`
 
@@ -285,7 +322,7 @@ These are what `AE3: Add File`/`AE3: Add Directory` call under the hood. Unlike 
 ### `AE3_filesystem_fnc_device_addFile`
 
 ```sqf
-[_computer, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey] call AE3_filesystem_fnc_device_addFile;
+[_computer, _path, _content, _isCode, _owner, _permissions, _isEncrypted, _encryptionAlgorithm, _encryptionKey, _overwrite, _isPicture, _pictureType, _size] call AE3_filesystem_fnc_device_addFile;
 ```
 
 Arguments:
@@ -301,6 +338,12 @@ Arguments:
 | `6` | Bool | `false` | Pre-encrypt the content (see below). Ignored/forced off for code files. |
 | `7` | String | — | `"caesar"` or `"columnar"`, when `_isEncrypted`. |
 | `8` | String | — | Encryption key: caesar wants a number 1-25 as a string (clamped if out of range); columnar wants a string of length ≥2 (padded with `_` if shorter). |
+| `9` | Bool | `false` | Overwrite: remove an existing file with the same name (case-insensitive) first. Without it an existing file is left untouched. |
+| `10` | Bool | `false` | Treat `_content` as a base64 image (inline picture). |
+| `11` | String | `"auto"` | Image type hint for `_isPicture`. |
+| `12` | Number/String | `-1` | Virtual file size (`"50MB"` or bytes). |
+
+Server only (does nothing on a client). While the device is in use the file is added to the live session copy asynchronously.
 
 Plain example:
 

@@ -17,6 +17,25 @@
  */
 params['_computer', '_input'];
 
+// Output redirection ("cmd > file"): while a capture buffer is set on the executing computer, output
+// is collected as plain text lines instead of being printed (shell_process writes it to the file).
+private _capture = _computer getVariable "AE3_stdoutCapture";
+if (!isNil "_capture") exitWith
+{
+	if !(_input isEqualType []) then { _input = [_input]; };
+	{
+		private _line = _x;
+		if (_line isEqualType []) then
+		{
+			// Formatted line: [[text, color], ...] or [text, ...]
+			_line = (_line apply { if (_x isEqualType []) then { _x param [0, ""] } else { _x } }) apply { [str _x, _x] select (_x isEqualType "") };
+			_line = _line joinString "";
+		};
+		if !(_line isEqualType "") then { _line = str _line; };
+		_capture pushBack (_line regexReplace ["<[^>]*>", ""]);
+	} forEach _input;
+};
+
 // Optional output redirect (e.g. SSH sessions route remote command output into the local
 // terminal). Additive and backward compatible: unset means normal local output.
 private _redirect = _computer getVariable ["AE3_stdoutRedirect", objNull];

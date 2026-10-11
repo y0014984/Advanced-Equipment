@@ -2,7 +2,7 @@
 #include "..\script_component.hpp"
 /*
  * Author: Root, y0014984
- * Description: Adds a file to a device's filesystem (laptop or flash drive). Supports code compilation and encryption. Must run on server. Logs error if file already exists, throws exception for other errors.
+ * Description: Adds a file to a device's filesystem (laptop, server or flash drive). Supports code compilation, encryption and a virtual size. Must run on server. An existing file is left untouched unless _overwrite is set (use AE3_filesystem_fnc_device_writeFile to change file content). While the device is in use the file is written to the user's authoritative copy asynchronously; otherwise synchronously, throwing for errors other than an existing file.
  *
  * Arguments:
  * 0: _computer <OBJECT> - Device object (computer or flash drive)
@@ -20,6 +20,8 @@
  *    image and stored as an inline picture marker for the in-OS web viewer (overrides code/encryption)
  * 11: _pictureType <STRING> (Optional, default: "auto") - Image MIME hint: "auto" (detect from the
  *    base64 magic bytes), or one of "png"/"jpeg"/"gif"/"bmp"/"webp" to force it
+ * 12: _size <NUMBER|STRING> (Optional, default: -1) - Virtual file size in bytes or with a unit
+ *    ("50MB"); only affects copy/download duration and listings. -1 = real content size
  *
  * Return Value:
  * None
@@ -28,11 +30,12 @@
  * [_laptop, "/tmp/test.txt", "Hello World", false, "root", [[false,true,true],[false,true,false]]] call AE3_filesystem_fnc_device_addFile;
  * [_laptop, "/bin/script.sqf", "hint 'test';", true, "root", [[true,false,false],[true,false,false]]] call AE3_filesystem_fnc_device_addFile;
  * [_laptop, "/secure.txt", "secret", false, "root", [[false,true,true],[false,false,false]], true, "caesar", "13"] call AE3_filesystem_fnc_device_addFile;
+ * [_server, "/data/plans.bin", "<binary>", false, "root", [[true,true,false],[true,false,false]], false, nil, nil, false, false, "auto", "800MB"] call AE3_filesystem_fnc_device_addFile;
  *
  * Public: Yes
  */
 
-params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", ["_isEncrypted", false], ["_encryptionAlgorithm", nil], ["_encryptionKey", nil], ["_overwrite", false], ["_isPicture", false], ["_pictureType", "auto"]];
+params ["_computer", "_path", "_content", "_isCode", "_owner", "_permissions", ["_isEncrypted", false], ["_encryptionAlgorithm", nil], ["_encryptionKey", nil], ["_overwrite", false], ["_isPicture", false], ["_pictureType", "auto"], ["_size", -1]];
 
 if (!isServer) exitWith {};
 
@@ -187,51 +190,61 @@ if (_isEncrypted) then
 	};
 };
 
-// Overwrite mode (used by media registration): remove any case-insensitive name match in the target
-// directory first, so "Intel.PNG" replaces an existing "intel.png" instead of coexisting or being
-// skipped as "already exists".
-if (_overwrite) then
-{
-    private _parts = (_path splitString "/") select { _x isNotEqualTo "" };
-    if (_parts isNotEqualTo []) then
-    {
-        private _fname = _parts deleteAt (count _parts - 1);
-        try
-        {
-            private _pdir = [_parts, _filesystem] call AE3_filesystem_fnc_resolvePntr;
-            private _pcontent = _pdir select 0;
-            {
-                if ((toLower _x) isEqualTo (toLower _fname)) exitWith { _pcontent deleteAt _x; };
-            } forEach (keys _pcontent);
-        } catch {};
-    };
+_size = [_size] call AE3_filesystem_fnc_parseSize;
+
+// Creates the file (honoring overwrite mode) inside the given filesystem; "already exists" is skipped.
+private _apply = {
+	params ["_fs", "_blockArgs"];
+	_blockArgs params ["_filePath", "_fileContent", "_fileOwner", "_filePerms", "_doOverwrite", "_fileSize"];
+
+	// Overwrite mode (used by media registration): remove any case-insensitive name match in the target
+	// directory first, so "Intel.PNG" replaces an existing "intel.png" instead of coexisting or being
+	// skipped as "already exists".
+	if (_doOverwrite) then
+	{
+		private _parts = (_filePath splitString "/") select { _x isNotEqualTo "" };
+		if (_parts isNotEqualTo []) then
+		{
+			private _fname = _parts deleteAt (count _parts - 1);
+			try
+			{
+				private _pdir = [_parts, _fs] call AE3_filesystem_fnc_resolvePntr;
+				private _pcontent = _pdir select 0;
+				{
+					if ((toLower _x) isEqualTo (toLower _fname)) exitWith { _pcontent deleteAt _x; };
+				} forEach (keys _pcontent);
+			} catch {};
+		};
+	};
+
+	private _created = [[], _fs, _filePath, _fileContent, "root", _fileOwner, _filePerms] call AE3_filesystem_fnc_ensureFile;
+	if (!_created) then
+	{
+		INFO_1("File already exists, skipping: %1",_filePath);
+	};
+
+	if (_created && _fileSize >= 0) then
+	{
+		[[], _fs, _filePath, "root", _fileSize] call AE3_filesystem_fnc_setFileSize;
+	};
 };
 
-// throws exception if file already exists
+private _args = [_path, _content, _owner, _permissions, _overwrite, _size];
+
+// Device in use: the user's client holds the authoritative copy, so write there instead.
+if (!isNull (_computer getVariable ["AE3_computer_mutex", objNull])) exitWith
+{
+	[_computer, _apply, _args] spawn AE3_filesystem_fnc_device_withFilesystem;
+};
+
 try
 {
-    [
-        [],
-        _filesystem,
-        _path,
-        _content,
-        "root",
-        _owner,
-        _permissions
-    ] call AE3_filesystem_fnc_createFile;
+	[_filesystem, _args] call _apply;
 }
 catch
 {
-    private _normalizedException = _exception regexReplace ["'(.+)'", "'%1'"];
-    if (_normalizedException isEqualTo (localize "STR_AE3_Filesystem_Exception_AlreadyExists")) then
-    {
-        INFO_1("File already exists, skipping: %1",_exception);
-    }
-    else
-    {
-        ERROR_2("Failed to create file %1: %2",_path,_exception);
-        throw _exception;
-    };
+	ERROR_2("Failed to create file %1: %2",_path,_exception);
+	throw _exception;
 };
 
 // Save filesystem back to computer with configurable sync mode

@@ -55,4 +55,5 @@
 if (isServer) then
 {
 	["ae3_power_crashDevice", { _this call AE3_power_fnc_crashDevice }] call CBA_fnc_addEventHandler;
+	["ae3_power_setMainsPowered", { _this call AE3_power_fnc_setMainsPowered }] call CBA_fnc_addEventHandler;
 };

@@ -25,3 +25,10 @@
 ] call CBA_fnc_addSetting;
 
 /* ================================================================================ */
+
+// Client-routed device filesystem writes (applied to the authoritative copy on the server)
+if (isServer) then
+{
+	["ae3_filesystem_writeFile", { _this call AE3_filesystem_fnc_device_writeFile }] call CBA_fnc_addEventHandler;
+	["ae3_filesystem_setFileSize", { _this call AE3_filesystem_fnc_device_setFileSize }] call CBA_fnc_addEventHandler;
+};

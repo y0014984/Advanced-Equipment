@@ -14,7 +14,8 @@ class CfgPatches
             "AE3_AddPasswordedFile",
             "AE3_AddWebsite",
             "AE3_InterfaceAccess",
-            "AE3_CrashDevice"
+            "AE3_CrashDevice",
+            "AE3_NetworkSpeed"
         };
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;

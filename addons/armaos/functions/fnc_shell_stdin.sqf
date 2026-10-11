@@ -17,6 +17,11 @@
 
 params['_computer'];
 
+// Inside an SSH session the keyboard belongs to the operator's terminal on the source computer, so
+// the prompt is read there instead of from the target's minimal session terminal.
+private _source = [_computer] call AE3_armaos_fnc_shell_getSshSource;
+if (!isNull _source) then { _computer = _source; };
+
 
 [_computer, "INPUT"] call AE3_armaos_fnc_terminal_setInputMode;
 

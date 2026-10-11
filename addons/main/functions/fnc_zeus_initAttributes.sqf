@@ -165,6 +165,16 @@ if (isNull _entity) exitWith {};
     _powerStateCheckCtrl ctrlEnable true;
     _powerStateCheckCtrl cbSetChecked ((_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1);
 
+    // Devices that can run on mains (headless servers) get the "requires external power" toggle.
+    if (isNumber (configOf _entity >> "AE3_Device" >> "mainsPowered")) then
+    {
+        private _extPowerLabelCtrl = _display displayCtrl 1015;
+        private _extPowerCheckCtrl = _display displayCtrl 1323;
+        { _x ctrlShow true } forEach [_extPowerLabelCtrl, _extPowerCheckCtrl];
+        _extPowerCheckCtrl ctrlEnable true;
+        _extPowerCheckCtrl cbSetChecked !(_entity getVariable ["AE3_power_mains", getNumber (configOf _entity >> "AE3_Device" >> "mainsPowered") == 1]);
+    };
+
     /* ======================================== */
 
     // if asset has battery, init battery level controls

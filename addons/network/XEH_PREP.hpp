@@ -29,6 +29,10 @@ PREP(ipInUse);
 PREP(setStaticIp);
 PREP(setStaticIpZeus);
 PREP(setSshEnabled);
+PREP(setTransferSpeed);
+PREP(getTransferSpeed);
+PREP(module_transferSpeed);
+PREP(zen_module_transferSpeed);
 
 /* Generic */
 PREP(ip2str);

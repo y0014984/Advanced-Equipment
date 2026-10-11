@@ -75,6 +75,48 @@
   // items: array of { label, action, disabled } or { sep:true }. Shared by the desktop surface and
   // the Files app. window.AE3_clipboard holds the pending cut/copy ({ path, name, op }).
   window.AE3_clipboard = null;
+
+  // Modal progress bar that runs for `seconds`; resolves true when it completes, false when the user
+  // cancels. Zero or negative seconds resolve immediately. Shared by paste and SSH transfers.
+  window.AE3_runProgress = function (label, seconds) {
+    return new Promise(function (resolve) {
+      var secs = Number(seconds) || 0;
+      if (secs <= 0) { resolve(true); return; }
+      var ov = el("div", "pk-overlay");
+      ov.innerHTML = '<div class="pk-dialog" style="width:380px;height:auto;min-height:0">' +
+        '<div class="pk-title"></div>' +
+        '<div class="pad" style="display:flex;flex-direction:column;gap:10px">' +
+          '<div style="background:#2b2b2b;border-radius:6px;overflow:hidden;height:14px"><div class="xfbar" style="height:100%;width:0;background:var(--accent)"></div></div>' +
+          '<div style="display:flex;justify-content:space-between;align-items:center"><span class="xfpct muted">0%</span><button class="btn xfcancel">Cancel</button></div>' +
+        '</div></div>';
+      ov.querySelector(".pk-title").textContent = label;
+      document.body.appendChild(ov);
+      var bar = ov.querySelector(".xfbar"), pct = ov.querySelector(".xfpct");
+      var start = Date.now(), total = secs * 1000;
+      var iv = setInterval(function () {
+        var p = Math.min(1, (Date.now() - start) / total);
+        var left = Math.max(0, Math.ceil((total - (Date.now() - start)) / 1000));
+        bar.style.width = Math.round(p * 100) + "%";
+        pct.textContent = Math.round(p * 100) + "% - " + left + "s left";
+        if (p >= 1) { clearInterval(iv); ov.remove(); resolve(true); }
+      }, 200);
+      ov.querySelector(".xfcancel").addEventListener("click", function () { clearInterval(iv); ov.remove(); resolve(false); });
+    });
+  };
+
+  // Copy with simulated transfer time: asks the laptop how long the item takes to copy (virtual file
+  // size and medium), shows the progress bar, then performs fs_copy. Resolves to the fs_copy reply, or
+  // { cancelled: true } when the user aborts.
+  window.AE3_transferCopy = function (src, dest) {
+    return A3.request("fs_estimate", { path: src, dest: dest }).then(function (est) {
+      var secs = (est && Number(est.seconds)) || 0;
+      var label = "Copying" + (est && est.sizeText ? " " + est.sizeText : "");
+      return window.AE3_runProgress(label, secs).then(function (ok) {
+        if (!ok) return { cancelled: true };
+        return A3.request("fs_copy", { path: src, dest: dest });
+      });
+    });
+  };
   window.AE3_ctxMenu = function (x, y, items) {
     var ex = document.getElementById("ctxmenu"); if (ex) ex.remove();
     var m = el("div", "ctx-menu"); m.id = "ctxmenu";
@@ -232,7 +274,10 @@
   function pasteTo(destDir) {
     var cb = window.AE3_clipboard;
     if (!cb) return;
-    A3.request(cb.op === "cut" ? "fs_move" : "fs_copy", { path: cb.path, dest: joinPath(destDir, cb.name) }).then(function (r) {
+    var dest = joinPath(destDir, cb.name);
+    var op = cb.op === "cut" ? A3.request("fs_move", { path: cb.path, dest: dest }) : window.AE3_transferCopy(cb.path, dest);
+    op.then(function (r) {
+      if (r && r.cancelled) return;
       if (r && r.error && r.error !== "") { Modal.alert("Paste", "Could not paste here."); return; }
       if (cb.op === "cut") window.AE3_clipboard = null;
       Desktop.refresh();

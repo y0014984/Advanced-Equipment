@@ -37,6 +37,7 @@ PREP(initSolarPanel);
 /* Controller */
 PREP(turnOffDevice);
 PREP(turnOnDevice);
+PREP(setMainsPowered);
 PREP(standbyDevice);
 
 /* Sys */

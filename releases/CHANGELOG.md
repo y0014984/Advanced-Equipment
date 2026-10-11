@@ -1,5 +1,30 @@
 # Changelog
 
+## Update 10 (v2.0.0.10)
+
+### Added
+- Headless servers (black/olive/sand): networked, SSH-only computers with no terminal, desktop or pickup.
+- Servers run on mains power by default; *Requires external power* (Eden, Zeus panel, `AE3_power_fnc_setMainsPowered`) makes them need a generator.
+- Server Eden attributes: hostname, SSH enabled, static IP, root/sudo, start on.
+- Virtual file size for any file type: Eden/Zeus add-file field, `device_addFile` param 12, `AE3_filesystem_fnc_device_setFileSize`.
+- `ls -l` and the desktop Properties dialog show file size.
+- `AE3_filesystem_fnc_device_writeFile`: write or append to a device file from any machine, also while the device is in use.
+- *Transfer time cap* setting.
+- Network speed per wifi network, computer or user account: router/computer *Transfer speed* Eden attribute, **Network Speed** module (Eden + Zeus), `AE3_network_fnc_setTransferSpeed`/`getTransferSpeed`. Default stays the mission setting.
+- Terminal output redirection: `echo "Hi" > file.txt` overwrites, `>>` appends (relative to the current folder, normal permissions).
+
+### Removed
+- N/A
+
+### Changed
+- `cp`, desktop paste and SSH app upload/download now take time based on (virtual) file size, with a progress bar.
+- SSH app transfers use the *Transfer speed: network* setting.
+- `device_addFile` writes into the live session copy while the device is in use instead of being overwritten on exit.
+- y/n prompts from commands run inside an SSH session are answered on the operator's terminal.
+- SSH sessions can run registered tools from the operator's own computer (`AE3_armaos_fnc_shell_addSshPortableCommands`).
+- **Fixed:** copying a file shared its data with the original, so editing the copy changed the original.
+- **Fixed:** `device_addDir` ignored the filesystem sync mode setting.
+
 ## Update 9 (v2.0.0.9)
 
 ### Added

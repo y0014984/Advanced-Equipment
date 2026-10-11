@@ -13,7 +13,7 @@
 		typeName = "BOOL"; \
 		condition = "1"; \
 	}; \
-	class AE3_LaptopStartOn \
+	class AE3_DeviceTransferSpeed 	{ 		displayName = "$STR_AE3_Network_TransferSpeed_Speed"; 		tooltip = "$STR_AE3_Network_TransferSpeed_AttributeTooltip"; 		property = "AE3_DeviceTransferSpeed"; 		control = "Edit"; 		expression = "if (isServer && {_value > 0}) then { [_this, round _value] call AE3_network_fnc_setTransferSpeed; };"; 		defaultValue = "0"; 		typeName = "NUMBER"; 		validate = "number"; 		condition = "1"; 	}; 	class AE3_LaptopStartOn \
 	{ \
 		displayName = "Powered On At Start"; \
 		tooltip = "Switch the laptop on automatically when the mission starts."; \
@@ -71,6 +71,91 @@
 		condition = "1"; \
 		typeName = "STRING"; \
 	};
+
+// Headless server: a networked computer with filesystem, users and SSH but no local terminal or
+// desktop (no Use actions, no pickup, no USB). Mains powered by default; the "Requires external
+// power" attribute makes it a consumer that has to be cabled to a generator or battery.
+#define AE3_SERVER_CLASS(COLOR) \
+	class Land_PortableServer_01_##COLOR##_F; \
+	class Land_PortableServer_01_##COLOR##_F_AE3: Land_PortableServer_01_##COLOR##_F \
+	{ \
+		scopeCurator = 2; \
+		editorCategory = "AE3_Assets"; \
+		editorSubcategory = "AE3_Sub_Servers"; \
+		curatorInfoTypeEmpty = "AE3_UserInterface_Zeus_Asset_Details"; \
+		class Attributes \
+		{ \
+			class AE3_EdenAttribute_ServerHostname \
+			{ \
+				displayName = "$STR_AE3_ArmaOS_EdenAttributes_HostnameDisplayName"; \
+				tooltip = "$STR_AE3_ArmaOS_EdenAttributes_HostnameTooltip"; \
+				property = "AE3_EdenAttribute_ServerHostname"; \
+				control = "Edit"; \
+				expression = "if (isServer && {_value isNotEqualTo ''}) then { [_this, _value] call AE3_armaos_fnc_computer_setHostname; };"; \
+				defaultValue = """"""; \
+				unique = 0; \
+				condition = "1"; \
+				typeName = "STRING"; \
+			}; \
+			class AE3_EdenAttribute_SshEnabled \
+			{ \
+				displayName = "$STR_AE3_ArmaOS_EdenAttributes_SshEnabledDisplayName"; \
+				tooltip = "$STR_AE3_ArmaOS_EdenAttributes_SshEnabledTooltip"; \
+				property = "AE3_EdenAttribute_SshEnabled"; \
+				control = "Checkbox"; \
+				expression = "if (isServer) then { [_this, _value in [true, 1]] call AE3_network_fnc_setSshEnabled; };"; \
+				defaultValue = "true"; \
+				condition = "1"; \
+				typeName = "BOOL"; \
+			}; \
+			class AE3_EdenAttribute_RequiresExternalPower \
+			{ \
+				displayName = "$STR_AE3_ArmaOS_EdenAttributes_ExternalPowerDisplayName"; \
+				tooltip = "$STR_AE3_ArmaOS_EdenAttributes_ExternalPowerTooltip"; \
+				property = "AE3_EdenAttribute_RequiresExternalPower"; \
+				control = "Checkbox"; \
+				expression = "if (isServer) then { [_this, !(_value in [true, 1])] call AE3_power_fnc_setMainsPowered; };"; \
+				defaultValue = "false"; \
+				condition = "1"; \
+				typeName = "BOOL"; \
+			}; \
+			class AE3_EdenAttribute_StaticIp \
+			{ \
+				displayName = "$STR_AE3_ArmaOS_EdenAttributes_StaticIpDisplayName"; \
+				tooltip = "$STR_AE3_ArmaOS_EdenAttributes_StaticIpTooltip"; \
+				property = "AE3_EdenAttribute_StaticIp"; \
+				control = "Edit"; \
+				expression = "_this setVariable ['AE3_network_staticIpDefault', _value, true];"; \
+				defaultValue = """"""; \
+				unique = 0; \
+				condition = "1"; \
+				typeName = "STRING"; \
+			}; \
+			AE3_LAPTOP_SOFTWARE_ATTRIBUTES \
+			AE3_LAPTOP_ROOT_ATTRIBUTES \
+		}; \
+		class AE3_Device \
+		{ \
+			displayName = "$STR_AE3_ArmaOS_Config_ServerDisplayName"; \
+			defaultPowerLevel = 0; \
+			mainsPowered = 1; \
+			hasScreen = 0; \
+			init = "(_this + [configFile >> 'AE3_FilesystemObjects']) call AE3_armaos_fnc_device_initComplete;"; \
+			turnOnAction = "call AE3_network_fnc_dhcp_onTurnOn; call AE3_armaos_fnc_server_turnOn;"; \
+			turnOnActionCondition = "[_this] call AE3_armaos_fnc_computer_isFree"; \
+			turnOffAction = "call AE3_armaos_fnc_server_turnOff;"; \
+			turnOffActionCondition = "[_this] call AE3_armaos_fnc_computer_isFree"; \
+			class AE3_PowerInterface \
+			{ \
+				internal = 0; \
+			}; \
+			class AE3_Consumer \
+			{ \
+				powerConsumption = 0.15/3600; \
+				standbyConsumption = 0.0; \
+			}; \
+		}; \
+	}
 
 class CfgVehicles
 {
@@ -924,4 +1009,9 @@ class CfgVehicles
 	};
 
 	/* ================================================================================ */
+
+	// HEADLESS SERVERS
+	AE3_SERVER_CLASS(black);
+	AE3_SERVER_CLASS(olive);
+	AE3_SERVER_CLASS(sand);
 };

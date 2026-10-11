@@ -194,6 +194,14 @@ class CfgVehicles
 				// Because it is an expression, to return a String one must have a string within a string
 				defaultValue = """13""";
 			};
+			class AE3_Module_AddFile_VirtualSize: Edit
+			{
+				property = "AE3_Module_AddFile_VirtualSize";
+				displayName = "$STR_AE3_Filesystem_Config_VirtualSizeDisplayName";
+				tooltip = "$STR_AE3_Filesystem_Config_VirtualSizeTooltip";
+				typeName = "STRING";
+				defaultValue = """""";
+			};
 
 			class ModuleDescription: ModuleDescription{}; // Module description should be shown last
 		};

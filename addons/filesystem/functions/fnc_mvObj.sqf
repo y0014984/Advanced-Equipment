@@ -63,7 +63,7 @@ if((_target find ["/", count _target - 1]) == (count _target - 1)) then
 
 	if(_targetNew in _targetCurrent) throw (format [localize "STR_AE3_Filesystem_Exception_AlreadyExists", _targetNew]);
 
-	_targetCurrent set [_sourceFile, _sourceCurrent get _sourceFile];
+	_targetCurrent set [_sourceFile, if (_copy) then { +(_sourceCurrent get _sourceFile) } else { _sourceCurrent get _sourceFile }];
 }else
 {
 	[_targetCurrent, _user, 1] call AE3_filesystem_fnc_hasPermission;
@@ -71,7 +71,7 @@ if((_target find ["/", count _target - 1]) == (count _target - 1)) then
 
 	if(_targetNew in _targetCurrent) throw (format [localize "STR_AE3_Filesystem_Exception_AlreadyExists", _sourceFile]);
 
-	_targetCurrent set [_targetNew, _sourceCurrent get _sourceFile];
+	_targetCurrent set [_targetNew, if (_copy) then { +(_sourceCurrent get _sourceFile) } else { _sourceCurrent get _sourceFile }];
 };
 
 if(!_copy) then

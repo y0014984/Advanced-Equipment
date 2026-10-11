@@ -19,8 +19,11 @@
 params ["_computer", ["_commandString", ""]];
 
 private _terminal = _computer getVariable "AE3_terminal";
+// Output redirection ("> FILE" / ">> FILE") is split off before tokenizing.
+([_commandString] call AE3_armaos_fnc_shell_parseRedirect) params ["_commandLine", "_redirectTarget", "_redirectAppend", "_hasRedirect"];
+
 // Quote-aware tokenizer: paths/arguments may contain spaces when quoted
-private _commandElements = [_commandString] call AE3_armaos_fnc_shell_tokenize;
+private _commandElements = [_commandLine] call AE3_armaos_fnc_shell_tokenize;
 
 if (_commandElements isNotEqualTo []) then
 {
@@ -70,8 +73,35 @@ if (_commandElements isNotEqualTo []) then
 			_command = (_availableCommands get _command) select 0;
 		};
 
+		if (_hasRedirect && _redirectTarget isEqualTo "") exitWith
+		{
+			[_computer, localize "STR_AE3_ArmaOS_Redirect_MissingTarget"] call AE3_armaos_fnc_shell_stdout;
+			[_computer] call AE3_armaos_fnc_shell_playErrorSound;
+		};
+
 		[_computer, ""] call AE3_armaos_fnc_terminal_setInputMode;
-		[_execComputer, _command, _options] call AE3_armaos_fnc_shell_executeFile;
+
+		if (_hasRedirect) then
+		{
+			// Collect the command's output, then write it to the target file on the executing computer.
+			private _captured = [];
+			_execComputer setVariable ["AE3_stdoutCapture", _captured];
+			[_execComputer, _command, _options] call AE3_armaos_fnc_shell_executeFile;
+			_execComputer setVariable ["AE3_stdoutCapture", nil];
+
+			private _error = [_execComputer, _redirectTarget, _redirectAppend, _captured joinString endl] call AE3_armaos_fnc_shell_writeRedirect;
+			if (_error isNotEqualTo "") then
+			{
+				[_computer, _error] call AE3_armaos_fnc_shell_stdout;
+				[_computer] call AE3_armaos_fnc_shell_playErrorSound;
+			};
+		}
+		else
+		{
+			// Drop a capture left behind by an interrupted redirected command.
+			_execComputer setVariable ["AE3_stdoutCapture", nil];
+			[_execComputer, _command, _options] call AE3_armaos_fnc_shell_executeFile;
+		};
 
 		if (_rawCommand isEqualTo "shutdown") exitWith
 		{

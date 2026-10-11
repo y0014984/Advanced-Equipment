@@ -363,6 +363,11 @@
             </Key>
         </Container>
         <Container name="Zeus">
+            <Key ID="STR_AE3_Main_SubcategoryServers">
+                <Original>Servers</Original>
+                <English>Servers</English>
+                <German>Server</German>
+            </Key>
             <Key ID="STR_AE3_Main_Zeus_AlreadyInThisDirectory">
                 <Original>File/Folder is already in this directory.</Original>
                 <English>File/Folder is already in this directory.</English>
@@ -659,6 +664,10 @@
                 <Russian>Everyone</Russian>
                 <German>Jeder</German>
                 <Chinesesimp>所有人</Chinesesimp>
+            </Key>
+            <Key ID="STR_AE3_Main_Zeus_ExternalPower">
+                <Original>Needs external power</Original>
+                <English>Needs external power</English>
             </Key>
             <Key ID="STR_AE3_Main_Zeus_FileAdded">
                 <Original>AE3 File added</Original>
