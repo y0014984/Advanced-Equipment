@@ -68,6 +68,8 @@ The virtual filesystem is an array:
 [contentHashMap, ownerName, permissions]
 ```
 
+File entries may carry an optional fourth element, the virtual size in bytes (`[content, owner, permissions, size]`); read it with `AE3_filesystem_fnc_getFileSize`.
+
 Each hash map entry is another filesystem object. Directories store a hash map as their content. Files store strings, code, media markers, symlink markers, or other values expected by the relevant app.
 
 Permissions are:
@@ -89,6 +91,8 @@ Most direct filesystem functions mutate the filesystem array in place. After cha
 ```sqf
 _laptop setVariable ["AE3_filesystem", _filesystem, true];
 ```
+
+This is only safe while nobody is using the laptop (the user's client holds the live copy during a session). To write a file from a script use `AE3_filesystem_fnc_device_writeFile`, which handles that.
 
 When possible, use higher-level Desktop or ArmaOS APIs instead of editing the filesystem directly. They handle folder creation, notifications, target resolution, and JIP state for you.
 

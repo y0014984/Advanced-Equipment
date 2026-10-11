@@ -14,6 +14,7 @@ Most Zeus functionality should be used through curator modules and object attrib
 | `AE3_AddFile` | Eden/Zeus | Add a file. |
 | `AE3_AddDir` | Eden/Zeus | Add a directory. |
 | `AE3_AddCalendarEvent` | Eden/Zeus | Add a calendar event. |
+| `AE3_NetworkSpeed` | Eden/Zeus | Set network transfer speed for a router (wifi network), computer, or user accounts on it. In Zeus, drop it onto the router or computer. |
 
 Zeus module functions are normally invoked by the engine when a curator places a module. Call the lower-level Reference APIs for script setup whenever possible.
 

@@ -55,6 +55,17 @@ If a file does not appear, check:
 - Is the file path typed correctly (case, leading slash, trailing slash)?
 - Does the player have permission to read it?
 
+## File Sizes and Transfer Time
+
+Any file (text, code, picture, anything) can have a **virtual size**, e.g. a `deathstar_plans.bin` of 800 MB. Its content stays the same; copying it with `cp` (locally or to a USB drive), pasting it on the desktop, transferring it with the SSH app, or downloading it with Cyber Warfare takes as long as that size needs at the configured speed. `ls -l` and Properties show the size, and the size stays with the file when it is copied.
+
+Set it per file with the *Virtual file size* field of **AE3: Add File** (Eden/Zeus) or by script (`AE3_filesystem_fnc_device_setFileSize`, `device_addFile`, `device_writeFile`). Speeds come from the CBA *Transfer speed* settings for local/USB/network; network speed can be changed per wifi network, computer or user (see [Networking](Networking.md#transfer-speed)).
+
+## Writing Files
+
+- Terminal: `echo "text" > file.txt` (overwrite), `echo "text" >> file.txt` (append). See [Terminal Commands](../Reference/Terminal-Commands.md#output-redirection).
+- Scripts: `AE3_filesystem_fnc_device_writeFile` (works from any machine, also while a player uses the laptop). See [Filesystem API](../Reference/Filesystem-API.md).
+
 ## Related Pages
 
 - [Filesystem API](../Reference/Filesystem-API.md) — direct filesystem function calls (`getFile`, `writeToFile`, `createFile`, permissions helpers).

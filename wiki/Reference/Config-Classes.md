@@ -74,6 +74,17 @@ class Land_Laptop_03_black_F_AE3: Land_Laptop_03_black_F
 
 When extending this, keep behavior in functions and call those functions from config strings. That keeps config readable and makes validation easier.
 
+## Server and Power Config Keys
+
+`AE3_Device` supports two optional keys used by headless servers:
+
+| Key | Default | Meaning |
+| --- | --- | --- |
+| `mainsPowered` | `0` | `1` = the consumer runs without a power provider (mains). Per object override: `AE3_power_mains` / `AE3_power_fnc_setMainsPowered`. |
+| `hasScreen` | `1` | `0` = no screen textures (crash screen skipped). |
+
+The server classes (`Land_PortableServer_01_*_F_AE3`, macro `AE3_SERVER_CLASS` in `addons/armaos/CfgVehicles.hpp`) use `device_initComplete` like laptops, `AE3_armaos_fnc_server_turnOn`/`turnOff` instead of the laptop screen functions, an `AE3_Consumer` with an external `AE3_PowerInterface`, and no `AE3_Equipment`, `AE3_InternalDevice` or `AE3_USB_Interface` (so no Use, pickup or USB actions).
+
 ## USB Interface Config
 
 USB ports are named child classes:
@@ -242,7 +253,8 @@ All CBA settings AE3 registers, by component. All are configurable from the in-g
 | `AE3_EnableErrorSound` | Checkbox, default on | Play an error sound on failed commands. |
 | `AE3_TransferSpeedLocal` | Slider, default 20480 KB/s | Simulated local copy speed. `0` disables the simulated delay. |
 | `AE3_TransferSpeedUsb` | Slider, default 2048 KB/s | Simulated USB flash drive transfer speed. |
-| `AE3_TransferSpeedNetwork` | Slider, default 512 KB/s | Simulated network transfer speed (`ssh`, downloads). |
+| `AE3_TransferSpeedNetwork` | Slider, default 512 KB/s | Default network transfer speed (SSH app transfers, Cyber Warfare downloads). Overridable per wifi network, computer and user (see [Networking](../Systems/Networking.md#transfer-speed)). |
+| `AE3_TransferMaxDuration` | Slider, default 0 s | Longest any single simulated transfer may take, whatever the file size. `0` = no cap. |
 | `AE3_KeyboardLayout` | List, default US | Terminal keyboard layout: AR/DE/FR/HE/HU/IT/RU/TR/US. |
 | `AE3_TerminalDesign` | List, default Light Mode | One of 20 terminal color schemes (C64, Apple II, Amber, Midnight Blue, Retro Red, TealTerm, Neon Violet, and more). |
 | `AE3_TerminalScrollSpeed` | List, default 1 line | Lines scrolled per input tick. |

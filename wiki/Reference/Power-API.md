@@ -80,6 +80,18 @@ Example:
 
 Return value: `true` if the crash was applied or requested, `false` if the device was not running.
 
+### `AE3_power_fnc_setMainsPowered`
+
+```sqf
+[_device, _mains] call AE3_power_fnc_setMainsPowered;
+```
+
+Sets whether a consumer runs on mains power (`true`: no provider needed, never drains anything) or needs an external power cable (`false`). Overrides the class default `AE3_Device >> mainsPowered` (servers default to mains). A running device switched to external power without a powered provider is turned off. Callable from any machine.
+
+```sqf
+[_server, false] call AE3_power_fnc_setMainsPowered; // must now be cabled to a generator
+```
+
 ## Reading Power State
 
 ### `AE3_power_fnc_getPowerState`
