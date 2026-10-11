@@ -49,6 +49,10 @@ Interface mode options:
 
 Use laptop attributes when every player should see the same base behavior from mission start.
 
+## Server Attributes
+
+Headless servers are under **AE3 > Servers**. They have no screen or local interface and are used over the network (SSH). Fields: Hostname, SSH enabled, Requires external power (off = mains power), Static IP, Transfer speed, Powered On At Start, root/sudo settings. Content is added with the same modules as laptops. See [Laptops and Interfaces](Systems/Laptops-and-Interfaces.md#headless-servers).
+
 ## Router Attributes
 
 Routers are configured by double-clicking the router object.
@@ -63,6 +67,7 @@ Router fields:
 - Powered On At Start: starts the router automatically.
 - Allow External SSH: allows ping/SSH from other gateways.
 - External Allowed IPs: optional allow list for external sources. Blank allows any source when external access is enabled.
+- Transfer speed (KB/s): network transfer speed for every device on this wifi network. `0` keeps the mission default.
 
 For simple missions, set an SSID, optionally set a password, leave gateway blank, and turn on Powered On At Start.
 
@@ -174,6 +179,8 @@ Sync target:
 Create folders before adding files inside them.
 
 ### AE3: Add File
+
+*Virtual file size* (e.g. `750KB`, `50MB`, `1.5GB`) makes the file take that long to copy or download at the configured transfer speed (empty = real size). Works for any file type.
 
 Creates a file on a synced laptop filesystem.
 
@@ -337,6 +344,16 @@ Sync target:
 - AE3 laptop.
 
 Use with triggers or Zeus for sabotage, failed hacking, or scripted incident moments.
+
+### AE3: Network Speed
+
+Sets the simulated network transfer speed (KB/s) used by SSH app transfers and Cyber Warfare downloads.
+
+- Sync it to routers (whole wifi network), laptops/servers (whole device), or laptops/servers with *User accounts* filled (comma-separated account names; only those users).
+- Priority: user > computer > wifi network > mission setting (*Transfer speed: network*).
+- `0` removes the override.
+
+Placed in Zeus onto a router or computer it opens a dialog for the same values.
 
 ## Module Syncing
 

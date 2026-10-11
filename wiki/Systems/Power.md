@@ -17,6 +17,7 @@ AE3 power makes devices depend on generators, batteries, solar panels, internal 
 - Routers.
 - Lights.
 - Batteries being charged (a battery can be both a source and a consumer).
+- Headless servers: on **mains power** by default (no source needed, nothing drains). With *Requires external power* they behave like any consumer and need a cable to a powered source.
 
 ## Power States
 

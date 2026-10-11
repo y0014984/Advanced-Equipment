@@ -22,6 +22,8 @@ The exact command list depends on the laptop — a mission maker chooses which c
 | `mount <interface>` | Mount a flash drive. |
 | `umount <interface>` | Unmount a flash drive. |
 | `unlock <path> <password>` | Open a passworded file. |
+| `echo <text> > <file>` | Write text to a file (`>>` appends). Works with any command's output. |
+| `cp <source> <dest>` | Copy a file; large files take time (progress shown). |
 
 Not every laptop has every command — see [Terminal Commands](../Reference/Terminal-Commands.md) for the full list, including optional security commands (`crypto`, `crack`) and games (`snake`).
 

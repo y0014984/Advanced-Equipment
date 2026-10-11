@@ -18,6 +18,7 @@ AE3 laptop variants expose these object attributes.
 | Direct root login | `AE3_allowRootLogin` | String | Whether `root` may log in directly on this laptop: `default` (follow the `AE3_AllowRootLogin` CBA setting), `allow`, or `deny`. |
 | Root password | `AE3_rootPassword` | String | Password of this laptop's `root` account. Blank uses the `AE3_DefaultRootPassword` CBA setting. |
 | Sudoers | applied to `/etc/sudoers` | String | Comma-separated accounts that may run `sudo` and act as superuser in the desktop apps. The accounts must exist on the laptop. |
+| Transfer speed (KB/s) | `AE3_network_transferSpeed` | Number | Network transfer speed for this computer (SSH app transfers, Cyber Warfare downloads). `0` = use the wifi network / mission default. See [Networking](../Systems/Networking.md#transfer-speed). |
 
 Interface Mode values:
 
@@ -34,6 +35,18 @@ Static IP guidance:
 - Avoid duplicate static IPs.
 - Leave blank to use DHCP.
 
+## Server Attributes
+
+Headless servers (`Land_PortableServer_01_{black,olive,sand}_F_AE3`) share the laptop attributes Static IP, Snake, Powered On At Start, Transfer speed, Direct root login, Root password and Sudoers, plus:
+
+| Attribute | Stored variable | Type | Meaning |
+| --- | --- | --- | --- |
+| Hostname | `ace_cargo_customName` | String | Network name shown in scans, the SSH prompt and cargo. Blank keeps the default. |
+| SSH enabled | `AE3_ssh_enabled` | Bool | Allow other computers to log in over SSH (default on). |
+| Requires external power | `AE3_power_mains` (inverted) | Bool | Off (default): runs on mains power. On: must be cabled to a powered generator/battery and shuts down without it. |
+
+Servers have no Interface Mode or Power Level: there is no local terminal/desktop and no internal battery.
+
 ## Router Attributes
 
 Routers expose network configuration attributes:
@@ -48,6 +61,7 @@ Routers expose network configuration attributes:
 | Powered On At Start | Bool | Turns router on after init. |
 | Allow External SSH | Bool | Allows cross-gateway access to this router subnet. |
 | External Allowed IPs | String | Comma/space separated gateway, host, or regex allow list. |
+| Transfer speed (KB/s) | Number | Network transfer speed for every device on this wifi network (and routers below it). `0` = mission default. |
 
 External policy is enforced by `AE3_network_fnc_resolve`, which is used by higher-level route behavior such as SSH/message workflows.
 
@@ -99,7 +113,7 @@ These modules are useful in Eden and/or Zeus. In Eden, place the module, open it
 | `AE3_AddUser` | Adds a user account. | Username, password. |
 | `AE3_AddSudoer` | Gives an existing account superuser rights (adds it to `/etc/sudoers`). | Username. |
 | `AE3_AddDir` | Creates a directory. | Path, owner, permissions. |
-| `AE3_AddFile` | Creates a file. | Path, content, owner, permissions, code/encryption options. |
+| `AE3_AddFile` | Creates a file. | Path, content, owner, permissions, code/encryption options, virtual file size. |
 | `AE3_AddCalendarEvent` | Adds calendar entry. | Date, title, location/details. |
 | `AE3_AddEmail` | Adds mail. | From, to, subject, body, received time, address-book flags. |
 | `AE3_AddWebpage` | Registers browser page. | URL, title, content. |
@@ -114,6 +128,7 @@ These modules are useful in Eden and/or Zeus. In Eden, place the module, open it
 | `AE3_SaveLaptop` | Captures laptop state for restore workflows. |
 | `AE3_RestoreLaptop` | Restores saved laptop state. |
 | `AE3_CrashDevice` | Crashes a selected computer. |
+| `AE3_NetworkSpeed` | Sets the network transfer speed of synchronized routers (wifi network), computers, or listed user accounts on them. Also placeable in Zeus. |
 | `AE3_InterfaceAccess` | Changes GUI/TUI access rules in Zeus workflow. |
 | `AE3_AddConnection` | Zeus connection dialog. |
 

@@ -400,6 +400,34 @@ if (!_ae3OptsSuccess) exitWith {};
 
 The parser handles short options, long options, required options, default values, help output, and type conversion.
 
+### Output Redirection
+
+The shell supports `command > file` (overwrite) and `command >> file` (append). Helpers:
+
+- `AE3_armaos_fnc_shell_parseRedirect [_commandLine]` returns `[command, target, append, hasRedirect]` (ignores `>` inside quotes).
+- `AE3_armaos_fnc_shell_writeRedirect [_computer, _target, _append, _text]` returns an error string, or `""` on success.
+
+While a command runs redirected, `AE3_armaos_fnc_shell_stdout` collects its output (`AE3_stdoutCapture` on the executing computer) instead of printing it. Custom commands need no changes to support redirection.
+
+### Simulated Transfers
+
+| Function | Purpose |
+| --- | --- |
+| `AE3_armaos_fnc_shell_simulateTransfer [_computer, _bytes, _medium, _user, _peer, _peerUser]` | Blocks a (scheduled) command for the transfer time with terminal progress. |
+| `AE3_armaos_fnc_shell_transferDuration [_bytes, _medium, _computer, _user, _peer, _peerUser]` | Returns `[seconds, KB/s]`. For `"network"` with a computer it uses the per user/computer/wifi speed. Capped by `AE3_TransferMaxDuration`. |
+| `AE3_armaos_fnc_shell_transferMedium [_source, _target]` | `"usb"` when either path is under `/mnt`, else `"local"`. |
+
+Use `AE3_filesystem_fnc_getFileSize` for the byte count so virtual file sizes are honored.
+
+## SSH Session Helpers
+
+| Function | Purpose |
+| --- | --- |
+| `AE3_armaos_fnc_shell_getSshSource [_computer]` | Computer an SSH session into `_computer` was opened from, or `objNull`. Only valid on the operator's machine. |
+| `AE3_armaos_fnc_shell_addSshPortableCommands [_names, _searchDirs]` | Registers executable names that may run in an SSH session from the operator's own computer when the target lacks them (still executing against the target). Searched: the typed path, `_searchDirs`, then the source computer's `AE3_ssh_toolDirs`. Call on every machine (e.g. preInit). Used by Root Cyber Warfare for its hacking tools. |
+
+Inside an SSH session `AE3_armaos_fnc_shell_stdin` reads input from the operator's terminal, so commands that prompt (y/n) work over SSH.
+
 ## Calendar Events
 
 There are two related calendar APIs:

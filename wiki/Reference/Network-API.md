@@ -130,6 +130,40 @@ if !(_result getOrDefault ["ok", false]) then {
 
 Static leases are stored per connected router. If a laptop moves to another router, it falls back to DHCP unless that router also has a static lease for the device.
 
+## Transfer Speed
+
+Simulated network transfers (desktop SSH app upload/download, Cyber Warfare downloads of sized files) use the mission setting `AE3_TransferSpeedNetwork` unless overridden. Priority: user account on the computer > computer > its router (then parent routers) > mission setting. For SSH transfers the operator's side sets the speed; the remote end only slows it if it has an override itself.
+
+### `AE3_network_fnc_setTransferSpeed`
+
+```sqf
+[_device, _speedKBs, _user] call AE3_network_fnc_setTransferSpeed;
+```
+
+| Index | Type | Default | Meaning |
+| --- | --- | --- | --- |
+| `0` | Object | Required | Router, laptop or server. |
+| `1` | Number | Required | Speed in KB/s. `0` or less removes the override. |
+| `2` | String | `""` | Account name on a computer; `""` = whole device. |
+
+Callable from any machine (routed to the server). Stored as `AE3_network_transferSpeed` and `AE3_network_userTransferSpeeds` (`[[user, KB/s], ...]`).
+
+```sqf
+[_router, 128] call AE3_network_fnc_setTransferSpeed;              // slow wifi
+[_laptop, 4096, "operator"] call AE3_network_fnc_setTransferSpeed; // fast account
+[_laptop, 0, "operator"] call AE3_network_fnc_setTransferSpeed;    // back to default
+```
+
+### `AE3_network_fnc_getTransferSpeed`
+
+```sqf
+private _kbps = [_computer, _user, _explicitOnly] call AE3_network_fnc_getTransferSpeed;
+```
+
+Returns the effective speed in KB/s. With `_explicitOnly = true` the mission setting is ignored and `-1` is returned when nothing is configured.
+
+Also available: the Eden *Transfer speed (KB/s)* attribute on routers, laptops and servers, and the **AE3: Network Speed** module (Eden and Zeus).
+
 ## Routing and Reachability
 
 ### `AE3_network_fnc_ping`

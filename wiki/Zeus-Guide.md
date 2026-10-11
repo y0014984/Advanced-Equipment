@@ -140,6 +140,15 @@ When players are stuck, check:
 - Is the router password known?
 - Is external access required for this route?
 
+## Network Speed and File Sizes
+
+- Drop **AE3: Network Speed** onto a router (whole wifi network) or a laptop/server (whole device, or listed user accounts) and enter a speed in KB/s. `0` = back to default. Everyone uses the mission setting until changed.
+- **Add File** has a *Virtual file size* field (`50MB`, `1.5GB`): copying or downloading that file takes as long as that size needs at the player's speed - good for "hold the position while the download runs" moments.
+
+## Headless Servers
+
+Servers (AE3 > Servers) are reached only over the network. Their asset attributes panel shows hostname, SSH, IP/router, power, and a *Needs external power* checkbox (off = mains power).
+
 ## Filesystem Browser
 
 The Zeus filesystem browser is for live inspection and editing. Use it to:
