@@ -1,7 +1,7 @@
 // File: fnc_writeToFile.sqf
 /*
  * Author: Root, y0014984
- * Description: Writes content to a file, either replacing existing content or appending to it. Requires write permission on the file.
+ * Description: Writes content to an existing file in a filesystem array, either replacing existing content or appending to it. Requires write permission on the file. Throws if the file does not exist. Mutates the passed filesystem only - the caller must publish it; to write to a device from a mission script use AE3_filesystem_fnc_device_writeFile. A virtual file size is kept. Note the argument order: _user comes before _content (createFile/ensureFile take _content first).
  *
  * Arguments:
  * 0: _pntr <ARRAY> - Current directory pointer
@@ -33,7 +33,7 @@ if(!(_filename in _currentContent)) throw (format [localize "STR_AE3_Filesystem_
 
 private _fileObject = _currentContent get _filename;
 
-// write permission needed to write to file; write = 2
+// write permission (index 1) needed to write to file
 [_fileObject, _user, 1] call AE3_filesystem_fnc_hasPermission;
 
 if (_appendMode) then

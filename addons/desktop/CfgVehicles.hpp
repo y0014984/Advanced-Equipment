@@ -381,6 +381,49 @@ class CfgVehicles
 
 	// MODULE CRASH DEVICE - crashes every synced AE3 laptop (blue screen until power-cycled).
 	// No dialog; place/sync on a laptop and (optionally) gate behind a trigger.
+	// Network transfer speed per wifi network (router), computer or user account; Eden and Zeus.
+	class AE3_NetworkSpeed: Module_F
+	{
+		scope = 2;
+		scopeCurator = 2;
+		displayName = "$STR_AE3_Network_Config_TransferSpeedDisplayName";
+		icon = "\z\ae3\addons\armaos\ui\AE3_Module_Icons_addUser.paa";
+		category = "AE3_armaosModules";
+
+		function = "AE3_network_fnc_module_transferSpeed";
+		functionPriority = 2;
+		isGlobal = 0;
+		isTriggerActivated = 1;
+		isDisposable = 1;
+		is3DEN = 0;
+
+		class Attributes: AttributesBase
+		{
+			class AE3_Module_TransferSpeed_Speed: Edit
+			{
+				property = "AE3_Module_TransferSpeed_Speed";
+				displayName = "$STR_AE3_Network_TransferSpeed_Speed";
+				tooltip = "$STR_AE3_Network_TransferSpeed_SpeedTooltip";
+				typeName = "NUMBER";
+				defaultValue = "0";
+			};
+			class AE3_Module_TransferSpeed_Users: Edit
+			{
+				property = "AE3_Module_TransferSpeed_Users";
+				displayName = "$STR_AE3_Network_TransferSpeed_Users";
+				tooltip = "$STR_AE3_Network_TransferSpeed_UsersTooltip";
+				typeName = "STRING";
+				defaultValue = """""";
+			};
+			class ModuleDescription: ModuleDescription{};
+		};
+
+		class ModuleDescription: ModuleDescription
+		{
+			description = "$STR_AE3_Network_TransferSpeed_Description";
+		};
+	};
+
 	class AE3_CrashDevice: Module_F
 	{
 		scope = 2;

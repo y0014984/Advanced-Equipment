@@ -9,8 +9,11 @@
  *
  * Arguments:
  * 0: _computer <OBJECT> - The computer object
- * 1: _bytes <NUMBER> - Simulated file size in bytes (e.g. character count of the content)
+ * 1: _bytes <NUMBER> - Simulated file size in bytes (see AE3_filesystem_fnc_getFileSize)
  * 2: _medium <STRING> (Optional, default: "local") - "local", "usb" or "network"
+ * 3: _user <STRING> (Optional, default: "") - Account on _computer (network speed overrides)
+ * 4: _peer <OBJECT> (Optional, default: objNull) - Remote end (network)
+ * 5: _peerUser <STRING> (Optional, default: "") - Account on _peer (network)
  *
  * Return Value:
  * Duration of the simulated transfer in seconds <NUMBER>
@@ -21,28 +24,15 @@
  * Public: Yes
  */
 
-params ["_computer", "_bytes", ["_medium", "local"]];
+params ["_computer", "_bytes", ["_medium", "local"], ["_user", ""], ["_peer", objNull], ["_peerUser", ""]];
 
-// Speeds are configured in KB/s via CBA settings
-private _speed = switch (toLower _medium) do
-{
-	case "usb":     { missionNamespace getVariable ["AE3_TransferSpeedUsb", 2048] };
-	case "network": { missionNamespace getVariable ["AE3_TransferSpeedNetwork", 512] };
-	default         { missionNamespace getVariable ["AE3_TransferSpeedLocal", 20480] };
-};
+([_bytes, _medium, _computer, _user, _peer, _peerUser] call AE3_armaos_fnc_shell_transferDuration) params ["_duration", "_speed"];
 
-// 0 = instant transfers (simulation disabled)
-if (_speed <= 0) exitWith { 0 };
+if (_duration <= 0) exitWith { 0 };
 
-private _duration = (_bytes / 1024) / _speed;
-
-// Not worth simulating
-if (_duration < 0.5) exitWith { 0 };
-
-private _kb = round (_bytes / 1024);
 private _start = CBA_missionTime;
 
-[_computer, format [localize "STR_AE3_ArmaOS_Transfer_Started", _kb, _speed]] call AE3_armaos_fnc_shell_stdout;
+[_computer, format [localize "STR_AE3_ArmaOS_Transfer_Started", [_bytes] call AE3_filesystem_fnc_formatSize, _speed]] call AE3_armaos_fnc_shell_stdout;
 
 while { (CBA_missionTime - _start) < _duration } do
 {

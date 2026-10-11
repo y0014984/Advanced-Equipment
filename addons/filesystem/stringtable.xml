@@ -283,6 +283,16 @@
                 <German>Kann vom Besitzer gelesen werden</German>
                 <Chinesesimp>所有者可读取</Chinesesimp>
             </Key>
+            <Key ID="STR_AE3_Filesystem_Config_VirtualSizeDisplayName">
+                <Original>Virtual file size</Original>
+                <English>Virtual file size</English>
+                <German>Virtuelle Dateigröße</German>
+            </Key>
+            <Key ID="STR_AE3_Filesystem_Config_VirtualSizeTooltip">
+                <Original>Size used for copy/download time and listings, e.g. 750KB, 50MB, 1.5GB. Empty = real content size.</Original>
+                <English>Size used for copy/download time and listings, e.g. 750KB, 50MB, 1.5GB. Empty = real content size.</English>
+                <German>Größe für Kopier-/Downloaddauer und Auflistungen, z.B. 750KB, 50MB, 1.5GB. Leer = echte Inhaltsgröße.</German>
+            </Key>
             <Key ID="STR_AE3_Filesystem_Config_WriteByOtherDisplayName">
                 <Original>Can be modified by everyone</Original>
                 <English>Can be modified by everyone</English>

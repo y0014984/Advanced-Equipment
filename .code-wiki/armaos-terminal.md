@@ -48,6 +48,8 @@ The ArmaOS component owns the terminal/TUI interface, command shell, laptop stat
 
 ## gotchas
 
+- **Output redirection** (`>`/`>>`): `shell_process` splits it off with `shell_parseRedirect` (outside quotes, last wins) before tokenizing, sets `AE3_stdoutCapture` (array) on the executing computer, runs the command, then `shell_writeRedirect` writes the joined lines (resolved from the exec computer's pointer, `getFsUser`, symlinks followed, locked/media/dirs refused, missing parent = error) and publishes per SyncMode. `shell_stdout` checks the capture before the SSH redirect and flattens formatted lines/strips `<t>` tags. No stderr: errors printed by the command are captured too.
+
 - The laptop lock (`AE3_computer_mutex`) is released by the terminal display's `Unload` handler, which `fnc_terminal_init` now wires up **before** its suspending `getRemoteVar` fetches (not late via `fnc_terminal_addEventHandler`). This is what stops an early close (before startup finishes) from orphaning the mutex and bricking every mutex-gated laptop ACE action. `fnc_terminal_init` also bails (`isNull _consoleDialog`) after the fetches if the display was closed meanwhile.
 - `fnc_terminal_onUnload` must stay null-safe for a partial init (terminal HashMap / per-frame handles may be absent) and only releases the mutex/`inUse` when NOT hosted inside a desktop session (`_inDesktop`); when inside the native desktop, the desktop owns the lock and cleans up on its own unload, so `fnc_app_terminal` no longer re-claims the mutex.
 - Commands that are graphical or interactive must be marked SSH-compatible before they can run over SSH.

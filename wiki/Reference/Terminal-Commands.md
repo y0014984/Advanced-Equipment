@@ -54,6 +54,22 @@ Games:
 | `sudo` | `/bin/sudo` | Runs a single command as `root`. Available to `root` and to accounts listed in `/etc/sudoers` (see the [ArmaOS API](ArmaOS-API.md#superuser-access)). |
 | `su` | `/bin/su` | Switches the session to another account, or to `root` when none is given. Same requirement as `sudo`. Unlike `sudo` the switch lasts until `exit`, which returns to the previous account. |
 
+## Output Redirection
+
+Any command's output can be written to a file instead of the screen:
+
+```
+echo "Hi" > notes.txt        # create or overwrite
+echo "Second line" >> notes.txt   # append on a new line
+ls -l /home > listing.txt
+```
+
+- The path is relative to the current folder (absolute paths work too); quote names with spaces.
+- Normal permissions apply: you need write access to the file, or to its folder to create it. A missing folder is an error, as in Unix.
+- Symbolic links are followed. Folders, locked (password-protected) files and media files cannot be written.
+- Works inside SSH sessions (writes on the remote computer).
+- There is no separate error stream: error text a command prints while redirected also lands in the file.
+
 ## System and Network Commands
 
 | Command | Path | Purpose |

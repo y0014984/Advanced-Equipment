@@ -26,9 +26,52 @@ private _terminal = _computer getVariable "AE3_terminal";
 // Superusers act as root over the filesystem here, exactly as they do in the desktop file manager.
 private _username = [_computer] call AE3_armaos_fnc_shell_getFsUser;
 
+// Executables registered as SSH-portable may come from the operator's own computer when the SSH
+// target does not have them; they still run against the target.
+private _findPortable = {
+	params ["_computer", "_path"];
+	private _source = [_computer] call AE3_armaos_fnc_shell_getSshSource;
+	if (isNull _source) exitWith { nil };
+
+	private _name = toLower (_path splitString "/" select -1);
+	private _portable = missionNamespace getVariable ["AE3_armaos_sshPortableCommands", createHashMap];
+	if !(_name in _portable) exitWith { nil };
+
+	private _sourcePointer = _source getVariable ["AE3_filepointer", []];
+	private _sourceFs = _source getVariable "AE3_filesystem";
+	if (isNil "_sourceFs") exitWith { nil };
+	private _sourceUser = [_source] call AE3_armaos_fnc_shell_getFsUser;
+
+	private _candidates = [_path];
+	{ _candidates pushBack (format ["%1/%2", _x, _name]); } forEach ((_portable get _name) + (_source getVariable ["AE3_ssh_toolDirs", []]));
+
+	private _found = nil;
+	{
+		if (!isNil "_found") exitWith {};
+		try
+		{
+			private _code = [_sourcePointer, _sourceFs, _x, _sourceUser, 2] call AE3_filesystem_fnc_getFile;
+			if (_code isEqualType {}) then { _found = _code; };
+		}
+		catch {};
+	} forEach _candidates;
+
+	if (isNil "_found") exitWith { nil };
+	_found
+};
+
 try
 {
-	private _content = [_pointer, _filesystem, _path, _username, 2] call AE3_filesystem_fnc_getFile;
+	private _content = nil;
+	try
+	{
+		_content = [_pointer, _filesystem, _path, _username, 2] call AE3_filesystem_fnc_getFile;
+	}
+	catch
+	{
+		_content = [_computer, _path] call _findPortable;
+		if (isNil "_content") then { throw _exception; };
+	};
 
 	if(_content isEqualType {}) then
 	{

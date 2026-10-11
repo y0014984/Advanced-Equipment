@@ -20,7 +20,11 @@ PREP(computer_removeCalendarEvent);
 /* Shell Functions */
 PREP(shell_process);
 PREP(shell_tokenize);
+PREP(shell_parseRedirect);
+PREP(shell_writeRedirect);
 PREP(shell_simulateTransfer);
+PREP(shell_transferDuration);
+PREP(shell_transferMedium);
 PREP(shell_sshEnd);
 PREP(shell_sshAlive);
 PREP(shell_isSshCompatible);
@@ -33,6 +37,8 @@ PREP(shell_getHomeDir);
 PREP(shell_executeFile);
 PREP(shell_stdout);
 PREP(shell_stdin);
+PREP(shell_getSshSource);
+PREP(shell_addSshPortableCommands);
 PREP(shell_writeToLogfile);
 PREP(shell_getOpts);
 PREP(shell_getOptsConvertArgType);
@@ -63,6 +69,8 @@ PREP(computer_playSoundStandby);
 
 PREP(computer_standby);
 PREP(computer_turnOn);
+PREP(server_turnOn);
+PREP(server_turnOff);
 PREP(computer_turnOff);
 
 PREP(computer_addUser);

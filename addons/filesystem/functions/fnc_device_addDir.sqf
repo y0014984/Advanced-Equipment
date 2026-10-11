@@ -51,4 +51,5 @@ catch
     };
 };
 
-_device setVariable ["AE3_filesystem", _filesystem];
+private _syncMode = missionNamespace getVariable ["AE3_Filesystem_SyncMode", 0];
+_device setVariable ["AE3_filesystem", _filesystem, [2, true] select (_syncMode == 1)];

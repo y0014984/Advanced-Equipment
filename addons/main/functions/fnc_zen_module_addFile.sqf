@@ -23,7 +23,7 @@ params ["_module", "_computer"];
 
 private _onConfirm = {
     params ["_values", "_args"];
-    _values params ["_path", "_content", "_isCode", "_owner", "_oRead", "_oWrite", "_oExec", "_eRead", "_eWrite", "_eExec", "_enableEncryption", "_encryptionAlgorithm", "_encryptionKey"];
+    _values params ["_path", "_content", "_isCode", "_owner", "_oRead", "_oWrite", "_oExec", "_eRead", "_eWrite", "_eExec", "_enableEncryption", "_encryptionAlgorithm", "_encryptionKey", "_virtualSize"];
     _args params ["_module", "_computer"];
 
     private _permissions = [[_oRead, _oWrite, _oExec], [_eRead, _eWrite, _eExec]];
@@ -49,7 +49,7 @@ private _onConfirm = {
         deleteVehicle _module;
     };
 
-    ["ae3_main_zeusDeviceOp", [netId _computer, "addFile", [_path, _content, _isCode, _owner, _permissions, _enableEncryption, _encryptionAlgorithm, _encryptionKey], clientOwner]] call CBA_fnc_serverEvent;
+    ["ae3_main_zeusDeviceOp", [netId _computer, "addFile", [_path, _content, _isCode, _owner, _permissions, _enableEncryption, _encryptionAlgorithm, _encryptionKey, false, false, "auto", _virtualSize], clientOwner]] call CBA_fnc_serverEvent;
     deleteVehicle _module;
 };
 
@@ -77,7 +77,8 @@ private _algorithmLabels = _algorithms apply {_x select 1};
         ["CHECKBOX", "Everyone: Execute", false],
         ["CHECKBOX", "Enable encryption", false],
         ["COMBO", "Encryption algorithm", [_algorithmIds, _algorithmLabels, 0]],
-        ["EDIT", "Encryption key", [""]]
+        ["EDIT", "Encryption key", [""]],
+        ["EDIT", ["Virtual file size", "Size used for copy/download time, e.g. 750KB, 50MB, 1.5GB. Empty = real content size."], [""]]
     ],
     _onConfirm,
     _onCancel,

@@ -18,6 +18,10 @@
 
 params['_entity', '_power'];
 
+// Mains-powered devices (config AE3_Device >> mainsPowered, overridable per object through
+// AE3_power_mains) run without a provider and never draw from one.
+if (_entity getVariable ["AE3_power_mains", getNumber (configOf _entity >> "AE3_Device" >> "mainsPowered") == 1]) exitWith {false};
+
 private _generator = _entity getVariable 'AE3_power_powerCableDevice';
 
 if(isNil "_generator") exitWith {true};

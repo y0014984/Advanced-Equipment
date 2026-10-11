@@ -33,6 +33,7 @@
         '<div class="pad" style="display:flex;flex-direction:column;gap:10px">' +
           '<div><b>' + esc(it.name) + '</b></div>' +
           '<div class="muted">Owner: ' + esc(res.owner || "") + '</div>' +
+          (res.sizeText ? '<div class="muted">Size: ' + esc(res.sizeText) + '</div>' : '') +
           '<table style="width:100%;border-collapse:collapse"><thead><tr><th></th><th>Read</th><th>Write</th><th>Execute</th></tr></thead>' +
             '<tbody><tr><td>Owner</td><td><input type="checkbox" class="or"></td><td><input type="checkbox" class="ow"></td><td><input type="checkbox" class="ox"></td></tr>' +
             '<tr><td>Everyone</td><td><input type="checkbox" class="er"></td><td><input type="checkbox" class="ew"></td><td><input type="checkbox" class="ex"></td></tr></tbody></table>' +
@@ -174,7 +175,9 @@
     function paste(destDir) {
       var cb = window.AE3_clipboard; if (!cb) return;
       var dest = joinPath(destDir, cb.name);
-      A3.request(cb.op === "cut" ? "fs_move" : "fs_copy", { path: cb.path, dest: dest }).then(function (r) {
+      var op = cb.op === "cut" ? A3.request("fs_move", { path: cb.path, dest: dest }) : window.AE3_transferCopy(cb.path, dest);
+      op.then(function (r) {
+        if (r.cancelled) return;
         if (r.error && r.error !== "") { Modal.alert("Paste", "Could not paste here."); return; }
         if (cb.op === "cut") window.AE3_clipboard = null;
         if (!searching) load();
@@ -2373,11 +2376,24 @@
           var s = localApi && localApi.getSel();
           if (!s || s.dir) { Modal.alert("Upload", "Select a file in the left pane first."); return; }
           var dest = joinPath(rcwd, s.name);
-          A3.request("ssh_push", { to: conn.to, user: conn.user, pass: conn.pass, path: s.path, dest: dest }).then(function (r) {
+          sshTransfer("push", "Uploading", s.path, dest).then(function (r) {
+            if (r.cancelled) return;
             Modal.alert("SSH", (r.error && r.error !== "") ? "Upload failed." : "Uploaded to " + dest);
             rload();
           });
         });
+        // SSH copy with simulated network transfer time: estimate (virtual size over the network
+        // speed), progress bar, then the actual pull/push. Resolves { cancelled: true } on abort.
+        function sshTransfer(dir, label, src, dest) {
+          var base = { to: conn.to, user: conn.user, pass: conn.pass, path: src, dest: dest };
+          return A3.request("ssh_estimate", Object.assign({ content: dir }, base)).then(function (est) {
+            var secs = (est && Number(est.seconds)) || 0;
+            return window.AE3_runProgress(label + (est && est.sizeText ? " " + est.sizeText : ""), secs).then(function (ok) {
+              if (!ok) return { cancelled: true };
+              return A3.request("ssh_" + dir, base);
+            });
+          });
+        }
         // Remote pane.
         var rentries = body.querySelector(".rentries");
         var rpath = body.querySelector(".rpath");
@@ -2404,7 +2420,8 @@
                     // so the file lands where the user is looking and appears on reload.
                     var localCwd = (localApi && localApi.getCwd) ? localApi.getCwd() : (window.AE3_HOME || "/home");
                     var dest = joinPath(localCwd, it.name);
-                    A3.request("ssh_pull", { to: conn.to, user: conn.user, pass: conn.pass, path: full, dest: dest }).then(function (r) {
+                    sshTransfer("pull", "Downloading", full, dest).then(function (r) {
+                      if (r.cancelled) return;
                       Modal.alert("SSH", (r.error && r.error !== "") ? "Download failed." : "Downloaded to " + dest);
                       if (localApi) localApi.reload();
                     });

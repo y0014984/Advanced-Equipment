@@ -16,8 +16,8 @@
  * 3: _targetIp <ARRAY> - IP address of the remote device, e.g. [192,168,0,5]
  * 4: _user <STRING> - remote username
  * 5: _pass <STRING> - remote password
- * 6: _op <STRING> - "connect" | "ls" | "read" | "pull" | "push"
- * 7: _opArgs <ARRAY> - op-specific strings: [path, dest, content]
+ * 6: _op <STRING> - "connect" | "ls" | "read" | "pull" | "push" | "estimate"
+ * 7: _opArgs <ARRAY> - op-specific strings: [path, dest, content, local desktop user]
  *
  * Return Value:
  * None
@@ -29,7 +29,7 @@ params ["_clientOwner", "_rid", "_localNetId", "_targetIp", "_user", "_pass", "_
 
 if (!isServer) exitWith {};
 
-_opArgs params [["_argPath", ""], ["_argDest", ""], ["_argContent", ""]];
+_opArgs params [["_argPath", ""], ["_argDest", ""], ["_argContent", ""], ["_argLocalUser", ""]];
 
 private _debug = (missionNamespace getVariable [QGVAR(debug), false]) || {missionNamespace getVariable ["AE3_DebugMode", false]};
 
@@ -47,8 +47,8 @@ if (_debug) then {
 // copy, so the work is done in a scheduled thread: the owning copy is fetched first (getRemoteVar
 // suspends), the file is written, and the result is pushed back to the owner so its cached browser
 // view reflects the change. Everything runs off-thread so exactly one reply is still sent.
-[_clientOwner, _rid, _localNetId, _targetIp, _user, _pass, _op, _opArgs, _argPath, _argDest, _argContent, _debug, _reply] spawn {
-    params ["_clientOwner", "_rid", "_localNetId", "_targetIp", "_user", "_pass", "_op", "_opArgs", "_argPath", "_argDest", "_argContent", "_debug", "_reply"];
+[_clientOwner, _rid, _localNetId, _targetIp, _user, _pass, _op, _opArgs, _argPath, _argDest, _argContent, _argLocalUser, _debug, _reply] spawn {
+    params ["_clientOwner", "_rid", "_localNetId", "_targetIp", "_user", "_pass", "_op", "_opArgs", "_argPath", "_argDest", "_argContent", "_argLocalUser", "_debug", "_reply"];
 
 private _res = createHashMapFromArray [["error", ""]];
 
@@ -119,6 +119,8 @@ try {
                 private _lfs = _local getVariable ["AE3_filesystem", []];
                 [[], _lfs, _argDest, "", "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
                 [[], _lfs, _argDest, "root", _content, false] call AE3_filesystem_fnc_writeToFile;
+                private _srcSize = ([[], _tfs, _argPath, _fsUser] call AE3_filesystem_fnc_getFileEntry) param [3, -1, [0]];
+                [[], _lfs, _argDest, "root", _srcSize] call AE3_filesystem_fnc_setFileSize;
                 _local setVariable ["AE3_filesystem", _lfs, _clientOwner];
                 _res set ["ok", true];
             } catch { _res set ["error", "denied"]; };
@@ -133,8 +135,27 @@ try {
                 private _content = [[], _lfs, _argPath, "root", 0] call AE3_filesystem_fnc_getFile;
                 [[], _tfs, _argDest, "", _fsUser, _fsUser, [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
                 [[], _tfs, _argDest, _fsUser, _content, false] call AE3_filesystem_fnc_writeToFile;
+                private _srcSize = ([[], _lfs, _argPath, "root"] call AE3_filesystem_fnc_getFileEntry) param [3, -1, [0]];
+                [[], _tfs, _argDest, _fsUser, _srcSize] call AE3_filesystem_fnc_setFileSize;
                 _target setVariable ["AE3_filesystem", _tfs, [_target] call AE3_armaos_fnc_computer_getLocality];
                 _res set ["ok", true];
+            } catch { _res set ["error", "denied"]; };
+        };
+
+        // Simulated network transfer time for the SSH copy progress bar. _argContent carries the
+        // direction ("pull" reads the remote entry, "push" the local one).
+        case "estimate": {
+            try {
+                private _entry = if (_argContent isEqualTo "push") then {
+                    [_local, "AE3_filesystem", _clientOwner] call AE3_main_fnc_getRemoteVar;
+                    [[], _local getVariable ["AE3_filesystem", []], _argPath, "root"] call AE3_filesystem_fnc_getFileEntry
+                } else {
+                    [[], _tfs, _argPath, _fsUser] call AE3_filesystem_fnc_getFileEntry
+                };
+                private _size = [_entry] call AE3_filesystem_fnc_getFileSize;
+                // Speed follows the operator's account/laptop/wifi; the remote end limits it only when configured.
+                _res set ["seconds", ([_size, "network", _local, _argLocalUser, _target, _user] call AE3_armaos_fnc_shell_transferDuration) select 0];
+                _res set ["sizeText", [_size] call AE3_filesystem_fnc_formatSize];
             } catch { _res set ["error", "denied"]; };
         };
 

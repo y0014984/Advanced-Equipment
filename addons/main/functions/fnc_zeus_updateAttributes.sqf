@@ -50,6 +50,16 @@ if (_exitCode == 1) then
     // itself runs on the server because the power state and its mutex are shared across the mission.
     if (isClass (configOf _entity >> "AE3_Device")) then
     {
+        if (isNumber (configOf _entity >> "AE3_Device" >> "mainsPowered")) then
+        {
+            private _requestedMains = !(cbChecked (_display displayCtrl 1323));
+            if (_requestedMains isNotEqualTo (_entity getVariable ["AE3_power_mains", getNumber (configOf _entity >> "AE3_Device" >> "mainsPowered") == 1])) then
+            {
+                [_entity, _requestedMains] call AE3_power_fnc_setMainsPowered;
+                _message = _message + format ["External power: %1. ", ["required", "not required"] select _requestedMains];
+            };
+        };
+
         private _requestedOn = cbChecked (_display displayCtrl 1322);
         private _currentlyOn = (_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1;
 

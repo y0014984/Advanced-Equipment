@@ -83,7 +83,7 @@
 			typeName = "BOOL"; \
 			condition = "1"; \
 		}; \
-		class AE3_RouterExternalAllow \
+		class AE3_RouterTransferSpeed 		{ 			displayName = "$STR_AE3_Network_TransferSpeed_Speed"; 			tooltip = "$STR_AE3_Network_TransferSpeed_AttributeTooltip"; 			property = "AE3_RouterTransferSpeed"; 			control = "Edit"; 			expression = "if (isServer && {_value > 0}) then { [_this, round _value] call AE3_network_fnc_setTransferSpeed; };"; 			defaultValue = "0"; 			typeName = "NUMBER"; 			validate = "number"; 			condition = "1"; 		}; 		class AE3_RouterExternalAllow \
 		{ \
 			displayName = "External Allowed IPs"; \
 			tooltip = "Optional comma/space separated regex patterns of source gateways allowed external access. Blank means any gateway."; \

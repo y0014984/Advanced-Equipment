@@ -1540,13 +1540,13 @@
                 <Chinesesimp>传输完成</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Transfer_Started">
-                <Original>Transferring %1 KB at %2 KB/s ...</Original>
-                <English>Transferring %1 KB at %2 KB/s ...</English>
-                <French>Transfert de %1 Ko à %2 Ko/s ...</French>
-                <Italian>Trasferimento di %1 KB a %2 KB/s ...</Italian>
-                <Russian>Transferring %1 KB at %2 KB/s ...</Russian>
-                <German>Übertrage %1 KB mit %2 KB/s ...</German>
-                <Chinesesimp>正在以%2 KB/s传输%1 KB ...</Chinesesimp>
+                <Original>Transferring %1 at %2 KB/s ...</Original>
+                <English>Transferring %1 at %2 KB/s ...</English>
+                <French>Transfert de %1 à %2 Ko/s ...</French>
+                <Italian>Trasferimento di %1 a %2 KB/s ...</Italian>
+                <Russian>Transferring %1 at %2 KB/s ...</Russian>
+                <German>Übertrage %1 mit %2 KB/s ...</German>
+                <Chinesesimp>正在以%2 KB/s传输%1 ...</Chinesesimp>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Unlock_LockedNotice">
                 <Original>%1: password protected - use: unlock %1 PASSWORD</Original>
@@ -1698,6 +1698,41 @@
             </Key>
         </Container>
         <Container name="Results">
+            <Key ID="STR_AE3_ArmaOS_Config_ServerDisplayName">
+                <Original>Server</Original>
+                <English>Server</English>
+                <German>Server</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_ExternalPowerDisplayName">
+                <Original>Requires external power</Original>
+                <English>Requires external power</English>
+                <German>Benötigt externe Stromversorgung</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_ExternalPowerTooltip">
+                <Original>Off: runs on mains power. On: must be cabled to a powered generator or battery and shuts down without it.</Original>
+                <English>Off: runs on mains power. On: must be cabled to a powered generator or battery and shuts down without it.</English>
+                <German>Aus: Netzbetrieb. An: muss an einen Generator oder eine Batterie angeschlossen sein.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_HostnameDisplayName">
+                <Original>Hostname</Original>
+                <English>Hostname</English>
+                <German>Hostname</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_HostnameTooltip">
+                <Original>Network name of the device (shown in scans, SSH prompt and cargo). Empty keeps the default.</Original>
+                <English>Network name of the device (shown in scans, SSH prompt and cargo). Empty keeps the default.</English>
+                <German>Netzwerkname des Geräts (Scans, SSH-Prompt, Cargo). Leer = Standard.</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_SshEnabledDisplayName">
+                <Original>SSH enabled</Original>
+                <English>SSH enabled</English>
+                <German>SSH aktiviert</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_EdenAttributes_SshEnabledTooltip">
+                <Original>Allow other computers to log in to this device over SSH.</Original>
+                <English>Allow other computers to log in to this device over SSH.</English>
+                <German>Anderen Computern die SSH-Anmeldung an diesem Gerät erlauben.</German>
+            </Key>
             <Key ID="STR_AE3_ArmaOS_Laptop_Deploy">
                 <Original>Deploy laptop</Original>
                 <English>Deploy laptop</English>
@@ -1737,6 +1772,26 @@
             <Key ID="STR_AE3_ArmaOS_Laptop_Use">
                 <Original>Use laptop</Original>
                 <English>Use laptop</English>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Redirect_IsDirectory">
+                <Original>%1: Is a directory</Original>
+                <English>%1: Is a directory</English>
+                <German>%1: Ist ein Verzeichnis</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Redirect_MissingTarget">
+                <Original>Syntax error: no file name after '&gt;'</Original>
+                <English>Syntax error: no file name after '&gt;'</English>
+                <German>Syntaxfehler: kein Dateiname nach '&gt;'</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Redirect_NoFilesystem">
+                <Original>No filesystem available</Original>
+                <English>No filesystem available</English>
+                <German>Kein Dateisystem verfügbar</German>
+            </Key>
+            <Key ID="STR_AE3_ArmaOS_Redirect_NotText">
+                <Original>%1: Cannot write to this file</Original>
+                <English>%1: Cannot write to this file</English>
+                <German>%1: In diese Datei kann nicht geschrieben werden</German>
             </Key>
             <Key ID="STR_AE3_ArmaOS_Result_Bitten">
                 <Original>Bitten. Game over!</Original>

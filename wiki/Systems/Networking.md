@@ -57,6 +57,26 @@ When configured, players can:
 - If external access across routers is required, test it on a dedicated server — client-hosted previews can mask locality issues.
 - Keep router names and addresses readable and consistent (`HQ-Router` / `10.0.0.1`, not arbitrary strings).
 
+## Transfer Speed
+
+Simulated network transfers (desktop SSH app upload/download, Cyber Warfare downloads of sized files) run at a speed in KB/s. Everyone uses the mission-wide *Transfer speed: network* CBA setting until a mission maker overrides it:
+
+| Level | Set with |
+| --- | --- |
+| User account on a laptop/server | **Network Speed** module (Eden: sync to the computer, fill *User accounts*; Zeus: drop on the computer) |
+| Laptop/server | *Transfer speed (KB/s)* object attribute, or the module with *User accounts* empty |
+| Wifi network (router, and routers below it) | *Transfer speed (KB/s)* router attribute, or the module on a router |
+
+The most specific level wins (user > computer > wifi network > mission setting). For SSH transfers the operator's side sets the speed; the remote end only slows it when it has an override of its own. A speed of 0 removes an override.
+
+```sqf
+[_router, 128] call AE3_network_fnc_setTransferSpeed;              // slow wifi
+[_laptop, 4096, "operator"] call AE3_network_fnc_setTransferSpeed; // fast account
+[_laptop, "operator"] call AE3_network_fnc_getTransferSpeed;       // effective KB/s
+```
+
+File sizes are set per file: *Virtual file size* on the Add File module (Eden/Zeus), `device_addFile`/`device_writeFile` size argument, or `AE3_filesystem_fnc_device_setFileSize` for an existing file. See [Filesystem API](../Reference/Filesystem-API.md#virtual-file-size).
+
 ## Related Pages
 
 - [Network API](../Reference/Network-API.md) — `createNetworkConnection`, `applyRouterConfig`, static IPs, SSH/resolve behavior.

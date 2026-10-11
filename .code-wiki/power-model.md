@@ -37,6 +37,9 @@ The power component models devices, providers, consumers, batteries, generators,
 - Zeus can create power connections through the Add Connection module after class validation.
 - Power sync can be disabled through `AE3_Power_EnableStateSync`; sync reduction is controlled separately by `AE3_Power_ChangeThreshold`.
 
+- **Mains power:** `updateSelfPower` returns success without a provider when `AE3_power_mains` (object var, default from `AE3_Device >> mainsPowered`) is true. Headless servers set `mainsPowered = 1`; `AE3_power_fnc_setMainsPowered` (Eden *Requires external power*, Zeus panel IDC 1015/1323) flips it and turns the device off if it now lacks a powered provider.
+- `crashDevice` skips the blue-screen texture when `AE3_Device >> hasScreen = 0`.
+
 ## decisions
 
 - Turn-on/off/standby behavior is stored as object-specific wrapper functions, so different devices can use the same power state interface while running different animations, sounds, filesystem updates, or startup sequences.

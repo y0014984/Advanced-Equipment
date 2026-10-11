@@ -50,6 +50,9 @@ if (_type isEqualTo "AE3_NetworkConnection") then
         "Land_Laptop_03_sand_F_AE3",
         "Land_Laptop_03_black_F_AE3",
         "Land_Laptop_03_olive_F_AE3",
+        "Land_PortableServer_01_black_F_AE3",
+        "Land_PortableServer_01_olive_F_AE3",
+        "Land_PortableServer_01_sand_F_AE3",
         "Land_Router_01_sand_F_AE3",
         "Land_Router_01_black_F_AE3",
         "Land_Router_01_olive_F_AE3"

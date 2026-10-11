@@ -33,6 +33,11 @@
             </Key>
         </Container>
         <Container name="Interaction">
+            <Key ID="STR_AE3_Network_Config_TransferSpeedDisplayName">
+                <Original>Network Speed</Original>
+                <English>Network Speed</English>
+                <German>Netzwerkgeschwindigkeit</German>
+            </Key>
             <Key ID="STR_AE3_Network_Interaction_Cancel">
                 <Original>Cancel</Original>
                 <English>Cancel</English>
@@ -71,6 +76,51 @@
             <Key ID="STR_AE3_Network_Interaction_WrongPassword">
                 <Original>Incorrect router password</Original>
                 <English>Incorrect router password</English>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_Applied">
+                <Original>Network speed %1 set on %2 device(s).</Original>
+                <English>Network speed %1 set on %2 device(s).</English>
+                <German>Netzwerkgeschwindigkeit %1 auf %2 Gerät(en) gesetzt.</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_AttributeTooltip">
+                <Original>Network transfer speed (KB/s) for this device. 0 = use the wifi network / mission default.</Original>
+                <English>Network transfer speed (KB/s) for this device. 0 = use the wifi network / mission default.</English>
+                <German>Netzwerk-Übertragungsrate (KB/s) dieses Geräts. 0 = Netzwerk-/Missionsstandard.</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_Default">
+                <Original>default</Original>
+                <English>default</English>
+                <German>Standard</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_Description">
+                <Original>Sets the network transfer speed for the synchronized routers (wifi network), laptops/servers, or listed user accounts on them. Priority: user &gt; computer &gt; wifi network &gt; mission setting.</Original>
+                <English>Sets the network transfer speed for the synchronized routers (wifi network), laptops/servers, or listed user accounts on them. Priority: user &gt; computer &gt; wifi network &gt; mission setting.</English>
+                <German>Setzt die Netzwerk-Übertragungsrate für synchronisierte Router, Computer oder Benutzer.</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_NoTarget">
+                <Original>No router or computer found - sync the module or drop it onto one.</Original>
+                <English>No router or computer found - sync the module or drop it onto one.</English>
+                <German>Kein Router oder Computer gefunden.</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_Speed">
+                <Original>Transfer speed (KB/s)</Original>
+                <English>Transfer speed (KB/s)</English>
+                <German>Übertragungsrate (KB/s)</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_SpeedTooltip">
+                <Original>Network transfer speed in KB/s for SSH copies and downloads. 0 = remove the override (use the router or mission default).</Original>
+                <English>Network transfer speed in KB/s for SSH copies and downloads. 0 = remove the override (use the router or mission default).</English>
+                <German>Netzwerk-Übertragungsrate in KB/s für SSH-Kopien und Downloads. 0 = Vorgabe entfernen.</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_Users">
+                <Original>User accounts</Original>
+                <English>User accounts</English>
+                <German>Benutzerkonten</German>
+            </Key>
+            <Key ID="STR_AE3_Network_TransferSpeed_UsersTooltip">
+                <Original>Comma separated account names on the synchronized computers that get this speed. Empty = the whole device (or wifi network for a router).</Original>
+                <English>Comma separated account names on the synchronized computers that get this speed. Empty = the whole device (or wifi network for a router).</English>
+                <German>Kommagetrennte Kontonamen. Leer = ganzes Gerät (bzw. WLAN bei Routern).</German>
             </Key>
             <Key ID="STR_AE3_Network_Zeus_IpApplied">
                 <Original>IP address set to %1.</Original>

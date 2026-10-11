@@ -33,6 +33,9 @@ The filesystem component implements AE3's virtual Unix-like filesystem for lapto
 - Desktop delete behavior moves objects to `/.trash` and tracks original paths in `AE3_trash_meta`; CLI delete may use direct filesystem deletion depending on the command.
 - Mission/editor modules use wrapper functions such as `device_addFile`, `device_addDir`, `module_addFile`, and `module_addDir`.
 
+- Entries are `[content, owner, perms, size?]`. The optional 4th element is a **virtual size** in bytes (`setFileSize`, `device_setFileSize`, `device_addFile` param 12, `device_writeFile` param 7, Eden/ZEN add-file field). `getFileSize` returns it, else `count` of string content (dirs sum children). `writeToFile` keeps it; `mvObj` copies deep-copy the entry (`+`) so the size travels and copies no longer alias the original. Consumers: `os_cp` (via `shell_transferMedium`/`shell_transferDuration`), `fsHandle` `stat`/`estimate`, `sshOpServer` `estimate` + pull/push size carry, `lsdir -l` size column, RCW downloads.
+- **Writes during a session:** `device_withFilesystem` (server, scheduled) pulls the mutex holder's copy (`getRemoteVar`), mutates, pushes back to that owner; otherwise mutates the server copy and publishes per `AE3_Filesystem_SyncMode`. Used by `device_writeFile`, `device_setFileSize` and `device_addFile` when the mutex is held. `addEmail`/`addLockedFile`/`addCalendarEvent`/`addHistoryEntry` still carry their own inline copy of the same pattern.
+
 ## decisions
 
 - The filesystem is object-local state rather than global state, so each laptop and flash drive can carry independent files, permissions, and mounts.
@@ -41,6 +44,9 @@ The filesystem component implements AE3's virtual Unix-like filesystem for lapto
 - Symlinks are stored as file content that resolves to a target path, avoiding a third object type in the filesystem structure.
 
 ## gotchas
+
+- `device_addFile` only creates: an existing path is an INFO skip unless `_overwrite`; on a client it is a silent no-op. Point script authors at `device_writeFile` for "write text to a file".
+- Desktop paste/SSH transfer delays are client-side progress bars (`window.AE3_runProgress`) before the real op; the server does not enforce the wait.
 
 - `AE3_filesystem` can be missing or still syncing on clients.
 - Locality and sync mode matter after mutation. CLI commands and device add functions read `AE3_Filesystem_SyncMode`; desktop mutating operations often broadcast `AE3_filesystem` to target 2.

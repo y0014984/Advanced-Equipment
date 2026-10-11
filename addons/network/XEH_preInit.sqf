@@ -6,6 +6,7 @@
 if (isServer) then
 {
 	["ae3_network_routerOff", { _this call AE3_network_fnc_router_onTurnOff }] call CBA_fnc_addEventHandler;
+	["ae3_network_setTransferSpeed", { _this call AE3_network_fnc_setTransferSpeed }] call CBA_fnc_addEventHandler;
 
 	// Addressing is server-authoritative: only the server knows the full device registry, so only the
 	// server can detect a duplicate address. Clients that reach a connect/disconnect/lease function

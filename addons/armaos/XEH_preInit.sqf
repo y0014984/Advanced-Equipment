@@ -131,6 +131,17 @@ if (hasInterface) then
 	false
 ] call CBA_fnc_addSetting;
 
+[
+	"AE3_TransferMaxDuration",
+	"SLIDER",
+	["Transfer time cap (s)", "Longest a single simulated transfer (copy, download) may take, regardless of file size. 0 = no cap."],
+	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
+	[0, 3600, 0, 0],
+	1,
+	{ params ["_value"]; },
+	false
+] call CBA_fnc_addSetting;
+
 /* ================================================================================ */
 
 [

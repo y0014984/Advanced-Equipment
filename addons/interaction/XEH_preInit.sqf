@@ -41,6 +41,10 @@ AE3_interaction_fnc_ensureEquipmentParent = {
                 case (_typeOf find "Laptop" >= 0): {
                     _displayName = "Laptop";
                 };
+                // Headless servers
+                case (_typeOf find "PortableServer" >= 0): {
+                    _displayName = "Server";
+                };
                 // USB Flash Drives
                 case (_typeOf find "USB" >= 0 || _typeOf find "FlashDisk" >= 0): {
                     _displayName = "USB Flash Drive";

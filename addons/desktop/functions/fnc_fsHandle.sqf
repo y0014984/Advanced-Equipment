@@ -13,7 +13,7 @@
  * Arguments:
  * 0: _computer <OBJECT> - The bound laptop
  * 1: _user <STRING> - The logged-in session user
- * 2: _op <STRING> - "list" | "read" | "save" | "mkdir" | "delete"
+ * 2: _op <STRING> - "list" | "read" | "save" | "mkdir" | "delete" | "stat" | "estimate" | "copy" | "move" | ...
  * 3: _data <HASHMAP> - Operation data (keys: "path", "content")
  *
  * Return Value:
@@ -63,6 +63,26 @@ switch (_op) do {
             _res set ["owner", _obj select 1];
             _res set ["permissions", _obj select 2];
             _res set ["dir", (_obj select 0) isEqualType createHashMap];
+            private _size = [_obj] call AE3_filesystem_fnc_getFileSize;
+            _res set ["size", _size];
+            _res set ["sizeText", [_size] call AE3_filesystem_fnc_formatSize];
+        } catch {
+            _res set ["error", "denied"];
+        };
+    };
+
+    // Simulated copy duration for the paste progress bar: (virtual) size of the source and the
+    // medium between source and destination (USB when either side is under /mnt).
+    case "estimate": {
+        private _dest = _data getOrDefault ["dest", ""];
+        try {
+            private _obj = [[], _fs, _path, _fsUser] call AE3_filesystem_fnc_getFileEntry;
+            [_obj, _fsUser, 0] call AE3_filesystem_fnc_hasPermission;
+            private _size = [_obj] call AE3_filesystem_fnc_getFileSize;
+            private _medium = [_path, _dest] call AE3_armaos_fnc_shell_transferMedium;
+            _res set ["seconds", ([_size, _medium] call AE3_armaos_fnc_shell_transferDuration) select 0];
+            _res set ["size", _size];
+            _res set ["sizeText", [_size] call AE3_filesystem_fnc_formatSize];
         } catch {
             _res set ["error", "denied"];
         };
