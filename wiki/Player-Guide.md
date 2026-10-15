@@ -94,6 +94,19 @@ Networks allow laptops to communicate. A router usually defines the local networ
 
 Network range, router passwords, static addresses, and external access rules are controlled by the mission.
 
+## Games
+
+If the mission allows it, two or more laptops on the same network can play each other: chess, checkers,
+uno, ludo, snakes and ladders, blackjack, rock paper scissors and battleship. They are in the desktop
+menu under *Games & Entertainment* and in the terminal under `/games`, and both ways play at the same
+table, so a player at a shell can play a player at a desktop.
+
+One laptop opens a table, the others join it, and a table with more than two seats is started by the
+laptop that opened it. You can leave the game and come back: shutting the laptop, walking away, dying or
+reconnecting all keep your seat, and the game offers the match back under *Continue* with the board as
+you left it. Playing uses a little extra power, so a long game costs battery. See
+[Games](Systems/Games.md).
+
 ## Flash Drives
 
 Flash drives can hold files and clues.

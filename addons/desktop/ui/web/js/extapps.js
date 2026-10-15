@@ -50,7 +50,7 @@
     var iconName = desc.icon || (desc.extra && desc.extra.icon);
     if (window.Icons && iconName && Icons[iconName]) return Icons[iconName];
     if (desc.glyph) return desc.glyph;
-    return window.Icons ? Icons.device : "🔌";
+    return window.Icons ? Icons.device : "&#9636;";
   }
 
   function makeDeviceApp(desc) {
@@ -150,7 +150,7 @@
               if (typeof v === "object" && v.lock !== undefined) payload.lock = !!v.lock;
               var send = function () {
                 A3.send("dev_action", payload);
-                setStatus(a.label + " → " + value + (a.unit || "") + "...");
+                setStatus(a.label + " \u2192 " + value + (a.unit || "") + "...");
               };
               if (a.confirm && a.confirm !== "" && typeof Modal !== "undefined") {
                 Modal.confirm(a.label, a.confirm).then(function (ok) { if (ok) send(); });
@@ -246,7 +246,7 @@
             var statusHtml = (d.status != null && d.status !== "") ? ' <span class="muted">[' + esc(d.status) + ']</span>' : "";
             // Grid + clickable map link (Root_CW shared #0f), shown only when the backend provides a
             // position (gated server-side by "Allow Location View"; GPS only when tracked).
-            var gridHtml = (d.grid != null && d.grid !== "") ? ' <span class="muted" style="font-size:12px">&#128205; ' + esc(d.grid) + '</span>' : "";
+            var gridHtml = (d.grid != null && d.grid !== "") ? ' <span class="muted" style="font-size:12px">&#9678; ' + esc(d.grid) + '</span>' : "";
             var top = document.createElement("div");
             top.style.display = "flex"; top.style.alignItems = "center"; top.style.width = "100%";
             // Root_CW: an in-progress network scan renders an animated radar sweep instead of the app icon.

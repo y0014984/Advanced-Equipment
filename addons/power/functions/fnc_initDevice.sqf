@@ -124,26 +124,20 @@ if(!isDedicated) then
 		// Ensure equipment parent action exists (creates if needed)
 		[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
 
-		private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
-		private _parentPath = [];
-		private _powerSubmenuPath = [];
+		// ensureEquipmentParent has just guaranteed the equipment parent exists, so the power actions
+		// always nest under it in their own Power submenu.
+		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
 
-		if (_hasEquipmentAction) then {
-			// Nest under equipment action with Power submenu
-			_parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+		// Create Power submenu
+		private _powerSubmenu = ["AE3_PowerSubmenu", "Power", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+		[_entity, 0, _parentPath, _powerSubmenu] call ace_interact_menu_fnc_addActionToObject;
 
-			// Create Power submenu
-			private _powerSubmenu = ["AE3_PowerSubmenu", "Power", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-			[_entity, 0, _parentPath, _powerSubmenu] call ace_interact_menu_fnc_addActionToObject;
+		private _powerSubmenuPath = _parentPath + ["AE3_PowerSubmenu"];
 
-			_powerSubmenuPath = _parentPath + ["AE3_PowerSubmenu"];
-		} else {
-			// Create standalone device parent for non-laptop devices
-			private _parentAction = ["AE3_DeviceAction", _name, "", {}, {true}] call ace_interact_menu_fnc_createAction;
-			[_entity, 0, ["ACE_MainActions"], _parentAction] call ace_interact_menu_fnc_addActionToObject;
-
-			_powerSubmenuPath = ["ACE_MainActions", "AE3_DeviceAction"];
-		};
+		// Publishes the interaction path the device's actions actually hang from, so the per-type init
+		// functions attach theirs to the same node instead of guessing at one. Local, because ACE
+		// actions are built per client.
+		_entity setVariable ["AE3_power_actionPath", _powerSubmenuPath];
 
 		// Add check power state action
 		private _power = ["AE3_PowerAction", localize "STR_AE3_Power_Interaction_CheckPowerState", "", {[_target] call AE3_power_fnc_checkPowerStateAction}, {true}] call ace_interact_menu_fnc_createAction;

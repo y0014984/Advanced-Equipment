@@ -145,6 +145,19 @@ When players are stuck, check:
 - Drop **AE3: Network Speed** onto a router (whole wifi network) or a laptop/server (whole device, or listed user accounts) and enter a speed in KB/s. `0` = back to default. Everyone uses the mission setting until changed.
 - **Add File** has a *Virtual file size* field (`50MB`, `1.5GB`): copying or downloading that file takes as long as that size needs at the player's speed - good for "hold the position while the download runs" moments.
 
+## Games
+
+Drop **AE3: Games** anywhere to see every game running in the mission - which game, how many seats are
+taken, who is at them and how long it has been idle - close one, and set the session's rules: games on
+or off, whether hosting is allowed, the same-network requirement, whether games are drawn as boards or
+as plain lists, whether a host may give itself practice seats, the maximum number of tables, a turn
+timeout, the abandonment timeout and the power a game draws. A field left empty hands that value back
+to the mission setting.
+
+The same module in Eden sets those values on the computers synced to it. A value set on a single
+computer that way beats your session value, which beats the mission setting. Closing a table ends the match for everyone sitting at it. Only a curator can see the
+roster, because it names the computers people are playing on. See [Games](Systems/Games.md).
+
 ## Headless Servers
 
 Servers (AE3 > Servers) are reached only over the network. Their asset attributes panel shows hostname, SSH, IP/router, power, and a *Needs external power* checkbox (off = mains power).

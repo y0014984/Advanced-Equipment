@@ -509,10 +509,10 @@
       // Only the uncategorised "Other" bucket is flattened when it holds a single app; named
       // categories always render as a folder so their apps stay grouped (e.g. Snake under Games).
       if (cat === "Other" && node._apps.length === 1 && subNames.length === 0) { menu.appendChild(itemRow(node._apps[0])); return; }
-      var catRow = el("div", "am-item am-cat", '<span class="am-ico">&#128193;</span><span style="flex:1">' + cat + '</span><span class="am-arrow">&#9656;</span>');
+      var catRow = el("div", "am-item am-cat", '<span class="am-ico">&#9636;</span><span style="flex:1">' + cat + '</span><span class="am-arrow">&#9656;</span>');
       var fly = el("div", "am-fly");
       subNames.sort().forEach(function (sub) {
-        var subRow = el("div", "am-item am-cat", '<span class="am-ico">&#128193;</span><span style="flex:1">' + sub + '</span><span class="am-arrow">&#9656;</span>');
+        var subRow = el("div", "am-item am-cat", '<span class="am-ico">&#9636;</span><span style="flex:1">' + sub + '</span><span class="am-arrow">&#9656;</span>');
         var subFly = el("div", "am-fly");
         node._subs[sub].forEach(function (app) { subFly.appendChild(itemRow(app)); });
         subRow.appendChild(subFly);

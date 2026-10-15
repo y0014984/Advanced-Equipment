@@ -41,6 +41,22 @@ class CfgVehicles
 
 		class EventHandlers {};
 
+		// ACE interaction point
+		// The prop base declares no ACE_Actions, so ACE builds the main action at the model origin with
+		// a two metre reach and hides the whole interaction menu once the player's head is beyond it.
+		// Declaring the point restores the four metre reach these classes had on their previous base.
+		// The two large static models widen it further in their own blocks, because nothing stands
+		// within four metres of their origin.
+		class ACE_Actions
+		{
+			class ACE_MainActions
+			{
+				selection = "";
+				distance = 4;
+				condition = "true";
+			};
+		};
+
 		// Eden Editor Attributes
 		class Attributes
 		{
@@ -201,6 +217,18 @@ class CfgVehicles
 		hiddenSelectionsTextures[] = {}; // modified for texture variants
 		displayName = "$STR_A3_C_CfgVehicles_Land_MobileRadar_01_generator_F0"; // modified for texture variants
 
+		// A player cannot stand within the master class's four metre reach of this model's origin, so
+		// the interaction point is widened to cover the trailer.
+		class ACE_Actions
+		{
+			class ACE_MainActions
+			{
+				selection = "";
+				distance = 6;
+				condition = "true";
+			};
+		};
+
 		fuelCapacity = "470";
 		ace_refuel_fuelCapacity = 470; // Fuel tank volume
 		ace_refuel_fuelCargo = 470; // Same tank, declared as ACE fuel cargo - see the master class
@@ -306,6 +334,18 @@ class CfgVehicles
 		hiddenSelections[] = {};
 		hiddenSelectionsTextures[] = {}; // modified for texture variants
 		displayName = "$STR_A3_CfgVehicles_Land_PowerGenerator_F0"; // modified for texture variants
+
+		// A player cannot stand within the master class's four metre reach of this model's origin, so
+		// the interaction point is widened to cover the housing.
+		class ACE_Actions
+		{
+			class ACE_MainActions
+			{
+				selection = "";
+				distance = 6;
+				condition = "true";
+			};
+		};
 
 		fuelCapacity = "300";
 		ace_refuel_fuelCapacity = 300; // Fuel tank volume

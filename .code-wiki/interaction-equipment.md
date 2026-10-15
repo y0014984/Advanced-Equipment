@@ -26,6 +26,9 @@ The interaction component compiles AE3 equipment config, initializes ACE interac
 - `AE3_interaction_fnc_initAce3Interactions` runs on the server, stores ACE settings in `AE3_SettingsACE3`, and calls `manageAce3Interactions` to apply the initial state.
 - Laptop and desk open/close functions are separate from power functions, but power action conditions check `AE3_interaction_closeState`.
 - Other components call into interaction helpers to nest their actions under the common equipment parent action when it exists.
+- **`ensureEquipmentParent` always ends with the parent present**, so `AE3_interaction_hasEquipmentAction` is `true` for every AE3 device and `["ACE_MainActions", "AE3_EquipmentAction"]` is the only node anything hangs actions from. The `AE3_DeviceAction` fallback node the init functions used to branch to was therefore never created, and anything registered under it never rendered - that is how the generators lost *Check Fuel Level* and *Check Power Output*. `AE3_power_fnc_initDevice` now publishes the path it used as the local object variable `AE3_power_actionPath`, and the per-type init functions read it instead of guessing. The function's return value reports whether it *created* the parent, not whether one exists - do not branch on it.
+- **A class built on a vanilla prop needs its own `ACE_Actions >> ACE_MainActions`.** With no config entry ACE synthesises the base action at the model origin with a 2 m reach (`ace_interact_menu_fnc_addMainAction.sqf:27-30`, `fnc_createAction.sqf:38-39`) and `fnc_renderBaseMenu.sqf:47-50` hides the *entire* menu beyond it, so a large static simply has no interaction at all. Vehicle bases hid this: `StaticWeapon` ships `selection = "gunnerview"; distance = 4`. The generator master declares `distance = 4` and the two large statics (`Land_MobileRadar_01_generator_F_AE3`, `Land_PowerGenerator_F_AE3`) widen it to 6. Small props (batteries, portable solar) are inside the 2 m default and need nothing.
+- Class-name matching in the `ensureEquipmentParent` label switch is done on `toLowerANSI` of the type, because `find` on a string is case sensitive and AE3/vanilla class names are not consistently capitalised. The desk branch matches `desk` only - `table` is a substring of `portable`.
 
 ## decisions
 
@@ -43,6 +46,7 @@ The interaction component compiles AE3 equipment config, initializes ACE interac
 ## re-verify when
 
 - ACE menu paths, equipment config classes, laptop/desk open-close functions, or action-added flags change.
+- An AE3 class is rebased onto a different parent, especially from a vehicle base onto a prop: re-check its `ACE_Actions` reach.
 
 ## references
 

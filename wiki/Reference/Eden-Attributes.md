@@ -4,7 +4,7 @@ This page is the technical reference for AE3's Eden object attributes, modules, 
 
 ## Laptop Attributes
 
-AE3 laptop variants expose these object attributes.
+AE3 laptop variants expose these object attributes. The games settings are not among them: a laptop ships with every game, and the [AE3: Games](../Systems/Games.md) and AE3: Add Games modules are what change that.
 
 | Attribute | Stored variable/property | Type | Meaning |
 | --- | --- | --- | --- |
@@ -13,7 +13,6 @@ AE3 laptop variants expose these object attributes.
 | Static IP | `AE3_network_staticIpDefault` | String | Requested static IP applied when the laptop joins a network. |
 | Crypto | `AE3_SecurityCommand_Crypto` | Bool | Installs `crypto` command. |
 | Crack | `AE3_SecurityCommand_Crack` | Bool | Installs `crack` command. |
-| Snake | `AE3_Game_Snake` | Bool | Installs Snake game. |
 | Powered On At Start | `AE3_power_startOn` | Bool | Turns the laptop on after power init. |
 | Direct root login | `AE3_allowRootLogin` | String | Whether `root` may log in directly on this laptop: `default` (follow the `AE3_AllowRootLogin` CBA setting), `allow`, or `deny`. |
 | Root password | `AE3_rootPassword` | String | Password of this laptop's `root` account. Blank uses the `AE3_DefaultRootPassword` CBA setting. |
@@ -120,6 +119,8 @@ These modules are useful in Eden and/or Zeus. In Eden, place the module, open it
 | `AE3_AddBrowserHistory` | Adds browser history entry. | URL, time. |
 | `AE3_AddMedia` | Adds media marker. | Source path, media type, laptop path, path type, web-view flag. |
 | `AE3_AddPasswordedFile` | Adds locked file. | Path, password, protected content, owner, permissions. |
+| `AE3_Module_Games` | Sets the games settings on the synced computers, or mission wide when nothing is synced to it. Also placeable in Zeus, where it opens the table roster instead. | Games, Allow hosting, Graphical boards, Practice seats, Power draw. Each left on *Mission setting* (or blank) keeps the mission setting. |
+| `AE3_AddGames` | Decides which games the synced computers keep. Every computer ships with all of them, so unticking a game is what takes it away. Also placeable in Zeus. | One checkbox per game. |
 
 ## Utility Modules
 

@@ -24,11 +24,8 @@ Security commands:
 [_laptop, true, true] call AE3_armaos_fnc_computer_addSecurityCommands;
 ```
 
-Games:
-
-```sqf
-[_laptop, true] call AE3_armaos_fnc_computer_addGames;
-```
+Games are already there: every computer is given all of them when it starts up. The **AE3: Add Games**
+module is how a mission takes some away again, and `AE3_games_fnc_removeGames` is the script version.
 
 ## Base Commands
 
@@ -173,8 +170,25 @@ These commands are useful for puzzle laptops and intelligence workflows. Install
 | Command | Path | Purpose |
 | --- | --- | --- |
 | `snake` | `/games/snake` | Starts the Snake game. |
+| `chess` | `/games/chess` | Chess against another computer on the network. |
+| `checkers` | `/games/checkers` | Checkers against another computer. |
+| `uno` | `/games/uno` | Uno with up to eight computers. |
+| `ludo` | `/games/ludo` | Ludo with up to four computers. |
+| `snakesladders` | `/games/snakesladders` | Snakes and ladders, alone or with up to four computers. |
+| `blackjack` | `/games/blackjack` | Blackjack with up to eight computers against an automatic dealer. |
+| `rps` | `/games/rps` | Rock paper scissors against another computer. |
+| `battleship` | `/games/battleship` | Battleship against another computer. |
 
-`snake` is interactive and is not SSH-compatible.
+`snake` is a single-player game. The others are the networked games: they play against other AE3 computers, share a table with the desktop versions of the
+same games, and are on every computer by default - the **AE3: Add Games** module, `AE3_games_fnc_removeGames` and
+`AE3_games_fnc_installGames` are how that set is changed.
+Each one takes `new [name]`, `join <number>`, `resume <number>`, `start`, `refresh` and `quit` at its
+lobby, and the game's own moves plus `board`, `status`, `seatname <text>`, `leave` and `quit` in a
+match; `man <command>` gives the notation. A table waiting to start also takes `name <text>`,
+`pref white|black|random`, `starter <seat>`, `dummy` and `seat <n>`. `seatname` says what to call your
+own seat and works at any point; with nothing after it the seat goes back to the computer's name. See [Games](../Systems/Games.md).
+
+All of these are interactive and none are SSH-compatible.
 
 ## SSH Compatibility
 
@@ -186,6 +200,7 @@ Known blocked commands:
 | --- | --- |
 | `ssh` | Nested SSH is blocked. |
 | `snake` | Interactive game. |
+| `chess`, `checkers`, `uno`, `ludo`, `snakesladders`, `blackjack`, `rps`, `battleship` | Interactive games. |
 
 When writing custom commands, avoid opening displays or requiring local-only UI if the command might run during SSH. If your addon defines config commands, mark interactive commands as not SSH-compatible.
 

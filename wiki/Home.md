@@ -45,6 +45,7 @@ Each recipe separates the Eden Editor workflow, Zeus live workflow, and API/scri
 - [Lights and Interaction](Systems/Lights-and-Interaction.md)
 - [Intel, Mail, Chat, and Media](Systems/Intel-Mail-Chat-Media.md)
 - [Encryption and Security](Systems/Encryption-and-Security.md)
+- [Games](Systems/Games.md)
 
 ## Script and API Reference
 

@@ -1,19 +1,9 @@
-// Laptop software toggles exposed as 3DEN object attributes (replacing the old Add Games module).
-// Each checkbox installs the game on the laptop at mission start once it has finished initialising.
+// Laptop settings exposed as 3DEN object attributes. Games are not among them: every computer is
+// given every game, and the AE3: Games and AE3: Add Games modules are what change that.
 // Shared by every laptop variant.
 #define AE3_LAPTOP_SOFTWARE_ATTRIBUTES \
-	class AE3_Game_Snake \
-	{ \
-		displayName = "Snake (game)"; \
-		tooltip = "$STR_AE3_ArmaOS_Config_ModuleAddGamesSnakeTooltip"; \
-		property = "AE3_Game_Snake"; \
-		control = "Checkbox"; \
-		expression = "[_this, _value] call AE3_armaos_fnc_attr_addGames;"; \
-		defaultValue = "false"; \
-		typeName = "BOOL"; \
-		condition = "1"; \
-	}; \
-	class AE3_DeviceTransferSpeed 	{ 		displayName = "$STR_AE3_Network_TransferSpeed_Speed"; 		tooltip = "$STR_AE3_Network_TransferSpeed_AttributeTooltip"; 		property = "AE3_DeviceTransferSpeed"; 		control = "Edit"; 		expression = "if (isServer && {_value > 0}) then { [_this, round _value] call AE3_network_fnc_setTransferSpeed; };"; 		defaultValue = "0"; 		typeName = "NUMBER"; 		validate = "number"; 		condition = "1"; 	}; 	class AE3_LaptopStartOn \
+	class AE3_DeviceTransferSpeed 	{ 		displayName = "$STR_AE3_Network_TransferSpeed_Speed"; 		tooltip = "$STR_AE3_Network_TransferSpeed_AttributeTooltip"; 		property = "AE3_DeviceTransferSpeed"; 		control = "Edit"; 		expression = "if (isServer && {_value > 0}) then { [_this, round _value] call AE3_network_fnc_setTransferSpeed; };"; 		defaultValue = "0"; 		typeName = "NUMBER"; 		validate = "number"; 		condition = "1"; 	}; \
+	class AE3_LaptopStartOn \
 	{ \
 		displayName = "Powered On At Start"; \
 		tooltip = "Switch the laptop on automatically when the mission starts."; \

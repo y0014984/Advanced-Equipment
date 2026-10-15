@@ -1,5 +1,34 @@
 # Changelog
 
+## Update 11 (v2.1.0.0)
+
+### Added
+- **Games**: eight turn-based games played between AE3 computers on the same network - chess, checkers (2), ludo, snakes and ladders (1-4), uno, blackjack (8), rock paper scissors and battleship (2).
+- Every game has a desktop app under *Games & Entertainment* and a terminal command under `/games`, and both play at the same table - a terminal player can play a desktop player.
+- A match lives on the server, so closing the app, walking away, switching the laptop off, dying or reconnecting all keep your seat. The lobby opens on *Your matches* with **Continue** beside **New game** and **Join**.
+- Hidden information stays on the server: an uno hand, the blackjack hole card, a battleship fleet and a rock paper scissors throw are never sent to an opponent's client.
+- Games are drawn as real boards - a coloured chess board with filled white and black pieces, a ludo cross, a printed snakes and ladders board with its snakes and ladders laid across the squares, uno and blackjack cards, and two charted grids for battleship. *Graphical game boards* switches back to plain lists.
+- Hosting a table asks for a name, and that name is what the other players see in their lobby instead of the game's title. Each player can name their own seat as well, in the lobby or mid-match.
+- Chess players pick white, black or random in the lobby and the table waits until the choices are different; in every other game the host picks which seat moves first.
+- Battleship fleets are laid out by hand - pick a ship, pick its heading, click the square - with **Random**, **Clear** and **Ready** buttons and a count of the ships still afloat on both sides.
+- Rock paper scissors shows both throws and who took the round once the round is settled.
+- *Practice seats* (off by default): the host can give its own laptop extra seats at its table and switch between them, so a mission maker can play every side of a game from one computer.
+- Playing draws a small amount of extra power, so a game flattens a laptop battery and adds to a generator's load.
+- Every computer ships with every game, Snake included. The **AE3: Add Games** module, in Eden and in Zeus, is how that is narrowed: a checkbox per game, all ticked, and a synced computer keeps the ticked ones and loses the rest.
+- The **AE3: Games** module carries the games settings in Eden - sync it to computers to set them there, or place it on its own to set them for the whole mission - and in Zeus it also lists the live tables and closes one. Anything left on *Mission setting* changes nothing. CBA settings under *AE3 Games* are the mission-wide default.
+- `AE3_games_fnc_hostTable`, `joinTable`, `startTable`, `closeTable`, `installGames`, `removeGames`, `gameIds`, `getSetting` and `setSetting` for mission scripts, plus `setTableOption`, `setActiveSeat` and `addDummySeat` for the lobby.
+
+### Removed
+- The per-laptop *Snake (game)* checkbox is gone from the Eden and Zeus attribute panels. Laptops carry every game by default and the **AE3: Add Games** module decides which ones they keep.
+
+### Changed
+- Snake's desktop window is much larger, and its board now fills whatever size the window is. Added a grid, a pause (space), a session best score, and speed that climbs as the snake grows.
+- SSH app uploads and downloads now run at the slower of the two laptops' network speeds in every case. The remote end previously only slowed a transfer down when a mission maker had given it an explicit override, so a laptop left on the mission default never limited anything.
+- **Fixed:** the radar generator and the power generator had no interaction menu at all, so they could not be switched on or off.
+- **Fixed:** *Check Fuel Level* and *Check Power Output* never appeared on any generator.
+- The radar generator is now labelled *Generator* in the interaction menu instead of by its full class name.
+- **Fixed:** empty boxes in place of the padlock on a protected file, the folder in the app menu and the marker on a device's grid reference.
+
 ## Update 10 (v2.0.0.10)
 
 ### Added
