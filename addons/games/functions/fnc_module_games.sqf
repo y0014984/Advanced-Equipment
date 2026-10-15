@@ -2,11 +2,9 @@
 #include "..\script_component.hpp"
 /*
  * Author: Root
- * Description: The Games module, for Eden and for Zeus. In Eden it is where the games settings are
- * set: each one it carries is written onto every computer synced to the module, or as the mission-wide
- * value when nothing is synced to it, and a setting left on Mission setting is left where it is. A
- * curator dropping the module gets the roster dialog instead, which is the same settings for the
- * session plus the live tables, so the module reads one way in the editor and another in Zeus.
+ * Description: The Games module, for Eden and for Zeus. In Eden it writes each of its settings onto
+ * every synced computer, or mission-wide when nothing is synced; a setting left on Mission setting is
+ * not written. A curator dropping it gets the roster dialog instead.
  *
  * Arguments:
  * 0: _module <OBJECT> - Module logic
@@ -26,14 +24,13 @@ params [["_module", objNull, [objNull]], ["_syncedUnits", [], [[]]], ["_activate
 
 if (isNull _module || !_activated) exitWith {};
 
-// A curator is after the roster, not the attributes: the module they drop carries whatever the
-// mission maker left on it, which is nothing they chose
+// A curator gets the roster, not the attributes
 if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith {_this call FUNC(zeus_games)};
 
 if (!isServer) exitWith {};
 
-// Property name on the module, paired with the setting it writes and how the box is read back. The
-// combos answer "default", "yes" or "no"; the edit boxes answer a number as text, blank for untouched.
+// Module property, the setting it writes and how the box reads back. Combos answer "default", "yes"
+// or "no"; edit boxes answer a number as text, blank for untouched.
 private _settings =
 [
     ["AE3_Module_Games_Enabled", "Enabled", "bool"],
@@ -43,8 +40,7 @@ private _settings =
     ["AE3_Module_Games_PowerDraw", "PowerDraw", "number"]
 ];
 
-// With nothing synced the module speaks for the whole mission, which is the only way to reach the
-// settings a single computer has no say over anyway
+// Nothing synced means the module sets the mission-wide value
 private _targets = _syncedUnits select {isClass (configOf _x >> "AE3_Device")};
 
 if (_targets isEqualTo []) then {_targets = [objNull]};
@@ -64,7 +60,7 @@ if (_targets isEqualTo []) then {_targets = [objNull]};
         if ((_answer splitString " " joinString "") isNotEqualTo "") then {_value = parseNumber _answer};
     };
 
-    // Mission setting: nothing is written, so whatever decides that setting today keeps deciding it
+    // Mission setting: nothing is written
     if (!isNil "_value") then
     {
         {

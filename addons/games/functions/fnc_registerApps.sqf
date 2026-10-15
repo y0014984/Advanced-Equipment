@@ -107,9 +107,7 @@ private _script = "\z\ae3\addons\games\ui\web\js\ae3games.js";
     ] call AE3_desktop_fnc_registerExtApp;
 } forEach
 [
-    // Every icon is a plain symbol character: a rook, a disc, two card suits, two dice, a cycle and
-    // a grid. Anything that needs the emoji font - a playing card, a raised hand, an anchor - comes
-    // out as an empty box on the laptop browser, which never falls back that far.
+    // Plain symbol characters only: anything needing the emoji font draws as an empty box here.
     ["chess", localize "STR_AE3_Games_Title_Chess", "&#9814;"],
     ["checkers", localize "STR_AE3_Games_Title_Checkers", "&#9679;"],
     ["uno", localize "STR_AE3_Games_Title_Uno", "&#9830;"],

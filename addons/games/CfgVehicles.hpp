@@ -1,6 +1,5 @@
-// One checkbox per game on the Add Games module. Every computer starts with every game, so a ticked
-// box keeps that game and an unticked one takes it away; the property name is read back off the
-// module logic by AE3_games_fnc_module_addGames.
+// One checkbox per game on the Add Games module: ticked keeps the game, unticked takes it away. The
+// property name is read back off the module logic by AE3_games_fnc_module_addGames.
 #define AE3_ADDGAMES_CHECKBOX(NAME,LABEL,TIP) \
 	class AE3_AddGames_##NAME: Checkbox \
 	{ \
@@ -12,10 +11,8 @@
 		condition = "1"; \
 	}
 
-// One games setting per combo on the Games module. A combo rather than a checkbox because a checkbox
-// is always either on or off, so it would write a value onto every synced computer and leave no way
-// of saying "whatever the mission setting says"; the property name is read back off the module logic
-// by AE3_games_fnc_module_games.
+// One games setting per combo on the Games module. A combo rather than a checkbox so a setting can be
+// left to the mission; the property name is read back off the module logic by AE3_games_fnc_module_games.
 #define AE3_GAMESETTING_COMBO(NAME,LABEL,TIP) \
 	class AE3_Module_Games_##NAME: Combo \
 	{ \
@@ -42,9 +39,7 @@ class CfgVehicles
 	/* ================================================================================ */
 
 	// MODULE ADD GAMES (EDEN + ZEUS)
-	// Decides which games the synced computers keep. A computer is given every game when it starts up,
-	// so this is how a mission maker or a curator takes some of them away again. Snake is the single
-	// player game ae3_armaos ships; the rest are the networked games played between computers.
+	// Decides which games the synced computers keep, out of the full set they start with.
 	class AE3_AddGames: Module_F
 	{
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
@@ -83,11 +78,8 @@ class CfgVehicles
 	/* ================================================================================ */
 
 	// MODULE GAMES (EDEN + ZEUS)
-	// The one place the games settings are set. Placed in Eden it writes them onto every computer
-	// synced to it, or mission wide when nothing is synced; dropped by a curator it opens the roster
-	// dialog instead, where the same settings can be changed for the session and a live table closed.
-	// Anything left on Mission setting is left to the CBA setting, so a module dropped and not filled
-	// in changes nothing.
+	// The games settings. In Eden it writes them onto every synced computer, or mission wide when
+	// nothing is synced; in Zeus it opens the roster dialog. Mission setting writes nothing.
 	class AE3_Module_Games: Module_F
 	{
 		scope = 2; // Editor visibility; 2 will show it in the menu, 1 will hide it.
@@ -118,7 +110,7 @@ class CfgVehicles
 			AE3_GAMESETTING_COMBO(GraphicalUI,"$STR_AE3_Games_EdenAttributes_GraphicalUIDisplayName","$STR_AE3_Games_EdenAttributes_GraphicalUITooltip");
 			AE3_GAMESETTING_COMBO(DebugSeats,"$STR_AE3_Games_EdenAttributes_DebugSeatsDisplayName","$STR_AE3_Games_EdenAttributes_DebugSeatsTooltip");
 
-			// Drain while a game is open, in watt hours a second. An empty box keeps the mission setting.
+			// Drain while a game is open, in watt hours a second. Empty keeps the mission setting.
 			class AE3_Module_Games_PowerDraw: Edit
 			{
 				property = "AE3_Module_Games_PowerDraw";

@@ -181,11 +181,9 @@ if (isServer) then
         };
     }] call CBA_fnc_addClassEventHandler;
 
-    // Every computer carries every game from the moment it has finished starting up, and a computer
-    // with games switched off carries none of them, whatever it was built with. Which of them it keeps
-    // is the Add Games module's business, and that runs later, so there is nothing to ask here. The
-    // event is the right hook rather than InitPost: it fires once the terminal and the virtual
-    // filesystem both exist, and only for a device that actually has them.
+    // Every computer carries every game once it has started up, none when games are switched off.
+    // The Add Games module runs later and narrows that. This event rather than InitPost: it fires
+    // once the terminal and the filesystem exist, and only for a device that has them.
     ["ae3_armaos_deviceReady", {
         params ["_device"];
 

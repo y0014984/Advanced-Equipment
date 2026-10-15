@@ -16,11 +16,9 @@
 (function () {
   "use strict";
 
-  // Two glyph sets, the solid one and the hollow one. A white piece is drawn as both: the solid glyph
-  // filled white for the body of the piece, with the hollow glyph laid over it for the lines a
-  // printed set has inside its outline. The pair shares a font and a width, so the two land on each
-  // other exactly. Written as escapes rather than as the characters themselves: the page is handed to
-  // the browser without a charset of its own, so a non-ASCII byte in this file arrives mangled.
+  // Solid and hollow glyph sets. White is drawn as both: the solid glyph filled white, the hollow one
+  // over it for the inner lines. Escapes, not characters: a non-ASCII byte in this file arrives
+  // mangled, see the game app loader.
   var CHESS = {
     k: "\u265A", q: "\u265B", r: "\u265C", b: "\u265D", n: "\u265E", p: "\u265F"
   };
@@ -121,9 +119,7 @@
     return FILES[index % 8] + String(8 - Math.floor(index / 8));
   }
 
-  // The throw is written out rather than drawn as a hand: the hand characters belong to the emoji
-  // font, which the laptop browser does not reach, and a round nobody can read is the whole point of
-  // the reveal lost
+  // Written out rather than drawn: the hand characters need the emoji font, which this browser lacks
   function throwName(value) {
     var text = String(value || "");
 
@@ -302,8 +298,7 @@
           try { input.focus(); } catch (e) { /* the window may not be focused yet */ }
         }
 
-        // The table's own lobby: who is seated, which side each of them asked for, who moves first,
-        // and the practice seats a host may give itself while building a mission
+        // The table's own lobby: seats, side picks, who moves first and the host's practice seats
         function renderTableLobby(payload) {
           var seats = payload.seats || [];
           var sideChoice = payload.sideChoice || "none";
@@ -404,9 +399,8 @@
           setStatus("Seat " + (payload.seat + 1));
         }
 
-        // Whoever is at a seat says what to call it. The name rides on the seat rather than on the
-        // laptop, so a laptop holding practice seats names each of them separately, and a seat with
-        // no name of its own falls back to the name of the computer sitting at it.
+        // The name rides on the seat, so a laptop holding practice seats names each one separately.
+        // A seat with no name falls back to the computer's own.
         function seatNameButton(payload) {
           var row = (payload.seats || []).filter(function (s) { return s[0] === payload.seat; })[0];
           var b = el("button", "btn", "Name your seat");
@@ -477,9 +471,8 @@
               var kind = piece.toLowerCase();
 
               if (CHESS[kind]) {
-                // Upper case is white. Both sides are the solid glyph, so a white piece is a white
-                // piece rather than an outline of one; the hollow glyph goes over the white body to
-                // put its inner lines back.
+                // Upper case is white. Both sides use the solid glyph; the hollow one goes over the
+                // white body for its inner lines.
                 var white = piece === piece.toUpperCase();
                 var span = el("span", "ae3g-piece " + (white ? "ae3g-white" : "ae3g-black"), CHESS[kind]);
 
@@ -531,9 +524,7 @@
                 var white = piece === "w" || piece === "W";
                 var king = piece === "W" || piece === "B";
 
-                // A crowned disc is drawn as a double ring rather than written as a crown character:
-                // the board is at the mercy of whatever font the laptop browser has, and a missing
-                // glyph would leave a king looking exactly like an ordinary piece
+                // A king is a double ring rather than a crown character, which the font may lack
                 var disc = el("div", "ae3g-disc" + (king ? " ae3g-king" : ""));
 
                 disc.style.background = white ? "#f2f2ef" : "#2a2a2a";
@@ -565,8 +556,7 @@
           var value = card.substring(1);
 
           if (colour === "W") return value === "4" ? "+4" : "Wild";
-          // Words, not symbols: the enclosing-circle and turn-arrow characters are missing from
-          // plenty of fonts, and an unreadable card face is worse than a short label
+          // Words, not symbols: the circle and turn-arrow characters are missing from many fonts
           if (value === "s") return "Skip";
           if (value === "r") return "Rev";
 
@@ -645,9 +635,8 @@
 
           var handWrap = el("div", "ae3g-hand");
 
-          // A wild waiting for its colour is kept here, not in a panel of its own: the board is
-          // redrawn from scratch on every state the server sends, and a panel that replaced it was
-          // wiped by the next one before the colour could be picked
+          // A wild waiting for its colour is kept here: a panel of its own was wiped by the next
+          // state the server sent
           if (state.wild !== null && (payload.turn !== payload.seat || hand.indexOf(state.wild) < 0)) {
             state.wild = null;
           }
@@ -676,8 +665,7 @@
           elBody.appendChild(wrap);
         }
 
-        // The colour row for a wild that has been picked up but not yet played. It sits under the
-        // hand, so the rest of the board stays readable while the choice is made.
+        // Colour row for a wild that has been picked up but not yet played, drawn under the hand.
         function askColour(card) {
           var panel = el("div", "ae3g-col");
 
@@ -804,8 +792,7 @@
             for (x = 0; x < 15; x += 1) {
               var cell = el("div", "ae3g-cell");
 
-              // Anything that is not track, yard, column or centre stays the board's own dark
-              // ground, so the cross reads as a shape instead of as faint lines on cream
+              // Anything that is not track, yard, column or centre stays the board's dark ground
               board.appendChild(cell);
               cells[x + "," + y] = cell;
             }
@@ -844,8 +831,7 @@
             var start = LUDO_RING[(seat * 13) % 52];
             var startKey = start[0] + "," + start[1];
 
-            // The square a seat enters the track on carries a light ring, so the four starts are
-            // told apart from that seat's column at a glance
+            // A light ring marks the square a seat enters the track on
             if (cells[startKey]) {
               cells[startKey].style.background = seatColour(seat);
               cells[startKey].className = "ae3g-cell ae3g-live ae3g-start";
@@ -964,9 +950,7 @@
             }
           }
 
-          // Ladders and snakes are drawn across the board itself, each from the square it starts on
-          // to the square it ends on, so where one goes is read off the board rather than off a
-          // label in the corner of a square
+          // Ladders and snakes are drawn across the squares they join
           board.appendChild(slArt(jumps));
 
           positions.forEach(function (square, seat) {
@@ -1015,9 +999,8 @@
           elBody.appendChild(wrap);
         }
 
-        // Centre of a square in board units, 0 to 10 across and 0 to 10 down. Square one is the
-        // bottom left and the numbering turns at the end of every row, so every other row counts
-        // backwards.
+        // Centre of a square in board units, 0 to 10 each way. Square one is bottom left and every
+        // other row counts backwards.
         function slCentre(square) {
           var n = square - 1;
           var row = Math.floor(n / 10);
@@ -1039,8 +1022,7 @@
           return node;
         }
 
-        // Every jump as artwork on one overlay: a two-railed ladder up, a coiling snake down. Drawn
-        // rather than written, so none of it depends on the laptop having a font or an image.
+        // Every jump on one overlay: a two-railed ladder up, a curved snake down.
         function slArt(jumps) {
           var art = svgNode("svg", { "class": "ae3g-slart", viewBox: "0 0 10 10", preserveAspectRatio: "none" });
 
@@ -1081,8 +1063,7 @@
               return;
             }
 
-            // Snake: a curve that leans off the straight line to either side, head on the square it
-            // takes a token from
+            // Snake: a curve leaning off the straight line, head on the square it takes a token from
             var ox = -uy * length * 0.22;
             var oy = ux * length * 0.22;
 
@@ -1477,10 +1458,9 @@
 
         /* ---- shared ------------------------------------------------------------------- */
 
-        // Two clicks make a move on a square board: pick a piece, then its destination
-        // The outline marks the square a move is being built from, so it has to go the moment that
-        // square stops being the answer - including when the move it was part of is refused, which
-        // sends no new board back to redraw over it
+        // Two clicks make a move: pick a piece, then its destination. The outline has to go the
+        // moment its square stops being the answer, a refused move included - that sends no new
+        // board back to redraw over it.
         function clearPick() {
           var marked = elBody.querySelectorAll(".ae3g-sq.ae3g-pick");
           var i;
@@ -1500,7 +1480,7 @@
             squares[i].addEventListener("click", function () {
               var index = parseInt(this.getAttribute("data-index"), 10);
 
-              // Clicking the chosen square again is how a wrong pick is taken back
+              // Clicking the chosen square again takes the pick back
               if (state.from === index) {
                 clearPick();
                 return;
@@ -1524,7 +1504,7 @@
           state.tableId = payload.id;
           elLeave.hidden = false;
 
-          // The board is rebuilt from scratch below, so a square picked against the old one is gone
+          // The board is rebuilt below, so a square picked against the old one is gone
           state.from = null;
 
           if (payload.phase === "lobby") {
@@ -1544,8 +1524,7 @@
             default: elBody.innerHTML = '<div class="pad muted">This game has no board view yet.</div>';
           }
 
-          // Under the board: what this seat is called, and - for a host playing several seats from
-          // one laptop - which of them is being played
+          // Under the board: this seat's name, and the seat switcher for a laptop holding several
           var seatTools = el("div", "toolbar");
 
           seatTools.appendChild(seatNameButton(payload));

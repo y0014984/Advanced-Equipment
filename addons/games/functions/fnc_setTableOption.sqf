@@ -3,11 +3,8 @@
 /*
  * Author: Root
  * Description: Answers one of the questions a table asks: what the table is called, what the player
- * at a seat is called, which side a seat would like to play and which seat moves first. All of them
- * are settled here on the server so a client cannot give itself white after the board has been
- * built. The first three questions belong to the lobby; a seat name is the seat's own business and
- * can be changed at any point in a match, since nothing is decided by it. Runs on the server; a
- * client call is routed there.
+ * at a seat is called, which side a seat would like and which seat moves first. Settled on the server.
+ * All but the seat name are lobby-only. A client call is routed to the server.
  *
  * Arguments:
  * 0: _deviceNetId <STRING> - Network id of the device asking
@@ -44,8 +41,7 @@ if (_seat < 0) exitWith {[_device, "$STR_AE3_Games_Status_NotSeated"] call FUNC(
 
 private _isHost = (_table getOrDefault ["host", ""]) isEqualTo _deviceNetId;
 
-// Naming your own seat decides nothing about the match, so it is the one answer a started table
-// still takes; everything else would be rewriting a board that has already been built
+// A seat name is the one answer a started table still takes
 if ((_table getOrDefault ["phase", "lobby"]) isNotEqualTo "lobby" && {(toLowerANSI _option) isNotEqualTo "seatname"}) exitWith
 {
     [_device, "$STR_AE3_Games_Status_AlreadyStarted"] call FUNC(pushNotice);
@@ -62,9 +58,8 @@ switch (toLowerANSI _option) do
 
     case "seatname":
     {
-        // The label rides on the seat, so it follows that seat through a renumber at the start of a
-        // match and is what both front ends already print. An empty name hands the seat back to the
-        // computer's own name.
+        // The label rides on the seat, so it survives the renumber at the start of a match. Empty
+        // means the computer's own name.
         private _seats = _table getOrDefault ["seats", []];
         private _row = _seats findIf {(_x select 1) isEqualTo _seat};
 

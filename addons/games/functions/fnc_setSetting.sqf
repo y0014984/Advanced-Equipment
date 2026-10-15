@@ -69,8 +69,7 @@ else
 
 missionNamespace setVariable [QGVAR(overrides), _overrides, true];
 
-// Availability is published per device, so a mission-wide change has to be pushed out to all of them
-// before the desktop app list follows it
+// Availability is published per device, so a mission-wide change is pushed out to all of them
 if (_setting isEqualTo "Enabled") then
 {
     [objNull] call FUNC(refreshAvailability);

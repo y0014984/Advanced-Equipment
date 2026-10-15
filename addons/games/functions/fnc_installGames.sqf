@@ -41,8 +41,7 @@ if (!isServer) exitWith {["ae3_games_install", [_device, _gameIds]] call CBA_fnc
 
         if (isNull _device) exitWith {};
 
-        // A computer that was built with its games already linked is the normal case, and adding a
-        // link twice throws, so only the games it does not already have are asked for
+        // Adding a link twice throws, and a computer may be built with its games already linked
         private _links = _device getVariable ["AE3_Links", createHashMap];
         private _missing = _gameIds select {!(_x in _links)};
 

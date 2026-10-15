@@ -1,5 +1,5 @@
-// Laptop settings exposed as 3DEN object attributes. Games are not among them: every computer is
-// given every game, and the AE3: Games and AE3: Add Games modules are what change that.
+// Laptop settings exposed as 3DEN object attributes. Games are not among them: they are set by the
+// AE3: Games and AE3: Add Games modules.
 // Shared by every laptop variant.
 #define AE3_LAPTOP_SOFTWARE_ATTRIBUTES \
 	class AE3_DeviceTransferSpeed 	{ 		displayName = "$STR_AE3_Network_TransferSpeed_Speed"; 		tooltip = "$STR_AE3_Network_TransferSpeed_AttributeTooltip"; 		property = "AE3_DeviceTransferSpeed"; 		control = "Edit"; 		expression = "if (isServer && {_value > 0}) then { [_this, round _value] call AE3_network_fnc_setTransferSpeed; };"; 		defaultValue = "0"; 		typeName = "NUMBER"; 		validate = "number"; 		condition = "1"; 	}; \

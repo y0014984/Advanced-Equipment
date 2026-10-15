@@ -60,7 +60,6 @@ private _rows = [];
             _table getOrDefault ["phase", "lobby"],
             count _seats,
             _maxSeats,
-            // A seat that has been named says so here too, since that is what the players call it
             (_seats apply {
                 private _label = _x param [2, ""];
 
