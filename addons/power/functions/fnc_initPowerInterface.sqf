@@ -90,27 +90,19 @@ if(!isDedicated) then
 	// Ensure equipment parent action exists (creates if needed)
 	[_device] call AE3_interaction_fnc_ensureEquipmentParent;
 
-	private _hasEquipmentAction = _device getVariable ["AE3_interaction_hasEquipmentAction", false];
+	// The equipment parent is the only node an AE3 device ever hangs its actions from, so the power
+	// connections go into a Hardware submenu underneath it.
+	private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
+	private _hasHardwareSubmenu = _device getVariable ["AE3_interaction_hasHardwareSubmenu", false];
 
-	if (_hasEquipmentAction) then {
-		// Create Hardware submenu if it doesn't exist
-		private _parentPath = ["ACE_MainActions", "AE3_EquipmentAction"];
-		private _hasHardwareSubmenu = _device getVariable ["AE3_interaction_hasHardwareSubmenu", false];
-
-		if (!_hasHardwareSubmenu) then {
-			private _hardwareSubmenu = ["AE3_HardwareSubmenu", "Hardware", "", {}, {true}] call ace_interact_menu_fnc_createAction;
-			[_device, 0, _parentPath, _hardwareSubmenu] call ace_interact_menu_fnc_addActionToObject;
-			_device setVariable ["AE3_interaction_hasHardwareSubmenu", true];
-		};
-
-		// Add power connections to Hardware submenu
-		[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _connect] call ace_interact_menu_fnc_addActionToObject;
-		[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
-	} else {
-		// Add to standalone device action
-		[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _connect] call ace_interact_menu_fnc_addActionToObject;
-		[_device, 0, ["ACE_MainActions", "AE3_DeviceAction"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
+	if (!_hasHardwareSubmenu) then {
+		private _hardwareSubmenu = ["AE3_HardwareSubmenu", "Hardware", "", {}, {true}] call ace_interact_menu_fnc_createAction;
+		[_device, 0, _parentPath, _hardwareSubmenu] call ace_interact_menu_fnc_addActionToObject;
+		_device setVariable ["AE3_interaction_hasHardwareSubmenu", true];
 	};
+
+	[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _connect] call ace_interact_menu_fnc_addActionToObject;
+	[_device, 0, _parentPath + ["AE3_HardwareSubmenu"], _disconnect] call ace_interact_menu_fnc_addActionToObject;
 };
 
 if(isServer) then

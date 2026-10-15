@@ -154,7 +154,7 @@ if (hasInterface) then
 		[["AR", "Arabic"], ["DE", "Deutschland"], ["FR", "France"], ["HE", "Hebrew"], ["HU", "Magyarország"], ["IT", "Italia"], ["RU", "Русский"], ["TR", "Türkiye"], ["US", "United States"]],
 		8
 	],
-    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -194,7 +194,7 @@ if (hasInterface) then
 		],
 		9
 	],
-    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -217,7 +217,7 @@ if (hasInterface) then
 		],
 		0
 	],
-    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -232,7 +232,7 @@ if (hasInterface) then
 	["Terminal Default Size", "The default font size for terminal displays (0.5 = 50%, 1.0 = 100%). You can also use Ctrl + Plus/Minus to adjust size in-game."],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	[0.5, 1.0, 0.75, 2],
-    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    0, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -247,7 +247,7 @@ if (hasInterface) then
 	["STR_AE3_Main_CbaSettings_UiOnTextureName", "STR_AE3_Main_CbaSettings_UiOnTextureTooltip"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	false,
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -353,7 +353,7 @@ if (hasInterface) then
 	["Terminal Dialog Title", "The title shown in the terminal dialog window header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"SHITE™ COMPUTING",
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -368,7 +368,7 @@ if (hasInterface) then
 	["Terminal BIOS Version", "The BIOS version line shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"SHITE™ BIOS v1.0.0",
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -383,7 +383,7 @@ if (hasInterface) then
 	["Terminal Copyright", "The copyright line shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"© 2025 System Hardware Integration & Technology Enterprises",
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -398,7 +398,7 @@ if (hasInterface) then
 	["Terminal Boot Message", "The initialization message shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"Initializing kernel... please wait...",
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -413,7 +413,7 @@ if (hasInterface) then
 	["Terminal Tip Message", "The tip message shown in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"> Tip: SHITE™ laptops perform better when plugged in.",
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -428,7 +428,7 @@ if (hasInterface) then
 	["Show ASCII Art", "Display ASCII art in the terminal header"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	true,
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -443,7 +443,7 @@ if (hasInterface) then
 	["Terminal Tagline", "The tagline shown in the terminal header after ASCII art"],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	"Powered by SHITE™ Technologies - Excellence, from the ground up.",
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -458,7 +458,7 @@ if (hasInterface) then
 	["Laptop Startup Time", "Time (in seconds) for laptop to complete cold boot startup animation. Warm boot (from standby) is always 3 seconds."],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	[3, 15, 15, 0], // min, max, default, decimal places
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.
@@ -473,7 +473,7 @@ if (hasInterface) then
 	["Laptop Shutdown Time", "Time (in seconds) for laptop to complete shutdown animation."],
 	"STR_AE3_ArmaOS_CbaSettings_ArmaOSCategoryName",
 	[1, 15, 15, 0], // min, max, default, decimal places
-    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can’t be overwritten (optional, default: 0)
+    1, // "_isGlobal" flag. '1' = all clients share the same setting, '2' = setting can't be overwritten (optional, default: 0)
     {
         params ["_value"];
     }, // function that will be executed once on mission start and every time the setting is changed.

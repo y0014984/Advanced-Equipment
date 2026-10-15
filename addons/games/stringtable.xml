@@ -1,0 +1,721 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="AE3">
+    <Package name="Games">
+        <Container name="CBA Settings">
+            <Key ID="STR_AE3_Games_CbaSettings_AbandonTimeoutName">
+                <Original>Abandon timeout (seconds)</Original>
+                <English>Abandon timeout (seconds)</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_AbandonTimeoutTooltip">
+                <Original>Seconds without a move before a table is closed. Zero keeps a table until someone leaves it, so a match can be resumed much later.</Original>
+                <English>Seconds without a move before a table is closed. Zero keeps a table until someone leaves it, so a match can be resumed much later.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_AllowHostingName">
+                <Original>Allow hosting</Original>
+                <English>Allow hosting</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_AllowHostingTooltip">
+                <Original>Allow a computer to open a new table. Joining an existing table stays possible when this is off.</Original>
+                <English>Allow a computer to open a new table. Joining an existing table stays possible when this is off.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_CategoryName">
+                <Original>AE3 Games</Original>
+                <English>AE3 Games</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_DebugSeatsName">
+                <Original>Allow practice seats</Original>
+                <English>Allow practice seats</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_DebugSeatsTooltip">
+                <Original>Let the computer hosting a table give itself extra seats and play every side from one laptop. Meant for building and checking a mission rather than for a live game.</Original>
+                <English>Let the computer hosting a table give itself extra seats and play every side from one laptop. Meant for building and checking a mission rather than for a live game.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_EnabledName">
+                <Original>Games enabled</Original>
+                <English>Games enabled</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_EnabledTooltip">
+                <Original>Allow games to be played on AE3 computers. A single device can be excluded in Eden or from the Zeus attributes panel.</Original>
+                <English>Allow games to be played on AE3 computers. A single device can be excluded in Eden or from the Zeus attributes panel.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_GraphicalUIName">
+                <Original>Graphical game boards</Original>
+                <English>Graphical game boards</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_GraphicalUITooltip">
+                <Original>Draw games on the desktop as boards, cards and tokens. Switching this off falls back to the plain list view, which is lighter on a weaker machine.</Original>
+                <English>Draw games on the desktop as boards, cards and tokens. Switching this off falls back to the plain list view, which is lighter on a weaker machine.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_IdleDrawName">
+                <Original>Parked game power draw</Original>
+                <English>Parked game power draw</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_IdleDrawTooltip">
+                <Original>Extra power a computer draws while it holds a seat at a table but the game is closed. Zero means a parked match costs nothing.</Original>
+                <English>Extra power a computer draws while it holds a seat at a table but the game is closed. Zero means a parked match costs nothing.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_MaxTablesName">
+                <Original>Maximum tables</Original>
+                <English>Maximum tables</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_MaxTablesTooltip">
+                <Original>How many games may run at once across the whole mission.</Original>
+                <English>How many games may run at once across the whole mission.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_PowerDrawName">
+                <Original>Game power draw</Original>
+                <English>Game power draw</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_PowerDrawTooltip">
+                <Original>Extra power a computer draws while a game is open, on top of its normal consumption.</Original>
+                <English>Extra power a computer draws while a game is open, on top of its normal consumption.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_RequireSameNetworkName">
+                <Original>Require the same network</Original>
+                <English>Require the same network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_RequireSameNetworkTooltip">
+                <Original>Only let computers that can actually reach each other over the in-game network share a table. With this off, any powered computer can join.</Original>
+                <English>Only let computers that can actually reach each other over the in-game network share a table. With this off, any powered computer can join.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_TurnTimeoutName">
+                <Original>Turn timeout (seconds)</Original>
+                <English>Turn timeout (seconds)</English>
+            </Key>
+            <Key ID="STR_AE3_Games_CbaSettings_TurnTimeoutTooltip">
+                <Original>Seconds a player has to move before they forfeit. Zero means no limit.</Original>
+                <English>Seconds a player has to move before they forfeit. Zero means no limit.</English>
+            </Key>
+        </Container>
+        <Container name="Config">
+            <Key ID="STR_AE3_Games_Config_AddGamesNetworkedTooltip">
+                <Original>Ticked, the computer keeps this game's terminal command; unticked, it loses it. Every computer starts with all of them. It is played against other computers on the same network; the desktop app follows the computer's own Games attribute.</Original>
+                <English>Ticked, the computer keeps this game's terminal command; unticked, it loses it. Every computer starts with all of them. It is played against other computers on the same network; the desktop app follows the computer's own Games attribute.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_AddGamesSnake">
+                <Original>Snake (single player)</Original>
+                <English>Snake (single player)</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_AddGamesSnakeTooltip">
+                <Original>Ticked, the computer keeps the single player Snake game; unticked, it loses it. Played on this computer alone.</Original>
+                <English>Ticked, the computer keeps the single player Snake game; unticked, it loses it. Played on this computer alone.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandChessDescr">
+                <Original>Play chess against another computer on the network</Original>
+                <English>Play chess against another computer on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandChessMan">
+                <Original>chess - play chess against another computer on the network. The match runs on the server, so it can be left and picked up again later. At the lobby, type new to open a table, join followed by a table number to take a seat, or resume to go back to a match this computer already sits at. In a match, enter moves from square to square, for example e2e4; castle by moving the king two squares, e1g1. A pawn reaching the last rank becomes a queen. En passant is not available. Type board to redraw, status for the current situation, leave to give up the seat, or quit to close the game and keep the seat. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>chess - play chess against another computer on the network. The match runs on the server, so it can be left and picked up again later. At the lobby, type new to open a table, join followed by a table number to take a seat, or resume to go back to a match this computer already sits at. In a match, enter moves from square to square, for example e2e4; castle by moving the king two squares, e1g1. A pawn reaching the last rank becomes a queen. En passant is not available. Type board to redraw, status for the current situation, leave to give up the seat, or quit to close the game and keep the seat. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_ModuleAddGamesDisplayName">
+                <Original>Add Games</Original>
+                <English>Add Games</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_ModuleGamesDisplayName">
+                <Original>Games</Original>
+                <English>Games</English>
+            </Key>
+        </Container>
+        <Container name="Eden Attributes">
+            <Key ID="STR_AE3_Games_EdenAttributes_AllowHostingDisplayName">
+                <Original>Games: allow hosting</Original>
+                <English>Games: allow hosting</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_AllowHostingTooltip">
+                <Original>Whether this computer may open a new table. It can still join one when this is unticked.</Original>
+                <English>Whether this computer may open a new table. It can still join one when this is unticked.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_DebugSeatsDisplayName">
+                <Original>Games: practice seats</Original>
+                <English>Games: practice seats</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_DebugSeatsTooltip">
+                <Original>Let this computer give itself extra seats at a table it hosts and play every side from here. Mission setting leaves the choice to the mission.</Original>
+                <English>Let this computer give itself extra seats at a table it hosts and play every side from here. Mission setting leaves the choice to the mission.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_EnabledDisplayName">
+                <Original>Games</Original>
+                <English>Games</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_EnabledTooltip">
+                <Original>Whether games can be played on this computer at all. Unticked, it has no games app and no games commands.</Original>
+                <English>Whether games can be played on this computer at all. Unticked, it has no games app and no games commands.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_GraphicalUIDisplayName">
+                <Original>Games: graphical boards</Original>
+                <English>Games: graphical boards</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_GraphicalUITooltip">
+                <Original>Draw games on this computer as boards, cards and tokens. Mission setting leaves the choice to the mission.</Original>
+                <English>Draw games on this computer as boards, cards and tokens. Mission setting leaves the choice to the mission.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_No">
+                <Original>Off</Original>
+                <English>Off</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_PowerDrawDisplayName">
+                <Original>Games: power draw</Original>
+                <English>Games: power draw</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_PowerDrawTooltip">
+                <Original>Extra power this computer draws while a game is open. Leave empty to use the mission setting.</Original>
+                <English>Extra power this computer draws while a game is open. Leave empty to use the mission setting.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_UseSetting">
+                <Original>Mission setting</Original>
+                <English>Mission setting</English>
+            </Key>
+            <Key ID="STR_AE3_Games_EdenAttributes_Yes">
+                <Original>On</Original>
+                <English>On</English>
+            </Key>
+        </Container>
+        <Container name="Seat">
+            <Key ID="STR_AE3_Games_Seat_Practice">
+                <Original>Practice seat</Original>
+                <English>Practice seat</English>
+            </Key>
+        </Container>
+        <Container name="Status">
+            <Key ID="STR_AE3_Games_Status_Abandoned">
+                <Original>The table was closed after being left alone too long.</Original>
+                <English>The table was closed after being left alone too long.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_AllHome">
+                <Original>All four tokens are home - the game is won.</Original>
+                <English>All four tokens are home - the game is won.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_AlreadyFired">
+                <Original>You have already fired at that square.</Original>
+                <English>You have already fired at that square.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_AlreadyRolled">
+                <Original>You have rolled - move a token.</Original>
+                <English>You have rolled - move a token.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_AlreadyStarted">
+                <Original>That match has already started.</Original>
+                <English>That match has already started.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_AlreadyThrown">
+                <Original>You have already thrown this round.</Original>
+                <English>You have already thrown this round.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_BadNotation">
+                <Original>Write a move as two squares, for example e2e4.</Original>
+                <English>Write a move as two squares, for example e2e4.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_BadSide">
+                <Original>Pick white, black or random.</Original>
+                <English>Pick white, black or random.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_BadSquare">
+                <Original>Name a square to fire at, such as b5.</Original>
+                <English>Name a square to fire at, such as b5.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_BadThrow">
+                <Original>Throw rock, paper or scissors.</Original>
+                <English>Throw rock, paper or scissors.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Bust">
+                <Original>Bust.</Original>
+                <English>Bust.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_CaptureAgain">
+                <Original>Captured - the same piece can jump again.</Original>
+                <English>Captured - the same piece can jump again.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_CardDrawn">
+                <Original>Card drawn.</Original>
+                <English>Card drawn.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_CardNotHeld">
+                <Original>You do not hold that card.</Original>
+                <English>You do not hold that card.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_CardNotPlayable">
+                <Original>That card does not match the colour or the value in play.</Original>
+                <English>That card does not match the colour or the value in play.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_CardPlayed">
+                <Original>Card played.</Original>
+                <English>Card played.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Checkmate">
+                <Original>Checkmate.</Original>
+                <English>Checkmate.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Closed">
+                <Original>The table was closed.</Original>
+                <English>The table was closed.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_DealToPlay">
+                <Original>Type deal to start the next round.</Original>
+                <English>Type deal to start the next round.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Dealt">
+                <Original>Cards dealt.</Original>
+                <English>Cards dealt.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_DebugSeatsOff">
+                <Original>Practice seats are switched off on this computer.</Original>
+                <English>Practice seats are switched off on this computer.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Disabled">
+                <Original>Games are disabled on this computer.</Original>
+                <English>Games are disabled on this computer.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_FireAway">
+                <Original>Both fleets are ready. Open fire.</Original>
+                <English>Both fleets are ready. Open fire.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_FleetCleared">
+                <Original>Fleet taken off the grid.</Original>
+                <English>Fleet taken off the grid.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_FleetIncomplete">
+                <Original>Every ship has to be on the grid first.</Original>
+                <English>Every ship has to be on the grid first.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_FleetPlaced">
+                <Original>Fleet laid out at random.</Original>
+                <English>Fleet laid out at random.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_FleetReady">
+                <Original>Fleet ready.</Original>
+                <English>Fleet ready.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_FleetSunk">
+                <Original>The last ship is sunk - the game is won.</Original>
+                <English>The last ship is sunk - the game is won.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_GameOver">
+                <Original>This match is over.</Original>
+                <English>This match is over.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_HandEmpty">
+                <Original>Last card played - the game is won.</Original>
+                <English>Last card played - the game is won.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Hit">
+                <Original>Card taken.</Original>
+                <English>Card taken.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_HitOrStand">
+                <Original>Type hit or stand.</Original>
+                <English>Type hit or stand.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Home">
+                <Original>Home - the game is won.</Original>
+                <English>Home - the game is won.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_HostOnly">
+                <Original>Only the computer hosting the table can change that.</Original>
+                <English>Only the computer hosting the table can change that.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_HostStartsIt">
+                <Original>Only the computer hosting the table can start it.</Original>
+                <English>Only the computer hosting the table can start it.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_IllegalMove">
+                <Original>That move is not legal.</Original>
+                <English>That move is not legal.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_KingInCheck">
+                <Original>That move would leave your king in check.</Original>
+                <English>That move would leave your king in check.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Ladder">
+                <Original>Up a ladder.</Original>
+                <English>Up a ladder.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Miss">
+                <Original>Miss.</Original>
+                <English>Miss.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_MoveMade">
+                <Original>Move played.</Original>
+                <English>Move played.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_MustCapture">
+                <Original>A capture is available and has to be taken.</Original>
+                <English>A capture is available and has to be taken.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_MustContinueCapture">
+                <Original>Carry on capturing with the piece that just jumped.</Original>
+                <English>Carry on capturing with the piece that just jumped.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NeedMorePlayers">
+                <Original>Not enough players have taken a seat yet.</Original>
+                <English>Not enough players have taken a seat yet.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NoMovesLeft">
+                <Original>No pieces or no moves left - the game is over.</Original>
+                <English>No pieces or no moves left - the game is over.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NoPower">
+                <Original>That computer has no power.</Original>
+                <English>That computer has no power.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NoSuchShip">
+                <Original>No ship of that number.</Original>
+                <English>No ship of that number.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NoSuchTable">
+                <Original>That table no longer exists.</Original>
+                <English>That table no longer exists.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NoSuchToken">
+                <Original>That token cannot make that move.</Original>
+                <English>That token cannot make that move.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NoTokenToMove">
+                <Original>Nothing that roll can move.</Original>
+                <English>Nothing that roll can move.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NotInUse">
+                <Original>Nobody is using that computer.</Original>
+                <English>Nobody is using that computer.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NotSeated">
+                <Original>This computer holds no seat at that table.</Original>
+                <English>This computer holds no seat at that table.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NotStarted">
+                <Original>The match has not started yet.</Original>
+                <English>The match has not started yet.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_NotYourTurn">
+                <Original>It is not your turn.</Original>
+                <English>It is not your turn.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_OrderReversed">
+                <Original>The order of play is reversed.</Original>
+                <English>The order of play is reversed.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_PickAColour">
+                <Original>A wild needs a colour: play W r for red.</Original>
+                <English>A wild needs a colour: play W r for red.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_PlaceYourFleet">
+                <Original>Lay your fleet out first, then say you are ready.</Original>
+                <English>Lay your fleet out first, then say you are ready.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_PlayOrDraw">
+                <Original>Type play followed by a card, or draw.</Original>
+                <English>Type play followed by a card, or draw.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RollFirst">
+                <Original>Roll before moving a token.</Original>
+                <English>Roll before moving a token.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RollToPlay">
+                <Original>Type roll to throw the die.</Original>
+                <English>Type roll to throw the die.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RollTooHigh">
+                <Original>That roll would pass the last square, so nothing moves.</Original>
+                <English>That roll would pass the last square, so nothing moves.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Rolled">
+                <Original>Die rolled.</Original>
+                <English>Die rolled.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RoundDrawn">
+                <Original>The round is a draw.</Original>
+                <English>The round is a draw.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RoundInPlay">
+                <Original>This round is still being played.</Original>
+                <English>This round is still being played.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RoundResolved">
+                <Original>The dealer has played and the round is scored.</Original>
+                <English>The dealer has played and the round is scored.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RoundToSeatOne">
+                <Original>The first seat takes the round.</Original>
+                <English>The first seat takes the round.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_RoundToSeatTwo">
+                <Original>The second seat takes the round.</Original>
+                <English>The second seat takes the round.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_SeatDrew">
+                <Original>The next seat draws and is skipped.</Original>
+                <English>The next seat draws and is skipped.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_SeatLeft">
+                <Original>A player left the table.</Original>
+                <English>A player left the table.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_SeatSkipped">
+                <Original>The next seat is skipped.</Original>
+                <English>The next seat is skipped.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_ShipHit">
+                <Original>Hit - fire again.</Original>
+                <English>Hit - fire again.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_ShipOffGrid">
+                <Original>A ship that long does not fit there.</Original>
+                <English>A ship that long does not fit there.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_ShipPlaced">
+                <Original>Ship placed.</Original>
+                <English>Ship placed.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_ShipsOverlap">
+                <Original>Another ship is already on those squares.</Original>
+                <English>Another ship is already on those squares.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_SideTaken">
+                <Original>Two players have asked for the same side. The table starts once every choice is a different one.</Original>
+                <English>Two players have asked for the same side. The table starts once every choice is a different one.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Snake">
+                <Original>Down a snake.</Original>
+                <English>Down a snake.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Stalemate">
+                <Original>Stalemate - the game is a draw.</Original>
+                <English>Stalemate - the game is a draw.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Started">
+                <Original>The match has started.</Original>
+                <English>The match has started.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Stood">
+                <Original>Standing.</Original>
+                <English>Standing.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_TableFull">
+                <Original>That table is full.</Original>
+                <English>That table is full.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_ThrowMade">
+                <Original>Thrown - waiting for the other player.</Original>
+                <English>Thrown - waiting for the other player.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_TokenCaptured">
+                <Original>A token was sent back to its yard.</Original>
+                <English>A token was sent back to its yard.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_TokenHome">
+                <Original>A token reached home.</Original>
+                <English>A token reached home.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_TokenMoved">
+                <Original>Token moved.</Original>
+                <English>Token moved.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_TooManyTables">
+                <Original>Too many games are already running.</Original>
+                <English>Too many games are already running.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_TurnTimedOut">
+                <Original>A player ran out of time.</Original>
+                <English>A player ran out of time.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Twenty">
+                <Original>Twenty one.</Original>
+                <English>Twenty one.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_Unreachable">
+                <Original>That table is not reachable from this network.</Original>
+                <English>That table is not reachable from this network.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Status_WaitingForFleet">
+                <Original>Your fleet is laid out. Waiting for your opponent.</Original>
+                <English>Your fleet is laid out. Waiting for your opponent.</English>
+            </Key>
+        </Container>
+        <Container name="Terminal">
+            <Key ID="STR_AE3_Games_Config_CommandBattleshipDescr">
+                <Original>Play battleship against another computer on the network</Original>
+                <English>Play battleship against another computer on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandBattleshipMan">
+                <Original>battleship - play battleship against another computer on the network. Both fleets are placed at random when the match starts, five ships each of five, four, three, three and two squares. Fire by naming a square, b5 or e10. A hit fires again. Your own waters show your ships as S with hits and misses marked on them; their waters show only what you have found out. Sinking all seventeen squares wins. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>battleship - play battleship against another computer on the network. Both fleets are placed at random when the match starts, five ships each of five, four, three, three and two squares. Fire by naming a square, b5 or e10. A hit fires again. Your own waters show your ships as S with hits and misses marked on them; their waters show only what you have found out. Sinking all seventeen squares wins. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandBlackjackDescr">
+                <Original>Play blackjack with up to eight computers on the network</Original>
+                <English>Play blackjack with up to eight computers on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandBlackjackMan">
+                <Original>blackjack - play blackjack with up to eight computers on the network against an automatic dealer. Open a table with new, let others join, then start it with start; a full table starts itself. Type hit to take a card or stand to keep your hand. The dealer draws to seventeen once every player is done, and the first seat to win three rounds takes the match. Type deal to start the next round. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>blackjack - play blackjack with up to eight computers on the network against an automatic dealer. Open a table with new, let others join, then start it with start; a full table starts itself. Type hit to take a card or stand to keep your hand. The dealer draws to seventeen once every player is done, and the first seat to win three rounds takes the match. Type deal to start the next round. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandCheckersDescr">
+                <Original>Play checkers against another computer on the network</Original>
+                <English>Play checkers against another computer on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandCheckersMan">
+                <Original>checkers - play checkers against another computer on the network. At the lobby, type new to open a table, join followed by a number to take a seat, or resume followed by a number to go back to a match. In a match, move a piece by naming two squares, c3d4, and jump with c3e5. A capture on offer has to be taken, and a piece that can keep jumping keeps the turn. A piece reaching the far row becomes a king and may move in every diagonal direction. Type board to redraw, status for the current situation, leave to give up the seat, or quit to close the game and keep it. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>checkers - play checkers against another computer on the network. At the lobby, type new to open a table, join followed by a number to take a seat, or resume followed by a number to go back to a match. In a match, move a piece by naming two squares, c3d4, and jump with c3e5. A capture on offer has to be taken, and a piece that can keep jumping keeps the turn. A piece reaching the far row becomes a king and may move in every diagonal direction. Type board to redraw, status for the current situation, leave to give up the seat, or quit to close the game and keep it. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandLudoDescr">
+                <Original>Play ludo with up to four computers on the network</Original>
+                <English>Play ludo with up to four computers on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandLudoMan">
+                <Original>ludo - play ludo with up to four computers on the network. Open a table with new, let others join, then start it with start; a full table starts itself. A turn is two steps: type roll, then the number of the token to move. A token leaves the yard on a six, and a six, a capture or a token reaching home all roll again. Landing on a square held by a single opposing token sends it back to its yard. Reaching home needs the exact number. A token at 0 is in the yard and one at 57 is home. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>ludo - play ludo with up to four computers on the network. Open a table with new, let others join, then start it with start; a full table starts itself. A turn is two steps: type roll, then the number of the token to move. A token leaves the yard on a six, and a six, a capture or a token reaching home all roll again. Landing on a square held by a single opposing token sends it back to its yard. Reaching home needs the exact number. A token at 0 is in the yard and one at 57 is home. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandRpsDescr">
+                <Original>Play rock paper scissors against another computer on the network</Original>
+                <English>Play rock paper scissors against another computer on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandRpsMan">
+                <Original>rps - play rock paper scissors against another computer on the network, first to three rounds. Both players throw at the same time, so you may throw whenever you like and your throw is not shown to the other player until theirs is in. Type rock, paper or scissors, or just r, p or s. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>rps - play rock paper scissors against another computer on the network, first to three rounds. Both players throw at the same time, so you may throw whenever you like and your throw is not shown to the other player until theirs is in. Type rock, paper or scissors, or just r, p or s. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandSnakesLaddersDescr">
+                <Original>Play snakes and ladders with up to four computers on the network</Original>
+                <English>Play snakes and ladders with up to four computers on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandSnakesLaddersMan">
+                <Original>snakesladders - play snakes and ladders with up to four computers on the network. Open a table with new, let others join, then start it with start; a full table starts itself. Type roll to take your turn. A six rolls again, a ladder carries your token up, a snake takes it down, and a roll that would pass one hundred does not move. First token to land on one hundred exactly wins. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>snakesladders - play snakes and ladders with up to four computers on the network. Open a table with new, let others join, then start it with start; a full table starts itself. Type roll to take your turn. A six rolls again, a ladder carries your token up, a snake takes it down, and a roll that would pass one hundred does not move. First token to land on one hundred exactly wins. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandUnoDescr">
+                <Original>Play uno with up to eight computers on the network</Original>
+                <English>Play uno with up to eight computers on the network</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Config_CommandUnoMan">
+                <Original>uno - play uno with up to eight computers on the network. Open a table with new, let others join, then start it with start once at least two seats are taken; a full table starts itself. Cards are written as a colour letter and a value: R5, G+2 for a draw two, Bs for a skip, Yr for a reverse, W for a wild and W4 for a wild draw four. Type play followed by a card, adding a colour for a wild, as in play W r, or draw to take a card and pass. First to empty their hand wins. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</Original>
+                <English>uno - play uno with up to eight computers on the network. Open a table with new, let others join, then start it with start once at least two seats are taken; a full table starts itself. Cards are written as a colour letter and a value: R5, G+2 for a draw two, Bs for a skip, Yr for a reverse, W for a wild and W4 for a wild draw four. Type play followed by a card, adding a colour for a wild, as in play W r, or draw to take a card and pass. First to empty their hand wins. Type seatname followed by a name to choose what this seat is called at the table, or seatname on its own to go back to the computer's name.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_Draw">
+                <Original>The match is a draw.</Original>
+                <English>The match is a draw.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_GameHelp">
+                <Original>Commands: a move such as e2e4, board, status, seatname &lt;text&gt;, leave, quit</Original>
+                <English>Commands: a move such as e2e4, board, status, seatname &lt;text&gt;, leave, quit</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_InCheck">
+                <Original>You are in check.</Original>
+                <English>You are in check.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_Joinable">
+                <Original>Open tables</Original>
+                <English>Open tables</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_LobbyHelp">
+                <Original>Commands: new, join &lt;number&gt;, resume &lt;number&gt;, refresh, quit</Original>
+                <English>Commands: new, join &lt;number&gt;, resume &lt;number&gt;, refresh, quit</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_LobbyOptions">
+                <Original>name &lt;text&gt; renames the table, seatname &lt;text&gt; names your own seat, pref white|black|random picks a side, starter &lt;seat&gt; sets who moves first, dummy adds a practice seat, seat &lt;n&gt; switches to one, start begins the match.</Original>
+                <English>name &lt;text&gt; renames the table, seatname &lt;text&gt; names your own seat, pref white|black|random picks a side, starter &lt;seat&gt; sets who moves first, dummy adds a practice seat, seat &lt;n&gt; switches to one, start begins the match.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_LobbyTitle">
+                <Original>Lobby</Original>
+                <English>Lobby</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_NoNetwork">
+                <Original>This computer is not on a network.</Original>
+                <English>This computer is not on a network.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_None">
+                <Original>none</Original>
+                <English>none</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_Resumable">
+                <Original>Your matches</Original>
+                <English>Your matches</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_TheirTurn">
+                <Original>Waiting for the other player.</Original>
+                <English>Waiting for the other player.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_Unknown">
+                <Original>Unknown command.</Original>
+                <English>Unknown command.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_WaitingSeats">
+                <Original>Waiting for another player to join.</Original>
+                <English>Waiting for another player to join.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_YouLost">
+                <Original>You lost.</Original>
+                <English>You lost.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_YouWon">
+                <Original>You won.</Original>
+                <English>You won.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Terminal_YourTurn">
+                <Original>Your turn.</Original>
+                <English>Your turn.</English>
+            </Key>
+        </Container>
+        <Container name="Title">
+            <Key ID="STR_AE3_Games_Title_Battleship">
+                <Original>Battleship</Original>
+                <English>Battleship</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Title_Blackjack">
+                <Original>Blackjack</Original>
+                <English>Blackjack</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Title_Checkers">
+                <Original>Checkers</Original>
+                <English>Checkers</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Title_Chess">
+                <Original>Chess</Original>
+                <English>Chess</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Title_Ludo">
+                <Original>Ludo</Original>
+                <English>Ludo</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Title_Rps">
+                <Original>Rock Paper Scissors</Original>
+                <English>Rock Paper Scissors</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Title_SnakesLadders">
+                <Original>Snakes and Ladders</Original>
+                <English>Snakes and Ladders</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Title_Uno">
+                <Original>Uno</Original>
+                <English>Uno</English>
+            </Key>
+        </Container>
+        <Container name="Zeus">
+            <Key ID="STR_AE3_Games_Zeus_AllGamesAdded">
+                <Original>That computer keeps all of its games. Zeus Enhanced is needed to pick individual ones.</Original>
+                <English>That computer keeps all of its games. Zeus Enhanced is needed to pick individual ones.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Zeus_BlankKeepsSetting">
+                <Original>Leave empty to keep the mission setting.</Original>
+                <English>Leave empty to keep the mission setting.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Zeus_CloseTable">
+                <Original>Close a table</Original>
+                <English>Close a table</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Zeus_CloseTableTooltip">
+                <Original>Ends the chosen match for everyone sitting at it.</Original>
+                <English>Ends the chosen match for everyone sitting at it.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Zeus_GamesAdded">
+                <Original>That computer's games have been set.</Original>
+                <English>That computer's games have been set.</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Zeus_NoTable">
+                <Original>Close nothing</Original>
+                <English>Close nothing</English>
+            </Key>
+            <Key ID="STR_AE3_Games_Zeus_NoTables">
+                <Original>No games are running.</Original>
+                <English>No games are running.</English>
+            </Key>
+        </Container>
+    </Package>
+</Project>

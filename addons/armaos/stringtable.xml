@@ -1198,15 +1198,6 @@
                 <German>Laptop</German>
                 <Chinesesimp>笔记本电脑</Chinesesimp>
             </Key>
-            <Key ID="STR_AE3_ArmaOS_Config_ModuleAddGamesSnakeTooltip">
-                <Original>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Original>
-                <English>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</English>
-                <French>Le jeu du "serpent". Mangez des fruits en devenant de plus en plus long. N'entrez pas en collision avec vous-même ou les murs.</French>
-                <Italian>Il gioco 'snake'. mangia i frutti mentre diventa sempre più lungo. non scontrarti con te stesso o con i muri.</Italian>
-                <Russian>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Russian>
-                <German>Das 'snake' Spiel. Iss Früchte während du immer länger wirst. Vermeide mit der Wand oder dir selbst zu kollidieren.</German>
-                <Chinesesimp>The 'snake' game. Eat fruits while getting longer and longer. Don't collide with yourself or the walls.</Chinesesimp>
-            </Key>
             <Key ID="STR_AE3_ArmaOS_Config_ModuleAddSudoerDescription">
                 <Original>This module gives an existing account superuser rights on an armaOS computer by adding it to /etc/sudoers. Sync one or more of these modules to a supported computer.</Original>
                 <English>This module gives an existing account superuser rights on an armaOS computer by adding it to /etc/sudoers. Sync one or more of these modules to a supported computer.</English>

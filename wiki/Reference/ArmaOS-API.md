@@ -214,7 +214,9 @@ Server-only: yes.
 
 ### `AE3_armaos_fnc_computer_addGames`
 
-Adds optional games. Currently the supported game is `snake`.
+Adds Snake to a computer. Every computer already has it, and every other game, from the moment it
+starts up, so this is only needed after something has taken it away - see
+[`AE3_games_fnc_installGames`](Games-API.md) for the rest.
 
 ```sqf
 [_computer, _isSnake] call AE3_armaos_fnc_computer_addGames;

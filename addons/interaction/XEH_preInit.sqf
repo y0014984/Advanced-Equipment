@@ -35,42 +35,49 @@ AE3_interaction_fnc_ensureEquipmentParent = {
         if (_displayName isEqualTo "") then {
             private _typeOf = typeOf _object;
 
+            // Class names are matched in lower case, because find is case sensitive and the class
+            // names are not consistently capitalised - Land_MobileRadar_01_generator_F_AE3 spells
+            // generator in lower case and would otherwise miss its own label.
+            private _typeLower = toLowerANSI _typeOf;
+
             // Map specific object types to friendly names
             switch (true) do {
                 // Laptops - all variants
-                case (_typeOf find "Laptop" >= 0): {
+                case (_typeLower find "laptop" >= 0): {
                     _displayName = "Laptop";
                 };
                 // Headless servers
-                case (_typeOf find "PortableServer" >= 0): {
+                case (_typeLower find "portableserver" >= 0): {
                     _displayName = "Server";
                 };
                 // USB Flash Drives
-                case (_typeOf find "USB" >= 0 || _typeOf find "FlashDisk" >= 0): {
+                case (_typeLower find "usb" >= 0 || _typeLower find "flashdisk" >= 0): {
                     _displayName = "USB Flash Drive";
                 };
                 // Generators
-                case (_typeOf find "Generator" >= 0 || _typeOf find "PowerGenerator" >= 0): {
+                case (_typeLower find "generator" >= 0): {
                     _displayName = "Generator";
                 };
                 // Routers
-                case (_typeOf find "Router" >= 0): {
+                case (_typeLower find "router" >= 0): {
                     _displayName = "Router";
                 };
                 // Lamps/Lights
-                case (_typeOf find "Lamp" >= 0 || _typeOf find "Light" >= 0 || _typeOf find "Lantern" >= 0): {
+                case (_typeLower find "lamp" >= 0 || _typeLower find "light" >= 0 || _typeLower find "lantern" >= 0): {
                     _displayName = "Lamp";
                 };
                 // Solar Panels
-                case (_typeOf find "Solar" >= 0): {
+                case (_typeLower find "solar" >= 0): {
                     _displayName = "Solar Panel";
                 };
                 // Batteries
-                case (_typeOf find "Battery" >= 0): {
+                case (_typeLower find "battery" >= 0): {
                     _displayName = "Battery";
                 };
                 // Desks
-                case (_typeOf find "Desk" >= 0 || _typeOf find "Table" >= 0): {
+                // Matched on desk alone: table is a substring of portable, so it would claim every
+                // portable device whose own label is checked later in this switch.
+                case (_typeLower find "desk" >= 0): {
                     _displayName = "Desk";
                 };
                 // Default: use config display name

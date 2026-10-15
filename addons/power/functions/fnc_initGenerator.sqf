@@ -32,8 +32,12 @@ if(!isDedicated) then
 				{params ["_target", "_player", "_params"]; [_target] spawn AE3_power_fnc_checkPowerOutputAction;},
 				{alive _target}] call ace_interact_menu_fnc_createAction;
 
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _check] call ace_interact_menu_fnc_addActionToObject;
-	[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _power] call ace_interact_menu_fnc_addActionToObject;
+	// Hangs the fuel and output checks from the path the device's own power actions use, which
+	// AE3_power_fnc_initDevice publishes when it builds them.
+	private _actionPath = _entity getVariable ["AE3_power_actionPath", ["ACE_MainActions", "AE3_EquipmentAction"]];
+
+	[_entity, 0, _actionPath, _check] call ace_interact_menu_fnc_addActionToObject;
+	[_entity, 0, _actionPath, _power] call ace_interact_menu_fnc_addActionToObject;
 
 	// Watches for the generator running and keeps its engine loop playing on this machine. Registered
 	// per client rather than broadcast on turn-on, so a player who joins while a generator is already

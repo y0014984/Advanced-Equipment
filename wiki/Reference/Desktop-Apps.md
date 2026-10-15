@@ -9,6 +9,12 @@ AE3 supports two app-extension models:
 
 Most new low-level AE3-native apps should use the native SQF model unless they specifically need the web desktop bridge.
 
+A third option exists for a whole app of your own: register it as the `script` kind through
+`AE3_desktop_fnc_registerExtApp` with a `scriptPath` and a `factory`, and the web desktop loads that JS
+file from your own PBO and asks the factory for the app. The games component is built that way - eight
+apps sharing one bundle, each told apart by an `extra.gameId`, talking to the server through its own
+`registerCmd` commands. See [Games](../Systems/Games.md) and `addons/games/functions/fnc_registerApps.sqf`.
+
 ## Native Config Apps
 
 Apps can be defined in config:

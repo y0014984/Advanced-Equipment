@@ -133,6 +133,27 @@ AE3_computer_mutex
 
 If a laptop is in use, open/close/power actions may be blocked. Do not force-close displays by deleting variables unless you are writing recovery/debug code. Use public power/interaction/session flows where possible.
 
+## Worked Example: A Game Between Two Computers
+
+The games component (`addons/games`) is the most complete example of this page's rules in one place,
+and worth copying from:
+
+- Match state is a **server-only** `missionNamespace` HashMap that is never broadcast and never sent
+  whole to a client. Every mutating function opens with
+  `if (!isServer) exitWith {[...] call CBA_fnc_serverEvent}`.
+- A seat is keyed by the device's `netId`, not by a player, so a player closing the application,
+  switching the laptop off, dying or reconnecting does not disturb the match. Resuming is a lookup, not
+  a rejoin.
+- Each seated device is sent only what its own seat may see, as a **JSON string** through
+  `CBA_fnc_ownerEvent` to the machine `AE3_armaos_fnc_computer_getLocality` reports for that device - a
+  HashMap would arrive empty on a dedicated server. A device nobody is using is skipped, not queued.
+- Every move is re-validated server side: the right device, the right machine, powered on, a live mutex
+  holder, the route to the host still resolving, and only then the game's rules.
+- Status text crosses as a stringtable key and is localized on the client, because the server may run
+  another language.
+- The periodic handler is registered when the first match starts and removed with the last one, so an
+  idle mission runs none of this code.
+
 ## Dedicated Server Pitfalls
 
 | Pitfall | Fix |

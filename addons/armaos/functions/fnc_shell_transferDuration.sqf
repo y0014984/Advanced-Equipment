@@ -5,8 +5,8 @@
  * Description: Returns how long a simulated transfer of the given size takes over a medium, using
  * the AE3_TransferSpeed* CBA settings (KB/s) and capped by AE3_TransferMaxDuration. Transfers under
  * half a second, or over a medium whose speed is 0, are instant. Network transfers given a computer
- * use the speed configured for that user/computer/wifi network (AE3_network_fnc_getTransferSpeed);
- * a remote end limits the speed only where a mission maker set an override for it.
+ * use the speed configured for that user/computer/wifi network (AE3_network_fnc_getTransferSpeed),
+ * and run at the slower of the two ends when the remote end is known.
  *
  * Arguments:
  * 0: _bytes <NUMBER> - Transfer size in bytes
@@ -44,9 +44,12 @@ private _speed = switch (toLower _medium) do
 if (toLower _medium isEqualTo "network" && {!isNull _computer}) then
 {
 	_speed = [_computer, _user] call AE3_network_fnc_getTransferSpeed;
+	// A transfer runs no faster than its slower end, so the remote end counts whether its speed comes
+	// from its own override, from its wifi network or from the mission setting. A speed of zero means
+	// that end transfers instantly and so never sets the pace.
 	if (!isNull _peer) then
 	{
-		private _peerSpeed = [_peer, _peerUser, true] call AE3_network_fnc_getTransferSpeed;
+		private _peerSpeed = [_peer, _peerUser] call AE3_network_fnc_getTransferSpeed;
 		if (_peerSpeed > 0) then { _speed = _speed min _peerSpeed; };
 	};
 };

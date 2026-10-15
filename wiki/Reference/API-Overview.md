@@ -202,6 +202,7 @@ private _ready = [_computer, 15] call AE3_main_fnc_waitForFilesystem;
 - [Interaction API](Interaction-API.md)
 - [Network API](Network-API.md)
 - [Power API](Power-API.md)
+- [Games API](Games-API.md)
 - [Zeus API](Zeus-API.md)
 - [Terminal Commands](Terminal-Commands.md)
 - [Desktop Apps](Desktop-Apps.md)

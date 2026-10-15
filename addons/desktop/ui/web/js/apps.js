@@ -917,7 +917,7 @@
         A3.request("net_scan", {}).then(function (list) {
           nets.innerHTML = "";
           (list || []).forEach(function (n) {
-            var lock = n.locked ? ' <span class="muted" title="Password protected">&#128274;</span>' : "";
+            var lock = n.locked ? ' <span class="muted" title="Password protected" style="font-size:11px">[locked]</span>' : "";
             var li = h('<li><span class="ico">' + Icons.wifi + '</span><span>' + esc(n.ssid) + lock + (n.current ? " <span class=\"muted\">(connected)</span>" : "") +
               "</span><span class=\"muted\" style=\"margin-left:auto\">" + esc(n.ip || "") + "</span></li>");
             var btn = document.createElement("button");
@@ -1551,52 +1551,235 @@
   });
 
   // ---------------- Games: Snake ----------------
+  // The board fills the window and is redrawn from the window's own size, so the game is as big as
+  // the player makes it rather than a fixed little square. A high score is kept per session, the
+  // snake speeds up as it grows, and a paused or finished game is drawn over rather than cleared.
   Apps.register({
-    id: "snake", title: "Snake", glyph: Icons.snake, width: 420, height: 460, showInDock: false,
+    id: "snake", title: "Snake", glyph: Icons.snake, width: 760, height: 720, showInDock: false,
     render: function (body, win) {
       body.innerHTML =
-        '<div class="pad" style="display:flex;flex-direction:column;gap:8px;height:100%;align-items:center">' +
-          '<div class="muted sstat">Score: 0 — arrow keys / WASD</div>' +
-          '<canvas class="sgame" width="360" height="360" style="background:#10160f;border-radius:6px"></canvas>' +
-          '<div><button class="btn accent sgo">New game</button></div>' +
+        '<div class="pad" style="display:flex;flex-direction:column;gap:8px;height:100%;box-sizing:border-box">' +
+          '<div class="toolbar" style="gap:10px">' +
+            '<button class="btn accent sgo">New game</button>' +
+            '<button class="btn spause">Pause</button>' +
+            '<span class="muted sstat" style="flex:1;text-align:right">Score 0</span>' +
+          '</div>' +
+          '<div class="swrap" style="flex:1;min-height:0;position:relative">' +
+            '<canvas class="sgame" style="position:absolute;top:0;left:0;width:100%;height:100%;background:#0d120c;border-radius:8px"></canvas>' +
+          '</div>' +
+          '<div class="muted" style="text-align:center">Arrow keys or WASD to steer, space to pause</div>' +
         '</div>';
-      var cv = body.querySelector(".sgame"), ctx = cv.getContext("2d");
+
+      var cv = body.querySelector(".sgame");
+      var wrap = body.querySelector(".swrap");
+      var ctx = cv.getContext("2d");
       var stat = body.querySelector(".sstat");
-      var N = 18, cell = cv.width / N;
-      var snake, dir, food, score, over, timer = null;
-      function place() { food = { x: Math.floor(Math.random() * N), y: Math.floor(Math.random() * N) }; }
-      function reset() {
-        snake = [{ x: 9, y: 9 }]; dir = { x: 1, y: 0 }; score = 0; over = false; place();
-        stat.textContent = "Score: 0";
-        if (timer) clearInterval(timer); timer = setInterval(step, 130);
-      }
-      function step() {
-        if (over) return;
-        var head = { x: (snake[0].x + dir.x + N) % N, y: (snake[0].y + dir.y + N) % N };
-        if (snake.some(function (s) { return s.x === head.x && s.y === head.y; })) { over = true; stat.textContent = "Game over! Score: " + score; return; }
-        snake.unshift(head);
-        if (head.x === food.x && head.y === food.y) { score++; stat.textContent = "Score: " + score; place(); } else { snake.pop(); }
+      var pauseBtn = body.querySelector(".spause");
+
+      var N = 24;                 // cells per side
+      var cell = 16;              // pixel size of a cell, recomputed on resize
+      var originX = 0;
+      var originY = 0;
+      var snake, dir, next, food, score, best = 0, over, paused, timer = null;
+
+      // The canvas is sized in device pixels to match its box, and the board is centred in it, so a
+      // non-square window still draws square cells instead of stretching them.
+      function measure() {
+        var w = wrap.clientWidth;
+        var h = wrap.clientHeight;
+
+        if (w < 40 || h < 40) return;
+
+        cv.width = w;
+        cv.height = h;
+        cell = Math.max(6, Math.floor(Math.min(w, h) / N));
+        originX = Math.floor((w - cell * N) / 2);
+        originY = Math.floor((h - cell * N) / 2);
         draw();
       }
-      function draw() {
-        ctx.fillStyle = "#10160f"; ctx.fillRect(0, 0, cv.width, cv.height);
-        ctx.fillStyle = "#e95420"; ctx.fillRect(food.x * cell, food.y * cell, cell - 1, cell - 1);
-        ctx.fillStyle = "#8ce10b";
-        snake.forEach(function (s) { ctx.fillRect(s.x * cell, s.y * cell, cell - 1, cell - 1); });
+
+      function place() {
+        var free = [];
+        var x;
+        var y;
+
+        for (x = 0; x < N; x += 1) {
+          for (y = 0; y < N; y += 1) {
+            var taken = snake.some(function (s) { return s.x === x && s.y === y; });
+
+            if (!taken) free.push({ x: x, y: y });
+          }
+        }
+
+        food = free.length ? free[Math.floor(Math.random() * free.length)] : null;
       }
+
+      function speed() {
+        // Starts gentle and tightens as the snake grows, bottoming out so it stays playable
+        return Math.max(70, 150 - (snake.length - 3) * 3);
+      }
+
+      function restart() {
+        if (timer) clearInterval(timer);
+
+        var mid = Math.floor(N / 2);
+
+        snake = [{ x: mid, y: mid }, { x: mid - 1, y: mid }, { x: mid - 2, y: mid }];
+        dir = { x: 1, y: 0 };
+        next = dir;
+        score = 0;
+        over = false;
+        paused = false;
+        pauseBtn.textContent = "Pause";
+        place();
+        setStat();
+        timer = setInterval(step, speed());
+        draw();
+      }
+
+      function setStat() {
+        stat.textContent = "Score " + score + "   Best " + best;
+      }
+
+      function step() {
+        if (over || paused) return;
+
+        dir = next;
+
+        var head = { x: (snake[0].x + dir.x + N) % N, y: (snake[0].y + dir.y + N) % N };
+        var hitSelf = snake.some(function (s, i) { return i < snake.length - 1 && s.x === head.x && s.y === head.y; });
+
+        if (hitSelf) {
+          over = true;
+          if (score > best) best = score;
+          setStat();
+          draw();
+          return;
+        }
+
+        snake.unshift(head);
+
+        if (food && head.x === food.x && head.y === food.y) {
+          score += 1;
+          if (score > best) best = score;
+          setStat();
+          place();
+
+          // Re-time the loop so growth actually changes the pace
+          clearInterval(timer);
+          timer = setInterval(step, speed());
+        } else {
+          snake.pop();
+        }
+
+        draw();
+      }
+
+      function roundRect(x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.arcTo(x + w, y, x + w, y + h, r);
+        ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r);
+        ctx.arcTo(x, y, x + w, y, r);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      function draw() {
+        if (!snake) return;
+
+        var size = cell * N;
+        var i;
+
+        ctx.fillStyle = "#0d120c";
+        ctx.fillRect(0, 0, cv.width, cv.height);
+
+        // Playfield and a faint grid, so the board reads as a board
+        ctx.fillStyle = "#121a10";
+        ctx.fillRect(originX, originY, size, size);
+        ctx.strokeStyle = "rgba(255,255,255,0.04)";
+        ctx.lineWidth = 1;
+
+        for (i = 1; i < N; i += 1) {
+          ctx.beginPath();
+          ctx.moveTo(originX + i * cell + 0.5, originY);
+          ctx.lineTo(originX + i * cell + 0.5, originY + size);
+          ctx.moveTo(originX, originY + i * cell + 0.5);
+          ctx.lineTo(originX + size, originY + i * cell + 0.5);
+          ctx.stroke();
+        }
+
+        if (food) {
+          ctx.fillStyle = "#e95420";
+          roundRect(originX + food.x * cell + cell * 0.2, originY + food.y * cell + cell * 0.2, cell * 0.6, cell * 0.6, cell * 0.3);
+        }
+
+        for (i = snake.length - 1; i >= 0; i -= 1) {
+          var s = snake[i];
+          var head = i === 0;
+
+          // The body fades towards the tail, which makes the direction readable at a glance
+          ctx.fillStyle = head ? "#d7ff7a" : "rgba(140,225,11," + Math.max(0.35, 1 - i / (snake.length + 4)).toFixed(2) + ")";
+          roundRect(originX + s.x * cell + 1, originY + s.y * cell + 1, cell - 2, cell - 2, head ? cell * 0.35 : cell * 0.25);
+        }
+
+        if (over || paused) {
+          ctx.fillStyle = "rgba(0,0,0,0.55)";
+          ctx.fillRect(originX, originY, size, size);
+          ctx.fillStyle = "#ffffff";
+          ctx.textAlign = "center";
+          ctx.font = "600 " + Math.max(16, Math.round(size / 16)) + "px sans-serif";
+          ctx.fillText(over ? "Game over" : "Paused", originX + size / 2, originY + size / 2 - 4);
+          ctx.font = Math.max(12, Math.round(size / 28)) + "px sans-serif";
+          ctx.fillStyle = "rgba(255,255,255,0.75)";
+          ctx.fillText(over ? "Score " + score + " \u2014 New game to play again" : "Space to carry on", originX + size / 2, originY + size / 2 + Math.round(size / 18));
+          ctx.textAlign = "left";
+        }
+      }
+
+      function togglePause() {
+        if (over) return;
+
+        paused = !paused;
+        pauseBtn.textContent = paused ? "Resume" : "Pause";
+        draw();
+      }
+
       function key(e) {
-        var k = e.key.toLowerCase();
-        if ((k === "arrowup" || k === "w") && dir.y === 0) dir = { x: 0, y: -1 };
-        else if ((k === "arrowdown" || k === "s") && dir.y === 0) dir = { x: 0, y: 1 };
-        else if ((k === "arrowleft" || k === "a") && dir.x === 0) dir = { x: -1, y: 0 };
-        else if ((k === "arrowright" || k === "d") && dir.x === 0) dir = { x: 1, y: 0 };
+        var k = (e.key || "").toLowerCase();
+
+        if (k === " " || k === "spacebar") {
+          togglePause();
+          e.preventDefault();
+          return;
+        }
+
+        // Queued until the next step, so a fast double press cannot fold the snake onto itself
+        if ((k === "arrowup" || k === "w") && dir.y === 0) next = { x: 0, y: -1 };
+        else if ((k === "arrowdown" || k === "s") && dir.y === 0) next = { x: 0, y: 1 };
+        else if ((k === "arrowleft" || k === "a") && dir.x === 0) next = { x: -1, y: 0 };
+        else if ((k === "arrowright" || k === "d") && dir.x === 0) next = { x: 1, y: 0 };
         else return;
+
         e.preventDefault();
       }
+
       document.addEventListener("keydown", key);
-      body.querySelector(".sgo").addEventListener("click", reset);
-      win.app.onClose = function () { if (timer) clearInterval(timer); document.removeEventListener("keydown", key); };
-      reset();
+      body.querySelector(".sgo").addEventListener("click", restart);
+      pauseBtn.addEventListener("click", togglePause);
+
+      // The window can be resized and maximised, so the board follows it
+      var sizer = setInterval(measure, 400);
+
+      win.app.onClose = function () {
+        if (timer) clearInterval(timer);
+        clearInterval(sizer);
+        document.removeEventListener("keydown", key);
+      };
+
+      restart();
+      measure();
     }
   });
 

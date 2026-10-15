@@ -75,7 +75,6 @@ PREP(computer_turnOff);
 
 PREP(computer_addUser);
 PREP(computer_addGames);
-PREP(attr_addGames);
 PREP(attr_addSudoers);
 PREP(attr_setRootPassword);
 PREP(computer_addCustomCommand);

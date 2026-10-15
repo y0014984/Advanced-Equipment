@@ -1,5 +1,32 @@
 # Changelog
 
+## Update 11 (v2.1.0.0)
+
+### Added
+- **Games**: chess, checkers, ludo, snakes and ladders, uno, blackjack, rock paper scissors and battleship, played between AE3 computers on the same network.
+- A desktop app under *Games & Entertainment* and a terminal command under `/games` for each; both play at the same table.
+- Matches live on the server; a seat survives closing the app, powering the laptop off, dying and reconnecting.
+- Graphical boards, with *Graphical game boards* to fall back to plain lists.
+- Table names, seat names, chess side picks (white, black, random) and a host-chosen starting seat.
+- Battleship fleets placed by hand, with heading, **Random**, **Clear** and **Ready**.
+- *Practice seats* (off by default): extra seats at your own table, switched between from one laptop.
+- Games draw extra power while open.
+- Every computer ships with every game; the **AE3: Add Games** module (Eden and Zeus) narrows the set.
+- The **AE3: Games** module sets the games settings per computer or mission-wide in Eden, and lists and closes live tables in Zeus.
+- CBA settings under *AE3 Games*.
+- `AE3_games_fnc_hostTable`, `joinTable`, `startTable`, `closeTable`, `installGames`, `removeGames`, `gameIds`, `getSetting`, `setSetting`, `setTableOption`, `setActiveSeat` and `addDummySeat`.
+
+### Removed
+- The per-laptop *Snake (game)* checkbox, from the Eden and Zeus attribute panels.
+
+### Changed
+- Snake: larger window, board that fills it, grid, pause on space, session best score, and speed that climbs as the snake grows.
+- SSH app transfers run at the slower of the two laptops' network speeds in every case.
+- The radar generator is labelled *Generator* in the interaction menu instead of by its class name.
+- **Fixed:** the radar generator and the power generator had no interaction menu at all.
+- **Fixed:** *Check Fuel Level* and *Check Power Output* never appeared on any generator.
+- **Fixed:** empty boxes in place of the padlock on a protected file, the folder in the app menu and the marker on a device's grid reference.
+
 ## Update 10 (v2.0.0.10)
 
 ### Added

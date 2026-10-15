@@ -45,15 +45,11 @@ if(!isDedicated) then {
 	// Ensure equipment parent action exists (creates if needed)
 	[_entity] call AE3_interaction_fnc_ensureEquipmentParent;
 
-	private _hasEquipmentAction = _entity getVariable ["AE3_interaction_hasEquipmentAction", false];
+	// Hangs the battery check from the path the device's own power actions use, which
+	// AE3_power_fnc_initDevice publishes when it builds them.
+	private _actionPath = _entity getVariable ["AE3_power_actionPath", ["ACE_MainActions", "AE3_EquipmentAction"]];
 
-	if (_hasEquipmentAction) then {
-		// Add to Power submenu for laptops
-		[_entity, 0, ["ACE_MainActions", "AE3_EquipmentAction", "AE3_PowerSubmenu"], _check] call ace_interact_menu_fnc_addActionToObject;
-	} else {
-		// Add to standalone device action
-		[_entity, 0, ["ACE_MainActions", "AE3_DeviceAction"], _check] call ace_interact_menu_fnc_addActionToObject;
-	};
+	[_entity, 0, _actionPath, _check] call ace_interact_menu_fnc_addActionToObject;
 
 };
 
