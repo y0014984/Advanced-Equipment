@@ -3,7 +3,7 @@
 [b]Interactive computers, networks, power, and mission intel for Arma 3.[/b]
 Advanced Equipment Revamped turns laptops, routers, flash drives, generators, batteries, solar panels, and lights into usable mission systems. Build investigations, infiltration objectives, logistics puzzles, cyber gameplay, and live Zeus intel drops with a shared desktop, terminal, filesystem, network, and power framework.
 
-[b]Current version:[/b] 2.0.0.0
+[b]Current version:[/b] 2.1.0.0
 
 [img]https://i.ibb.co/B5MQstpb/AE3-Desktop.png[/img]
 [hr]
@@ -29,6 +29,7 @@ Load AE3 on the server and all clients.
 [tr][td][b]Networks[/b][/td][td]Routers, SSIDs, passwords, DHCP, static IPs, gateways, ping, SSH, routing, and messages.[/td][/tr]
 [tr][td][b]Power[/b][/td][td]Generators, batteries, solar panels, fuel, charge, connections, standby, overloads, and computer crashes.[/td][/tr]
 [tr][td][b]Intel[/b][/td][td]Emails, webpages, history, media, calendar events, CCTV, readable files, and locked/encrypted content.[/td][/tr]
+[tr][td][b]Games[/b][/td][td]Snake, Ludo, Chess, Checkers, Uno, Snakes n Ladders, Blackjack, and Battleship.[/td][/tr]
 [/table]
 [hr]
 [h2]For Players[/h2]
