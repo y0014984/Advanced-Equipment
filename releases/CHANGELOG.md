@@ -1,5 +1,10 @@
 # Changelog
 
+## Hotfix (v2.1.0.1)
+
+### Changed
+- Games modules declare `AttributesBase` under `Module_F`, removing the `CfgVehicles/AttributesBase.scope` startup error.
+
 ## Update 11 (v2.1.0.0)
 
 ### Added
