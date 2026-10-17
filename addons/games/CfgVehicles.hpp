@@ -32,9 +32,17 @@
 
 class CfgVehicles
 {
-	// Declared externally: both come from the base game
-	class Module_F;
-	class AttributesBase;
+	// Declared externally: base game module classes
+	class Logic;
+	class Module_F: Logic
+	{
+		class AttributesBase
+		{
+			class Checkbox;
+			class Combo;
+			class Edit;
+		};
+	};
 
 	/* ================================================================================ */
 
@@ -60,9 +68,6 @@ class CfgVehicles
 
 		class Attributes: AttributesBase
 		{
-			// Declared externally: the attribute control base classes come from AttributesBase
-			class Checkbox;
-
 			AE3_ADDGAMES_CHECKBOX(Snake,"$STR_AE3_Games_Config_AddGamesSnake","$STR_AE3_Games_Config_AddGamesSnakeTooltip");
 			AE3_ADDGAMES_CHECKBOX(Chess,"$STR_AE3_Games_Title_Chess","$STR_AE3_Games_Config_AddGamesNetworkedTooltip");
 			AE3_ADDGAMES_CHECKBOX(Checkers,"$STR_AE3_Games_Title_Checkers","$STR_AE3_Games_Config_AddGamesNetworkedTooltip");
@@ -101,10 +106,6 @@ class CfgVehicles
 
 		class Attributes: AttributesBase
 		{
-			// Declared externally: the attribute control base classes come from AttributesBase
-			class Combo;
-			class Edit;
-
 			AE3_GAMESETTING_COMBO(Enabled,"$STR_AE3_Games_EdenAttributes_EnabledDisplayName","$STR_AE3_Games_EdenAttributes_EnabledTooltip");
 			AE3_GAMESETTING_COMBO(AllowHosting,"$STR_AE3_Games_EdenAttributes_AllowHostingDisplayName","$STR_AE3_Games_EdenAttributes_AllowHostingTooltip");
 			AE3_GAMESETTING_COMBO(GraphicalUI,"$STR_AE3_Games_EdenAttributes_GraphicalUIDisplayName","$STR_AE3_Games_EdenAttributes_GraphicalUITooltip");

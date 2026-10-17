@@ -61,6 +61,7 @@ related-docs:
 - `fnc_tui_session` suspends (`shell_stdin`), so it only runs from a command's scheduled context, and it keeps its per-session state in `uiNamespace` because a CBA event handler cannot capture locals.
 - Only English and Original exist in `addons/games/stringtable.xml`; the other AE3 components carry six more languages.
 - A laptop carries **no** games attributes: the five that lived in `armaos/CfgVehicles.hpp`'s `AE3_LAPTOP_SOFTWARE_ATTRIBUTES` macro are gone, and `AE3_Module_Games` is where those settings are set. Do not move them back in from this component by re-opening the laptop classes: that resets those classes' base and takes the laptops out of Eden and Zeus entirely - see [[eden-zeus-tooling]].
+- **Module config**: `games/CfgVehicles.hpp` declares `Module_F: Logic { class AttributesBase { Checkbox; Combo; Edit; }; }` like the other components. Never forward-declare `AttributesBase` directly under `CfgVehicles` - it creates a stub vehicle class and the startup error `No entry ...CfgVehicles/AttributesBase.scope`. Do not re-declare the controls inside `Attributes` (L-C14 unused external).
 
 ## re-verify when
 
