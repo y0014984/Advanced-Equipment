@@ -1,5 +1,12 @@
 # Changelog
 
+## Hotfix (v2.1.0.2)
+
+### Changed
+- Zeus **AE3: Add Games** and **AE3: Network Speed** target the laptop or router they are dropped onto.
+- Zeus **AE3: Add Games**, **AE3: Games** and **AE3: Network Speed** open their dialog once.
+- Experimental deployment puts the laptop on the surface in front of the player instead of at terrain altitude above it.
+
 ## Hotfix (v2.1.0.1)
 
 ### Changed

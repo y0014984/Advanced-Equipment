@@ -392,7 +392,7 @@ class CfgVehicles
 
 		function = "AE3_network_fnc_module_transferSpeed";
 		functionPriority = 2;
-		isGlobal = 0;
+		isGlobal = 1;
 		isTriggerActivated = 1;
 		isDisposable = 1;
 		is3DEN = 0;

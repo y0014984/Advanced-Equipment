@@ -588,16 +588,8 @@ if (!isDedicated) then {
 										// Stable mode - use stable deployment
 										[_player, _itemToDeploy] call AE3_armaos_fnc_laptop_deploy_stable;
 									} else {
-										// Experimental mode - use experimental deployment
-										// Calculate deployment position
-										private _deployPos = _player modelToWorld [0, 1.5, 0];
-										private _terrainHeight = getTerrainHeightASL [_deployPos select 0, _deployPos select 1];
-										_deployPos set [2, _terrainHeight];
-
-										// Deploy the selected laptop
-										[_player, _itemToDeploy, _deployPos] call AE3_armaos_fnc_laptop_item2obj;
-
-										// Laptop deployed successfully (no hint needed)
+										// Experimental mode - recreate the laptop on the surface in front of the player
+										[_player, _itemToDeploy] call AE3_armaos_fnc_laptop_item2obj;
 									};
 								};
 							},
