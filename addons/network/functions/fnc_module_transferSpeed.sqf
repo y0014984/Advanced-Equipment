@@ -23,34 +23,33 @@
 
 params ["_module", "_units", "_activated"];
 
-if (!isServer) exitWith { true };
 if (!_activated) exitWith { true };
 
 private _isTarget = { (_this getVariable ["AE3_cap_isRouter", false]) || {_this getVariable ["AE3_cap_hasTerminal", false]} || {isClass (configOf _this >> "AE3_Device")} };
-private _objs = (synchronizedObjects _module) select { !(_x isKindOf "Logic") && {_x call _isTarget} };
 
-// Eden modules carry their attribute values; a curator-placed module has none and asks through ZEN.
-private _fromEditor = !isNil { _module getVariable "AE3_Module_TransferSpeed_Speed" };
-
-if (!_fromEditor) exitWith
+// Zeus: runs once on the curator's machine on the object the module was dropped onto, then asks through ZEN.
+if (_module getVariable ["BIS_fnc_moduleInit_isCuratorPlaced", false]) exitWith
 {
-	if (_objs isEqualTo []) then
+	if (!local _module || {_module getVariable [QGVAR(zeusHandled), false]}) exitWith { true };
+
+	_module setVariable [QGVAR(zeusHandled), true];
+
+	(missionNamespace getVariable ["BIS_fnc_curatorObjectPlaced_mouseOver", [""]]) params ["_mouseOverType", ["_target", objNull]];
+
+	if (_mouseOverType isNotEqualTo "OBJECT" || {!(_target call _isTarget)} || {!(EGVAR(main,hasZenDialog))}) exitWith
 	{
-		private _near = (nearestObjects [_module, [], 3]) select { !(_x isKindOf "Logic") && {_x call _isTarget} };
-		if (_near isNotEqualTo []) then { _objs = [_near select 0]; };
+		[localize "STR_AE3_Network_Config_TransferSpeedDisplayName", localize "STR_AE3_Network_TransferSpeed_NoTarget", 5] call BIS_fnc_curatorHint;
+		[_module] remoteExecCall ["deleteVehicle", 2];
+		true
 	};
 
-	if (_objs isEqualTo [] || {!(EGVAR(main,hasZenDialog))}) then
-	{
-		[localize "STR_AE3_Network_Config_TransferSpeedDisplayName", localize "STR_AE3_Network_TransferSpeed_NoTarget", 5] remoteExec ["BIS_fnc_curatorHint", owner _module];
-		deleteVehicle _module;
-	}
-	else
-	{
-		[netId _module, _objs apply { netId _x }] remoteExec [QFUNC(zen_module_transferSpeed), owner _module];
-	};
+	[netId _module, [netId _target]] call FUNC(zen_module_transferSpeed);
 	true
 };
+
+if (!isServer) exitWith { true };
+
+private _objs = (synchronizedObjects _module) select { !(_x isKindOf "Logic") && {_x call _isTarget} };
 
 private _speed = _module getVariable ["AE3_Module_TransferSpeed_Speed", 0];
 private _usersText = _module getVariable ["AE3_Module_TransferSpeed_Users", ""];

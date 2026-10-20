@@ -90,25 +90,17 @@ if (!_curatorPlaced) exitWith
 
 /* ---------------------------------------- */
 
-// Zeus: only the curator's own machine goes on, because that is where the dialog belongs
-if (!local _module) exitWith {};
+// Zeus: runs once, on the curator's machine
+if (!local _module || {_module getVariable [QGVAR(zeusHandled), false]}) exitWith {};
 
-// A curator drops the module onto the computer it is meant for
-private _computer = _module getVariable ["BIS_fnc_moduleInit_target", objNull];
+_module setVariable [QGVAR(zeusHandled), true];
 
-if (isNull _computer) then
-{
-    private _nearby = (nearestObjects [getPosATL _module, [], 15]) select {isClass (configOf _x >> "AE3_Device")};
-
-    _computer = _nearby param [0, objNull];
-};
+// The computer the curator dropped the module onto
+([] call EFUNC(main,zeus_checkForComputer)) params ["_status", "_computer"];
 
 if (isServer) then {deleteVehicle _module} else {[_module] remoteExecCall ["deleteVehicle", 2]};
 
-if (isNull _computer) exitWith
-{
-    [objNull, localize "STR_AE3_Main_Zeus_NoComputer"] call BIS_fnc_showCuratorFeedbackMessage;
-};
+if (_status isNotEqualTo "SUCCESS") exitWith {};
 
 // Without Zeus Enhanced there is no dialog to ask with, so the computer keeps the lot
 if (isNil "zen_dialog_fnc_create") exitWith

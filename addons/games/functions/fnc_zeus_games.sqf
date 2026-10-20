@@ -24,8 +24,10 @@
 
 params [["_logic", objNull, [objNull]], ["_units", [], [[]]], ["_activated", true, [true]]];
 
-// The module runs on every machine, but the dialog belongs to the curator who placed it
-if (!_activated || !hasInterface || {!local _logic}) exitWith {};
+// Runs once, on the curator's machine
+if (!_activated || !hasInterface || {!local _logic} || {_logic getVariable [QGVAR(zeusHandled), false]}) exitWith {};
+
+_logic setVariable [QGVAR(zeusHandled), true];
 
 if (isServer) then {deleteVehicle _logic} else {[_logic] remoteExecCall ["deleteVehicle", 2]};
 
