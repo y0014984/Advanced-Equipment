@@ -61,7 +61,9 @@ private _sfs = _sender getVariable ["AE3_filesystem", nil];
 if (!isNil "_sfs") then
 {
 	private _sentReceived = [dayTime, "HH:MM"] call BIS_fnc_timeToString;
-	private _sentFileName = format ["mail_%1", round (CBA_missionTime * 10)];
+	private _mailSeq = (missionNamespace getVariable ["AE3_mail_seq", 0]) + 1;
+	missionNamespace setVariable ["AE3_mail_seq", _mailSeq];
+	private _sentFileName = format ["mail_%1_%2", round (CBA_missionTime * 10), _mailSeq];
 	private _sentContent = format ["Received: %1%2From: %3%2To: %4%2Subject: %5%2%2%6", _sentReceived, endl, _fromEntry param [1, _from], _toEntry param [1, _to], _subject, _body];
 	try
 	{

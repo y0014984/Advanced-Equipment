@@ -51,13 +51,15 @@ private _deliver = {
 	private _holder = _computer getVariable ["AE3_computer_mutex", objNull];
 	private _ownerId = if (isNull _holder) then { 2 } else { owner _holder };
 
+	[_computer] call AE3_filesystem_fnc_device_lock;
+
 	if (isMultiplayer && _ownerId != 2) then
 	{
 		[_computer, "AE3_filesystem", _ownerId] call AE3_main_fnc_getRemoteVar; // authoritative copy
 	};
 
 	private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-	if (isNil "_filesystem") exitWith {};
+	if (isNil "_filesystem") exitWith { [_computer] call AE3_filesystem_fnc_device_unlock; };
 
 	try
 	{
@@ -69,6 +71,8 @@ private _deliver = {
 	{
 		WARNING_1("Could not create locked file: %1",_exception);
 	};
+
+	[_computer] call AE3_filesystem_fnc_device_unlock;
 };
 
 {

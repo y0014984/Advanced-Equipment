@@ -1,5 +1,11 @@
 # Changelog
 
+## Hotfix (v2.1.0.4)
+
+### Changed
+- Several emails added in the same frame all arrive; previously only the first was kept.
+- Intel (email, calendar, history, locked file, media) sent to an in-use laptop at the same time all arrive.
+
 ## Hotfix (v2.1.0.3)
 
 ### Added

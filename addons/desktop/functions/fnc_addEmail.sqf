@@ -50,7 +50,9 @@ switch (true) do
 private _receivedStr = if (_receivedTime isNotEqualTo "") then { _receivedTime } else { [dayTime, "HH:MM"] call BIS_fnc_timeToString };
 private _toLine = ["", format ["To: %1%2", _to, endl]] select (_to isNotEqualTo "");
 private _content = format ["Received: %1%2From: %3%2%4Subject: %5%2%2%6", _receivedStr, endl, _from, _toLine, _subject, _body];
-private _fileName = format ["mail_%1", round (CBA_missionTime * 10)];
+private _mailSeq = (missionNamespace getVariable ["AE3_mail_seq", 0]) + 1;
+missionNamespace setVariable ["AE3_mail_seq", _mailSeq];
+private _fileName = format ["mail_%1_%2", round (CBA_missionTime * 10), _mailSeq];
 
 // Writes the mail file into a laptop's filesystem and, if someone is on the laptop, nudges their
 // terminal/Mail app to refresh. When the laptop is in use, the authoritative filesystem lives on
@@ -61,13 +63,15 @@ private _deliver = {
 	params ["_computer", "_content", "_fileName", "_from", "_holder"];
 	private _owner = if (isNull _holder) then { 2 } else { owner _holder };
 
+	[_computer] call AE3_filesystem_fnc_device_lock;
+
 	if (isMultiplayer && _owner != 2) then
 	{
 		[_computer, "AE3_filesystem", _owner] call AE3_main_fnc_getRemoteVar; // authoritative copy
 	};
 
 	private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-	if (isNil "_filesystem") exitWith {};
+	if (isNil "_filesystem") exitWith { [_computer] call AE3_filesystem_fnc_device_unlock; };
 
 	try
 	{
@@ -81,6 +85,8 @@ private _deliver = {
 	{
 		WARNING_1("Could not deliver email: %1",_exception);
 	};
+
+	[_computer] call AE3_filesystem_fnc_device_unlock;
 
 	// Notify whoever is using the laptop right now: the terminal shell banner and the open web Mail
 	// app, so the new mail shows without polling or a manual refresh. Fired after the filesystem
