@@ -38,6 +38,7 @@ PREP(zen_module_transferSpeed);
 PREP(ip2str);
 PREP(str2ip);
 PREP(ipInSubnet);
+PREP(sameNetwork);
 
 /* Connections */
 PREP(createNetworkConnection);

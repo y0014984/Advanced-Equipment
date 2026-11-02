@@ -1,5 +1,23 @@
 # Changelog
 
+## Hotfix (v2.1.0.4)
+
+### Changed
+- Several emails added in the same frame all arrive; previously only the first was kept.
+- Intel (email, calendar, history, locked file, media) sent to an in-use laptop at the same time all arrive.
+
+## Hotfix (v2.1.0.3)
+
+### Added
+- Messenger plays a beep on the receiving laptop.
+- CBA setting *Map: own network only* (default on).
+- Terminal accepts characters typed on the system keyboard or IME (Chinese, Greek, Cyrillic, ...) in addition to the selected terminal layout.
+
+### Changed
+- Map app (radar and full map) shows only devices on the laptop's network, with their names.
+- Exported file names, Messenger handles, mail addresses and debug login names keep non-Latin letters and digits.
+- Non-Latin text survives Columnar encryption, file search and the desktop bridge; Caesar passes characters outside A-Z through.
+
 ## Hotfix (v2.1.0.2)
 
 ### Changed

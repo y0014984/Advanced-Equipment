@@ -147,6 +147,8 @@ if (_isEncrypted) then
 			{
 				params ["_encryptionKey", "_mode", "_row"];
 
+				// Unicode-safe key length; the cipher resets the mode when done
+				forceUnicode 1;
 				_row = _row regexReplace [" ", "_"];
 
 				while {(count _encryptionKey) < 2 } do

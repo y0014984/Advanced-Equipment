@@ -26,9 +26,11 @@ _pos params ["_px", "_py"];
 
 private _blips = [];
 
+private _sameOnly = AE3_Desktop_MapSameNetworkOnly && {!isNull _computer};
+
 // Nearby AE3 devices (laptops, routers, equipment) as blips relative to the player.
 {
-    if (isClass (configOf _x >> "AE3_Device") || {_x getVariable ["AE3_cap_isRouter", false]}) then {
+    if ((isClass (configOf _x >> "AE3_Device") || {_x getVariable ["AE3_cap_isRouter", false]}) && {!_sameOnly || {[_computer, _x] call AE3_network_fnc_sameNetwork}}) then {
         (getPosVisual _x) params ["_x2", "_y2"];
         private _kind = if (_x isEqualTo _computer) then { "self" } else {
             ["device", "router"] select (_x getVariable ["AE3_cap_isRouter", false])

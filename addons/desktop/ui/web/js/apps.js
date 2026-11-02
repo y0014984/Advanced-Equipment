@@ -1,3 +1,4 @@
+// Modified by Root
 /*
  * AE3 built-in apps on the Ubuntu shell. Each app registers a descriptor whose render(body, win,
  * args) populates the window. Filesystem apps talk to the SQF backend (AE3_desktop_fnc_fsHandle)
@@ -477,7 +478,7 @@
 
   // Turns a subject or handle into something safe to use as a filename in the laptop's filesystem.
   function fileSlug(s, fallback) {
-    var v = String(s == null ? "" : s).replace(/[^A-Za-z0-9._-]+/g, "_").replace(/^_+|_+$/g, "");
+    var v = String(s == null ? "" : s).replace(/[^\p{L}\p{N}._-]+/gu, "_").replace(/^_+|_+$/g, "");
     if (v.length > 48) v = v.slice(0, 48);
     return v || (fallback || "export") + "_" + Date.now();
   }

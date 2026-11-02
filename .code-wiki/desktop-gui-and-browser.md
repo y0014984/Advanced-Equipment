@@ -90,3 +90,5 @@ The desktop component provides the graphical laptop desktop, native app registry
 - `addons/desktop/functions/fnc_registerWebpage.sqf`
 - `addons/desktop/XEH_postInit.sqf`
 - `addons/desktop/CfgAE3Apps.hpp`
+- Map app (radar `fnc_mapData`, full map `fnc_mapOpen`) lists only devices where `AE3_network_fnc_sameNetwork` is true (same top-level router via `AE3_network_parent`) when `AE3_Desktop_MapSameNetworkOnly` is on; markers carry `ace_cargo_customName`.
+- Bridge string handling (`jsSend`, `jsRouter`, `fsHandle` search) runs under `forceUnicode 1` so counts and splits are per character.

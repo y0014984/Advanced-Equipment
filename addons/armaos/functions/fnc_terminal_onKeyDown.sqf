@@ -48,6 +48,8 @@ if (_key isEqualTo DIK_C && _ctrl && !_shift && !_alt) then
 	}
 };
 
+_terminal set ["AE3_terminalKeyMapped", _keyCombination in _terminalAllowedKeys];
+
 if (_keyCombination in _terminalAllowedKeys) then
 {
 	private _keyChar = _terminalAllowedKeys get _keyCombination;

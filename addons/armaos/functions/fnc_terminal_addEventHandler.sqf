@@ -27,6 +27,8 @@ params ["_consoleDialog", "_terminalCtrl", "_languageButtonCtrl", "_designButton
 /* ================================================================================ */
 
 _terminalCtrl ctrlAddEventHandler ["KeyDown", { _this call AE3_armaos_fnc_terminal_onKeyDown }];
+_terminalCtrl ctrlAddEventHandler ["Char", { _this call AE3_armaos_fnc_terminal_onChar }];
+_terminalCtrl ctrlAddEventHandler ["IMEChar", { _this call AE3_armaos_fnc_terminal_onChar }];
 
 /* ================================================================================ */
 

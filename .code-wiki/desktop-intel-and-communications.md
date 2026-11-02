@@ -78,6 +78,7 @@ the player's real OS clipboard. Both are front-end only (`addons/desktop/ui/web/
 ## re-verify when
 
 - Mail address registry `AE3_mail_addresses` entries are `[ownerLaptopNetId, displayAddress]`; element 0 is the owning laptop used by `fnc_mailRoute` for delivery/authorization. Every writer must store the target laptop netId, never `""` — `fnc_addEmail`'s "create sender/recipient address" binds to the email's `_target` laptop (skips when `_target` is `"all"`); `fnc_addrRegister`/`fnc_provisionIdentity` are the other canonical writers.
+- Mail files are `mail_<missionTime*10>_<AE3_mail_seq>` (server counter, shared by `fnc_addEmail` and `fnc_mailRoute` sent copies). Server pull-modify-push writers (`fnc_addEmail`, `fnc_addCalendarEvent`, `fnc_addHistoryEntry`, `fnc_addLockedFile`, `AE3_filesystem_fnc_device_withFilesystem`) hold `AE3_filesystem_fnc_device_lock` / `device_unlock` (server-local `AE3_filesystem_lock` on the device) so writes to one laptop run one at a time.
 - A new intel type, desktop app notification, mail/chat route, media marker format, address/handle registry, or AddIntel field changes.
 - `fnc_intel_dispatch.sqf`, `fnc_module_addIntel.sqf`, `fnc_zeus_module_addIntel.sqf`, `fnc_registerMedia.sqf`, `fnc_mailRoute.sqf`, or `fnc_msgRoute.sqf` changes.
 
@@ -92,3 +93,4 @@ the player's real OS clipboard. Both are front-end only (`addons/desktop/ui/web/
 - `addons/desktop/functions/fnc_provisionIdentity.sqf`
 - `addons/desktop/XEH_preInit.sqf`
 - `addons/desktop/XEH_postInit.sqf`
+- `fnc_msgRoute` plays `armaos/sounds/Blip.ogg` at the target laptop through `AE3_desktop_fnc_playDeviceSound` on every non-self message.

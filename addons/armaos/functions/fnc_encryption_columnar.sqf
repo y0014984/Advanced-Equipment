@@ -19,6 +19,9 @@
 
 params ["_key", "_mode", "_msg"];
 
+// Unicode-safe character counts and splits on user generated text
+forceUnicode 1;
+
 private _result = "";
 private _msgLen = count _msg;
 private _msgArr = _msg splitString "";
@@ -113,5 +116,7 @@ switch (_mode) do {
 		_result = _plainText;
 	};	
 };
+
+forceUnicode -1;
 
 _result

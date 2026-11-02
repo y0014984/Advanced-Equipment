@@ -30,6 +30,8 @@ if (!isServer) exitWith { false };
 if (!canSuspend) exitWith { _this spawn AE3_filesystem_fnc_device_withFilesystem };
 if (isNull _computer) exitWith { false };
 
+[_computer] call AE3_filesystem_fnc_device_lock;
+
 private _holder = _computer getVariable ["AE3_computer_mutex", objNull];
 private _owner = [owner _holder, 2] select (isNull _holder);
 
@@ -41,6 +43,7 @@ if (isMultiplayer && _owner != 2) then
 private _filesystem = _computer getVariable ["AE3_filesystem", nil];
 if (isNil "_filesystem") exitWith
 {
+	[_computer] call AE3_filesystem_fnc_device_unlock;
 	ERROR_1("Device %1 has no filesystem initialized",_computer);
 	false
 };
@@ -65,5 +68,7 @@ else
 	private _syncMode = missionNamespace getVariable ["AE3_Filesystem_SyncMode", 0];
 	_computer setVariable ["AE3_filesystem", _filesystem, [2, true] select (_syncMode == 1)];
 };
+
+[_computer] call AE3_filesystem_fnc_device_unlock;
 
 _success

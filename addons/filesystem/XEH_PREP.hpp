@@ -4,6 +4,8 @@ PREP(device_addDir);
 PREP(device_writeFile);
 PREP(device_setFileSize);
 PREP(device_withFilesystem);
+PREP(device_lock);
+PREP(device_unlock);
 
 /* Module Functions */
 PREP(module_addFile);

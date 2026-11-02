@@ -72,6 +72,17 @@
 	false
 ] call CBA_fnc_addSetting;
 
+[
+	"AE3_Desktop_MapSameNetworkOnly",
+	"CHECKBOX",
+	["Map: own network only", "The Map app shows only devices on the same network as the laptop, with their names. Off shows every AE3 device in range."],
+	"AE3 Desktop",
+	true,
+	1,
+	{ params ["_value"]; },
+	false
+] call CBA_fnc_addSetting;
+
 /* ================================================================================ */
 /* Server: computer registry + media registry */
 

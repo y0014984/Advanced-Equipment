@@ -346,6 +346,8 @@ switch (_op) do {
         if (_query isEqualTo "") exitWith { _res set ["error", "bad_input"]; _res set ["results", []]; };
         // Translate the user glob to a lowercased, fully-anchored regex: escape regex metacharacters,
         // then turn the escaped "*" back into ".*". Bare text (no "*") matches as a substring.
+        // Unicode-safe per-character walk and regex match on user generated names
+        forceUnicode 1;
         private _q = toLower _query;
         if !("*" in _q) then { _q = "*" + _q + "*"; };
         private _rx = "";
@@ -362,8 +364,10 @@ switch (_op) do {
                 _x params ["_p", "_d"];
                 _hits pushBack createHashMapFromArray [["path", _p], ["dir", _d]];
             } forEach _found;
+            forceUnicode -1;
             _res set ["results", _hits];
         } catch {
+            forceUnicode -1;
             _res set ["error", "denied"];
             _res set ["results", []];
         };

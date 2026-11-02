@@ -27,7 +27,10 @@ private _ctrl = uiNamespace getVariable [QGVAR(browserCtrl), controlNull];
 if (isNull _ctrl) exitWith {};
 if (_command isEqualTo "") exitWith {};
 
+// Unicode-safe escaping of user generated text
+forceUnicode 1;
 private _json = [_payload] call CBA_fnc_encodeJSON;
+forceUnicode -1;
 if ((missionNamespace getVariable [QGVAR(debug), false]) || {missionNamespace getVariable ["AE3_DebugMode", false]}) then {
     diag_log text format ["[AE3 desktop] SQF->JS '%1'", _command];
 };

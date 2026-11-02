@@ -1,7 +1,7 @@
 // File: fnc_encryption_caesar.sqf
 /*
  * Author: Root, y0014984
- * Description: Encrypts or decrypts a message using Caesar cipher (shift cipher). Shifts each letter by the specified key value. Only processes A-Z characters and spaces.
+ * Description: Encrypts or decrypts a message using Caesar cipher (shift cipher). Shifts each letter by the specified key value. Shifts A-Z only; every other character passes through unchanged.
  *
  * Arguments:
  * 0: _key <NUMBER> - Shift value for encryption/decryption
@@ -19,14 +19,14 @@
 
 params ["_key", "_mode", "_message"];
 
+// Unicode-safe character split on user generated text
+forceUnicode 1;
+
 // normalize Message to allowed characters
 private _allowedAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 26 Characters
 
 // convert all characters to upper case
 _message = toUpper _message;
-
-// filter message with allowed characters
-_message = [_message, _allowedAlphabet + " "] call BIS_fnc_filterString;
 
 // normalize key to be lower then alphabet count
 _key = _key % (count _allowedAlphabet); // 26 == 0
@@ -41,8 +41,8 @@ _message = _message splitString "";
 {
     private _encryptionIndex = _allowedAlphabet find _x;
 
-    // ignore spaces for conversion
-    if (_x isNotEqualTo " ") then
+    // characters outside A-Z pass through unchanged
+    if (_encryptionIndex != -1) then
     {
         private _countAlphabet = count _allowedAlphabet;
 
@@ -59,12 +59,14 @@ _message = _message splitString "";
     }
     else
     {
-        _resultingChar = " ";
+        _resultingChar = _x;
     };
 
     _resultingMessage append [_resultingChar];
 } forEach _message;
 
 _resultingMessage = _resultingMessage joinString "";
+
+forceUnicode -1;
 
 _resultingMessage

@@ -62,17 +62,19 @@ _markers pushBack _self;
 // Only plot the surrounding AE3 devices/routers for the generic Map app; a focused device map-link
 // wants just its own marker.
 if (!_hasFocus) then {
+    private _sameOnly = AE3_Desktop_MapSameNetworkOnly && {!isNull _computer};
     {
         private _obj = _x;
         if (_obj isEqualTo player) then { continue };
         private _cfg = configOf _obj;
         private _isRouter = isClass (_cfg >> "AE3_Router");
         private _isDevice = isClass (_cfg >> "AE3_Device");
-        if (_isRouter || _isDevice) then {
+        if ((_isRouter || _isDevice) && {!_sameOnly || {[_computer, _obj] call AE3_network_fnc_sameNetwork}}) then {
             private _mk = createMarkerLocal [format ["AE3_mapDev_%1_%2", _stamp, _forEachIndex], getPosWorld _obj];
             _mk setMarkerTypeLocal "mil_box";
             _mk setMarkerColorLocal (["ColorGreen", "ColorBlue"] select _isRouter);
             _mk setMarkerSizeLocal [0.7, 0.7];
+            _mk setMarkerTextLocal (_obj getVariable ["ace_cargo_customName", ""]);
             _markers pushBack _mk;
         };
     } forEach (nearestObjects [_center, [], 2000]);

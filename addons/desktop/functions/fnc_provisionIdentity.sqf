@@ -26,7 +26,7 @@ private _netId = netId _computer;
 
 // Sanitised, lowercased base name from the laptop's display name (fallback "laptop").
 private _host = _computer getVariable ["ace_cargo_customName", "laptop"];
-private _base = toLower (_host regexReplace ["[^A-Za-z0-9]", ""]);
+private _base = toLower (_host regexReplace ["[\s@+/\\:*?""<>|,;]", ""]);
 if (_base isEqualTo "") then { _base = "laptop"; };
 
 // Mail address: <base>@lan, unique per laptop. Skip if this laptop already owns one.

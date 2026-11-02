@@ -144,6 +144,7 @@ PREP(encryption_columnar);
 /* Terminal Functions */
 PREP(terminal_init);
 PREP(terminal_addEventHandler);
+PREP(terminal_onChar);
 PREP(terminal_onKeyDown);
 PREP(terminal_onMouseZChanged);
 PREP(terminal_onUnload);

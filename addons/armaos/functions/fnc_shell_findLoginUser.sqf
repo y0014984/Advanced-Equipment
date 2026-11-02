@@ -30,7 +30,7 @@ private _logMessage = "";
 
 if (AE3_DebugMode) then
 {
-	private _debugUsername = [_username] call BIS_fnc_filterString; // (default filter a..z, A..Z, 0..9, "_")
+	private _debugUsername = _username regexReplace ["[\s/\\:]", ""];
 	// no empty string allowed or changing an existing username
 	if (((count _debugUsername) > 0) && !(_username in _users)) then { _username = _debugUsername; };
 };

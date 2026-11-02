@@ -69,7 +69,7 @@ _text = _text regexReplace ["[\r\n]+", " "];
 
 private _safe = {
 	params ["_value"];
-	_value regexReplace ["[^A-Za-z0-9@._-]", "_"]
+	_value regexReplace ["[\s+/\\:*?""<>|]", "_"]
 };
 // Conversation files are named "<ownHandle>+<peerHandle>"; '+' cannot appear in a safe handle, so
 // the pair always splits back cleanly (see AE3_desktop_fnc_chatPullServer).
@@ -95,6 +95,10 @@ private _deliver = {
 private _mutexHolder = _target getVariable ["AE3_computer_mutex", objNull];
 if (!isNull _mutexHolder && {_mutexHolder isKindOf "CAManBase"}) then {
 	["ae3_desktop_msgNotify", [_fromHandle], _mutexHolder] call CBA_fnc_targetEvent;
+};
+
+if (!_isSelf) then {
+	[_target, "\z\ae3\addons\armaos\sounds\Blip.ogg"] remoteExecCall ["AE3_desktop_fnc_playDeviceSound", 0];
 };
 
 _res set ["ok", true];
