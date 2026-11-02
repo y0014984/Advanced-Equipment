@@ -2,7 +2,7 @@
 /*
  * Author: Root
  * Description: Applies wireless configuration to a router and broadcasts it: network name,
- * wireless range, password, and gateway. Shared by the router admin page and attribute dialogs.
+ * wireless range, password, gateway, external access, range multiplier and connection acceptance. Shared by the router admin page and attribute dialogs.
  *
  * Arguments:
  * 0: _router <OBJECT> - The router object
@@ -12,6 +12,8 @@
  * 4: _gateway <STRING|ARRAY> - New default gateway as "a.b.c.d" or [a,b,c,d] (blank/invalid = unchanged)
  * 5: _allowExternal <BOOL> - (Optional, default: false) Allow ping/SSH from other gateways
  * 6: _externalAllow <STRING> - (Optional, default: "") Comma/space separated regex of allowed source gateways (blank = any)
+ * 7: _rangeMultiplier <NUMBER> - (Optional, default: -1) Wireless range factor of this router (< 0 = leave unchanged)
+ * 8: _acceptConnections <BOOL> - (Optional, default: nil) Accept new wireless clients (nil = leave unchanged)
  *
  * Return Value:
  * None
@@ -22,7 +24,7 @@
  * Public: Yes
  */
 
-params [["_router", objNull, [objNull]], ["_name", "", [""]], ["_range", 0, [0]], ["_password", "", [""]], ["_gateway", "", ["", []]], ["_allowExternal", false, [false]], ["_externalAllow", "", [""]]];
+params [["_router", objNull, [objNull]], ["_name", "", [""]], ["_range", 0, [0]], ["_password", "", [""]], ["_gateway", "", ["", []]], ["_allowExternal", false, [false]], ["_externalAllow", "", [""]], ["_rangeMultiplier", -1, [0]], ["_acceptConnections", nil, [false]]];
 
 if (!isServer) exitWith {};
 if (isNull _router) exitWith {};
@@ -32,6 +34,8 @@ if (_range > 0) then { _router setVariable ["AE3_network_wirelessRange", _range,
 _router setVariable ["AE3_network_password", _password, true];
 _router setVariable ["AE3_network_allowExternalSsh", _allowExternal, true];
 _router setVariable ["AE3_network_externalAllow", _externalAllow, true];
+if (_rangeMultiplier >= 0) then { _router setVariable ["AE3_network_rangeMultiplier", _rangeMultiplier, true]; };
+if (!isNil "_acceptConnections") then { _router setVariable ["AE3_network_acceptConnections", _acceptConnections, true]; };
 
 // Default gateway = the router's own base address; DHCP (AE3_network_fnc_dhcp_get) hands out client
 // IPs from it. Accept "a.b.c.d" or [a,b,c,d]; ignore anything that isn't 4 octets in 0..255.

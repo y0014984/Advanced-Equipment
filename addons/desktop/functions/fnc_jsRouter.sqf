@@ -108,7 +108,7 @@ switch (_command) do {
     // "login"). Auto-login, when wanted, is a separate explicit "boot" push.
     case "ready": {
         if (!isNull _computer) then {
-            private _host = _computer getVariable ["ace_cargo_customName", "armaOS"];
+            private _host = ([_computer] call AE3_armaos_fnc_computer_getHostname);
             ["hostname", createHashMapFromArray [["hostname", _host]]] call FUNC(jsSend);
             ["ae3_desktop_ready", [_computer]] call CBA_fnc_localEvent;
         };
@@ -143,7 +143,7 @@ switch (_command) do {
             private _sessionOwner = _computer getVariable [QGVAR(sessionOwner), ""];
             if (_session isNotEqualTo "" && {_sessionOwner isEqualTo (getPlayerUID player)}) then {
                 _display setVariable [QGVAR(user), _session];
-                private _host = _computer getVariable ["ace_cargo_customName", "armaOS"];
+                private _host = ([_computer] call AE3_armaos_fnc_computer_getHostname);
                 ["boot", createHashMapFromArray [["user", _session], ["hostname", _host]]] call FUNC(jsSend);
             };
         };
@@ -514,14 +514,14 @@ switch (_command) do {
         if (isNull _computer || {_targetIp isEqualTo []}) exitWith { _pres set ["error", "bad_addr"]; [_pres] call _reply; };
 
         if (AE3_DebugMode || {missionNamespace getVariable ["AE3_NetworkDebugEnabled", false]}) then {
-            diag_log text format ["[AE3][ROUTE] ping_host source=%1#%2 target=%3", _computer getVariable ["ace_cargo_customName", "?"], netId _computer, [_targetIp] call AE3_network_fnc_ip2str];
+            diag_log text format ["[AE3][ROUTE] ping_host source=%1#%2 target=%3", ([_computer] call AE3_armaos_fnc_computer_getHostname), netId _computer, [_targetIp] call AE3_network_fnc_ip2str];
         };
 
         ([_computer, _targetIp] call AE3_network_fnc_resolve) params ["_target", "_routeLength"];
         if (isNull _target) exitWith { _pres set ["error", "no_route"]; [_pres] call _reply; };
 
         _pres set ["ok", true];
-        _pres set ["host", _target getVariable ["ace_cargo_customName", "remote"]];
+        _pres set ["host", ([_target] call AE3_armaos_fnc_computer_getHostname)];
         _pres set ["routeLength", _routeLength];
         [_pres] call _reply;
     };
@@ -540,7 +540,7 @@ switch (_command) do {
         if (isNull _computer || {_targetIp isEqualTo []}) exitWith { _sres set ["error", "bad_addr"]; [_sres] call _reply; };
 
         if (AE3_DebugMode || {missionNamespace getVariable ["AE3_NetworkDebugEnabled", false]}) then {
-            diag_log text format ["[AE3][ROUTE] ssh_%1 source=%2#%3 target=%4 user=%5", _op, _computer getVariable ["ace_cargo_customName", "?"], netId _computer, [_targetIp] call AE3_network_fnc_ip2str, _data getOrDefault ["user", ""]];
+            diag_log text format ["[AE3][ROUTE] ssh_%1 source=%2#%3 target=%4 user=%5", _op, ([_computer] call AE3_armaos_fnc_computer_getHostname), netId _computer, [_targetIp] call AE3_network_fnc_ip2str, _data getOrDefault ["user", ""]];
         };
         // The server resolves the target device from the IP (topology-agnostic) and replies async
         // via ae3_desktop_sshReply. Only plain strings are passed across the network event (no

@@ -90,6 +90,7 @@ PREP(computer_addSudoer);
 PREP(computer_removeSudoer);
 
 PREP(computer_setHostname);
+PREP(computer_getHostname);
 PREP(computer_getLocality);
 PREP(computer_isFree);
 PREP(computer_release);

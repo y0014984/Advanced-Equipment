@@ -61,7 +61,7 @@ if (_exitCode == 1) then
         };
 
         private _requestedOn = cbChecked (_display displayCtrl 1322);
-        private _currentlyOn = (_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1;
+        private _currentlyOn = ([_entity] call AE3_power_fnc_isPoweredOn);
 
         if (_requestedOn isNotEqualTo _currentlyOn) then
         {
@@ -112,7 +112,9 @@ if (_exitCode == 1) then
         private _password = ctrlText (_display displayCtrl 1915);
         private _extSsh = cbChecked (_display displayCtrl 1321);
         private _extAllow = ctrlText (_display displayCtrl 1917);
-        [_entity, _ssid, _range, _password, _gateway, _extSsh, _extAllow] remoteExecCall ["AE3_network_fnc_applyRouterConfig", 2];
+        private _rangeMult = parseNumber (ctrlText (_display displayCtrl 1918));
+        private _accept = cbChecked (_display displayCtrl 1324);
+        [_entity, _ssid, _range, _password, _gateway, _extSsh, _extAllow, _rangeMult, _accept] remoteExecCall ["AE3_network_fnc_applyRouterConfig", 2];
         _message = _message + format ["Network name: %1. Wifi range: %2m. Gateway: %3. External SSH: %4.", _ssid, _range, _gateway, ["disabled", "enabled"] select _extSsh];
     };
 

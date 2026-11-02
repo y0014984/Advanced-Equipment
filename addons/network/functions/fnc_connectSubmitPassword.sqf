@@ -38,7 +38,7 @@ private _entered = ctrlText (_dlg displayCtrl 17041);
 
 if (_entered isEqualTo (_router getVariable ["AE3_network_password", ""])) then
 {
-	[_device, _router] call _connect;
+	[_device, _router, _entered] call _connect;
 	uiNamespace setVariable ["AE3_network_pendingConnect", nil];
 	_dlg closeDisplay 0;
 }

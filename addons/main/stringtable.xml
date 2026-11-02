@@ -187,6 +187,52 @@
                 <Chinesesimp>AE3调试模式已启用</Chinesesimp>
             </Key>
         </Container>
+        <Container name="Device Names">
+            <Key ID="STR_AE3_Main_CbaSettings_DeviceNameFallbackDisplay">
+                <Original>Display name</Original>
+                <English>Display name</English>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DeviceNameFallbackGeneric">
+                <Original>Generic (Laptop, Router, ...)</Original>
+                <English>Generic (Laptop, Router, ...)</English>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DeviceNameFallbackName">
+                <Original>Unnamed device label</Original>
+                <English>Unnamed device label</English>
+            </Key>
+            <Key ID="STR_AE3_Main_CbaSettings_DeviceNameFallbackTooltip">
+                <Original>Label for devices without a custom name in maps, the Network app and router pages. Generic = Laptop, Router, Server, ...; Display name = the object class name shown in the editor.</Original>
+                <English>Label for devices without a custom name in maps, the Network app and router pages. Generic = Laptop, Router, Server, ...; Display name = the object class name shown in the editor.</English>
+            </Key>
+            <Key ID="STR_AE3_Main_DeviceName_Battery">
+                <Original>Battery</Original>
+                <English>Battery</English>
+            </Key>
+            <Key ID="STR_AE3_Main_DeviceName_Generator">
+                <Original>Generator</Original>
+                <English>Generator</English>
+            </Key>
+            <Key ID="STR_AE3_Main_DeviceName_Laptop">
+                <Original>Laptop</Original>
+                <English>Laptop</English>
+            </Key>
+            <Key ID="STR_AE3_Main_DeviceName_Router">
+                <Original>Router</Original>
+                <English>Router</English>
+            </Key>
+            <Key ID="STR_AE3_Main_DeviceName_Server">
+                <Original>Server</Original>
+                <English>Server</English>
+            </Key>
+            <Key ID="STR_AE3_Main_DeviceName_SolarPanel">
+                <Original>Solar Panel</Original>
+                <English>Solar Panel</English>
+            </Key>
+            <Key ID="STR_AE3_Main_DeviceName_UsbDrive">
+                <Original>USB Drive</Original>
+                <English>USB Drive</English>
+            </Key>
+        </Container>
         <Container name="Eden Attributes">
             <Key ID="STR_AE3_Main_EdenAttributes_FuelLevelDisplayName">
                 <Original>Fuel Level</Original>

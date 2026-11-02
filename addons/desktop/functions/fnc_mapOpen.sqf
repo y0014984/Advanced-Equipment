@@ -74,7 +74,7 @@ if (!_hasFocus) then {
             _mk setMarkerTypeLocal "mil_box";
             _mk setMarkerColorLocal (["ColorGreen", "ColorBlue"] select _isRouter);
             _mk setMarkerSizeLocal [0.7, 0.7];
-            _mk setMarkerTextLocal (_obj getVariable ["ace_cargo_customName", ""]);
+            _mk setMarkerTextLocal (([_obj] call AE3_main_fnc_getDeviceName));
             _markers pushBack _mk;
         };
     } forEach (nearestObjects [_center, [], 2000]);

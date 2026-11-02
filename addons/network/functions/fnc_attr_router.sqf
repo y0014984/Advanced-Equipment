@@ -9,7 +9,7 @@
  *
  * Arguments:
  * 0: Router <OBJECT>
- * 1: Key <STRING> - "ssid" | "gateway" | "range" | "password" | "extssh" | "extallow" | "starton"
+ * 1: Key <STRING> - "ssid" | "gateway" | "range" | "rangemult" | "acceptconn" | "password" | "extssh" | "extallow" | "starton"
  * 2: Value <STRING|NUMBER|BOOL> - Setting value from the attribute
  *
  * Returns:
@@ -49,7 +49,7 @@ if (_key isEqualTo "starton") exitWith
 		},
 		{
 			params ["_router"];
-			if (alive _router && {(_router getVariable ["AE3_power_powerState", 0]) != 1}) then
+			if (alive _router && {!([_router] call AE3_power_fnc_isPoweredOn)}) then
 			{
 				private _ok = [_router] call AE3_power_fnc_turnOnDevice;
 				if (_dbg) then { diag_log format ["[AE3 DEBUG] [%1] attr_router auto power-on %2: turnOnDevice=%3", time, _router, _ok]; };
@@ -71,6 +71,8 @@ if (_key isEqualTo "starton") exitWith
 				if (_gw isNotEqualTo []) then { _router setVariable ["AE3_network_address", _gw, true]; };
 			};
 			case "range":      { if (_value > 0) then { _router setVariable ["AE3_network_wirelessRange", _value, true]; }; };
+			case "rangemult":  { if (_value >= 0) then { _router setVariable ["AE3_network_rangeMultiplier", _value, true]; }; };
+			case "acceptconn": { _router setVariable ["AE3_network_acceptConnections", _value in [true, 1], true]; };
 			case "password":   { _router setVariable ["AE3_network_password", _value, true]; };
 			case "ssid":       { if (_value isNotEqualTo "") then { _router setVariable ["ace_cargo_customName", _value, true]; }; };
 			case "extssh":     { _router setVariable ["AE3_network_allowExternalSsh", _value, true]; };

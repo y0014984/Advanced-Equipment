@@ -67,7 +67,7 @@ private _update = {
 	private _usb = _computer getVariable ["AE3_USB_Interfaces_occupied", []];
 	_lines pushBack format ["<t color='#5da8e8'>USB devices:</t> %1", {!isNull _x} count _usb];
 
-	_lines pushBack format ["<t color='#5da8e8'>Hostname:</t> %1", _computer getVariable ["ace_cargo_customName", "armaOS"]];
+	_lines pushBack format ["<t color='#5da8e8'>Hostname:</t> %1", ([_computer] call AE3_armaos_fnc_computer_getHostname)];
 	_lines pushBack format ["<t color='#5da8e8'>Uptime (mission):</t> %1", [CBA_missionTime, "HH:MM:SS"] call BIS_fnc_secondsToString];
 
 	_infoCtrl ctrlSetStructuredText (parseText (_lines joinString "<br/>"));

@@ -16,6 +16,7 @@ PREP(disconnectFromGeneratorAction);
 PREP(getBatteryLevel);
 PREP(getFuelLevel);
 PREP(getPowerState);
+PREP(isPoweredOn);
 PREP(getPowerOutput);
 
 /* Setter */

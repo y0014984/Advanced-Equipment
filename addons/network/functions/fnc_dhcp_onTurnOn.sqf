@@ -37,7 +37,7 @@ else
 		// (router still booting when the client comes up), which previously left the client on the
 		// 127.0.0.1 loopback fallback shown in System Settings.
 		[
-			{ params ["_entity", "_parent"]; !alive _parent || {(_parent getVariable ["AE3_power_powerState", 0]) == 1} },
+			{ params ["_entity", "_parent"]; !alive _parent || {([_parent] call AE3_power_fnc_isPoweredOn)} },
 			{
 				params ["_entity", "_parent"];
 				_entity setVariable ["AE3_network_staticIp", "", true];

@@ -66,7 +66,7 @@ uiNamespace setVariable ["AE3_desktop_session", _session];
 
 (_display displayCtrl 17003) ctrlSetText ([dayTime, "HH:MM"] call BIS_fnc_timeToString);
 (_display displayCtrl 17004) ctrlSetText format ["%1  |  %2",
-	_computer getVariable ["ace_cargo_customName", "armaOS"],
+	([_computer] call AE3_armaos_fnc_computer_getHostname),
 	[_computer getVariable ["AE3_network_address", [127, 0, 0, 1]]] call AE3_network_fnc_ip2str
 ];
 

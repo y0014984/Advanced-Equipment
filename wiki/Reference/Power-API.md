@@ -103,11 +103,12 @@ private _stateText = [_device] call AE3_power_fnc_getPowerState;
 hint format ["State: %1", _stateText];
 ```
 
-For code decisions, prefer:
+### `AE3_power_fnc_isPoweredOn`
+
+Whether a device is on (`AE3_power_powerState` 1). Off, standby, unset and `objNull` return `false`. Any machine.
 
 ```sqf
-private _state = _device getVariable ["AE3_power_powerState", -1];
-if (_state isEqualTo 1) then {
+if ([_device] call AE3_power_fnc_isPoweredOn) then {
     // Device is on.
 };
 ```

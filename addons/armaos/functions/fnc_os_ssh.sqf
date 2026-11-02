@@ -92,7 +92,7 @@ if (!(_target getVariable ["AE3_ssh_enabled", true])) exitWith
 	[_computer] call AE3_armaos_fnc_shell_playErrorSound;
 };
 
-if ((_target getVariable ["AE3_power_powerState", 0]) != 1) exitWith
+if (!([_target] call AE3_power_fnc_isPoweredOn)) exitWith
 {
 	[_computer, format [localize "STR_AE3_ArmaOS_Ssh_NoRoute", _ipString]] call AE3_armaos_fnc_shell_stdout;
 	[_computer] call AE3_armaos_fnc_shell_playErrorSound;

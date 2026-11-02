@@ -174,7 +174,7 @@ if (!isDedicated) then
 								params ["_target"];
 								[_target] call (_target getVariable "AE3_interaction_fnc_closeWrapper");
 
-								if (_target getVariable 'AE3_power_powerState' == 1) then
+								if ([_target] call AE3_power_fnc_isPoweredOn) then
 								{
 									[_target] call (_target getVariable "AE3_power_fnc_standbyWrapper");
 								};

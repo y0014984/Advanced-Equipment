@@ -348,6 +348,51 @@ class AE3_UserInterface_Zeus_Asset_Details
             onLoad = "params ['_control']; _control ctrlShow false; _control ctrlEnable false;";
         };
 
+        // Router-only range multiplier and connection acceptance. Hidden by default; shown for router assets.
+        class RscText_1016: RscText
+        {
+            idc = 1016;
+            text = "Range Multiplier";
+            x = 19 * GUI_GRID_W + GUI_GRID_X;
+            y = 12 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            style = ST_RIGHT;
+            onLoad = "params ['_control']; _control ctrlShow false;";
+        };
+        class RscEdit_1918: RscEdit
+        {
+            idc = 1918;
+            text = "";
+            x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 12 * GUI_GRID_H + GUI_GRID_Y;
+            w = 4 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+            onLoad = "params ['_control']; _control ctrlShow false; _control ctrlEnable false;";
+        };
+        class RscText_1017: RscText
+        {
+            idc = 1017;
+            text = "Accept Connections";
+            x = 19 * GUI_GRID_W + GUI_GRID_X;
+            y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 8 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            style = ST_RIGHT;
+            onLoad = "params ['_control']; _control ctrlShow false;";
+        };
+        class RscCheckBox_1324: RscCheckBox
+        {
+            idc = 1324;
+            x = 27.5 * GUI_GRID_W + GUI_GRID_X;
+            y = 13.5 * GUI_GRID_H + GUI_GRID_Y;
+            w = 1 * GUI_GRID_W;
+            h = 1 * GUI_GRID_H;
+            colorBackground[] = {-1,-1,-1,0.5};
+            onLoad = "params ['_control']; _control ctrlShow false; _control ctrlEnable false;";
+        };
+
         // Terminal-only hostname: hidden by default, shown + populated for laptops/computers.
         class RscText_1006: RscText
         {

@@ -640,12 +640,12 @@ if (!isDedicated) then {
 				if (!([_laptop] call AE3_armaos_fnc_computer_isFree)) exitWith {};
 
 				// A laptop packed while switched off is powered on before opening the interface.
-				if ((_laptop getVariable ["AE3_power_powerState", 0]) != 1) then {
+				if (!([_laptop] call AE3_power_fnc_isPoweredOn)) then {
 					[_laptop] remoteExecCall ["AE3_power_fnc_turnOnDevice", 2];
 					private _timeout = time + 5;
-					waitUntil { (_laptop getVariable ["AE3_power_powerState", 0]) == 1 || {!alive _laptop} || {time > _timeout} };
+					waitUntil { ([_laptop] call AE3_power_fnc_isPoweredOn) || {!alive _laptop} || {time > _timeout} };
 				};
-				if ((_laptop getVariable ["AE3_power_powerState", 0]) != 1) exitWith {};
+				if (!([_laptop] call AE3_power_fnc_isPoweredOn)) exitWith {};
 
 				_laptop setVariable ["AE3_computer_mutex", player, true];
 

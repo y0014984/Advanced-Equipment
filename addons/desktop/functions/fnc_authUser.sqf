@@ -52,5 +52,5 @@ if (!_authoritative && isMultiplayer && {!(_user in _users)}) exitWith {
 if (!(_user in _users)) exitWith { ["Unknown user"] call _fail };
 if ((_users get _user) isNotEqualTo _pass) exitWith { ["Incorrect password"] call _fail };
 
-private _host = _computer getVariable ["ace_cargo_customName", "armaOS"];
+private _host = ([_computer] call AE3_armaos_fnc_computer_getHostname);
 createHashMapFromArray [["ok", true], ["user", _user], ["hostname", _host]]

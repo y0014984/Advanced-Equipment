@@ -163,7 +163,7 @@ if (isNull _entity) exitWith {};
     private _powerStateCheckCtrl = _display displayCtrl 1322;
     { _x ctrlShow true } forEach [_powerStateLabelCtrl, _powerStateCheckCtrl];
     _powerStateCheckCtrl ctrlEnable true;
-    _powerStateCheckCtrl cbSetChecked ((_entity getVariable ["AE3_power_powerState", 0]) isEqualTo 1);
+    _powerStateCheckCtrl cbSetChecked (([_entity] call AE3_power_fnc_isPoweredOn));
 
     // Devices that can run on mains (headless servers) get the "requires external power" toggle.
     if (isNumber (configOf _entity >> "AE3_Device" >> "mainsPowered")) then
@@ -228,14 +228,20 @@ if (isNull _entity) exitWith {};
         private _extSshCheckCtrl = _display displayCtrl 1321;
         private _extAllowLabelCtrl = _display displayCtrl 1013;
         private _extAllowEditCtrl = _display displayCtrl 1917;
+        private _rangeMultLabelCtrl = _display displayCtrl 1016;
+        private _rangeMultEditCtrl = _display displayCtrl 1918;
+        private _acceptLabelCtrl = _display displayCtrl 1017;
+        private _acceptCheckCtrl = _display displayCtrl 1324;
 
-        { _x ctrlShow true } forEach [_rangeLabelCtrl, _rangeEditCtrl, _gatewayLabelCtrl, _gatewayEditCtrl, _ssidLabelCtrl, _ssidEditCtrl, _passwordLabelCtrl, _passwordEditCtrl, _extSshLabelCtrl, _extSshCheckCtrl, _extAllowLabelCtrl, _extAllowEditCtrl];
+        { _x ctrlShow true } forEach [_rangeLabelCtrl, _rangeEditCtrl, _gatewayLabelCtrl, _gatewayEditCtrl, _ssidLabelCtrl, _ssidEditCtrl, _passwordLabelCtrl, _passwordEditCtrl, _extSshLabelCtrl, _extSshCheckCtrl, _extAllowLabelCtrl, _extAllowEditCtrl, _rangeMultLabelCtrl, _rangeMultEditCtrl, _acceptLabelCtrl, _acceptCheckCtrl];
         _rangeEditCtrl ctrlEnable true;
         _gatewayEditCtrl ctrlEnable true;
         _ssidEditCtrl ctrlEnable true;
         _passwordEditCtrl ctrlEnable true;
         _extSshCheckCtrl ctrlEnable true;
         _extAllowEditCtrl ctrlEnable true;
+        _rangeMultEditCtrl ctrlEnable true;
+        _acceptCheckCtrl ctrlEnable true;
 
         _rangeEditCtrl ctrlSetText str (_entity getVariable ["AE3_network_wirelessRange", 100]);
         _gatewayEditCtrl ctrlSetText ([_entity getVariable ["AE3_network_address", [192, 168, 0, 1]]] call AE3_network_fnc_ip2str);
@@ -243,6 +249,8 @@ if (isNull _entity) exitWith {};
         _passwordEditCtrl ctrlSetText (_entity getVariable ["AE3_network_password", ""]);
         _extSshCheckCtrl cbSetChecked (_entity getVariable ["AE3_network_allowExternalSsh", false]);
         _extAllowEditCtrl ctrlSetText (_entity getVariable ["AE3_network_externalAllow", ""]);
+        _rangeMultEditCtrl ctrlSetText str (_entity getVariable ["AE3_network_rangeMultiplier", 1]);
+        _acceptCheckCtrl cbSetChecked (_entity getVariable ["AE3_network_acceptConnections", true]);
     };
 
     /* ======================================== */
@@ -270,7 +278,7 @@ if (isNull _entity) exitWith {};
         _rtComboCtrl ctrlEnable true;
         _pwEditCtrl ctrlEnable true;
 
-        _hostEditCtrl ctrlSetText (_entity getVariable ["ace_cargo_customName", "armaOS"]);
+        _hostEditCtrl ctrlSetText (([_entity] call AE3_armaos_fnc_computer_getHostname));
         _sshCheckCtrl cbSetChecked (_entity getVariable ["AE3_ssh_enabled", true]);
         _ipEditCtrl ctrlSetText (_entity getVariable ["AE3_network_staticIp", ""]);
 
@@ -285,8 +293,7 @@ if (isNull _entity) exitWith {};
         } forEach (missionNamespace getVariable ["AE3_network_routers", []]);
         {
             private _r = _x;
-            private _range = _r getVariable ["AE3_network_wirelessRange", 100];
-            if ((_entity distance _r) <= _range) then
+            if ((_entity distance _r) <= ([_r, _entity] call AE3_network_fnc_getWirelessRange)) then
             {
                 private _objName = [_r, false] call ace_cargo_fnc_getNameItem;
                 private _networkName = _r getVariable ["ace_cargo_customName", ""];

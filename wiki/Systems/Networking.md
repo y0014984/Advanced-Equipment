@@ -17,10 +17,14 @@ Configure routers in object attributes:
 | Network Name (SSID) | Visible network name. |
 | Default Gateway | Optional router address, e.g. `10.0.0.1`. Leave blank for AE3 to assign one. |
 | Wifi Range (m) | Connection range. |
+| Wifi Range Multiplier | Factor on the range. `1` = unchanged, `0` = no range. |
+| Accept Connections | Off: joins refused, connected laptops dropped. |
 | Network Password | Required password, or blank for open network. |
 | Powered On At Start | Starts the router automatically. |
 | Allow External SSH | Allows access from other gateways/subnets. |
 | External Allowed IPs | Optional allow-list (comma/space separated gateway, host, or regex) for external routes. |
+
+A laptop joins and stays on a router only while the router is alive and powered on, the laptop is within range, the router accepts connections and no mod condition refuses. Laptops that stop meeting this are dropped within 5 s. Eden and script connections skip the join check.
 
 For simple missions, leave Default Gateway blank and let AE3 assign addresses via DHCP.
 

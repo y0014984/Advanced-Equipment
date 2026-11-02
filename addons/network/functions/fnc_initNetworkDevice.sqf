@@ -24,7 +24,10 @@ private _childs =
 		private _childStatement = 
 		{ 
 			params ["_target", "_player", "_parent"]; 
-			[_target, _parent, AE3_network_fnc_connect_device2router] call AE3_network_fnc_promptConnect;
+			[_target, _parent, {
+				params ["_device", "_router", ["_password", ""]];
+				[_device, _router, _password, clientOwner, "ace"] call AE3_network_fnc_requestConnect;
+			}] call AE3_network_fnc_promptConnect;
 		}; 
 
 		private _aceCargoName = [_x, true] call ace_cargo_fnc_getNameItem; // changed from {typeOf _x} to this function

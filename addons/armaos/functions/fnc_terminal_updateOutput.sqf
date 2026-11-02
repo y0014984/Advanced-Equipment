@@ -53,7 +53,7 @@ if (AE3_UiOnTexture) then
 
 	// If CBA setting is 0, enable real-time synchronization (no throttle)
 	if (_updateInterval == 0) exitWith {
-		private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 3];
+		private _playerRange = missionNamespace getVariable ["AE3_UiPlayerRange", 2];
 		private _playersInRange = [_playerRange, _computer] call AE3_main_fnc_getPlayersInRange;
 
 		// Skip network traffic if laptop is not in use

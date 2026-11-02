@@ -62,7 +62,7 @@ try {
 
     if (isNull _target) then { throw "no_route" };
     if !(_target getVariable ["AE3_cap_hasTerminal", false]) then { throw "no_route" };
-    if ((_target getVariable ["AE3_power_powerState", 0]) != 1) then { throw "offline" };
+    if (!([_target] call AE3_power_fnc_isPoweredOn)) then { throw "offline" };
     // SSH must be enabled on the remote device.
     if !(_target getVariable ["AE3_ssh_enabled", true]) then { throw "ssh_disabled" };
     if (!isNull (_target getVariable ["AE3_computer_mutex", objNull]) && _target isNotEqualTo _local) then { throw "busy" };
@@ -79,7 +79,7 @@ try {
 
         case "connect": {
             _res set ["ok", true];
-            _res set ["host", _target getVariable ["ace_cargo_customName", "remote"]];
+            _res set ["host", ([_target] call AE3_armaos_fnc_computer_getHostname)];
         };
 
         case "ls": {
