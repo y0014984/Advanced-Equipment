@@ -1,6 +1,6 @@
 ---
 title: wiki index
-last-updated: 2026-07-08
+last-updated: 2026-11-02
 ---
 
 # code wiki
@@ -23,7 +23,7 @@ The public mod documentation starts at [wiki/Home.md](../wiki/Home.md). This ind
 | --- | --- | --- | --- | --- |
 | 1 | [desktop-gui-and-browser](desktop-gui-and-browser.md) | core | ~1750 | VERIFIED |
 | 2 | [eden-zeus-tooling](eden-zeus-tooling.md) | core | ~1550 | VERIFIED |
-| 3 | [network-routing-and-ssh](network-routing-and-ssh.md) | core | ~560 | VERIFIED |
+| 3 | [network-routing-and-ssh](network-routing-and-ssh.md) | core | ~780 | VERIFIED |
 | 4 | [desktop-intel-and-communications](desktop-intel-and-communications.md) | core | ~650 | VERIFIED |
 | 5 | [armaos-terminal](armaos-terminal.md) | core | ~590 | VERIFIED |
 | 6 | [power-model](power-model.md) | core | ~470 | VERIFIED |

@@ -30,7 +30,7 @@ if (isNull _router) exitWith { _res set ["error", "not_connected"]; _res };
 switch (_op) do {
 
     case "get": {
-        _res set ["name", _router getVariable ["ace_cargo_customName", "Router"]];
+        _res set ["name", ([_router] call AE3_main_fnc_getDeviceName)];
         _res set ["range", _router getVariable ["AE3_network_wirelessRange", 100]];
         _res set ["password", _router getVariable ["AE3_network_password", ""]];
         _res set ["gateway", ([_router getVariable ["AE3_network_address", [192, 168, 0, 1]]] call AE3_network_fnc_ip2str)];

@@ -46,7 +46,7 @@ private _operator = [_device] call FUNC(operatorOwner);
 if (_operator <= 0) exitWith {[_device, "$STR_AE3_Games_Status_NotInUse"] call FUNC(pushNotice)};
 if (_owner > 0 && (_operator != _owner)) exitWith {[_device, "$STR_AE3_Games_Status_NotInUse"] call FUNC(pushNotice)};
 
-if ((_device getVariable ["AE3_power_powerState", 0]) != 1) exitWith {[_device, "$STR_AE3_Games_Status_NoPower"] call FUNC(pushNotice)};
+if (!([_device] call AE3_power_fnc_isPoweredOn)) exitWith {[_device, "$STR_AE3_Games_Status_NoPower"] call FUNC(pushNotice)};
 
 // The host device is the table, so losing the route to it ends participation until it is back
 private _host = objectFromNetId (_table getOrDefault ["host", ""]);

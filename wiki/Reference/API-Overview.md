@@ -184,6 +184,15 @@ Returns players within a radius of an object. Used internally for UI-on-texture 
 private _nearby = [50, _laptop] call AE3_main_fnc_getPlayersInRange;
 ```
 
+### `AE3_main_fnc_getDeviceName`
+
+First match: custom name (`ace_cargo_customName`), the fallback, the generic kind (`Laptop`, `Router`, `Server`, `USB Drive`, `Generator`, `Battery`, `Solar Panel`) when CBA setting `AE3_DeviceNameFallback` is Generic, config `displayName`, class name. `""` for `objNull`. Any machine.
+
+```sqf
+private _name = [_router] call AE3_main_fnc_getDeviceName;
+private _label = [_laptop, "10.0.0.5"] call AE3_main_fnc_getDeviceName;
+```
+
 ### `AE3_main_fnc_waitForFilesystem`
 
 Deprecated — kept for external API compatibility. Prefer `AE3_armaos_fnc_device_ensureInit`, which doesn't block a scheduled thread waiting on a variable.

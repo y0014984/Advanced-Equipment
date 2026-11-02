@@ -35,7 +35,7 @@ private _sameOnly = AE3_Desktop_MapSameNetworkOnly && {!isNull _computer};
         private _kind = if (_x isEqualTo _computer) then { "self" } else {
             ["device", "router"] select (_x getVariable ["AE3_cap_isRouter", false])
         };
-        private _label = _x getVariable ["ace_cargo_customName", ""];
+        private _label = ([_x] call AE3_main_fnc_getDeviceName);
         _blips pushBack createHashMapFromArray [
             ["dx", _x2 - _px], ["dy", _y2 - _py], ["kind", _kind], ["label", _label]
         ];

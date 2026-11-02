@@ -25,7 +25,7 @@ private _dlg = findDisplay 17030;
 if (isNull _dlg) exitWith {};
 
 uiNamespace setVariable ["AE3_router_configTarget", _router];
-(_dlg displayCtrl 17031) ctrlSetText (_router getVariable ["ace_cargo_customName", "Router"]);
+(_dlg displayCtrl 17031) ctrlSetText (([_router] call AE3_main_fnc_getDeviceName));
 (_dlg displayCtrl 17032) ctrlSetText (str (_router getVariable ["AE3_network_wirelessRange", 100]));
 (_dlg displayCtrl 17033) ctrlSetText (_router getVariable ["AE3_network_password", ""]);
 (_dlg displayCtrl 17034) ctrlSetText ([_router getVariable ["AE3_network_address", [192, 168, 0, 1]]] call AE3_network_fnc_ip2str);

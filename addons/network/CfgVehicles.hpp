@@ -38,7 +38,7 @@
 			typeName = "NUMBER"; \
 			condition = "1"; \
 		}; \
-		class AE3_RouterPassword \
+		class AE3_RouterRangeMultiplier 		{ 			displayName = "Wifi Range Multiplier"; 			tooltip = "Factor applied to the wifi range of this router. 1 = unchanged, 0 = no range."; 			property = "AE3_RouterRangeMultiplier"; 			control = "Edit"; 			expression = "[_this, 'rangemult', _value] call AE3_network_fnc_attr_router;"; 			defaultValue = "1"; 			typeName = "NUMBER"; 			validate = "number"; 			condition = "1"; 		}; 		class AE3_RouterAcceptConnections 		{ 			displayName = "Accept Connections"; 			tooltip = "Laptops may join and stay on this router. Disabled: joins are refused and connected laptops are dropped."; 			property = "AE3_RouterAcceptConnections"; 			control = "Checkbox"; 			expression = "[_this, 'acceptconn', _value] call AE3_network_fnc_attr_router;"; 			defaultValue = "true"; 			typeName = "BOOL"; 			condition = "1"; 		}; 		class AE3_RouterPassword \
 		{ \
 			displayName = "Network Password"; \
 			tooltip = "Password required to connect. Leave blank for an open network."; \

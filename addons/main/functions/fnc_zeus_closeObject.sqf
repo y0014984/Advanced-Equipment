@@ -37,7 +37,7 @@ if (isNull _entity) exitWith {};
         
         [_entity] call (_entity getVariable "AE3_interaction_fnc_closeWrapper");
 
-        if (_entity getVariable "AE3_power_powerState" == 1) then
+        if ([_entity] call AE3_power_fnc_isPoweredOn) then
         {
             [_entity] call (_entity getVariable "AE3_power_fnc_standbyWrapper");
         };

@@ -126,7 +126,7 @@ if(!isDedicated) then
 
                 _allowed &&
                 {alive _target} &&
-                {(_target getVariable ["AE3_power_powerState", 0]) == 1} &&
+                {([_target] call AE3_power_fnc_isPoweredOn)} &&
                 {[_target] call AE3_armaos_fnc_computer_isFree}
             }
         ] call ace_interact_menu_fnc_createAction;
@@ -153,7 +153,7 @@ if(!isDedicated) then
                 !isNil "AE3_desktop_fnc_canAccessInterface" &&
                 {[_target, _player, "gui"] call AE3_desktop_fnc_canAccessInterface} &&
                 {alive _target} &&
-                {(_target getVariable ["AE3_power_powerState", 0]) == 1} &&
+                {([_target] call AE3_power_fnc_isPoweredOn)} &&
                 {[_target] call AE3_armaos_fnc_computer_isFree}
             }
         ] call ace_interact_menu_fnc_createAction;

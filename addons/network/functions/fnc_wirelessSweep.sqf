@@ -9,9 +9,9 @@
  * is carried - an EWO's backpack - moves the range itself, which makes the check a live one rather than
  * something that can be settled at connect time.
  *
- * Each pass drops the clients that no longer have a network to be on: those out of their router's
- * wireless range, and those whose router is dead or switched off. A dropped client loses its address and
- * has to come back into range and connect again, so it can no longer be reached from anywhere.
+ * Each pass drops the clients that AE3_network_fnc_canConnect no longer allows on their router: router dead
+ * or switched off, out of AE3_network_fnc_getWirelessRange, router not accepting connections, or a registered
+ * connect condition refusing. A dropped client loses its address and has to connect again.
  *
  * Cascaded child routers are left alone: they manage their own subnets and a mission may deliberately
  * link two routers that stand far apart.
@@ -29,22 +29,17 @@ if (!isServer) exitWith {};
 
 {
     private _router = _x;
-    if (isNull _router) then {continue};
 
-    private _routerDown = !alive _router || {(_router getVariable ["AE3_power_powerState", 1]) != 1};
-    private _range = _router getVariable ["AE3_network_wirelessRange", 100];
-
-    // Copied before iterating: removeNetworkConnection edits the children array as it goes.
+    // getClients returns a copy: removeNetworkConnection edits the children array as it goes.
     {
         private _client = _x;
-        if (isNull _client || {_client getVariable ["AE3_cap_isRouter", false]}) then {continue};
+        ([_client, _router] call FUNC(canConnect)) params ["_allowed", "_reason"];
+        if (_allowed) then {continue};
 
-        if (_routerDown || {(_client distance _router) > _range}) then {
-            private _clientOwner = owner _client;
-            if (_clientOwner > 0) then {
-                ["ae3_desktop_netResult", [false, ["Out of range", "Router offline"] select _routerDown], _clientOwner] call CBA_fnc_ownerEvent;
-            };
-            [_client] call AE3_network_fnc_removeNetworkConnection;
+        private _clientOwner = owner _client;
+        if (_clientOwner > 0) then {
+            ["ae3_desktop_netResult", [false, _reason], _clientOwner] call CBA_fnc_ownerEvent;
         };
-    } forEach (+(_router getVariable ["AE3_network_children", []]));
-} forEach (missionNamespace getVariable ["AE3_network_routers", []]);
+        [_client] call FUNC(removeNetworkConnection);
+    } forEach ([_router] call FUNC(getClients));
+} forEach (call FUNC(getRouters));

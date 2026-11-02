@@ -23,4 +23,4 @@ params [["_device", objNull, [objNull]]];
 
 if (isNull _device) exitWith { "" };
 
-_device getVariable ["ace_cargo_customName", getText (configOf _device >> "displayName")]
+[_device] call AE3_main_fnc_getDeviceName

@@ -2,6 +2,33 @@
 #include "script_component.hpp"
 #include "XEH_PREP.hpp"
 
+// Connect conditions and range modifiers registered by other code (AE3_network_fnc_addConnectCondition,
+// AE3_network_fnc_addRangeModifier). Local to each machine.
+if (isNil QGVAR(connectConditions)) then { GVAR(connectConditions) = createHashMap; };
+if (isNil QGVAR(rangeModifiers)) then { GVAR(rangeModifiers) = createHashMap; };
+
+[
+	"AE3_network_defaultWirelessRange",
+	"SLIDER",
+	["Default wifi range (m)", "Wifi range of routers that do not set their own in the editor or Zeus."],
+	"AE3 Network",
+	[1, 5000, 100, 0],
+	1,
+	{ params ["_value"]; },
+	false
+] call CBA_fnc_addSetting;
+
+[
+	"AE3_network_wirelessRangeMultiplier",
+	"SLIDER",
+	["Wifi range multiplier", "Factor applied to the wifi range of every router. 1 = unchanged, 0 = no range."],
+	"AE3 Network",
+	[0, 5, 1, 2],
+	1,
+	{ params ["_value"]; },
+	false
+] call CBA_fnc_addSetting;
+
 // Router turn-off requests from clients are routed to the server (see fnc_router_onTurnOff)
 if (isServer) then
 {
@@ -16,6 +43,11 @@ if (isServer) then
 	["ae3_network_connectDevice", {
 		params ["_deviceNetId", "_parentNetId"];
 		[objectFromNetId _deviceNetId, objectFromNetId _parentNetId] call AE3_network_fnc_connect_device2router;
+	}] call CBA_fnc_addEventHandler;
+
+	["ae3_network_requestConnect", {
+		params ["_deviceNetId", "_routerNetId", "_password", "_owner", "_source"];
+		[objectFromNetId _deviceNetId, objectFromNetId _routerNetId, _password, _owner, _source] call AE3_network_fnc_requestConnect;
 	}] call CBA_fnc_addEventHandler;
 
 	["ae3_network_connectRouter", {
@@ -100,6 +132,12 @@ if (hasInterface) then
 		["AE3 Asset Attributes", _message, 5] call BIS_fnc_curatorHint;
 	}] call CBA_fnc_addEventHandler;
 
+
+	// Result of a wireless connect started from the ACE menu.
+	["ae3_network_connectResult", {
+		params ["", "_msg"];
+		hint _msg;
+	}] call CBA_fnc_addEventHandler;
 
 	["ae3_network_imNotify", {
 		params ["_target", "_senderIp"];

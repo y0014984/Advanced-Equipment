@@ -44,6 +44,21 @@ if (hasInterface) then
 ] call CBA_fnc_addSetting;
 
 [
+	"AE3_DeviceNameFallback",
+	"LIST",
+	["STR_AE3_Main_CbaSettings_DeviceNameFallbackName", "STR_AE3_Main_CbaSettings_DeviceNameFallbackTooltip"],
+	"STR_AE3_Main_CbaSettings_MainCategoryName",
+	[
+		["generic", "display"],
+		["STR_AE3_Main_CbaSettings_DeviceNameFallbackGeneric", "STR_AE3_Main_CbaSettings_DeviceNameFallbackDisplay"],
+		0
+	],
+	1,
+	{ params ["_value"]; },
+	false
+] call CBA_fnc_addSetting;
+
+[
 	"AE3_DeploymentType", // Settings internal name
 	"LIST", // Settings type
 	["STR_AE3_Main_CbaSettings_DeploymentTypeName", "STR_AE3_Main_CbaSettings_DeploymentTypeTooltip"], // Settings Name + Tooltip

@@ -146,6 +146,16 @@ private _allowed = [_computer] call AE3_armaos_fnc_computer_allowsRootLogin;
 
 Resolves the laptop's own policy, falling back to the CBA setting.
 
+## Hostname
+
+### `AE3_armaos_fnc_computer_getHostname`
+
+```sqf
+private _host = [_laptop] call AE3_armaos_fnc_computer_getHostname;
+```
+
+Custom name (`ace_cargo_customName`), else `armaOS`. Any machine.
+
 ## Installing Built-In Commands
 
 ### `AE3_armaos_fnc_computer_initWithCommands`

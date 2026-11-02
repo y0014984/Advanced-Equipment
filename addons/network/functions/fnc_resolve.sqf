@@ -50,7 +50,7 @@ private _routers = missionNamespace getVariable ["AE3_network_routers", []];
 private _tgtRouter = objNull;
 {
 	if (isNull _x || {!alive _x}) then {continue};
-	if ((_x getVariable ["AE3_power_powerState", 1]) != 1) then {continue};
+	if (!([_x] call AE3_power_fnc_isPoweredOn)) then {continue};
 	private _ra = _x getVariable ["AE3_network_address", []];
 	if (count _ra == 4 && {[_ra select 0, _ra select 1, _ra select 2] isEqualTo _tgtSub}) exitWith {_tgtRouter = _x};
 } forEach _routers;

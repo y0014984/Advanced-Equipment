@@ -71,7 +71,7 @@ This is the simpler script call when you do not care about lower-level uplink de
 Applies router wireless/network configuration and broadcasts it.
 
 ```sqf
-[_router, _name, _range, _password, _gateway, _allowExternal, _externalAllow] call AE3_network_fnc_applyRouterConfig;
+[_router, _name, _range, _password, _gateway, _allowExternal, _externalAllow, _rangeMultiplier, _acceptConnections] call AE3_network_fnc_applyRouterConfig;
 ```
 
 Arguments:
@@ -85,6 +85,8 @@ Arguments:
 | `4` | String or Array | Required | Gateway IP as `"a.b.c.d"` or `[a,b,c,d]`. Blank/invalid keeps existing value. |
 | `5` | Bool | `false` | Allow ping/SSH from other gateways. |
 | `6` | String | `""` | Comma/space separated allow list. Blank means any external gateway/source. |
+| `7` | Number | `-1` | Range multiplier of this router. `< 0` keeps existing value. |
+| `8` | Bool | `nil` | Accept wireless connections. `nil` keeps existing value. |
 
 Example: private local network.
 
@@ -99,6 +101,95 @@ Example: allow selected external sources.
 ```
 
 External allow entries may be gateway IPs, specific host IPs, or regex patterns matched against source IP/gateway strings.
+
+## Connection Checks and Range
+
+The ACE menu, the Network app and the 5 s wireless sweep use the same check. Eden, Zeus and script connections (`createNetworkConnection`) skip it.
+
+Conditions and range modifiers are stored per machine. Register them on every machine (e.g. in postInit, without `isServer`); the server result decides, client results only filter the UI.
+
+### `AE3_network_fnc_canConnect`
+
+```sqf
+([_device, _router, _password] call AE3_network_fnc_canConnect) params ["_allowed", "_reason"];
+```
+
+| Index | Type | Default | Meaning |
+| --- | --- | --- | --- |
+| `0` | Object | Required | Device. |
+| `1` | Object | Required | Router. |
+| `2` | String | `nil` | Password. `nil` skips the password check. |
+
+Returns `[true, ""]` or `[false, reason]`. Checks in order:
+
+| Check | Reason |
+| --- | --- |
+| Router alive and powered on | `Network offline` |
+| Distance within `getWirelessRange` | `Out of range` |
+| Router `AE3_network_acceptConnections` | `Connections blocked` |
+| Registered conditions | Condition reason, else `Connection refused` |
+| Password, when given | `Wrong password` |
+
+Any machine.
+
+### `AE3_network_fnc_addConnectCondition` / `AE3_network_fnc_removeConnectCondition`
+
+```sqf
+["myMod_jamming", {
+    params ["_device", "_router"];
+    [!(_router getVariable ["myMod_blocked", false]), "Blocked"]
+}] call AE3_network_fnc_addConnectCondition;
+
+["myMod_jamming"] call AE3_network_fnc_removeConnectCondition;
+```
+
+Code gets `[_device, _router]`, returns `[allowed, reason]` or a Bool. Applies to joining and to staying connected. Same id replaces. Both return a Bool. Local.
+
+### `AE3_network_fnc_getWirelessRange`
+
+```sqf
+private _range = [_router, _device] call AE3_network_fnc_getWirelessRange;
+```
+
+Returns metres: `AE3_network_wirelessRange` x router `AE3_network_rangeMultiplier` x CBA `AE3_network_wirelessRangeMultiplier` x every range modifier. `_device` is optional. Any machine.
+
+### `AE3_network_fnc_addRangeModifier` / `AE3_network_fnc_removeRangeModifier`
+
+```sqf
+["myMod_interference", {
+    params ["_router", "_device"];
+    1 - ([_device] call myMod_fnc_jamStrength)
+}] call AE3_network_fnc_addRangeModifier;
+
+["myMod_interference"] call AE3_network_fnc_removeRangeModifier;
+```
+
+Code gets `[_router, _device]` (`_device` may be `objNull`), returns a factor: `1` = unchanged, `0` = no range, `> 1` = longer. Negative counts as `0`; non-numbers are ignored with one RPT warning. Same id replaces. Both return a Bool. Local.
+
+### `AE3_network_fnc_isOnline`
+
+```sqf
+if ([_laptop] call AE3_network_fnc_isOnline) then { ... };
+```
+
+`true` when the object has an address other than `127.0.0.1` and is a router or connected to one. Power is not checked. Any machine.
+
+### `AE3_network_fnc_getRouters`
+
+```sqf
+private _routers = call AE3_network_fnc_getRouters;
+```
+
+Every initialised router, including dead and powered-off ones. Any machine.
+
+### `AE3_network_fnc_getClients`
+
+```sqf
+private _laptops = [_router] call AE3_network_fnc_getClients;
+private _all = [_router, true] call AE3_network_fnc_getClients;
+```
+
+Devices connected to the router; `true` also returns cascaded child routers. Returns a new array. Any machine.
 
 ## Static IPs
 

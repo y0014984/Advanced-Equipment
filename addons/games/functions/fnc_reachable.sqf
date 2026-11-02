@@ -26,16 +26,16 @@ params [["_from", objNull, [objNull]], ["_to", objNull, [objNull]]];
 if (isNull _from || {isNull _to}) exitWith {false};
 if (!alive _from || {!alive _to}) exitWith {false};
 
-if ((_from getVariable ["AE3_power_powerState", 0]) != 1) exitWith {false};
-if ((_to getVariable ["AE3_power_powerState", 0]) != 1) exitWith {false};
+if (!([_from] call AE3_power_fnc_isPoweredOn)) exitWith {false};
+if (!([_to] call AE3_power_fnc_isPoweredOn)) exitWith {false};
 
 if (_from isEqualTo _to) exitWith {true};
 
 if !([_from, "RequireSameNetwork"] call FUNC(getSetting)) exitWith {true};
 
-private _address = _to getVariable ["AE3_network_address", [127, 0, 0, 1]];
+if !([_to] call AE3_network_fnc_isOnline) exitWith {false};
 
-if (_address isEqualTo [127, 0, 0, 1]) exitWith {false};
+private _address = _to getVariable ["AE3_network_address", [127, 0, 0, 1]];
 
 private _resolved = ([_from, _address] call AE3_network_fnc_resolve) param [0, objNull];
 

@@ -44,9 +44,9 @@ private _isSelf = _target isEqualTo _sender;
 private _connected = {
 	params ["_device"];
 	// Online-only reachability: the device just needs to be powered on, regardless of topology.
-	(_device getVariable ["AE3_power_powerState", 0]) == 1
+	([_device] call AE3_power_fnc_isPoweredOn)
 };
-private _senderPowered = (_sender getVariable ["AE3_power_powerState", 0]) == 1;
+private _senderPowered = ([_sender] call AE3_power_fnc_isPoweredOn);
 if ((!_isSelf && {!([_sender] call _connected) || {!([_target] call _connected)}}) || {_isSelf && {!_senderPowered}}) exitWith {
 	_res set ["error", "unreachable"];
 	[_owner, _rid, _res] call _reply;
@@ -62,7 +62,7 @@ private _fromHandle = "";
 		if (_fromHandle isEqualTo "" || _x isEqualTo _wantKey) then { _fromHandle = _entry param [1, _x]; };
 	};
 } forEach (keys _registry);
-if (_fromHandle isEqualTo "") then { _fromHandle = "@" + (_sender getVariable ["ace_cargo_customName", "unknown"]); };
+if (_fromHandle isEqualTo "") then { _fromHandle = "@" + (([_sender] call AE3_armaos_fnc_computer_getHostname)); };
 private _toDisplay = _toEntry param [1, _toHandle];
 private _time = [dayTime, "HH:MM"] call BIS_fnc_timeToString;
 _text = _text regexReplace ["[\r\n]+", " "];

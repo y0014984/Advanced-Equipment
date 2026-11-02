@@ -32,16 +32,15 @@ private _target = _terminal getOrDefault ["AE3_sshTarget", objNull];
 if (isNull _target) exitWith {true};
 
 private _targetAddr = _target getVariable ["AE3_network_address", [127, 0, 0, 1]];
-private _localAddr = _computer getVariable ["AE3_network_address", [127, 0, 0, 1]];
 
 private _alive = alive _target
     && {_target getVariable ["AE3_cap_hasTerminal", false]}
-    && {(_target getVariable ["AE3_power_powerState", 0]) == 1}
+    && {([_target] call AE3_power_fnc_isPoweredOn)}
     && {_target getVariable ["AE3_ssh_enabled", true]}
-    && {(_computer getVariable ["AE3_power_powerState", 0]) == 1}
+    && {([_computer] call AE3_power_fnc_isPoweredOn)}
     // A machine that has fallen off its network answers on loopback and nothing else, either end.
-    && {_targetAddr isNotEqualTo [127, 0, 0, 1]}
-    && {_localAddr isNotEqualTo [127, 0, 0, 1]}
+    && {[_target] call AE3_network_fnc_isOnline}
+    && {[_computer] call AE3_network_fnc_isOnline}
     // The route is walked again from where the two machines stand now, so a router that has gone down
     // or an access policy that has since closed drops the session as surely as the remote itself would.
     && {(([_computer, _targetAddr] call AE3_network_fnc_resolve) select 0) isEqualTo _target};

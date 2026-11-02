@@ -242,6 +242,7 @@ All CBA settings AE3 registers, by component. All are configurable from the in-g
 | --- | --- | --- |
 | `AE3_DebugMode` | Checkbox, default off | Extra internal-structure diagnostics. |
 | `AE3_NetworkDebug` | Checkbox, default off | Logs AE3 `remoteExec` traffic to `diag_log`. Verbose — troubleshooting only. |
+| `AE3_DeviceNameFallback` | List, default Generic | Label for devices without a custom name (map, Network app, router pages): **Generic** = Laptop, Router, Server, ...; **Display name** = config display name. |
 | `AE3_DeploymentType` | List, default Stable, **requires restart** | How laptop pickup/deployment works: **Stable** = simple hide/show with vanilla laptop items; **Experimental** = full state preservation with custom items. |
 
 ### ArmaOS (Terminal)
@@ -300,6 +301,13 @@ Terminal content renders as text/array buffers synced to nearby clients and draw
 | Setting | Type | Meaning |
 | --- | --- | --- |
 | `AE3_Filesystem_SyncMode` | List, default Server Only | **Server Only** = filesystem changes sent to server only (recommended, lowest network usage); **Global** = broadcast to all clients (debugging/experimenting only, high network usage). |
+
+### Network
+
+| Setting | Type | Meaning |
+| --- | --- | --- |
+| `AE3_network_defaultWirelessRange` | Slider, default 100 m | Wifi range of routers without their own range. |
+| `AE3_network_wirelessRangeMultiplier` | Slider, default 1 | Factor on the wifi range of every router. `0` = no range. |
 
 ### Power
 

@@ -136,7 +136,8 @@ When players are stuck, check:
 - Is the router powered?
 - Is the power source on and fueled/charged?
 - Is the device connected to the correct router?
-- Is the router range large enough?
+- Is the router range large enough (Wifi Range times Range Multiplier)?
+- Is Accept Connections on?
 - Is the router password known?
 - Is external access required for this route?
 

@@ -25,7 +25,7 @@ if (isNull _computer || {!(_computer getVariable ["AE3_cap_hasFilesystem", false
 private _netId = netId _computer;
 
 // Sanitised, lowercased base name from the laptop's display name (fallback "laptop").
-private _host = _computer getVariable ["ace_cargo_customName", "laptop"];
+private _host = ([_computer] call AE3_armaos_fnc_computer_getHostname);
 private _base = toLower (_host regexReplace ["[\s@+/\\:*?""<>|,;]", ""]);
 if (_base isEqualTo "") then { _base = "laptop"; };
 

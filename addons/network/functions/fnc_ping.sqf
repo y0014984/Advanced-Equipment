@@ -28,7 +28,7 @@ private _trace =
 	params ["_reason"];
 	private _selfIp = if (isNull _entity) then {"-"} else {[_entity getVariable ["AE3_network_address", [0, 0, 0, 0]]] call AE3_network_fnc_ip2str};
 	private _name = if (isNull _entity) then {"objNull"} else {[_entity, true] call ace_cargo_fnc_getNameItem};
-	private _ps = if (isNull _entity) then {-1} else {_entity getVariable ["AE3_power_powerState", 1]};
+	private _ps = if (isNull _entity) then {-1} else {_entity getVariable ["AE3_power_powerState", 0]};
 	private _parent = if (isNull _entity) then {objNull} else {_entity getVariable ["AE3_network_parent", objNull]};
 	private _childCount = if (isNull _entity) then {-1} else {count (_entity getVariable ["AE3_network_children", []])};
 	diag_log text format [
@@ -52,7 +52,7 @@ if (isNull _entity || {_entity in _visited}) exitWith
 
 _visited pushBack _entity;
 
-if (!alive _entity || _entity getVariable ["AE3_power_powerState", 1] == 0) exitWith
+if (!alive _entity || {(_entity getVariable ["AE3_power_powerState", 0]) == 0}) exitWith
 {
 	if (_dbg) then {["dead-or-off"] call _trace};
 	[objNull, 0];

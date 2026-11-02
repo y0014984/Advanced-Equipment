@@ -22,12 +22,4 @@ params [["_device", objNull, [objNull]]];
 
 if (isNull _device) exitWith {"unknown"};
 
-private _hostname = _device getVariable ["ace_cargo_customName", ""];
-
-if (_hostname isNotEqualTo "") exitWith {_hostname};
-
-private _displayName = getText (configOf _device >> "displayName");
-
-if (_displayName isNotEqualTo "") exitWith {_displayName};
-
-typeOf _device
+[_device] call AE3_main_fnc_getDeviceName

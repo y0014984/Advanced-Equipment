@@ -1,11 +1,11 @@
 ---
 topic: network-routing-and-ssh
 status: verified
-last-verified: 2026-07-08
+last-verified: 2026-11-02
 confidence_score: 1.0
 priority: core
 rank: 3
-tokens: ~560
+tokens: ~780
 code-paths:
   - addons/network/
   - addons/armaos/functions/fnc_os_ssh.sqf
@@ -39,6 +39,10 @@ The network component manages routers, laptop/router network connections, DHCP/s
 - Router external access is enforced on the destination router, so the owner of the protected subnet decides whether external laptops may reach it.
 - Desktop SSH runs sensitive operations on the server, keeping remote filesystem and user auth authoritative instead of trusting browser/client state.
 - Wireless range and passwords are router object variables rather than global settings, allowing missions to mix open/locked networks with different ranges.
+
+## wireless check
+
+`fnc_canConnect [_device, _router, _password?]` is the one join/stay rule: router alive + `AE3_power_powerState` (default 0) == 1, distance <= `fnc_getWirelessRange`, `AE3_network_acceptConnections` (default true), registered conditions (`AE3_network_connectConditions`), password only when passed. Callers: `desktop/fnc_netScan` (client filter), `fnc_requestConnect` (server; ACE via `fnc_promptConnect` wrapper in `fnc_initNetworkDevice`, Network app via `desktop/fnc_netConnectServer`), `fnc_wirelessSweep` (5 s, drops). `fnc_getWirelessRange` = `AE3_network_wirelessRange` x router `AE3_network_rangeMultiplier` x CBA `AE3_network_wirelessRangeMultiplier` x `AE3_network_rangeModifiers`. Both registries are local hashmaps per machine (code is not broadcast); server verdict wins. Eden/Zeus/`createNetworkConnection` and router-to-router links bypass the join check but the sweep still applies to wireless clients. `fnc_router_openConfig`, `desktop/fnc_routerHandle` and the Zeus range edit show the base range, not the effective one.
 
 ## addressing is server-authoritative
 

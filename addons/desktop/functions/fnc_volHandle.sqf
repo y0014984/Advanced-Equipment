@@ -43,7 +43,7 @@ switch (_op) do {
                 private _isMounted = _mounted param [_index, false];
                 _vols pushBack createHashMapFromArray [
                     ["id", _x],
-                    ["label", _drive getVariable ["ace_cargo_customName", "USB Drive"]],
+                    ["label", [_drive] call AE3_main_fnc_getDeviceName],
                     ["type", "usb"],
                     ["path", format ["/mnt/%1", _x]],
                     ["mounted", _isMounted]

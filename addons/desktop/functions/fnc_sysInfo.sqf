@@ -43,7 +43,7 @@ if (!isNull _gateway) then {
     _info set ["gateway", ([_gateway getVariable ["AE3_network_address", [127, 0, 0, 1]]] call AE3_network_fnc_ip2str)];
 };
 
-_info set ["hostname", _computer getVariable ["ace_cargo_customName", "armaOS"]];
+_info set ["hostname", ([_computer] call AE3_armaos_fnc_computer_getHostname)];
 _info set ["uptime", ([CBA_missionTime, "HH:MM:SS"] call BIS_fnc_secondsToString)];
 private _d = date;
 private _months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];

@@ -57,7 +57,7 @@ _device setVariable ["AE3_power_powerConsumption", _consumption, true];
 
 // Only a running device actually draws; a switched off one picks the new figure up when it is
 // turned on, because its turn-on wrapper reads the same variable
-if ((_device getVariable ["AE3_power_powerState", 0]) == 1) then
+if (([_device] call AE3_power_fnc_isPoweredOn)) then
 {
     [_device, _consumption] call AE3_power_fnc_updateSelfPower;
 };

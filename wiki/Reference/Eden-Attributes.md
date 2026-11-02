@@ -55,6 +55,8 @@ Routers expose network configuration attributes:
 | Network Name / SSID | String | Name shown in router/network UI. |
 | Default Gateway | String | Gateway IP, for example `10.0.0.1`. |
 | WiFi Range | Number | Wireless range in metres. |
+| Wifi Range Multiplier | Number | Factor on this router's range. `1` = unchanged, `0` = no range. |
+| Accept Connections | Bool | Off: joins refused, connected laptops dropped. |
 | Network Password | String | Password required by network UI. Empty can represent open network. |
 | Power Level | Number | Initial power/fuel/battery level depending on class. |
 | Powered On At Start | Bool | Turns router on after init. |

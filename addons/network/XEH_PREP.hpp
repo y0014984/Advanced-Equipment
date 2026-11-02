@@ -21,6 +21,18 @@ PREP(disconnect);
 PREP(ping);
 PREP(resolve);
 PREP(wirelessSweep);
+PREP(requestConnect);
+
+/* Wireless API */
+PREP(canConnect);
+PREP(addConnectCondition);
+PREP(removeConnectCondition);
+PREP(getWirelessRange);
+PREP(addRangeModifier);
+PREP(removeRangeModifier);
+PREP(getRouters);
+PREP(getClients);
+PREP(isOnline);
 
 PREP(dhcp_get);
 PREP(dhcp_refresh);

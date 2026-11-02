@@ -27,7 +27,7 @@ if (count _pointer != 0) then
 
 private _terminal = _computer getVariable "AE3_terminal";
 private _username = _terminal get "AE3_terminalLoginUser";
-private _hostname = _computer getVariable ["ace_cargo_customName", "armaOS"];
+private _hostname = ([_computer] call AE3_armaos_fnc_computer_getHostname);
 
 _terminal set ["AE3_terminalPrompt", format ["%1@%2:%3/>", _username, _hostname, _path]];
 

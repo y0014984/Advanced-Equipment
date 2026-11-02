@@ -1,5 +1,24 @@
 # Changelog
 
+## Update 12 (v2.1.0.5)
+
+### Added
+- API `AE3_network_fnc_canConnect` with `addConnectCondition` / `removeConnectCondition`.
+- API `AE3_network_fnc_getWirelessRange` with `addRangeModifier` / `removeRangeModifier`.
+- API `AE3_network_fnc_getRouters` and `AE3_network_fnc_getClients`.
+- API `AE3_power_fnc_isPoweredOn`, `AE3_network_fnc_isOnline`, `AE3_main_fnc_getDeviceName`, `AE3_armaos_fnc_computer_getHostname`.
+- CBA settings *Default wifi range* and *Wifi range multiplier*.
+- CBA setting *Unnamed device label*.
+- Router Eden and Zeus attributes *Wifi Range Multiplier* and *Accept Connections*.
+
+### Changed
+- ACE menu connect checks power, range and conditions on the server; refusals show as a hint.
+- Network app, ACE menu and the wireless sweep use the same check and reasons.
+- Wireless sweep drops clients of routers without power state.
+- Ping and route lookup treat devices without power state as off.
+- Map, Network app, router pages and USB labels show a generic name (Laptop, Router, Server, ...) when no custom name is set; CBA setting *Unnamed device label* switches to the display name.
+- Terminal UI-on-texture range falls back to 2 m everywhere.
+
 ## Hotfix (v2.1.0.4)
 
 ### Changed
