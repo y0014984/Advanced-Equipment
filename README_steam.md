@@ -3,7 +3,7 @@
 [b]Interactive computers, networks, power, and mission intel for Arma 3.[/b]
 Advanced Equipment Revamped turns laptops, routers, flash drives, generators, batteries, solar panels, and lights into usable mission systems. Build investigations, infiltration objectives, logistics puzzles, cyber gameplay, and live Zeus intel drops with a shared desktop, terminal, filesystem, network, and power framework.
 
-[b]Current version:[/b] 2.1.0.0
+[b]Current version:[/b] 2.1.0.7
 
 [img]https://i.ibb.co/B5MQstpb/AE3-Desktop.png[/img]
 [hr]
