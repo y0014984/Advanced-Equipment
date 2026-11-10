@@ -42,42 +42,17 @@ switch (true) do
 // Length-prefixed so the password may contain any character (incl. '|'); see fnc_shell_parseLockedFile.
 private _locked = format ["AE3_LOCKED|%1|%2%3", count _password, _password, _content];
 
-// Writes the locked file into a laptop's filesystem. When the laptop is in use, the authoritative
-// filesystem lives on the user's client, so its current copy is pulled first and the result pushed
-// back to that client - otherwise the write lands on the server's stale copy and never reaches the
-// open session. Runs in a scheduled thread so getRemoteVar can wait.
-private _deliver = {
-	params ["_computer", "_locked", "_path", "_owner", "_permissions"];
-	private _holder = _computer getVariable ["AE3_computer_mutex", objNull];
-	private _ownerId = if (isNull _holder) then { 2 } else { owner _holder };
-
-	[_computer] call AE3_filesystem_fnc_device_lock;
-
-	if (isMultiplayer && _ownerId != 2) then
-	{
-		[_computer, "AE3_filesystem", _ownerId] call AE3_main_fnc_getRemoteVar; // authoritative copy
-	};
-
-	private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-	if (isNil "_filesystem") exitWith { [_computer] call AE3_filesystem_fnc_device_unlock; };
-
-	try
-	{
-		[[], _filesystem, _path, _locked, _owner, "root", _permissions] call AE3_filesystem_fnc_ensureFile;
-		// Publish the updated filesystem so a laptop currently in use sees the new file.
-		_computer setVariable ["AE3_filesystem", _filesystem, _ownerId];
-	}
-	catch
-	{
-		WARNING_1("Could not create locked file: %1",_exception);
-	};
-
-	[_computer] call AE3_filesystem_fnc_device_unlock;
+// Writes the locked file through AE3_filesystem_fnc_device_withFilesystem (pulls the in-use copy
+// from the laptop's user and pushes it back).
+private _write = {
+	params ["_filesystem", "_args"];
+	_args params ["_fileContent", "_filePath", "_fileOwner", "_filePermissions"];
+	[[], _filesystem, _filePath, _fileContent, _fileOwner, "root", _filePermissions] call AE3_filesystem_fnc_ensureFile;
 };
 
 {
 	if (!isNull _x && {_x getVariable ["AE3_cap_hasFilesystem", false]}) then
 	{
-		[_x, _locked, _path, _owner, _permissions] spawn _deliver;
+		[_x, _write, [_locked, _path, _owner, _permissions]] spawn AE3_filesystem_fnc_device_withFilesystem;
 	};
 } forEach _computers;

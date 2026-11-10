@@ -21,7 +21,7 @@
 
 params [["_commandString", "", [""]]];
 
-forceUnicode 1;
+forceUnicode 0;
 
 private _chars = _commandString splitString "";
 private _quote = "";

@@ -89,6 +89,25 @@ if (_activated) then
 	// filesystem, in which case the intel writes would be silently dropped. Defer each dispatch until
 	// the laptop reports ready so the intel always lands. The deferred blocks capture the laptop, so
 	// the module object itself can be removed immediately.
+	// A module delivers its intel to each laptop once per mission; a repeat dispatch is dropped and logged.
+	private _dispatched = missionNamespace getVariable ["AE3_desktop_intelDispatched", createHashMap];
+	missionNamespace setVariable ["AE3_desktop_intelDispatched", _dispatched];
+	private _moduleKey = hashValue [typeOf _module, getPosASL _module, _type, _f1, _f2, _f3, _arg6, _f7];
+	_laptops = _laptops select {
+		private _key = _moduleKey + netId _x;
+		if (_key in _dispatched) then
+		{
+			WARNING_2("Intel module %1 already delivered to %2, skipped",_type,_x);
+			diag_log text format ["[AE3 desktop] repeat intel dispatch from: %1", diag_stacktrace apply { [_x select 0, _x select 1] }];
+			false
+		}
+		else
+		{
+			_dispatched set [_key, true];
+			true
+		};
+	};
+
 	{
 		[
 			{ params ["_lp"]; !alive _lp || {_lp getVariable ["AE3_filesystemReady", false]} },

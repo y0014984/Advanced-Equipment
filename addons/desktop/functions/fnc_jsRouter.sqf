@@ -26,9 +26,8 @@ if (_message isEqualTo "") exitWith { true };
 
 // _objectType 2 = native hash map. The default (0) returns a CBA namespace (LOCATION), which fails
 // the isEqualType check below and the getOrDefault/hashmap reads throughout this dispatcher.
-forceUnicode 1;
-private _req = [_message, 2] call CBA_fnc_parseJSON;
-forceUnicode -1;
+// bridge.js sends non-ASCII characters as \uXXXX escapes, which CBA_fnc_parseJSON does not decode.
+private _req = [[_message] call FUNC(jsUnescape), 2] call CBA_fnc_parseJSON;
 if (isNil "_req" || {!(_req isEqualType createHashMap)}) exitWith {
     diag_log text format ["[AE3 desktop] unparseable JS payload: %1", _message];
     true
@@ -432,7 +431,7 @@ switch (_command) do {
             if (_url isNotEqualTo "") then
             {
                 private _fs = _computer getVariable ["AE3_filesystem", []];
-                if (_fs isNotEqualTo []) then
+                if (_fs isNotEqualTo [] && {[_computer] call AE3_filesystem_fnc_device_isSynced}) then
                 {
                     try
                     {

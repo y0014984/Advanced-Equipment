@@ -35,6 +35,7 @@ if (!isNil "_fs") then
 _target setVariable ["AE3_stdoutRedirect", nil];
 _target setVariable ["AE3_terminal", nil];
 _target setVariable ["AE3_computer_mutex", objNull, true];
+_target setVariable ["AE3_filesystem_syncedBy", objNull, true];
 
 _terminal deleteAt "AE3_sshTarget";
 

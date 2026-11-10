@@ -52,7 +52,7 @@ missionNamespace setVariable ["AE3_computer_session", _computer];
 // Set dialog title from CBA setting
 _titleControl ctrlSetText AE3_TerminalDialogTitle;
 
-[_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
+[_computer] call AE3_filesystem_fnc_device_pull;
 [_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
 
 // The login prompt reads the account roster, the superuser roster and the root-login policy off this

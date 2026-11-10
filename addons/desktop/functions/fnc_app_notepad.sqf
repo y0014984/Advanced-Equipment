@@ -105,7 +105,7 @@ _saveBtn ctrlAddEventHandler ["ButtonClick", {
 		[[], _filesystem, _path, _owner, ctrlText _editCtrl, false] call AE3_filesystem_fnc_writeToFile;
 
 		// push to the server right away so the change survives even a hard desktop close
-		_computer setVariable ["AE3_filesystem", _filesystem, 2];
+		if ([_computer] call AE3_filesystem_fnc_device_isSynced) then { _computer setVariable ["AE3_filesystem", _filesystem, 2]; };
 
 		_statusCtrl ctrlSetText format [localize "STR_AE3_Desktop_Notepad_Saved", _path];
 	}

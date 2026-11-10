@@ -54,43 +54,20 @@ private _mailSeq = (missionNamespace getVariable ["AE3_mail_seq", 0]) + 1;
 missionNamespace setVariable ["AE3_mail_seq", _mailSeq];
 private _fileName = format ["mail_%1_%2", round (CBA_missionTime * 10), _mailSeq];
 
-// Writes the mail file into a laptop's filesystem and, if someone is on the laptop, nudges their
-// terminal/Mail app to refresh. When the laptop is in use, the authoritative filesystem lives on
-// the user's client, so its current copy is pulled first and the result is pushed back to that
-// client (and the refresh is fired afterwards) - otherwise the write would land on the server's
-// stale copy and never reach the open session. Runs in a scheduled thread so getRemoteVar can wait.
+// Writes the mail file through AE3_filesystem_fnc_device_withFilesystem (pulls the in-use copy from the
+// laptop's user and pushes it back), then notifies whoever is on the laptop: the terminal shell banner
+// and the open web Mail app, so the new mail shows without polling. Scheduled, so the pull can wait.
 private _deliver = {
-	params ["_computer", "_content", "_fileName", "_from", "_holder"];
-	private _owner = if (isNull _holder) then { 2 } else { owner _holder };
+	params ["_computer", "_content", "_fileName", "_from"];
 
-	[_computer] call AE3_filesystem_fnc_device_lock;
-
-	if (isMultiplayer && _owner != 2) then
-	{
-		[_computer, "AE3_filesystem", _owner] call AE3_main_fnc_getRemoteVar; // authoritative copy
-	};
-
-	private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-	if (isNil "_filesystem") exitWith { [_computer] call AE3_filesystem_fnc_device_unlock; };
-
-	try
-	{
+	[_computer, {
+		params ["_filesystem", "_args"];
+		_args params ["_mailContent", "_mailFile"];
 		[[], _filesystem, "/var/mail", "root", "root", [[true, true, true], [true, false, true]]] call AE3_filesystem_fnc_ensureDir;
-		[[], _filesystem, format ["/var/mail/%1", _fileName], _content, "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
-		// Publish the updated filesystem so a laptop currently in use receives the mail without
-		// exiting and re-entering the desktop.
-		_computer setVariable ["AE3_filesystem", _filesystem, _owner];
-	}
-	catch
-	{
-		WARNING_1("Could not deliver email: %1",_exception);
-	};
+		[[], _filesystem, format ["/var/mail/%1", _mailFile], _mailContent, "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
+	}, [_content, _fileName]] call AE3_filesystem_fnc_device_withFilesystem;
 
-	[_computer] call AE3_filesystem_fnc_device_unlock;
-
-	// Notify whoever is using the laptop right now: the terminal shell banner and the open web Mail
-	// app, so the new mail shows without polling or a manual refresh. Fired after the filesystem
-	// push so the Mail app re-lists a copy that already contains the new message.
+	private _holder = _computer getVariable ["AE3_computer_mutex", objNull];
 	if (!isNull _holder && {_holder isKindOf "CAManBase"}) then
 	{
 		["ae3_network_imNotify", [_computer, _from], _holder] call CBA_fnc_targetEvent;
@@ -103,8 +80,7 @@ private _deliver = {
 {
 	if (!isNull _x && {_x getVariable ["AE3_cap_hasFilesystem", false]}) then
 	{
-		private _mutexHolder = _x getVariable ["AE3_computer_mutex", objNull];
-		[_x, _content, _fileName, _from, _mutexHolder] spawn _deliver;
+		[_x, _content, _fileName, _from] spawn _deliver;
 	};
 } forEach _computers;
 

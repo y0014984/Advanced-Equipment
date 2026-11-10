@@ -24,9 +24,9 @@ uiNamespace setVariable [QGVAR(browserCtrl), nil];
 private _computer = _display getVariable [QGVAR(computer), objNull];
 if (isNull _computer) exitWith {};
 
-// Persist filesystem mutations made through the Files/Notepad apps.
+// Persist filesystem mutations made through the Files/Notepad apps, once the copy was pulled from the server.
 private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-if (!isNil "_filesystem") then {
+if (!isNil "_filesystem" && {[_computer] call AE3_filesystem_fnc_device_isSynced}) then {
     _computer setVariable ["AE3_filesystem", _filesystem, 2];
 };
 

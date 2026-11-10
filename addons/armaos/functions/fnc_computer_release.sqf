@@ -27,5 +27,6 @@ if (isNull _computer) exitWith {};
 
 _computer setObjectTextureGlobal [1, _texture];
 _computer setVariable ["AE3_computer_mutex", objNull, true];
+_computer setVariable ["AE3_filesystem_syncedBy", objNull, true];
 
 [_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];

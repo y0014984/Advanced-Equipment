@@ -41,44 +41,19 @@ switch (true) do
 	default                             { _computers = [objectFromNetId _target]; };
 };
 
-// Writes the history entry into a laptop's filesystem. When the laptop is in use, the authoritative
-// filesystem lives on the user's client, so its current copy is pulled first and the result pushed
-// back to that client - otherwise the write lands on the server's stale copy (and pushing that copy
-// back would clobber the user's live session). Runs in a scheduled thread so getRemoteVar can wait.
-private _deliver = {
-	params ["_computer", "_url", "_timeString"];
-	private _holder = _computer getVariable ["AE3_computer_mutex", objNull];
-	private _ownerId = if (isNull _holder) then { 2 } else { owner _holder };
-
-	[_computer] call AE3_filesystem_fnc_device_lock;
-
-	if (isMultiplayer && _ownerId != 2) then
-	{
-		[_computer, "AE3_filesystem", _ownerId] call AE3_main_fnc_getRemoteVar; // authoritative copy
-	};
-
-	private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-	if (isNil "_filesystem") exitWith { [_computer] call AE3_filesystem_fnc_device_unlock; };
-
-	try
-	{
-		[[], _filesystem, "/var/log/browser_history", "", "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
-		[[], _filesystem, "/var/log/browser_history", "root", format ["[%1] %2%3", _timeString, _url, endl], true] call AE3_filesystem_fnc_writeToFile;
-		// Publish the updated filesystem so a laptop currently in use sees the entry.
-		_computer setVariable ["AE3_filesystem", _filesystem, _ownerId];
-	}
-	catch
-	{
-		WARNING_1("Could not seed browser history: %1",_exception);
-	};
-
-	[_computer] call AE3_filesystem_fnc_device_unlock;
+// Writes the history line through AE3_filesystem_fnc_device_withFilesystem (pulls the in-use copy
+// from the laptop's user and pushes it back).
+private _write = {
+	params ["_filesystem", "_args"];
+	_args params ["_entryUrl", "_entryTime"];
+	[[], _filesystem, "/var/log/browser_history", "", "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
+	[[], _filesystem, "/var/log/browser_history", "root", format ["[%1] %2%3", _entryTime, _entryUrl, endl], true] call AE3_filesystem_fnc_writeToFile;
 };
 
 {
 	if (!isNull _x && {_x getVariable ["AE3_cap_hasFilesystem", false]}) then
 	{
-		[_x, _url, _timeString] spawn _deliver;
+		[_x, _write, [_url, _timeString]] spawn AE3_filesystem_fnc_device_withFilesystem;
 	};
 } forEach _computers;
 

@@ -1,7 +1,7 @@
 ---
 topic: filesystem-model
 status: verified
-last-verified: 2026-07-08
+last-verified: 2026-11-10
 confidence_score: 1.0
 priority: core
 rank: 7
@@ -34,7 +34,9 @@ The filesystem component implements AE3's virtual Unix-like filesystem for lapto
 - Mission/editor modules use wrapper functions such as `device_addFile`, `device_addDir`, `module_addFile`, and `module_addDir`.
 
 - Entries are `[content, owner, perms, size?]`. The optional 4th element is a **virtual size** in bytes (`setFileSize`, `device_setFileSize`, `device_addFile` param 12, `device_writeFile` param 7, Eden/ZEN add-file field). `getFileSize` returns it, else `count` of string content (dirs sum children). `writeToFile` keeps it; `mvObj` copies deep-copy the entry (`+`) so the size travels and copies no longer alias the original. Consumers: `os_cp` (via `shell_transferMedium`/`shell_transferDuration`), `fsHandle` `stat`/`estimate`, `sshOpServer` `estimate` + pull/push size carry, `lsdir -l` size column, RCW downloads.
-- **Writes during a session:** `device_withFilesystem` (server, scheduled) pulls the mutex holder's copy (`getRemoteVar`), mutates, pushes back to that owner; otherwise mutates the server copy and publishes per `AE3_Filesystem_SyncMode`. Used by `device_writeFile`, `device_setFileSize` and `device_addFile` when the mutex is held. `addEmail`/`addLockedFile`/`addCalendarEvent`/`addHistoryEntry` still carry their own inline copy of the same pattern.
+- **Writes during a session:** `device_withFilesystem` (server, scheduled) pulls the mutex holder's copy (`getRemoteVar`), mutates, pushes back to that owner; otherwise mutates the server copy and publishes per `AE3_Filesystem_SyncMode`. Used by `device_writeFile`, `device_setFileSize`, `device_addFile`, `addEmail`, `addLockedFile`, `addCalendarEvent` and `addHistoryEntry`. With a holder it first waits (30 s max) for `AE3_filesystem_syncedBy == holder`, pulls with a 10 s timeout, and on timeout or nil restores and writes the server copy instead.
+- **Client sync flag:** `device_pull` (client, scheduled) clears `AE3_filesystem_syncedBy` on client + server, pulls `AE3_filesystem`, then sets it to `player`. Used by `desktop_openWeb`, `desktop_open`, `terminal_init`, `fsHandle`. Every mutex release clears it. Client pushes (`desktop_webUnload`, `desktop_onUnload`, `app_notepad`, `app_browser`, `web_log`, `fsHandle`, `mailHandle`) only run when `device_isSynced`: clients build their own default filesystem at init and JIP clients may hold an old broadcast copy.
+- `device_publish` (server) stores a server-side change: to `[2, holder owner]` when in use, else per `AE3_Filesystem_SyncMode`. Used by `computer_addUser`, `addSudoer`, `removeSudoer`, `addCustomCommand`.
 
 ## decisions
 

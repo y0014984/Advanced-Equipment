@@ -386,8 +386,8 @@
 
       body.querySelector(".mc-net").addEventListener("click", function () { Apps.launch("network"); });
       body.querySelector(".mc-sys").addEventListener("click", function () { Apps.launch("settings"); });
-      A3.on("vol_changed", loadVols);
-      A3.on("vol_error", function (d) {
+      A3.onWhile("vol_changed", body, loadVols);
+      A3.onWhile("vol_error", body, function (d) {
         if (window.AE3_toast) window.AE3_toast("Mount failed: " + ((d && d.message) || "unknown error"), "error");
         loadVols();
       });
@@ -814,7 +814,7 @@
       }
       loadSysinfo(true);
       // Live-update the panel when a curator/mission-maker changes battery, wifi, IP or hostname.
-      A3.on("sys_changed", function () { loadSysinfo(false); });
+      A3.onWhile("sys_changed", body, function () { loadSysinfo(false); });
 
       // Selectable wallpaper thumbnails (bundled images + any registered). Clicking one applies it for
       // the current user immediately; each engine texture is resolved to a data URL for the preview.
@@ -899,7 +899,7 @@
         }).catch(function () {});
       }
       loadNetCfg(true);
-      A3.on("sys_changed", function () { loadNetCfg(false); });
+      A3.onWhile("sys_changed", body, function () { loadNetCfg(false); });
       // Password-protected routers: prompt before connecting, then send the password.
       function connect(n) {
         if (n.locked) {
@@ -936,7 +936,7 @@
         }).catch(function () { nets.innerHTML = '<li class="muted">Network stack unavailable</li>'; });
       }
       // Server connect verdict (range/password).
-      A3.on("net_result", function (r) {
+      A3.onWhile("net_result", body, function (r) {
         if (!statEl) return;
         statEl.textContent = (r && r.msg) || "";
         statEl.style.color = (r && r.ok) ? "var(--good)" : "#ff8a6a";
@@ -1051,7 +1051,7 @@
       body.querySelector(".today").addEventListener("click", function () { view = new Date(); view.setDate(1); draw(); });
       body.querySelector(".refresh").addEventListener("click", function () { fetchAll(selIso); });
       // Live update when the store changes server-side.
-      A3.on("cal_changed", function () { fetchAll(selIso); });
+      A3.onWhile("cal_changed", body, function () { fetchAll(selIso); });
       body.querySelector(".go").addEventListener("click", function () {
         var v = body.querySelector(".goto").value; if (!v) return;
         var p = v.split("-"); view = new Date(+p[0], +p[1] - 1, 1); draw(); showDay(v);
@@ -1110,8 +1110,8 @@
       }
       var _sitesLoaded = reloadSites();
       // Re-pull the page + site lists when content is registered or removed while the Browser is open.
-      A3.on("web_changed", reloadIntelPages);
-      A3.on("web_changed", reloadSites);
+      A3.onWhile("web_changed", body, reloadIntelPages);
+      A3.onWhile("web_changed", body, reloadSites);
 
       // Injected into every page so in-page links drive the address bar instead of dead relative nav.
       // Arma's CEF renders iframe srcdoc with an opaque origin, so a direct parent.AE3_browserNav()
@@ -1946,6 +1946,7 @@
         mails.innerHTML = '<li class="muted pad">Loading</li>';
         var op = mailbox === "sent" ? "mail_sent_list" : "mail_list";
         A3.request(op, {}).then(function (res) {
+          if (res && res.loading) { if (body.isConnected) setTimeout(list, 500); return; }
           allMail = (res && res.mails) || [];
           render();
         }).catch(function () { mails.innerHTML = '<li class="muted pad">Unavailable</li>'; });
@@ -2049,7 +2050,7 @@
       // Event-driven refresh: the server pushes mail_notify to the laptop in use when a new mail
       // is delivered (incoming) or a sent copy is written (own send), so inbox/sent update live
       // without polling. Re-lists whichever box is currently open.
-      A3.on("mail_notify", function () { list(); });
+      A3.onWhile("mail_notify", body, function () { list(); });
       list();
     }
   });
@@ -2327,7 +2328,7 @@
       body.querySelector(".nav-msgs").addEventListener("click", function () { setView("chats"); });
       body.querySelector(".nav-handles").addEventListener("click", function () { setView("handles"); });
 
-      A3.on("chat_data", function (d) {
+      A3.onWhile("chat_data", body, function (d) {
         var incoming = (d && d.threads) || [];
         // Preserve an active pending thread the server doesn't know about yet (new conversation,
         // no messages sent — server won't return it until first message is exchanged).
@@ -2339,7 +2340,7 @@
         if (!active) { var vis = visibleThreads(); if (vis.length) active = tkey(vis[0].self, vis[0].peer); }
         if (view === "chats") { renderPeers(); renderThread(); }
       });
-      A3.on("msg_notify", function (d) {
+      A3.onWhile("msg_notify", body, function (d) {
         if (window.AE3_toast) window.AE3_toast("New message from " + ((d && d.peer) || "unknown"), "ok");
         A3.send("chat_pull", {});
       });

@@ -58,6 +58,7 @@ if (!isNull _mutex) then {
 
 	// Clear the mutex
 	_target setVariable ["AE3_computer_mutex", objNull, true];
+	_target setVariable ["AE3_filesystem_syncedBy", objNull, true];
 };
 
 // Return any connected flash drives to the picker's inventory first, so none is left behind in the

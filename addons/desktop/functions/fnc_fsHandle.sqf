@@ -29,12 +29,13 @@ private _res = createHashMapFromArray [["error", ""]];
 if (isNull _computer) exitWith { _res set ["error", "no_device"]; _res };
 
 private _fs = _computer getVariable ["AE3_filesystem", []];
-if (_fs isEqualTo []) exitWith {
-    // The open-time getRemoteVar (desktop_openWeb) may still be in flight on this client. Kick an
-    // authoritative re-pull and tell the Files/Notepad app to retry rather than failing outright.
-    // No-op in SP, where an empty filesystem genuinely means the device is not initialized.
-    [_computer] remoteExecCall ["AE3_armaos_fnc_device_ensureInit", 2];
-    [_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
+if (_fs isEqualTo [] || {!([_computer] call AE3_filesystem_fnc_device_isSynced)}) exitWith {
+    // The open-time pull (desktop_openWeb) is still in flight on this client: tell the Files/Notepad
+    // app to retry. With no filesystem at all, also make sure the device is initialized and re-pull.
+    if (_fs isEqualTo []) then {
+        [_computer] remoteExecCall ["AE3_armaos_fnc_device_ensureInit", 2];
+        [_computer] spawn AE3_filesystem_fnc_device_pull;
+    };
     _res set ["loading", true];
     _res
 };
@@ -347,7 +348,7 @@ switch (_op) do {
         // Translate the user glob to a lowercased, fully-anchored regex: escape regex metacharacters,
         // then turn the escaped "*" back into ".*". Bare text (no "*") matches as a substring.
         // Unicode-safe per-character walk and regex match on user generated names
-        forceUnicode 1;
+        forceUnicode 0;
         private _q = toLower _query;
         if !("*" in _q) then { _q = "*" + _q + "*"; };
         private _rx = "";

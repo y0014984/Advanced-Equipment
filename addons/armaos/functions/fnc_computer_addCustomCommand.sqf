@@ -67,10 +67,8 @@ try {
 	// Create the command file in the filesystem
 	[[], _filesystem, _commandPath, _commandCode, _owner, "root", _permissions] call AE3_filesystem_fnc_createFile;
 
-	// Publish the filesystem the new command file now lives in. Every other filesystem mutator ends the
-	// same way: without it the file exists only on the server, and a terminal that reads its own copy
-	// reports the command as missing.
-	_computer setVariable ["AE3_filesystem", _filesystem, true];
+	// Store the filesystem the new command file now lives in; terminals pull it when they open.
+	[_computer, _filesystem] call AE3_filesystem_fnc_device_publish;
 
 	// Add the command link
 	[_computer, _commandName, _commandPath, _description, _manual] call AE3_armaos_fnc_link_add;

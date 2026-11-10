@@ -186,7 +186,7 @@ private _navigate = {
 		{
 			[[], _filesystem, "/var/log/browser_history", "", "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
 			[[], _filesystem, "/var/log/browser_history", "root", format ["[%1] %2%3", [dayTime, "HH:MM"] call BIS_fnc_timeToString, _url, endl], true] call AE3_filesystem_fnc_writeToFile;
-			_computer setVariable ["AE3_filesystem", _filesystem, 2];
+			if ([_computer] call AE3_filesystem_fnc_device_isSynced) then { _computer setVariable ["AE3_filesystem", _filesystem, 2]; };
 		}
 		catch
 		{

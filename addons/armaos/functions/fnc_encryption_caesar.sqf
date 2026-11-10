@@ -20,7 +20,7 @@
 params ["_key", "_mode", "_message"];
 
 // Unicode-safe character split on user generated text
-forceUnicode 1;
+forceUnicode 0;
 
 // normalize Message to allowed characters
 private _allowedAlphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // 26 Characters

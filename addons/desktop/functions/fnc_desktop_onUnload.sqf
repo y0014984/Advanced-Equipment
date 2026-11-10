@@ -59,7 +59,7 @@ if (isNull _computer) exitWith {};
 
 // Push filesystem changes back to the server
 private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-if (!isNil "_filesystem") then
+if (!isNil "_filesystem" && {[_computer] call AE3_filesystem_fnc_device_isSynced}) then
 {
 	_computer setVariable ["AE3_filesystem", _filesystem, 2];
 };
@@ -68,5 +68,6 @@ _computer setVariable ["AE3_filepointer", _computer getVariable ["AE3_filepointe
 // Restore the running screen texture (GUI idle image) and release the laptop
 _computer setObjectTextureGlobal [1, "\z\ae3\addons\armaos\textures\Laptop_PowerOn.paa"];
 _computer setVariable ["AE3_computer_mutex", objNull, true];
+_computer setVariable ["AE3_filesystem_syncedBy", objNull, true];
 
 [_computer, "inUse", false] remoteExecCall ["AE3_interaction_fnc_manageAce3Interactions", 2];

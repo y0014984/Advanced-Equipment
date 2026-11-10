@@ -24,7 +24,7 @@ params ["_computer"];
 if (!hasInterface) exitWith {};
 
 // Pull server-side state (scheduled environment required)
-[_computer, "AE3_filesystem"] call AE3_main_fnc_getRemoteVar;
+[_computer] call AE3_filesystem_fnc_device_pull;
 [_computer, "AE3_filepointer"] call AE3_main_fnc_getRemoteVar;
 [_computer, "AE3_Userlist"] call AE3_main_fnc_getRemoteVar;
 
@@ -37,6 +37,7 @@ private _ok = createDialog "AE3_Desktop_Display";
 if (!_ok) exitWith
 {
 	_computer setVariable ["AE3_computer_mutex", objNull, true];
+	_computer setVariable ["AE3_filesystem_syncedBy", objNull, true];
 	hint localize "STR_AE3_ArmaOS_Exception_DialogFailed";
 };
 

@@ -20,7 +20,7 @@
 params ["_key", "_mode", "_msg"];
 
 // Unicode-safe character counts and splits on user generated text
-forceUnicode 1;
+forceUnicode 0;
 
 private _result = "";
 private _msgLen = count _msg;

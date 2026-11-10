@@ -46,6 +46,7 @@ if (!isNull _mutexHolder) then
 	["ae3_desktop_forceCloseDesktop", [_computer], _mutexHolder] call CBA_fnc_targetEvent;
 };
 _computer setVariable ["AE3_computer_mutex", objNull, true];
+_computer setVariable ["AE3_filesystem_syncedBy", objNull, true];
 
 // Sever the device from its network: a crashed device can neither be reached nor route traffic.
 [_computer] call AE3_network_fnc_disconnect;

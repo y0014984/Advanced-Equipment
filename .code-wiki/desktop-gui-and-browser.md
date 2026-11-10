@@ -1,7 +1,7 @@
 ---
 topic: desktop-gui-and-browser
 status: verified
-last-verified: 2026-07-08
+last-verified: 2026-11-10
 confidence_score: 1.0
 priority: core
 rank: 1
@@ -91,4 +91,7 @@ The desktop component provides the graphical laptop desktop, native app registry
 - `addons/desktop/XEH_postInit.sqf`
 - `addons/desktop/CfgAE3Apps.hpp`
 - Map app (radar `fnc_mapData`, full map `fnc_mapOpen`) lists only devices where `AE3_network_fnc_sameNetwork` is true (same top-level router via `AE3_network_parent`) when `AE3_Desktop_MapSameNetworkOnly` is on; markers carry `ace_cargo_customName`.
-- Bridge string handling (`jsSend`, `jsRouter`, `fsHandle` search) runs under `forceUnicode 1` so counts and splits are per character.
+- Bridge is ASCII both ways: `jsSend` passes `CBA_fnc_encodeJSON` output through `AE3_desktop_fnc_jsEscape` (code points > 127 -> `\uXXXX`, surrogate pairs above 0xFFFF) because ExecJS reads the script as Latin-1; `bridge.js rawSend` escapes the same range and `jsRouter` decodes it with `AE3_desktop_fnc_jsUnescape` before `CBA_fnc_parseJSON` (no `\u` support). `fsHandle` search runs under `forceUnicode 0` ... `-1`.
+- `forceUnicode 1` only covers the next string command; a block with more than one string command uses `forceUnicode 0` and resets with `-1` on every exit.
+- App event subscriptions use `A3.onWhile(channel, body, cb)`, which drops the handler once the window's body leaves the DOM.
+- `fsHandle` and `mailHandle` reply `loading` until `AE3_filesystem_fnc_device_isSynced`; the Files, Notepad and Mail apps retry.

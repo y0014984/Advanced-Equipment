@@ -22,7 +22,7 @@ params [["_input", ""]];
 
 if (_input isEqualTo "") exitWith { [] };
 
-forceUnicode 1;
+forceUnicode 0;
 
 private _tokens = [];
 private _buffer = "";

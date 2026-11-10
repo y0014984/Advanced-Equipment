@@ -74,10 +74,11 @@ if (!isNull _computer) then {
         params ["_computer"];
         // Safety net for a freshly placed laptop whose server-side init has not completed yet.
         [_computer] remoteExecCall ["AE3_armaos_fnc_device_ensureInit", 2];
+        [_computer] call AE3_filesystem_fnc_device_pull;
         {
             [_computer, _x] call AE3_main_fnc_getRemoteVar;
         } forEach [
-            "AE3_filesystem", "AE3_filepointer", "AE3_Userlist",
+            "AE3_filepointer", "AE3_Userlist",
             "AE3_power_powerState", "AE3_power_internal",
             "AE3_network_parent", "AE3_network_address"
         ];

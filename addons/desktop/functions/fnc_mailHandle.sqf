@@ -25,6 +25,8 @@ if (isNull _computer) exitWith { _res set ["error", "no_device"]; _res };
 
 private _fs = _computer getVariable ["AE3_filesystem", []];
 if (_fs isEqualTo []) exitWith { _res set ["error", "fs_not_ready"]; _res };
+// The open-time pull (desktop_openWeb) is still in flight: the Mail app retries.
+if !([_computer] call AE3_filesystem_fnc_device_isSynced) exitWith { _res set ["loading", true]; _res };
 
 private _parse = {
     params ["_content", "_file"];

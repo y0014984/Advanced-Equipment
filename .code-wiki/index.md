@@ -1,6 +1,6 @@
 ---
 title: wiki index
-last-updated: 2026-11-02
+last-updated: 2026-11-10
 ---
 
 # code wiki
