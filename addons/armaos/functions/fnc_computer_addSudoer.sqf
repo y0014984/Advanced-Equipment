@@ -62,7 +62,7 @@ catch
 
 if (!_success) exitWith { false };
 
-_computer setVariable ["AE3_filesystem", _filesystem, true];
+[_computer, _filesystem] call AE3_filesystem_fnc_device_publish;
 
 ["ae3_computer_sudoerAdded", [_computer, _username]] call CBA_fnc_globalEvent;
 

@@ -73,7 +73,7 @@ private _multipleFiles = (count _files) > 1;
 		};
 
 		// Unicode-safe regex matching on user generated content
-		forceUnicode 1;
+		forceUnicode 0;
 		{
 			private _matches = _x regexMatch _regexPattern;
 			if (_matches isEqualTo !_invert) then

@@ -8,6 +8,8 @@ PREP(desktop_webUnload);
 PREP(browserAction);
 PREP(jsRouter);
 PREP(jsSend);
+PREP(jsEscape);
+PREP(jsUnescape);
 PREP(jsReply);
 PREP(deviceLabel);
 PREP(registerExtApp);

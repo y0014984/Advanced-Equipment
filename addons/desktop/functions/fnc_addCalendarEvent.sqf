@@ -39,44 +39,19 @@ switch (true) do
 
 private _line = format ["%1 | %2 | %3%4", _date, _title, _details, endl];
 
-// Writes the calendar line into a laptop's filesystem. When the laptop is in use, the authoritative
-// filesystem lives on the user's client, so its current copy is pulled first and the result pushed
-// back to that client - otherwise the write lands on the server's stale copy and never reaches the
-// open session. Runs in a scheduled thread so getRemoteVar can wait.
-private _deliver = {
-	params ["_computer", "_line"];
-	private _holder = _computer getVariable ["AE3_computer_mutex", objNull];
-	private _ownerId = if (isNull _holder) then { 2 } else { owner _holder };
-
-	[_computer] call AE3_filesystem_fnc_device_lock;
-
-	if (isMultiplayer && _ownerId != 2) then
-	{
-		[_computer, "AE3_filesystem", _ownerId] call AE3_main_fnc_getRemoteVar; // authoritative copy
-	};
-
-	private _filesystem = _computer getVariable ["AE3_filesystem", nil];
-	if (isNil "_filesystem") exitWith { [_computer] call AE3_filesystem_fnc_device_unlock; };
-
-	try
-	{
-		[[], _filesystem, "/home/user/calendar", "", "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
-		[[], _filesystem, "/home/user/calendar", "root", _line, true] call AE3_filesystem_fnc_writeToFile;
-		// Publish the updated filesystem so a laptop currently in use sees the entry.
-		_computer setVariable ["AE3_filesystem", _filesystem, _ownerId];
-	}
-	catch
-	{
-		WARNING_1("Could not add calendar event: %1",_exception);
-	};
-
-	[_computer] call AE3_filesystem_fnc_device_unlock;
+// Writes the calendar line through AE3_filesystem_fnc_device_withFilesystem (pulls the in-use copy
+// from the laptop's user and pushes it back).
+private _write = {
+	params ["_filesystem", "_args"];
+	_args params ["_calLine"];
+	[[], _filesystem, "/home/user/calendar", "", "root", "root", [[true, true, false], [true, false, false]]] call AE3_filesystem_fnc_ensureFile;
+	[[], _filesystem, "/home/user/calendar", "root", _calLine, true] call AE3_filesystem_fnc_writeToFile;
 };
 
 {
 	if (!isNull _x && {_x getVariable ["AE3_cap_hasFilesystem", false]}) then
 	{
-		[_x, _line] spawn _deliver;
+		[_x, _write, [_line]] spawn AE3_filesystem_fnc_device_withFilesystem;
 		// Keep the web Calendar store in sync (ISO date only; truncate time portion if present).
 		[_x, _date select [0, 10], _title, "", _details] call AE3_armaos_fnc_computer_addCalendarEvent;
 	};

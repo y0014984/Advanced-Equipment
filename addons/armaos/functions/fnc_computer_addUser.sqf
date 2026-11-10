@@ -65,6 +65,6 @@ if (_username isNotEqualTo "root") then
     [_filesystem, "/home/" + _username, _username] call AE3_filesystem_fnc_seedDesktop;
 };
 
-// Sync filesystem to every machine, like the user list above
-_computer setVariable ["AE3_filesystem", _filesystem, true];
+// Store the filesystem for the server, or the device's current user
+[_computer, _filesystem] call AE3_filesystem_fnc_device_publish;
 ["ae3_computer_userAdded", [_computer, _username]] call CBA_fnc_globalEvent;

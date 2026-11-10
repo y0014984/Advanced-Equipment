@@ -7,6 +7,8 @@
  * authoritative filesystem copy, so it is pulled from that client first and pushed back to it
  * afterwards; otherwise the server copy is mutated and published per AE3_Filesystem_SyncMode.
  * Writing straight to the server copy during a session would be overwritten when the session ends.
+ * The holder copy is used only once that client has pulled it (AE3_filesystem_syncedBy, waits up to
+ * 30 s); a pull that gets no reply in 10 s or returns nothing keeps the server copy.
  * Must run on the server. Re-spawns itself when called unscheduled (the pull has to wait).
  *
  * Arguments:
@@ -37,7 +39,36 @@ private _owner = [owner _holder, 2] select (isNull _holder);
 
 if (isMultiplayer && _owner != 2) then
 {
-	[_computer, "AE3_filesystem", _owner] call AE3_main_fnc_getRemoteVar;
+	// Wait until the holder's client has pulled its copy from the server; before that its copy is stale.
+	private _deadline = diag_tickTime + 30;
+	waitUntil
+	{
+		sleep 0.1;
+		(_computer getVariable ["AE3_filesystem_syncedBy", objNull]) isEqualTo _holder
+		|| {(_computer getVariable ["AE3_computer_mutex", objNull]) isNotEqualTo _holder}
+		|| {diag_tickTime > _deadline}
+	};
+
+	private _pulled = false;
+	if ((_computer getVariable ["AE3_filesystem_syncedBy", objNull]) isEqualTo _holder) then
+	{
+		private _serverCopy = _computer getVariable ["AE3_filesystem", nil];
+		_pulled = [_computer, "AE3_filesystem", _owner, 10] call AE3_main_fnc_getRemoteVar;
+		if (isNil {_computer getVariable "AE3_filesystem"}) then
+		{
+			_pulled = false;
+			if (!isNil "_serverCopy") then { _computer setVariable ["AE3_filesystem", _serverCopy]; };
+		};
+	};
+
+	if !(_pulled) then
+	{
+		if ((_computer getVariable ["AE3_computer_mutex", objNull]) isEqualTo _holder) then
+		{
+			WARNING_1("Device %1: no synced copy from its user, writing the server copy",_computer);
+		};
+		_owner = 2;
+	};
 };
 
 private _filesystem = _computer getVariable ["AE3_filesystem", nil];

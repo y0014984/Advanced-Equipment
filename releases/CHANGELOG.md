@@ -1,5 +1,22 @@
 # Changelog
 
+## Hotfix (v2.1.0.7)
+
+### Added
+- `AE3_main_fnc_getRemoteVar` takes an optional timeout and returns whether the transfer completed.
+
+### Changed
+- Non-Latin text shows correctly in every web desktop app; the desktop bridge sends it as ASCII escapes both ways.
+- Terminal input, redirection, grep, Caesar, Columnar and Files search handle non-Latin text in every step, not only the first.
+- Several Add Email (and Calendar, History, Locked File) modules on one laptop all arrive.
+- Intel sent to an in-use laptop waits until its user has loaded the laptop's files, so earlier intel is kept.
+- Closing the desktop or terminal before the laptop's files have loaded no longer overwrites the server copy.
+- Files, Notepad and Mail wait for the laptop's files to load instead of showing a stale copy.
+- An Eden intel module delivers to each laptop once; a repeat is skipped and logged.
+- Adding users, sudoers and custom commands no longer broadcasts the whole filesystem to every client.
+- Closed desktop apps stop receiving update events.
+- Skipped v2.1.0.6 to sync with RCW
+
 ## Update 12 (v2.1.0.5)
 
 ### Added

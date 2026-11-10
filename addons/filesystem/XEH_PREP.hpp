@@ -6,6 +6,9 @@ PREP(device_setFileSize);
 PREP(device_withFilesystem);
 PREP(device_lock);
 PREP(device_unlock);
+PREP(device_pull);
+PREP(device_isSynced);
+PREP(device_publish);
 
 /* Module Functions */
 PREP(module_addFile);

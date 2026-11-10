@@ -30,7 +30,7 @@ if (!isNil { _terminal get "AE3_terminalInputBuffer" }) then
 if(_terminalInputBuffer select (parseNumber _right) isEqualTo "") exitWith {};
 
 // Unicode-safe: cursor math slices strings by character, not byte (user input may contain unicode)
-forceUnicode 1;
+forceUnicode 0;
 
 if (_right) then
 {

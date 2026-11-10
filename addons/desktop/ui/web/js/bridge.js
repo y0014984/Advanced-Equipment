@@ -16,14 +16,21 @@
   // delivers to SQF. Using window.alert here was why every A3.request timed out and the desktop
   // looked "logged in but dead". This matches the working os-master bridge (A3API.SendAlert).
   var hasA3 = (typeof A3API !== "undefined" && A3API && typeof A3API.SendAlert === "function");
+  // Non-ASCII characters travel as \uXXXX escapes (decoded by AE3_desktop_fnc_jsUnescape).
+  function asciiJSON(msg) {
+    return msg.replace(/[\u0080-\uffff]/g, function (c) {
+      return "\\u" + ("000" + c.charCodeAt(0).toString(16)).slice(-4);
+    });
+  }
   function rawSend(msg) {
+    msg = asciiJSON(msg);
     if (hasA3) { A3API.SendAlert(msg); return; }
     // Plain-browser preview (no A3API): nothing to talk to; log so it can be inspected.
     console.log("[A3 offline]", msg);
   }
 
   function emit(channel, payload) {
-    (handlers[channel] || []).forEach(function (cb) {
+    (handlers[channel] || []).slice().forEach(function (cb) {
       try { cb(payload); } catch (e) { console.error(e); }
     });
   }
@@ -66,6 +73,20 @@
 
     on: function (channel, cb) {
       (handlers[channel] = handlers[channel] || []).push(cb);
+    },
+
+    // Subscription that ends once el leaves the DOM (window closed).
+    onWhile: function (channel, el, cb) {
+      var wrap = function (payload) {
+        if (!el.isConnected) {
+          var list = handlers[channel] || [];
+          var i = list.indexOf(wrap);
+          if (i >= 0) list.splice(i, 1);
+          return;
+        }
+        cb(payload);
+      };
+      A3.on(channel, wrap);
     },
 
     // Load a UI asset (html/md/media/...) by path. CEF cannot resolve relative URLs from a PBO

@@ -1,7 +1,7 @@
 ---
 topic: multiplayer-locality-and-sync
 status: verified
-last-verified: 2026-07-08
+last-verified: 2026-11-10
 confidence_score: 1.0
 priority: core
 rank: 8
@@ -40,7 +40,8 @@ AE3 relies heavily on object variables, CBA events, remote execution, and server
 
 ## gotchas
 
-- `getRemoteVar` waits and therefore requires scheduled execution unless it can spawn itself.
+- `getRemoteVar` waits and therefore requires scheduled execution unless it can spawn itself. Optional 4th arg `_timeout` (seconds, default -1 = none); returns true when the transfer completed.
+- A client's own `AE3_filesystem` is not authoritative until `AE3_filesystem_fnc_device_pull` completes (`AE3_filesystem_syncedBy`); see [[filesystem-model]].
 - Passing HashMaps through multiplayer events can be unreliable; desktop SSH explicitly serializes operation arguments into arrays/plain strings.
 - **Never send a HashMap as a CBA event payload.** In SP/hosted the "remote" machine is the local one and the HashMap survives by reference, so a broken payload only shows on a dedicated server, where the browser request then never resolves. Every server->client web reply now goes through `AE3_desktop_fnc_routeReply`, which `CBA_fnc_encodeJSON`s the payload; the `ae3_desktop_routeReply` handler in `addons/desktop/XEH_postInit.sqf` parses it back with `CBA_fnc_parseJSON` mode 2 and forwards it via `jsSend`. The old `ae3_desktop_sshReply` event was folded into this and no longer exists.
 - Object variables are sometimes synced to server only, sometimes all clients, and sometimes a specific owner.

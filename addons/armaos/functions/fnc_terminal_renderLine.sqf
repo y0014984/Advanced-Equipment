@@ -61,7 +61,7 @@ private _counter = 0;
 private _c = 0;
 
 // Unicode-safe: line wrapping slices strings by character, not byte (buffer may contain unicode)
-forceUnicode 1;
+forceUnicode 0;
 {
 	_color = "";
 

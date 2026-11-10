@@ -34,6 +34,9 @@ private _ae3OptsSuccess = false;
 if (!_ae3OptsSuccess) exitWith {};
 
 _computer setVariable ["AE3_computer_mutex", objNull, true];
+_computer setVariable ["AE3_filesystem_syncedBy", objNull, true];
+
+_computer setVariable ["AE3_filesystem_syncedBy", objNull, true];
 closeDialog 1;
 
 [_computer, [false]] call (_computer getVariable "AE3_power_fnc_turnOffWrapper");
