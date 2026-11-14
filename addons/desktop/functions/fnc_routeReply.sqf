@@ -25,6 +25,7 @@
 
 params [["_owner", 0, [0]], ["_rid", "", [""]], ["_command", "", [""]], ["_payload", []]];
 
-if (_owner <= 0) exitWith {};
+// Machine id 0 is the local machine in singleplayer.
+if (_owner < 0 || {_owner == 0 && isMultiplayer}) exitWith {};
 
 ["ae3_desktop_routeReply", [_rid, _command, ([_payload] call CBA_fnc_encodeJSON)], _owner] call CBA_fnc_ownerEvent;
