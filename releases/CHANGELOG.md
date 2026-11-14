@@ -1,5 +1,10 @@
 # Changelog
 
+## Hotfix (v2.1.0.8)
+
+### Changed
+- Web SSH, Mail, Messenger, address and handle requests answer in singleplayer instead of timing out.
+
 ## Hotfix (v2.1.0.7)
 
 ### Added
